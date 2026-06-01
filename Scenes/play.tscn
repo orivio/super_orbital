@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://ci3k8kgosk7l5"]
 
-[ext_resource type="PackedScene" uid="uid://nbv3hrhgsx30" path="res://Scenes/player.tscn" id="1_dm5w0"]
-[ext_resource type="Texture2D" uid="uid://bq6j7qxge5v04" path="res://Assets/tilemap.png" id="2_cuppe"]
+[ext_resource type="Texture2D" uid="uid://bq6j7qxge5v04" path="res://world/tilemap.png" id="1_bofkp"]
+[ext_resource type="PackedScene" uid="uid://d0xbwpfoe4xkm" path="res://player/player.tscn" id="2_bq38n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0eko3"]
-texture = ExtResource("2_cuppe")
+texture = ExtResource("1_bofkp")
 texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
@@ -36,12 +36,11 @@ gradient = SubResource("Gradient_dm5w0")
 
 [node name="Play" type="Node2D" unique_id=1914774002]
 
-[node name="Player" parent="." unique_id=534833107 instance=ExtResource("1_dm5w0")]
-position = Vector2(-176, 110)
-
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1672376737]
 tile_map_data = PackedByteArray("AAAEAAIAAAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAD7/wIAAAAAAAAAAAD6/wIAAAAAAAAAAAD5/wIAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAP//AAAAAAAAAAAEAP7/AAAAAAAAAAAEAP3/AAAAAAAAAAAEAPz/AAAAAAAAAAAEAPv/AAAAAAAAAAAEAPr/AAAAAAAAAAAEAPn/AAAAAAAAAAAFAPn/AAAAAAAAAAAGAPn/AAAAAAAAAAAHAPn/AAAAAAAAAAAIAPn/AAAAAAAAAAAJAPn/AAAAAAAAAAAKAPn/AAAAAAAAAAALAPn/AAAAAAAAAAAMAPn/AAAAAAAAAAANAPn/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_el5ma")
+
+[node name="Player" parent="." unique_id=1158454686 instance=ExtResource("2_bq38n")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1012399280]
 position = Vector2(320, -287)
