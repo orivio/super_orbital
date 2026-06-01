@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dxwerplefht6a"]
+
+[ext_resource type="Script" uid="uid://b6ypyl2kdv5a6" path="res://world/room/room.gd" id="1_kbkjf"]
+[ext_resource type="TileSet" uid="uid://dpxyy0dk6h3tw" path="res://world/tilesets/test_tileset.tres" id="1_tpawr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjgib"]
+resource_local_to_scene = true
+size = Vector2(869, 580)
+
+[node name="RoomTemplate" type="Node2D" unique_id=201273727]
+script = ExtResource("1_kbkjf")
+
+[node name="CameraBounds" type="Area2D" parent="." unique_id=711655567]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBounds" unique_id=1580084517]
+position = Vector2(124.5, 40)
+shape = SubResource("RectangleShape2D_qjgib")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1010939493]
+tile_set = ExtResource("1_tpawr")
+
+[node name="Doors" type="Node2D" parent="." unique_id=1976013304]

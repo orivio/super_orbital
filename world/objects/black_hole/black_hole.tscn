@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bg6j40ftax5ji"]
+
+[ext_resource type="Script" uid="uid://bayaqww5qdagw" path="res://world/objects/black_hole/black_hole.gd" id="1_7e4s0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o5t5u"]
+radius = 17.029387
+
+[node name="BlackHole" type="Area2D" unique_id=67489551 groups=["black_hole"]]
+script = ExtResource("1_7e4s0")
+mass = 0.0
+
+[node name="DeathZone" type="CollisionShape2D" parent="." unique_id=997951427]
+shape = SubResource("CircleShape2D_o5t5u")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=449781963]

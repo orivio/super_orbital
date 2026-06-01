@@ -1,59 +1,7 @@
-[gd_scene format=4 uid="uid://du1f7wvx7aeqv"]
+[gd_scene format=3 uid="uid://du1f7wvx7aeqv"]
 
-[ext_resource type="Texture2D" uid="uid://bq6j7qxge5v04" path="res://world/environment/tilemap.png" id="1_rtxl8"]
-[ext_resource type="PackedScene" uid="uid://d0xbwpfoe4xkm" path="res://player/player.tscn" id="2_5hxlv"]
-[ext_resource type="PackedScene" uid="uid://bue8sl4u53lvm" path="res://world/world.tscn" id="3_k6n3n"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0eko3"]
-texture = ExtResource("1_rtxl8")
-texture_region_size = Vector2i(100, 100)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_el5ma"]
-tile_size = Vector2i(100, 100)
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_0eko3")
-
-[sub_resource type="Gradient" id="Gradient_dm5w0"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_cuppe"]
-gradient = SubResource("Gradient_dm5w0")
+[ext_resource type="PackedScene" uid="uid://bue8sl4u53lvm" path="res://world/world.tscn" id="3_bq38n"]
 
 [node name="Play" type="Node2D" unique_id=1914774002]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1672376737]
-tile_map_data = PackedByteArray("AAAEAAIAAAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAD7/wIAAAAAAAAAAAD6/wIAAAAAAAAAAAD5/wIAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAP//AAAAAAAAAAAEAP7/AAAAAAAAAAAEAP3/AAAAAAAAAAAEAPz/AAAAAAAAAAAEAPv/AAAAAAAAAAAEAPr/AAAAAAAAAAAEAPn/AAAAAAAAAAAFAPn/AAAAAAAAAAAGAPn/AAAAAAAAAAAHAPn/AAAAAAAAAAAIAPn/AAAAAAAAAAAJAPn/AAAAAAAAAAAKAPn/AAAAAAAAAAALAPn/AAAAAAAAAAAMAPn/AAAAAAAAAAANAPn/AAAAAAAAAAA=")
-tile_set = SubResource("TileSet_el5ma")
-
-[node name="Player" parent="." unique_id=1158454686 instance=ExtResource("2_5hxlv")]
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1012399280]
-position = Vector2(320, -287)
-offset = Vector2(0, -51.63)
-zoom = Vector2(0.48, 0.48)
-
-[node name="BlackHoles" type="Node2D" parent="." unique_id=1729708036]
-
-[node name="Node2D" type="Node2D" parent="BlackHoles" unique_id=1837821261]
-position = Vector2(-151, -397)
-
-[node name="Sprite2D" type="Sprite2D" parent="BlackHoles/Node2D" unique_id=462936221]
-texture = SubResource("GradientTexture2D_cuppe")
-
-[node name="World" parent="." unique_id=1899629397 instance=ExtResource("3_k6n3n")]
+[node name="World" parent="." unique_id=1899629397 instance=ExtResource("3_bq38n")]

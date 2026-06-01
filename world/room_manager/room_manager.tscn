@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://damk3q3n7cx1t"]
+
+[ext_resource type="Script" uid="uid://c4k0bktrvpilm" path="res://world/room_manager/room_manager.gd" id="1_5cnr3"]
+[ext_resource type="PackedScene" uid="uid://d0xbwpfoe4xkm" path="res://player/player.tscn" id="2_i3p2r"]
+[ext_resource type="PackedScene" uid="uid://wc0ql66giloh" path="res://camera/player_camera.tscn" id="3_i3p2r"]
+
+[node name="RoomManager" type="Node" unique_id=1236648784]
+script = ExtResource("1_5cnr3")
+initial_room_path = "uid://dojusyajiko73"
+initial_door_tag = "START"
+
+[node name="Player" parent="." unique_id=1158454686 instance=ExtResource("2_i3p2r")]
+
+[node name="PlayerCamera" parent="." unique_id=1414906739 instance=ExtResource("3_i3p2r")]
+zoom = Vector2(0.6, 0.6)

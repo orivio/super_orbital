@@ -1,0 +1,35 @@
+[gd_scene format=4 uid="uid://do3rjg13l6ra3"]
+
+[ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room/room_template.tscn" id="1_7qayk"]
+[ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="2_5o36u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5o36u"]
+resource_local_to_scene = true
+size = Vector2(1190, 943)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t07cn"]
+resource_local_to_scene = true
+size = Vector2(121, 842)
+
+[node name="RoomTestWest" unique_id=201273727 instance=ExtResource("1_7qayk")]
+
+[node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
+position = Vector2(-121, -141.5)
+shape = SubResource("RectangleShape2D_5o36u")
+
+[node name="TileMapLayer" parent="." index="1" unique_id=1010939493]
+tile_map_data = PackedByteArray("AAACAAMAAAAAAAAAAAABAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAD//wMAAAAAAAAAAAD+/wMAAAAAAAAAAAD9/wMAAAAAAAAAAAD8/wMAAAAAAAAAAAD7/wMAAAAAAAAAAAD6/wMAAAAAAAAAAAD5/wMAAAAAAAAAAAD5/wIAAAAAAAAAAAD4/wIAAAAAAAAAAAD4/wEAAAAAAAAAAAD4/wAAAAAAAAAAAAD4////AAAAAAAAAAD4//7/AAAAAAAAAAD4//3/AAAAAAAAAAD4//z/AAAAAAAAAAD4//v/AAAAAAAAAAD4//r/AAAAAAAAAAD5//r/AAAAAAAAAAD6//n/AAAAAAAAAAD7//n/AAAAAAAAAAD8//n/AAAAAAAAAAD9//n/AAAAAAAAAAD9//r/AAAAAAAAAAD+//r/AAAAAAAAAAD///r/AAAAAAAAAAAAAPr/AAAAAAAAAAABAPr/AAAAAAAAAAACAPr/AAAAAAAAAAADAPr/AAAAAAAAAAAEAPr/AAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAA=")
+
+[node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("2_5o36u")]
+door_tag = "EastDoor"
+dest_door_tag = "WestDoor"
+dest_room_path = "uid://dojusyajiko73"
+
+[node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
+position = Vector2(476.5, -104)
+shape = SubResource("RectangleShape2D_t07cn")
+
+[node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
+position = Vector2(171, 188)
+
+[editable path="Doors/EastDoor"]
