@@ -1,7 +1,8 @@
 [gd_scene format=4 uid="uid://ci3k8kgosk7l5"]
 
-[ext_resource type="Texture2D" uid="uid://bq6j7qxge5v04" path="res://world/tilemap.png" id="1_bofkp"]
+[ext_resource type="Texture2D" uid="uid://bq6j7qxge5v04" path="res://world/environment/tilemap.png" id="1_bofkp"]
 [ext_resource type="PackedScene" uid="uid://d0xbwpfoe4xkm" path="res://player/player.tscn" id="2_bq38n"]
+[ext_resource type="PackedScene" uid="uid://bue8sl4u53lvm" path="res://world/world.tscn" id="3_bq38n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0eko3"]
 texture = ExtResource("1_bofkp")
@@ -54,3 +55,5 @@ position = Vector2(-151, -397)
 
 [node name="Sprite2D" type="Sprite2D" parent="BlackHoles/Node2D" unique_id=462936221]
 texture = SubResource("GradientTexture2D_cuppe")
+
+[node name="World" parent="." unique_id=1899629397 instance=ExtResource("3_bq38n")]

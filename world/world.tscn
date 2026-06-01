@@ -1,3 +1,9 @@
 [gd_scene format=3 uid="uid://bue8sl4u53lvm"]
 
+[ext_resource type="PackedScene" uid="uid://damk3q3n7cx1t" path="res://world/room_manager.tscn" id="1_6xmxd"]
+
 [node name="World" type="Node2D" unique_id=1899629397]
+
+[node name="CurrentLevel" type="Node2D" parent="." unique_id=2024583453]
+
+[node name="RoomManager" parent="." unique_id=1236648784 instance=ExtResource("1_6xmxd")]
