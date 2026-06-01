@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bue8sl4u53lvm"]
 
-[ext_resource type="PackedScene" uid="uid://damk3q3n7cx1t" path="res://world/room_manager/room_manager.tscn" id="1_6xmxd"]
+[ext_resource type="PackedScene" uid="uid://damk3q3n7cx1t" path="res://systems/world/room_manager/room_manager.tscn" id="1_6xmxd"]
 
 [node name="World" type="Node2D" unique_id=1899629397]
 

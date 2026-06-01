@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbltfdgug8gmm"
-path="res://.godot/imported/sad_guy.png-77926bb4f9f5dc8023f05c3b8cd2d8fb.ctex"
+uid="uid://bq6j7qxge5v04"
+path="res://.godot/imported/test_tileset.png-8b6a332fffb22d1359570165b05defaf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/sad_guy.png"
-dest_files=["res://.godot/imported/sad_guy.png-77926bb4f9f5dc8023f05c3b8cd2d8fb.ctex"]
+source_file="res://shared/environment/tilesets/test_tileset.png"
+dest_files=["res://.godot/imported/test_tileset.png-8b6a332fffb22d1359570165b05defaf.ctex"]
 
 [params]
 

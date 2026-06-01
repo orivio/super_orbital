@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://daoon624s6mp3"]
 
-[ext_resource type="Script" uid="uid://cen758gswn8ve" path="res://world/door/door.gd" id="1_ra7ci"]
+[ext_resource type="Script" uid="uid://cen758gswn8ve" path="res://systems/world/door/door.gd" id="1_ra7ci"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ra7ci"]
 resource_local_to_scene = true

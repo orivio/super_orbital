@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dojusyajiko73"]
 
-[ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room/room_template.tscn" id="1_arrtg"]
-[ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="2_cey8d"]
+[ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://systems/world/room/room_template.tscn" id="1_arrtg"]
+[ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://systems/world/door/door.tscn" id="2_cey8d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cey8d"]
 resource_local_to_scene = true
