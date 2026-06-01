@@ -19,6 +19,10 @@ run/main_scene="uid://ci3k8kgosk7l5"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
 [input]
 
 "Gravity Switch"={
