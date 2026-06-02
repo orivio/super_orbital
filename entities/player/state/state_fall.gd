@@ -16,7 +16,7 @@ func process(_delta: float) -> PlayerState:
 
 func physics_process(delta: float) -> PlayerState:
 	
-	player.velocity.x = player.direction * player_movement_settings.move_speed * player_movement_settings.air_speed_multiplier
+	player.velocity.x = player.direction * player.movement_settings.move_speed * player.movement_settings.air_speed_multiplier
 	
 	# TODO: Switch sprite flippings
 	

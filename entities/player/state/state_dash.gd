@@ -8,7 +8,7 @@ var dash_timer: float
 
 func enter() -> void:
 	player.update_animation("dash")
-	player.velocity.x = player.direction * player_movement_settings.dash_velocity
+	player.velocity.x = player.facing * player.movement_settings.dash_velocity
 	player.velocity.y = 0
 	
 	player.has_gravity = false
@@ -22,6 +22,7 @@ func enter() -> void:
 		player.sprite.flip_h = true
 
 	dash_timer = 0
+	print("Dash start")
 
 func exit() -> void:
 	pass
@@ -32,14 +33,15 @@ func process(_delta: float) -> PlayerState:
 func physics_process(delta: float) -> PlayerState:
 	
 	dash_timer += delta
+	print(dash_timer, ", ", player.movement_settings.dash_time)
 	
-	if dash_timer >= player_movement_settings.dash_time:
-		
+	if player.is_on_wall():
+		return idle_state
+	
+	if dash_timer >= player.movement_settings.dash_time:
+		print("Dash end")
 		if !player.is_on_floor():
 			return fall_state
-		
-		if player.is_on_wall():
-			return idle_state
 		
 		if player.direction == 0:
 			return walk_state

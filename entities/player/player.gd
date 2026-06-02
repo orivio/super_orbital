@@ -1,8 +1,13 @@
 class_name Player extends CharacterBody2D
 
-@export var player_movement_settings: PlayerMovementSettings
+@export var movement_settings: PlayerMovementSettings
 
-var direction: float
+var direction: float:
+	set(value):
+		direction = value
+		if value != 0:
+			facing = value
+var facing: float
 var has_gravity: bool
 var can_dash: bool
 
@@ -12,7 +17,6 @@ var can_dash: bool
 
 func _ready() -> void:
 	GameManager.player = self
-	state_machine.player_movement_settings = player_movement_settings
 	state_machine.initialize()
 
 func _process(_delta: float) -> void:
@@ -24,9 +28,9 @@ func _physics_process(_delta: float) -> void:
 	else:
 		if has_gravity:
 			if velocity.y < 0:
-				velocity.y += player_movement_settings.gravity
+				velocity.y += movement_settings.gravity
 			else:
-				velocity.y += player_movement_settings.gravity * player_movement_settings.downward_gravity_multiplier
+				velocity.y += movement_settings.gravity * movement_settings.downward_gravity_multiplier
 	
 	move_and_slide()
 

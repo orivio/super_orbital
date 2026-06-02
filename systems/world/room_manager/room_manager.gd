@@ -65,7 +65,7 @@ func teleport_player_to_door(dest_door_tag: String):
 			
 			# Reset player momentum
 			
-			player.velocity = Vector2.ZERO
+			# player.velocity = Vector2.ZERO
 			
 			return
 
