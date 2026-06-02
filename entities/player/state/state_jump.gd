@@ -4,6 +4,7 @@ class_name StateJump extends PlayerState
 @onready var walk_state: PlayerState = $"../Walk"
 @onready var fall_state: PlayerState = $"../Fall"
 @onready var dash_state: PlayerState = $"../Dash"
+@onready var float_state: PlayerState = $"../Float"
 
 func enter() -> void:
 	player.velocity.y = -player.movement_settings.jump_velocity
@@ -29,6 +30,9 @@ func physics_process(delta: float) -> PlayerState:
 	
 	if Input.is_action_just_pressed("dash") and player.can_dash:
 		return dash_state
+	
+	if Input.is_action_just_pressed("gravity_switch"):
+		return float_state
 	
 	if player.is_on_floor():
 		if player.direction == 0:

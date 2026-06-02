@@ -3,6 +3,7 @@ class_name StateFall extends PlayerState
 @onready var idle_state: PlayerState = $"../Idle"
 @onready var walk_state: PlayerState = $"../Walk"
 @onready var dash_state: PlayerState = $"../Dash"
+@onready var float_state: PlayerState = $"../Float"
 
 func enter() -> void:
 	player.update_animation("fall")
@@ -33,5 +34,8 @@ func physics_process(delta: float) -> PlayerState:
 	
 	if Input.is_action_just_pressed("dash") and player.can_dash:
 		return dash_state
+	
+	if Input.is_action_just_pressed("gravity_switch"):
+		return float_state
 	
 	return null
