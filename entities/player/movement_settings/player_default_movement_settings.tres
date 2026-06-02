@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PlayerMovementSettings" format=3 uid="uid://br1xonlgrqa3d"]
+
+[ext_resource type="Script" uid="uid://dumitcejfyj50" path="res://entities/player/movement_settings/player_movement_settings.gd" id="1_f6ndl"]
+
+[resource]
+script = ExtResource("1_f6ndl")
+move_speed = 655.0
+jump_velocity = 1000.0
+gravity = 18.0
+downward_gravity_multiplier = 1.5
+air_speed_multiplier = 0.6
+metadata/_custom_type_script = "uid://dumitcejfyj50"

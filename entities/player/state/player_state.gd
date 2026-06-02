@@ -1,6 +1,7 @@
 class_name PlayerState extends State
 
 var player: Player
+var player_movement_settings: PlayerMovementSettings
 
 func enter() -> void:
 	pass

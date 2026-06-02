@@ -1,13 +1,10 @@
 class_name StateJump extends PlayerState
 
-@export var move_speed: float
-@export var jump_velocity: float
-
 @onready var idle_state: PlayerState = $"../Idle"
 @onready var walk_state: PlayerState = $"../Walk"
 
 func enter() -> void:
-	player.velocity.y = -jump_velocity
+	player.velocity.y = -player_movement_settings.jump_velocity
 	player.update_animation("jump")
 
 func exit() -> void:
@@ -18,7 +15,7 @@ func process(_delta: float) -> PlayerState:
 
 func physics_process(delta: float) -> PlayerState:
 	
-	player.velocity.x = player.direction * move_speed
+	player.velocity.x = player.direction * player_movement_settings.move_speed * player_movement_settings.air_speed_multiplier
 	
 	# TODO: Switch sprite flippings
 	

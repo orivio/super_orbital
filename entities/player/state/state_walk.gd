@@ -1,7 +1,5 @@
 class_name StateWalk extends PlayerState
 
-@export var move_speed: float
-
 @onready var idle_state: PlayerState = $"../Idle"
 @onready var jump_state: PlayerState = $"../Jump"
 
@@ -16,7 +14,7 @@ func process(_delta: float) -> PlayerState:
 
 func physics_process(delta: float) -> PlayerState:
 	
-	player.velocity.x = player.direction * move_speed
+	player.velocity.x = player.direction * player_movement_settings.move_speed
 	
 	# TODO: Switch sprite flippings
 	
