@@ -55,7 +55,17 @@ func teleport_player_to_door(dest_door_tag: String):
 			
 			var spawn_location = door.spawn.global_position
 			
-			player.global_position = spawn_location
+			# Raycast to make sure player snaps to the ground
+			# WARNING: Potentially buggy
+			
+			var query = PhysicsRayQueryParameters2D.create(spawn_location, spawn_location + Vector2(0, 400))
+			var collision = get_viewport().find_world_2d().direct_space_state.intersect_ray(query)
+			
+			player.global_position = collision.position
+			
+			# Reset player momentum
+			
+			player.velocity = Vector2.ZERO
 			
 			return
 

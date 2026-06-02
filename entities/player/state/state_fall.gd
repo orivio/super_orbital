@@ -1,13 +1,11 @@
-class_name StateJump extends PlayerState
+class_name StateFall extends PlayerState
 
 @onready var idle_state: PlayerState = $"../Idle"
 @onready var walk_state: PlayerState = $"../Walk"
-@onready var fall_state: PlayerState = $"../Fall"
 @onready var dash_state: PlayerState = $"../Dash"
 
 func enter() -> void:
-	player.velocity.y = -player_movement_settings.jump_velocity
-	player.update_animation("jump")
+	player.update_animation("fall")
 	player.has_gravity = true
 
 func exit() -> void:
@@ -27,16 +25,13 @@ func physics_process(delta: float) -> PlayerState:
 	elif player.direction > 0:
 		player.sprite.flip_h = true
 	
-	if Input.is_action_just_pressed("dash") and player.can_dash:
-		return dash_state
-	
 	if player.is_on_floor():
 		if player.direction == 0:
 			return idle_state
 		else:
 			return walk_state
 	
-	if player.velocity.y > 0:
-		return fall_state
+	if Input.is_action_just_pressed("dash") and player.can_dash:
+		return dash_state
 	
 	return null

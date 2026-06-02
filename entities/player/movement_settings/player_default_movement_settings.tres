@@ -1,12 +1,15 @@
 [gd_resource type="Resource" script_class="PlayerMovementSettings" format=3 uid="uid://br1xonlgrqa3d"]
 
-[ext_resource type="Script" uid="uid://dumitcejfyj50" path="res://entities/player/movement_settings/player_movement_settings.gd" id="1_f6ndl"]
+[ext_resource type="Script" uid="uid://dumitcejfyj50" path="res://entities/player/movement_settings/player_movement_settings.gd" id="1_y2jkl"]
 
 [resource]
-script = ExtResource("1_f6ndl")
-move_speed = 655.0
+script = ExtResource("1_y2jkl")
+move_speed = 750.0
 jump_velocity = 1000.0
-gravity = 18.0
-downward_gravity_multiplier = 1.5
-air_speed_multiplier = 0.6
+gravity = 25.0
+downward_gravity_multiplier = 2.0
+air_speed_multiplier = 0.9
+dash_velocity = 1000.0
+dash_time = 1.0
+dash_distance = 100.0
 metadata/_custom_type_script = "uid://dumitcejfyj50"

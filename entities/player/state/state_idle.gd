@@ -5,6 +5,7 @@ class_name StateIdle extends PlayerState
 
 func enter() -> void:
 	player.update_animation("idle")
+	player.has_gravity = true
 
 func exit() -> void:
 	pass

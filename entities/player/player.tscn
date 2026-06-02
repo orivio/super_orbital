@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://dqmpu2wxpo03a" path="res://entities/player/state/state_idle.gd" id="4_bls4j"]
 [ext_resource type="Script" uid="uid://xy0w8wmn470g" path="res://entities/player/state/state_walk.gd" id="5_fkugw"]
 [ext_resource type="Script" uid="uid://bdpeda0c7u7w4" path="res://entities/player/state/state_jump.gd" id="6_8fjmc"]
+[ext_resource type="Script" uid="uid://byyljuxcuy1jd" path="res://entities/player/state/state_fall.gd" id="8_26q78"]
+[ext_resource type="Script" uid="uid://cofvn4b266bls" path="res://entities/player/state/state_dash.gd" id="9_bectd"]
 
 [sub_resource type="Animation" id="Animation_rkbax"]
 length = 0.001
@@ -73,3 +75,9 @@ script = ExtResource("5_fkugw")
 
 [node name="Jump" type="Node" parent="StateMachine" unique_id=782783761]
 script = ExtResource("6_8fjmc")
+
+[node name="Fall" type="Node" parent="StateMachine" unique_id=733417834]
+script = ExtResource("8_26q78")
+
+[node name="Dash" type="Node" parent="StateMachine" unique_id=438489872]
+script = ExtResource("9_bectd")
