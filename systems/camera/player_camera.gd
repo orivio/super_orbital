@@ -3,7 +3,7 @@ class_name PlayerCamera extends Camera2D
 var target: Vector2
 
 func _ready() -> void:
-	pass
+	GameManager.camera = self
 
 func _process(_delta: float) -> void:
 	

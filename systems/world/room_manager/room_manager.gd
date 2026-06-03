@@ -58,7 +58,7 @@ func teleport_player_to_door(dest_door_tag: String):
 			# Raycast to make sure player snaps to the ground
 			# WARNING: Potentially buggy
 			
-			var query = PhysicsRayQueryParameters2D.create(spawn_location, spawn_location + Vector2(0, 400))
+			var query = PhysicsRayQueryParameters2D.create(spawn_location, spawn_location + Vector2(0, 40000))
 			var collision = get_viewport().find_world_2d().direct_space_state.intersect_ray(query)
 			
 			player.global_position = collision.position

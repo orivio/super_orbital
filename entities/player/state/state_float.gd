@@ -32,4 +32,10 @@ func physics_process(delta: float) -> PlayerState:
 		else:
 			return jump_state
 	
+	for black_hole: BlackHole in PhysicsManager.black_holes:
+		var direction: Vector2 = black_hole.global_position - player.global_position
+		var distance: float = direction.length_squared()
+		var velocity: Vector2 = PhysicsManager.GRAVITY_CONSTANT * (direction.normalized() / distance) * black_hole.mass / player.movement_settings.mass
+		
+		player.velocity += velocity
 	return null

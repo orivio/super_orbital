@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://byyljuxcuy1jd" path="res://entities/player/state/state_fall.gd" id="8_26q78"]
 [ext_resource type="Script" uid="uid://cofvn4b266bls" path="res://entities/player/state/state_dash.gd" id="9_bectd"]
 [ext_resource type="Script" uid="uid://mvedqd6vytcs" path="res://entities/player/state/state_float.gd" id="10_wvtmh"]
+[ext_resource type="Script" uid="uid://cmj8pah4adp4i" path="res://entities/player/tooltip.gd" id="11_7thud"]
 
 [sub_resource type="Animation" id="Animation_rkbax"]
 length = 0.001
@@ -85,3 +86,12 @@ script = ExtResource("9_bectd")
 
 [node name="Float" type="Node" parent="StateMachine" unique_id=558495240]
 script = ExtResource("10_wvtmh")
+
+[node name="Tooltip" type="Label" parent="." unique_id=1824500785]
+offset_left = -89.0
+offset_top = -119.0
+offset_right = 100.0
+offset_bottom = -74.0
+theme_override_font_sizes/font_size = 30
+text = "Example text"
+script = ExtResource("11_7thud")

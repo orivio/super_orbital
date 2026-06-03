@@ -20,6 +20,7 @@ func get_camera_bounds() -> Rect2:
 	var shape: Shape2D = camera_bounds.shape
 	
 	if shape is RectangleShape2D:
+		
 		var x: float = camera_bounds.global_position.x
 		var y: float = camera_bounds.global_position.y
 		var w: float = shape.size.x

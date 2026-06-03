@@ -16,6 +16,10 @@ script = ExtResource("1_kbkjf")
 position = Vector2(124.5, 40)
 shape = SubResource("RectangleShape2D_qjgib")
 
+[node name="POI" type="Node2D" parent="." unique_id=809409572]
+
+[node name="Objects" type="Node2D" parent="." unique_id=160790231]
+
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1010939493]
 tile_set = ExtResource("1_tpawr")
 
