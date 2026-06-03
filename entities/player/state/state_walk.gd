@@ -4,6 +4,7 @@ class_name StateWalk extends PlayerState
 @onready var jump_state: PlayerState = $"../Jump"
 @onready var fall_state: PlayerState = $"../Fall"
 @onready var dash_state: PlayerState = $"../Dash"
+@onready var float_state: PlayerState = $"../Float"
 
 func enter() -> void:
 	player.update_animation("walk")
@@ -34,6 +35,12 @@ func physics_process(delta: float) -> PlayerState:
 	
 	if Input.is_action_just_pressed("jump"):
 		return jump_state
+	
+	if Input.is_action_just_pressed("gravity_switch"):
+		player.has_gravity = false
+		return float_state # why no work :(
+		#i added the float state variable at the top and all but it doesnt work
+		# no errors thrown tho
 	
 	if player.velocity.y > 0:
 		return fall_state
