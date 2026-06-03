@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bq6j7qxge5v04"
-path="res://.godot/imported/tilemap.png-23c067cc95991065d58e8efcc179b63e.ctex"
+uid="uid://bbltfdgug8gmm"
+path="res://.godot/imported/sad_guy.png-3e21bf510239600492227b423f196ccb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/environment/tilemap.png"
-dest_files=["res://.godot/imported/tilemap.png-23c067cc95991065d58e8efcc179b63e.ctex"]
+source_file="res://entities/player/sad_guy.png"
+dest_files=["res://.godot/imported/sad_guy.png-3e21bf510239600492227b423f196ccb.ctex"]
 
 [params]
 

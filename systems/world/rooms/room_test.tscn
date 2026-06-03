@@ -1,0 +1,49 @@
+[gd_scene format=4 uid="uid://dojusyajiko73"]
+
+[ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://systems/world/room/room_template.tscn" id="1_arrtg"]
+[ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://systems/world/door/door.tscn" id="2_cey8d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cey8d"]
+resource_local_to_scene = true
+size = Vector2(1467, 1509)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnf5w"]
+resource_local_to_scene = true
+size = Vector2(94, 356)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxnqe"]
+resource_local_to_scene = true
+size = Vector2(188, 638)
+
+[node name="RoomTest" unique_id=201273727 instance=ExtResource("1_arrtg")]
+
+[node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
+position = Vector2(145.5, -424.5)
+shape = SubResource("RectangleShape2D_cey8d")
+
+[node name="TileMapLayer" parent="." index="1" unique_id=1010939493]
+tile_map_data = PackedByteArray("AAADAAMAAAAAAAAAAAACAAMAAAAAAAAAAAABAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAD//wMAAAAAAAAAAAD+/wMAAAAAAAAAAAD9/wMAAAAAAAAAAAD8/wMAAAAAAAAAAAD7/wMAAAAAAAAAAAD6/wMAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAFAP//AAAAAAAAAAAFAP7/AAAAAAAAAAAEAP//AAAAAAAAAAAFAAIAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAP3/AAAAAAAAAAAGAP7/AAAAAAAAAAAHAP7/AAAAAAAAAAAIAP7/AAAAAAAAAAAJAP7/AAAAAAAAAAD7////AAAAAAAAAAD6////AAAAAAAAAAD5////AAAAAAAAAAD4////AAAAAAAAAAD2//7/AAAAAAAAAAD2//3/AAAAAAAAAAD1//z/AAAAAAAAAAD1//v/AAAAAAAAAAD1//r/AAAAAAAAAAD2//r/AAAAAAAAAAD2//n/AAAAAAAAAAD3//n/AAAAAAAAAAD4//n/AAAAAAAAAAD5//n/AAAAAAAAAAD6//n/AAAAAAAAAAD7//n/AAAAAAAAAAD7//r/AAAAAAAAAAD7//v/AAAAAAAAAAD7//z/AAAAAAAAAAD7//3/AAAAAAAAAAD7//7/AAAAAAAAAAD3//v/AAAAAAAAAAD5//v/AAAAAAAAAAD6//3/AAAAAAAAAAD5//3/AAAAAAAAAAD4//3/AAAAAAAAAAD3//3/AAAAAAAAAAD3////AAAAAAAAAAA=")
+
+[node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("2_cey8d")]
+door_tag = "WestDoor"
+dest_door_tag = "EastDoor"
+dest_room_path = "uid://do3rjg13l6ra3"
+
+[node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
+position = Vector2(-606, 138)
+shape = SubResource("RectangleShape2D_fnf5w")
+
+[node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
+position = Vector2(-354, 230)
+
+[node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=803734327 instance=ExtResource("2_cey8d")]
+
+[node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
+position = Vector2(878, -508)
+shape = SubResource("RectangleShape2D_yxnqe")
+
+[node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
+position = Vector2(561, -373)
+
+[editable path="Doors/WestDoor"]
+[editable path="Doors/EastDoor"]
