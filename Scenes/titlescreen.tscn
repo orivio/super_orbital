@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dgmvkfv1mn1rt"]
+
+[ext_resource type="Script" uid="uid://jylm1421rrdp" path="res://Scenes/button.gd" id="1_3lblr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lblr"]
+bg_color = Color(0.38431373, 0.38039216, 0.49019608, 0.47843137)
+
+[node name="Titlescreen" type="Control" unique_id=586724944]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=710334058]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -12.0
+offset_right = 1161.0
+offset_bottom = 657.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="." unique_id=236645557]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 313.0
+offset_right = 704.50366
+offset_bottom = 392.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_3lblr")
+text = "play"
+script = ExtResource("1_3lblr")
+
+[node name="Label" type="Label" parent="." unique_id=1033535760]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 200.0
+offset_right = 810.0
+offset_bottom = 292.02216
+theme_override_font_sizes/font_size = 62
+text = "super orbital"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
