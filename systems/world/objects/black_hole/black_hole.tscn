@@ -5,6 +5,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_o5t5u"]
 radius = 17.029387
 
+[sub_resource type="Gradient" id="Gradient_bhor2"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j4moj"]
+gradient = SubResource("Gradient_bhor2")
+
 [node name="BlackHole" type="Area2D" unique_id=67489551 groups=["black_hole"]]
 script = ExtResource("1_7e4s0")
 mass = 0.0
@@ -13,3 +18,4 @@ mass = 0.0
 shape = SubResource("CircleShape2D_o5t5u")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=449781963]
+texture = SubResource("GradientTexture2D_j4moj")

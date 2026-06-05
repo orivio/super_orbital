@@ -14,6 +14,7 @@ var can_dash: bool
 @onready var state_machine: PlayerStateMachine = $StateMachine
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var tooltip: Tooltip = $Tooltip
 
 func _ready() -> void:
 	GameManager.player = self
@@ -34,6 +35,12 @@ func _physics_process(_delta: float) -> void:
 	
 	move_and_slide()
 
-func update_animation(animation: String):
+func update_animation(animation: String) -> void:
 	if animation_player.current_animation != animation:
 		animation_player.play(animation)
+
+func show_tooltip(message: String) -> void:
+	tooltip.show_tooltip(message)
+
+func hide_tooltip() -> void:
+	tooltip.hide_tooltip()

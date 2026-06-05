@@ -1,6 +1,6 @@
 class_name BlackHole extends Area2D
 
-@export var mass: float = 10
+@export var mass: float = 100
 @export var fixed: bool = false
 
 func _enter_tree() -> void:
