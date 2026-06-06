@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dgmvkfv1mn1rt"]
 
-[ext_resource type="Script" uid="uid://jylm1421rrdp" path="res://Scenes/button.gd" id="1_3lblr"]
+[ext_resource type="Script" uid="uid://jylm1421rrdp" path="res://Scenes/playbutton.gd" id="1_3lblr"]
+[ext_resource type="Script" uid="uid://lx4iuhd6wfwl" path="res://Scenes/settingsbutton.gd" id="2_u4xby"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lblr"]
 bg_color = Color(0.38431373, 0.38039216, 0.49019608, 0.47843137)
@@ -21,7 +22,7 @@ offset_right = 1161.0
 offset_bottom = 657.0
 color = Color(0, 0, 0, 1)
 
-[node name="Button" type="Button" parent="." unique_id=236645557]
+[node name="play" type="Button" parent="." unique_id=236645557]
 layout_mode = 0
 offset_left = 448.0
 offset_top = 320.0
@@ -31,7 +32,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_3lblr")
 text = "play"
 script = ExtResource("1_3lblr")
 
-[node name="Button2" type="Button" parent="." unique_id=291890272]
+[node name="settings" type="Button" parent="." unique_id=291890272]
 layout_mode = 0
 offset_left = 449.0
 offset_top = 416.0
@@ -39,6 +40,7 @@ offset_right = 705.50366
 offset_bottom = 480.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_3lblr")
 text = "settings"
+script = ExtResource("2_u4xby")
 
 [node name="Label" type="Label" parent="." unique_id=1033535760]
 layout_mode = 0
@@ -212,5 +214,5 @@ offset_top = -502.18823
 offset_right = 815.0
 offset_bottom = -496.0
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
-[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
+[connection signal="pressed" from="play" to="play" method="_on_pressed"]
+[connection signal="pressed" from="settings" to="settings" method="_on_pressed"]
