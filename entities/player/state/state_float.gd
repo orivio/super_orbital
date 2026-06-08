@@ -43,12 +43,12 @@ func physics_process(delta: float) -> PlayerState:
 		else:
 			return jump_state
 	
-	if Input.is_action_just_pressed("throw_wrench"): #WIPWIPWIPWIPWIPWIP
+	if Input.is_action_just_pressed("throw_wrench"): #needs repairs plz help
 		var x_wrench = Input.get_axis("wrench_left", "wrench_right")
 		var y_wrench = Input.get_axis("wrench_up", "wrench_down")
 		var wrench_direction = Vector2(x_wrench, y_wrench) * -1
 		if wrench_direction != Vector2.ZERO:
-			player.velocity = wrench_direction
+			player.velocity = wrench_direction * player.velocity
 		return wrench_state
 		#E = mc^2 - Rayyan Khan
 	
