@@ -54,6 +54,7 @@ uppercase = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=942981874]
 position = Vector2(576, 324)
+emitting = false
 amount = 100
 lifetime = 600.0
 one_shot = true
