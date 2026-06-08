@@ -35,6 +35,7 @@ func physics_process(delta: float) -> PlayerState:
 	if player.is_on_wall():
 		player.velocity.x = entry_velocity.x * -1
 		entry_velocity.x = player.velocity.x
+		player.sprite.flip_h = not player.sprite.flip_h
 		#return float_state
 	
 	if Input.is_action_just_pressed("gravity_switch"):

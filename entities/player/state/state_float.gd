@@ -36,6 +36,7 @@ func physics_process(delta: float) -> PlayerState:
 	if player.is_on_wall():
 		player.velocity.x = entry_velocity.x * -1
 		entry_velocity.x = player.velocity.x
+		player.sprite.flip_h = not player.sprite.flip_h
 	
 	if Input.is_action_just_pressed("gravity_switch"):
 		if player.velocity.y > 0:
@@ -46,9 +47,13 @@ func physics_process(delta: float) -> PlayerState:
 	if Input.is_action_just_pressed("throw_wrench"): #needs repairs plz help
 		var x_wrench = Input.get_axis("wrench_left", "wrench_right")
 		var y_wrench = Input.get_axis("wrench_up", "wrench_down")
-		var wrench_direction = Vector2(x_wrench, y_wrench) * -1
+		var wrench_direction = Vector2(x_wrench, y_wrench)
 		if wrench_direction != Vector2.ZERO:
-			player.velocity = wrench_direction * player.velocity
+			player.velocity = wrench_direction.normalized() * player.movement_settings.wrench_velocity
+			if player.velocity.x > 0:
+				player.sprite.flip_h = false
+			elif player.velocity.x < 0:
+				player.sprite.flip_h = true
 		return wrench_state
 		#E = mc^2 - Rayyan Khan
 	

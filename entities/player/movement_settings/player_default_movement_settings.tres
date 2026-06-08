@@ -13,4 +13,5 @@ dash_velocity = 2394.723
 dash_time = 0.145
 dash_distance = 560.764
 mass = 1.0
+wrench_velocity = 1000.0
 metadata/_custom_type_script = "uid://dumitcejfyj50"
