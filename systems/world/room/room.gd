@@ -3,6 +3,7 @@ class_name Room extends Node2D
 signal room_door_entered(dest_room_path: String, dest_door_tag: String)
 
 @onready var camera_bounds: CollisionShape2D = $CameraBounds/CollisionShape2D
+@onready var doors: Node2D = $Doors
 
 func _ready() -> void:
 	
@@ -29,3 +30,6 @@ func get_camera_bounds() -> Rect2:
 		return Rect2(x, y, w, h)
 	
 	return Rect2(0, 0, 0, 0)
+
+func get_doors() -> Array[Node]:
+	return doors.get_children()

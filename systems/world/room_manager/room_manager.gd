@@ -39,15 +39,15 @@ func change_room(dest_room_path: String, dest_door_tag: String) -> void:
 	current_room.room_door_entered.connect(change_room)
 	
 	if dest_door_tag:
-		teleport_player_to_door(dest_door_tag)
+		teleport_player_to_door(current_room, dest_door_tag)
 	
 	update_camera_limits(room_instance)
 
-func teleport_player_to_door(dest_door_tag: String):
+func teleport_player_to_door(room: Room, dest_door_tag: String):
 	
 	# Find the right door
 	
-	var doors = get_tree().get_nodes_in_group("door")
+	var doors = room.get_doors()
 	for door in doors:
 		if "door_tag" in door and door.door_tag == dest_door_tag:
 			
@@ -61,7 +61,8 @@ func teleport_player_to_door(dest_door_tag: String):
 			var query = PhysicsRayQueryParameters2D.create(spawn_location, spawn_location + Vector2(0, 40000))
 			var collision = get_viewport().find_world_2d().direct_space_state.intersect_ray(query)
 			
-			player.global_position = collision.position
+			player.global_position = spawn_location
+			print("Teleporting player to: ", dest_door_tag, ", at pos: ", spawn_location)
 			
 			# Reset player momentum
 			
