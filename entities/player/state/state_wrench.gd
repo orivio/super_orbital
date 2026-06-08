@@ -37,4 +37,11 @@ func physics_process(delta: float) -> PlayerState:
 		entry_velocity.x = player.velocity.x
 		#return float_state
 	
+	if Input.is_action_just_pressed("gravity_switch"):
+		if player.velocity.y > 0:
+			return fall_state
+		else:
+			return jump_state
+		return float_state
+	
 	return null
