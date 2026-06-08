@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dtexdaepedtm"]
 
-[ext_resource type="Script" uid="uid://bkcxhj2ehx07w" path="res://Scenes/back_button.gd" id="1_4geyq"]
+[ext_resource type="Script" uid="uid://bkcxhj2ehx07w" path="res://temporary_scenes/back_button.gd" id="1_4geyq"]
 
 [node name="Settings" type="Control" unique_id=1055661638]
 layout_mode = 3
