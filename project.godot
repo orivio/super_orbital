@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Super Orbital"
-run/main_scene="uid://dgmvkfv1mn1rt"
+run/main_scene="uid://c0l8r4h3amty4"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

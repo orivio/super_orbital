@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dtexdaepedtm"]
 
-[ext_resource type="Script" uid="uid://bkcxhj2ehx07w" path="res://temporary_scenes/back_button.gd" id="1_4geyq"]
+[ext_resource type="Script" uid="uid://bxjnugssktldw" path="res://systems/ui/settings.gd" id="1_5p8wc"]
 
 [node name="Settings" type="Control" unique_id=1055661638]
 layout_mode = 3
@@ -9,20 +9,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5p8wc")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1302888556]
+[node name="Background" type="ColorRect" parent="." unique_id=1302888556]
 layout_mode = 0
 offset_right = 1200.0
 offset_bottom = 664.0
 color = Color(0.2065543, 0.2065543, 0.20655426, 1)
 
-[node name="back_button" type="Button" parent="." unique_id=1194747982]
+[node name="BackButton" type="Button" parent="." unique_id=1194747982]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 106.028595
 offset_bottom = 78.80423
 text = "back"
-script = ExtResource("1_4geyq")
 
-[connection signal="pressed" from="back_button" to="back_button" method="_on_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

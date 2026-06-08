@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://c0l8r4h3amty4"]
+
+[ext_resource type="Script" uid="uid://b757tg2j3kjib" path="res://systems/ui/menu.gd" id="1_con2f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lblr"]
+bg_color = Color(0.38431373, 0.38039216, 0.49019608, 0.47843137)
+
+[node name="Menu" type="Control" unique_id=586724944]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_con2f")
+
+[node name="Background" type="ColorRect" parent="." unique_id=710334058]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -12.0
+offset_right = 1161.0
+offset_bottom = 657.0
+color = Color(0, 0, 0, 1)
+
+[node name="PlayButton" type="Button" parent="." unique_id=236645557]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 320.0
+offset_right = 704.50366
+offset_bottom = 384.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_3lblr")
+text = "play"
+
+[node name="SettingsButton" type="Button" parent="." unique_id=291890272]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 416.0
+offset_right = 705.50366
+offset_bottom = 480.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_3lblr")
+text = "settings"
+
+[node name="Title" type="Label" parent="." unique_id=1033535760]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 200.0
+offset_right = 810.0
+offset_bottom = 292.02216
+theme_override_font_sizes/font_size = 62
+text = "super orbital"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=942981874]
+position = Vector2(576, 324)
+amount = 100
+lifetime = 600.0
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(576, 324)
+gravity = Vector2(0, 0)
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
