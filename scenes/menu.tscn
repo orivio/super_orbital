@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c0l8r4h3amty4"]
 
 [ext_resource type="Script" uid="uid://b757tg2j3kjib" path="res://systems/ui/menu.gd" id="1_con2f"]
+[ext_resource type="Texture2D" uid="uid://b6qn46jdebq0e" path="res://shared/ui/star.png" id="2_vjb58"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lblr"]
 bg_color = Color(0.38431373, 0.38039216, 0.49019608, 0.47843137)
@@ -54,14 +55,16 @@ uppercase = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=942981874]
 position = Vector2(576, 324)
-emitting = false
-amount = 100
+amount = 300
+texture = ExtResource("2_vjb58")
 lifetime = 600.0
 one_shot = true
 explosiveness = 1.0
 emission_shape = 3
-emission_rect_extents = Vector2(576, 324)
+emission_rect_extents = Vector2(576, 576)
 gravity = Vector2(0, 0)
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.1
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
