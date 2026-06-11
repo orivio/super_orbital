@@ -44,7 +44,10 @@ func physics_process(delta: float) -> PlayerState:
 		else:
 			return jump_state
 	
-	if Input.is_action_just_pressed("throw_wrench"): #needs repairs plz help
+	if player.has_gravity:
+		return fall_state #not returning fall state despite having gravity??
+	
+	if Input.is_action_just_pressed("throw_wrench"):
 		var x_wrench = Input.get_axis("wrench_left", "wrench_right")
 		var y_wrench = Input.get_axis("wrench_up", "wrench_down")
 		var wrench_direction = Vector2(x_wrench, y_wrench)

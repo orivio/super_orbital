@@ -61,11 +61,18 @@ func teleport_player_to_door(room: Room, dest_door_tag: String):
 			var query = PhysicsRayQueryParameters2D.create(spawn_location, spawn_location + Vector2(0, 40000))
 			var collision = get_viewport().find_world_2d().direct_space_state.intersect_ray(query)
 			
-			player.global_position = spawn_location
+			player.has_gravity = true # not working, state doesnt change
+			
+			# player.global_position = spawn_location
+			if collision: # WIPWIPWIPWIPWIPWIPWIP
+				player.global_position = collision.position
+			else:
+				player.global_position = spawn_location
 			print("Teleporting player to: ", dest_door_tag, ", at pos: ", spawn_location)
 			
 			# Reset player momentum
 			
+			# player.direction = 0
 			# player.velocity = Vector2.ZERO
 			
 			return
