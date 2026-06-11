@@ -6,7 +6,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvsjk"]
 resource_local_to_scene = true
-size = Vector2(2006, 1258)
+size = Vector2(1700, 1250)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6yi2m"]
 resource_local_to_scene = true
@@ -14,16 +14,16 @@ size = Vector2(308, 138)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5fxg"]
 resource_local_to_scene = true
-size = Vector2(140, 482)
+size = Vector2(300, 300)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nsf68"]
 resource_local_to_scene = true
-size = Vector2(158, 437)
+size = Vector2(400, 300)
 
 [node name="RoomTutorialJump" unique_id=201273727 instance=ExtResource("1_i5bic")]
 
 [node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
-position = Vector2(169, -285)
+position = Vector2(150, -275)
 shape = SubResource("RectangleShape2D_lvsjk")
 
 [node name="JumpTooltip" parent="POI" parent_id_path=PackedInt32Array(809409572) index="0" unique_id=11161504 instance=ExtResource("2_lvsjk")]
@@ -42,11 +42,18 @@ dest_door_tag = "EastDoor"
 dest_room_path = "uid://bxrgwy7rb418j"
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
-position = Vector2(-1060, -88)
+position = Vector2(-1050, -50)
 shape = SubResource("RectangleShape2D_b5fxg")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-675, 40)
+
+[node name="Label" parent="Doors/WestDoor" index="2" unique_id=164300380]
+offset_left = -1200.0
+offset_top = -300.0
+offset_right = -900.0
+offset_bottom = -200.0
+text = "WestDoor"
 
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=1792502536 instance=ExtResource("2_0wdyd")]
 door_tag = "EastDoor"
@@ -54,11 +61,18 @@ dest_door_tag = "WestDoor"
 dest_room_path = "uid://cg741wohx0d8b"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
-position = Vector2(1409, -91.5)
+position = Vector2(1400, -50)
 shape = SubResource("RectangleShape2D_nsf68")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(1072, -124)
+
+[node name="Label" parent="Doors/EastDoor" index="2" unique_id=164300380]
+offset_left = 1200.0
+offset_top = -300.0
+offset_right = 1600.0
+offset_bottom = -200.0
+text = "EastDoor"
 
 [editable path="POI/JumpTooltip"]
 [editable path="Doors/WestDoor"]

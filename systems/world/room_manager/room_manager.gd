@@ -4,6 +4,7 @@ class_name RoomManager extends Node
 @export var initial_door_tag: String
 
 var current_room: Node2D = null
+var previous_room: Node2D = null
 
 @onready var player: Node2D = $Player
 @onready var player_camera: PlayerCamera = $PlayerCamera
@@ -30,6 +31,7 @@ func change_room(dest_room_path: String, dest_door_tag: String) -> void:
 	# Remove old room
 	
 	if current_room:
+		previous_room = current_room
 		current_room.queue_free()
 	
 	# Add new room
@@ -37,6 +39,10 @@ func change_room(dest_room_path: String, dest_door_tag: String) -> void:
 	add_child(room_instance)
 	current_room = room_instance
 	current_room.room_door_entered.connect(change_room)
+	
+	if previous_room:
+		await previous_room.tree_exited
+		await get_tree().process_frame
 	
 	if dest_door_tag:
 		teleport_player_to_door(current_room, dest_door_tag)
@@ -59,16 +65,14 @@ func teleport_player_to_door(room: Room, dest_door_tag: String):
 			# WARNING: Potentially buggy
 			
 			var query = PhysicsRayQueryParameters2D.create(spawn_location, spawn_location + Vector2(0, 40000))
-			var collision = get_viewport().find_world_2d().direct_space_state.intersect_ray(query)
+			var collision: Dictionary = get_viewport().find_world_2d().direct_space_state.intersect_ray(query)
 			
 			player.has_gravity = true # not working, state doesnt change
 			
-			# player.global_position = spawn_location
-			if collision: # WIPWIPWIPWIPWIPWIPWIP
+			if collision:
 				player.global_position = collision.position
 			else:
 				player.global_position = spawn_location
-			print("Teleporting player to: ", dest_door_tag, ", at pos: ", spawn_location)
 			
 			# Reset player momentum
 			

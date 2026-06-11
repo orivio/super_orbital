@@ -14,7 +14,7 @@ size = Vector2(143, 185)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qcakr"]
 resource_local_to_scene = true
-size = Vector2(378, 356)
+size = Vector2(200, 300)
 
 [node name="RoomTutorialMove" unique_id=201273727 instance=ExtResource("1_5of0t")]
 
@@ -38,11 +38,11 @@ dest_door_tag = "WestDoor"
 dest_room_path = "uid://tv8btxf3jebf"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
-position = Vector2(2350, -59)
+position = Vector2(2200, -50)
 shape = SubResource("RectangleShape2D_qcakr")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
-position = Vector2(1883, 3)
+position = Vector2(1769, -8)
 
 [editable path="POI/MoveTooltip"]
 [editable path="Doors/EastDoor"]

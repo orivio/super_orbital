@@ -1,3 +1,4 @@
+@tool
 class_name Room extends Node2D
 
 signal room_door_entered(dest_room_path: String, dest_door_tag: String)
