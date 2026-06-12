@@ -8,8 +8,8 @@ var dash_timer: float
 
 func enter() -> void:
 	player.update_animation("dash")
-	player.velocity.x = player.facing * player.movement_settings.dash_velocity
-	player.velocity.y = 0
+	player.base_velocity.x = player.facing * player.movement_settings.dash_velocity
+	player.base_velocity.y = 0
 	
 	player.has_gravity = false
 	player.can_dash = false
