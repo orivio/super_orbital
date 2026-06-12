@@ -10,9 +10,9 @@ var entry_velocity = 0
 
 func enter() -> void:
 	player.update_animation("wrench")
-	entry_velocity = player.velocity
+	entry_velocity = player.base_velocity
 	if not player.is_on_floor():
-		player.velocity = entry_velocity * -1
+		player.base_velocity = entry_velocity * -1
 
 func exit() -> void:
 	pass
@@ -23,18 +23,18 @@ func process(_delta: float) -> PlayerState:
 func physics_process(delta: float) -> PlayerState:
 	
 	if player.is_on_floor():
-		player.velocity.y = entry_velocity.y * -1
-		entry_velocity.y = player.velocity.y
+		player.base_velocity.y = entry_velocity.y * -1
+		entry_velocity.y = player.base_velocity.y
 		#return float_state
 	
 	if player.is_on_ceiling():
-		player.velocity.y = entry_velocity.y * -1
-		entry_velocity.y = player.velocity.y
+		player.base_velocity.y = entry_velocity.y * -1
+		entry_velocity.y = player.base_velocity.y
 		#return float_state
 	
 	if player.is_on_wall():
-		player.velocity.x = entry_velocity.x * -1
-		entry_velocity.x = player.velocity.x
+		player.base_velocity.x = entry_velocity.x * -1
+		entry_velocity.x = player.base_velocity.x
 		player.sprite.flip_h = not player.sprite.flip_h
 		#return float_state
 	
@@ -42,7 +42,7 @@ func physics_process(delta: float) -> PlayerState:
 		player.has_gravity = true
 	
 	if player.has_gravity:
-		if player.velocity.y > 0:
+		if player.base_velocity.y > 0:
 			return fall_state
 		else:
 			return jump_state
