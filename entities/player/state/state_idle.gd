@@ -14,7 +14,7 @@ func process(_delta: float) -> PlayerState:
 	return null
 
 func physics_process(_delta: float) -> PlayerState:
-	player.velocity.x = 0
+	player.base_velocity.x = 0
 	
 	if player.direction != 0:
 		return walk_state
