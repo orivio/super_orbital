@@ -10,6 +10,7 @@ var direction: float:
 var facing: float
 var has_gravity: bool
 var can_dash: bool
+var base_velocity: Vector2
 
 @onready var state_machine: PlayerStateMachine = $StateMachine
 @onready var sprite: Sprite2D = $Sprite2D
@@ -21,7 +22,7 @@ func _ready() -> void:
 	state_machine.initialize()
 
 func _process(_delta: float) -> void:
-	direction = Input.get_axis("move_left", "move_right") * game_manager.time_scale
+	direction = Input.get_axis("move_left", "move_right")
 
 func _physics_process(_delta: float) -> void:
 	#print(state_machine.current_state)
@@ -30,10 +31,12 @@ func _physics_process(_delta: float) -> void:
 	else:
 		if has_gravity:
 			if velocity.y < 0:
-				velocity.y += movement_settings.gravity * game_manager.time_scale
+				base_velocity.y += movement_settings.gravity
 			else:
-				velocity.y += movement_settings.gravity * movement_settings.downward_gravity_multiplier * game_manager.time_scale
-	
+				base_velocity.y += movement_settings.gravity * movement_settings.downward_gravity_multiplier
+
+	velocity = base_velocity * game_manager.time_scale
+
 	move_and_slide()
 
 func update_animation(animation: String) -> void:
