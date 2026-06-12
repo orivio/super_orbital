@@ -30,7 +30,7 @@ func _physics_process(_delta: float) -> void:
 		can_dash = true
 	else:
 		if has_gravity:
-			if velocity.y < 0:
+			if base_velocity.y < 0:
 				base_velocity.y += movement_settings.gravity
 			else:
 				base_velocity.y += movement_settings.gravity * movement_settings.downward_gravity_multiplier
