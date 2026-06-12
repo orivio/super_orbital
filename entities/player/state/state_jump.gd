@@ -7,7 +7,7 @@ class_name StateJump extends PlayerState
 @onready var float_state: PlayerState = $"../Float"
 
 func enter() -> void:
-	player.velocity.y = -player.movement_settings.jump_velocity * game_manager.time_scale
+	player.base_velocity.y = -player.movement_settings.jump_velocity
 	player.update_animation("jump")
 	player.has_gravity = true
 
@@ -19,7 +19,7 @@ func process(_delta: float) -> PlayerState:
 
 func physics_process(delta: float) -> PlayerState:
 	
-	player.velocity.x = player.direction * player.movement_settings.move_speed * player.movement_settings.air_speed_multiplier
+	player.base_velocity.x = player.direction * player.movement_settings.move_speed * player.movement_settings.air_speed_multiplier
 	
 	# TODO: Switch sprite flippings
 	
