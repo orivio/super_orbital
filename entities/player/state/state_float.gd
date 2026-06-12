@@ -22,7 +22,7 @@ func process(_delta: float) -> PlayerState:
 func physics_process(delta: float) -> PlayerState:
 	
 	if player.is_on_floor():
-		player.velocity.y = entry_velocity.y * -1
+		player.velocity.y = entry_velocity.y * -1 * game_manager.time_scale
 		entry_velocity.y = player.velocity.y
 	#	if player.direction == 0:
 	#		return idle_state
@@ -52,7 +52,7 @@ func physics_process(delta: float) -> PlayerState:
 		var y_wrench = Input.get_axis("wrench_up", "wrench_down")
 		var wrench_direction = Vector2(x_wrench, y_wrench)
 		if wrench_direction != Vector2.ZERO:
-			player.velocity = wrench_direction.normalized() * player.movement_settings.wrench_velocity
+			player.velocity = wrench_direction.normalized() * player.movement_settings.wrench_velocity * game_manager.time_scale
 			if player.velocity.x > 0:
 				player.sprite.flip_h = false
 			elif player.velocity.x < 0:
@@ -65,5 +65,5 @@ func physics_process(delta: float) -> PlayerState:
 		var distance: float = direction.length_squared()
 		var velocity: Vector2 = PhysicsManager.GRAVITY_CONSTANT * (direction.normalized() / distance) * black_hole.mass / player.movement_settings.mass
 		
-		player.velocity += velocity
+		player.velocity += velocity * game_manager.time_scale
 	return null
