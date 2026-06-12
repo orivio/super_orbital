@@ -40,7 +40,7 @@ func physics_process(delta: float) -> PlayerState:
 		else:
 			return walk_state
 	
-	if player.velocity.y > 0:
+	if player.base_velocity.y > 0:
 		return fall_state
 	
 	return null
