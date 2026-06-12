@@ -67,7 +67,7 @@ func teleport_player_to_door(room: Room, dest_door_tag: String):
 			var query = PhysicsRayQueryParameters2D.create(spawn_location, spawn_location + Vector2(0, 40000))
 			var collision: Dictionary = get_viewport().find_world_2d().direct_space_state.intersect_ray(query)
 			
-			player.has_gravity = true # not working, state doesnt change
+			player.has_gravity = true
 			
 			if collision:
 				player.global_position = collision.position
