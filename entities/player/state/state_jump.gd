@@ -7,7 +7,7 @@ class_name StateJump extends PlayerState
 @onready var float_state: PlayerState = $"../Float"
 
 func enter() -> void:
-	player.velocity.y = -player.movement_settings.jump_velocity
+	player.velocity.y = -player.movement_settings.jump_velocity * game_manager.time_scale
 	player.update_animation("jump")
 	player.has_gravity = true
 
