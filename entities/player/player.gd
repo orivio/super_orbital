@@ -24,6 +24,7 @@ func _process(_delta: float) -> void:
 	direction = Input.get_axis("move_left", "move_right")
 
 func _physics_process(_delta: float) -> void:
+	print(state_machine.current_state)
 	if is_on_floor():
 		can_dash = true
 	else:

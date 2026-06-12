@@ -36,6 +36,11 @@ shape = SubResource("RectangleShape2D_t3wyf")
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-538, 223)
 
+[node name="Label" parent="Doors/WestDoor" index="2" unique_id=164300380]
+offset_left = -800.0
+offset_right = -561.0
+text = "WestDoor"
+
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=1296470572 instance=ExtResource("2_t3wyf")]
 door_tag = "EastDoor"
 dest_door_tag = "WestDoor"
@@ -46,6 +51,13 @@ shape = SubResource("RectangleShape2D_5ix72")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(738, -25)
+
+[node name="Label" parent="Doors/EastDoor" index="2" unique_id=164300380]
+offset_left = 1400.0
+offset_top = -500.0
+offset_right = 1620.0
+offset_bottom = -400.0
+text = "EastDoor"
 
 [editable path="Doors/WestDoor"]
 [editable path="Doors/EastDoor"]

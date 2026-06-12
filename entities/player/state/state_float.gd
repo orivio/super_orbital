@@ -39,13 +39,14 @@ func physics_process(delta: float) -> PlayerState:
 		player.sprite.flip_h = not player.sprite.flip_h
 	
 	if Input.is_action_just_pressed("gravity_switch"):
+		player.has_gravity = true
+	
+	if player.has_gravity:
 		if player.velocity.y > 0:
 			return fall_state
 		else:
 			return jump_state
-	
-	if player.has_gravity:
-		return fall_state #not returning fall state despite having gravity??
+		#return fall_state #not returning fall state despite having gravity??
 	
 	if Input.is_action_just_pressed("throw_wrench"):
 		var x_wrench = Input.get_axis("wrench_left", "wrench_right")
