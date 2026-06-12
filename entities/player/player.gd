@@ -21,7 +21,7 @@ func _ready() -> void:
 	state_machine.initialize()
 
 func _process(_delta: float) -> void:
-	direction = Input.get_axis("move_left", "move_right")
+	direction = Input.get_axis("move_left", "move_right") * game_manager.time_scale
 
 func _physics_process(_delta: float) -> void:
 	#print(state_machine.current_state)
@@ -30,9 +30,9 @@ func _physics_process(_delta: float) -> void:
 	else:
 		if has_gravity:
 			if velocity.y < 0:
-				velocity.y += movement_settings.gravity
+				velocity.y += movement_settings.gravity * game_manager.time_scale
 			else:
-				velocity.y += movement_settings.gravity * movement_settings.downward_gravity_multiplier
+				velocity.y += movement_settings.gravity * movement_settings.downward_gravity_multiplier * game_manager.time_scale
 	
 	move_and_slide()
 
