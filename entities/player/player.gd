@@ -31,9 +31,9 @@ func _physics_process(_delta: float) -> void:
 	else:
 		if has_gravity:
 			if base_velocity.y < 0:
-				base_velocity.y += movement_settings.gravity
+				base_velocity.y += movement_settings.gravity * GameManager.time_scale
 			else:
-				base_velocity.y += movement_settings.gravity * movement_settings.downward_gravity_multiplier
+				base_velocity.y += movement_settings.gravity * movement_settings.downward_gravity_multiplier * GameManager.time_scale
 
 	velocity = base_velocity * GameManager.time_scale
 
