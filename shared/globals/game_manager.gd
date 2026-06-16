@@ -2,4 +2,4 @@ extends Node
 
 var player: Player
 var camera: PlayerCamera
-var time_scale: float = 0.5
+var time_scale: float = 1
