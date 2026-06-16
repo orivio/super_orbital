@@ -22,6 +22,7 @@ func process(_delta: float) -> PlayerState:
 func physics_process(delta: float) -> PlayerState:
 	
 	if player.is_on_floor():
+		GameManager.impact()
 		player.base_velocity.y = entry_velocity.y * -1
 		entry_velocity.y = player.base_velocity.y
 	#	if player.direction == 0:
@@ -30,10 +31,12 @@ func physics_process(delta: float) -> PlayerState:
 	#		return walk_state
 	
 	if player.is_on_ceiling():
+		GameManager.impact()
 		player.base_velocity.y = entry_velocity.y * -1
 		entry_velocity.y = player.base_velocity.y
 	
 	if player.is_on_wall():
+		GameManager.impact()
 		player.base_velocity.x = entry_velocity.x * -1
 		entry_velocity.x = player.base_velocity.x
 		player.sprite.flip_h = not player.sprite.flip_h
