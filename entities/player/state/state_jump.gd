@@ -9,7 +9,7 @@ class_name StateJump extends PlayerState
 var still_jumping: bool = true
 
 func enter() -> void:
-	player.update_animation("jump")
+	# player.update_animation("jump")
 	player.has_gravity = true
 	still_jumping = true
 	player.base_velocity.y = -player.movement_settings.jump_velocity
@@ -18,6 +18,20 @@ func exit() -> void:
 	pass
 
 func process(_delta: float) -> PlayerState:
+	
+	if player.base_velocity.y >= -99 and player.base_velocity.y <= 0:
+		player.sprite.frame = 4
+	elif player.base_velocity.y >= -199 and player.base_velocity.y <= -100:
+		player.sprite.frame = 5
+	elif player.base_velocity.y >= -399 and player.base_velocity.y <= -200:
+		player.sprite.frame = 6
+	elif player.base_velocity.y >= -599 and player.base_velocity.y <= -400:
+		player.sprite.frame = 7
+	elif player.base_velocity.y >= -899 and player.base_velocity.y <= -600:
+		player.sprite.frame = 8
+	else:
+		print(player.base_velocity.y)
+	
 	return null
 
 func physics_process(delta: float) -> PlayerState:

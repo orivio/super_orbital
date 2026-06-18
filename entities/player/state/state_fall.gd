@@ -13,6 +13,20 @@ func exit() -> void:
 	pass
 
 func process(_delta: float) -> PlayerState:
+	
+	if player.base_velocity.y <= 99 and player.base_velocity.y >= 0:
+		player.sprite.frame = 9
+	elif player.base_velocity.y <= 199 and player.base_velocity.y >= 100:
+		player.sprite.frame = 10
+	elif player.base_velocity.y <= 399 and player.base_velocity.y >= 200:
+		player.sprite.frame = 11
+	elif player.base_velocity.y <= 599 and player.base_velocity.y >= 400:
+		player.sprite.frame = 12
+	elif player.base_velocity.y <= 899 and player.base_velocity.y >= 600:
+		player.sprite.frame = 13
+	else:
+		print(player.base_velocity.y)
+	
 	return null
 
 func physics_process(delta: float) -> PlayerState:
