@@ -24,6 +24,11 @@ config/icon="res://icon.svg"
 GameManager="*uid://clcu7dy3b7klm"
 PhysicsManager="*uid://di6kutv2ooq8"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
@@ -95,3 +100,7 @@ time_slow={
 2d_physics/layer_5="door"
 2d_physics/layer_6="tooltip"
 2d_physics/layer_32="ui"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

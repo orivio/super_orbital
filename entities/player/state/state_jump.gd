@@ -28,12 +28,10 @@ func physics_process(delta: float) -> PlayerState:
 		still_jumping = false
 		player.base_velocity.y = 0
 	
-	# TODO: Switch sprite flippings
-	
 	if player.direction < 0:
-		player.sprite.flip_h = false
-	elif player.direction > 0:
 		player.sprite.flip_h = true
+	elif player.direction > 0:
+		player.sprite.flip_h = false
 	
 	if Input.is_action_just_pressed("dash") and player.can_dash:
 		return dash_state

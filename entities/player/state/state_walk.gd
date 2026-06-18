@@ -20,12 +20,10 @@ func physics_process(delta: float) -> PlayerState:
 	
 	player.base_velocity.x = player.direction * player.movement_settings.move_speed
 	
-	# TODO: Switch sprite flippings
-	
 	if player.direction < 0:
-		player.sprite.flip_h = false
-	elif player.direction > 0:
 		player.sprite.flip_h = true
+	elif player.direction > 0:
+		player.sprite.flip_h = false
 	else:
 		return idle_state
 	

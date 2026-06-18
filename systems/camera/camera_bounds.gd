@@ -10,5 +10,5 @@ func _process(_delta: float) -> void:
 		var top_left: Vector2 = ($CollisionShape2D.position - bounds.size / 2).snapped(grid)
 		var bottom_right: Vector2 = ($CollisionShape2D.position + bounds.size / 2).snapped(grid)
 
-		$CollisionShape2D.shape.set_size(bottom_right - top_left)
-		$CollisionShape2D.position = (top_left + bottom_right) / 2
+		#$CollisionShape2D.shape.set_size(bottom_right - top_left)
+		#$CollisionShape2D.position = (top_left + bottom_right) / 2

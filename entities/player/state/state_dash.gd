@@ -14,12 +14,10 @@ func enter() -> void:
 	player.has_gravity = false
 	player.can_dash = false
 	
-	# TODO: Fix sprite flipping
-	
 	if player.direction < 0:
-		player.sprite.flip_h = false
-	elif player.direction > 0:
 		player.sprite.flip_h = true
+	elif player.direction > 0:
+		player.sprite.flip_h = false
 
 	dash_timer = 0
 

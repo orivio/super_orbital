@@ -5,20 +5,20 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_urh61"]
 resource_local_to_scene = true
-size = Vector2(2200, 3300)
+size = Vector2(742, 1106)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyipc"]
 resource_local_to_scene = true
-size = Vector2(299.99994, 300)
+size = Vector2(64, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63fhs"]
 resource_local_to_scene = true
-size = Vector2(200, 300)
+size = Vector2(64, 96)
 
 [node name="RoomTemplate" unique_id=201273727 instance=ExtResource("1_tys0v")]
 
 [node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
-position = Vector2(800, -1550)
+position = Vector2(243, -457)
 shape = SubResource("RectangleShape2D_urh61")
 
 [node name="TileMapLayer" parent="." index="3" unique_id=1010939493]
@@ -31,17 +31,17 @@ dest_door_tag = "EastDoor"
 dest_room_path = "uid://tv8btxf3jebf"
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
-position = Vector2(-1207.5, -237.50002)
+position = Vector2(-781.50006, -135.50002)
 shape = SubResource("RectangleShape2D_tyipc")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
-position = Vector2(-757.50006, -187.50002)
+position = Vector2(-653.50006, -119.500015)
 
 [node name="Label" parent="Doors/WestDoor" index="2" unique_id=164300380]
-offset_left = -1400.0
-offset_top = -500.0
-offset_right = -1100.0
-offset_bottom = -400.0
+offset_left = -800.0
+offset_top = -300.0
+offset_right = -561.0
+offset_bottom = -200.0
 text = "WestDoor"
 
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=2006914664 instance=ExtResource("2_urh61")]
@@ -49,17 +49,17 @@ door_tag = "EastDoor"
 dest_door_tag = "WestDoor"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
-position = Vector2(2200, -2550)
+position = Vector2(704, -816)
 shape = SubResource("RectangleShape2D_63fhs")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
-position = Vector2(1700, -2500)
+position = Vector2(576, -800)
 
 [node name="Label" parent="Doors/EastDoor" index="2" unique_id=164300380]
-offset_left = 2100.0
-offset_top = -2800.0
-offset_right = 2320.0
-offset_bottom = -2700.0
+offset_left = 700.0
+offset_top = -1000.0
+offset_right = 920.0
+offset_bottom = -900.0
 text = "EastDoor"
 
 [editable path="Doors/WestDoor"]
