@@ -24,8 +24,8 @@ func _process(_delta: float) -> void:
 		var top_left: Vector2 = ($DoorBounds.position - bounds.size / 2).snapped(grid)
 		var bottom_right: Vector2 = ($DoorBounds.position + bounds.size / 2).snapped(grid)
 
-		$DoorBounds.shape.set_size(bottom_right - top_left)
-		$DoorBounds.position = (top_left + bottom_right) / 2
+		#$DoorBounds.shape.set_size(bottom_right - top_left)
+		#$DoorBounds.position = (top_left + bottom_right) / 2
 		
 		# Align label
 		

@@ -89,7 +89,9 @@ time_slow={
 [layer_names]
 
 2d_physics/layer_1="level"
-2d_physics/layer_2="black_holes"
-2d_physics/layer_3="player"
-2d_physics/layer_4="door"
+2d_physics/layer_2="player"
+2d_physics/layer_3="spikes"
+2d_physics/layer_4="black_holes"
+2d_physics/layer_5="door"
+2d_physics/layer_6="tooltip"
 2d_physics/layer_32="ui"

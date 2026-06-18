@@ -5,17 +5,30 @@ class_name RoomManager extends Node
 
 var current_room: Node2D = null
 var previous_room: Node2D = null
+var current_room_path: String
+var last_entered_door_tag: String
 
 @onready var player: Node2D = $Player
 @onready var player_camera: PlayerCamera = $PlayerCamera
 
 func _ready() -> void:
+	player.player_death.connect(_on_player_death)
 	call_deferred("load_initial_room")
+
+func _on_player_death() -> void:
+	reload_room()
+
+func reload_room() -> void:
+	change_room(current_room_path, last_entered_door_tag)
 
 func load_initial_room() -> void:
 	change_room(initial_room_path, initial_door_tag)
 
 func change_room(dest_room_path: String, dest_door_tag: String) -> void:
+	
+	print("Disabling player")
+	player.disabled = true
+	player.process_mode = Node.PROCESS_MODE_DISABLED
 	
 	# First, load the room resource
 	
@@ -46,8 +59,15 @@ func change_room(dest_room_path: String, dest_door_tag: String) -> void:
 	
 	if dest_door_tag:
 		teleport_player_to_door(current_room, dest_door_tag)
+		last_entered_door_tag = dest_door_tag
+	
+	current_room_path = dest_room_path
 	
 	update_camera_limits(room_instance)
+	
+	print("Enabling player")
+	player.disabled = false
+	player.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func teleport_player_to_door(room: Room, dest_door_tag: String):
 	

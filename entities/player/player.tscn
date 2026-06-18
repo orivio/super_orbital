@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://br1xonlgrqa3d" path="res://entities/player/movement_settings/player_default_movement_settings.tres" id="2_qiwj3"]
 [ext_resource type="Script" uid="uid://c5i0w63pxb5cx" path="res://entities/player/state/player_state_machine.gd" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://dqmpu2wxpo03a" path="res://entities/player/state/state_idle.gd" id="4_bls4j"]
+[ext_resource type="Script" uid="uid://cobylp8hlybiw" path="res://entities/player/hurt_box.gd" id="4_j3ovn"]
 [ext_resource type="Script" uid="uid://xy0w8wmn470g" path="res://entities/player/state/state_walk.gd" id="5_fkugw"]
 [ext_resource type="Script" uid="uid://bdpeda0c7u7w4" path="res://entities/player/state/state_jump.gd" id="6_8fjmc"]
 [ext_resource type="Script" uid="uid://byyljuxcuy1jd" path="res://entities/player/state/state_fall.gd" id="8_26q78"]
@@ -52,7 +53,12 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
 size = Vector2(100, 100)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1qjk"]
+size = Vector2(94, 94)
+
 [node name="Player" type="CharacterBody2D" unique_id=1158454686 groups=["player"]]
+collision_layer = 2
+collision_mask = 49
 script = ExtResource("1_rkbax")
 movement_settings = ExtResource("2_qiwj3")
 
@@ -65,6 +71,14 @@ autoplay = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1986859216]
 shape = SubResource("RectangleShape2D_oul6g")
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=251871403]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("4_j3ovn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=248394177]
+shape = SubResource("RectangleShape2D_a1qjk")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1422387926 node_paths=PackedStringArray("default_state")]
 script = ExtResource("3_g1dw6")
@@ -99,3 +113,5 @@ offset_bottom = -74.0
 theme_override_font_sizes/font_size = 30
 text = "Example text"
 script = ExtResource("11_7thud")
+
+[connection signal="body_entered" from="HurtBox" to="HurtBox" method="_on_body_entered"]

@@ -19,7 +19,7 @@ func physics_process(_delta: float) -> PlayerState:
 	if player.direction != 0:
 		return walk_state
 	
-	if Input.is_action_just_pressed("jump"):
+	if player.jump_buffer and player.can_jump:
 		return jump_state
 	
 	return null

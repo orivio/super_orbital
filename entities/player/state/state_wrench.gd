@@ -41,7 +41,7 @@ func physics_process(delta: float) -> PlayerState:
 		player.sprite.flip_h = not player.sprite.flip_h
 		#return float_state
 	
-	if Input.is_action_just_pressed("gravity_switch"):
+	if Input.is_action_just_pressed("gravity_switch") and player.can_gravity_switch:
 		player.has_gravity = true
 	
 	if player.has_gravity:

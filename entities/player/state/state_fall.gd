@@ -35,7 +35,7 @@ func physics_process(delta: float) -> PlayerState:
 	if Input.is_action_just_pressed("dash") and player.can_dash:
 		return dash_state
 	
-	if Input.is_action_just_pressed("gravity_switch"):
+	if Input.is_action_just_pressed("gravity_switch") and player.can_gravity_switch:
 		return float_state
 	
 	return null

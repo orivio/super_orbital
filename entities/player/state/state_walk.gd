@@ -31,12 +31,11 @@ func physics_process(delta: float) -> PlayerState:
 	
 	if Input.is_action_just_pressed("dash") and player.can_dash:
 		return dash_state
-		return dash_state
 	
-	if Input.is_action_just_pressed("jump"):
+	if player.jump_buffer and player.can_jump:
 		return jump_state
 	
-	if Input.is_action_just_pressed("gravity_switch"):
+	if Input.is_action_just_pressed("gravity_switch") and player.can_gravity_switch:
 		player.has_gravity = false
 		return float_state # why no work :(
 		#i added the float state variable at the top and all but it doesnt work
