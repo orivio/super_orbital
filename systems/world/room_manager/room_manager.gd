@@ -1,7 +1,7 @@
 class_name RoomManager extends Node
 
 @export_file("*.tscn") var initial_room_path: String
-@export var initial_door_tag: String
+@export var initial_door_ta: String
 
 var current_room: Node2D = null
 var previous_room: Node2D = null
@@ -22,11 +22,12 @@ func reload_room() -> void:
 	change_room(current_room_path, last_entered_door_tag)
 
 func load_initial_room() -> void:
-	change_room(initial_room_path, initial_door_tag)
+	# print(initial_door_ta)
+	change_room(initial_room_path, initial_door_ta)
 
 func change_room(dest_room_path: String, dest_door_tag: String) -> void:
 	
-	print("Disabling player")
+	# print("Disabling player")
 	player.disabled = true
 	player.process_mode = Node.PROCESS_MODE_DISABLED
 	
@@ -53,6 +54,7 @@ func change_room(dest_room_path: String, dest_door_tag: String) -> void:
 	current_room = room_instance
 	current_room.room_door_entered.connect(change_room)
 	
+	
 	if previous_room:
 		await previous_room.tree_exited
 		await get_tree().process_frame
@@ -65,11 +67,13 @@ func change_room(dest_room_path: String, dest_door_tag: String) -> void:
 	
 	update_camera_limits(room_instance)
 	
-	print("Enabling player")
+	# print("Enabling player")
 	player.disabled = false
 	player.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func teleport_player_to_door(room: Room, dest_door_tag: String):
+	
+	# print("Teleporting player to door: ", dest_door_tag, " in room: ", room)
 	
 	# Find the right door
 	
@@ -98,6 +102,8 @@ func teleport_player_to_door(room: Room, dest_door_tag: String):
 			
 			# player.direction = 0
 			# player.velocity = Vector2.ZERO
+			
+			# print("Teleporting to: ", player.global_position)
 			
 			return
 
