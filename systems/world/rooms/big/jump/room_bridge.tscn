@@ -4,19 +4,23 @@
 [ext_resource type="Script" uid="uid://fh26kdyhba2m" path="res://systems/world/rooms/big/jump/bridge_spikes.gd" id="2_sxfvf"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://systems/world/door/door.tscn" id="2_vagio"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6e7c"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxfvf"]
 resource_local_to_scene = true
 size = Vector2(1632, 1984)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8b0ig"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6e7c"]
 resource_local_to_scene = true
 size = Vector2(64, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kelv"]
+resource_local_to_scene = true
+size = Vector2(128, 96)
 
 [node name="RoomBridge" unique_id=201273727 instance=ExtResource("1_np7iq")]
 
 [node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
 position = Vector2(464, 384)
-shape = SubResource("RectangleShape2D_m6e7c")
+shape = SubResource("RectangleShape2D_sxfvf")
 
 [node name="SpikeManager" type="Node" parent="POI" parent_id_path=PackedInt32Array(809409572) index="0" unique_id=1970371900]
 script = ExtResource("2_sxfvf")
@@ -32,7 +36,7 @@ dest_room_path = "uid://c1sb0h6scncah"
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-448, -48)
-shape = SubResource("RectangleShape2D_8b0ig")
+shape = SubResource("RectangleShape2D_m6e7c")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-288, -32)
@@ -42,4 +46,24 @@ visible = false
 offset_left = -500.0
 offset_right = -400.0
 
+[node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=940127081 instance=ExtResource("2_vagio")]
+door_tag = "EastDoor"
+dest_door_tag = "WestDoor"
+dest_room_path = "uid://463vcvm62equ"
+
+[node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
+position = Vector2(1408, -336)
+shape = SubResource("RectangleShape2D_7kelv")
+
+[node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
+position = Vector2(1216, -320)
+
+[node name="Label" parent="Doors/EastDoor" index="2" unique_id=164300380]
+visible = false
+offset_left = 1300.0
+offset_top = -500.0
+offset_right = 1500.0
+offset_bottom = -400.0
+
 [editable path="Doors/WestDoor"]
+[editable path="Doors/EastDoor"]
