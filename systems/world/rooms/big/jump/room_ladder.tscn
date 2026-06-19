@@ -47,6 +47,7 @@ text = "WestDoor"
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=2006914664 instance=ExtResource("2_8v15h")]
 door_tag = "EastDoor"
 dest_door_tag = "WestDoor"
+dest_room_path = "uid://c1sb0h6scncah"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(1120, -816)

@@ -24,7 +24,7 @@ func _process(_delta: float) -> void:
 		$Label.visible = false
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player") and "show_tooltip" in body and not body.disabled:
+	if body.is_in_group("player") and "show_tooltip" in body and not body.disabled and not body.tooltips_disabled:
 		body.show_tooltip(message)
 		#print("Showing tooltip: ", message)
 

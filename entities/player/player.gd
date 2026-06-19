@@ -21,7 +21,7 @@ var can_throw_wrench: bool = true
 var input_locked: bool
 var death_timer: float = 0
 var disabled: bool = false
-var tooltips_timer: float = 0
+var tooltips_disabled: bool = false
 var jump_buffer: bool = false
 
 @onready var state_machine: PlayerStateMachine = $StateMachine
@@ -53,6 +53,7 @@ func _process(delta: float) -> void:
 			can_jump = true
 			can_throw_wrench = true
 			player_death.emit()
+			get_tree().create_timer(0.1).timeout.connect(_on_death_timeout)
 	
 	#if tooltips_disabled:
 	#	if tooltips_timer > 0:
@@ -107,10 +108,14 @@ func die() -> void:
 	input_locked = true
 	update_animation("hit")
 	GameManager.impact()
-	death_timer = 1
+	death_timer = 0.4
+	tooltips_disabled = true
 
 func on_jump_buffer_timeout() -> void:
 	jump_buffer = false
 
 func get_half_height() -> float:
 	return collider.shape.get_rect().size.y / 2
+
+func _on_death_timeout() -> void:
+	tooltips_disabled = false

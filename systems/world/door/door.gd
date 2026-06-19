@@ -33,8 +33,9 @@ func _process(_delta: float) -> void:
 		$Label.size.y = GRID_SIZE
 		$Label.position.x = top_left.x
 		$Label.position.y = top_left.y - GRID_SIZE
-		$Label.text = door_tag
-		$Label.visible = true
+		#$Label.text = door_tag
+		$Label.text = ""
+		$Label.visible = false
 	else:
 		$Label.visible = false
 
