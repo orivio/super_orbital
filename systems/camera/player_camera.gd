@@ -4,6 +4,7 @@ signal camera_shake
 
 @export var shake_fade: float = 9
 @export var random_strength: float = 10
+@export var default_zoom: float = 1
 
 var target: Vector2
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
@@ -40,3 +41,24 @@ func on_camera_shake() -> void:
 
 func random_offset() -> Vector2:
 	return Vector2(rng.randf_range(-shake_strength, shake_strength), rng.randf_range(-shake_strength,shake_strength))
+
+func direct(zoom: float, in_time: float, stay_time: float, out_time: float, blocks_player: float) -> void:
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(self, "zoom", Vector2(zoom, zoom), in_time)
+	if blocks_player:
+		tween.tween_callback(Callable(self, "_disable_player_input"))
+	if stay_time != 0:
+		tween.tween_interval(stay_time)
+	if out_time != 0:
+		tween.tween_property(self, "zoom", Vector2(default_zoom, default_zoom), out_time)
+	if blocks_player:
+		tween.tween_callback(Callable(self, "_enable_player_input"))
+
+func undirect() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "zoom", Vector2(default_zoom, default_zoom), 0.8)
+
+func _disable_player_input() -> void:
+	GameManager.player.input_locked = true
+func _enable_player_input() -> void:
+	GameManager.player.input_locked = false

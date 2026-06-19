@@ -20,7 +20,7 @@ size = Vector2(160, 96)
 resource_local_to_scene = true
 size = Vector2(96, 96)
 
-[node name="RoomTutorialJump" unique_id=201273727 instance=ExtResource("1_44wm1")]
+[node name="RoomJump" unique_id=201273727 instance=ExtResource("1_44wm1")]
 
 [node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
 position = Vector2(64, -128)
@@ -58,9 +58,9 @@ shape = SubResource("RectangleShape2D_v3o8a")
 position = Vector2(-384, -32)
 
 [node name="Label" parent="Doors/WestDoor" index="2" unique_id=164300380]
+visible = false
 offset_left = -700.0
-offset_right = -461.0
-text = "WestDoor"
+offset_right = -500.0
 
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=1792502536 instance=ExtResource("3_r86d4")]
 door_tag = "EastDoor"
@@ -75,9 +75,9 @@ shape = SubResource("RectangleShape2D_d3wcq")
 position = Vector2(512, 0)
 
 [node name="Label" parent="Doors/EastDoor" index="2" unique_id=164300380]
+visible = false
 offset_left = 700.0
-offset_right = 920.0
-text = "EastDoor"
+offset_right = 800.0
 
 [editable path="POI/JumpTooltip"]
 [editable path="Doors/WestDoor"]

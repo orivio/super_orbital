@@ -99,6 +99,7 @@ time_slow={
 2d_physics/layer_4="black_holes"
 2d_physics/layer_5="door"
 2d_physics/layer_6="tooltip"
+2d_physics/layer_7="camera_director"
 2d_physics/layer_32="ui"
 
 [rendering]

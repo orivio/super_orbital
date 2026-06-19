@@ -16,7 +16,7 @@ size = Vector2(191, 109)
 resource_local_to_scene = true
 size = Vector2(128, 96)
 
-[node name="RoomTutorialMove" unique_id=201273727 instance=ExtResource("1_vg2pm")]
+[node name="RoomMove" unique_id=201273727 instance=ExtResource("1_vg2pm")]
 
 [node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
 position = Vector2(128, -144)
@@ -54,9 +54,9 @@ shape = SubResource("RectangleShape2D_hl24r")
 position = Vector2(672, 0)
 
 [node name="Label" parent="Doors/EastDoor" index="2" unique_id=164300380]
+visible = false
 offset_left = 800.0
-offset_right = 1020.0
-text = "EastDoor"
+offset_right = 900.0
 
 [editable path="POI/MoveTooltip"]
 [editable path="Doors/EastDoor"]
