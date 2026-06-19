@@ -94,9 +94,9 @@ func teleport_player_to_door(room: Room, dest_door_tag: String):
 			player.has_gravity = true
 			
 			if collision:
-				player.global_position = collision.position
+				player.global_position = collision.position + player.get_half_height() * Vector2.UP
 			else:
-				player.global_position = spawn_location
+				player.global_position = spawn_location + player.get_half_height() * Vector2.UP
 			
 			# Reset player momentum
 			

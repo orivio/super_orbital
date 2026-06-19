@@ -28,6 +28,7 @@ var jump_buffer: bool = false
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var tooltip: Tooltip = $Tooltip
+@onready var collider: CollisionShape2D = $CollisionShape2D
 
 func _ready() -> void:
 	GameManager.player = self
@@ -110,3 +111,6 @@ func die() -> void:
 
 func on_jump_buffer_timeout() -> void:
 	jump_buffer = false
+
+func get_half_height() -> float:
+	return collider.shape.get_rect().size.y / 2
