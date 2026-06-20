@@ -6,12 +6,13 @@ class_name StateJump extends PlayerState
 @onready var dash_state: PlayerState = $"../Dash"
 @onready var float_state: PlayerState = $"../Float"
 
-var still_jumping: bool = true
+var jump_released: bool
+var dash_pressed: bool
+var gravity_switch_pressed: bool
 
 func enter() -> void:
 	# player.update_animation("jump")
 	player.has_gravity = true
-	still_jumping = true
 	player.base_velocity.y = -player.movement_settings.jump_velocity
 
 func exit() -> void:
@@ -20,13 +21,17 @@ func exit() -> void:
 func process(_delta: float) -> PlayerState:
 	
 	if player.base_velocity.y >= -299 and player.base_velocity.y <= 0:
-		player.sprite.frame = 7
+		player.sprite.frame = 6
 	elif player.base_velocity.y >= -599 and player.base_velocity.y <= -300:
-		player.sprite.frame = 8
+		player.sprite.frame = 7
 	elif player.base_velocity.y >= -899 and player.base_velocity.y <= -600:
-		player.sprite.frame = 9
+		player.sprite.frame = 8
 	else:
 		print(player.base_velocity.y)
+	
+	jump_released = Input.is_action_just_released("jump")
+	dash_pressed = Input.is_action_just_pressed("dash")
+	gravity_switch_pressed = Input.is_action_just_pressed("gravity_switch")
 	
 	return null
 
@@ -34,8 +39,7 @@ func physics_process(delta: float) -> PlayerState:
 	
 	player.base_velocity.x = player.direction * player.movement_settings.move_speed * player.movement_settings.air_speed_multiplier
 	
-	if Input.is_action_just_released("jump"):
-		still_jumping = false
+	if jump_released:
 		player.base_velocity.y = 0
 	
 	if player.direction < 0:
@@ -43,10 +47,10 @@ func physics_process(delta: float) -> PlayerState:
 	elif player.direction > 0:
 		player.sprite.flip_h = false
 	
-	if Input.is_action_just_pressed("dash") and player.can_dash:
+	if dash_pressed and player.can_dash:
 		return dash_state
 	
-	if Input.is_action_just_pressed("gravity_switch") and player.can_gravity_switch:
+	if gravity_switch_pressed and player.can_gravity_switch:
 		return float_state
 	
 	if player.is_on_floor():

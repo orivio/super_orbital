@@ -1,5 +1,8 @@
 class_name StateWalk extends PlayerState
 
+var dash_pressed: bool
+var gravity_switch_pressed: bool
+
 @onready var idle_state: PlayerState = $"../Idle"
 @onready var jump_state: PlayerState = $"../Jump"
 @onready var fall_state: PlayerState = $"../Fall"
@@ -14,6 +17,8 @@ func exit() -> void:
 	pass
 
 func process(_delta: float) -> PlayerState:
+	dash_pressed = Input.is_action_just_pressed("dash")
+	gravity_switch_pressed = Input.is_action_just_pressed("gravity_switch")
 	return null
 
 func physics_process(delta: float) -> PlayerState:
@@ -27,13 +32,13 @@ func physics_process(delta: float) -> PlayerState:
 	else:
 		return idle_state
 	
-	if Input.is_action_just_pressed("dash") and player.can_dash:
+	if dash_pressed and player.can_dash:
 		return dash_state
 	
 	if player.jump_buffer and player.can_jump:
 		return jump_state
 	
-	if Input.is_action_just_pressed("gravity_switch") and player.can_gravity_switch:
+	if gravity_switch_pressed and player.can_gravity_switch:
 		player.has_gravity = false
 		return float_state # why no work :(
 		#i added the float state variable at the top and all but it doesnt work

@@ -1,6 +1,10 @@
 class_name StateFloat extends PlayerState
 
 var entry_velocity = 0
+var gravity_switch_pressed: bool
+var throw_wrench_pressed: bool
+var x_axis: float
+var y_axis: float
 
 @onready var idle_state: PlayerState = $"../Idle"
 @onready var walk_state: PlayerState = $"../Walk"
@@ -17,6 +21,10 @@ func exit() -> void:
 	pass
 
 func process(_delta: float) -> PlayerState:
+	gravity_switch_pressed = Input.is_action_just_pressed("gravity_switch")
+	throw_wrench_pressed = Input.is_action_just_pressed("throw_wrench")
+	x_axis = Input.get_axis("move_left", "move_right")
+	y_axis = Input.get_axis("move_up", "move_down")
 	return null
 
 func physics_process(delta: float) -> PlayerState:
@@ -41,7 +49,7 @@ func physics_process(delta: float) -> PlayerState:
 		entry_velocity.x = player.base_velocity.x
 		player.sprite.flip_h = not player.sprite.flip_h
 	
-	if Input.is_action_just_pressed("gravity_switch") and player.can_gravity_switch:
+	if gravity_switch_pressed and player.can_gravity_switch:
 		player.has_gravity = true
 	
 	if player.has_gravity:
@@ -50,9 +58,9 @@ func physics_process(delta: float) -> PlayerState:
 		else:
 			return jump_state
 	
-	if Input.is_action_just_pressed("throw_wrench") and player.can_throw_wrench:
-		var x_wrench = Input.get_axis("wrench_left", "wrench_right")
-		var y_wrench = Input.get_axis("wrench_up", "wrench_down")
+	if throw_wrench_pressed and player.can_throw_wrench:
+		var x_wrench = x_axis
+		var y_wrench = y_axis
 		var wrench_direction = Vector2(x_wrench, y_wrench)
 		if wrench_direction != Vector2.ZERO:
 			player.base_velocity = wrench_direction.normalized() * player.movement_settings.wrench_velocity

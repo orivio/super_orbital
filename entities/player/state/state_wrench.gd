@@ -1,6 +1,7 @@
 class_name StateWrench extends PlayerState
 
 var entry_velocity = 0
+var gravity_switch_pressed: bool
 
 @onready var idle_state: PlayerState = $"../Idle"
 @onready var walk_state: PlayerState = $"../Walk"
@@ -18,6 +19,7 @@ func exit() -> void:
 	pass
 
 func process(_delta: float) -> PlayerState:
+	gravity_switch_pressed = Input.is_action_just_pressed("gravity_switch")
 	return null
 
 func physics_process(delta: float) -> PlayerState:
@@ -41,7 +43,7 @@ func physics_process(delta: float) -> PlayerState:
 		player.sprite.flip_h = not player.sprite.flip_h
 		#return float_state
 	
-	if Input.is_action_just_pressed("gravity_switch") and player.can_gravity_switch:
+	if gravity_switch_pressed and player.can_gravity_switch:
 		player.has_gravity = true
 	
 	if player.has_gravity:

@@ -1,5 +1,9 @@
 class_name StateFall extends PlayerState
 
+# Temporary solution
+var dash_pressed: bool
+var gravity_switch_pressed: bool
+
 @onready var idle_state: PlayerState = $"../Idle"
 @onready var walk_state: PlayerState = $"../Walk"
 @onready var dash_state: PlayerState = $"../Dash"
@@ -15,11 +19,11 @@ func exit() -> void:
 func process(_delta: float) -> PlayerState:
 	
 	if player.base_velocity.y <= 299 and player.base_velocity.y >= 0:
-		player.sprite.frame = 10
+		player.sprite.frame = 9
 	elif player.base_velocity.y <= 599 and player.base_velocity.y >= 300:
-		player.sprite.frame = 11
+		player.sprite.frame = 10
 	elif player.base_velocity.y <= 899 and player.base_velocity.y >= 600:
-		player.sprite.frame = 12
+		player.sprite.frame = 11
 	else:
 		print(player.base_velocity.y)
 	
@@ -31,6 +35,9 @@ func process(_delta: float) -> PlayerState:
 		#player.sprite.frame = 9
 	#else:
 		#print(player.base_velocity.y)
+	
+	dash_pressed = Input.is_action_just_pressed("dash")
+	gravity_switch_pressed = Input.is_action_just_pressed("gravity_switch")
 	
 	return null
 
@@ -49,10 +56,10 @@ func physics_process(delta: float) -> PlayerState:
 		else:
 			return walk_state
 	
-	if Input.is_action_just_pressed("dash") and player.can_dash:
+	if dash_pressed and player.can_dash:
 		return dash_state
 	
-	if Input.is_action_just_pressed("gravity_switch") and player.can_gravity_switch:
+	if gravity_switch_pressed and player.can_gravity_switch:
 		return float_state
 	
 	return null

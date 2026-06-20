@@ -68,11 +68,6 @@ func _process(delta: float) -> void:
 	
 
 func _physics_process(_delta: float) -> void:
-	if Input.is_action_just_pressed("time_slow"):
-		if GameManager.time_scale == 0.5:
-			GameManager.time_scale = 1
-		else:
-			GameManager.time_scale = 0.5
 	#print(state_machine.current_state)
 	if is_on_floor() and !input_locked:
 		can_dash = true
