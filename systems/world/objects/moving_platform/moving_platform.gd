@@ -11,7 +11,7 @@ func _ready() -> void:
 	speed = 1 / time
 
 func _physics_process(delta: float) -> void:
-	path_follow_2d.progress_ratio += speed * delta * forward_direction
+	path_follow_2d.progress_ratio += speed * delta * GameManager.time_scale * forward_direction
 	
 	if forward_direction == 1 and path_follow_2d.progress_ratio == 1:
 		forward_direction = -1

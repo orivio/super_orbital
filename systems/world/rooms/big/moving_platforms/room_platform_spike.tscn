@@ -67,6 +67,10 @@ size = Vector2(128, 64)
 resource_local_to_scene = true
 size = Vector2(96, 96)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75qqy"]
+resource_local_to_scene = true
+size = Vector2(64, 96)
+
 [node name="RoomPlatformSpike" unique_id=201273727 instance=ExtResource("1_ytpem")]
 
 [node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
@@ -134,10 +138,11 @@ curve = SubResource("Curve2D_jy62u")
 time = 3.0
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform4" index="0" unique_id=199652958]
-position = Vector2(416, 0)
+position = Vector2(766.88, 0)
+progress = 350.88
 
 [node name="AnimatableBody2D" parent="Objects/MovingPlatform4" index="1" unique_id=886220012]
-position = Vector2(416, 0)
+position = Vector2(766.88, 0)
 
 [node name="ColorRect" parent="Objects/MovingPlatform4/AnimatableBody2D" index="0" unique_id=1231513051]
 offset_left = -64.0
@@ -153,10 +158,11 @@ curve = SubResource("Curve2D_jao55")
 time = 3.0
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform5" index="0" unique_id=199652958]
-position = Vector2(768, 160)
+position = Vector2(768, 130.76)
+progress = 29.24
 
 [node name="AnimatableBody2D" parent="Objects/MovingPlatform5" index="1" unique_id=886220012]
-position = Vector2(768, 160)
+position = Vector2(768, 130.76)
 
 [node name="ColorRect" parent="Objects/MovingPlatform5/AnimatableBody2D" index="0" unique_id=1231513051]
 offset_left = -64.0
@@ -186,9 +192,27 @@ visible = false
 offset_left = -500.0
 offset_right = -400.0
 
+[node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=910011625 instance=ExtResource("3_jlu2o")]
+door_tag = "EastDoor"
+dest_door_tag = "WestDoor"
+dest_room_path = "uid://dtk1cwd2x7bqj"
+
+[node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
+position = Vector2(1984, -80)
+shape = SubResource("RectangleShape2D_75qqy")
+
+[node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
+position = Vector2(1856, -64)
+
+[node name="Label" parent="Doors/EastDoor" index="2" unique_id=164300380]
+visible = false
+offset_left = 2000.0
+offset_right = 2001.0
+
 [editable path="Objects/MovingPlatform1"]
 [editable path="Objects/MovingPlatform2"]
 [editable path="Objects/MovingPlatform3"]
 [editable path="Objects/MovingPlatform4"]
 [editable path="Objects/MovingPlatform5"]
 [editable path="Doors/WestDoor"]
+[editable path="Doors/EastDoor"]
