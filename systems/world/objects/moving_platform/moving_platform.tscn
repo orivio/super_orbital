@@ -15,10 +15,13 @@ script = ExtResource("1_c8um0")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=199652958]
 rotates = false
+cubic_interp = false
 loop = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D" unique_id=817301083]
 remote_path = NodePath("../../AnimatableBody2D")
+update_rotation = false
+update_scale = false
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=886220012]
 

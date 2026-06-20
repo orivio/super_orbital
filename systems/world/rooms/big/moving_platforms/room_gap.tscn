@@ -37,17 +37,14 @@ shape = SubResource("RectangleShape2D_syu2e")
 position = Vector2(0, -96)
 scale = Vector2(1, 0.5)
 curve = SubResource("Curve2D_vuuwf")
+time = 2.0
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform" index="0" unique_id=199652958]
 position = Vector2(288, 64)
 rotation = -0.13255152
 
-[node name="RemoteTransform2D" parent="Objects/MovingPlatform/PathFollow2D" index="0" unique_id=817301083]
-update_rotation = false
-
 [node name="AnimatableBody2D" parent="Objects/MovingPlatform" index="1" unique_id=886220012]
 position = Vector2(288, 64)
-scale = Vector2(0.99342823, 1.0258664)
 collision_mask = 2
 
 [node name="ColorRect" parent="Objects/MovingPlatform/AnimatableBody2D" index="0" unique_id=1231513051]
