@@ -14,16 +14,21 @@ func exit() -> void:
 
 func process(_delta: float) -> PlayerState:
 	
-	#if player.base_velocity.y <= 99 and player.base_velocity.y >= 0:
+	if player.base_velocity.y <= 299 and player.base_velocity.y >= 0:
+		player.sprite.frame = 10
+	elif player.base_velocity.y <= 599 and player.base_velocity.y >= 300:
+		player.sprite.frame = 11
+	elif player.base_velocity.y <= 899 and player.base_velocity.y >= 600:
+		player.sprite.frame = 12
+	else:
+		print(player.base_velocity.y)
+	
+	#if player.base_velocity.y >= -299 and player.base_velocity.y <= 0:
+		#player.sprite.frame = 7
+	#elif player.base_velocity.y >= -599 and player.base_velocity.y <= -300:
+		#player.sprite.frame = 8
+	#elif player.base_velocity.y >= -899 and player.base_velocity.y <= -600:
 		#player.sprite.frame = 9
-	#elif player.base_velocity.y <= 199 and player.base_velocity.y >= 100:
-		#player.sprite.frame = 10
-	#elif player.base_velocity.y <= 399 and player.base_velocity.y >= 200:
-		#player.sprite.frame = 11
-	#elif player.base_velocity.y <= 599 and player.base_velocity.y >= 400:
-		#player.sprite.frame = 12
-	#elif player.base_velocity.y <= 899 and player.base_velocity.y >= 600:
-		#player.sprite.frame = 13
 	#else:
 		#print(player.base_velocity.y)
 	
