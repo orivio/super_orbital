@@ -18,6 +18,15 @@ func enter() -> void:
 func exit() -> void:
 	pass
 
+func input(event: InputEvent) -> PlayerState:
+	if event.is_action_released("jump"):
+		jump_released = true
+	elif event.is_action_pressed("dash"):
+		dash_pressed = true
+	elif event.is_action_pressed("gravity_switch"):
+		gravity_switch_pressed = true
+	return null
+
 func process(_delta: float) -> PlayerState:
 	
 	if player.base_velocity.y >= -299 and player.base_velocity.y <= 0:
@@ -29,10 +38,6 @@ func process(_delta: float) -> PlayerState:
 	else:
 		print(player.base_velocity.y)
 	
-	jump_released = Input.is_action_just_released("jump")
-	dash_pressed = Input.is_action_just_pressed("dash")
-	gravity_switch_pressed = Input.is_action_just_pressed("gravity_switch")
-	
 	return null
 
 func physics_process(delta: float) -> PlayerState:
@@ -40,6 +45,7 @@ func physics_process(delta: float) -> PlayerState:
 	player.base_velocity.x = player.direction * player.movement_settings.move_speed * player.movement_settings.air_speed_multiplier
 	
 	if jump_released:
+		jump_released = false
 		player.base_velocity.y = 0
 	
 	if player.direction < 0:
@@ -48,9 +54,11 @@ func physics_process(delta: float) -> PlayerState:
 		player.sprite.flip_h = false
 	
 	if dash_pressed and player.can_dash:
+		dash_pressed = false
 		return dash_state
 	
 	if gravity_switch_pressed and player.can_gravity_switch:
+		gravity_switch_pressed = false
 		return float_state
 	
 	if player.is_on_floor():

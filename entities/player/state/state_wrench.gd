@@ -19,7 +19,6 @@ func exit() -> void:
 	pass
 
 func process(_delta: float) -> PlayerState:
-	gravity_switch_pressed = Input.is_action_just_pressed("gravity_switch")
 	return null
 
 func physics_process(delta: float) -> PlayerState:
@@ -44,6 +43,7 @@ func physics_process(delta: float) -> PlayerState:
 		#return float_state
 	
 	if gravity_switch_pressed and player.can_gravity_switch:
+		gravity_switch_pressed = false
 		player.has_gravity = true
 	
 	if player.has_gravity:

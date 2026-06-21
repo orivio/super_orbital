@@ -16,9 +16,14 @@ func enter() -> void:
 func exit() -> void:
 	pass
 
+func input(event: InputEvent) -> PlayerState:
+	if event.is_action_pressed("dash"):
+		dash_pressed = true
+	elif event.is_action_pressed("gravity_switch"):
+		gravity_switch_pressed = true
+	return null
+
 func process(_delta: float) -> PlayerState:
-	dash_pressed = Input.is_action_just_pressed("dash")
-	gravity_switch_pressed = Input.is_action_just_pressed("gravity_switch")
 	return null
 
 func physics_process(delta: float) -> PlayerState:
@@ -33,12 +38,14 @@ func physics_process(delta: float) -> PlayerState:
 		return idle_state
 	
 	if dash_pressed and player.can_dash:
+		dash_pressed = false
 		return dash_state
 	
 	if player.jump_buffer and player.can_jump:
 		return jump_state
 	
 	if gravity_switch_pressed and player.can_gravity_switch:
+		gravity_switch_pressed = false
 		player.has_gravity = false
 		return float_state # why no work :(
 		#i added the float state variable at the top and all but it doesnt work

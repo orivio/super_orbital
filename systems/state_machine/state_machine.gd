@@ -9,6 +9,10 @@ var current_state: State
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
 
+func _unhandled_input(event: InputEvent) -> void:
+	var new_state: State = current_state.input(event)
+	change_state(new_state)
+
 func _process(delta: float) -> void:
 	var new_state: State = current_state.process(delta)
 	change_state(new_state)

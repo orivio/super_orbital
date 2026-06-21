@@ -16,6 +16,13 @@ func enter() -> void:
 func exit() -> void:
 	pass
 
+func input(event: InputEvent) -> PlayerState:
+	if event.is_action_pressed("dash"):
+		dash_pressed = true
+	elif event.is_action_pressed("gravity_switch"):
+		gravity_switch_pressed = true
+	return null
+
 func process(_delta: float) -> PlayerState:
 	
 	if player.base_velocity.y <= 299 and player.base_velocity.y >= 0:
@@ -36,9 +43,6 @@ func process(_delta: float) -> PlayerState:
 	#else:
 		#print(player.base_velocity.y)
 	
-	dash_pressed = Input.is_action_just_pressed("dash")
-	gravity_switch_pressed = Input.is_action_just_pressed("gravity_switch")
-	
 	return null
 
 func physics_process(delta: float) -> PlayerState:
@@ -57,9 +61,11 @@ func physics_process(delta: float) -> PlayerState:
 			return walk_state
 	
 	if dash_pressed and player.can_dash:
+		dash_pressed = false
 		return dash_state
 	
 	if gravity_switch_pressed and player.can_gravity_switch:
+		gravity_switch_pressed = false
 		return float_state
 	
 	return null

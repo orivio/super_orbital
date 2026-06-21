@@ -20,9 +20,14 @@ func enter() -> void:
 func exit() -> void:
 	pass
 
+func input(event: InputEvent) -> PlayerState:
+	if event.is_action_pressed("gravity_switch"):
+		gravity_switch_pressed = true
+	elif event.is_action_pressed("throw_wrench"):
+		throw_wrench_pressed = true
+	return null
+
 func process(_delta: float) -> PlayerState:
-	gravity_switch_pressed = Input.is_action_just_pressed("gravity_switch")
-	throw_wrench_pressed = Input.is_action_just_pressed("throw_wrench")
 	x_axis = Input.get_axis("move_left", "move_right")
 	y_axis = Input.get_axis("move_up", "move_down")
 	return null
@@ -50,6 +55,7 @@ func physics_process(delta: float) -> PlayerState:
 		player.sprite.flip_h = not player.sprite.flip_h
 	
 	if gravity_switch_pressed and player.can_gravity_switch:
+		gravity_switch_pressed = false
 		player.has_gravity = true
 	
 	if player.has_gravity:
@@ -59,6 +65,7 @@ func physics_process(delta: float) -> PlayerState:
 			return jump_state
 	
 	if throw_wrench_pressed and player.can_throw_wrench:
+		throw_wrench_pressed = false
 		var x_wrench = x_axis
 		var y_wrench = y_axis
 		var wrench_direction = Vector2(x_wrench, y_wrench)
