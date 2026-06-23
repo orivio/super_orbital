@@ -1,15 +1,23 @@
 class_name StateDash extends PlayerState
 
 var dash_timer: float
+var gravity_switch_pressed: bool
 
 @onready var walk_state: PlayerState = $"../Walk"
 @onready var fall_state: PlayerState = $"../Fall"
-@onready var idle_state: PlayerState = $"../Fall"
+@onready var idle_state: PlayerState = $"../Idle"
+@onready var float_state: PlayerState = $"../Float"
 
 func enter() -> void:
 	player.update_animation("dash")
-	player.base_velocity.x = player.facing * player.movement_settings.dash_velocity
-	player.base_velocity.y = 0
+	var y_axis = Input.get_axis("dash_up", "dash_down")
+	if y_axis != 0:
+		player.base_velocity.y = y_axis * player.movement_settings.dash_velocity * 0.6
+		player.base_velocity.x = 0
+		print("Yo")
+	else:
+		player.base_velocity.x = player.facing * player.movement_settings.dash_velocity
+		player.base_velocity.y = 0
 	
 	player.has_gravity = false
 	player.can_dash = false
@@ -24,7 +32,9 @@ func enter() -> void:
 func exit() -> void:
 	pass
 
-func input(_event: InputEvent) -> PlayerState:
+func input(event: InputEvent) -> PlayerState:
+	if event.is_action_pressed("gravity_switch"):
+		gravity_switch_pressed = true
 	return null
 
 func process(_delta: float) -> PlayerState:
@@ -33,6 +43,10 @@ func process(_delta: float) -> PlayerState:
 func physics_process(delta: float) -> PlayerState:
 	
 	dash_timer += delta
+	
+	if gravity_switch_pressed and player.can_gravity_switch:
+		gravity_switch_pressed = false
+		return float_state
 	
 	if player.is_on_wall():
 		return idle_state
