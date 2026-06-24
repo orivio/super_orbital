@@ -18,6 +18,11 @@ func enter() -> void:
 func exit() -> void:
 	pass
 
+func input(event: InputEvent) -> PlayerState:
+	if event.is_action_pressed("gravity_switch"):
+		gravity_switch_pressed = true
+	return null
+
 func process(_delta: float) -> PlayerState:
 	return null
 
