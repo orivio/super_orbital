@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d4h1merp8wyj0"]
+
+[ext_resource type="Shader" uid="uid://c5kmcvgi0g6h1" path="res://shared/ui/shaders/starry_layer.gdshader" id="1_d85uk"]
+
+[resource]
+shader = ExtResource("1_d85uk")
+shader_parameter/stars_speed = Vector2(0, 0)
+shader_parameter/stars_density = 0.002000000095
+shader_parameter/star_size = 1.0
+shader_parameter/seed = 0.0

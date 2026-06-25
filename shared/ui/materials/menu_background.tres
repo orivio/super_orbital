@@ -1,7 +1,0 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://d4h1merp8wyj0"]
-
-[ext_resource type="Shader" uid="uid://c5kmcvgi0g6h1" path="res://shared/ui/shaders/menu_background.gdshader" id="1_d85uk"]
-
-[resource]
-shader = ExtResource("1_d85uk")
-shader_parameter/time = 50.0

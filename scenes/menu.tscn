@@ -1,8 +1,23 @@
 [gd_scene format=3 uid="uid://c0l8r4h3amty4"]
 
 [ext_resource type="Script" uid="uid://b757tg2j3kjib" path="res://systems/ui/menu.gd" id="1_con2f"]
-[ext_resource type="Material" uid="uid://d4h1merp8wyj0" path="res://shared/ui/materials/menu_background.tres" id="2_con2f"]
-[ext_resource type="Texture2D" uid="uid://b6qn46jdebq0e" path="res://shared/ui/star.png" id="2_vjb58"]
+[ext_resource type="Material" uid="uid://dcoubjkoyq0gm" path="res://shared/ui/materials/back_starry_layer.tres" id="2_4ytvr"]
+[ext_resource type="Texture2D" uid="uid://c1qwvj8oxyj61" path="res://shared/ui/textures/star2.png" id="2_mhnvy"]
+[ext_resource type="Shader" uid="uid://c5kmcvgi0g6h1" path="res://shared/ui/shaders/starry_layer.gdshader" id="4_4ytvr"]
+[ext_resource type="Material" uid="uid://b40lkhs41c5mm" path="res://shared/ui/materials/cloudy_layer.tres" id="4_g3eks"]
+[ext_resource type="PackedScene" uid="uid://dvjxvisrrqfer" path="res://systems/ui/fade.tscn" id="6_g3eks"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g3eks"]
+shader = ExtResource("4_4ytvr")
+shader_parameter/stars_speed = Vector2(10, 0)
+shader_parameter/stars_density = 0.0170000008075
+shader_parameter/star_size = 1.0
+shader_parameter/seed = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_4ytvr"]
+font_size = 64
+outline_size = 30
+outline_color = Color(0.60268, 0.50020003, 0.61, 0.6117647)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lblr"]
 bg_color = Color(0.38431373, 0.38039216, 0.49019608, 0.47843137)
@@ -15,9 +30,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_con2f")
+hover_button_scale = Vector2(1.05, 1.05)
+button_scale_duration = 0.1
 
 [node name="Background" type="ColorRect" parent="." unique_id=710334058]
-material = ExtResource("2_con2f")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,49 +42,77 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="PlayButton" type="Button" parent="." unique_id=236645557]
-layout_mode = 0
-offset_left = 448.0
-offset_top = 320.0
-offset_right = 704.50366
-offset_bottom = 384.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_3lblr")
-text = "play"
+[node name="BackStarrylayer" type="TextureRect" parent="." unique_id=418675359]
+material = SubResource("ShaderMaterial_g3eks")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mhnvy")
 
-[node name="SettingsButton" type="Button" parent="." unique_id=291890272]
-layout_mode = 0
-offset_left = 449.0
-offset_top = 416.0
-offset_right = 705.50366
-offset_bottom = 480.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_3lblr")
-text = "settings"
+[node name="CloudyLayer" type="TextureRect" parent="." unique_id=1608645463]
+material = ExtResource("4_g3eks")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mhnvy")
 
-[node name="Title" type="Label" parent="." unique_id=1033535760]
-layout_mode = 0
-offset_left = 344.0
-offset_top = 200.0
-offset_right = 810.0
-offset_bottom = 292.02216
-theme_override_font_sizes/font_size = 62
-text = "super orbital"
+[node name="FrontStarryLayer" type="TextureRect" parent="." unique_id=1084159132]
+material = ExtResource("2_4ytvr")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mhnvy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1277832530]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -233.0
+offset_right = 233.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=56662510]
+layout_mode = 2
+text = "SuperOrbital"
+label_settings = SubResource("LabelSettings_4ytvr")
 horizontal_alignment = 1
 vertical_alignment = 1
-uppercase = true
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=942981874]
-visible = false
-position = Vector2(576, 324)
-amount = 300
-texture = ExtResource("2_vjb58")
-lifetime = 600.0
-one_shot = true
-explosiveness = 1.0
-emission_shape = 3
-emission_rect_extents = Vector2(576, 576)
-gravity = Vector2(0, 0)
-orbit_velocity_min = 0.1
-orbit_velocity_max = 0.1
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1925485526]
+layout_mode = 2
+alignment = 1
 
-[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[node name="PlayButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=236645557]
+custom_minimum_size = Vector2(466, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_3lblr")
+text = "Play"
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=291890272]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_3lblr")
+text = "Settings"
+
+[node name="Fade" parent="." unique_id=1477421051 instance=ExtResource("6_g3eks")]
+
+[connection signal="mouse_entered" from="VBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
