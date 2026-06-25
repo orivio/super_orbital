@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://c0l8r4h3amty4"]
 
 [ext_resource type="Script" uid="uid://b757tg2j3kjib" path="res://systems/ui/menu.gd" id="1_con2f"]
+[ext_resource type="Material" uid="uid://d4h1merp8wyj0" path="res://shared/ui/materials/menu_background.tres" id="2_con2f"]
 [ext_resource type="Texture2D" uid="uid://b6qn46jdebq0e" path="res://shared/ui/star.png" id="2_vjb58"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lblr"]
 bg_color = Color(0.38431373, 0.38039216, 0.49019608, 0.47843137)
 
-[node name="Menu" type="Control" unique_id=586724944]
+[node name="ControlRoot" type="Control" unique_id=586724944]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,11 +17,13 @@ grow_vertical = 2
 script = ExtResource("1_con2f")
 
 [node name="Background" type="ColorRect" parent="." unique_id=710334058]
-layout_mode = 0
-offset_left = -8.0
-offset_top = -12.0
-offset_right = 1161.0
-offset_bottom = 657.0
+material = ExtResource("2_con2f")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="PlayButton" type="Button" parent="." unique_id=236645557]
@@ -54,6 +57,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=942981874]
+visible = false
 position = Vector2(576, 324)
 amount = 300
 texture = ExtResource("2_vjb58")

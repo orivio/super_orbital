@@ -1,17 +1,29 @@
 [gd_resource type="TileSet" format=3 uid="uid://bnrmi5xqiqb0w"]
 
-[ext_resource type="Texture2D" uid="uid://d3b3radkgj0uv" path="res://shared/environment/tilesets/slightly_better_tileset.png" id="1_qjqu7"]
+[ext_resource type="Texture2D" uid="uid://bsv2ftvigwt5q" path="res://shared/environment/tilesets/slightly_better_tileset_2.png" id="2_sn5av"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sn5av"]
-texture = ExtResource("1_qjqu7")
+texture = ExtResource("2_sn5av")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
+0:0/0/terrain = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -3.8554306, -18.968723, -4.163864)
 1:0/0 = 0
-1:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, 4.163868, 16, 3.8554344, 16, 16, -16, 16)
+1:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, 5.0891724, 16, 5.0891724, 16, 16, -16, 16)
 2:0/0 = 0
-2:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -3.8554306, -18.968723, -4.163864)
+2:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -5.0891724, 16, -5.0891724, 16, -16, -16, -16)
+3:0/0 = 0
+3:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(5.0891724, -16, 5.0891724, 16, 16, 16, 16, -16)
+4:0/0 = 0
+4:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-5.0891724, -16, -5.0891724, 16, -16, 16, -16, -16)
+5:0/0 = 0
+5:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(16, -16, 16, -5.7060394, -5.131405, -5.741626, -5.0891724, 16, -16, 16, -16, -16)
+6:0/0 = 0
+6:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(16, 16, 16, 5.7060394, -5.131405, 5.741626, -5.0891724, -16, -16, -16, -16, 16)
+7:0/0 = 0
+7:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, 16, -16, 5.7060394, 5.131405, 5.741626, 5.0891724, -16, 16, -16, 16, 16)
+8:0/0 = 0
+8:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -16, -16, -5.7060394, 5.131405, -5.741626, 5.0891724, 16, 16, 16, 16, -16)
 
 [resource]
 tile_size = Vector2i(32, 32)
