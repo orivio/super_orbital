@@ -7,9 +7,17 @@ uniform sampler2D star_texture;
 uniform float seed = 0.0;
 
 varying vec2 position;
-
-float random(vec2 st) {
-	return fract(sin(dot(st.xy + seed, vec2(12.9898, 78.233))) * 43758.5453123);
+uint pcg(uint v) {
+    uint state = v * 747796405u + 2891336453u;
+    uint word = ((state >> ((state >> 28u) + 4u)) ^ state) * 277803737u;
+    return (word >> 22u) ^ word;
+}
+/*float random(vec2 st) {
+	return fract(sin(dot(st, vec2(12.9898, 78.233))) * 43758.5453);
+}*/
+float random(vec2 p) {
+    uint see = uint(p.x) + uint(p.y) * 1973u;
+    return float(pcg(see)) / 4294967295.0;
 }
 
 void vertex() {

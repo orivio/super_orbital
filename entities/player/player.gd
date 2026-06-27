@@ -29,6 +29,7 @@ var jump_buffer: bool = false
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var tooltip: Tooltip = $Tooltip
 @onready var collider: CollisionShape2D = $CollisionShape2D
+@onready var floor_caster: ShapeCast2D = $FloorCaster
 
 func _ready() -> void:
 	GameManager.player = self
@@ -92,6 +93,12 @@ func show_tooltip(message: String) -> void:
 func hide_tooltip() -> void:
 	tooltip.hide_tooltip()
 
+func _unhandled_input(event: InputEvent) -> void:
+	#if event is InputEventMouseButton:
+	#	if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+	#		teleport_to_ground(get_global_mouse_position())
+	pass
+
 func die() -> void:
 	has_gravity = true
 	is_dying = true
@@ -114,3 +121,12 @@ func get_half_height() -> float:
 
 func _on_death_timeout() -> void:
 	tooltips_disabled = false
+
+func teleport_to_ground(target: Vector2) -> void:
+	global_position = target
+	floor_caster.enabled = true
+	floor_caster.force_shapecast_update()
+	if floor_caster.is_colliding():
+		global_position = floor_caster.get_collision_point(0) + Vector2.UP * get_half_height()
+	#print("Teleporting to ", target, ", glob: ", global_position)
+	floor_caster.enabled = false

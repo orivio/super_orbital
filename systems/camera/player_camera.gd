@@ -33,7 +33,6 @@ func set_limits(rect: Rect2) -> void:
 	limit_right = rect.position.x + rect.size.x / 2
 	limit_bottom = rect.position.y + rect.size.y / 2
 	limit_top = rect.position.y - rect.size.y / 2
-	
 	# print("Setting limits: (left: ", limit_left, ", right: ", limit_right, ", top: ", limit_top, ", bottom: ", limit_bottom, ")")
 
 func on_camera_shake() -> void:

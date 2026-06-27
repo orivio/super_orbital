@@ -2,6 +2,7 @@ class_name RoomManager extends Node
 
 @export_file("*.tscn") var initial_room_path: String
 @export var initial_door_ta: String
+@export var room_transition_time: float
 
 var current_room: Node2D = null
 var previous_room: Node2D = null
@@ -10,6 +11,8 @@ var last_entered_door_tag: String
 
 @onready var player: Node2D = $Player
 @onready var player_camera: PlayerCamera = $PlayerCamera
+@onready var fade: Fade = $Fade
+@onready var room_container: Node2D = $RoomContainer
 
 func _ready() -> void:
 	player.player_death.connect(_on_player_death)
@@ -23,6 +26,7 @@ func reload_room() -> void:
 
 func load_initial_room() -> void:
 	# print(initial_door_ta)
+	fade.color_rect.color = Color(0, 0, 0, 1)
 	change_room(initial_room_path, initial_door_ta)
 
 func change_room(dest_room_path: String, dest_door_tag: String) -> void:
@@ -30,6 +34,8 @@ func change_room(dest_room_path: String, dest_door_tag: String) -> void:
 	# print("Disabling player")
 	player.disabled = true
 	player.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	await fade.fade(Color(0, 0, 0, 1), room_transition_time).finished
 	
 	# First, load the room resource
 	
@@ -50,7 +56,7 @@ func change_room(dest_room_path: String, dest_door_tag: String) -> void:
 	
 	# Add new room
 	
-	add_child(room_instance)
+	room_container.add_child(room_instance)
 	current_room = room_instance
 	current_room.room_door_entered.connect(change_room)
 	
@@ -70,6 +76,8 @@ func change_room(dest_room_path: String, dest_door_tag: String) -> void:
 	# print("Enabling player")
 	player.disabled = false
 	player.process_mode = Node.PROCESS_MODE_ALWAYS
+	
+	await fade.fade(Color(0, 0, 0, 0), room_transition_time).finished
 
 func teleport_player_to_door(room: Room, dest_door_tag: String):
 	
@@ -88,15 +96,11 @@ func teleport_player_to_door(room: Room, dest_door_tag: String):
 			# Raycast to make sure player snaps to the ground
 			# WARNING: Potentially buggy
 			
-			var query = PhysicsRayQueryParameters2D.create(spawn_location, spawn_location + Vector2(0, 40000))
-			var collision: Dictionary = get_viewport().find_world_2d().direct_space_state.intersect_ray(query)
-			
 			player.has_gravity = true
 			
-			if collision:
-				player.global_position = collision.position + player.get_half_height() * Vector2.UP
-			else:
-				player.global_position = spawn_location + player.get_half_height() * Vector2.UP
+			#player.global_position = collision.position + player.get_half_height() * Vector2.UP
+			
+			player.teleport_to_ground(spawn_location)
 			
 			# Reset player momentum
 			
