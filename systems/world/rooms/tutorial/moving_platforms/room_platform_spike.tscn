@@ -55,7 +55,7 @@ size = Vector2(128, 64)
 [sub_resource type="Curve2D" id="Curve2D_qyli8"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 768, 160, 0, 0, 0, 0, 768, -704)
+"points": PackedVector2Array(0, 0, 0, 0, 768, 160, 0, 0, 0, 0, 770, -474)
 }
 point_count = 2
 
@@ -158,11 +158,11 @@ curve = SubResource("Curve2D_qyli8")
 time = 3.0
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform5" index="0" unique_id=199652958]
-position = Vector2(768, 130.76)
+position = Vector2(768.0923, 130.76015)
 progress = 29.24
 
 [node name="AnimatableBody2D" parent="Objects/MovingPlatform5" index="1" unique_id=886220012]
-position = Vector2(768, 130.76)
+position = Vector2(768.0923, 130.76015)
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform5/AnimatableBody2D" index="0" unique_id=388684668]
 position = Vector2(0, 0)
