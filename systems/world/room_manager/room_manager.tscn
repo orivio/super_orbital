@@ -7,7 +7,7 @@
 
 [node name="RoomManager" type="Node" unique_id=1236648784]
 script = ExtResource("1_5cnr3")
-initial_room_path = "uid://bgq8pnv2gusy2"
+initial_room_path = "uid://d1gjph7nxyegd"
 initial_door_ta = "WestDoor"
 room_transition_time = 0.1
 
