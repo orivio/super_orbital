@@ -2,7 +2,7 @@
 class_name WrenchItem extends Area2D
 
 func on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	if body.is_in_group("player"):
 		wrench_get(body)
 
 func wrench_get(player: Node2D):
