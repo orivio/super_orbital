@@ -2,6 +2,7 @@ class_name StateWrench extends PlayerState
 
 var entry_velocity = 0
 var gravity_switch_pressed: bool
+var wrench_cosmetic = preload("res://systems/world/objects/wrench_cosmetic/wrench_sprite.tscn")
 
 @onready var idle_state: PlayerState = $"../Idle"
 @onready var walk_state: PlayerState = $"../Walk"
@@ -12,6 +13,7 @@ var gravity_switch_pressed: bool
 func enter() -> void:
 	player.update_animation("wrench")
 	entry_velocity = player.base_velocity
+	spawn_wrench_sprite()
 	if not player.is_on_floor():
 		player.base_velocity = entry_velocity * -1
 
@@ -25,6 +27,13 @@ func input(event: InputEvent) -> PlayerState:
 
 func process(_delta: float) -> PlayerState:
 	return null
+
+func spawn_wrench_sprite():
+	var wrench_to_spawn = wrench_cosmetic.instantiate()
+	wrench_to_spawn.position = player.position
+	get_tree().current_scene.add_child(wrench_to_spawn)
+	await get_tree().create_timer(1.0).timeout
+	wrench_to_spawn.queue_free()
 
 func physics_process(delta: float) -> PlayerState:
 	
