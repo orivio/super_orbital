@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b80fy4d3ib7rf"]
+
+[ext_resource type="Script" uid="uid://bp0bgiiaqs42k" path="res://systems/world/objects/wrench_item/wrench_item.gd" id="1_jnxgm"]
+[ext_resource type="Texture2D" uid="uid://bbltfdgug8gmm" path="res://entities/player/sad_guy.png" id="2_p58gx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msjva"]
+size = Vector2(94.5, 101)
+
+[node name="WrenchItem" type="Area2D" unique_id=888925590]
+collision_layer = 128
+collision_mask = 2
+script = ExtResource("1_jnxgm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=607865615]
+texture = ExtResource("2_p58gx")
+script = ExtResource("1_jnxgm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1932033801]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_msjva")
+script = ExtResource("1_jnxgm")

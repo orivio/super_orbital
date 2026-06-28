@@ -6,7 +6,7 @@
 
 [node name="RoomManager" type="Node" unique_id=1236648784]
 script = ExtResource("1_5cnr3")
-initial_room_path = "uid://ddxmy7jvftye4"
+initial_room_path = "uid://dtohxckxanqyl"
 initial_door_ta = "WestDoor"
 
 [node name="Player" parent="." unique_id=1158454686 instance=ExtResource("2_i3p2r")]
