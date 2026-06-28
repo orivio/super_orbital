@@ -14,8 +14,8 @@ func enter() -> void:
 	player.update_animation("wrench")
 	entry_velocity = player.base_velocity
 	spawn_wrench_sprite()
-	if not player.is_on_floor():
-		player.base_velocity = entry_velocity * -1
+	#if not player.is_on_floor():
+	#	player.base_velocity = entry_velocity * -1
 
 func exit() -> void:
 	pass
