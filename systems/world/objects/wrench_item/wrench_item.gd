@@ -1,7 +1,6 @@
-# please check if this works lol - russ
 class_name WrenchItem extends Area2D
 
-func on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		wrench_get(body)
 
