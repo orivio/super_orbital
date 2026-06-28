@@ -2,6 +2,7 @@
 class_name TooltipField extends Area2D
 
 @export var message: String
+@export var unlocks_ability: String
 
 func _enter_tree() -> void:
 	#$Label.set_meta("_edit_lock_", true)
@@ -26,6 +27,7 @@ func _process(_delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and "show_tooltip" in body and not body.disabled and not body.tooltips_disabled:
 		body.show_tooltip(message)
+		body.unlock(unlocks_ability)
 		#print("Showing tooltip: ", message)
 
 

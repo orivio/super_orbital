@@ -54,7 +54,7 @@ func physics_process(delta: float) -> PlayerState:
 		entry_velocity.x = player.base_velocity.x
 		player.sprite.flip_h = not player.sprite.flip_h
 	
-	if gravity_switch_pressed and player.can_gravity_switch:
+	if gravity_switch_pressed and player.can("gravity_switch"):
 		gravity_switch_pressed = false
 		player.has_gravity = true
 	
@@ -64,7 +64,7 @@ func physics_process(delta: float) -> PlayerState:
 		else:
 			return jump_state
 	
-	if throw_wrench_pressed and player.can_throw_wrench:
+	if throw_wrench_pressed and player.can("throw_wrench"):
 		throw_wrench_pressed = false
 		var x_wrench = x_axis
 		var y_wrench = y_axis

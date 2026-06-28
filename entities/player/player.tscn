@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bbo5lg346cmyl" path="res://entities/player/player.gd" id="1_rkbax"]
 [ext_resource type="Resource" uid="uid://br1xonlgrqa3d" path="res://entities/player/movement_settings/player_default_movement_settings.tres" id="2_qiwj3"]
+[ext_resource type="Resource" uid="uid://dgnj6p2kjhtyk" path="res://entities/player/abilities/player_initial_abilities.tres" id="3_afbqv"]
 [ext_resource type="Script" uid="uid://c5i0w63pxb5cx" path="res://entities/player/state/player_state_machine.gd" id="3_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://b7si4ovdjri6b" path="res://entities/player/silhouette_jump_test2.png" id="3_j3ovn"]
 [ext_resource type="Script" uid="uid://dqmpu2wxpo03a" path="res://entities/player/state/state_idle.gd" id="4_bls4j"]
@@ -83,6 +84,7 @@ collision_layer = 2
 collision_mask = 113
 script = ExtResource("1_rkbax")
 movement_settings = ExtResource("2_qiwj3")
+abilities = ExtResource("3_afbqv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=214816936]
 texture = ExtResource("3_j3ovn")

@@ -61,11 +61,11 @@ func physics_process(delta: float) -> PlayerState:
 		else:
 			return walk_state
 	
-	if dash_pressed and player.can_dash:
+	if dash_pressed and player.can("dash"):
 		dash_pressed = false
 		return dash_state
 	
-	if gravity_switch_pressed and player.can_gravity_switch:
+	if gravity_switch_pressed and player.can("gravity_switch"):
 		gravity_switch_pressed = false
 		return float_state
 	

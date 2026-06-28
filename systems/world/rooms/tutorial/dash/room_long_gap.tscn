@@ -28,6 +28,7 @@ shape = SubResource("RectangleShape2D_0n8ow")
 
 [node name="TooltipField" parent="POI" parent_id_path=PackedInt32Array(809409572) index="0" unique_id=11161504 instance=ExtResource("2_4sb06")]
 message = "Press Z to dash"
+unlocks_ability = "dash"
 
 [node name="CollisionShape2D" parent="POI/TooltipField" index="0" unique_id=822976353]
 position = Vector2(-144, -144)
@@ -57,9 +58,9 @@ shape = SubResource("RectangleShape2D_da8t8")
 position = Vector2(-288, -32)
 
 [node name="Label" parent="Doors/WestDoor" index="2" unique_id=164300380]
-visible = false
 offset_left = -500.0
 offset_right = -400.0
+metadata/_edit_lock_ = true
 
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=708133086 instance=ExtResource("3_0n8ow")]
 door_tag = "EastDoor"
@@ -74,9 +75,9 @@ shape = SubResource("RectangleShape2D_abwug")
 position = Vector2(544, -32)
 
 [node name="Label" parent="Doors/EastDoor" index="2" unique_id=164300380]
-visible = false
 offset_left = 700.0
 offset_right = 701.0
+metadata/_edit_lock_ = true
 
 [editable path="POI/TooltipField"]
 [editable path="Doors/WestDoor"]

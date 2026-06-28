@@ -37,9 +37,9 @@ shape = SubResource("RectangleShape2D_itb3o")
 position = Vector2(-384, -32)
 
 [node name="Label" parent="Doors/WestDoor" index="2" unique_id=164300380]
-visible = false
 offset_left = -600.0
 offset_right = -500.0
+metadata/_edit_lock_ = true
 
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=2076166927 instance=ExtResource("2_33pwr")]
 door_tag = "EastDoor"
@@ -54,9 +54,9 @@ shape = SubResource("RectangleShape2D_0h5ks")
 position = Vector2(1184, -32)
 
 [node name="Label" parent="Doors/EastDoor" index="2" unique_id=164300380]
-visible = false
 offset_left = 1300.0
 offset_right = 1500.0
+metadata/_edit_lock_ = true
 
 [editable path="Doors/WestDoor"]
 [editable path="Doors/EastDoor"]

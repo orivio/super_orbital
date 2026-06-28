@@ -3,6 +3,7 @@ class_name Player extends CharacterBody2D
 signal player_death
 
 @export var movement_settings: PlayerMovementSettings
+@export var abilities: PlayerAbilities
 
 var direction: float:
 	set(value):
@@ -130,3 +131,22 @@ func teleport_to_ground(target: Vector2) -> void:
 		global_position = floor_caster.get_collision_point(0) + Vector2.UP * get_half_height()
 	#print("Teleporting to ", target, ", glob: ", global_position)
 	floor_caster.enabled = false
+
+func can(ability: String) -> bool:
+	match ability:
+		"move":
+			return can_move and not input_locked and abilities.can_move
+		"jump":
+			return can_jump and not input_locked and abilities.can_jump
+		"dash":
+			return can_dash and not input_locked and abilities.can_dash
+		"gravity_switch":
+			return can_gravity_switch and not input_locked and abilities.can_gravity_switch
+		_:
+			return false
+
+func unlock(ability: String) -> void:
+	abilities.unlock(ability)
+
+func lock(ability: String) -> void:
+	abilities.lock(ability)

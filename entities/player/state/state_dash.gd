@@ -44,7 +44,7 @@ func physics_process(delta: float) -> PlayerState:
 	
 	dash_timer += delta
 	
-	if gravity_switch_pressed and player.can_gravity_switch:
+	if gravity_switch_pressed and player.can("gravity_switch"):
 		gravity_switch_pressed = false
 		return float_state
 	
