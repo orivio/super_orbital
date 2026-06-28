@@ -11,5 +11,6 @@ class_name PlayerMovementSettings extends Resource
 @export_range(0, 1) var dash_time: float
 @export_range(100, 1000) var dash_distance: float
 @export var mass: float
+# UNUSED
 @export var wrench_velocity: float
 @export_range(0, 1) var jump_buffer: float

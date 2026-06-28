@@ -69,8 +69,9 @@ func physics_process(delta: float) -> PlayerState:
 		var x_wrench = x_axis
 		var y_wrench = y_axis
 		var wrench_direction = Vector2(x_wrench, y_wrench)
+		print(wrench_direction)
 		if wrench_direction != Vector2.ZERO:
-			player.base_velocity = wrench_direction.normalized() * player.movement_settings.wrench_velocity
+			player.base_velocity += wrench_direction.normalized() * player.base_velocity.length()
 			if player.base_velocity.x > 0:
 				player.sprite.flip_h = false
 			elif player.base_velocity.x < 0:
