@@ -4,4 +4,6 @@
 
 [resource]
 script = ExtResource("1_ghnxw")
+can_jump = true
+can_gravity_switch = true
 metadata/_custom_type_script = "uid://cvshxetkp5p26"
