@@ -142,6 +142,8 @@ func can(ability: String) -> bool:
 			return can_dash and not input_locked and abilities.can_dash
 		"gravity_switch":
 			return can_gravity_switch and not input_locked and abilities.can_gravity_switch
+		"throw_wrench":
+			return can_throw_wrench and not input_locked and abilities.can_throw_wrench
 		_:
 			return false
 
