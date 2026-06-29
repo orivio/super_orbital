@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cwqe5f6xrkqt0"]
+
+[ext_resource type="Script" uid="uid://dmoxoh41844jy" path="res://objects/camera_director/camera_director.gd" id="1_byfn3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gpa4"]
+resource_local_to_scene = true
+size = Vector2(352, 192)
+
+[node name="CameraDirector" type="Area2D" unique_id=43152395]
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("1_byfn3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=909587920]
+position = Vector2(16, 0)
+shape = SubResource("RectangleShape2D_5gpa4")
+debug_color = Color(0, 0, 0, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

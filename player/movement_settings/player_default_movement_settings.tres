@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PlayerMovementSettings" format=3 uid="uid://br1xonlgrqa3d"]
+
+[ext_resource type="Script" uid="uid://dumitcejfyj50" path="res://player/movement_settings/player_movement_settings.gd" id="1_y2jkl"]
+
+[resource]
+script = ExtResource("1_y2jkl")
+move_speed = 463.791
+jump_velocity = 600.0
+gravity = 23.795
+downward_gravity_multiplier = 1.2
+air_speed_multiplier = 0.9
+dash_velocity = 1159.784
+dash_time = 0.145
+dash_distance = 449.619
+mass = 1.0
+wrench_throw_velocity = 200.0
+wrench_velocity = 1000.0
+jump_buffer = 0.1
+metadata/_custom_type_script = "uid://dumitcejfyj50"

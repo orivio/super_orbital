@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://tgha13de8ubl"]
+
+[ext_resource type="Script" uid="uid://bkt73v02rjd74" path="res://scenes/pause_menu/pause_menu.gd" id="1_y06jj"]
+
+[node name="Pausemenu" type="Control" unique_id=505073776]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y06jj")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=234216520]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.457766, 0.4531237, 0.50968146, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1573320995]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 72.0
+offset_right = 872.0
+offset_bottom = 168.0
+theme_override_font_sizes/font_size = 70
+text = "paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="resume_button" type="Button" parent="." unique_id=173918636]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 224.0
+offset_right = 778.0012
+offset_bottom = 336.36276
+theme_override_font_sizes/font_size = 30
+text = "resume"
+
+[node name="exit_button" type="Button" parent="." unique_id=1883941207]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 384.0
+offset_right = 778.0012
+offset_bottom = 496.36276
+theme_override_font_sizes/font_size = 30
+text = "exit"
+
+[connection signal="pressed" from="resume_button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]

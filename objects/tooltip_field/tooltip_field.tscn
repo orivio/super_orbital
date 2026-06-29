@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cv2o8lyusltah"]
+
+[ext_resource type="Script" uid="uid://oqiglrue8ukr" path="res://objects/tooltip_field/tooltip_field.gd" id="1_w1h48"]
+[ext_resource type="Theme" uid="uid://dtebchkatgu51" path="res://ui/themes/editor_label_theme.tres" id="2_v28hk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0yix"]
+resource_local_to_scene = true
+size = Vector2(283, 276)
+
+[node name="TooltipField" type="Area2D" unique_id=11161504]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_w1h48")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=822976353]
+position = Vector2(-8.5, 21)
+shape = SubResource("RectangleShape2D_s0yix")
+debug_color = Color(0.078431375, 0.6509804, 0, 0.15686275)
+
+[node name="Label" type="Label" parent="." unique_id=1289689676]
+visible = false
+offset_left = -150.0
+offset_top = -217.0
+offset_right = 133.0
+offset_bottom = -117.0
+theme = ExtResource("2_v28hk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

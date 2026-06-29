@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PlayerAbilities" format=3 uid="uid://dgnj6p2kjhtyk"]
+
+[ext_resource type="Script" uid="uid://cvshxetkp5p26" path="res://player/abilities/player_abilities.gd" id="1_ghnxw"]
+
+[resource]
+script = ExtResource("1_ghnxw")
+can_move = true
+can_jump = true
+can_dash = true
+can_gravity_switch = true
+can_throw_wrench = true
+metadata/_custom_type_script = "uid://cvshxetkp5p26"

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cgbxshe71m18w"]
+
+[ext_resource type="Script" uid="uid://cnnhh2yw8kche" path="res://objects/wrench_projectile/wrench_projectile.gd" id="1_kubaf"]
+[ext_resource type="Texture2D" uid="uid://dvhbla1pem35" path="res://objects/wrench_projectile/wrench_projectile.png" id="1_wpeid"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wpeid"]
+size = Vector2(11, 43)
+
+[node name="WrenchProjectile" type="Area2D" unique_id=1706645822]
+collision_layer = 32
+collision_mask = 5
+script = ExtResource("1_kubaf")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1229361365]
+rotation = 0.7853982
+texture = ExtResource("1_wpeid")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=902972742]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_wpeid")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
