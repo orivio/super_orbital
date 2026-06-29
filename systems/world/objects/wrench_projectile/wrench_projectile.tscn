@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cgbxshe71m18w"]
 
-[ext_resource type="Texture2D" uid="uid://bbltfdgug8gmm" path="res://entities/player/sad_guy.png" id="1_r66g3"]
+[ext_resource type="Texture2D" uid="uid://bbltfdgug8gmm" path="res://entities/player/sad_guy.png" id="1_wpeid"]
 
 [node name="WrenchSprite" type="Node2D" unique_id=1256067117]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1229361365]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_r66g3")
+texture = ExtResource("1_wpeid")
