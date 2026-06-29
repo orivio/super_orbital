@@ -33,6 +33,7 @@ script = ExtResource("1_con2f")
 hover_button_scale = Vector2(1.05, 1.05)
 button_scale_duration = 0.1
 play_fade_color = Color(1, 1, 1, 1)
+play_fade_duration = 0.5
 
 [node name="Background" type="ColorRect" parent="." unique_id=710334058]
 layout_mode = 1
