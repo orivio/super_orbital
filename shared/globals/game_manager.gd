@@ -2,6 +2,7 @@ extends Node
 
 var player: Player
 var camera: PlayerCamera
+var current_room: Room
 var time_scale: float = 1
 var impact_timer: float = 0
 

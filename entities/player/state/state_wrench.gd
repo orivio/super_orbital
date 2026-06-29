@@ -2,7 +2,7 @@ class_name StateWrench extends PlayerState
 
 var entry_velocity = 0
 var gravity_switch_pressed: bool
-var wrench_cosmetic = preload("res://systems/world/objects/wrench_cosmetic/wrench_sprite.tscn")
+var wrench_projectile: PackedScene = preload("res://systems/world/objects/wrench_projectile/wrench_projectile.tscn")
 
 @onready var idle_state: PlayerState = $"../Idle"
 @onready var walk_state: PlayerState = $"../Walk"
@@ -13,7 +13,7 @@ var wrench_cosmetic = preload("res://systems/world/objects/wrench_cosmetic/wrenc
 func enter() -> void:
 	player.update_animation("wrench")
 	entry_velocity = player.base_velocity
-	spawn_wrench_sprite()
+	spawn_wrench_projectile(-entry_velocity)
 	#if not player.is_on_floor():
 	#	player.base_velocity = entry_velocity * -1
 
@@ -28,12 +28,15 @@ func input(event: InputEvent) -> PlayerState:
 func process(_delta: float) -> PlayerState:
 	return null
 
-func spawn_wrench_sprite():
-	var wrench_to_spawn = wrench_cosmetic.instantiate()
-	wrench_to_spawn.position = player.position
-	get_tree().current_scene.add_child(wrench_to_spawn)
-	await get_tree().create_timer(1.0).timeout
-	wrench_to_spawn.queue_free()
+func spawn_wrench_projectile(direction: Vector2):
+	var wrench_instance = wrench_projectile.instantiate()
+	wrench_instance.position = player.position
+	wrench_instance.velocity = direction.normalized() * player.movement_settings.wrench_throw_velocity
+	wrench_instance.rotation_speed = 3
+	GameManager.current_room.add_object(wrench_instance)
+	await get_tree().create_timer(100.0).timeout
+	if is_instance_valid(wrench_instance):
+		wrench_instance.queue_free()
 
 func physics_process(delta: float) -> PlayerState:
 	
