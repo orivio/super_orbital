@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 GameManager="*uid://clcu7dy3b7klm"
 PhysicsManager="*uid://di6kutv2ooq8"
+SaveManager="*uid://c2vk1jiu0i4wm"
 
 [display]
 

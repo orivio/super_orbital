@@ -1,6 +1,9 @@
-class_name RoomManager extends Node
+class_name RoomManager
+extends Node
 
-@export_file("*.tscn") var initial_room_path: String
+signal room_changed(room_path: String)
+
+@export_file("*.tscn") var initial_room_path: String = ""
 @export var initial_door_ta: String
 @export var room_transition_time: float
 
@@ -9,27 +12,31 @@ var previous_room: Node2D = null
 var current_room_path: String
 var last_entered_door_tag: String
 
-@onready var player: Node2D = $Player
+@onready var player: Player = $Player
 @onready var player_camera: PlayerCamera = $PlayerCamera
 @onready var fade: Fade = $Fade
 @onready var room_container: Node2D = $RoomContainer
 
 func _ready() -> void:
+	room_changed.connect(SaveManager._on_room_changed)
 	player.player_death.connect(_on_player_death)
-	call_deferred("load_initial_room")
 
 func _on_player_death() -> void:
 	reload_room()
 
 func reload_room() -> void:
-	change_room(current_room_path, last_entered_door_tag)
+	change_room(current_room_path, last_entered_door_tag, false)
 
 func load_initial_room() -> void:
+	if initial_room_path == "":
+		initial_room_path = SaveManager.get_save_file().room_path
 	# print(initial_door_ta)
+	# print(initial_room_path)
 	fade.color_rect.color = Color(0, 0, 0, 1)
-	change_room(initial_room_path, initial_door_ta)
+	change_room(initial_room_path, initial_door_ta, false)
+	player.load_abilities()
 
-func change_room(dest_room_path: String, dest_door_tag: String) -> void:
+func change_room(dest_room_path: String, dest_door_tag: String, do_save: bool = true) -> void:
 	
 	# print("Disabling player")
 	player.disabled = true
@@ -53,6 +60,7 @@ func change_room(dest_room_path: String, dest_door_tag: String) -> void:
 	if current_room:
 		previous_room = current_room
 		current_room.queue_free()
+	
 	
 	# Add new room
 	
@@ -79,6 +87,9 @@ func change_room(dest_room_path: String, dest_door_tag: String) -> void:
 	player.process_mode = Node.PROCESS_MODE_ALWAYS
 	
 	await fade.fade(Color(0, 0, 0, 0), room_transition_time).finished
+	
+	if do_save:
+		room_changed.emit(dest_room_path)
 
 func teleport_player_to_door(room: Room, dest_door_tag: String):
 	

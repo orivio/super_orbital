@@ -1,9 +1,12 @@
-class_name Player extends CharacterBody2D
+class_name Player
+extends CharacterBody2D
 
 signal player_death
+signal ability_unlocked(name: String)
+signal ability_locked(name: String)
 
 @export var movement_settings: PlayerMovementSettings
-@export var abilities: PlayerAbilities
+@export var abilities: PlayerAbilities = null
 
 var direction: float:
 	set(value):
@@ -34,6 +37,8 @@ var jump_buffer: bool = false
 
 func _ready() -> void:
 	GameManager.player = self
+	ability_unlocked.connect(SaveManager._on_ability_unlocked)
+	ability_locked.connect(SaveManager._on_ability_locked)
 	state_machine.initialize()
 
 func _process(delta: float) -> void:
@@ -83,6 +88,10 @@ func _physics_process(_delta: float) -> void:
 	velocity = base_velocity * GameManager.time_scale
 
 	move_and_slide()
+
+func load_abilities() -> void:
+	if not abilities:
+		abilities = SaveManager.get_save_file().player_abilities
 
 func update_animation(animation: String) -> void:
 	if animation_player.current_animation != animation:
@@ -148,7 +157,11 @@ func can(ability: String) -> bool:
 			return false
 
 func unlock(ability: String) -> void:
-	abilities.unlock(ability)
+	if not abilities.unlocked(ability):
+		abilities.unlock(ability)
+		ability_unlocked.emit(ability)
 
 func lock(ability: String) -> void:
-	abilities.lock(ability)
+	if abilities.unlocked(ability):
+		abilities.lock(ability)
+		ability_locked.emit(ability)

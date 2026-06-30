@@ -13,9 +13,9 @@ func _ready() -> void:
 	
 	var doors = get_tree().get_nodes_in_group("door")
 	for door in doors:
-		door.door_entered.connect(door_entered)
+		door.door_entered.connect(_on_door_entered)
 
-func door_entered(dest_room_path: String, dest_door_tag: String):
+func _on_door_entered(dest_room_path: String, dest_door_tag: String):
 	room_door_entered.emit.call_deferred(dest_room_path, dest_door_tag)
 
 func get_camera_bounds() -> Rect2:

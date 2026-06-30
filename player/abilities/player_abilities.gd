@@ -35,3 +35,18 @@ func lock(ability: String) -> void:
 			can_throw_wrench = false
 		_:
 			pass
+
+func unlocked(ability: String) -> bool:
+	match ability:
+		"move":
+			return can_move
+		"jump":
+			return can_jump
+		"dash":
+			return can_dash
+		"gravity_switch":
+			return can_gravity_switch
+		"throw_wrench":
+			return can_throw_wrench
+		_:
+			return false

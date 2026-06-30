@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bbo5lg346cmyl" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Resource" uid="uid://br1xonlgrqa3d" path="res://player/movement_settings/player_default_movement_settings.tres" id="2_qiwj3"]
-[ext_resource type="Resource" uid="uid://dgnj6p2kjhtyk" path="res://player/abilities/player_initial_abilities.tres" id="3_afbqv"]
 [ext_resource type="Script" uid="uid://c5i0w63pxb5cx" path="res://player/state/player_state_machine.gd" id="3_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://b7si4ovdjri6b" path="res://player/sprites/silhouette_jump_test2.png" id="3_j3ovn"]
 [ext_resource type="Script" uid="uid://dqmpu2wxpo03a" path="res://player/state/state_idle.gd" id="4_bls4j"]
@@ -77,6 +76,8 @@ size = Vector2(24, 58)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1qjk"]
 size = Vector2(18, 53)
 
+[sub_resource type="LabelSettings" id="LabelSettings_yllr7"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_j3ovn"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1158454686 groups=["player"]]
@@ -84,7 +85,6 @@ collision_layer = 2
 collision_mask = 113
 script = ExtResource("1_rkbax")
 movement_settings = ExtResource("2_qiwj3")
-abilities = ExtResource("3_afbqv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=214816936]
 texture = ExtResource("3_j3ovn")
@@ -136,9 +136,13 @@ script = ExtResource("11_a1qjk")
 offset_left = -89.0
 offset_top = -119.0
 offset_right = 100.0
-offset_bottom = -74.0
+offset_bottom = -32.0
 theme_override_font_sizes/font_size = 30
 text = "Example text"
+label_settings = SubResource("LabelSettings_yllr7")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 script = ExtResource("11_7thud")
 
 [node name="FloorCaster" type="ShapeCast2D" parent="." unique_id=404208216]
