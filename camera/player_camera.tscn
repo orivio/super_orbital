@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ce0q7dr3glcmp" path="res://camera/player_camera.gd" id="1_xvnxv"]
 
 [node name="PlayerCamera" type="Camera2D" unique_id=1414906739 groups=["player_camera"]]
-zoom = Vector2(1.25, 1.25)
+zoom = Vector2(2.5, 2.5)
 script = ExtResource("1_xvnxv")
 shake_fade = null
 random_strength = null

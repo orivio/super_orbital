@@ -10,7 +10,7 @@ size = Vector2(2656, 1216)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsc1q"]
 resource_local_to_scene = true
-size = Vector2(384, 256)
+size = Vector2(64, 256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5e6m8"]
 resource_local_to_scene = true
@@ -31,14 +31,14 @@ message = "Press X to toggle gravity"
 unlocks_ability = "gravity_switch"
 
 [node name="CollisionShape2D" parent="POI/TooltipField" index="0" unique_id=822976353]
-position = Vector2(-192, -128)
+position = Vector2(-32, -128)
 shape = SubResource("RectangleShape2D_jsc1q")
 
 [node name="Label" parent="POI/TooltipField" index="1" unique_id=1289689676]
 visible = true
-offset_left = -384.0
+offset_left = -64.0
 offset_top = -356.0
-offset_right = 192.0
+offset_right = 512.0
 offset_bottom = -256.0
 text = "Press X to toggle gravity"
 

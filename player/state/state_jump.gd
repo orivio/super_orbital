@@ -23,6 +23,7 @@ func input(event: InputEvent) -> PlayerState:
 		jump_released = true
 	elif event.is_action_pressed("dash"):
 		dash_pressed = true
+		print("Yeah!")
 	elif event.is_action_pressed("gravity_switch"):
 		gravity_switch_pressed = true
 	return null
@@ -33,7 +34,7 @@ func process(_delta: float) -> PlayerState:
 		player.sprite.frame = 21
 	elif player.base_velocity.y >= -399 and player.base_velocity.y <= -200:
 		player.sprite.frame = 23
-	elif player.base_velocity.y >= -899 and player.base_velocity.y <= -400:
+	elif player.base_velocity.y > -899 and player.base_velocity.y <= -400:
 		player.sprite.frame = 25
 	else:
 		pass

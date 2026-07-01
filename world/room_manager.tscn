@@ -7,6 +7,7 @@
 
 [node name="RoomManager" type="Node" unique_id=1236648784]
 script = ExtResource("1_5cnr3")
+initial_room_path = "uid://dmth7qhi6p4du"
 initial_door_ta = "WestDoor"
 room_transition_time = 0.1
 
@@ -19,4 +20,3 @@ random_strength = 10.0
 [node name="RoomContainer" type="Node2D" parent="." unique_id=196354671]
 
 [node name="Fade" parent="." unique_id=1477421051 instance=ExtResource("4_i8s06")]
-visible = false
