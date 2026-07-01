@@ -1,4 +1,17 @@
-ok yea so like basically like bro like we kinda like have loke stuff to do:
-	
-	- add spike to tile set
-		- give it a hitbox
+- Fix bug where upon unlocking the dash or gravity switch ability for the first time, you will dash or gravity switch immediately after unlocking the ability, even if you didn't press any key for it
+- Make an icon for the game
+- Make a banner of the game for stardance
+- Finish tileset
+- Finish jump, dash, gravity switch, and wrench throw animations
+- Draw the visible layer to the player's animations
+- Consider whether the player should be able to gravity switch right after leaving a gravity switch.
+	- I think maybe the player should only be able to gravity switch again after they have landed safely on the ground.
+- Implement a save file screen on the menu
+- Make a devlog about save files
+- Have coder test out more levels and more feedback on the movement
+- Figure out a way to structure the game's progression
+- Do we need a dialogue system?
+- Design and animate cutscenes
+- Fix minor bugs with scene transitions
+- Make a better settings page
+- Design more of the game's story (nothing too long or complex)
