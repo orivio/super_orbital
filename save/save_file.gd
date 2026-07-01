@@ -1,20 +1,33 @@
 class_name SaveFile
-extends Resource
 
-const SAVE_GAME_PATH: String = "user://save_file.tres"
+const SAVE_GAME_PATH: String = "user://save_file.json"
 
-@export var room_path: String = "res://rooms/walk/room_move.tscn"
-@export var player_abilities: PlayerAbilities = preload("res://player/abilities/player_initial_abilities.tres")
+var room_path: String = "res://rooms/walk/room_move.tscn"
+var player_abilities: PlayerAbilities = preload("res://player/abilities/player_initial_abilities.tres")
 
 func _init() -> void:
 	if player_abilities:
 		player_abilities = player_abilities.duplicate()
 
 func write_save() -> void:
-	ResourceSaver.save(self, SAVE_GAME_PATH)
-	# print("Saving save file")
+	var file: FileAccess = FileAccess.open(SAVE_GAME_PATH, FileAccess.WRITE)
+	var data: Dictionary = {
+		"room": room_path,
+		"player_abilities": player_abilities.get_json()
+	}
+	file.store_string(JSON.stringify(data))
+	file.close()
 
-static func load_save() -> Resource:
-	if ResourceLoader.exists(SAVE_GAME_PATH):
-		return load(SAVE_GAME_PATH)
-	return null
+static func load_save() -> SaveFile:
+	var file: FileAccess = FileAccess.open(SAVE_GAME_PATH, FileAccess.READ)
+	if file == null:
+		return null
+	var data: Variant = JSON.parse_string(file.get_as_text())
+	file.close()
+	if data == null:
+		push_error("Failed to read save file!")
+		return null
+	var save_file: SaveFile = SaveFile.new()
+	save_file.room_path = data["room"]
+	save_file.player_abilities = PlayerAbilities.from_json(data["player_abilities"])
+	return save_file

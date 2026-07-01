@@ -14,7 +14,6 @@ func enter() -> void:
 	if y_axis != 0:
 		player.base_velocity.y = y_axis * player.movement_settings.dash_velocity * 0.6
 		player.base_velocity.x = 0
-		print("Yo")
 	else:
 		player.base_velocity.x = player.facing * player.movement_settings.dash_velocity
 		player.base_velocity.y = 0

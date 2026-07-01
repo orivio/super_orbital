@@ -38,6 +38,8 @@ func load_initial_room() -> void:
 
 func change_room(dest_room_path: String, dest_door_tag: String, do_save: bool = true) -> void:
 	
+	# print(dest_room_path)
+	
 	# print("Disabling player")
 	player.disabled = true
 	player.process_mode = Node.PROCESS_MODE_DISABLED
@@ -88,7 +90,7 @@ func change_room(dest_room_path: String, dest_door_tag: String, do_save: bool = 
 	
 	await fade.fade(Color(0, 0, 0, 0), room_transition_time).finished
 	
-	if do_save:
+	if do_save and FileAccess.file_exists(dest_room_path):
 		room_changed.emit(dest_room_path)
 
 func teleport_player_to_door(room: Room, dest_door_tag: String):
@@ -122,6 +124,8 @@ func teleport_player_to_door(room: Room, dest_door_tag: String):
 			# print("Teleporting to: ", player.global_position)
 			
 			return
+	
+	print("Could not find door ", dest_door_tag, " in room ", room.name)
 
 func update_camera_limits(room: Room) -> void:
 	

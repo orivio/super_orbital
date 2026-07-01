@@ -134,25 +134,21 @@ func _on_death_timeout() -> void:
 
 func teleport_to_ground(target: Vector2) -> void:
 	global_position = target
-	floor_caster.enabled = true
-	floor_caster.force_shapecast_update()
-	if floor_caster.is_colliding():
-		global_position = floor_caster.get_collision_point(0) + Vector2.UP * get_half_height()
-	#print("Teleporting to ", target, ", glob: ", global_position)
-	floor_caster.enabled = false
+	#print("Teleporting player to: ", global_position)
+	# This is so annoying and I hate this
 
 func can(ability: String) -> bool:
 	match ability:
 		"move":
-			return can_move and not input_locked and abilities.can_move
+			return can_move and not input_locked and abilities.unlocked("move")
 		"jump":
-			return can_jump and not input_locked and abilities.can_jump
+			return can_jump and not input_locked and abilities.unlocked("jump")
 		"dash":
-			return can_dash and not input_locked and abilities.can_dash
+			return can_dash and not input_locked and abilities.unlocked("dash")
 		"gravity_switch":
-			return can_gravity_switch and not input_locked and abilities.can_gravity_switch
+			return can_gravity_switch and not input_locked and abilities.unlocked("gravity_switch")
 		"throw_wrench":
-			return can_throw_wrench and not input_locked and abilities.can_throw_wrench
+			return can_throw_wrench and not input_locked and abilities.unlocked("throw_wrench")
 		_:
 			return false
 
