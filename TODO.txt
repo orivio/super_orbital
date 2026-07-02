@@ -17,3 +17,4 @@
 - Design more of the game's story (nothing too long or complex)
 - Should the game's icon be the Earth? Because it's the place your leaving? Or some other planet that we make up?
 - Should we add switches and locked gates?
+- When the player gently collides with a wall, floor, or ceiling in zero gravity mode, they shouldn't bounce with a violent camera shake, but instead, exit the no gravity state. This makes it a bit more challenging to perform a wall bounce, because you need to control your velocity in order to do it right.
