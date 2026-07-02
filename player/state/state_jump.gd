@@ -23,6 +23,7 @@ func input(event: InputEvent) -> PlayerState:
 		jump_released = true
 	elif event.is_action_pressed("dash"):
 		dash_pressed = true
+		# This is a spot to look out for. There's a bug where this can happen without actually pressing Z.
 		print("Yeah!")
 	elif event.is_action_pressed("gravity_switch"):
 		gravity_switch_pressed = true

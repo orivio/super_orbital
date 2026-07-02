@@ -16,3 +16,4 @@
 - Make a better settings page
 - Design more of the game's story (nothing too long or complex)
 - Should the game's icon be the Earth? Because it's the place your leaving? Or some other planet that we make up?
+- Should we add switches and locked gates?
