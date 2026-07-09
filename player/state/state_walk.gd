@@ -44,12 +44,7 @@ func physics_process(delta: float) -> PlayerState:
 	if player.jump_buffer and player.can("jump"):
 		return jump_state
 	
-	if gravity_switch_pressed and player.can("gravity_switch"):
-		gravity_switch_pressed = false
-		player.has_gravity = false
-		return float_state # why no work :(
-		#i added the float state variable at the top and all but it doesnt work
-		# no errors thrown tho
+	# The player should not be able to gravity switch when walking.
 	
 	if player.velocity.y > 0:
 		return fall_state

@@ -5,6 +5,8 @@ var gravity_switch_pressed: bool
 var throw_wrench_pressed: bool
 var x_axis: float
 var y_axis: float
+var just_collided_x: bool = false
+var just_collided_y: bool = false
 
 @onready var idle_state: PlayerState = $"../Idle"
 @onready var walk_state: PlayerState = $"../Walk"
@@ -13,7 +15,7 @@ var y_axis: float
 @onready var wrench_state: PlayerState = $"../Wrench"
 
 func enter() -> void:
-	player.update_animation("float")
+	player.stop_animation();
 	player.has_gravity = false
 	
 	if player.base_velocity.length_squared() < (player.movement_settings.float_min_velocity ** 2):
@@ -43,35 +45,48 @@ func process(_delta: float) -> PlayerState:
 
 func physics_process(delta: float) -> PlayerState:
 	
-	print(player.base_velocity.length())
-	
-	if player.is_on_floor():
+	if player.is_on_floor() and not just_collided_y:
 		if player.base_velocity.length_squared() > (player.movement_settings.float_bounce_min_velocity ** 2):
 			GameManager.impact()
 			player.base_velocity.y = entry_velocity.y * -1 * player.movement_settings.float_bounce_decay_factor
 			entry_velocity.y = player.base_velocity.y
+			player.spawn_impact_cloud(player.global_position + Vector2.DOWN * player.get_half_height(), 0)
 		else:
 			if player.direction == 0:
 				return idle_state
 			else:
 				return walk_state
+		just_collided_y = true
+	else:
+		just_collided_y = false
 	
-	if player.is_on_ceiling():
+	if player.is_on_ceiling() and not just_collided_y:
 		if player.base_velocity.length_squared() > (player.movement_settings.float_bounce_min_velocity ** 2):
 			GameManager.impact()
 			player.base_velocity.y = entry_velocity.y * -1 * player.movement_settings.float_bounce_decay_factor
 			entry_velocity.y = player.base_velocity.y
 		else:
 			return fall_state
+		just_collided_y = true
+	else:
+		just_collided_y = false
 	
-	if player.is_on_wall():
+	if player.is_on_wall() and not just_collided_x:
+		print("Hello!")
 		if player.base_velocity.length_squared() > (player.movement_settings.float_bounce_min_velocity ** 2):
 			GameManager.impact()
 			player.base_velocity.x = entry_velocity.x * -1 * player.movement_settings.float_bounce_decay_factor
 			entry_velocity.x = player.base_velocity.x
 			player.sprite.flip_h = not player.sprite.flip_h
+			if player.base_velocity.x < 0:
+				player.spawn_impact_cloud(player.global_position + Vector2.RIGHT * player.get_half_width(), -90)
+			else:
+				player.spawn_impact_cloud(player.global_position + Vector2.LEFT * player.get_half_width(), 90)
 		else:
 			return fall_state
+		just_collided_x = true
+	else:
+		just_collided_x = false
 	
 	if gravity_switch_pressed and player.can("gravity_switch"):
 		gravity_switch_pressed = false

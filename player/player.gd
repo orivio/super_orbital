@@ -5,6 +5,8 @@ signal player_death
 signal ability_unlocked(name: String)
 signal ability_locked(name: String)
 
+const IMPACT_CLOUD = preload("res://effects/impact_cloud/impact_cloud.tscn")
+
 @export var movement_settings: PlayerMovementSettings
 @export var abilities: PlayerAbilities = null
 
@@ -73,21 +75,30 @@ func _process(delta: float) -> void:
 		jump_buffer = true
 		get_tree().create_timer(movement_settings.jump_buffer).timeout.connect(on_jump_buffer_timeout)
 	
+	state_machine.process(delta)
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	#print(state_machine.current_state)
-	if is_on_floor() and !input_locked:
+	if is_on_floor() and not input_locked:
 		can_dash = true
-	else:
-		if has_gravity:
-			if base_velocity.y < 0:
-				base_velocity.y += movement_settings.gravity * GameManager.time_scale
-			else:
-				base_velocity.y += movement_settings.gravity * movement_settings.downward_gravity_multiplier * GameManager.time_scale
+	
+	if has_gravity and not is_on_floor():
+		var scaled_delta: float = delta * GameManager.time_scale
+		
+		if base_velocity.y < 0:
+			base_velocity.y += movement_settings.gravity * scaled_delta
+		else:
+			base_velocity.y += movement_settings.gravity * movement_settings.downward_gravity_multiplier * scaled_delta
 
-	velocity = base_velocity * GameManager.time_scale
+	velocity.x = base_velocity.x * GameManager.time_scale
+	# base_velocity.y already got time scaled
+	velocity.y = base_velocity.y
 
 	move_and_slide()
+	state_machine.physics_process(delta)
+
+func _unhandled_input(event: InputEvent) -> void:
+	state_machine.input(event)
 
 func load_abilities() -> void:
 	if not abilities:
@@ -97,17 +108,16 @@ func update_animation(animation: String) -> void:
 	if animation_player.current_animation != animation:
 		animation_player.play(animation)
 
+func stop_animation() -> void:
+	animation_player.stop()
+	animation_player.assigned_animation = ""
+
 func show_tooltip(message: String) -> void:
 	tooltip.show_tooltip(message)
 
 func hide_tooltip() -> void:
 	tooltip.hide_tooltip()
 
-func _unhandled_input(event: InputEvent) -> void:
-	#if event is InputEventMouseButton:
-	#	if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-	#		teleport_to_ground(get_global_mouse_position())
-	pass
 
 func die() -> void:
 	has_gravity = true
@@ -128,6 +138,9 @@ func on_jump_buffer_timeout() -> void:
 
 func get_half_height() -> float:
 	return collider.shape.get_rect().size.y / 2
+
+func get_half_width() -> float:
+	return collider.shape.get_rect().size.x / 2
 
 func _on_death_timeout() -> void:
 	tooltips_disabled = false
@@ -161,3 +174,11 @@ func lock(ability: String) -> void:
 	if abilities.unlocked(ability):
 		abilities.lock(ability)
 		ability_locked.emit(ability)
+
+func spawn_impact_cloud(pos: Vector2, rotation: float) -> void:
+	var cloud_instance = IMPACT_CLOUD.instantiate()
+	cloud_instance.finished.connect(cloud_instance.queue_free)
+	GameManager.current_room.add_effect(cloud_instance)
+	cloud_instance.global_position = pos
+	cloud_instance.rotation_degrees = rotation
+	cloud_instance.emitting = true

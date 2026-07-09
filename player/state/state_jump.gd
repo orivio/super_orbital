@@ -11,7 +11,7 @@ var dash_pressed: bool
 var gravity_switch_pressed: bool
 
 func enter() -> void:
-	# player.update_animation("jump")
+	player.stop_animation();
 	player.has_gravity = true
 	player.base_velocity.y = -player.movement_settings.jump_velocity
 

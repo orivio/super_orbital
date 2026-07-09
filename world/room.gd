@@ -6,6 +6,7 @@ signal room_door_entered(dest_room_path: String, dest_door_tag: String)
 @onready var camera_bounds: CollisionShape2D = $CameraBounds/CollisionShape2D
 @onready var doors: Node2D = $Doors
 @onready var objects: Node2D = $Objects
+@onready var effects: Node2D = $Effects
 
 func _ready() -> void:
 	
@@ -38,3 +39,6 @@ func get_doors() -> Array[Node]:
 
 func add_object(node: Node2D) -> void:
 	objects.add_child(node)
+
+func add_effect(node: Node2D) -> void:
+	effects.add_child(node)

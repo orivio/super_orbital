@@ -7,17 +7,17 @@ var prev_state: State
 var current_state: State
 
 func _ready() -> void:
-	process_mode = Node.PROCESS_MODE_DISABLED
+	pass
 
-func _unhandled_input(event: InputEvent) -> void:
+func input(event: InputEvent) -> void:
 	var new_state: State = current_state.input(event)
 	change_state(new_state)
 
-func _process(delta: float) -> void:
+func process(delta: float) -> void:
 	var new_state: State = current_state.process(delta)
 	change_state(new_state)
 
-func _physics_process(delta: float) -> void:
+func physics_process(delta: float) -> void:
 	var new_state: State = current_state.physics_process(delta)
 	change_state(new_state)
 
@@ -29,8 +29,6 @@ func initialize() -> void:
 			states.append(state)
 	
 	change_state(default_state)
-	
-	process_mode = Node.PROCESS_MODE_INHERIT
 
 func change_state(new_state: State) -> void:
 	

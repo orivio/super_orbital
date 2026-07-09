@@ -11,5 +11,3 @@ func initialize() -> void:
 			state.player = player
 	
 	change_state(default_state)
-	
-	process_mode = Node.PROCESS_MODE_INHERIT

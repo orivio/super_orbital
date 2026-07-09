@@ -27,3 +27,5 @@ debug_color = Color(0.70980394, 0.6117647, 0.32941177, 0.1254902)
 tile_set = ExtResource("3_gq2vv")
 
 [node name="Doors" type="Node2D" parent="." unique_id=1976013304]
+
+[node name="Effects" type="Node2D" parent="." unique_id=885905499]

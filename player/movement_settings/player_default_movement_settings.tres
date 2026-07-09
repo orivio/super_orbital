@@ -6,7 +6,7 @@
 script = ExtResource("1_y2jkl")
 move_speed = 463.791
 jump_velocity = 600.0
-gravity = 23.795
+gravity = 1427.7
 downward_gravity_multiplier = 1.2
 air_speed_multiplier = 0.9
 dash_velocity = 1159.784
