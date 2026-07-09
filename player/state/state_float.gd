@@ -1,6 +1,6 @@
 class_name StateFloat extends PlayerState
 
-var entry_velocity = 0
+var entry_velocity: Vector2
 var gravity_switch_pressed: bool
 var throw_wrench_pressed: bool
 var x_axis: float
@@ -15,7 +15,16 @@ var y_axis: float
 func enter() -> void:
 	player.update_animation("float")
 	player.has_gravity = false
-	entry_velocity = player.base_velocity
+	
+	if player.base_velocity.length_squared() < (player.movement_settings.float_min_velocity ** 2):
+		if abs(player.base_velocity.length_squared()) < 0.00001:
+			entry_velocity = Vector2.UP * player.movement_settings.float_min_velocity
+		else:
+			entry_velocity = player.base_velocity.normalized() * player.movement_settings.float_min_velocity
+	else:
+		entry_velocity = player.base_velocity
+	
+	player.base_velocity = entry_velocity
 
 func exit() -> void:
 	pass
@@ -34,25 +43,35 @@ func process(_delta: float) -> PlayerState:
 
 func physics_process(delta: float) -> PlayerState:
 	
+	print(player.base_velocity.length())
+	
 	if player.is_on_floor():
-		GameManager.impact()
-		player.base_velocity.y = entry_velocity.y * -1
-		entry_velocity.y = player.base_velocity.y
-	#	if player.direction == 0:
-	#		return idle_state
-	#	else:
-	#		return walk_state
+		if player.base_velocity.length_squared() > (player.movement_settings.float_bounce_min_velocity ** 2):
+			GameManager.impact()
+			player.base_velocity.y = entry_velocity.y * -1 * player.movement_settings.float_bounce_decay_factor
+			entry_velocity.y = player.base_velocity.y
+		else:
+			if player.direction == 0:
+				return idle_state
+			else:
+				return walk_state
 	
 	if player.is_on_ceiling():
-		GameManager.impact()
-		player.base_velocity.y = entry_velocity.y * -1
-		entry_velocity.y = player.base_velocity.y
+		if player.base_velocity.length_squared() > (player.movement_settings.float_bounce_min_velocity ** 2):
+			GameManager.impact()
+			player.base_velocity.y = entry_velocity.y * -1 * player.movement_settings.float_bounce_decay_factor
+			entry_velocity.y = player.base_velocity.y
+		else:
+			return fall_state
 	
 	if player.is_on_wall():
-		GameManager.impact()
-		player.base_velocity.x = entry_velocity.x * -1
-		entry_velocity.x = player.base_velocity.x
-		player.sprite.flip_h = not player.sprite.flip_h
+		if player.base_velocity.length_squared() > (player.movement_settings.float_bounce_min_velocity ** 2):
+			GameManager.impact()
+			player.base_velocity.x = entry_velocity.x * -1 * player.movement_settings.float_bounce_decay_factor
+			entry_velocity.x = player.base_velocity.x
+			player.sprite.flip_h = not player.sprite.flip_h
+		else:
+			return fall_state
 	
 	if gravity_switch_pressed and player.can("gravity_switch"):
 		gravity_switch_pressed = false
