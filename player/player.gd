@@ -182,3 +182,16 @@ func spawn_impact_cloud(pos: Vector2, rotation: float) -> void:
 	cloud_instance.global_position = pos
 	cloud_instance.rotation_degrees = rotation
 	cloud_instance.emitting = true
+
+func dash_effect(direction: Vector2) -> void:
+	match direction:
+		Vector2.UP:
+			spawn_impact_cloud(global_position + Vector2.UP * get_half_height(), 0)
+		Vector2.DOWN:
+			spawn_impact_cloud(global_position + Vector2.DOWN * get_half_height(), 180)
+		Vector2.LEFT:
+			spawn_impact_cloud(global_position + Vector2.LEFT * get_half_width(), 90)
+		Vector2.RIGHT:
+			spawn_impact_cloud(global_position + Vector2.RIGHT * get_half_width(), -90)
+	
+	

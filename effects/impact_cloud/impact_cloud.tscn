@@ -2,12 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://doevnnkvwtqra" path="res://effects/impact_cloud/impact_cloud_2.png" id="1_capuc"]
 [ext_resource type="Script" uid="uid://bbdw6vk1437cc" path="res://effects/impact_cloud/impact_cloud.gd" id="2_q22bo"]
+[ext_resource type="AudioStream" uid="uid://dlc5thnu7j3a1" path="res://effects/impact_cloud/impact_cloud_sound.wav" id="3_6kcb7"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q22bo"]
 particles_animation = true
 particles_anim_h_frames = 4
 particles_anim_v_frames = 1
 particles_anim_loop = false
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6kcb7"]
+playback_mode = 1
+random_pitch = 1.3348398
+streams_count = 1
+stream_0/stream = ExtResource("3_6kcb7")
 
 [node name="ImpactCloud" type="CPUParticles2D" unique_id=2125891055]
 material = SubResource("CanvasItemMaterial_q22bo")
@@ -26,3 +33,8 @@ initial_velocity_max = 114.09
 anim_speed_min = 1.0
 anim_speed_max = 1.0
 script = ExtResource("2_q22bo")
+
+[node name="WhooshSound" type="AudioStreamPlayer2D" parent="." unique_id=1002041244]
+stream = SubResource("AudioStreamRandomizer_6kcb7")
+volume_db = -6.981
+autoplay = true

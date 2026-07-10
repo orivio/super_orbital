@@ -7,6 +7,7 @@ var x_axis: float
 var y_axis: float
 var just_collided_x: bool = false
 var just_collided_y: bool = false
+var was_on_wall: bool = false
 
 @onready var idle_state: PlayerState = $"../Idle"
 @onready var walk_state: PlayerState = $"../Walk"
@@ -45,6 +46,8 @@ func process(_delta: float) -> PlayerState:
 
 func physics_process(delta: float) -> PlayerState:
 	
+	var on_wall = player.is_on_wall()
+	
 	if player.is_on_floor() and not just_collided_y:
 		if player.base_velocity.length_squared() > (player.movement_settings.float_bounce_min_velocity ** 2):
 			GameManager.impact()
@@ -71,7 +74,7 @@ func physics_process(delta: float) -> PlayerState:
 	else:
 		just_collided_y = false
 	
-	if player.is_on_wall() and not just_collided_x:
+	if on_wall and not was_on_wall:
 		if player.base_velocity.length_squared() > (player.movement_settings.float_bounce_min_velocity ** 2):
 			GameManager.impact()
 			player.base_velocity.x = entry_velocity.x * -1 * player.movement_settings.float_bounce_decay_factor
@@ -118,4 +121,7 @@ func physics_process(delta: float) -> PlayerState:
 		var velocity: Vector2 = PhysicsManager.GRAVITY_CONSTANT * (direction.normalized() / distance) * black_hole.mass / player.movement_settings.mass
 		
 		player.base_velocity += velocity
+	
+	was_on_wall = on_wall
+	
 	return null
