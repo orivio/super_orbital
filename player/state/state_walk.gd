@@ -46,7 +46,10 @@ func physics_process(delta: float) -> PlayerState:
 	
 	# The player should not be able to gravity switch when walking.
 	
-	if player.velocity.y > 0:
-		return fall_state
+	if not player.is_on_floor():
+		if player.base_velocity.y > 0:
+			return fall_state
+		else:
+			return jump_state
 	
 	return null

@@ -89,7 +89,7 @@ func _physics_process(delta: float) -> void:
 			base_velocity.y += movement_settings.gravity * scaled_delta
 		else:
 			base_velocity.y += movement_settings.gravity * movement_settings.downward_gravity_multiplier * scaled_delta
-
+	
 	velocity.x = base_velocity.x * GameManager.time_scale
 	# base_velocity.y already got time scaled
 	velocity.y = base_velocity.y

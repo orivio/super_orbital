@@ -89,10 +89,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
-size = Vector2(24, 58)
+size = Vector2(32, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1qjk"]
-size = Vector2(18, 53)
+size = Vector2(24, 52.5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yllr7"]
 
@@ -113,7 +113,7 @@ libraries/ = SubResource("AnimationLibrary_g1dw6")
 autoplay = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1986859216]
-position = Vector2(0, 3)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_oul6g")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=251871403]
@@ -122,7 +122,7 @@ collision_mask = 4
 script = ExtResource("4_j3ovn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=248394177]
-position = Vector2(0, 3.5)
+position = Vector2(0, 3.75)
 shape = SubResource("RectangleShape2D_a1qjk")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1422387926 node_paths=PackedStringArray("default_state")]

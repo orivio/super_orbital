@@ -2,6 +2,7 @@ shader_type canvas_item;
 
 uniform float scale = 1.0;
 uniform vec2 speed = vec2(0.0, 0.0);
+uniform float pixel_size : hint_range(1.0, 64.0) = 8.0;
 
 uint pcg(uint v) {
     uint state = v * 747796405u + 2891336453u;
@@ -68,15 +69,30 @@ void vertex() {
 
 void fragment() {
 	
-	vec2 uv = vec2(UV.x + fbm(UV) * 1.1 + 1000.0, UV.y + fbm(UV));
+    /*vec2 uv_derivatives = fwidth(UV);
+    float aspect_ratio = uv_derivatives.y / uv_derivatives.x;
+	vec2 u = UV * 0.5;
+	u.x *= aspect_ratio;
+	float space_quantization = 80.0;
+	u = floor(u * space_quantization) / space_quantization;*/
+	
+	vec2 screen_resolution = 1.0 / SCREEN_PIXEL_SIZE;
+	vec2 grid = screen_resolution / pixel_size;
+	vec2 u = floor(SCREEN_UV * grid) / grid;
+	vec2 uv = vec2(u.x + fbm(u) * 1.1 + 1000.0, u.y + fbm(u));
 	
 	float fb = fbm(uv * scale + TIME * speed);
-	fb = max(fb, 0.5) - 0.34;
-	float fbmr = fbm(uv * 0.5 * scale + TIME * speed * 20.) * 0.8;
-	float fbmg = fbm(uv * 0.5 * scale + TIME * speed * 10.) * 0.2;
-	float fbmb = fbm(uv * 0.5 * scale + TIME * speed * 16.) * 1.0;
-	COLOR = vec4(fbmr, fbmg, fbmb, fb);
-	//COLOR = vec4(fb);
+	float fbna = clamp(fb * 1.3, 0.0, 1.5) - 0.3;
+	float fba = clamp(fb * 1.6, 0.0, 1.4) - 0.4;
+	
+	float fbmr = fbm(uv * 0.5 * scale + TIME * speed * 2.3) * 0.8;
+	float fbmg = fbm(uv * 0.5 * scale + TIME * speed * 1.3) * 0.2;
+	float fbmb = fbm(uv * 0.5 * scale + TIME * speed * 1.9) * 1.0;
+	COLOR = vec4(fbmr * fbna, fbmg * fbna, fbmb * fbna, fba);
+	
+	float color_quantization = 10.0;
+	COLOR = floor(COLOR * color_quantization) / color_quantization;
+	//COLOR = vec4(fba);
 }
 
 //void light() {

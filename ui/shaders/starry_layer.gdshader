@@ -26,7 +26,9 @@ void vertex() {
 
 void fragment() {
 	
-	vec2 uv = (position + TIME * stars_speed) * TEXTURE_PIXEL_SIZE / star_size;
+	vec2 pos = position;
+	
+	vec2 uv = (pos + TIME * stars_speed) * TEXTURE_PIXEL_SIZE / star_size;
 	uv = fract(uv) * step(random(floor(uv)), stars_density);
 	COLOR = texture(TEXTURE, uv);
 }

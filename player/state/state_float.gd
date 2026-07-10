@@ -72,7 +72,6 @@ func physics_process(delta: float) -> PlayerState:
 		just_collided_y = false
 	
 	if player.is_on_wall() and not just_collided_x:
-		print("Hello!")
 		if player.base_velocity.length_squared() > (player.movement_settings.float_bounce_min_velocity ** 2):
 			GameManager.impact()
 			player.base_velocity.x = entry_velocity.x * -1 * player.movement_settings.float_bounce_decay_factor
