@@ -12,17 +12,33 @@ grow_vertical = 2
 script = ExtResource("1_5p8wc")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1302888556]
-layout_mode = 0
-offset_right = 1200.0
-offset_bottom = 664.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.2065543, 0.2065543, 0.20655426, 1)
 
 [node name="BackButton" type="Button" parent="." unique_id=1194747982]
-layout_mode = 0
+layout_mode = 1
 offset_left = 16.0
 offset_top = 16.0
-offset_right = 106.028595
-offset_bottom = 78.80423
+offset_right = 166.0
+offset_bottom = 78.804
 text = "back"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=485309407]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=167384193]
+layout_mode = 2
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
