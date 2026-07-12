@@ -6,6 +6,7 @@ signal ability_unlocked(name: String)
 signal ability_locked(name: String)
 
 const IMPACT_CLOUD = preload("res://effects/impact_cloud/impact_cloud.tscn")
+const DASH_CLOUD = preload("res://effects/dash_cloud/dash_cloud.tscn")
 
 @export var movement_settings: PlayerMovementSettings
 @export var abilities: PlayerAbilities = null
@@ -98,6 +99,8 @@ func _physics_process(delta: float) -> void:
 	state_machine.physics_process(delta)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("dash"):
+		print("Yeah!")
 	state_machine.input(event)
 
 func load_abilities() -> void:
@@ -183,15 +186,23 @@ func spawn_impact_cloud(pos: Vector2, rotation: float) -> void:
 	cloud_instance.rotation_degrees = rotation
 	cloud_instance.emitting = true
 
+func spawn_dash_cloud(pos: Vector2, rotation: float) -> void:
+	var cloud_instance = DASH_CLOUD.instantiate()
+	cloud_instance.finished.connect(cloud_instance.queue_free)
+	add_child(cloud_instance)
+	cloud_instance.global_position = pos
+	cloud_instance.rotation_degrees = rotation
+	cloud_instance.emitting = true
+
 func dash_effect(direction: Vector2) -> void:
 	match direction:
 		Vector2.UP:
-			spawn_impact_cloud(global_position + Vector2.UP * get_half_height(), 0)
+			spawn_dash_cloud(global_position + Vector2.UP * get_half_height(), 0)
 		Vector2.DOWN:
-			spawn_impact_cloud(global_position + Vector2.DOWN * get_half_height(), 180)
+			spawn_dash_cloud(global_position + Vector2.DOWN * get_half_height(), 180)
 		Vector2.LEFT:
-			spawn_impact_cloud(global_position + Vector2.LEFT * get_half_width(), 90)
+			spawn_dash_cloud(global_position + Vector2.LEFT * get_half_width(), 90)
 		Vector2.RIGHT:
-			spawn_impact_cloud(global_position + Vector2.RIGHT * get_half_width(), -90)
+			spawn_dash_cloud(global_position + Vector2.RIGHT * get_half_width(), -90)
 	
 	

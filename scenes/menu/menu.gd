@@ -32,7 +32,8 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	original_button_size = play_button.size
 	for button: Button in [play_button, settings_button]:
-		button.pivot_offset = button.size / 2.0
+		button.pivot_offset   = button.size / 2.0
+	play_button.grab_focus()
 
 func _on_play_button_pressed() -> void:
 	await fade.fade(play_fade_color, play_fade_duration).finished
