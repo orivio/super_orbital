@@ -17,3 +17,9 @@ func _physics_process(delta: float) -> void:
 		if impact_timer < 0:
 			camera.camera_shake.emit()
 			time_scale = 1
+
+func lock_input() -> void:
+	player.input_locked = true
+	
+func unlock_input() -> void:
+	player.input_locked = false

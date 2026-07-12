@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://g3yxdhn1vnnn"]
+
+[ext_resource type="Texture2D" uid="uid://cm0dbs37sjq61" path="res://dialogue/dialogue_pedestal.svg" id="1_hrhq7"]
+[ext_resource type="Script" uid="uid://dujdow2cyf8aq" path="res://dialogue/dialogue_system.gd" id="1_mmk8w"]
+
+[sub_resource type="SystemFont" id="SystemFont_7ojoo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mmk8w"]
+font = SubResource("SystemFont_7ojoo")
+font_size = 24
+
+[node name="DialogueSystem" type="Control" unique_id=371403122]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mmk8w")
+target_speaker_rise_scale = 1.0
+pedestal_rise_duration = 0.2
+pedestal_fall_duration = 0.2
+
+[node name="DialoguePedestal" type="NinePatchRect" parent="." unique_id=1358891282]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_right = -64.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_hrhq7")
+region_rect = Rect2(0, 0, 794, 246)
+patch_margin_left = 76
+patch_margin_right = 76
+
+[node name="InteriorMarginContainer" type="MarginContainer" parent="DialoguePedestal" unique_id=319767495]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = 20.0
+offset_right = -80.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialoguePedestal/InteriorMarginContainer" unique_id=420106819]
+layout_mode = 2
+
+[node name="LeftPortraitContainer" type="Control" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer" unique_id=96978146]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer/LeftPortraitContainer" unique_id=1107490662]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer/LeftPortraitContainer/VBoxContainer" unique_id=1672749658]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CardBackground" type="ColorRect" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer/LeftPortraitContainer/VBoxContainer/Control" unique_id=650549086]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="TextureRect" type="TextureRect" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer/LeftPortraitContainer/VBoxContainer/Control" unique_id=1335154311]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer/LeftPortraitContainer/VBoxContainer" unique_id=419238515]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+label_settings = SubResource("LabelSettings_mmk8w")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer" unique_id=1359522899]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+
+[node name="DialogueContent" type="RichTextLabel" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer/MarginContainer" unique_id=2008583893]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 32
+
+[node name="RightPortraitContainer" type="Control" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer" unique_id=1204627038]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer/RightPortraitContainer" unique_id=196468765]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer/RightPortraitContainer/VBoxContainer" unique_id=1265940663]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CardBackground" type="ColorRect" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer/RightPortraitContainer/VBoxContainer/Control" unique_id=133776134]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer/RightPortraitContainer/VBoxContainer/Control" unique_id=1870953310]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+flip_h = true
+
+[node name="Label" type="Label" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer/RightPortraitContainer/VBoxContainer" unique_id=240985382]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+label_settings = SubResource("LabelSettings_mmk8w")
+horizontal_alignment = 1
