@@ -26,12 +26,18 @@ func spike_switch() -> void:
 		tilemap.set_cell(Vector2i(24, -4), 0, Vector2i(3, 0))
 		tilemap.set_cell(Vector2i(27, -4), 0, Vector2i(4, 0))
 		
+		tilemap.set_cell(Vector2i(25, -4), 0, Vector2i(5, 3))
+		tilemap.set_cell(Vector2i(26, -4), 0, Vector2i(6, 4))
+		
 		tilemap.set_cell(Vector2i(26, -11), 0, Vector2i(1, 0))
 		tilemap.set_cell(Vector2i(27, -11), 0, Vector2i(1, 0))
 		tilemap.set_cell(Vector2i(26, -9), 0, Vector2i(2, 0))
 		tilemap.set_cell(Vector2i(27, -9), 0, Vector2i(2, 0))
 		tilemap.set_cell(Vector2i(25, -10), 0, Vector2i(3, 0))
 		tilemap.set_cell(Vector2i(28, -10), 0, Vector2i(4, 0))
+		
+		tilemap.set_cell(Vector2i(26, -10), 0, Vector2i(5, 3))
+		tilemap.set_cell(Vector2i(27, -10), 0, Vector2i(6, 4))
 		
 		
 		
@@ -41,6 +47,9 @@ func spike_switch() -> void:
 		tilemap.set_cell(Vector2i(22, -6), -1)
 		tilemap.set_cell(Vector2i(23, -7), -1)
 		tilemap.set_cell(Vector2i(20, -7), -1)
+		
+		tilemap.set_cell(Vector2i(21, -7), 0, Vector2i(3, 2))
+		tilemap.set_cell(Vector2i(22, -7), 0, Vector2i(4, 3))
 	else:
 		tilemap.set_cell(Vector2i(25, -5), -1)
 		tilemap.set_cell(Vector2i(26, -5), -1)
@@ -49,12 +58,18 @@ func spike_switch() -> void:
 		tilemap.set_cell(Vector2i(24, -4), -1)
 		tilemap.set_cell(Vector2i(27, -4), -1)
 		
+		tilemap.set_cell(Vector2i(25, -4), 0, Vector2i(3, 2))
+		tilemap.set_cell(Vector2i(26, -4), 0, Vector2i(4, 3))
+		
 		tilemap.set_cell(Vector2i(26, -11), -1)
 		tilemap.set_cell(Vector2i(27, -11), -1)
 		tilemap.set_cell(Vector2i(26, -9), -1)
 		tilemap.set_cell(Vector2i(27, -9), -1)
 		tilemap.set_cell(Vector2i(25, -10), -1)
 		tilemap.set_cell(Vector2i(28, -10), -1)
+		
+		tilemap.set_cell(Vector2i(26, -10), 0, Vector2i(3, 2))
+		tilemap.set_cell(Vector2i(27, -10), 0, Vector2i(4, 3))
 		
 		
 		
@@ -64,4 +79,7 @@ func spike_switch() -> void:
 		tilemap.set_cell(Vector2i(22, -6), 0, Vector2i(2, 0))
 		tilemap.set_cell(Vector2i(20, -7), 0, Vector2i(3, 0))
 		tilemap.set_cell(Vector2i(23, -7), 0, Vector2i(4, 0))
+		
+		tilemap.set_cell(Vector2i(21, -7), 0, Vector2i(5, 3))
+		tilemap.set_cell(Vector2i(22, -7), 0, Vector2i(6, 4))
 	state_a = not state_a
