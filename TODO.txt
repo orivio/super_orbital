@@ -1,20 +1,30 @@
+Russlan:
+- Design more of the game's story (nothing too long or complex)
+- Write the dialogue, and decide where it takes place
+- Make the OST
+- Figure out the environment of the gameplay areas (are we on Mars)
+- If there are more characters, which I think is a good idea for gameplay and story, design them and what they look like
+	- Maybe sketch what their character looks like in game, and their dialogue portrait
+- Assess the progression and difficulty of the levels
+
+Obed:
 - Fix bug where upon unlocking the dash or gravity switch ability for the first time, you will dash or gravity switch immediately after unlocking the ability, even if you didn't press any key for it
-- Make an icon for the game
-- Make a banner of the game for stardance
 - Finish tileset
-- Finish jump, dash, gravity switch, and wrench throw animations
+- Finish dash, gravity switch, and wrench throw animations
+- Polish impact clouds and dash clouds effects
 - Draw the visible layer to the player's animations
-- Consider whether the player should be able to gravity switch right after leaving a gravity switch.
-	- I think maybe the player should only be able to gravity switch again after they have landed safely on the ground.
 - Implement a save file screen on the menu
 - Make a devlog about save files
-- Have coder test out more levels and more feedback on the movement
-- Figure out a way to structure the game's progression
-- Do we need a dialogue system?
-- Design and animate cutscenes
-- Fix minor bugs with scene transitions
 - Make a better settings page
-- Design more of the game's story (nothing too long or complex)
-- Should the game's icon be the Earth? Because it's the place your leaving? Or some other planet that we make up?
-- Should we add switches and locked gates?
-- When the player gently collides with a wall, floor, or ceiling in zero gravity mode, they shouldn't bounce with a violent camera shake, but instead, exit the no gravity state. This makes it a bit more challenging to perform a wall bounce, because you need to control your velocity in order to do it right.
+
+Both, or whoever wants to:
+- Make an icon for the game
+- Make a banner of the game for stardance
+- Consider whether the player should be able to gravity switch right after leaving a gravity switch.
+	- I think maybe the player should only be able to gravity switch again after they have landed safely on the ground.
+- Figure out a way to structure the game's progression. If it should be based around the story, write the story first
+- Design and animate cutscenes
+- Should we add more mechanics?
+- Maybe have another character go through the level ahead of you if you need help
+	- Who would that character be?
+- Make sound effects for movement, ui, and dialogue

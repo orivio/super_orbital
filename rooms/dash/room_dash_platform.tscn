@@ -33,7 +33,7 @@ size = Vector2(128, 64)
 [sub_resource type="Curve2D" id="Curve2D_rv8kb"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -384, -608, 0, 0, 0, 0, -384, -1120)
+"points": PackedVector2Array(0, 0, 0, 0, -384, -608, 0, 0, 0, 0, -384, -1184)
 }
 point_count = 2
 

@@ -1,7 +1,5 @@
 extends Control
 
-const OPENING_NARRATION = preload("res://dialogue/scripts/opening_narration.tres")
-
 
 @export var target_speaker_rise_height: float = 30.0
 @export var target_speaker_rise_scale: float = 1.1
@@ -59,9 +57,6 @@ func _ready() -> void:
 	dialogue_box.text = ""
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
-		DialogueManager.start_dialogue(OPENING_NARRATION)
-	
 	if Input.is_action_just_pressed("ui_accept") and ready_for_next_line:
 		DialogueManager.advance()
 
