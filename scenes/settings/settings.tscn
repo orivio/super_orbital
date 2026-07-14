@@ -20,25 +20,34 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.2065543, 0.2065543, 0.20655426, 1)
 
-[node name="BackButton" type="Button" parent="." unique_id=1194747982]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1715947055]
 layout_mode = 1
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 166.0
-offset_bottom = 78.804
-text = "back"
-
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=485309407]
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
+anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 300.0
-grow_horizontal = 2
+offset_right = 104.0
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=167384193]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=543092055]
 layout_mode = 2
 
-[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[node name="BackButton" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=1194747982]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "back"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer" unique_id=485309407]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ScrollContainer" unique_id=167384193]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BackButton2" type="Button" parent="HBoxContainer/ScrollContainer/VBoxContainer" unique_id=88300438]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "back"
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ScrollContainer/VBoxContainer/BackButton2" to="." method="_on_back_button_pressed"]

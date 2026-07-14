@@ -28,9 +28,10 @@ func enter() -> void:
 		entry_velocity = player.base_velocity
 	
 	player.base_velocity = entry_velocity
+	
 
 func exit() -> void:
-	pass
+	player.base_velocity = Vector2.ZERO
 
 func input(event: InputEvent) -> PlayerState:
 	if event.is_action_pressed("gravity_switch"):
@@ -93,6 +94,7 @@ func physics_process(delta: float) -> PlayerState:
 	if gravity_switch_pressed and player.can("gravity_switch"):
 		gravity_switch_pressed = false
 		player.has_gravity = true
+		player.base_velocity = Vector2.ZERO
 	
 	if player.has_gravity:
 		if player.base_velocity.y > 0:
@@ -123,5 +125,11 @@ func physics_process(delta: float) -> PlayerState:
 		player.base_velocity += velocity
 	
 	was_on_wall = on_wall
+	
+	
+	if player.base_velocity.y <= -500:
+		player.sprite.frame = 33
+	elif player.base_velocity.y >= 500:
+		player.sprite.frame = 34
 	
 	return null
