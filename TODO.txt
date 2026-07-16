@@ -2,7 +2,7 @@ Russlan:
 - Design more of the game's story (nothing too long or complex)
 - Write the dialogue, and decide where it takes place
 - Make the OST
-- Figure out the environment of the gameplay areas (are we on Mars)
+- Figure out the environment of the gameplay areas (are we on Mars) (yes we are on mars, ill elaborate on that)
 - If there are more characters, which I think is a good idea for gameplay and story, design them and what they look like
 	- Maybe sketch what their character looks like in game, and their dialogue portrait
 - Assess the progression and difficulty of the levels
@@ -21,10 +21,12 @@ Both, or whoever wants to:
 - Make an icon for the game
 - Make a banner of the game for stardance
 - Consider whether the player should be able to gravity switch right after leaving a gravity switch.
-	- I think maybe the player should only be able to gravity switch again after they have landed safely on the ground.
+	- I think maybe the player should only be able to gravity switch again after they have landed safely on the ground. - Obed
+	- I think the player should be able to gravity switch twice before hitting ground, w/ a 2 second cooldown
 - Figure out a way to structure the game's progression. If it should be based around the story, write the story first
 - Design and animate cutscenes
 - Should we add more mechanics?
+	- only black hole stuff
 - Maybe have another character go through the level ahead of you if you need help
 	- Who would that character be?
 - Make sound effects for movement, ui, and dialogue
