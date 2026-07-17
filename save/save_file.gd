@@ -2,7 +2,7 @@ class_name SaveFile
 
 const SAVE_GAME_PATH: String = "user://save_file.json"
 
-var room_path: String = "res://rooms/walk/room_move.tscn"
+var room_path: String = "res://rooms/1_walk/room_move.tscn"
 var player_abilities: PlayerAbilities = preload("res://player/abilities/player_initial_abilities.tres")
 
 func _init() -> void:

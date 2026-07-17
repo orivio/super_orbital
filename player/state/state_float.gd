@@ -131,5 +131,5 @@ func physics_process(delta: float) -> PlayerState:
 		player.sprite.frame = 33
 	elif player.base_velocity.y >= 500:
 		player.sprite.frame = 34
-	
+		
 	return null
