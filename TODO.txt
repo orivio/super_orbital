@@ -18,6 +18,7 @@ Obed:
 - Make a better settings page
 
 Both, or whoever wants to:
+- (IMPORTANT!) make a shaded tileset for background accentuation
 - Make an icon for the game
 - Make a banner of the game for stardance
 - Consider whether the player should be able to gravity switch right after leaving a gravity switch.
