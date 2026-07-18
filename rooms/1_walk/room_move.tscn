@@ -18,7 +18,10 @@ size = Vector2(128, 96)
 
 [node name="RoomMove" unique_id=201273727 instance=ExtResource("1_vg2pm")]
 
-[node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
+[node name="CameraBounds" parent="." index="0" unique_id=711655567]
+visible = true
+
+[node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(128, -144)
 shape = SubResource("RectangleShape2D_8lj2c")
 

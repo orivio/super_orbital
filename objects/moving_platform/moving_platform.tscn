@@ -24,10 +24,12 @@ remote_path = NodePath("../../AnimatableBody2D")
 update_rotation = false
 update_scale = false
 
+[node name="FollowVisual" type="Line2D" parent="." unique_id=409824460]
+default_color = Color(0.58, 0.58, 0.58, 0.49019608)
+
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=886220012]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=388684668]
-position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_gp6jd")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="AnimatableBody2D" unique_id=1810313545]
