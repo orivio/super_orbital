@@ -102,9 +102,13 @@ func _physics_process(delta: float) -> void:
 	velocity.x = base_velocity.x * GameManager.time_scale
 	# base_velocity.y already got time scaled
 	velocity.y = base_velocity.y
+	print(velocity.y)
 
 	move_and_slide()
 	state_machine.physics_process(delta)
+	
+	if is_on_floor() and not state_machine.current_state is StateJump:
+		base_velocity.y = 0
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("dash"):
