@@ -29,9 +29,12 @@ func enter() -> void:
 	
 	player.base_velocity = entry_velocity
 	
+	player.gravity_switch_counter += 1
+	player.gravity_switch_timer = player.movement_settings.gravity_switch_cooldown
+	player.can_enter_nograv = false
 
 func exit() -> void:
-	player.base_velocity = Vector2.ZERO
+	pass
 
 func input(event: InputEvent) -> PlayerState:
 	if event.is_action_pressed("gravity_switch"):
@@ -94,7 +97,6 @@ func physics_process(delta: float) -> PlayerState:
 	if gravity_switch_pressed and player.can("gravity_switch"):
 		gravity_switch_pressed = false
 		player.has_gravity = true
-		player.base_velocity = Vector2.ZERO
 	
 	if player.has_gravity:
 		if player.base_velocity.y > 0:

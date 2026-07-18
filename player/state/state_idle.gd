@@ -20,6 +20,7 @@ func physics_process(_delta: float) -> PlayerState:
 		return walk_state
 	
 	if player.jump_buffer and player.can("jump"):
+		player.base_velocity.y = -player.movement_settings.jump_velocity
 		return jump_state
 	
 	return null

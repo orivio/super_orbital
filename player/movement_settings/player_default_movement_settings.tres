@@ -17,6 +17,7 @@ wrench_throw_velocity = 200.0
 float_bounce_min_velocity = 250.0
 float_min_velocity = 100.0
 float_bounce_decay_factor = 0.9
+gravity_switch_cooldown = 1.0
 wrench_velocity = 1000.0
 jump_buffer = 0.1
 metadata/_custom_type_script = "uid://dumitcejfyj50"

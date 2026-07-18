@@ -22,7 +22,7 @@ var base_velocity: Vector2
 var is_dying: bool = false
 var can_dash: bool = true
 var can_move: bool = true
-var can_gravity_switch: bool = true
+var can_enter_nograv: bool = true
 var can_jump: bool = true
 var can_throw_wrench: bool = true
 var input_locked: bool
@@ -30,6 +30,8 @@ var death_timer: float = 0
 var disabled: bool = false
 var tooltips_disabled: bool = false
 var jump_buffer: bool = false
+var gravity_switch_counter: int = 0
+var gravity_switch_timer: float = 0
 
 @onready var state_machine: PlayerStateMachine = $StateMachine
 @onready var sprite: Sprite2D = $Sprite2D
@@ -59,7 +61,7 @@ func _process(delta: float) -> void:
 			input_locked = false
 			can_dash = true
 			can_move = true
-			can_gravity_switch = true
+			can_enter_nograv = true
 			can_jump = true
 			can_throw_wrench = true
 			player_death.emit()
@@ -82,6 +84,12 @@ func _physics_process(delta: float) -> void:
 	#print(state_machine.current_state)
 	if is_on_floor() and not input_locked:
 		can_dash = true
+		gravity_switch_counter = 0
+	
+	if gravity_switch_timer > 0:
+		gravity_switch_timer -= delta
+	elif gravity_switch_counter < 2:
+		can_enter_nograv = true
 	
 	if has_gravity and not is_on_floor():
 		var scaled_delta: float = delta * GameManager.time_scale
@@ -129,7 +137,7 @@ func die() -> void:
 	can_move = false
 	can_jump = false
 	can_throw_wrench = false
-	can_gravity_switch = false
+	can_enter_nograv = false
 	input_locked = true
 	update_animation("hit")
 	GameManager.impact()
@@ -162,7 +170,10 @@ func can(ability: String) -> bool:
 		"dash":
 			return can_dash and not input_locked and abilities.unlocked("dash")
 		"gravity_switch":
-			return can_gravity_switch and not input_locked and abilities.unlocked("gravity_switch")
+			if state_machine.current_state is StateFloat:
+				return not input_locked and abilities.unlocked("gravity_switch")
+			else:
+				return can_enter_nograv and not input_locked and abilities.unlocked("gravity_switch")
 		"throw_wrench":
 			return can_throw_wrench and not input_locked and abilities.unlocked("throw_wrench")
 		_:

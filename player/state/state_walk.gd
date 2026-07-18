@@ -42,6 +42,7 @@ func physics_process(delta: float) -> PlayerState:
 		return dash_state
 	
 	if player.jump_buffer and player.can("jump"):
+		player.base_velocity.y = -player.movement_settings.jump_velocity
 		return jump_state
 	
 	# The player should not be able to gravity switch when walking.

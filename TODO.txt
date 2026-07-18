@@ -23,7 +23,7 @@ Both, or whoever wants to:
 - Make a banner of the game for stardance
 - Consider whether the player should be able to gravity switch right after leaving a gravity switch.
 	- I think maybe the player should only be able to gravity switch again after they have landed safely on the ground. - Obed
-	- I think the player should be able to gravity switch twice before hitting ground, w/ a 2 second cooldown
+	- I think the player should be able to gravity switch twice before hitting ground, w/ a cooldown
 - Figure out a way to structure the game's progression. If it should be based around the story, write the story first
 - Design and animate cutscenes
 - Should we add more mechanics?
