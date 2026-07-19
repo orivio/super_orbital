@@ -120,11 +120,12 @@ func physics_process(delta: float) -> PlayerState:
 		#E = mc^2 - Rayyan Khan
 	
 	for black_hole: BlackHole in PhysicsManager.black_holes:
-		var direction: Vector2 = black_hole.global_position - player.global_position
-		var distance: float = direction.length_squared()
-		var velocity: Vector2 = PhysicsManager.GRAVITY_CONSTANT * (direction.normalized() / distance) * black_hole.mass / player.movement_settings.mass
-		
-		player.base_velocity += velocity
+		if black_hole.influencing_player:
+			var direction: Vector2 = black_hole.global_position - player.global_position
+			var distance: float = direction.length()
+			var velocity: Vector2 = PhysicsManager.GRAVITY_CONSTANT * (direction.normalized() / distance) * black_hole.mass / player.movement_settings.mass
+			
+			player.base_velocity += velocity
 	
 	was_on_wall = on_wall
 	
@@ -133,5 +134,12 @@ func physics_process(delta: float) -> PlayerState:
 		player.sprite.frame = 33
 	elif player.base_velocity.y >= 500:
 		player.sprite.frame = 34
+	
+	if player.base_velocity.x > 500:
+		player.sprite.flip_h = false
+		player.sprite.frame = 32
+	elif player.base_velocity.x < -500:
+		player.sprite.flip_h = true
+		player.sprite.frame = 32
 		
 	return null

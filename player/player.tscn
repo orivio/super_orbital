@@ -166,7 +166,7 @@ shape = SubResource("RectangleShape2D_oul6g")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=251871403]
 collision_layer = 2
-collision_mask = 4
+collision_mask = 12
 script = ExtResource("4_j3ovn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=248394177]
@@ -217,4 +217,5 @@ enabled = false
 shape = SubResource("CircleShape2D_j3ovn")
 target_position = Vector2(0, 300)
 
+[connection signal="area_entered" from="HurtBox" to="HurtBox" method="_on_area_entered"]
 [connection signal="body_entered" from="HurtBox" to="HurtBox" method="_on_body_entered"]

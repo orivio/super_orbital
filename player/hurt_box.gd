@@ -10,3 +10,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer and not player.disabled:
 		# print("Colliding with spike on TMAP: ", body.get_parent())
 		player.die()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("black_hole") and not player.disabled:
+		player.die()

@@ -2,18 +2,36 @@
 
 [ext_resource type="Script" uid="uid://bayaqww5qdagw" path="res://objects/black_hole/black_hole.gd" id="1_7e4s0"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_o5t5u"]
-radius = 17.029387
+[sub_resource type="CircleShape2D" id="CircleShape2D_483u0"]
+radius = 32.0
 
-[node name="BlackHole" type="Area2D" unique_id=67489551 groups=["black_hole"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_hq6k4"]
+radius = 256.0
+
+[node name="BlackHole" type="Node2D" unique_id=1656602204 groups=["black_hole"]]
 script = ExtResource("1_7e4s0")
-mass = 0.0
-
-[node name="DeathZone" type="CollisionShape2D" parent="." unique_id=997951427]
-shape = SubResource("CircleShape2D_o5t5u")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=465922864]
 position = Vector2(49.472534, 4.972557)
 color = Color(0.13174233, 0.13174233, 0.13174233, 1)
 polygon = PackedVector2Array(-49.472534, 19.027443, -33.472534, 11.027443, -25.472534, -4.972557, -33.472534, -20.972557, -49.472534, -28.972557, -65.472534, -20.972557, -73.472534, -4.972557, -65.472534, 11.027443)
 uv = PackedVector2Array(-49.379326, -28.776743)
+
+[node name="DeathZoneHitbox" type="Area2D" parent="." unique_id=959253740 groups=["black_hole"]]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZoneHitbox" unique_id=847291049]
+shape = SubResource("CircleShape2D_483u0")
+debug_color = Color(0.85, 0, 0, 0.41960785)
+
+[node name="InfluenceArea" type="Area2D" parent="." unique_id=67489551 groups=["black_hole"]]
+collision_layer = 512
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InfluenceArea" unique_id=1720048061]
+shape = SubResource("CircleShape2D_hq6k4")
+debug_color = Color(1, 1, 1, 0.05882353)
+
+[connection signal="body_entered" from="InfluenceArea" to="." method="_on_influence_area_body_entered"]
+[connection signal="body_exited" from="InfluenceArea" to="." method="_on_influence_area_body_exited"]
