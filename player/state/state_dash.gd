@@ -49,7 +49,7 @@ func process(_delta: float) -> PlayerState:
 
 func physics_process(delta: float) -> PlayerState:
 	
-	dash_timer += delta
+	dash_timer += delta * GameManager.time_scale
 	
 	if gravity_switch_pressed and not player.is_on_floor() and player.can("gravity_switch"):
 		gravity_switch_pressed = false
