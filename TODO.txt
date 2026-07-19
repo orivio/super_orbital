@@ -8,17 +8,20 @@ Russlan:
 - Assess the progression and difficulty of the levels
 
 Obed:
-- Fix bug where upon unlocking the dash or gravity switch ability for the first time, you will dash or gravity switch immediately after unlocking the ability, even if you didn't press any key for it
-- Finish tileset
-- Finish dash, gravity switch, and wrench throw animations
-- Polish impact clouds and dash clouds effects
-- Draw the visible layer to the player's animations
 - Implement a save file screen on the menu
 - Make a devlog about save files
 - Make a better settings page
+- Redraw the jump and fall animations (they're good, but could be a lot better)
+- Finish dash, gravity switch, and wrench throw animations
+- Fix bug where upon unlocking the dash or gravity switch ability for the first time, you will dash or gravity switch immediately after unlocking the ability, even if you didn't press any key for it
+- Finish tileset
+- Polish impact clouds and dash clouds effects
+- Draw the visible layer to the player's animations
 
 Both, or whoever wants to:
 - (IMPORTANT!) make a shaded tileset for background accentuation
+- Maybe have another character go through the level ahead of you if you need help
+	- Who would that character be?
 - Make an icon for the game
 - Make a banner of the game for stardance
 - Consider whether the player should be able to gravity switch right after leaving a gravity switch.
@@ -28,6 +31,4 @@ Both, or whoever wants to:
 - Design and animate cutscenes
 - Should we add more mechanics?
 	- only black hole stuff
-- Maybe have another character go through the level ahead of you if you need help
-	- Who would that character be?
 - Make sound effects for movement, ui, and dialogue
