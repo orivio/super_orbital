@@ -152,6 +152,8 @@ collision_mask = 113
 script = ExtResource("1_rkbax")
 movement_settings = ExtResource("2_qiwj3")
 
+[node name="Effects" type="Node2D" parent="." unique_id=1619259076]
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=214816936]
 texture = ExtResource("3_yllr7")
 hframes = 35

@@ -42,6 +42,7 @@ var effect_nodes: Array[Node2D]
 @onready var tooltip: Tooltip = $Tooltip
 @onready var collider: CollisionShape2D = $CollisionShape2D
 @onready var floor_caster: ShapeCast2D = $FloorCaster
+@onready var effects: Node2D = $Effects
 
 func _ready() -> void:
 	GameManager.player = self
@@ -58,6 +59,9 @@ func reset() -> void:
 		node.queue_free()
 		return false
 	)
+	for effect in effects.get_children():
+		if not effect.is_queued_for_deletion():
+			effect.queue_free()
 
 func _process(delta: float) -> void:
 	if !input_locked:
@@ -220,7 +224,7 @@ func spawn_dash_cloud(pos: Vector2, rotation: float) -> void:
 	var cloud_instance = DASH_CLOUD.instantiate()
 	cloud_instance.finished.connect(cloud_instance.queue_free)
 	cloud_instance.finished.connect(_on_effect_finish.bind(cloud_instance))
-	add_child(cloud_instance)
+	effects.add_child(cloud_instance)
 	cloud_instance.global_position = pos
 	cloud_instance.rotation_degrees = rotation
 	cloud_instance.emitting = true
