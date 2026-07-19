@@ -115,6 +115,7 @@ func teleport_player_to_door(room: Room, dest_door_tag: String):
 			#player.global_position = collision.position + player.get_half_height() * Vector2.UP
 			
 			player.teleport_to_ground(spawn_location)
+			player.reset()
 			
 			# Reset player momentum
 			

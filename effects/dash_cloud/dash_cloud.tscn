@@ -11,7 +11,7 @@ particles_anim_loop = false
 [node name="DashCloud" type="CPUParticles2D" unique_id=316286998]
 material = SubResource("CanvasItemMaterial_6w2kf")
 emitting = false
-amount = 300
+amount = 100
 texture = ExtResource("1_jr38r")
 lifetime = 0.3
 one_shot = true
@@ -22,7 +22,6 @@ spread = 17.21
 gravity = Vector2(0, 0)
 initial_velocity_min = 228.19
 initial_velocity_max = 382.55
-scale_amount_min = 2.0
 scale_amount_max = 2.0
 anim_speed_min = 0.43
 anim_speed_max = 4.29

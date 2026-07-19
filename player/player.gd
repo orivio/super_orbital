@@ -33,6 +33,9 @@ var jump_buffer: bool = false
 var gravity_switch_counter: int = 0
 var gravity_switch_timer: float = 0
 
+var effect_nodes: Array[Node2D]
+
+
 @onready var state_machine: PlayerStateMachine = $StateMachine
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -45,6 +48,16 @@ func _ready() -> void:
 	ability_unlocked.connect(SaveManager._on_ability_unlocked)
 	ability_locked.connect(SaveManager._on_ability_locked)
 	state_machine.initialize()
+	
+func reset() -> void:
+	has_gravity = true
+	base_velocity = Vector2.ZERO
+	velocity = Vector2.ZERO
+	state_machine.reset()
+	effect_nodes.filter(func(node: Node2D):
+		node.queue_free()
+		return false
+	)
 
 func _process(delta: float) -> void:
 	if !input_locked:
@@ -101,12 +114,12 @@ func _physics_process(delta: float) -> void:
 	
 	velocity.x = base_velocity.x * GameManager.time_scale
 	# base_velocity.y already got time scaled
-	velocity.y = base_velocity.y
+	velocity.y = base_velocity.y * GameManager.time_scale
 
 	move_and_slide()
 	state_machine.physics_process(delta)
 	
-	if is_on_floor() and has_gravity and not state_machine.current_state is StateJump:
+	if is_on_floor() and has_gravity and not state_machine.current_state is StateJump and not state_machine.current_state is StateFloat:
 		base_velocity.y = 0
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -154,10 +167,11 @@ func get_half_height() -> float:
 	return collider.shape.get_rect().size.y / 2
 
 func get_half_width() -> float:
-	return collider.shape.get_rect().size.x / 2
+	return collider.shape.get_rect().size.x / 2 + 10
 
 func _on_death_timeout() -> void:
 	tooltips_disabled = false
+	reset()
 
 func teleport_to_ground(target: Vector2) -> void:
 	global_position = target
@@ -195,18 +209,25 @@ func lock(ability: String) -> void:
 func spawn_impact_cloud(pos: Vector2, rotation: float) -> void:
 	var cloud_instance = IMPACT_CLOUD.instantiate()
 	cloud_instance.finished.connect(cloud_instance.queue_free)
+	cloud_instance.finished.connect(_on_effect_finish.bind(cloud_instance))
 	GameManager.current_room.add_effect(cloud_instance)
 	cloud_instance.global_position = pos
 	cloud_instance.rotation_degrees = rotation
 	cloud_instance.emitting = true
+	effect_nodes.append(cloud_instance)
 
 func spawn_dash_cloud(pos: Vector2, rotation: float) -> void:
 	var cloud_instance = DASH_CLOUD.instantiate()
 	cloud_instance.finished.connect(cloud_instance.queue_free)
+	cloud_instance.finished.connect(_on_effect_finish.bind(cloud_instance))
 	add_child(cloud_instance)
 	cloud_instance.global_position = pos
 	cloud_instance.rotation_degrees = rotation
 	cloud_instance.emitting = true
+	effect_nodes.append(cloud_instance)
+
+func _on_effect_finish(node: Node2D) -> void:
+	effect_nodes.erase(node)
 
 func dash_effect(direction: Vector2) -> void:
 	match direction:
@@ -215,8 +236,8 @@ func dash_effect(direction: Vector2) -> void:
 		Vector2.DOWN:
 			spawn_dash_cloud(global_position + Vector2.DOWN * get_half_height(), 180)
 		Vector2.LEFT:
-			spawn_dash_cloud(global_position + Vector2.LEFT * get_half_width(), 90)
+			spawn_dash_cloud(global_position + Vector2.RIGHT * get_half_width(), 90)
 		Vector2.RIGHT:
-			spawn_dash_cloud(global_position + Vector2.RIGHT * get_half_width(), -90)
+			spawn_dash_cloud(global_position + Vector2.LEFT * get_half_width(), -90)
 	
 	

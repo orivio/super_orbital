@@ -6,7 +6,8 @@ var throw_wrench_pressed: bool
 var x_axis: float
 var y_axis: float
 var just_collided_x: bool = false
-var just_collided_y: bool = false
+var just_collided_bottom: bool = false
+var just_collided_top: bool = false
 var was_on_wall: bool = false
 
 @onready var idle_state: PlayerState = $"../Idle"
@@ -52,7 +53,8 @@ func physics_process(delta: float) -> PlayerState:
 	
 	var on_wall = player.is_on_wall()
 	
-	if player.is_on_floor() and not just_collided_y:
+	if player.is_on_floor() and not just_collided_bottom:
+		just_collided_bottom = true
 		if player.base_velocity.length_squared() > (player.movement_settings.float_bounce_min_velocity ** 2):
 			GameManager.impact()
 			player.base_velocity.y = entry_velocity.y * -1 * player.movement_settings.float_bounce_decay_factor
@@ -63,20 +65,20 @@ func physics_process(delta: float) -> PlayerState:
 				return idle_state
 			else:
 				return walk_state
-		just_collided_y = true
-	else:
-		just_collided_y = false
+	elif not player.is_on_floor() and just_collided_bottom:
+		just_collided_bottom = false
+		
 	
-	if player.is_on_ceiling() and not just_collided_y:
+	if player.is_on_ceiling() and not just_collided_top:
+		just_collided_top = true
 		if player.base_velocity.length_squared() > (player.movement_settings.float_bounce_min_velocity ** 2):
 			GameManager.impact()
 			player.base_velocity.y = entry_velocity.y * -1 * player.movement_settings.float_bounce_decay_factor
 			entry_velocity.y = player.base_velocity.y
 		else:
 			return fall_state
-		just_collided_y = true
-	else:
-		just_collided_y = false
+	elif not player.is_on_ceiling() and just_collided_top:
+		just_collided_top = false
 	
 	if on_wall and not was_on_wall:
 		if player.base_velocity.length_squared() > (player.movement_settings.float_bounce_min_velocity ** 2):
@@ -91,7 +93,7 @@ func physics_process(delta: float) -> PlayerState:
 		else:
 			return fall_state
 		just_collided_x = true
-	else:
+	elif not on_wall and was_on_wall:
 		just_collided_x = false
 	
 	if gravity_switch_pressed and player.can("gravity_switch"):
@@ -125,7 +127,8 @@ func physics_process(delta: float) -> PlayerState:
 			var distance: float = direction.length()
 			var velocity: Vector2 = PhysicsManager.GRAVITY_CONSTANT * (direction.normalized() / distance) * black_hole.mass / player.movement_settings.mass
 			
-			player.base_velocity += velocity
+			player.base_velocity.x += velocity.x
+			player.base_velocity.y += velocity.y * GameManager.time_scale
 	
 	was_on_wall = on_wall
 	

@@ -30,6 +30,9 @@ func initialize() -> void:
 	
 	change_state(default_state)
 
+func reset() -> void:
+	change_state(default_state)
+
 func change_state(new_state: State) -> void:
 	
 	if new_state == null or new_state == current_state:
