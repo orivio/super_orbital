@@ -21,6 +21,6 @@ func get_json() -> Dictionary:
 	return abilities
 
 static func from_json(json: Dictionary) -> PlayerAbilities:
-	var abilities: PlayerAbilities = PlayerAbilities.new()
-	abilities.abilities = json
-	return abilities
+	var abilities_resource: PlayerAbilities = PlayerAbilities.new()
+	abilities_resource.abilities = json
+	return abilities_resource

@@ -44,7 +44,7 @@ func process(_delta: float) -> PlayerState:
 	
 	return null
 
-func physics_process(delta: float) -> PlayerState:
+func physics_process(_delta: float) -> PlayerState:
 	
 	player.base_velocity.x = player.direction * player.movement_settings.move_speed * player.movement_settings.air_speed_multiplier
 	

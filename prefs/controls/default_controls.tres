@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="ControlPrefs" format=3 uid="uid://3bly8mfecaux"]
+
+[ext_resource type="Script" uid="uid://cijylp7oqyk1q" path="res://prefs/controls/control_prefs.gd" id="1_d7ajx"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_d7ajx"]
+device = -1
+keycode = 90
+unicode = 122
+
+[sub_resource type="InputEventKey" id="InputEventKey_xqqbm"]
+device = -1
+keycode = 90
+unicode = 122
+
+[sub_resource type="InputEventKey" id="InputEventKey_o2lf4"]
+device = -1
+keycode = 4194322
+
+[sub_resource type="InputEventKey" id="InputEventKey_ro50f"]
+device = -1
+keycode = 88
+unicode = 120
+
+[sub_resource type="InputEventKey" id="InputEventKey_bdgcy"]
+device = -1
+keycode = 67
+unicode = 99
+
+[sub_resource type="InputEventKey" id="InputEventKey_l3pbs"]
+device = -1
+keycode = 4194319
+
+[sub_resource type="InputEventKey" id="InputEventKey_3hw1s"]
+device = -1
+keycode = 4194321
+
+[sub_resource type="InputEventKey" id="InputEventKey_ki7y1"]
+device = -1
+keycode = 67
+unicode = 99
+
+[sub_resource type="InputEventKey" id="InputEventKey_l3waj"]
+device = -1
+keycode = 4194320
+
+[resource]
+script = ExtResource("1_d7ajx")
+left_key = SubResource("InputEventKey_l3pbs")
+right_key = SubResource("InputEventKey_3hw1s")
+up_key = SubResource("InputEventKey_l3waj")
+down_key = SubResource("InputEventKey_o2lf4")
+jump_key = SubResource("InputEventKey_bdgcy")
+dash_key = SubResource("InputEventKey_xqqbm")
+gravity_switch_key = SubResource("InputEventKey_ro50f")
+throw_wrench_key = SubResource("InputEventKey_ki7y1")
+confirm_key = SubResource("InputEventKey_d7ajx")
+metadata/_custom_type_script = "uid://cijylp7oqyk1q"

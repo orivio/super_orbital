@@ -38,7 +38,7 @@ func spawn_wrench_projectile(direction: Vector2):
 	if is_instance_valid(wrench_instance):
 		wrench_instance.queue_free()
 
-func physics_process(delta: float) -> PlayerState:
+func physics_process(_delta: float) -> PlayerState:
 	
 	if player.is_on_floor():
 		GameManager.impact()

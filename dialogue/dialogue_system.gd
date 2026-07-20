@@ -14,7 +14,7 @@ extends Control
 
 
 var current_line: String = "Hello"
-var current_side: Types.ConvoSide
+var current_side: Types.ConvoSide = Types.ConvoSide.RIGHT
 
 var left_portrait_up_tween: Tween
 var left_portrait_down_tween: Tween
@@ -56,7 +56,7 @@ func _ready() -> void:
 	
 	dialogue_box.text = ""
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and ready_for_next_line:
 		DialogueManager.advance()
 
@@ -117,10 +117,10 @@ func hide_dialogue_pedestal():
 	pedestal_down_tween.tween_property(dialogue_pedestal, "position:y", get_viewport_rect().size.y, pedestal_fall_duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	pedestal_down_tween.tween_property(dialogue_pedestal, "modulate:a", 0, pedestal_fall_duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 
-func hide_portrait(background: ColorRect, portrait: TextureRect, name: Label):
+func hide_portrait(background: ColorRect, portrait: TextureRect, nam: Label):
 	background.color = Color(0, 0, 0, 0)
 	portrait.texture = null
-	name.text = ""
+	nam.text = ""
 
 func _on_dialogue_requested():
 	dialogue_box.text = ""
@@ -134,7 +134,7 @@ func _on_line_ready(line: DialogueLine):
 	if typewriter_tween:
 		typewriter_tween.kill()
 	typewriter_tween = create_tween()
-	typewriter_tween.tween_property(dialogue_box, "visible_ratio", (line.text.length() + 1)/line.text.length(), line.typing_speed * line.text.length())
+	typewriter_tween.tween_property(dialogue_box, "visible_ratio", (line.text.length() + 1.0)/(line.text.length() + 0.0), line.typing_speed * line.text.length())
 	typewriter_tween.finished.connect(_on_typewriter_finished)
 
 func _on_dialogue_ended():

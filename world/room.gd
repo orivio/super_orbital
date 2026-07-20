@@ -12,8 +12,8 @@ func _ready() -> void:
 	
 	# Attach signals to all of the doors
 	
-	var doors = get_tree().get_nodes_in_group("door")
-	for door in doors:
+	var doors_in_room = get_tree().get_nodes_in_group("door")
+	for door in doors_in_room:
 		door.door_entered.connect(_on_door_entered)
 
 func _on_door_entered(dest_room_path: String, dest_door_tag: String):

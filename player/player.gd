@@ -65,7 +65,7 @@ func reset() -> void:
 
 func _process(delta: float) -> void:
 	if !input_locked:
-		direction = Input.get_axis("move_left", "move_right")
+		direction = Input.get_axis("left", "right")
 	else:
 		direction = 0
 	
@@ -145,7 +145,6 @@ func update_animation(animation: String) -> void:
 
 func stop_animation() -> void:
 	animation_player.stop()
-	animation_player.assigned_animation = ""
 
 func show_tooltip(message: String) -> void:
 	tooltip.show_tooltip(message)
@@ -214,31 +213,31 @@ func lock(ability: String) -> void:
 		abilities.lock(ability)
 		ability_locked.emit(ability)
 
-func spawn_impact_cloud(pos: Vector2, rotation: float) -> void:
+func spawn_impact_cloud(pos: Vector2, rot: float) -> void:
 	var cloud_instance = IMPACT_CLOUD.instantiate()
 	cloud_instance.finished.connect(cloud_instance.queue_free)
 	cloud_instance.finished.connect(_on_effect_finish.bind(cloud_instance))
 	GameManager.current_room.add_effect(cloud_instance)
 	cloud_instance.global_position = pos
-	cloud_instance.rotation_degrees = rotation
+	cloud_instance.rotation_degrees = rot
 	cloud_instance.emitting = true
 	effect_nodes.append(cloud_instance)
 
-func spawn_dash_cloud(pos: Vector2, rotation: float) -> void:
+func spawn_dash_cloud(pos: Vector2, rot: float) -> void:
 	var cloud_instance = DASH_CLOUD.instantiate()
 	cloud_instance.finished.connect(cloud_instance.queue_free)
 	cloud_instance.finished.connect(_on_effect_finish.bind(cloud_instance))
 	effects.add_child(cloud_instance)
 	cloud_instance.global_position = pos
-	cloud_instance.rotation_degrees = rotation
+	cloud_instance.rotation_degrees = rot
 	cloud_instance.emitting = true
 	effect_nodes.append(cloud_instance)
 
 func _on_effect_finish(node: Node2D) -> void:
 	effect_nodes.erase(node)
 
-func dash_effect(direction: Vector2) -> void:
-	match direction:
+func dash_effect(dir: Vector2) -> void:
+	match dir:
 		Vector2.UP:
 			spawn_dash_cloud(global_position + Vector2.UP * get_half_height(), 0)
 		Vector2.DOWN:

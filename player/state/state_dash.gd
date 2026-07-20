@@ -10,7 +10,7 @@ var gravity_switch_pressed: bool
 
 func enter() -> void:
 	player.update_animation("dash")
-	var y_axis = Input.get_axis("dash_up", "dash_down")
+	var y_axis = Input.get_axis("up", "down")
 	if y_axis != 0:
 		player.base_velocity.y = y_axis * player.movement_settings.dash_velocity * 0.6
 		player.base_velocity.x = 0

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dtexdaepedtm"]
 
 [ext_resource type="Script" uid="uid://bxjnugssktldw" path="res://scenes/settings/settings.gd" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://cs1vcb7tsfcnh" path="res://scenes/settings/input_map_button.gd" id="2_vu5fi"]
 
 [node name="Settings" type="Control" unique_id=1055661638]
 layout_mode = 3
@@ -20,34 +21,280 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.2065543, 0.2065543, 0.20655426, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1715947055]
+[node name="BackButton" type="Button" parent="." unique_id=1194747982]
 layout_mode = 1
-anchors_preset = 9
+anchors_preset = -1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=2049265989]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_right = 0.95
 anchor_bottom = 1.0
-offset_right = 104.0
+offset_left = 100.0
+offset_top = 50.0
+offset_right = -100.0
+offset_bottom = -80.0
+grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+tab_alignment = 1
+current_tab = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=543092055]
+[node name="Controls" type="Control" parent="TabContainer" unique_id=775405425]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controls" unique_id=1785903451]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 50.0
+offset_bottom = -20.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer" unique_id=1787749019]
 layout_mode = 2
 
-[node name="BackButton" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=1194747982]
-custom_minimum_size = Vector2(100, 50)
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer" unique_id=1420266946]
 layout_mode = 2
-text = "back"
+size_flags_vertical = 3
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer" unique_id=485309407]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ScrollContainer" unique_id=167384193]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer" unique_id=345485374]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 40
 
-[node name="BackButton2" type="Button" parent="HBoxContainer/ScrollContainer/VBoxContainer" unique_id=88300438]
-custom_minimum_size = Vector2(100, 50)
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1492272050]
 layout_mode = 2
-text = "back"
+theme_override_constants/separation = 100
+alignment = 1
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/ScrollContainer/VBoxContainer/BackButton2" to="." method="_on_back_button_pressed"]
+[node name="Left" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1692991598]
+layout_mode = 2
+alignment = 1
+
+[node name="ActionName" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Left" unique_id=572181708]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Left"
+horizontal_alignment = 1
+
+[node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Left" unique_id=1313624377]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Assign"
+script = ExtResource("2_vu5fi")
+action_name = &"left"
+
+[node name="Right" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=890956165]
+layout_mode = 2
+alignment = 1
+
+[node name="ActionName" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Right" unique_id=1125201993]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Right"
+horizontal_alignment = 1
+
+[node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Right" unique_id=876646135]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Assign"
+script = ExtResource("2_vu5fi")
+action_name = &"right"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=289604815]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Up" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=44194100]
+layout_mode = 2
+alignment = 1
+
+[node name="ActionName" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Up" unique_id=1898211165]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Up"
+horizontal_alignment = 1
+
+[node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Up" unique_id=1284464446]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Assign"
+script = ExtResource("2_vu5fi")
+action_name = &"up"
+
+[node name="Down" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=868708350]
+layout_mode = 2
+alignment = 1
+
+[node name="ActionName" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Down" unique_id=717482221]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Down"
+horizontal_alignment = 1
+
+[node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Down" unique_id=1342604462]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Assign"
+script = ExtResource("2_vu5fi")
+action_name = &"down"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=2099211772]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Jump" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=1594785236]
+layout_mode = 2
+alignment = 1
+
+[node name="ActionName" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/Jump" unique_id=1600931814]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Jump"
+horizontal_alignment = 1
+
+[node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/Jump" unique_id=1776775187]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Assign"
+script = ExtResource("2_vu5fi")
+action_name = &"jump"
+
+[node name="Dash" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=295585711]
+layout_mode = 2
+alignment = 1
+
+[node name="ActionName" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/Dash" unique_id=850499779]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Dash"
+horizontal_alignment = 1
+
+[node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/Dash" unique_id=2146166083]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Assign"
+script = ExtResource("2_vu5fi")
+action_name = &"dash"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=2104366179]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="GravitySwitch" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1325761079]
+layout_mode = 2
+alignment = 1
+
+[node name="ActionName" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4/GravitySwitch" unique_id=1095515084]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Gravity Switch"
+horizontal_alignment = 1
+
+[node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4/GravitySwitch" unique_id=1490170421]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Assign"
+script = ExtResource("2_vu5fi")
+action_name = &"gravity_switch"
+
+[node name="ThrowWrench" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1495837039]
+layout_mode = 2
+alignment = 1
+
+[node name="ActionName" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4/ThrowWrench" unique_id=1920825284]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Throw Wrench"
+horizontal_alignment = 1
+
+[node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4/ThrowWrench" unique_id=1081368402]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Assign"
+script = ExtResource("2_vu5fi")
+action_name = &"throw_wrench"
+
+[node name="Confirm" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1949375439]
+layout_mode = 2
+alignment = 1
+
+[node name="ActionName" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Confirm" unique_id=2023559492]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Confirm"
+horizontal_alignment = 1
+
+[node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Confirm" unique_id=288567921]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Assign"
+script = ExtResource("2_vu5fi")
+action_name = &"confirm"
+
+[node name="PresetContainer" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer" unique_id=1545565675]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="PresetLabel" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/PresetContainer" unique_id=395948263]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Preset"
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/Controls/MarginContainer/VBoxContainer/PresetContainer" unique_id=1168706271]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+alignment = 1
+selected = 0
+item_count = 3
+popup/item_0/text = "Default"
+popup/item_0/id = 2
+popup/item_1/text = "Celeste"
+popup/item_1/id = 0
+popup/item_2/text = "Hollow Knight"
+popup/item_2/id = 1
+
+[node name="Audio" type="Control" parent="TabContainer" unique_id=407370264]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Graphics" type="Control" parent="TabContainer" unique_id=1842829437]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

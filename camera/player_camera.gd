@@ -29,10 +29,10 @@ func _process(delta: float) -> void:
 	offset = shake_offset
 
 func set_limits(rect: Rect2) -> void:
-	limit_left = rect.position.x - rect.size.x / 2
-	limit_right = rect.position.x + rect.size.x / 2
-	limit_bottom = rect.position.y + rect.size.y / 2
-	limit_top = rect.position.y - rect.size.y / 2
+	limit_left = int(rect.position.x - rect.size.x / 2)
+	limit_right = int(rect.position.x + rect.size.x / 2)
+	limit_bottom = int(rect.position.y + rect.size.y / 2)
+	limit_top = int(rect.position.y - rect.size.y / 2)
 	# print("Setting limits: (left: ", limit_left, ", right: ", limit_right, ", top: ", limit_top, ", bottom: ", limit_bottom, ")")
 
 func on_camera_shake() -> void:
@@ -41,9 +41,9 @@ func on_camera_shake() -> void:
 func random_offset() -> Vector2:
 	return Vector2(rng.randf_range(-shake_strength, shake_strength), rng.randf_range(-shake_strength,shake_strength))
 
-func direct(zoom: float, in_time: float, stay_time: float, out_time: float, blocks_player: float) -> void:
+func direct(zoo: float, in_time: float, stay_time: float, out_time: float, blocks_player: float) -> void:
 	var tween: Tween = get_tree().create_tween()
-	tween.tween_property(self, "zoom", Vector2(zoom, zoom), in_time)
+	tween.tween_property(self, "zoom", Vector2(zoo, zoo), in_time)
 	if blocks_player:
 		tween.tween_callback(Callable(self, "_disable_player_input"))
 	if stay_time != 0:

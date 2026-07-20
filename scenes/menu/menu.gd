@@ -21,8 +21,6 @@ var original_button_size: Vector2
 
 @onready var play_button: Button = $VBoxContainer/VBoxContainer/PlayButton
 @onready var settings_button: Button = $VBoxContainer/VBoxContainer/SettingsButton
-@onready var play_button_container: CenterContainer = $VBoxContainer/VBoxContainer/PlayButtonContainer
-@onready var settings_button_container: CenterContainer = $VBoxContainer/VBoxContainer/SettingsButtonContainer
 @onready var fade: Fade = $Fade
 
 func _enter_tree() -> void:
@@ -30,6 +28,7 @@ func _enter_tree() -> void:
 	#Engine.time_scale = 0.1
 
 func _ready() -> void:
+	SettingsManager.load_prefs_file()
 	original_button_size = play_button.size
 	for button: Button in [play_button, settings_button]:
 		button.pivot_offset   = button.size / 2.0
@@ -60,6 +59,6 @@ func _on_settings_button_mouse_exited() -> void:
 
 func animate_button(button: Button, scale_target: Vector2, opacity_target: float) -> void:
 	var tween: Tween = create_tween()
-	var target_size: Vector2 = original_button_size * scale_target
+	var _target_size: Vector2 = original_button_size * scale_target
 	tween.tween_property(button, "scale", scale_target, button_scale_duration)
 	tween.tween_property(button, "modulate:a", opacity_target, button_scale_duration)

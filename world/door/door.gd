@@ -20,10 +20,10 @@ func _process(_delta: float) -> void:
 		
 		# Snap bounds to grid
 		
-		var bounds: RectangleShape2D = $DoorBounds.shape
+		var door_bounds: RectangleShape2D = $DoorBounds.shape
 		var grid: Vector2 = Vector2(GRID_SIZE, GRID_SIZE)
-		var top_left: Vector2 = ($DoorBounds.position - bounds.size / 2).snapped(grid)
-		var bottom_right: Vector2 = ($DoorBounds.position + bounds.size / 2).snapped(grid)
+		var top_left: Vector2 = ($DoorBounds.position - door_bounds.size / 2).snapped(grid)
+		var bottom_right: Vector2 = ($DoorBounds.position + door_bounds.size / 2).snapped(grid)
 
 		#$DoorBounds.shape.set_size(bottom_right - top_left)
 		#$DoorBounds.position = (top_left + bottom_right) / 2

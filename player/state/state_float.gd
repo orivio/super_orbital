@@ -45,11 +45,11 @@ func input(event: InputEvent) -> PlayerState:
 	return null
 
 func process(_delta: float) -> PlayerState:
-	x_axis = Input.get_axis("wrench_left", "wrench_right")
-	y_axis = Input.get_axis("wrench_up", "wrench_down")
+	x_axis = Input.get_axis("left", "right")
+	y_axis = Input.get_axis("up", "down")
 	return null
 
-func physics_process(delta: float) -> PlayerState:
+func physics_process(_delta: float) -> PlayerState:
 	
 	var on_wall = player.is_on_wall()
 	
