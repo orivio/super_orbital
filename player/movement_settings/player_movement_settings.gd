@@ -16,6 +16,7 @@ class_name PlayerMovementSettings extends Resource
 @export var float_min_velocity: float
 @export_range(0, 1) var float_bounce_decay_factor: float
 @export var gravity_switch_cooldown: float
+@export var max_velocity: float
 # UNUSED
 @export var wrench_velocity: float
 @export_range(0, 1) var jump_buffer: float

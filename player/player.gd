@@ -118,6 +118,7 @@ func _physics_process(delta: float) -> void:
 	
 	velocity.x = base_velocity.x * GameManager.time_scale
 	# base_velocity.y already got time scaled
+	base_velocity.y = clamp(base_velocity.y, -movement_settings.max_velocity, movement_settings.max_velocity)
 	velocity.y = base_velocity.y * GameManager.time_scale
 
 	move_and_slide()
