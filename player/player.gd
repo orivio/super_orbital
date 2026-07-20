@@ -128,7 +128,10 @@ func _physics_process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("dash"):
-		print("Yeah!")
+		print("From Player: Dash pressed")
+		print(event)
+		print(event.as_text())
+		print()
 	state_machine.input(event)
 
 func load_abilities() -> void:

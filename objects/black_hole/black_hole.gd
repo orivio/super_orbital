@@ -7,11 +7,9 @@ var influencing_player: bool = false
 
 func _enter_tree() -> void:
 	PhysicsManager.black_holes.append(self)
-	print("Added ", self)
 
 func _exit_tree() -> void:
 	PhysicsManager.black_holes.erase(self)
-	print("Removed ", self)
 
 
 func _on_influence_area_body_entered(body: Node2D) -> void:
