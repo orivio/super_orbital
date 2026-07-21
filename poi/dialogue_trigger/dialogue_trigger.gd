@@ -23,7 +23,7 @@ func load_data_from_savefile(save_file: SaveFile) -> void:
 		convo_data = Dictionary()
 		visited = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 

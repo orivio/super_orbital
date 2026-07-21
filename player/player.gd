@@ -55,10 +55,6 @@ func reset() -> void:
 	base_velocity = Vector2.ZERO
 	velocity = Vector2.ZERO
 	state_machine.reset()
-	effect_nodes.filter(func(node: Node2D):
-		node.queue_free()
-		return false
-	)
 	for effect in effects.get_children():
 		if not effect.is_queued_for_deletion():
 			effect.queue_free()
@@ -162,7 +158,7 @@ func die() -> void:
 	can_throw_wrench = false
 	can_enter_nograv = false
 	input_locked = true
-	update_animation("hit")
+	#update_animation("hit")
 	GameManager.impact()
 	death_timer = 0.4
 	tooltips_disabled = true
@@ -217,7 +213,7 @@ func spawn_impact_cloud(pos: Vector2, rot: float) -> void:
 	var cloud_instance = IMPACT_CLOUD.instantiate()
 	cloud_instance.finished.connect(cloud_instance.queue_free)
 	cloud_instance.finished.connect(_on_effect_finish.bind(cloud_instance))
-	GameManager.current_room.add_effect(cloud_instance)
+	effects.add_child(cloud_instance)
 	cloud_instance.global_position = pos
 	cloud_instance.rotation_degrees = rot
 	cloud_instance.emitting = true

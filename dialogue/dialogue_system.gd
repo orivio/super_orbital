@@ -137,7 +137,7 @@ func _on_line_ready(line: DialogueLine):
 	typewriter_tween.tween_property(dialogue_box, "visible_ratio", (line.text.length() + 1.0)/(line.text.length() + 0.0), line.typing_speed * line.text.length())
 	typewriter_tween.finished.connect(_on_typewriter_finished)
 
-func _on_dialogue_ended(tag: StringName):
+func _on_dialogue_ended(_tag: StringName):
 	hide_dialogue_pedestal()
 	hide_portrait(left_background, left_portrait, left_name)
 	hide_portrait(right_background, right_portrait, right_name)
