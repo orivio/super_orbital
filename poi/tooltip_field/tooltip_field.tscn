@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cv2o8lyusltah"]
 
-[ext_resource type="Script" uid="uid://oqiglrue8ukr" path="res://objects/tooltip_field/tooltip_field.gd" id="1_w1h48"]
+[ext_resource type="Script" uid="uid://oqiglrue8ukr" path="res://poi/tooltip_field/tooltip_field.gd" id="1_w1h48"]
 [ext_resource type="Theme" uid="uid://dtebchkatgu51" path="res://ui/themes/editor_label_theme.tres" id="2_v28hk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0yix"]

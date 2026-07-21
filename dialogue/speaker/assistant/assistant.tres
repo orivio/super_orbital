@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Speaker" format=3 uid="uid://brd2h8hldg5ns"]
+
+[ext_resource type="Script" uid="uid://b0acvxdy71hfc" path="res://dialogue/speaker/speaker.gd" id="1_qlclb"]
+[ext_resource type="Texture2D" uid="uid://go521ili7430" path="res://dialogue/speaker/assistant/assistant.png" id="1_qlt0u"]
+
+[resource]
+script = ExtResource("1_qlclb")
+name = "Assistant"
+bg_color = Color(0.31199998, 0.63959986, 0.78, 0.84313726)
+portrait = ExtResource("1_qlt0u")
+metadata/_custom_type_script = "uid://b0acvxdy71hfc"

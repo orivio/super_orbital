@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://lf2gvhqkoyd6"]
+
+[ext_resource type="Script" uid="uid://v3adixwncg2e" path="res://poi/dialogue_trigger/dialogue_trigger.gd" id="1_lgikw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eswra"]
+resource_local_to_scene = true
+
+[node name="DialogueTrigger" type="Area2D" unique_id=12977462 groups=["dialogue_trigger"]]
+collision_layer = 1024
+collision_mask = 2
+script = ExtResource("1_lgikw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=354673692]
+shape = SubResource("RectangleShape2D_eswra")
+debug_color = Color(0.56, 0.56, 0.56, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

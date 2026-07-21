@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cwqe5f6xrkqt0"]
 
-[ext_resource type="Script" uid="uid://dmoxoh41844jy" path="res://objects/camera_director/camera_director.gd" id="1_byfn3"]
+[ext_resource type="Script" uid="uid://dmoxoh41844jy" path="res://poi/camera_director/camera_director.gd" id="1_byfn3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gpa4"]
 resource_local_to_scene = true
