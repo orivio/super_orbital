@@ -31,10 +31,10 @@ collision_enabled = false
 
 [node name="POI" type="Node2D" parent="." unique_id=809409572]
 
+[node name="Objects" type="Node2D" parent="." unique_id=160790231]
+
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1010939493]
 tile_set = ExtResource("3_gq2vv")
-
-[node name="Objects" type="Node2D" parent="." unique_id=160790231]
 
 [node name="ForegroundParallax" type="Parallax2D" parent="." unique_id=1868079540]
 visible = false
