@@ -12,6 +12,8 @@ var gravity_switch_pressed: bool
 func enter() -> void:
 	player.stop_animation()
 	player.has_gravity = true
+	dash_pressed = false
+	gravity_switch_pressed = false
 
 func exit() -> void:
 	pass

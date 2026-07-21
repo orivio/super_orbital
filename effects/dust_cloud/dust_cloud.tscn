@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cg1gagcu7ol2k"]
+
+[ext_resource type="Texture2D" uid="uid://dml00xreks60a" path="res://effects/dust_cloud/dust_rock.png" id="1_gq5ww"]
+[ext_resource type="Script" uid="uid://yhevajgvacsi" path="res://effects/dust_cloud/dust_cloud.gd" id="2_fqa5i"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gq5ww"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="DustCloud" type="CPUParticles2D" unique_id=360881455]
+material = SubResource("CanvasItemMaterial_gq5ww")
+emitting = false
+amount = 20
+texture = ExtResource("1_gq5ww")
+lifetime = 0.4
+one_shot = true
+emission_shape = 3
+emission_rect_extents = Vector2(35, 1)
+direction = Vector2(0, -1)
+initial_velocity_min = 113.48
+initial_velocity_max = 326.25
+anim_speed_min = 0.5
+anim_speed_max = 2.26
+script = ExtResource("2_fqa5i")
+
+[node name="Timer" type="Timer" parent="." unique_id=1469756800]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

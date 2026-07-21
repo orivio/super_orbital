@@ -35,6 +35,7 @@ func enter() -> void:
 		player.sprite.flip_h = false
 
 	dash_timer = 0
+	gravity_switch_pressed = false
 
 func exit() -> void:
 	pass

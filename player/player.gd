@@ -6,6 +6,7 @@ signal ability_unlocked(name: String)
 signal ability_locked(name: String)
 
 const IMPACT_CLOUD = preload("res://effects/impact_cloud/impact_cloud.tscn")
+const DUST_CLOUD = preload("res://effects/dust_cloud/dust_cloud.tscn")
 const DASH_CLOUD = preload("res://effects/dash_cloud/dash_cloud.tscn")
 
 @export var movement_settings: PlayerMovementSettings
@@ -51,6 +52,7 @@ func _ready() -> void:
 	ability_locked.connect(SaveManager._on_ability_locked)
 	state_machine.initialize()
 	GameManager.player_left_blackhole.connect(_on_player_left_blackhole)
+	#Engine.time_scale = 0.1
 	
 func reset() -> void:
 	has_gravity = true
@@ -217,12 +219,24 @@ func lock(ability: String) -> void:
 
 func spawn_impact_cloud(pos: Vector2, rot: float) -> void:
 	var cloud_instance = IMPACT_CLOUD.instantiate()
+	var dust_instance = DUST_CLOUD.instantiate()
+	
 	cloud_instance.finished.connect(cloud_instance.queue_free)
+	dust_instance.finished.connect(dust_instance.queue_free)
+	
 	cloud_instance.finished.connect(_on_effect_finish.bind(cloud_instance))
+	
 	effects.add_child(cloud_instance)
+	GameManager.current_room.add_effect(dust_instance)
+	
 	cloud_instance.global_position = pos
 	cloud_instance.rotation_degrees = rot
 	cloud_instance.emitting = true
+	
+	dust_instance.global_position = pos
+	dust_instance.rotation_degrees = rot
+	dust_instance.start()
+	
 	effect_nodes.append(cloud_instance)
 
 func spawn_dash_cloud(pos: Vector2, rot: float) -> void:

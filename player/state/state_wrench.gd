@@ -16,6 +16,7 @@ func enter() -> void:
 	spawn_wrench_projectile(-entry_velocity)
 	#if not player.is_on_floor():
 	#	player.base_velocity = entry_velocity * -1
+	gravity_switch_pressed = false
 
 func exit() -> void:
 	pass

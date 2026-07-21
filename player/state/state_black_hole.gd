@@ -15,6 +15,7 @@ func enter() -> void:
 	GameManager.player_left_blackhole.connect(_on_player_left_blackhole)
 	left_blackhole = false
 	player.has_gravity = false
+	gravity_switch_pressed = false
 
 func exit() -> void:
 	pass

@@ -10,6 +10,11 @@ var just_collided_bottom: bool = false
 var just_collided_top: bool = false
 var was_on_wall: bool = false
 
+var set_to_return_idle_state: bool = false
+var set_to_return_walk_state: bool = false
+var set_to_return_fall_state: bool = false
+var has_bounced_y: bool = false
+
 @onready var idle_state: PlayerState = $"../Idle"
 @onready var walk_state: PlayerState = $"../Walk"
 @onready var fall_state: PlayerState = $"../Fall"
@@ -33,6 +38,12 @@ func enter() -> void:
 	player.gravity_switch_counter += 1
 	player.gravity_switch_timer = player.movement_settings.gravity_switch_cooldown
 	player.can_enter_nograv = false
+	
+	gravity_switch_pressed = false
+	throw_wrench_pressed = false
+	set_to_return_idle_state = false
+	set_to_return_walk_state = false
+	set_to_return_fall_state = false
 
 func exit() -> void:
 	pass
@@ -50,38 +61,53 @@ func process(_delta: float) -> PlayerState:
 	return null
 
 func physics_process(_delta: float) -> PlayerState:
+	#print("Frame start")
 	
 	var on_wall = player.is_on_wall()
 	
-	if player.is_on_floor() and not just_collided_bottom:
+	if player.is_on_floor() and player.base_velocity.y > 0.001 and not just_collided_bottom:
 		just_collided_bottom = true
-		if player.base_velocity.length_squared() > (player.movement_settings.float_bounce_min_velocity ** 2):
+		if player.base_velocity.y > (player.movement_settings.float_bounce_min_velocity):
 			GameManager.impact()
 			player.base_velocity.y = entry_velocity.y * -1 * player.movement_settings.float_bounce_decay_factor
 			entry_velocity.y = player.base_velocity.y
 			player.spawn_impact_cloud(player.global_position + Vector2.DOWN * player.get_half_height(), 0)
+			has_bounced_y = true
+			get_tree().create_timer(0.1).timeout.connect(func():
+				has_bounced_y = false
+			)
+			return null
 		else:
 			if player.direction == 0:
-				return idle_state
+				set_to_return_idle_state = true
 			else:
-				return walk_state
+				set_to_return_walk_state = true
+	elif player.is_on_floor() and not just_collided_bottom:
+		if player.direction == 0:
+			set_to_return_idle_state = true
+		else:
+			set_to_return_walk_state = true
 	elif not player.is_on_floor() and just_collided_bottom:
 		just_collided_bottom = false
 		
 	
-	if player.is_on_ceiling() and not just_collided_top:
+	if player.is_on_ceiling() and player.base_velocity.y < -0.001 and not just_collided_top:
 		just_collided_top = true
-		if player.base_velocity.length_squared() > (player.movement_settings.float_bounce_min_velocity ** 2):
+		if player.base_velocity.y > (player.movement_settings.float_bounce_min_velocity):
 			GameManager.impact()
 			player.base_velocity.y = entry_velocity.y * -1 * player.movement_settings.float_bounce_decay_factor
 			entry_velocity.y = player.base_velocity.y
+			has_bounced_y = true
+			get_tree().create_timer(0.1).timeout.connect(func():
+				has_bounced_y = false
+			)
 		else:
-			return fall_state
+			set_to_return_fall_state = true
 	elif not player.is_on_ceiling() and just_collided_top:
 		just_collided_top = false
 	
-	if on_wall and not was_on_wall:
-		if player.base_velocity.length_squared() > (player.movement_settings.float_bounce_min_velocity ** 2):
+	if on_wall and not was_on_wall and abs(player.base_velocity.x) > 0.001:
+		if player.base_velocity.x > (player.movement_settings.float_bounce_min_velocity):
 			GameManager.impact()
 			player.base_velocity.x = entry_velocity.x * -1 * player.movement_settings.float_bounce_decay_factor
 			entry_velocity.x = player.base_velocity.x
@@ -91,10 +117,21 @@ func physics_process(_delta: float) -> PlayerState:
 			else:
 				player.spawn_impact_cloud(player.global_position + Vector2.LEFT * player.get_half_width(), 90)
 		else:
-			return fall_state
+			if not has_bounced_y:
+				if player.is_on_floor():
+					return idle_state
+				else:
+					return fall_state
 		just_collided_x = true
 	elif not on_wall and was_on_wall:
 		just_collided_x = false
+	
+	if set_to_return_idle_state:
+		return idle_state
+	if set_to_return_walk_state:
+		return walk_state
+	if set_to_return_fall_state:
+		return fall_state
 	
 	if gravity_switch_pressed and player.can("gravity_switch"):
 		gravity_switch_pressed = false
