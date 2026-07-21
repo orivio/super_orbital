@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Speaker" format=3 uid="uid://brd2h8hldg5ns"]
 
 [ext_resource type="Script" uid="uid://b0acvxdy71hfc" path="res://dialogue/speaker/speaker.gd" id="1_qlclb"]
-[ext_resource type="Texture2D" uid="uid://go521ili7430" path="res://dialogue/speaker/assistant/assistant.png" id="1_qlt0u"]
+[ext_resource type="SpriteFrames" uid="uid://c0vfbr3sp417f" path="res://dialogue/speaker/assistant/assistant_sprite_frames.tres" id="1_qlt0u"]
 
 [resource]
 script = ExtResource("1_qlclb")

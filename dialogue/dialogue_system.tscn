@@ -3,11 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://cm0dbs37sjq61" path="res://dialogue/dialogue_pedestal.svg" id="1_hrhq7"]
 [ext_resource type="Script" uid="uid://dujdow2cyf8aq" path="res://dialogue/dialogue_system.gd" id="1_mmk8w"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ojoo"]
+
 [sub_resource type="SystemFont" id="SystemFont_7ojoo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mmk8w"]
 font = SubResource("SystemFont_7ojoo")
 font_size = 24
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mmk8w"]
 
 [node name="DialogueSystem" type="Control" unique_id=371403122]
 layout_mode = 3
@@ -20,6 +24,7 @@ script = ExtResource("1_mmk8w")
 target_speaker_rise_scale = 1.0
 pedestal_rise_duration = 0.2
 pedestal_fall_duration = 0.2
+camera_direct_duration = 0.8
 
 [node name="DialoguePedestal" type="NinePatchRect" parent="." unique_id=1358891282]
 custom_minimum_size = Vector2(0, 250)
@@ -86,15 +91,15 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
 
-[node name="TextureRect" type="TextureRect" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer/LeftPortraitContainer/VBoxContainer/Control" unique_id=1335154311]
+[node name="Control" type="Control" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer/LeftPortraitContainer/VBoxContainer/Control" unique_id=854574075]
 custom_minimum_size = Vector2(128, 128)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch_mode = 5
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer/LeftPortraitContainer/VBoxContainer/Control/Control" unique_id=1907479275]
+sprite_frames = SubResource("SpriteFrames_7ojoo")
+offset = Vector2(64, 64)
 
 [node name="Label" type="Label" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer/LeftPortraitContainer/VBoxContainer" unique_id=419238515]
 layout_mode = 2
@@ -146,15 +151,15 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[node name="TextureRect" type="TextureRect" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer/RightPortraitContainer/VBoxContainer/Control" unique_id=1870953310]
+[node name="Control" type="Control" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer/RightPortraitContainer/VBoxContainer/Control" unique_id=804452682]
 custom_minimum_size = Vector2(128, 128)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch_mode = 5
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer/RightPortraitContainer/VBoxContainer/Control/Control" unique_id=1231486487]
+sprite_frames = SubResource("SpriteFrames_mmk8w")
+offset = Vector2(64, 64)
 flip_h = true
 
 [node name="Label" type="Label" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer/RightPortraitContainer/VBoxContainer" unique_id=240985382]

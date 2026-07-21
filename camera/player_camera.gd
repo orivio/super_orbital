@@ -10,6 +10,8 @@ var target: Vector2
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var shake_strength: float = 0.0
 var thing: float = 0
+var directed_offset: Vector2 = Vector2.ZERO
+var director_tween: Tween
 
 func _ready() -> void:
 	GameManager.camera = self
@@ -26,7 +28,7 @@ func _process(delta: float) -> void:
 	target = GameManager.player.global_position
 	thing += delta
 	position = target
-	offset = shake_offset
+	offset = shake_offset + directed_offset
 
 func set_limits(rect: Rect2) -> void:
 	limit_left = int(rect.position.x - rect.size.x / 2)
@@ -61,3 +63,12 @@ func _disable_player_input() -> void:
 	GameManager.player.input_locked = true
 func _enable_player_input() -> void:
 	GameManager.player.input_locked = false
+
+func direct_offset(direction: Vector2, duration: float) -> Tween:
+	if director_tween:
+		director_tween.kill()
+	
+	director_tween = create_tween()
+	director_tween.tween_property(self, "directed_offset", direction, duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	
+	return director_tween

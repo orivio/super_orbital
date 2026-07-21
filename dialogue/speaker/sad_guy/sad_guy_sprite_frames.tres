@@ -1,0 +1,56 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bhdojvum1hgvm"]
+
+[ext_resource type="Texture2D" uid="uid://c4gw6vsbixl86" path="res://dialogue/speaker/sad_guy/sad_guy.png" id="1_5fpja"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dfju"]
+atlas = ExtResource("1_5fpja")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r02ul"]
+atlas = ExtResource("1_5fpja")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fpja"]
+atlas = ExtResource("1_5fpja")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40bqb"]
+atlas = ExtResource("1_5fpja")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfj5d"]
+atlas = ExtResource("1_5fpja")
+region = Rect2(256, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dfju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r02ul")
+}],
+"loop": true,
+"name": &"frustrated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fpja")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40bqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfj5d")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 5.0
+}]

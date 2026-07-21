@@ -1,0 +1,87 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c0vfbr3sp417f"]
+
+[ext_resource type="Texture2D" uid="uid://go521ili7430" path="res://dialogue/speaker/assistant/assistant.png" id="1_bhk1d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb4yr"]
+atlas = ExtResource("1_bhk1d")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vfgf"]
+atlas = ExtResource("1_bhk1d")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0xpr"]
+atlas = ExtResource("1_bhk1d")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ueurr"]
+atlas = ExtResource("1_bhk1d")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhk1d"]
+atlas = ExtResource("1_bhk1d")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_deadr"]
+atlas = ExtResource("1_bhk1d")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_be2v7"]
+atlas = ExtResource("1_bhk1d")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqnu8"]
+atlas = ExtResource("1_bhk1d")
+region = Rect2(128, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb4yr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vfgf")
+}],
+"loop": true,
+"name": &"look_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0xpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ueurr")
+}],
+"loop": true,
+"name": &"read",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhk1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_deadr")
+}],
+"loop": true,
+"name": &"sad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_be2v7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqnu8")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 5.0
+}]

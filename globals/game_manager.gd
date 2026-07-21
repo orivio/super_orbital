@@ -29,3 +29,6 @@ func lock_input() -> void:
 	
 func unlock_input() -> void:
 	player.input_locked = false
+
+func player_leave_blackhole() -> void:
+	player_left_blackhole.emit()

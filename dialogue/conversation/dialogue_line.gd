@@ -5,3 +5,4 @@ class_name DialogueLine
 @export var side: Types.ConvoSide = Types.ConvoSide.RIGHT
 @export var text: String = ""
 @export var typing_speed: float = 0.05
+@export var animation: StringName = &"talk"

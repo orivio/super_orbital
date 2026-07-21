@@ -50,7 +50,7 @@ func physics_process(_delta: float) -> PlayerState:
 		
 	if gravity_switch_pressed:
 		gravity_switch_pressed = false
-		GameManager.player_left_blackhole.emit()
+		GameManager.player_leave_blackhole()
 		player.has_gravity = false
 		return float_state
 	

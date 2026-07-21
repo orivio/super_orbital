@@ -25,4 +25,4 @@ func _on_influence_area_body_exited(body: Node2D) -> void:
 		influencing_player = false
 		body.in_blackhole = false
 		GameManager.time_scale = 1
-		GameManager.player_left_blackhole.emit()
+		GameManager.player_leave_blackhole()

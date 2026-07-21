@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Speaker" format=3 uid="uid://cxumxe1t5kb2i"]
 
-[ext_resource type="Texture2D" uid="uid://c4gw6vsbixl86" path="res://dialogue/speaker/sad_guy/sad_guy.png" id="1_4edig"]
+[ext_resource type="SpriteFrames" uid="uid://bhdojvum1hgvm" path="res://dialogue/speaker/sad_guy/sad_guy_sprite_frames.tres" id="1_4edig"]
 [ext_resource type="Script" uid="uid://b0acvxdy71hfc" path="res://dialogue/speaker/speaker.gd" id="1_w8uvs"]
 
 [resource]

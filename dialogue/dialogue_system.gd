@@ -1,16 +1,23 @@
 extends Control
 
-
+@export_group("Speaker Card Animation Settings")
+@export_subgroup("Rise")
 @export var target_speaker_rise_height: float = 30.0
 @export var target_speaker_rise_scale: float = 1.1
 @export var speaker_rise_duration: float = 0.1
 
+@export_group("Speaker Fall Animation Settings")
+@export_subgroup("Fall")
 @export var target_speaker_fall_scale: float = 0.8
 @export var target_speaker_fall_alpha: float = 0.8
 @export var speaker_fall_duration: float = 0.1
 
+@export_group("Pedestal Animation Settings")
 @export var pedestal_rise_duration: float = 0.1
 @export var pedestal_fall_duration: float = 0.1
+
+@export_group("Camera Animation Settings")
+@export var camera_direct_duration: float = 0.1
 
 
 var current_line: String = "Hello"
@@ -32,12 +39,12 @@ var ready_for_next_line: bool
 @onready var dialogue_pedestal: NinePatchRect = $DialoguePedestal
 
 @onready var left_portrait_container: Control = $DialoguePedestal/InteriorMarginContainer/HBoxContainer/LeftPortraitContainer
-@onready var left_portrait: Control = $DialoguePedestal/InteriorMarginContainer/HBoxContainer/LeftPortraitContainer/VBoxContainer/Control/TextureRect
+@onready var left_portrait: AnimatedSprite2D = $DialoguePedestal/InteriorMarginContainer/HBoxContainer/LeftPortraitContainer/VBoxContainer/Control/Control/AnimatedSprite2D
 @onready var left_background: Control = $DialoguePedestal/InteriorMarginContainer/HBoxContainer/LeftPortraitContainer/VBoxContainer/Control/CardBackground
 @onready var left_name: Control = $DialoguePedestal/InteriorMarginContainer/HBoxContainer/LeftPortraitContainer/VBoxContainer/Label
 
 @onready var right_portrait_container: Control = $DialoguePedestal/InteriorMarginContainer/HBoxContainer/RightPortraitContainer
-@onready var right_portrait: Control = $DialoguePedestal/InteriorMarginContainer/HBoxContainer/RightPortraitContainer/VBoxContainer/Control/TextureRect
+@onready var right_portrait: AnimatedSprite2D = $DialoguePedestal/InteriorMarginContainer/HBoxContainer/RightPortraitContainer/VBoxContainer/Control/Control/AnimatedSprite2D
 @onready var right_background: Control = $DialoguePedestal/InteriorMarginContainer/HBoxContainer/RightPortraitContainer/VBoxContainer/Control/CardBackground
 @onready var right_name: Control = $DialoguePedestal/InteriorMarginContainer/HBoxContainer/RightPortraitContainer/VBoxContainer/Label
 
@@ -80,54 +87,76 @@ func animate_portrait_down(portrait: Control, tween: Tween):
 	tween.tween_property(portrait, "scale", Vector2(target_speaker_fall_scale, target_speaker_fall_scale), speaker_fall_duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	tween.tween_property(portrait, "modulate:a", target_speaker_fall_alpha, speaker_fall_duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 
-func set_speaker_display(portrait: TextureRect, background: ColorRect, label: Label, speaker: Speaker):
-	portrait.texture = speaker.portrait
+func set_speaker_display(portrait: AnimatedSprite2D, background: ColorRect, label: Label, speaker: Speaker, animation: StringName):
+	portrait.show()
+	portrait.sprite_frames = speaker.portrait
+	portrait.play(animation)
 	background.color = speaker.bg_color
 	label.text = speaker.name
 
-func change_speaker(speaker: Speaker, side: Types.ConvoSide):
+func change_speaker(speaker: Speaker, side: Types.ConvoSide, animation: StringName):
 	match current_side:
 		Types.ConvoSide.LEFT:
 			animate_portrait_down(left_portrait_container, left_portrait_down_tween)
+			if left_portrait.sprite_frames.has_animation(&"idle"):
+				left_portrait.play(&"idle")
 		Types.ConvoSide.RIGHT:
 			animate_portrait_down(right_portrait_container, right_portrait_down_tween)
+			if right_portrait.sprite_frames.has_animation(&"idle"):
+				right_portrait.play(&"idle")
 	current_side = side
 	match current_side:
 		Types.ConvoSide.LEFT:
 			animate_portrait_up(left_portrait_container, left_portrait_up_tween)
-			set_speaker_display(left_portrait, left_background, left_name, speaker)
+			set_speaker_display(left_portrait, left_background, left_name, speaker, animation)
 		Types.ConvoSide.RIGHT:
 			animate_portrait_up(right_portrait_container, right_portrait_up_tween)
-			set_speaker_display(right_portrait, right_background, right_name, speaker)
+			set_speaker_display(right_portrait, right_background, right_name, speaker, animation)
 
-func show_dialogue_pedestal():
+func show_dialogue_pedestal() -> Tween:
+	
+	await GameManager.camera.direct_offset(Vector2(0, 250), camera_direct_duration).finished
+	
 	if pedestal_up_tween:
 		pedestal_up_tween.kill()
 	pedestal_up_tween = create_tween()
 	pedestal_up_tween.set_parallel(true)
 	pedestal_up_tween.tween_property(dialogue_pedestal, "position:y", 460, pedestal_rise_duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	pedestal_up_tween.tween_property(dialogue_pedestal, "modulate:a", 1, pedestal_rise_duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	
+	var left_speaker: Speaker = DialogueManager.get_next_side_speaker(Types.ConvoSide.LEFT)
+	var right_speaker: Speaker = DialogueManager.get_next_side_speaker(Types.ConvoSide.RIGHT)
+	
+	if left_speaker:
+		change_speaker(left_speaker, Types.ConvoSide.LEFT, &"idle")
+	if right_speaker:
+		change_speaker(right_speaker, Types.ConvoSide.RIGHT, &"idle")
+	
 	return pedestal_up_tween
 
-func hide_dialogue_pedestal():
+func hide_dialogue_pedestal() -> Tween:
+	
 	if pedestal_down_tween:
 		pedestal_down_tween.kill()
 	pedestal_down_tween = create_tween()
 	pedestal_down_tween.set_parallel(true)
 	pedestal_down_tween.tween_property(dialogue_pedestal, "position:y", get_viewport_rect().size.y, pedestal_fall_duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	pedestal_down_tween.tween_property(dialogue_pedestal, "modulate:a", 0, pedestal_fall_duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	
+	return pedestal_down_tween
 
-func hide_portrait(background: ColorRect, portrait: TextureRect, nam: Label):
+func hide_portrait(background: ColorRect, portrait: AnimatedSprite2D, nam: Label):
 	background.color = Color(0, 0, 0, 0)
-	portrait.texture = null
+	portrait.hide()
 	nam.text = ""
 
 func _on_dialogue_requested():
 	dialogue_box.text = ""
-	show_dialogue_pedestal().finished.connect(DialogueManager.advance)
+	await show_dialogue_pedestal()
+	DialogueManager.advance()
 	
 func _on_line_ready(line: DialogueLine):
-	change_speaker(line.speaker, line.side)
+	change_speaker(line.speaker, line.side, line.animation)
 	dialogue_box.text = line.text
 	ready_for_next_line = false
 	dialogue_box.visible_ratio = 0
@@ -138,9 +167,11 @@ func _on_line_ready(line: DialogueLine):
 	typewriter_tween.finished.connect(_on_typewriter_finished)
 
 func _on_dialogue_ended(_tag: StringName):
-	hide_dialogue_pedestal()
+	var tween: Tween = hide_dialogue_pedestal()
 	hide_portrait(left_background, left_portrait, left_name)
 	hide_portrait(right_background, right_portrait, right_name)
+	await tween.finished
+	GameManager.camera.direct_offset(Vector2(0, 0), camera_direct_duration)
 
 func _on_typewriter_finished():
 	ready_for_next_line = true

@@ -10,12 +10,14 @@ script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
 text = "..."
 typing_speed = 0.02
+animation = &"look_down"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_bs20n"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
 text = "[[RETURNING_ATMOSPHERE_TESTS]]"
+animation = &"read"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_6c0cs"]
@@ -23,30 +25,35 @@ script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
 text = "..."
 typing_speed = 0.02
+animation = &"look_down"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_x1v7o"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
 text = "[[LOADING_ANALYIS]]"
+animation = &"read"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_5qi8m"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
 text = "That is rather unfortunate."
+animation = &"look_down"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_jbwp8"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
 text = "It seems you must keep your helmet and suit on."
+animation = &"sad"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_eq2ru"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
 text = "The air here is dangerous. The perchlorate salts can damage your circuitry."
+animation = &"sad"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_fh5dd"]
@@ -54,6 +61,7 @@ script = ExtResource("1_23jh0")
 speaker = ExtResource("4_ae12w")
 side = -1
 text = "Of all the planets I could have landed on..."
+animation = &"frustrated"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_ydf2d"]
@@ -67,6 +75,7 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
 text = "We cannot stay long. I shall try to get a sense of this place."
+animation = &"look_down"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_6ihg1"]

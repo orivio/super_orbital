@@ -4,7 +4,8 @@ func _ready() -> void:
 	visible = false
 
 func show_tooltip(message: String) -> void:
-	visible = true
+	# Maybe keep the tooltips
+	visible = false
 	text = message
 
 func hide_tooltip() -> void:
