@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://bg6j40ftax5ji"]
 
 [ext_resource type="Script" uid="uid://bayaqww5qdagw" path="res://objects/black_hole/black_hole.gd" id="1_7e4s0"]
+[ext_resource type="Shader" uid="uid://fsh16vb2yng2" path="res://objects/black_hole/black_hole.gdshader" id="2_hq6k4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_483u0"]
 radius = 32.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_enshl"]
+shader = ExtResource("2_hq6k4")
+shader_parameter/pixel_size = 576.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hq6k4"]
 radius = 256.0
@@ -29,14 +34,16 @@ debug_color = Color(0.85, 0, 0, 0.41960785)
 collision_layer = 512
 collision_mask = 2
 
+[node name="ColorRect" type="ColorRect" parent="InfluenceArea" unique_id=855931008]
+material = SubResource("ShaderMaterial_enshl")
+offset_left = -288.0
+offset_top = -288.0
+offset_right = 288.0
+offset_bottom = 288.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InfluenceArea" unique_id=1720048061]
 shape = SubResource("CircleShape2D_hq6k4")
 debug_color = Color(1, 1, 1, 0.05882353)
-
-[node name="Polygon2D2" type="Polygon2D" parent="InfluenceArea" unique_id=1884392896]
-modulate = Color(0.52156866, 0.52156866, 0.52156866, 0.09803922)
-position = Vector2(-545, -309)
-polygon = PackedVector2Array(289, 309, 299, 240, 325, 179, 365, 127, 414, 88, 479, 61, 546, 53, 609, 61, 676, 88, 727, 130, 768, 181, 792, 244, 801, 308, 792, 378, 766, 441, 726, 490, 673, 529, 615, 556, 546, 565, 478, 556, 416, 532, 364, 491, 324, 438, 298, 375)
 
 [connection signal="body_entered" from="InfluenceArea" to="." method="_on_influence_area_body_entered"]
 [connection signal="body_exited" from="InfluenceArea" to="." method="_on_influence_area_body_exited"]

@@ -41,8 +41,7 @@ func change_room(dest_room_path: String, dest_door_tag: String, do_save: bool = 
 	# print(dest_room_path)
 	
 	# print("Disabling player")
-	player.disabled = true
-	player.process_mode = Node.PROCESS_MODE_DISABLED
+	player.disable_physics()
 	
 	await fade.fade(Color(0, 0, 0, 1), room_transition_time).finished
 	
@@ -80,19 +79,21 @@ func change_room(dest_room_path: String, dest_door_tag: String, do_save: bool = 
 	if dest_door_tag:
 		teleport_player_to_door(current_room, dest_door_tag)
 		last_entered_door_tag = dest_door_tag
+	# print("Teleported player")
 	
 	current_room_path = dest_room_path
 	
 	update_camera_limits(room_instance)
 	
 	# print("Enabling player")
-	player.disabled = false
-	player.process_mode = Node.PROCESS_MODE_ALWAYS
+	player.enable_physics()
 	
 	await fade.fade(Color(0, 0, 0, 0), room_transition_time).finished
 	
 	if do_save and FileAccess.file_exists(dest_room_path):
 		room_changed.emit(dest_room_path)
+	
+	GameManager.player_left_blackhole.emit()
 
 func teleport_player_to_door(room: Room, dest_door_tag: String):
 	

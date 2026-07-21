@@ -18,6 +18,7 @@ var direction: float:
 			facing = value
 var facing: float
 var has_gravity: bool
+var in_blackhole: bool
 var base_velocity: Vector2
 var is_dying: bool = false
 var can_dash: bool = true
@@ -49,6 +50,7 @@ func _ready() -> void:
 	ability_unlocked.connect(SaveManager._on_ability_unlocked)
 	ability_locked.connect(SaveManager._on_ability_locked)
 	state_machine.initialize()
+	GameManager.player_left_blackhole.connect(_on_player_left_blackhole)
 	
 func reset() -> void:
 	has_gravity = true
@@ -58,6 +60,7 @@ func reset() -> void:
 	for effect in effects.get_children():
 		if not effect.is_queued_for_deletion():
 			effect.queue_free()
+	in_blackhole = false
 
 func _process(delta: float) -> void:
 	if !input_locked:
@@ -119,6 +122,9 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	state_machine.physics_process(delta)
+	if not state_machine.current_state is StateFloat and in_blackhole:
+		GameManager.time_scale = 0.5
+		state_machine.change_state($StateMachine/BlackHole)
 	
 	if is_on_floor() and has_gravity and not state_machine.current_state is StateJump and not state_machine.current_state is StateFloat:
 		base_velocity.y = 0
@@ -243,4 +249,15 @@ func dash_effect(dir: Vector2) -> void:
 		Vector2.RIGHT:
 			spawn_dash_cloud(global_position + Vector2.LEFT * get_half_width(), -90)
 	
-	
+func disable_physics() -> void:
+	disabled = true
+	collision_layer = 0
+
+func enable_physics() -> void:
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	disabled = false
+	set_deferred("collision_layer", 2)
+
+func _on_player_left_blackhole() -> void:
+	GameManager.time_scale = 1

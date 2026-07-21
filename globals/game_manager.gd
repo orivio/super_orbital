@@ -1,5 +1,7 @@
 extends Node
 
+signal player_left_blackhole
+
 var player: Player
 var camera: PlayerCamera
 var current_room: Room

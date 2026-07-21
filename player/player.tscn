@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://mvedqd6vytcs" path="res://player/state/state_float.gd" id="10_wvtmh"]
 [ext_resource type="Script" uid="uid://cmj8pah4adp4i" path="res://player/tooltip.gd" id="11_7thud"]
 [ext_resource type="Script" uid="uid://c7bjctdjhlrkc" path="res://player/state/state_wrench.gd" id="11_a1qjk"]
+[ext_resource type="Script" uid="uid://lr54amgp2jlh" path="res://player/state/state_black_hole.gd" id="13_kb6p2"]
 
 [sub_resource type="Animation" id="Animation_rkbax"]
 length = 0.001
@@ -137,7 +138,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
-size = Vector2(25, 55)
+size = Vector2(23, 57)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1qjk"]
 size = Vector2(17, 49)
@@ -148,7 +149,7 @@ size = Vector2(17, 49)
 
 [node name="Player" type="CharacterBody2D" unique_id=1158454686 groups=["player"]]
 collision_layer = 2
-collision_mask = 113
+collision_mask = 625
 script = ExtResource("1_rkbax")
 movement_settings = ExtResource("2_qiwj3")
 
@@ -163,7 +164,7 @@ libraries/ = SubResource("AnimationLibrary_g1dw6")
 autoplay = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1986859216]
-position = Vector2(1.5, 4.5)
+position = Vector2(-0.5, 3.5)
 shape = SubResource("RectangleShape2D_oul6g")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=251871403]
@@ -199,6 +200,9 @@ script = ExtResource("10_wvtmh")
 
 [node name="Wrench" type="Node" parent="StateMachine" unique_id=75786645]
 script = ExtResource("11_a1qjk")
+
+[node name="BlackHole" type="Node" parent="StateMachine" unique_id=1878446696]
+script = ExtResource("13_kb6p2")
 
 [node name="Tooltip" type="Label" parent="." unique_id=1824500785]
 offset_left = -89.0

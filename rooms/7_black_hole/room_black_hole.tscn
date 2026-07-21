@@ -69,8 +69,5 @@ offset_right = 900.0
 offset_bottom = 0.0
 metadata/_edit_lock_ = true
 
-[node name="Effects" parent="." index="7" unique_id=885905499]
-position = Vector2(-576, 32)
-
 [editable path="Doors/WestDoor"]
 [editable path="Doors/EastDoor"]

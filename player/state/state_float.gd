@@ -121,15 +121,6 @@ func physics_process(_delta: float) -> PlayerState:
 		return wrench_state
 		#E = mc^2 - Rayyan Khan
 	
-	for black_hole: BlackHole in PhysicsManager.black_holes:
-		if black_hole.influencing_player:
-			var direction: Vector2 = black_hole.global_position - player.global_position
-			var distance: float = direction.length()
-			var velocity: Vector2 = PhysicsManager.GRAVITY_CONSTANT * (direction.normalized() / distance) * black_hole.mass / player.movement_settings.mass
-			
-			player.base_velocity.x += velocity.x
-			player.base_velocity.y += velocity.y * GameManager.time_scale
-	
 	was_on_wall = on_wall
 	
 	
