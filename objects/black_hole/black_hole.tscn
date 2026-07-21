@@ -33,5 +33,10 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_hq6k4")
 debug_color = Color(1, 1, 1, 0.05882353)
 
+[node name="Polygon2D2" type="Polygon2D" parent="InfluenceArea" unique_id=1884392896]
+modulate = Color(0.52156866, 0.52156866, 0.52156866, 0.09803922)
+position = Vector2(-545, -309)
+polygon = PackedVector2Array(289, 309, 299, 240, 325, 179, 365, 127, 414, 88, 479, 61, 546, 53, 609, 61, 676, 88, 727, 130, 768, 181, 792, 244, 801, 308, 792, 378, 766, 441, 726, 490, 673, 529, 615, 556, 546, 565, 478, 556, 416, 532, 364, 491, 324, 438, 298, 375)
+
 [connection signal="body_entered" from="InfluenceArea" to="." method="_on_influence_area_body_entered"]
 [connection signal="body_exited" from="InfluenceArea" to="." method="_on_influence_area_body_exited"]

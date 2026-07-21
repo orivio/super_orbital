@@ -15,7 +15,7 @@ func _exit_tree() -> void:
 func _on_influence_area_body_entered(body: Node2D) -> void:
 	if body is Player:
 		influencing_player = true
-		GameManager.time_scale = 0.1 #NEED TO MAKE IT SO THAT THE VALUE OF TIME_SCALE DOES NOT RESET WHILE IN BVLACK HOLE ORBIT
+		GameManager.time_scale = 0.3 
 
 func _on_influence_area_body_exited(body: Node2D) -> void:
 	if body is Player:
