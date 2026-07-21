@@ -12,16 +12,10 @@ text = "..."
 typing_speed = 0.02
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
-[sub_resource type="Resource" id="Resource_pl2sn"]
-script = ExtResource("1_23jh0")
-speaker = ExtResource("2_o5goh")
-text = "Hm."
-metadata/_custom_type_script = "uid://b2364himxu4dy"
-
 [sub_resource type="Resource" id="Resource_bs20n"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
-text = "The atmosphere tests..."
+text = "[[RETURNING_ATMOSPHERE_TESTS]]"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_6c0cs"]
@@ -34,48 +28,54 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 [sub_resource type="Resource" id="Resource_x1v7o"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
-text = "Well."
+text = "[[LOADING_ANALYIS]]"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_5qi8m"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
-text = "I'm sorry, SAD Guy."
+text = "That is rather unfortunate."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_jbwp8"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
-text = "I'm afraid you'll have to keep your helmet and suit on."
+text = "It seems you must keep your helmet and suit on."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_eq2ru"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
-text = "The air here is dangerous. The perchlorate salts can damage your circuits."
+text = "The air here is dangerous. The perchlorate salts can damage your circuitry."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_fh5dd"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("4_ae12w")
 side = -1
-text = "Oh man. I've been getting tired of this thing."
+text = "Of all the planets I could have landed on..."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_ydf2d"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("4_ae12w")
 side = -1
-text = "I sure hope we can get out of here soon."
+text = "I guess that's just my luck."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_r3w2l"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
-text = "Right. We can't stay long. I'll go ahead and try to get a sense of this place."
+text = "We cannot stay long. I shall try to get a sense of this place."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_6ihg1"]
+script = ExtResource("1_23jh0")
+speaker = ExtResource("2_o5goh")
+text = "In the meantime, use the arrow keys to explore the area with caution."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [resource]
 script = ExtResource("2_uhwe0")
-lines = Array[ExtResource("1_23jh0")]([SubResource("Resource_4x1mj"), SubResource("Resource_pl2sn"), SubResource("Resource_bs20n"), SubResource("Resource_6c0cs"), SubResource("Resource_x1v7o"), SubResource("Resource_5qi8m"), SubResource("Resource_jbwp8"), SubResource("Resource_eq2ru"), SubResource("Resource_fh5dd"), SubResource("Resource_ydf2d"), SubResource("Resource_r3w2l")])
+lines = Array[ExtResource("1_23jh0")]([SubResource("Resource_4x1mj"), SubResource("Resource_bs20n"), SubResource("Resource_6c0cs"), SubResource("Resource_x1v7o"), SubResource("Resource_5qi8m"), SubResource("Resource_jbwp8"), SubResource("Resource_eq2ru"), SubResource("Resource_fh5dd"), SubResource("Resource_ydf2d"), SubResource("Resource_r3w2l"), SubResource("Resource_6ihg1")])
 metadata/_custom_type_script = "uid://cqhvq0ub0apwo"

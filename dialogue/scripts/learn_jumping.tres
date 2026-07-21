@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="Conversation" format=3 uid="uid://dx2pu48my5iyh"]
+
+[ext_resource type="Script" uid="uid://b2364himxu4dy" path="res://dialogue/conversation/dialogue_line.gd" id="1_l5n0r"]
+[ext_resource type="Script" uid="uid://cqhvq0ub0apwo" path="res://dialogue/conversation/conversation.gd" id="2_5kqtn"]
+[ext_resource type="Resource" uid="uid://brd2h8hldg5ns" path="res://dialogue/speaker/assistant/assistant.tres" id="2_r0j7r"]
+[ext_resource type="Resource" uid="uid://cxumxe1t5kb2i" path="res://dialogue/speaker/sad_guy/sad_guy.tres" id="3_r0j7r"]
+
+[sub_resource type="Resource" id="Resource_op6qi"]
+script = ExtResource("1_l5n0r")
+speaker = ExtResource("2_r0j7r")
+text = "[[ANALYZING_OBSTRUCTION]]"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_lp53h"]
+script = ExtResource("1_l5n0r")
+speaker = ExtResource("2_r0j7r")
+text = "It seems that there are spikes blocking your way."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_vl0rm"]
+script = ExtResource("1_l5n0r")
+speaker = ExtResource("2_r0j7r")
+text = "They are rather simple to avoid as of now. Simply press C."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_ymm5s"]
+script = ExtResource("1_l5n0r")
+speaker = ExtResource("2_r0j7r")
+text = "However, their existence implies the presence of something more threatening."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_om0pd"]
+script = ExtResource("1_l5n0r")
+speaker = ExtResource("2_r0j7r")
+text = "Could it be that hostile life exists here?"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_nqrcn"]
+script = ExtResource("1_l5n0r")
+speaker = ExtResource("3_r0j7r")
+side = -1
+text = "Don't scare me like that..."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[resource]
+script = ExtResource("2_5kqtn")
+lines = Array[ExtResource("1_l5n0r")]([SubResource("Resource_op6qi"), SubResource("Resource_lp53h"), SubResource("Resource_vl0rm"), SubResource("Resource_ymm5s"), SubResource("Resource_om0pd"), SubResource("Resource_nqrcn")])
+metadata/_custom_type_script = "uid://cqhvq0ub0apwo"
