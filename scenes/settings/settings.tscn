@@ -1,7 +1,19 @@
 [gd_scene format=3 uid="uid://dtexdaepedtm"]
 
 [ext_resource type="Script" uid="uid://bxjnugssktldw" path="res://scenes/settings/settings.gd" id="1_5p8wc"]
+[ext_resource type="Shader" uid="uid://c5kmcvgi0g6h1" path="res://ui/shaders/starry_layer.gdshader" id="2_vghtj"]
 [ext_resource type="Script" uid="uid://cs1vcb7tsfcnh" path="res://scenes/settings/input_map_button.gd" id="2_vu5fi"]
+[ext_resource type="Texture2D" uid="uid://c1qwvj8oxyj61" path="res://ui/textures/star2.png" id="3_h6son"]
+[ext_resource type="Material" uid="uid://b40lkhs41c5mm" path="res://ui/materials/cloudy_layer.tres" id="4_vimye"]
+[ext_resource type="Material" uid="uid://dcoubjkoyq0gm" path="res://ui/materials/back_starry_layer.tres" id="5_p7ghj"]
+[ext_resource type="Theme" uid="uid://brsjv0onhn51i" path="res://ui/themes/settings_theme.tres" id="6_h6son"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p57yh"]
+shader = ExtResource("2_vghtj")
+shader_parameter/stars_speed = Vector2(10, 0)
+shader_parameter/stars_density = 0.0170000008075
+shader_parameter/star_size = 1.0
+shader_parameter/seed = 5.0
 
 [node name="Settings" type="Control" unique_id=1055661638]
 layout_mode = 3
@@ -19,7 +31,37 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.2065543, 0.2065543, 0.20655426, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="BackStarrylayer" type="TextureRect" parent="Background" unique_id=2118387519]
+material = SubResource("ShaderMaterial_p57yh")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_h6son")
+
+[node name="CloudyLayer" type="TextureRect" parent="Background" unique_id=1112515833]
+material = ExtResource("4_vimye")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_h6son")
+
+[node name="FrontStarryLayer" type="TextureRect" parent="Background" unique_id=697665972]
+material = ExtResource("5_p7ghj")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_h6son")
 
 [node name="BackButton" type="Button" parent="." unique_id=1194747982]
 layout_mode = 1
@@ -43,12 +85,14 @@ offset_right = -100.0
 offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 30
 tab_alignment = 1
 current_tab = 0
 
 [node name="Controls" type="Control" parent="TabContainer" unique_id=775405425]
 layout_mode = 2
+theme = ExtResource("6_h6son")
 metadata/_tab_index = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controls" unique_id=1785903451]
@@ -58,32 +102,39 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 50.0
 offset_bottom = -20.0
+theme = ExtResource("6_h6son")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer" unique_id=1787749019]
 layout_mode = 2
+theme = ExtResource("6_h6son")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer" unique_id=1420266946]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("6_h6son")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer" unique_id=345485374]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("6_h6son")
 theme_override_constants/separation = 40
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1492272050]
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_constants/separation = 100
 alignment = 1
 
 [node name="Left" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1692991598]
 layout_mode = 2
+theme = ExtResource("6_h6son")
 alignment = 1
 
 [node name="ActionName" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Left" unique_id=572181708]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 25
 text = "Left"
 horizontal_alignment = 1
@@ -91,6 +142,7 @@ horizontal_alignment = 1
 [node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Left" unique_id=1313624377]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 25
 text = "Assign"
 script = ExtResource("2_vu5fi")
@@ -98,11 +150,13 @@ action_name = &"left"
 
 [node name="Right" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=890956165]
 layout_mode = 2
+theme = ExtResource("6_h6son")
 alignment = 1
 
 [node name="ActionName" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Right" unique_id=1125201993]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 25
 text = "Right"
 horizontal_alignment = 1
@@ -110,6 +164,7 @@ horizontal_alignment = 1
 [node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Right" unique_id=876646135]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 25
 text = "Assign"
 script = ExtResource("2_vu5fi")
@@ -117,16 +172,19 @@ action_name = &"right"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=289604815]
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_constants/separation = 100
 alignment = 1
 
 [node name="Up" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=44194100]
 layout_mode = 2
+theme = ExtResource("6_h6son")
 alignment = 1
 
 [node name="ActionName" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Up" unique_id=1898211165]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 25
 text = "Up"
 horizontal_alignment = 1
@@ -134,6 +192,7 @@ horizontal_alignment = 1
 [node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Up" unique_id=1284464446]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 25
 text = "Assign"
 script = ExtResource("2_vu5fi")
@@ -141,11 +200,13 @@ action_name = &"up"
 
 [node name="Down" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=868708350]
 layout_mode = 2
+theme = ExtResource("6_h6son")
 alignment = 1
 
 [node name="ActionName" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Down" unique_id=717482221]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 25
 text = "Down"
 horizontal_alignment = 1
@@ -153,6 +214,7 @@ horizontal_alignment = 1
 [node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Down" unique_id=1342604462]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 25
 text = "Assign"
 script = ExtResource("2_vu5fi")
@@ -160,16 +222,19 @@ action_name = &"down"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=2099211772]
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_constants/separation = 100
 alignment = 1
 
 [node name="Jump" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=1594785236]
 layout_mode = 2
+theme = ExtResource("6_h6son")
 alignment = 1
 
 [node name="ActionName" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/Jump" unique_id=1600931814]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 25
 text = "Jump"
 horizontal_alignment = 1
@@ -177,6 +242,7 @@ horizontal_alignment = 1
 [node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/Jump" unique_id=1776775187]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 25
 text = "Assign"
 script = ExtResource("2_vu5fi")
@@ -184,11 +250,13 @@ action_name = &"jump"
 
 [node name="Dash" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=295585711]
 layout_mode = 2
+theme = ExtResource("6_h6son")
 alignment = 1
 
 [node name="ActionName" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/Dash" unique_id=850499779]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 25
 text = "Dash"
 horizontal_alignment = 1
@@ -196,6 +264,7 @@ horizontal_alignment = 1
 [node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/Dash" unique_id=2146166083]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 25
 text = "Assign"
 script = ExtResource("2_vu5fi")
@@ -203,16 +272,19 @@ action_name = &"dash"
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=2104366179]
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_constants/separation = 100
 alignment = 1
 
 [node name="GravitySwitch" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1325761079]
 layout_mode = 2
+theme = ExtResource("6_h6son")
 alignment = 1
 
 [node name="ActionName" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4/GravitySwitch" unique_id=1095515084]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 25
 text = "Gravity Switch"
 horizontal_alignment = 1
@@ -220,6 +292,7 @@ horizontal_alignment = 1
 [node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4/GravitySwitch" unique_id=1490170421]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 25
 text = "Assign"
 script = ExtResource("2_vu5fi")
@@ -227,11 +300,13 @@ action_name = &"gravity_switch"
 
 [node name="ThrowWrench" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1495837039]
 layout_mode = 2
+theme = ExtResource("6_h6son")
 alignment = 1
 
 [node name="ActionName" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4/ThrowWrench" unique_id=1920825284]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 25
 text = "Throw Wrench"
 horizontal_alignment = 1
@@ -239,6 +314,7 @@ horizontal_alignment = 1
 [node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4/ThrowWrench" unique_id=1081368402]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 25
 text = "Assign"
 script = ExtResource("2_vu5fi")
@@ -246,11 +322,13 @@ action_name = &"throw_wrench"
 
 [node name="Confirm" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1949375439]
 layout_mode = 2
+theme = ExtResource("6_h6son")
 alignment = 1
 
 [node name="ActionName" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Confirm" unique_id=2023559492]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 25
 text = "Confirm"
 horizontal_alignment = 1
@@ -258,6 +336,7 @@ horizontal_alignment = 1
 [node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Confirm" unique_id=288567921]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 25
 text = "Assign"
 script = ExtResource("2_vu5fi")
@@ -266,16 +345,19 @@ action_name = &"confirm"
 [node name="PresetContainer" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer" unique_id=1545565675]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_constants/separation = 20
 alignment = 1
 
 [node name="PresetLabel" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/PresetContainer" unique_id=395948263]
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 20
-text = "Preset"
+text = "Movement Preset"
 
 [node name="OptionButton" type="OptionButton" parent="TabContainer/Controls/MarginContainer/VBoxContainer/PresetContainer" unique_id=1168706271]
 layout_mode = 2
+theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 20
 alignment = 1
 selected = 0

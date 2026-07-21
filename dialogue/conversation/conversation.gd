@@ -1,3 +1,4 @@
+@icon("res://dialogue/conversation/dialogue_conversation_icon.png")
 extends Resource
 class_name Conversation
 

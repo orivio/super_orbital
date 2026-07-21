@@ -112,6 +112,7 @@ confirm={
 2d_physics/layer_8="tooltip"
 2d_physics/layer_9="camera_director"
 2d_physics/layer_10="black_hole_influence"
+2d_physics/layer_11="dialogue_trigger"
 2d_physics/layer_32="ui"
 
 [rendering]

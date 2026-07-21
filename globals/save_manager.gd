@@ -26,3 +26,10 @@ func _on_ability_unlocked(ability: String) -> void:
 func _on_ability_locked(ability: String) -> void:
 	save_file.player_abilities.lock(ability)
 	write_save_file()
+
+func _on_dialogue_finished(tag: StringName) -> void:
+	if save_file.dialogue_data.has(tag):
+		save_file.dialogue_data.get(tag)["finished"] = true
+	else:
+		save_file.dialogue_data.set(tag, {"finished": true})
+	write_save_file()

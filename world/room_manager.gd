@@ -68,6 +68,7 @@ func change_room(dest_room_path: String, dest_door_tag: String, do_save: bool = 
 	
 	room_container.add_child(room_instance)
 	current_room = room_instance
+	current_room.initialize_room()
 	GameManager.current_room = current_room
 	current_room.room_door_entered.connect(change_room)
 	

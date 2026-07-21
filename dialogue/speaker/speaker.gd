@@ -1,3 +1,4 @@
+@icon("res://dialogue/speaker/speaker_resource_icon.png")
 class_name Speaker
 extends Resource
 

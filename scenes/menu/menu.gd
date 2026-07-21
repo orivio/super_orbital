@@ -31,7 +31,7 @@ func _ready() -> void:
 	SettingsManager.load_prefs_file()
 	original_button_size = play_button.size
 	for button: Button in [play_button, settings_button]:
-		button.pivot_offset   = button.size / 2.0
+		button.pivot_offset = button.size / 2.0
 	play_button.grab_focus()
 
 func _on_play_button_pressed() -> void:
@@ -43,11 +43,11 @@ func _on_settings_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/settings/settings.tscn")
 
 
-func _on_play_button_mouse_entered() -> void:
-	animate_button(play_button, hover_button_scale, hover_button_opacity)
+#func _on_play_button_mouse_entered() -> void:
+#	animate_button(play_button, hover_button_scale, hover_button_opacity)
 
-func _on_settings_button_mouse_entered() -> void:
-	animate_button(settings_button, hover_button_scale, hover_button_opacity)
+#func _on_settings_button_mouse_entered() -> void:
+#	animate_button(settings_button, hover_button_scale, hover_button_opacity)
 
 
 func _on_play_button_mouse_exited() -> void:

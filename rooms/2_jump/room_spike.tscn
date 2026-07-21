@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://buky8cbnivxtx"]
 
 [ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room_template.tscn" id="1_44wm1"]
-[ext_resource type="PackedScene" uid="uid://cv2o8lyusltah" path="res://objects/tooltip_field/tooltip_field.tscn" id="2_m0xtu"]
+[ext_resource type="PackedScene" uid="uid://cv2o8lyusltah" path="res://poi/tooltip_field/tooltip_field.tscn" id="2_m0xtu"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="3_r86d4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_803sf"]

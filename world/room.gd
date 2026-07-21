@@ -19,6 +19,12 @@ func _ready() -> void:
 func _on_door_entered(dest_room_path: String, dest_door_tag: String):
 	room_door_entered.emit.call_deferred(dest_room_path, dest_door_tag)
 
+func initialize_room() -> void:
+	var dialogue_trigger_nodes: Array[Node] = get_tree().get_nodes_in_group("dialogue_trigger")
+	for node in dialogue_trigger_nodes:
+		if node is DialogueTrigger:
+			node.load_data_from_savefile(SaveManager.get_save_file())
+
 func get_camera_bounds() -> Rect2:
 	
 	var shape: Shape2D = camera_bounds.shape

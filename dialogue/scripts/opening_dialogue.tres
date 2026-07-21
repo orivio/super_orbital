@@ -1,0 +1,81 @@
+[gd_resource type="Resource" script_class="Conversation" format=3 uid="uid://dvnusnmyrnje7"]
+
+[ext_resource type="Script" uid="uid://b2364himxu4dy" path="res://dialogue/conversation/dialogue_line.gd" id="1_23jh0"]
+[ext_resource type="Resource" uid="uid://brd2h8hldg5ns" path="res://dialogue/speaker/assistant/assistant.tres" id="2_o5goh"]
+[ext_resource type="Script" uid="uid://cqhvq0ub0apwo" path="res://dialogue/conversation/conversation.gd" id="2_uhwe0"]
+[ext_resource type="Resource" uid="uid://cxumxe1t5kb2i" path="res://dialogue/speaker/sad_guy/sad_guy.tres" id="4_ae12w"]
+
+[sub_resource type="Resource" id="Resource_4x1mj"]
+script = ExtResource("1_23jh0")
+speaker = ExtResource("2_o5goh")
+text = "..."
+typing_speed = 0.02
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_pl2sn"]
+script = ExtResource("1_23jh0")
+speaker = ExtResource("2_o5goh")
+text = "Hm."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_bs20n"]
+script = ExtResource("1_23jh0")
+speaker = ExtResource("2_o5goh")
+text = "The atmosphere tests..."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_6c0cs"]
+script = ExtResource("1_23jh0")
+speaker = ExtResource("2_o5goh")
+text = "..."
+typing_speed = 0.02
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_x1v7o"]
+script = ExtResource("1_23jh0")
+speaker = ExtResource("2_o5goh")
+text = "Well."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_5qi8m"]
+script = ExtResource("1_23jh0")
+speaker = ExtResource("2_o5goh")
+text = "I'm sorry, SAD Guy."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_jbwp8"]
+script = ExtResource("1_23jh0")
+speaker = ExtResource("2_o5goh")
+text = "I'm afraid you'll have to keep your helmet and suit on."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_eq2ru"]
+script = ExtResource("1_23jh0")
+speaker = ExtResource("2_o5goh")
+text = "The air here is dangerous. The perchlorate salts can damage your circuits."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_fh5dd"]
+script = ExtResource("1_23jh0")
+speaker = ExtResource("4_ae12w")
+side = -1
+text = "Oh man. I've been getting tired of this thing."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_ydf2d"]
+script = ExtResource("1_23jh0")
+speaker = ExtResource("4_ae12w")
+side = -1
+text = "I sure hope we can get out of here soon."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_r3w2l"]
+script = ExtResource("1_23jh0")
+speaker = ExtResource("2_o5goh")
+text = "Right. We can't stay long. I'll go ahead and try to get a sense of this place."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[resource]
+script = ExtResource("2_uhwe0")
+lines = Array[ExtResource("1_23jh0")]([SubResource("Resource_4x1mj"), SubResource("Resource_pl2sn"), SubResource("Resource_bs20n"), SubResource("Resource_6c0cs"), SubResource("Resource_x1v7o"), SubResource("Resource_5qi8m"), SubResource("Resource_jbwp8"), SubResource("Resource_eq2ru"), SubResource("Resource_fh5dd"), SubResource("Resource_ydf2d"), SubResource("Resource_r3w2l")])
+metadata/_custom_type_script = "uid://cqhvq0ub0apwo"

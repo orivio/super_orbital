@@ -1,0 +1,38 @@
+[gd_resource type="Theme" format=3 uid="uid://brsjv0onhn51i"]
+
+[sub_resource type="SystemFont" id="SystemFont_pc74o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pc74o"]
+bg_color = Color(0.3907651, 0.41525683, 0.39779264, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_supqq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vu25"]
+content_margin_left = 12.0
+content_margin_right = 12.0
+bg_color = Color(0.6125778, 0.6125779, 0.6125777, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xln1i"]
+content_margin_left = 12.0
+content_margin_right = 12.0
+bg_color = Color(0.4661808, 0.46618086, 0.46618068, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[resource]
+TabContainer/colors/font_hovered_color = Color(0, 0, 0, 1)
+TabContainer/colors/font_selected_color = Color(0, 0, 0, 1)
+TabContainer/colors/font_unselected_color = Color(0, 0, 0, 1)
+TabContainer/constants/outline_size = 0
+TabContainer/constants/tab_separation = 0
+TabContainer/fonts/font = SubResource("SystemFont_pc74o")
+TabContainer/styles/panel = SubResource("StyleBoxFlat_pc74o")
+TabContainer/styles/tab_disabled = SubResource("StyleBoxFlat_supqq")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_3vu25")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_xln1i")
