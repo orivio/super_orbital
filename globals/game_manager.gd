@@ -6,7 +6,6 @@ var current_room: Room
 var time_scale: float = 1
 var impacting: bool = false
 var impact_timer: float = 0
-var blackhole: BlackHole #NEED TO MAKE IT SO THAT THE VALUE OF TIME_SCALE DOES NOT RESET WHILE IN BVLACK HOLE ORBIT
 
 func impact():
 	if impact_timer <= 0 and time_scale == 1:
