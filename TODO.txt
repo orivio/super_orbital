@@ -17,6 +17,7 @@ Obed:
 - Finish tileset
 - Polish impact clouds and dash clouds effects
 - Draw the visible layer to the player's animations
+- How exactly can SAD Guy create black holes?
 
 Both, or whoever wants to:
 - (IMPORTANT!) make a shaded tileset for background accentuation
