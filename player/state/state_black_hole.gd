@@ -10,9 +10,10 @@ var gravity_switch_pressed = false
 @onready var float_state: PlayerState = $"../Float"
 @onready var walk_state: PlayerState = $"../Walk"
 
+func _ready() -> void:
+	GameManager.player_left_blackhole.connect(_on_player_left_blackhole)
 
 func enter() -> void:
-	GameManager.player_left_blackhole.connect(_on_player_left_blackhole)
 	left_blackhole = false
 	player.has_gravity = false
 	gravity_switch_pressed = false
