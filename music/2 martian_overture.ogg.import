@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/2 martian_overture.ogg-f9e783f9f0d21e60e16319
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
