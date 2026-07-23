@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="Conversation" format=3 uid="uid://cxn30srtesni4"]
+
+[ext_resource type="Script" uid="uid://b2364himxu4dy" path="res://dialogue/conversation/dialogue_line.gd" id="1_xelra"]
+[ext_resource type="Resource" uid="uid://brd2h8hldg5ns" path="res://dialogue/speaker/assistant/assistant.tres" id="2_6lltr"]
+[ext_resource type="Script" uid="uid://cqhvq0ub0apwo" path="res://dialogue/conversation/conversation.gd" id="2_j214l"]
+[ext_resource type="Resource" uid="uid://cxumxe1t5kb2i" path="res://dialogue/speaker/sad_guy/sad_guy.tres" id="3_mmh5p"]
+
+[sub_resource type="Resource" id="Resource_b6j85"]
+script = ExtResource("1_xelra")
+speaker = ExtResource("2_6lltr")
+text = "[[MEASURING_DISTANCE]]"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_hyfpw"]
+script = ExtResource("1_xelra")
+speaker = ExtResource("2_6lltr")
+text = "...You most definitely cannot cross that gap by simply jumping."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_7a5rv"]
+script = ExtResource("1_xelra")
+speaker = ExtResource("2_6lltr")
+text = "Fret not. Give me a moment."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_qmoas"]
+script = ExtResource("1_xelra")
+speaker = ExtResource("2_6lltr")
+text = "...There. I have programmed your suit to redirect toxic gases in the atmosphere to launch you forward."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_n7yde"]
+script = ExtResource("1_xelra")
+speaker = ExtResource("2_6lltr")
+text = "This \"dash,\" as I call it, can be used in any direction."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_y0k3d"]
+script = ExtResource("1_xelra")
+speaker = ExtResource("2_6lltr")
+text = "Simply press Z to use your \"dash.\""
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_2t3l5"]
+script = ExtResource("1_xelra")
+speaker = ExtResource("3_mmh5p")
+side = -1
+text = "Thanks, brobot!"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_bfri0"]
+script = ExtResource("1_xelra")
+speaker = ExtResource("2_6lltr")
+text = "Please do not call me that."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[resource]
+script = ExtResource("2_j214l")
+lines = Array[ExtResource("1_xelra")]([SubResource("Resource_b6j85"), SubResource("Resource_hyfpw"), SubResource("Resource_7a5rv"), SubResource("Resource_qmoas"), SubResource("Resource_n7yde"), SubResource("Resource_y0k3d"), SubResource("Resource_2t3l5"), SubResource("Resource_bfri0")])
+metadata/_custom_type_script = "uid://cqhvq0ub0apwo"

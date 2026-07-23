@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="Conversation" format=3 uid="uid://dkwkmovss7e2x"]
+
+[ext_resource type="Script" uid="uid://b2364himxu4dy" path="res://dialogue/conversation/dialogue_line.gd" id="1_qqa56"]
+[ext_resource type="Resource" uid="uid://brd2h8hldg5ns" path="res://dialogue/speaker/assistant/assistant.tres" id="2_cc1ud"]
+[ext_resource type="Script" uid="uid://cqhvq0ub0apwo" path="res://dialogue/conversation/conversation.gd" id="2_ekxx7"]
+[ext_resource type="Resource" uid="uid://cxumxe1t5kb2i" path="res://dialogue/speaker/sad_guy/sad_guy.tres" id="3_jt3l6"]
+
+[sub_resource type="Resource" id="Resource_i1cga"]
+script = ExtResource("1_qqa56")
+speaker = ExtResource("2_cc1ud")
+text = "..."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_s38pr"]
+script = ExtResource("1_qqa56")
+speaker = ExtResource("2_cc1ud")
+text = "[[MEASURING_DISTANCE]]"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_7ji0x"]
+script = ExtResource("1_qqa56")
+speaker = ExtResource("2_cc1ud")
+text = "..."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_ifgsw"]
+script = ExtResource("1_qqa56")
+speaker = ExtResource("2_cc1ud")
+text = "It seems your Suit of Artificial Density will come in handy here."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_58ch8"]
+script = ExtResource("1_qqa56")
+speaker = ExtResource("3_jt3l6")
+side = -1
+text = "Uh... how so..?"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_u4ohv"]
+script = ExtResource("1_qqa56")
+speaker = ExtResource("2_cc1ud")
+text = "Disabling gravity, of course. If you jump and then disable gravity, you will be launched in the direction you jumped in."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_navtj"]
+script = ExtResource("1_qqa56")
+speaker = ExtResource("2_cc1ud")
+text = "Simply press X to disable gravity, and X to re-enable it after. Remember that you can chain it multiple times before touching the ground again."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[resource]
+script = ExtResource("2_ekxx7")
+lines = Array[ExtResource("1_qqa56")]([SubResource("Resource_i1cga"), SubResource("Resource_s38pr"), SubResource("Resource_7ji0x"), SubResource("Resource_ifgsw"), SubResource("Resource_58ch8"), SubResource("Resource_u4ohv"), SubResource("Resource_navtj")])
+metadata/_custom_type_script = "uid://cqhvq0ub0apwo"
