@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://86wyqwb0rs5n"
+path="res://.godot/imported/2 martian_overture.ogg-f9e783f9f0d21e60e16319b4bb8c31e6.oggvorbisstr"
+
+[deps]
+
+source_file="res://music/2 martian_overture.ogg"
+dest_files=["res://.godot/imported/2 martian_overture.ogg-f9e783f9f0d21e60e16319b4bb8c31e6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

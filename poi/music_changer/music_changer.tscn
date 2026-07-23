@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://f2pjreng8tcf"]
+
+[ext_resource type="Script" uid="uid://clfoxxn6vmv1h" path="res://poi/music_changer/music_changer.gd" id="1_3vovv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_maomj"]
+size = Vector2(427.5, 336)
+
+[node name="MusicChanger" type="Area2D" unique_id=388467543]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_3vovv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=811820738]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_maomj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

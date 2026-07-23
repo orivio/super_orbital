@@ -27,6 +27,7 @@ PhysicsManager="*uid://di6kutv2ooq8"
 SaveManager="*uid://c2vk1jiu0i4wm"
 DialogueManager="*uid://bcr5wlveiybf8"
 SettingsManager="*uid://dm7k0kdagqtr8"
+AudioManager="*uid://cum61majgasey"
 
 [display]
 
