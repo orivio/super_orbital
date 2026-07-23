@@ -117,6 +117,8 @@ theme_override_constants/margin_right = 40
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 32
+autowrap_mode = 2
+visible_characters_behavior = 1
 
 [node name="RightPortraitContainer" type="Control" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer" unique_id=1204627038]
 custom_minimum_size = Vector2(128, 128)

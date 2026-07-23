@@ -66,6 +66,10 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and ready_for_next_line:
 		DialogueManager.advance()
+	if Input.is_action_just_pressed("ui_cancel"):
+		ready_for_next_line = true
+		typewriter_tween.kill()
+		dialogue_box.visible_ratio = 1
 
 func animate_portrait_up(portrait: Control, tween: Tween):
 	if tween:
