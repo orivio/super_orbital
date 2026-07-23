@@ -38,7 +38,7 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 [sub_resource type="Resource" id="Resource_y0k3d"]
 script = ExtResource("1_xelra")
 speaker = ExtResource("2_6lltr")
-text = "Simply press Z to use your \"dash.\""
+text = "Simply press {dash} to use your \"dash.\""
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_2t3l5"]

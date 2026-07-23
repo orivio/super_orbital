@@ -81,7 +81,7 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 [sub_resource type="Resource" id="Resource_6ihg1"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
-text = "In the meantime, use the arrow keys to explore the area with caution."
+text = "In the meantime, use {left} and {right} to explore the area with caution."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [resource]

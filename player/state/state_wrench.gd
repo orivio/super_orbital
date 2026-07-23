@@ -11,7 +11,7 @@ var wrench_projectile: PackedScene = preload("res://objects/wrench_projectile/wr
 @onready var float_state: PlayerState = $"../Float"
 
 func enter() -> void:
-	player.update_animation("wrench")
+	#player.update_animation("wrench")
 	entry_velocity = player.base_velocity
 	spawn_wrench_projectile(-entry_velocity)
 	#if not player.is_on_floor():

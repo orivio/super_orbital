@@ -70,6 +70,25 @@ func _process(_delta: float) -> void:
 		ready_for_next_line = true
 		typewriter_tween.kill()
 		dialogue_box.visible_ratio = 1
+		
+func get_formatted_text(t: String) -> String:
+	return t.replace(
+		"{jump}", OS.get_keycode_string(InputMap.action_get_events("jump")[0].physical_keycode),
+		).replace(
+		"{dash}", OS.get_keycode_string(InputMap.action_get_events("dash")[0].physical_keycode),
+		).replace(
+		"{gravity_switch}", OS.get_keycode_string(InputMap.action_get_events("gravity_switch")[0].physical_keycode),
+		).replace(
+		"{throw_wrench}", OS.get_keycode_string(InputMap.action_get_events("throw_wrench")[0].physical_keycode),
+		).replace(
+		"{left}", OS.get_keycode_string(InputMap.action_get_events("left")[0].physical_keycode),
+		).replace(
+		"{right}", OS.get_keycode_string(InputMap.action_get_events("right")[0].physical_keycode),
+		).replace(
+		"{up}", OS.get_keycode_string(InputMap.action_get_events("up")[0].physical_keycode),
+		).replace(
+		"{down}", OS.get_keycode_string(InputMap.action_get_events("down")[0].physical_keycode),
+		)
 
 func animate_portrait_up(portrait: Control, tween: Tween):
 	if tween:
@@ -161,7 +180,7 @@ func _on_dialogue_requested():
 	
 func _on_line_ready(line: DialogueLine):
 	change_speaker(line.speaker, line.side, line.animation)
-	dialogue_box.text = line.text
+	dialogue_box.text = get_formatted_text(line.text)
 	ready_for_next_line = false
 	dialogue_box.visible_ratio = 0
 	if typewriter_tween:

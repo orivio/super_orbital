@@ -38,7 +38,7 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 [sub_resource type="Resource" id="Resource_7igva"]
 script = ExtResource("1_1i0qq")
 speaker = ExtResource("2_kkyj4")
-text = "Press C while your gravity is disabled to quickly perform this action."
+text = "Press {throw_wrench} while your gravity is disabled to quickly perform this action."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_j2dxm"]

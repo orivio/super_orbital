@@ -21,7 +21,7 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 [sub_resource type="Resource" id="Resource_vl0rm"]
 script = ExtResource("1_l5n0r")
 speaker = ExtResource("2_r0j7r")
-text = "They are rather simple to avoid as of now. Simply press C."
+text = "They are rather simple to avoid as of now. Simply press {jump}."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_ymm5s"]
