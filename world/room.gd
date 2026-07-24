@@ -7,6 +7,7 @@ signal room_door_entered(dest_room_path: String, dest_door_tag: String)
 @onready var doors: Node2D = $Doors
 @onready var objects: Node2D = $Objects
 @onready var effects: Node2D = $Effects
+@export var section: float
 
 func _ready() -> void:
 	

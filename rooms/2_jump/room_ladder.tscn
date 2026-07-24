@@ -16,6 +16,7 @@ resource_local_to_scene = true
 size = Vector2(128, 96)
 
 [node name="RoomLadder" unique_id=201273727 instance=ExtResource("1_gs45e")]
+section = 1.0
 
 [node name="CameraBounds" parent="." index="0" unique_id=711655567]
 visible = true

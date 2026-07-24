@@ -68,7 +68,8 @@ func _process(_delta: float) -> void:
 		DialogueManager.advance()
 	if Input.is_action_just_pressed("ui_cancel"):
 		ready_for_next_line = true
-		typewriter_tween.kill()
+		if typewriter_tween != null:
+			typewriter_tween.kill()
 		dialogue_box.visible_ratio = 1
 
 func animate_portrait_up(portrait: Control, tween: Tween):

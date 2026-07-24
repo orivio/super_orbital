@@ -28,6 +28,7 @@ resource_local_to_scene = true
 size = Vector2(413, 165)
 
 [node name="RoomNoGravity" unique_id=201273727 instance=ExtResource("1_uyyhk")]
+section = 1.0
 
 [node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
 position = Vector2(752, -416)

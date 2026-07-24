@@ -7,3 +7,4 @@ func _on_body_entered(body: Node2D) -> void:
 		if music != "":
 			AudioManager.stop_sound()
 			AudioManager.change_music(music)
+			queue_free()

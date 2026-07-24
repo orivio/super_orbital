@@ -27,6 +27,7 @@ resource_local_to_scene = true
 size = Vector2(192, 192)
 
 [node name="RoomJump" unique_id=201273727 instance=ExtResource("1_44wm1")]
+section = 1.0
 
 [node name="CameraBounds" parent="." index="0" unique_id=711655567]
 visible = true
