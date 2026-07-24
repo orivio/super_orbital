@@ -1,35 +1,32 @@
 Russlan:
+- Decide if we should aim for presenting our game as a "challenging precision platformer" instead of just a "precision platformer". This means making some levels harder.
 - Fix the tilemaplayers on room_wrench, delete ParallaxBackground_Layer1#TilemapLayer and draw the tiles on the regular TileMapLayer instead
-- Write the dialogue, and decide where it takes place
-- Make the OST
-- Figure out the environment of the gameplay areas (are we on Mars) (yes we are on mars, ill elaborate on that)
-- If there are more characters, which I think is a good idea for gameplay and story, design them and what they look like
-	- Maybe sketch what their character looks like in game, and their dialogue portrait
+- Write some more dialogue
+- Should the dialogue have less humor? It kind of doesn't fit with the music.
+- Make more OST
+- Are we are on Mars or a Mars-like planet?
+- Redesign Brobot
 - Assess the progression and difficulty of the levels
 
 Obed:
 - Implement a save file screen on the menu
 - Make a devlog about save files
 - Make a better settings page
+- Make the banner have more action
 - Redraw the jump and fall animations (they're good, but could be a lot better)
 - Finish dash, gravity switch, and wrench throw animations
 - Fix bug where upon unlocking the dash or gravity switch ability for the first time, you will dash or gravity switch immediately after unlocking the ability, even if you didn't press any key for it
-- Finish tileset
+- Add variation to tileset
 - Polish impact clouds and dash clouds effects
 - Draw the visible layer to the player's animations
 - How exactly can SAD Guy create black holes?
 
 Both, or whoever wants to:
 - (IMPORTANT!) make a shaded tileset for background accentuation
-- Maybe have another character go through the level ahead of you if you need help
-	- Who would that character be?
-- Make an icon for the game
-- Make a banner of the game for stardance
+	- What does that mean?
+- Make a better favicon
 - Consider whether the player should be able to gravity switch right after leaving a gravity switch.
 	- I think maybe the player should only be able to gravity switch again after they have landed safely on the ground. - Obed
 	- I think the player should be able to gravity switch twice before hitting ground, w/ a cooldown
-- Figure out a way to structure the game's progression. If it should be based around the story, write the story first
 - Design and animate cutscenes
-- Should we add more mechanics?
-	- only black hole stuff
 - Make sound effects for movement, ui, and dialogue
