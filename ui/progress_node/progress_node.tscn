@@ -28,9 +28,9 @@ color = Color(0.38532, 0.78, 0.2418, 1)
 [node name="Label" type="Label" parent="." unique_id=207795978]
 anchors_preset = -1
 offset_left = -80.0
-offset_top = 32.0
+offset_top = -80.0
 offset_right = 80.0
-offset_bottom = 80.0
+offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_po7hu")

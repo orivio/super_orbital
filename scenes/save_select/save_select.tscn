@@ -21,9 +21,9 @@ font_size = 40
 
 [sub_resource type="Curve2D" id="Curve2D_oq148"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 30, 47, 0, 0, 0, 0, 830, 47, 0, 0, 0, 0, 830, 143, 0, 0, 0, 0, 30, 143, 0, 0, 0, 0, 30, 239, 0, 0, 0, 0, 830, 239, 0, 0, 0, 0, 830, 335, 0, 0, 0, 0, 30, 335, 0, 0, 0, 0, 30, 431, 0, 0, 0, 0, 830, 431)
+"points": PackedVector2Array(0, 0, 0, 0, 30, 47, 0, 0, 0, 0, 830, 47, 0, 0, 0, 0, 830, 175, 0, 0, 0, 0, 30, 175, 0, 0, 0, 0, 30, 303, 0, 0, 0, 0, 830, 303, 0, 0, 0, 0, 830, 431, 0, 0, 0, 0, 30, 431)
 }
-point_count = 10
+point_count = 8
 
 [node name="SaveSelect" type="Control" unique_id=2125277451]
 layout_mode = 3
