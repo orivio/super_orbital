@@ -95,7 +95,8 @@ func change_room(dest_room_path: String, dest_door_tag: String, do_save: bool = 
 	
 	GameManager.player_leave_blackhole()
 	
-	AudioManager.change_music(current_room.music_for_this_room)
+	if current_room.music_for_this_room != "":
+		AudioManager.change_music(current_room.music_for_this_room)
 
 func teleport_player_to_door(room: Room, dest_door_tag: String):
 	
