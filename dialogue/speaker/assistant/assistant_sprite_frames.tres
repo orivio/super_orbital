@@ -40,7 +40,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xb4yr")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -48,7 +48,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6vfgf")
 }],
-"loop": true,
+"loop": 1,
 "name": &"look_down",
 "speed": 5.0
 }, {
@@ -59,7 +59,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ueurr")
 }],
-"loop": true,
+"loop": 1,
 "name": &"read",
 "speed": 5.0
 }, {
@@ -70,7 +70,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_deadr")
 }],
-"loop": true,
+"loop": 1,
 "name": &"sad",
 "speed": 5.0
 }, {
@@ -81,7 +81,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_aqnu8")
 }],
-"loop": true,
+"loop": 1,
 "name": &"talk",
 "speed": 5.0
 }]

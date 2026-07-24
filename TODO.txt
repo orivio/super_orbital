@@ -1,5 +1,5 @@
 Russlan:
-- Design more of the game's story (nothing too long or complex)
+- Fix the tilemaplayers on room_wrench, delete ParallaxBackground_Layer1#TilemapLayer and draw the tiles on the regular TileMapLayer instead
 - Write the dialogue, and decide where it takes place
 - Make the OST
 - Figure out the environment of the gameplay areas (are we on Mars) (yes we are on mars, ill elaborate on that)

@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Super Orbital"
 run/main_scene="uid://c0l8r4h3amty4"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/bg_color=Color(0, 0.87780595, 0.2553519, 1)
 boot_splash/image="uid://clblpcs3hnoir"
 

@@ -7,7 +7,7 @@ func _ready():
 	add_child(music_player)
 	
 	music_player.autoplay = true
-	music_player.stream = load("res://music/1 lone_traveler.ogg")
+	music_player.stream = load("res://music/1_lone_traveler.ogg")
 	music_player.play()
 
 func stop_sound():
