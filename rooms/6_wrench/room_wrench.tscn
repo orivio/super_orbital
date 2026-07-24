@@ -28,7 +28,6 @@ resource_local_to_scene = true
 size = Vector2(154, 200.5)
 
 [node name="RoomWrenchItem" unique_id=201273727 instance=ExtResource("1_4rm83")]
-section = 1.0
 
 [node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
 position = Vector2(362, -96)
@@ -56,7 +55,7 @@ tile_set = ExtResource("2_vrken")
 [node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("3_tmw20")]
 door_tag = "WestDoor"
 dest_door_tag = "EastDoor"
-dest_room_path = "uid://d1gjph7nxyegd"
+dest_room = "change_direction"
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-384, 240)
@@ -70,12 +69,11 @@ offset_left = -400.0
 offset_top = 100.0
 offset_right = -399.0
 offset_bottom = 200.0
-metadata/_edit_lock_ = true
 
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=1422961408 instance=ExtResource("3_tmw20")]
 door_tag = "EastDoor"
 dest_door_tag = "WestDoor"
-dest_room_path = "uid://b7y15sh84lthd"
+dest_room = "black_hole"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(1120, -240)
@@ -89,7 +87,6 @@ offset_left = 1100.0
 offset_top = -400.0
 offset_right = 1200.0
 offset_bottom = -300.0
-metadata/_edit_lock_ = true
 
 [node name="DialogueTrigger" parent="." index="9" unique_id=12977462 instance=ExtResource("5_m0vqb")]
 position = Vector2(-191, 184)

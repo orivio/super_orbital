@@ -1,13 +1,13 @@
 @tool
 class_name Door extends Area2D
 
-signal door_entered(dest_room_path: String, dest_door_tag: String)
+signal door_entered(dest_room: String, dest_door_tag: String)
 
 const GRID_SIZE: float = 100
 
 @export var door_tag: String
 @export var dest_door_tag: String
-@export_file("*.tscn") var dest_room_path: String
+@export var dest_room: String
 
 @onready var spawn: Marker2D = $Spawn
 @onready var bounds: CollisionShape2D = $DoorBounds
@@ -53,4 +53,4 @@ func _on_body_entered(body: Node2D) -> void:
 		#self.get_parent().get_parent().get_parent().get_parent().print_tree_pretty()
 		#print("Body name: ", body.name)
 		#print("Entered door: ", door_tag, ", going to door: ", dest_door_tag, ", to room: ", dest_room_path)
-		door_entered.emit(dest_room_path, dest_door_tag)
+		door_entered.emit(dest_room, dest_door_tag)

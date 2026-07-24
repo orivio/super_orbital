@@ -29,7 +29,6 @@ resource_local_to_scene = true
 size = Vector2(32, 128)
 
 [node name="RoomChangeDirection" unique_id=201273727 instance=ExtResource("1_afhgu")]
-section = 1.0
 
 [node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
 position = Vector2(559, -306.5)
@@ -60,7 +59,7 @@ tile_map_data = PackedByteArray("AADy/wcAAAABAAIAAADz/wcAAAABAAIAAAD0/wcAAAABAAI
 [node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("2_gt18h")]
 door_tag = "WestDoor"
 dest_door_tag = "EastDoor"
-dest_room_path = "uid://dmth7qhi6p4du"
+dest_room = "no_gravity_dash_chain"
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-560, 32)
@@ -74,12 +73,11 @@ offset_left = -600.0
 offset_top = -100.0
 offset_right = -500.0
 offset_bottom = 0.0
-metadata/_edit_lock_ = true
 
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=1443845478 instance=ExtResource("2_gt18h")]
 door_tag = "EastDoor"
 dest_door_tag = "WestDoor"
-dest_room_path = "uid://drwajwykhe8mb"
+dest_room = "wrench"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(1648, -576)
@@ -93,7 +91,6 @@ offset_left = 1600.0
 offset_top = -700.0
 offset_right = 1700.0
 offset_bottom = -600.0
-metadata/_edit_lock_ = true
 
 [node name="decoLayer" type="TileMapLayer" parent="." index="8" unique_id=190603392]
 tile_map_data = PackedByteArray("AAD//wQAAAAAAAEAAAAFAAIAAAAAAAEAAAD5/wYAAAAAAAEAAAD6/wYAAAABAAEAAAD7/wYAAAABAAEAAAD8/wYAAAABAAEAAAD9/wYAAAABAAEAAAD+/wYAAAABAAEAAAD//wUAAAAAAAIAAAAFAAMAAAAAAAIAAAABAAQAAAABAAEAAAACAAQAAAABAAEAAAADAAQAAAABAAEAAAAEAAQAAAABAAEAAAAAAAQAAAABAAEAAAD//wYAAAABAAUAAAAFAAQAAAABAAUAAAAHAAIAAAABAAEAAAAGAAIAAAABAAEAAAAHAPj/AAAAAAEAAAAKAPf/AAAAAAEAAAAIAPj/AAABAAEAAAAJAPj/AAABAAEAAAAKAPj/AAABAAUAAAAYAAIAAAACAAEAAAAUAAEAAAACAAEAAAARAAAAAAACAAEAAAATAAEAAAABAAEAAAASAAEAAAABAAEAAAAVAAIAAAABAAEAAAAWAAIAAAABAAEAAAAXAAIAAAABAAEAAAAUAAIAAAAAAAUAAAARAAEAAAAAAAUAAAAlAAYAAAAAAAEAAAApAAUAAAAAAAEAAAAmAAYAAAABAAEAAAAnAAYAAAABAAEAAAAoAAYAAAABAAEAAAApAAYAAAABAAUAAAAqAAUAAAABAAEAAAAgAOz/AAACAAMAAAAfAO3/AAAEAAIAAAAfAOz/AAAAAAIAAAAfAOv/AAAAAAIAAAAfAOr/AAAAAAIAAAAFAOf/AAAAAAMAAAALAOj/AAACAAMAAAAKAOj/AAABAAMAAAAJAOj/AAABAAMAAAAIAOj/AAABAAMAAAAHAOj/AAABAAMAAAAGAOj/AAAAAAMAAAAGAOf/AAABAAQAAADw//v/AAACAAIAAADw//r/AAACAAIAAADw//n/AAACAAIAAADw//j/AAACAAIAAADx//X/AAACAAIAAADx//T/AAACAAIAAADx//P/AAACAAIAAADx//L/AAACAAIAAAA=")

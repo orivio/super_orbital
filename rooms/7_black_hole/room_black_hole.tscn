@@ -17,7 +17,6 @@ resource_local_to_scene = true
 size = Vector2(128, 192)
 
 [node name="RoomBlackHole" unique_id=201273727 instance=ExtResource("1_h3x7e")]
-section = 1.0
 
 [node name="CameraBounds" parent="." index="0" unique_id=711655567]
 visible = true
@@ -41,7 +40,7 @@ tile_map_data = PackedByteArray("AAAMAAkAAAADAAQAAAALAAkAAAADAAQAAAAKAAkAAAADAAQ
 [node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("2_kftim")]
 door_tag = "WestDoor"
 dest_door_tag = "EastDoor"
-dest_room_path = "uid://drwajwykhe8mb"
+dest_room = "wrench"
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-720, 16)
@@ -55,7 +54,6 @@ offset_left = -800.0
 offset_top = -100.0
 offset_right = -700.0
 offset_bottom = 0.0
-metadata/_edit_lock_ = true
 
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=1752495696 instance=ExtResource("2_kftim")]
 door_tag = "EastDoor"
@@ -71,7 +69,6 @@ position = Vector2(2210, 0)
 [node name="Label" parent="Doors/EastDoor" index="2" unique_id=164300380]
 offset_left = 2300.0
 offset_right = 2400.0
-metadata/_edit_lock_ = true
 
 [editable path="Doors/WestDoor"]
 [editable path="Doors/EastDoor"]

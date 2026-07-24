@@ -1,7 +1,7 @@
 @tool
 class_name Room extends Node2D
 
-signal room_door_entered(dest_room_path: String, dest_door_tag: String)
+signal room_door_entered(dest_room: String, dest_door_tag: String)
 
 @export_file("ogg") var music_for_this_room: String
 
@@ -18,8 +18,8 @@ func _ready() -> void:
 	for door in doors_in_room:
 		door.door_entered.connect(_on_door_entered)
 
-func _on_door_entered(dest_room_path: String, dest_door_tag: String):
-	room_door_entered.emit.call_deferred(dest_room_path, dest_door_tag)
+func _on_door_entered(dest_room: String, dest_door_tag: String):
+	room_door_entered.emit.call_deferred(dest_room, dest_door_tag)
 
 func initialize_room() -> void:
 	var dialogue_trigger_nodes: Array[Node] = get_tree().get_nodes_in_group("dialogue_trigger")

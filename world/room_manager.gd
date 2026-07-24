@@ -1,9 +1,9 @@
 class_name RoomManager
 extends Node
 
-signal room_changed(room_path: String)
+signal room_changed(room: String)
 
-@export_file("*.tscn") var initial_room_path: String = ""
+@export var initial_room: String = ""
 @export var initial_door_ta: String
 @export var room_transition_time: float
 
@@ -28,17 +28,21 @@ func reload_room() -> void:
 	change_room(current_room_path, last_entered_door_tag, false)
 
 func load_initial_room() -> void:
-	if initial_room_path == "":
-		initial_room_path = SaveManager.get_save_file().room_path
+	if initial_room == "":
+		initial_room = SaveManager.get_save_file().room
 	# print(initial_door_ta)
 	# print(initial_room_path)
 	fade.color_rect.color = Color(0, 0, 0, 1)
-	change_room(initial_room_path, initial_door_ta, false)
+	change_room(initial_room, initial_door_ta, false)
 	player.load_abilities()
 
-func change_room(dest_room_path: String, dest_door_tag: String, do_save: bool = true) -> void:
+func change_room(dest_room: String, dest_door_tag: String, do_save: bool = true) -> void:
 	
-	# print(dest_room_path)
+	if not GameManager.room_exists(dest_room):
+		push_error("Room does not exist: ", dest_room)
+		return
+	
+	# print(dest_room)
 	
 	# print("Disabling player")
 	player.disable_physics()
@@ -47,9 +51,9 @@ func change_room(dest_room_path: String, dest_door_tag: String, do_save: bool = 
 	
 	# First, load the room resource
 	
-	var room_resource = load(dest_room_path)
+	var room_resource = GameManager.get_room(dest_room)
 	if not room_resource:
-		push_error("Failed to load room: ", dest_room_path)
+		push_error("Failed to load room: ", dest_room)
 		return
 	
 	# Now we instantiate it
@@ -81,7 +85,7 @@ func change_room(dest_room_path: String, dest_door_tag: String, do_save: bool = 
 		last_entered_door_tag = dest_door_tag
 	# print("Teleported player")
 	
-	current_room_path = dest_room_path
+	current_room_path = dest_room
 	
 	update_camera_limits(room_instance)
 	
@@ -90,8 +94,8 @@ func change_room(dest_room_path: String, dest_door_tag: String, do_save: bool = 
 	
 	await fade.fade(Color(0, 0, 0, 0), room_transition_time).finished
 	
-	if do_save and FileAccess.file_exists(dest_room_path):
-		room_changed.emit(dest_room_path)
+	if do_save and GameManager.room_exists(dest_room):
+		room_changed.emit(dest_room)
 	
 	GameManager.player_leave_blackhole()
 	

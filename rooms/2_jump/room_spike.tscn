@@ -27,7 +27,6 @@ resource_local_to_scene = true
 size = Vector2(192, 192)
 
 [node name="RoomJump" unique_id=201273727 instance=ExtResource("1_44wm1")]
-section = 1.0
 
 [node name="CameraBounds" parent="." index="0" unique_id=711655567]
 visible = true
@@ -73,7 +72,7 @@ tile_map_data = PackedByteArray("AADr//v/AAABAAMAAADs//v/AAACAAMAAADs//r/AAAAAAQ
 [node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("3_r86d4")]
 door_tag = "WestDoor"
 dest_door_tag = "EastDoor"
-dest_room_path = "uid://dteyafc74ycrl"
+dest_room = "move"
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-1104, -16)
@@ -85,12 +84,11 @@ position = Vector2(-896, -1)
 [node name="Label" parent="Doors/WestDoor" index="2" unique_id=164300380]
 offset_left = -1200.0
 offset_right = -1100.0
-metadata/_edit_lock_ = true
 
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=1792502536 instance=ExtResource("3_r86d4")]
 door_tag = "EastDoor"
 dest_door_tag = "WestDoor"
-dest_room_path = "uid://b7mth0jcnis7i"
+dest_room = "ladder"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(928, -64)
@@ -104,7 +102,6 @@ offset_left = 800.0
 offset_top = -300.0
 offset_right = 1000.0
 offset_bottom = -200.0
-metadata/_edit_lock_ = true
 
 [editable path="POI/JumpTooltip"]
 [editable path="POI/DialogueTrigger"]

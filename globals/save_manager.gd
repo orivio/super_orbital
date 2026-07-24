@@ -15,8 +15,8 @@ func write_save_file() -> void:
 func get_save_file() -> SaveFile:
 	return save_file
 
-func _on_room_changed(room_path: String) -> void:
-	save_file.room_path = room_path
+func _on_room_changed(room: String) -> void:
+	save_file.room = room
 	write_save_file()
 
 func _on_ability_unlocked(ability: String) -> void:

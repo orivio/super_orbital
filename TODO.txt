@@ -1,6 +1,7 @@
 Russlan:
 - Decide if we should aim for presenting our game as a "challenging precision platformer" instead of just a "precision platformer". This means making some levels harder.
 - Fix the tilemaplayers on room_wrench, delete ParallaxBackground_Layer1#TilemapLayer and draw the tiles on the regular TileMapLayer instead
+- Assign music to the rooms that you want
 - Write some more dialogue
 - Should the dialogue have less humor? It kind of doesn't fit with the music.
 - Make more OST

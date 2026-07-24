@@ -84,7 +84,6 @@ resource_local_to_scene = true
 size = Vector2(160, 96)
 
 [node name="RoomMomentum" unique_id=201273727 instance=ExtResource("1_m5ldp")]
-section = 1.0
 
 [node name="CameraBounds" parent="." index="0" unique_id=711655567]
 visible = true
@@ -248,7 +247,7 @@ tile_set = ExtResource("4_ka2bx")
 [node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("2_hasnt")]
 door_tag = "WestDoor"
 dest_door_tag = "EastDoor"
-dest_room_path = "uid://dtohxckxanqyl"
+dest_room = "timing"
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-480, -48)
@@ -260,12 +259,11 @@ position = Vector2(-256, -32)
 [node name="Label" parent="Doors/WestDoor" index="2" unique_id=164300380]
 offset_left = -500.0
 offset_right = -400.0
-metadata/_edit_lock_ = true
 
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=629369874 instance=ExtResource("2_hasnt")]
 door_tag = "EastDoor"
 dest_door_tag = "WestDoor"
-dest_room_path = "uid://bf52ikweswlrf"
+dest_room = "platform_spike"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(2800, 80)
@@ -279,7 +277,6 @@ offset_left = 2700.0
 offset_top = -100.0
 offset_right = 2900.0
 offset_bottom = 0.0
-metadata/_edit_lock_ = true
 
 [editable path="Objects/MovingPlatform"]
 [editable path="Objects/MovingPlatform2"]

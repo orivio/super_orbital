@@ -15,10 +15,18 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Super Orbital"
+config/name_localized={
+"bn_BD": "সুপার অরবিতাল"
+}
+config/description="A precision platformer about a person born without natural gravity"
+config/version="1.0"
 run/main_scene="uid://c0l8r4h3amty4"
+run/enable_alt_space_menu=true
 config/features=PackedStringArray("4.7", "Forward Plus")
-boot_splash/bg_color=Color(0, 0.87780595, 0.2553519, 1)
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/use_filter=false
 boot_splash/image="uid://clblpcs3hnoir"
+config/icon="uid://c1irp1epn8nxl"
 
 [autoload]
 
@@ -33,7 +41,7 @@ AudioManager="*uid://cum61majgasey"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 
 [editor_plugins]
 

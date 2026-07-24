@@ -50,7 +50,6 @@ resource_local_to_scene = true
 size = Vector2(128, 128)
 
 [node name="RoomDashPlatform" unique_id=201273727 instance=ExtResource("1_yfqcb")]
-section = 1.0
 
 [node name="CameraBounds" parent="." index="0" unique_id=711655567]
 visible = true
@@ -127,7 +126,7 @@ tile_map_data = PackedByteArray("AAD2/wAAAAABAAEAAAD2/wEAAAABAAIAAAD2/wIAAAABAAI
 [node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("3_q30jo")]
 door_tag = "WestDoor"
 dest_door_tag = "EastDoor"
-dest_room_path = "uid://cjsjgx5ksbvsd"
+dest_room = "spike_gap"
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-608, -48)
@@ -139,12 +138,11 @@ position = Vector2(-416, -32)
 [node name="Label" parent="Doors/WestDoor" index="2" unique_id=164300380]
 offset_left = -600.0
 offset_right = -599.0
-metadata/_edit_lock_ = true
 
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=1389046235 instance=ExtResource("3_q30jo")]
 door_tag = "EastDoor"
 dest_door_tag = "WestDoor"
-dest_room_path = "uid://drqwhjbyw0tr"
+dest_room = "vertical_dash"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(2112, -1216)
@@ -158,7 +156,6 @@ offset_left = 2000.0
 offset_top = -1400.0
 offset_right = 2200.0
 offset_bottom = -1300.0
-metadata/_edit_lock_ = true
 
 [editable path="Objects/MovingPlatform"]
 [editable path="Objects/MovingPlatform2"]

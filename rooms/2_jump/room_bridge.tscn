@@ -18,7 +18,6 @@ resource_local_to_scene = true
 size = Vector2(128, 96)
 
 [node name="RoomBridge" unique_id=201273727 instance=ExtResource("1_np7iq")]
-section = 1.0
 
 [node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
 position = Vector2(464, 384)
@@ -38,7 +37,7 @@ tile_set = ExtResource("4_nkjhv")
 [node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("2_vagio")]
 door_tag = "WestDoor"
 dest_door_tag = "EastDoor"
-dest_room_path = "uid://c1sb0h6scncah"
+dest_room = "jumpcut"
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-448, -48)
@@ -50,12 +49,11 @@ position = Vector2(-288, -32)
 [node name="Label" parent="Doors/WestDoor" index="2" unique_id=164300380]
 offset_left = -500.0
 offset_right = -400.0
-metadata/_edit_lock_ = true
 
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=940127081 instance=ExtResource("2_vagio")]
 door_tag = "EastDoor"
 dest_door_tag = "WestDoor"
-dest_room_path = "uid://463vcvm62equ"
+dest_room = "gap"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(1408, -336)
@@ -69,7 +67,6 @@ offset_left = 1300.0
 offset_top = -500.0
 offset_right = 1500.0
 offset_bottom = -400.0
-metadata/_edit_lock_ = true
 
 [editable path="Doors/WestDoor"]
 [editable path="Doors/EastDoor"]
