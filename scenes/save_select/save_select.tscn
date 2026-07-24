@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://b40lkhs41c5mm" path="res://ui/materials/cloudy_layer.tres" id="3_jwjft"]
 [ext_resource type="Material" uid="uid://dcoubjkoyq0gm" path="res://ui/materials/back_starry_layer.tres" id="4_oq148"]
 [ext_resource type="Theme" uid="uid://brsjv0onhn51i" path="res://ui/themes/settings_theme.tres" id="5_rdqwv"]
+[ext_resource type="Script" uid="uid://bx7hobu8ln1b4" path="res://scenes/save_select/completion_path.gd" id="7_hmfe0"]
 [ext_resource type="PackedScene" uid="uid://dvjxvisrrqfer" path="res://ui/effects/fade_effect.tscn" id="7_oq148"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hmfe0"]
@@ -17,6 +18,12 @@ shader_parameter/seed = 5.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_oq148"]
 font_size = 40
+
+[sub_resource type="Curve2D" id="Curve2D_oq148"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 30, 47, 0, 0, 0, 0, 830, 47, 0, 0, 0, 0, 830, 143, 0, 0, 0, 0, 30, 143, 0, 0, 0, 0, 30, 239, 0, 0, 0, 0, 830, 239, 0, 0, 0, 0, 830, 335, 0, 0, 0, 0, 30, 335, 0, 0, 0, 0, 30, 431, 0, 0, 0, 0, 830, 431)
+}
+point_count = 10
 
 [node name="SaveSelect" type="Control" unique_id=2125277451]
 layout_mode = 3
@@ -106,6 +113,13 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="CompletionPath" type="Path2D" parent="PanelContainer/VBoxContainer/Control" unique_id=1117638032]
+curve = SubResource("Curve2D_oq148")
+script = ExtResource("7_hmfe0")
+
+[node name="Line2D" type="Line2D" parent="PanelContainer/VBoxContainer/Control/CompletionPath" unique_id=312605840]
+default_color = Color(0.6321235, 0.6321235, 0.6321234, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=816447530]
 layout_mode = 2

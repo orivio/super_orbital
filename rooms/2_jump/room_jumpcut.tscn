@@ -2,17 +2,22 @@
 
 [ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room_template.tscn" id="1_eosnd"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="2_5yv5w"]
+[ext_resource type="PackedScene" uid="uid://bjec8jk85hnki" path="res://poi/progress_detector/progress_detector.tscn" id="2_ahtct"]
 [ext_resource type="TileSet" uid="uid://bnrmi5xqiqb0w" path="res://world/tilesets/slightly_better_tileset.tres" id="3_ela0v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_co2g5"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aytfp"]
 resource_local_to_scene = true
 size = Vector2(1664, 544)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ahtct"]
 resource_local_to_scene = true
+size = Vector2(128, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_les4w"]
+resource_local_to_scene = true
 size = Vector2(64, 96)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aytfp"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqaxh"]
 resource_local_to_scene = true
 size = Vector2(160, 96)
 
@@ -23,7 +28,14 @@ visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(608, -80)
-shape = SubResource("RectangleShape2D_co2g5")
+shape = SubResource("RectangleShape2D_aytfp")
+
+[node name="ProgressDetector" parent="POI" parent_id_path=PackedInt32Array(809409572) index="0" unique_id=1408990158 instance=ExtResource("2_ahtct")]
+progress_name = &"Jump Cutting"
+
+[node name="CollisionShape2D" parent="POI/ProgressDetector" index="0" unique_id=1008791462]
+position = Vector2(1376, 0)
+shape = SubResource("RectangleShape2D_ahtct")
 
 [node name="TileMapLayer" parent="." index="4" unique_id=1010939493]
 position = Vector2(0, 2)
@@ -40,7 +52,7 @@ dest_room = "ladder"
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-320, 16)
-shape = SubResource("RectangleShape2D_ahtct")
+shape = SubResource("RectangleShape2D_les4w")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-160, 32)
@@ -58,7 +70,7 @@ dest_room = "bridge"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(1584, 16)
-shape = SubResource("RectangleShape2D_aytfp")
+shape = SubResource("RectangleShape2D_vqaxh")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(1376, 32)
@@ -69,5 +81,6 @@ offset_top = -100.0
 offset_right = 1700.0
 offset_bottom = 0.0
 
+[editable path="POI/ProgressDetector"]
 [editable path="Doors/WestDoor"]
 [editable path="Doors/EastDoor"]

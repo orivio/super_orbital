@@ -1,6 +1,7 @@
 extends Node
 
 signal player_left_blackhole
+signal progress_attained(name: StringName)
 
 var player: Player
 var camera: PlayerCamera
@@ -30,6 +31,8 @@ var rooms: Dictionary[String, String] = {
 	"black_hole": "uid://b7y15sh84lthd"
 }
 
+func _ready() -> void:
+	progress_attained.connect(SaveManager._on_progress_attained)
 
 func impact():
 	if impact_timer <= 0 and time_scale == 1:
@@ -62,3 +65,6 @@ func get_room(room: String) -> PackedScene:
 
 func room_exists(room: String) -> bool:
 	return rooms.has(room)
+
+func attain_progress(progress_name: StringName) -> void:
+	progress_attained.emit(progress_name)

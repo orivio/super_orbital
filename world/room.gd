@@ -26,6 +26,11 @@ func initialize_room() -> void:
 	for node in dialogue_trigger_nodes:
 		if node is DialogueTrigger:
 			node.load_data_from_savefile(SaveManager.get_save_file())
+	
+	var progress_detector_nodes: Array[Node] = get_tree().get_nodes_in_group("progress_detector")
+	for node in progress_detector_nodes:
+		if node is ProgressDetector:
+			node.load_data_from_savefile(SaveManager.get_save_file())
 
 func get_camera_bounds() -> Rect2:
 	

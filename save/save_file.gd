@@ -5,6 +5,7 @@ const SAVE_GAME_PATH: String = "user://save_file.json"
 var room: String = "move"
 var player_abilities: PlayerAbilities = preload("res://player/abilities/player_initial_abilities.tres")
 var dialogue_data: Dictionary
+var progress_data: Array[String]
 
 func _init() -> void:
 	if player_abilities:
@@ -16,7 +17,8 @@ func write_to_file(file_path: String) -> void:
 	var data: Dictionary = {
 		"room": room,
 		"player_abilities": player_abilities.get_json(),
-		"dialogue": dialogue_data
+		"dialogue": dialogue_data,
+		"progress": progress_data
 	}
 	file.store_string(JSON.stringify(data, "\t"))
 	file.close()
@@ -43,6 +45,7 @@ static func load_from_file(file_path: String) -> SaveFile:
 	save_file.room = data["room"]
 	save_file.player_abilities = PlayerAbilities.from_json(data["player_abilities"])
 	save_file.dialogue_data = data["dialogue"]
+	save_file.progress_data.append_array(data["progress"])
 	return save_file
 
 static func load_save() -> SaveFile:

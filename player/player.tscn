@@ -149,7 +149,7 @@ size = Vector2(17, 49)
 
 [node name="Player" type="CharacterBody2D" unique_id=1158454686 groups=["player"]]
 collision_layer = 2
-collision_mask = 625
+collision_mask = 2673
 script = ExtResource("1_rkbax")
 movement_settings = ExtResource("2_qiwj3")
 

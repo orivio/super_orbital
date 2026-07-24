@@ -41,7 +41,9 @@ func change_room(dest_room: String, dest_door_tag: String, do_save: bool = true)
 		push_error("Room does not exist: ", dest_room)
 		return
 	
-	var current_music: String = current_room.music_for_this_room
+	var previous_music: String = ""
+	if current_room:
+		previous_music = current_room.music_for_this_room
 	# print(dest_room)
 	
 	# print("Disabling player")

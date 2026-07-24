@@ -54,3 +54,9 @@ func _on_dialogue_finished(tag: StringName) -> void:
 	else:
 		save_file.dialogue_data.set(tag, {"finished": true})
 	write_save_file()
+
+func _on_progress_attained(progress_name: StringName) -> void:
+	if save_file.progress_data.has(progress_name):
+		return
+	save_file.progress_data.append(progress_name)
+	write_save_file()

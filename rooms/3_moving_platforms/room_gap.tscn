@@ -2,29 +2,34 @@
 
 [ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room_template.tscn" id="1_vuuwf"]
 [ext_resource type="PackedScene" uid="uid://b2ogi0ekm1d7i" path="res://objects/moving_platform/moving_platform.tscn" id="2_6ov7k"]
+[ext_resource type="PackedScene" uid="uid://bjec8jk85hnki" path="res://poi/progress_detector/progress_detector.tscn" id="2_c6uh4"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="4_rv474"]
 [ext_resource type="TileSet" uid="uid://bnrmi5xqiqb0w" path="res://world/tilesets/slightly_better_tileset.tres" id="4_yfgoq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jj8q"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tr1sk"]
 resource_local_to_scene = true
 size = Vector2(1728, 672)
 
-[sub_resource type="Curve2D" id="Curve2D_c6uh4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5vga"]
+resource_local_to_scene = true
+size = Vector2(192, 192)
+
+[sub_resource type="Curve2D" id="Curve2D_e6dkm"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 288, 32, 0, 0, 0, 0, 768, 32)
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tr1sk"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ih63g"]
 resource_local_to_scene = true
 size = Vector2(192, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5vga"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yroak"]
 resource_local_to_scene = true
 size = Vector2(96, 96)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6dkm"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3ldn"]
 resource_local_to_scene = true
 size = Vector2(160, 96)
 
@@ -35,11 +40,18 @@ visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(352, -256)
-shape = SubResource("RectangleShape2D_2jj8q")
+shape = SubResource("RectangleShape2D_tr1sk")
+
+[node name="ProgressDetector" parent="POI" parent_id_path=PackedInt32Array(809409572) index="0" unique_id=1408990158 instance=ExtResource("2_c6uh4")]
+progress_name = &"Moving Platforms"
+
+[node name="CollisionShape2D" parent="POI/ProgressDetector" index="0" unique_id=1008791462]
+position = Vector2(1184, -160)
+shape = SubResource("RectangleShape2D_e5vga")
 
 [node name="MovingPlatform" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="0" unique_id=1898127775 instance=ExtResource("2_6ov7k")]
 position = Vector2(0, -96)
-curve = SubResource("Curve2D_c6uh4")
+curve = SubResource("Curve2D_e6dkm")
 time = 2.0
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform" index="0" unique_id=199652958]
@@ -54,7 +66,7 @@ position = Vector2(288, 32)
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform/AnimatableBody2D" index="0" unique_id=388684668]
-shape = SubResource("RectangleShape2D_tr1sk")
+shape = SubResource("RectangleShape2D_ih63g")
 
 [node name="NinePatchRect" parent="Objects/MovingPlatform/AnimatableBody2D" index="1" unique_id=1810313545]
 offset_left = -96.0
@@ -74,7 +86,7 @@ dest_room = "bridge"
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-624, -48)
-shape = SubResource("RectangleShape2D_e5vga")
+shape = SubResource("RectangleShape2D_yroak")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-384, -32)
@@ -90,7 +102,7 @@ dest_room = "timing"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(1360, -144)
-shape = SubResource("RectangleShape2D_e6dkm")
+shape = SubResource("RectangleShape2D_t3ldn")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(1088, -128)
@@ -101,6 +113,7 @@ offset_top = -300.0
 offset_right = 1400.0
 offset_bottom = -200.0
 
+[editable path="POI/ProgressDetector"]
 [editable path="Objects/MovingPlatform"]
 [editable path="Doors/WestDoor"]
 [editable path="Doors/EastDoor"]

@@ -2,19 +2,24 @@
 
 [ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room_template.tscn" id="1_h3x7e"]
 [ext_resource type="PackedScene" uid="uid://bg6j40ftax5ji" path="res://objects/black_hole/black_hole.tscn" id="2_5xoju"]
+[ext_resource type="PackedScene" uid="uid://bjec8jk85hnki" path="res://poi/progress_detector/progress_detector.tscn" id="2_fkule"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="2_kftim"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xoju"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qa4ds"]
 resource_local_to_scene = true
 size = Vector2(2880, 1216)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkule"]
 resource_local_to_scene = true
+size = Vector2(128, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdvb1"]
+resource_local_to_scene = true
 size = Vector2(96, 96)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qa4ds"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j35qt"]
 resource_local_to_scene = true
-size = Vector2(128, 192)
+size = Vector2(64, 192)
 
 [node name="RoomBlackHole" unique_id=201273727 instance=ExtResource("1_h3x7e")]
 
@@ -23,7 +28,14 @@ visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(832, -288)
-shape = SubResource("RectangleShape2D_5xoju")
+shape = SubResource("RectangleShape2D_qa4ds")
+
+[node name="ProgressDetector" parent="POI" parent_id_path=PackedInt32Array(809409572) index="0" unique_id=1408990158 instance=ExtResource("2_fkule")]
+progress_name = &"Black Hole Navigation"
+
+[node name="CollisionShape2D" parent="POI/ProgressDetector" index="0" unique_id=1008791462]
+position = Vector2(2304, -64)
+shape = SubResource("RectangleShape2D_fkule")
 
 [node name="BlackHole" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="0" unique_id=67489551 instance=ExtResource("2_5xoju")]
 position = Vector2(96, 0)
@@ -44,7 +56,7 @@ dest_room = "wrench"
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-720, 16)
-shape = SubResource("RectangleShape2D_fkule")
+shape = SubResource("RectangleShape2D_xdvb1")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-544, 32)
@@ -60,8 +72,8 @@ door_tag = "EastDoor"
 dest_door_tag = "WestDoor"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
-position = Vector2(2336, -32)
-shape = SubResource("RectangleShape2D_qa4ds")
+position = Vector2(2368, -32)
+shape = SubResource("RectangleShape2D_j35qt")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(2210, 0)
@@ -70,5 +82,6 @@ position = Vector2(2210, 0)
 offset_left = 2300.0
 offset_right = 2400.0
 
+[editable path="POI/ProgressDetector"]
 [editable path="Doors/WestDoor"]
 [editable path="Doors/EastDoor"]
