@@ -24,7 +24,7 @@ resource_local_to_scene = true
 size = Vector2(64, 96)
 
 [node name="RoomMove" unique_id=201273727 instance=ExtResource("1_vg2pm")]
-section = 1.0
+music_for_this_room = null
 
 [node name="CameraBounds" parent="." index="0" unique_id=711655567]
 visible = true

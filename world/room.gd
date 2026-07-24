@@ -3,11 +3,12 @@ class_name Room extends Node2D
 
 signal room_door_entered(dest_room_path: String, dest_door_tag: String)
 
+@export_file("ogg") var music_for_this_room: String
+
 @onready var camera_bounds: CollisionShape2D = $CameraBounds/CollisionShape2D
 @onready var doors: Node2D = $Doors
 @onready var objects: Node2D = $Objects
 @onready var effects: Node2D = $Effects
-@export var section: float
 
 func _ready() -> void:
 	
