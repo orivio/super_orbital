@@ -6,6 +6,8 @@
 
 [node name="Play" type="Node2D" unique_id=1914774002]
 script = ExtResource("1_3t680")
+pause_menu_enter_duration = 0.5
+pause_menu_exit_duration = 0.5
 
 [node name="World" parent="." unique_id=1899629397 instance=ExtResource("3_bq38n")]
 

@@ -10,11 +10,12 @@ Russlan:
 - Assess the progression and difficulty of the levels
 
 Obed:
-- Visualize game progress on the save file menu and allow the player to jump back to old levels
-- Make an in game menu
 - Make a devlog about save files
+- Add more settings to the in game menu
 - Make the ui look better
 - Add more settings to the settings page
+- Add more levels
+- Let the player go back to old levels
 - Make the banner have more action
 - Redraw the jump and fall animations (they're good, but could be a lot better)
 - Finish dash, gravity switch, and wrench throw animations
