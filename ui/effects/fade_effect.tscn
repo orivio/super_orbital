@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dvjxvisrrqfer"]
 
-[ext_resource type="Script" uid="uid://cwwm18hcq6whx" path="res://ui/effects/fade.gd" id="1_o25p6"]
+[ext_resource type="Script" uid="uid://cwwm18hcq6whx" path="res://ui/effects/fade_effect.gd" id="1_o25p6"]
 
-[node name="Fade" type="CanvasLayer" unique_id=1477421051]
+[node name="FadeEffect" type="CanvasLayer" unique_id=1477421051]
 script = ExtResource("1_o25p6")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2003198044]

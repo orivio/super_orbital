@@ -10,9 +10,11 @@ Russlan:
 - Assess the progression and difficulty of the levels
 
 Obed:
-- Implement a save file screen on the menu
+- Visualize game progress on the save file menu and allow the player to jump back to old levels
+- Make an in game menu
 - Make a devlog about save files
-- Make a better settings page
+- Make the ui look better
+- Add more settings to the settings page
 - Make the banner have more action
 - Redraw the jump and fall animations (they're good, but could be a lot better)
 - Finish dash, gravity switch, and wrench throw animations
@@ -20,14 +22,11 @@ Obed:
 - Add variation to tileset
 - Polish impact clouds and dash clouds effects
 - Draw the visible layer to the player's animations
-- How exactly can SAD Guy create black holes?
 
 Both, or whoever wants to:
 - (IMPORTANT!) make a shaded tileset for background accentuation
 	- What does that mean?
 - Make a better favicon
-- Consider whether the player should be able to gravity switch right after leaving a gravity switch.
-	- I think maybe the player should only be able to gravity switch again after they have landed safely on the ground. - Obed
-	- I think the player should be able to gravity switch twice before hitting ground, w/ a cooldown
+- How exactly can SAD Guy create black holes?
 - Design and animate cutscenes
 - Make sound effects for movement, ui, and dialogue

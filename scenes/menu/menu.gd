@@ -21,7 +21,7 @@ var original_button_size: Vector2
 
 @onready var play_button: Button = $VBoxContainer/VBoxContainer/PlayButton
 @onready var settings_button: Button = $VBoxContainer/VBoxContainer/SettingsButton
-@onready var fade: Fade = $Fade
+@onready var fade: FadeEffect = $FadeEffect
 
 func _enter_tree() -> void:
 	pass
@@ -36,7 +36,7 @@ func _ready() -> void:
 
 func _on_play_button_pressed() -> void:
 	await fade.fade(play_fade_color, play_fade_duration).finished
-	get_tree().change_scene_to_file("res://scenes/play/play.tscn")
+	get_tree().change_scene_to_file("res://scenes/save_select/save_select.tscn")
 
 func _on_settings_button_pressed() -> void:
 	await fade.fade(settings_fade_color, settings_fade_duration).finished

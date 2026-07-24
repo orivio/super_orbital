@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c1qwvj8oxyj61" path="res://ui/textures/star2.png" id="2_mhnvy"]
 [ext_resource type="Shader" uid="uid://c5kmcvgi0g6h1" path="res://ui/shaders/starry_layer.gdshader" id="4_4ytvr"]
 [ext_resource type="Material" uid="uid://b40lkhs41c5mm" path="res://ui/materials/cloudy_layer.tres" id="4_g3eks"]
-[ext_resource type="PackedScene" uid="uid://dvjxvisrrqfer" path="res://ui/effects/fade.tscn" id="6_g3eks"]
+[ext_resource type="PackedScene" uid="uid://dvjxvisrrqfer" path="res://ui/effects/fade_effect.tscn" id="6_g3eks"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g3eks"]
 shader = ExtResource("4_4ytvr")
@@ -22,7 +22,7 @@ outline_color = Color(0.60268, 0.50020003, 0.61, 0.6117647)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lblr"]
 bg_color = Color(0.38431373, 0.38039216, 0.49019608, 0.47843137)
 
-[node name="ControlRoot" type="Control" unique_id=586724944]
+[node name="Menu" type="Control" unique_id=586724944]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,8 +32,8 @@ grow_vertical = 2
 script = ExtResource("1_con2f")
 hover_button_scale = Vector2(1.05, 1.05)
 button_scale_duration = 0.1
-play_fade_color = Color(1, 1, 1, 1)
-play_fade_duration = 0.5
+play_fade_duration = 0.3
+settings_fade_duration = 0.3
 
 [node name="Background" type="ColorRect" parent="." unique_id=710334058]
 layout_mode = 1
@@ -110,7 +110,7 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_3lblr")
 text = "Settings"
 
-[node name="Fade" parent="." unique_id=1477421051 instance=ExtResource("6_g3eks")]
+[node name="FadeEffect" parent="." unique_id=1477421051 instance=ExtResource("6_g3eks")]
 
 [connection signal="mouse_entered" from="VBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_mouse_exited"]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c4k0bktrvpilm" path="res://world/room_manager.gd" id="1_5cnr3"]
 [ext_resource type="PackedScene" uid="uid://d0xbwpfoe4xkm" path="res://player/player.tscn" id="2_i3p2r"]
 [ext_resource type="PackedScene" uid="uid://wc0ql66giloh" path="res://camera/player_camera.tscn" id="3_i3p2r"]
-[ext_resource type="PackedScene" uid="uid://dvjxvisrrqfer" path="res://ui/effects/fade.tscn" id="4_i8s06"]
+[ext_resource type="PackedScene" uid="uid://dvjxvisrrqfer" path="res://ui/effects/fade_effect.tscn" id="4_i8s06"]
 
 [node name="RoomManager" type="Node" unique_id=1236648784]
 script = ExtResource("1_5cnr3")
@@ -19,4 +19,4 @@ random_strength = 10.0
 
 [node name="RoomContainer" type="Node2D" parent="." unique_id=196354671]
 
-[node name="Fade" parent="." unique_id=1477421051 instance=ExtResource("4_i8s06")]
+[node name="FadeEffect" parent="." unique_id=1477421051 instance=ExtResource("4_i8s06")]

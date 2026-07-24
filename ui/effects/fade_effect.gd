@@ -1,4 +1,4 @@
-class_name Fade extends CanvasLayer
+class_name FadeEffect extends CanvasLayer
 
 @onready var color_rect: ColorRect = $ColorRect
 

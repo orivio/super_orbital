@@ -14,7 +14,7 @@ var last_entered_door_tag: String
 
 @onready var player: Player = $Player
 @onready var player_camera: PlayerCamera = $PlayerCamera
-@onready var fade: Fade = $Fade
+@onready var fade_effect: FadeEffect = $FadeEffect
 @onready var room_container: Node2D = $RoomContainer
 
 func _ready() -> void:
@@ -32,7 +32,7 @@ func load_initial_room() -> void:
 		initial_room = SaveManager.get_save_file().room
 	# print(initial_door_ta)
 	# print(initial_room_path)
-	fade.color_rect.color = Color(0, 0, 0, 1)
+	fade_effect.color_rect.color = Color(0, 0, 0, 1)
 	change_room(initial_room, initial_door_ta, false)
 	player.load_abilities()
 
@@ -47,7 +47,7 @@ func change_room(dest_room: String, dest_door_tag: String, do_save: bool = true)
 	# print("Disabling player")
 	player.disable_physics()
 	
-	await fade.fade(Color(0, 0, 0, 1), room_transition_time).finished
+	await fade_effect.fade(Color(0, 0, 0, 1), room_transition_time).finished
 	
 	# First, load the room resource
 	
@@ -92,7 +92,7 @@ func change_room(dest_room: String, dest_door_tag: String, do_save: bool = true)
 	# print("Enabling player")
 	player.enable_physics()
 	
-	await fade.fade(Color(0, 0, 0, 0), room_transition_time).finished
+	await fade_effect.fade(Color(0, 0, 0, 0), room_transition_time).finished
 	
 	if do_save and GameManager.room_exists(dest_room):
 		room_changed.emit(dest_room)

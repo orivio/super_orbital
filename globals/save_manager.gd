@@ -2,12 +2,33 @@ extends Node
 
 var save_file: SaveFile
 
-func load_save_file() -> void:
+func does_save_exist() -> bool:
+	return SaveFile.does_save_exist()
+
+func create_new_save() -> SaveFile:
+	save_file = preload("res://save/save_file.gd").new()
+	return save_file
+
+func delete_save_file() -> void:
+	SaveFile.delete_save_file()
+
+func export_to_file(file: String) -> void:
+	if save_file:
+		save_file.write_to_file(file)
+	else:
+		push_error("Save file not found!")
+
+func import_from_file(file: String) -> void:
+	save_file = SaveFile.load_from_file(file)
+
+func load_save_file() -> bool:
 	var temp: SaveFile = SaveFile.load_save()
 	if not temp:
 		save_file = preload("res://save/save_file.gd").new()
+		return false
 	else:
 		save_file = temp
+		return true
 
 func write_save_file() -> void:
 	save_file.write_save()

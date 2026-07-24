@@ -1,5 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://brsjv0onhn51i"]
 
+[ext_resource type="StyleBox" uid="uid://cf5kpk684s0lj" path="res://ui/themes/new_style_box_flat.tres" id="1_supqq"]
+
 [sub_resource type="SystemFont" id="SystemFont_pc74o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pc74o"]
@@ -26,6 +28,7 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 
 [resource]
+PanelContainer/styles/panel = ExtResource("1_supqq")
 TabContainer/colors/font_hovered_color = Color(0, 0, 0, 1)
 TabContainer/colors/font_selected_color = Color(0, 0, 0, 1)
 TabContainer/colors/font_unselected_color = Color(0, 0, 0, 1)
