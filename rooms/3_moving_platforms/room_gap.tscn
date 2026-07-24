@@ -29,6 +29,7 @@ resource_local_to_scene = true
 size = Vector2(160, 96)
 
 [node name="RoomGap" unique_id=201273727 instance=ExtResource("1_vuuwf")]
+section = 1.0
 
 [node name="CameraBounds" parent="." index="0" unique_id=711655567]
 visible = true
@@ -54,7 +55,6 @@ position = Vector2(288, 32)
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform/AnimatableBody2D" index="0" unique_id=388684668]
-position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_tr1sk")
 
 [node name="NinePatchRect" parent="Objects/MovingPlatform/AnimatableBody2D" index="1" unique_id=1810313545]

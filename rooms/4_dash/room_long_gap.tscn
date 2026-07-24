@@ -6,34 +6,35 @@
 [ext_resource type="PackedScene" uid="uid://lf2gvhqkoyd6" path="res://poi/dialogue_trigger/dialogue_trigger.tscn" id="4_6n1we"]
 [ext_resource type="Resource" uid="uid://cxn30srtesni4" path="res://dialogue/scripts/learn_dashing.tres" id="5_e3yfr"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1yu5a"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6n1we"]
 resource_local_to_scene = true
 size = Vector2(1728, 704)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_igh5g"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3yfr"]
 resource_local_to_scene = true
 size = Vector2(96, 288)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo2eh"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1yu5a"]
 resource_local_to_scene = true
 size = Vector2(96, 96)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pum8"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_igh5g"]
 resource_local_to_scene = true
 size = Vector2(160, 96)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_37d7b"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo2eh"]
 resource_local_to_scene = true
 size = Vector2(161, 277.5)
 
 [node name="RoomLongGap" unique_id=201273727 instance=ExtResource("1_io387")]
+section = 1.0
 
 [node name="CameraBounds" parent="." index="0" unique_id=711655567]
 visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(448, -128)
-shape = SubResource("RectangleShape2D_1yu5a")
+shape = SubResource("RectangleShape2D_6n1we")
 
 [node name="TooltipField" parent="POI" parent_id_path=PackedInt32Array(809409572) index="0" unique_id=11161504 instance=ExtResource("2_4sb06")]
 message = "Press Z to dash"
@@ -41,7 +42,7 @@ unlocks_ability = "dash"
 
 [node name="CollisionShape2D" parent="POI/TooltipField" index="0" unique_id=822976353]
 position = Vector2(-144, -144)
-shape = SubResource("RectangleShape2D_igh5g")
+shape = SubResource("RectangleShape2D_e3yfr")
 
 [node name="Label" parent="POI/TooltipField" index="1" unique_id=1289689676]
 visible = true
@@ -61,7 +62,7 @@ dest_room_path = "uid://dq5o3hg42kqv"
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-432, -48)
-shape = SubResource("RectangleShape2D_bo2eh")
+shape = SubResource("RectangleShape2D_1yu5a")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-288, -32)
@@ -78,7 +79,7 @@ dest_room_path = "uid://cjsjgx5ksbvsd"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(1456, -112)
-shape = SubResource("RectangleShape2D_6pum8")
+shape = SubResource("RectangleShape2D_igh5g")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(1280, -96)
@@ -97,7 +98,7 @@ conversation = ExtResource("5_e3yfr")
 
 [node name="CollisionShape2D" parent="DialogueTrigger" index="0" unique_id=354673692]
 position = Vector2(71.5, -18.25)
-shape = SubResource("RectangleShape2D_37d7b")
+shape = SubResource("RectangleShape2D_bo2eh")
 
 [editable path="POI/TooltipField"]
 [editable path="Doors/WestDoor"]

@@ -84,6 +84,7 @@ resource_local_to_scene = true
 size = Vector2(160, 96)
 
 [node name="RoomMomentum" unique_id=201273727 instance=ExtResource("1_m5ldp")]
+section = 1.0
 
 [node name="CameraBounds" parent="." index="0" unique_id=711655567]
 visible = true
@@ -105,7 +106,6 @@ points = PackedVector2Array(-64, 32, -59.6875, 32, -57.33496, 32, -54.507813, 32
 position = Vector2(-64, 32)
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform/AnimatableBody2D" index="0" unique_id=388684668]
-position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_6j7iy")
 
 [node name="NinePatchRect" parent="Objects/MovingPlatform/AnimatableBody2D" index="1" unique_id=1810313545]
@@ -126,7 +126,6 @@ points = PackedVector2Array(448, 32, 450.97607, 32, 454.5506, 32, 459.38672, 32,
 position = Vector2(713, 32)
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform2/AnimatableBody2D" index="0" unique_id=388684668]
-position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_fxes5")
 
 [node name="NinePatchRect" parent="Objects/MovingPlatform2/AnimatableBody2D" index="1" unique_id=1810313545]
@@ -150,7 +149,6 @@ position = Vector2(1311, 256)
 rotation = -1.5707964
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform3/AnimatableBody2D" index="0" unique_id=388684668]
-position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_2nfr7")
 
 [node name="NinePatchRect" parent="Objects/MovingPlatform3/AnimatableBody2D" index="1" unique_id=1810313545]
@@ -177,7 +175,6 @@ position = Vector2(1568, 128.00003)
 rotation = -1.5707964
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform4/AnimatableBody2D" index="0" unique_id=388684668]
-position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_b3vdr")
 
 [node name="NinePatchRect" parent="Objects/MovingPlatform4/AnimatableBody2D" index="1" unique_id=1810313545]
@@ -204,7 +201,6 @@ position = Vector2(1824, -96)
 rotation = -1.5707964
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform5/AnimatableBody2D" index="0" unique_id=388684668]
-position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_se482")
 
 [node name="NinePatchRect" parent="Objects/MovingPlatform5/AnimatableBody2D" index="1" unique_id=1810313545]
@@ -234,7 +230,6 @@ rotation = -1.5707964
 scale = Vector2(0.9999999, 0.99999964)
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform6/AnimatableBody2D" index="0" unique_id=388684668]
-position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_1t1r5")
 
 [node name="NinePatchRect" parent="Objects/MovingPlatform6/AnimatableBody2D" index="1" unique_id=1810313545]
