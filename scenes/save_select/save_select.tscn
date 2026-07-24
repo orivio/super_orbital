@@ -15,6 +15,9 @@ shader_parameter/stars_density = 0.0170000008075
 shader_parameter/star_size = 1.0
 shader_parameter/seed = 5.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_oq148"]
+font_size = 40
+
 [node name="SaveSelect" type="Control" unique_id=2125277451]
 layout_mode = 3
 anchors_preset = 15
@@ -91,6 +94,13 @@ theme = ExtResource("5_rdqwv")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=838911705]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1888068881]
+layout_mode = 2
+text = "Save Select"
+label_settings = SubResource("LabelSettings_oq148")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Control" type="Control" parent="PanelContainer/VBoxContainer" unique_id=1853270898]
 layout_mode = 2

@@ -37,11 +37,11 @@ func load_initial_room() -> void:
 	player.load_abilities()
 
 func change_room(dest_room: String, dest_door_tag: String, do_save: bool = true) -> void:
-	
 	if not GameManager.room_exists(dest_room):
 		push_error("Room does not exist: ", dest_room)
 		return
 	
+	var current_music: String = current_room.music_for_this_room
 	# print(dest_room)
 	
 	# print("Disabling player")
@@ -98,8 +98,7 @@ func change_room(dest_room: String, dest_door_tag: String, do_save: bool = true)
 		room_changed.emit(dest_room)
 	
 	GameManager.player_leave_blackhole()
-	
-	if current_room.music_for_this_room != "":
+	if current_room.music_for_this_room != "" and current_room.music_for_this_room != previous_music:
 		AudioManager.change_music(current_room.music_for_this_room)
 
 func teleport_player_to_door(room: Room, dest_door_tag: String):
