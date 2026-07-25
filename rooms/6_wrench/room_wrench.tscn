@@ -21,7 +21,7 @@ size = Vector2(96, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m0vqb"]
 resource_local_to_scene = true
-size = Vector2(154, 200.5)
+size = Vector2(224, 200.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hwc2v"]
 resource_local_to_scene = true
@@ -29,12 +29,15 @@ size = Vector2(64, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2ugf"]
 resource_local_to_scene = true
-size = Vector2(64, 64)
+size = Vector2(64, 96)
 
 [node name="RoomWrenchItem" unique_id=201273727 instance=ExtResource("1_4rm83")]
 music_for_this_room = "uid://86wyqwb0rs5n"
 
-[node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
+[node name="CameraBounds" parent="." index="0" unique_id=711655567]
+visible = true
+
+[node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(362, -96)
 shape = SubResource("RectangleShape2D_vrken")
 
@@ -66,7 +69,7 @@ tag = &"learn_wrench"
 conversation = ExtResource("6_hwc2v")
 
 [node name="CollisionShape2D" parent="POI/DialogueTrigger" index="0" unique_id=354673692]
-position = Vector2(8, 8.75)
+position = Vector2(111, 8.75)
 shape = SubResource("RectangleShape2D_m0vqb")
 
 [node name="TileMapLayer" parent="." index="4" unique_id=1010939493]
@@ -96,7 +99,7 @@ dest_door_tag = "WestDoor"
 dest_room = "wrench_large"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
-position = Vector2(1120, -256)
+position = Vector2(1120, -272)
 shape = SubResource("RectangleShape2D_m2ugf")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
