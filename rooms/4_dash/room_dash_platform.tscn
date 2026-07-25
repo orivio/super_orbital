@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://bjec8jk85hnki" path="res://poi/progress_detector/progress_detector.tscn" id="2_es44e"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="3_q30jo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r380p"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_es44e"]
 resource_local_to_scene = true
 size = Vector2(2496, 1952)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_es44e"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r380p"]
 resource_local_to_scene = true
 size = Vector2(224, 320)
 
@@ -55,20 +55,21 @@ resource_local_to_scene = true
 size = Vector2(128, 128)
 
 [node name="RoomDashPlatform" unique_id=201273727 instance=ExtResource("1_yfqcb")]
+music_for_this_room = "uid://86wyqwb0rs5n"
 
 [node name="CameraBounds" parent="." index="0" unique_id=711655567]
 visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(736, -752)
-shape = SubResource("RectangleShape2D_r380p")
+shape = SubResource("RectangleShape2D_es44e")
 
 [node name="ProgressDetector" parent="POI" parent_id_path=PackedInt32Array(809409572) index="0" unique_id=1408990158 instance=ExtResource("2_es44e")]
 progress_name = &"Dashing on Platforms"
 
 [node name="CollisionShape2D" parent="POI/ProgressDetector" index="0" unique_id=1008791462]
 position = Vector2(2064, -1280)
-shape = SubResource("RectangleShape2D_es44e")
+shape = SubResource("RectangleShape2D_r380p")
 
 [node name="MovingPlatform" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="0" unique_id=1898127775 instance=ExtResource("2_7eyhf")]
 curve = SubResource("Curve2D_kqqwk")

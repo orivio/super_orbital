@@ -51,6 +51,7 @@ resource_local_to_scene = true
 size = Vector2(160, 96)
 
 [node name="RoomTiming" unique_id=201273727 instance=ExtResource("1_r26h6")]
+music_for_this_room = "uid://86wyqwb0rs5n"
 
 [node name="CameraBounds" parent="." index="0" unique_id=711655567]
 visible = true

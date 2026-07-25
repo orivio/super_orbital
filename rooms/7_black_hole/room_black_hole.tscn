@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://bjec8jk85hnki" path="res://poi/progress_detector/progress_detector.tscn" id="2_fkule"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="2_kftim"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qa4ds"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkule"]
 resource_local_to_scene = true
 size = Vector2(2880, 1216)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkule"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qa4ds"]
 resource_local_to_scene = true
 size = Vector2(128, 320)
 
@@ -22,20 +22,21 @@ resource_local_to_scene = true
 size = Vector2(64, 192)
 
 [node name="RoomBlackHole" unique_id=201273727 instance=ExtResource("1_h3x7e")]
+music_for_this_room = "uid://86wyqwb0rs5n"
 
 [node name="CameraBounds" parent="." index="0" unique_id=711655567]
 visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(832, -288)
-shape = SubResource("RectangleShape2D_qa4ds")
+shape = SubResource("RectangleShape2D_fkule")
 
 [node name="ProgressDetector" parent="POI" parent_id_path=PackedInt32Array(809409572) index="0" unique_id=1408990158 instance=ExtResource("2_fkule")]
 progress_name = &"Black Hole Navigation"
 
 [node name="CollisionShape2D" parent="POI/ProgressDetector" index="0" unique_id=1008791462]
 position = Vector2(2304, -64)
-shape = SubResource("RectangleShape2D_fkule")
+shape = SubResource("RectangleShape2D_qa4ds")
 
 [node name="BlackHole" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="0" unique_id=67489551 instance=ExtResource("2_5xoju")]
 position = Vector2(96, 0)

@@ -6,11 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="3_jlu2o"]
 [ext_resource type="TileSet" uid="uid://bnrmi5xqiqb0w" path="res://world/tilesets/slightly_better_tileset.tres" id="4_o1owt"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_500ak"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srcvx"]
 resource_local_to_scene = true
 size = Vector2(2208, 864)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_srcvx"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_500ak"]
 resource_local_to_scene = true
 size = Vector2(256, 256)
 
@@ -78,20 +78,21 @@ resource_local_to_scene = true
 size = Vector2(64, 96)
 
 [node name="RoomPlatformSpike" unique_id=201273727 instance=ExtResource("1_ytpem")]
+music_for_this_room = "uid://86wyqwb0rs5n"
 
 [node name="CameraBounds" parent="." index="0" unique_id=711655567]
 visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(784, -240)
-shape = SubResource("RectangleShape2D_500ak")
+shape = SubResource("RectangleShape2D_srcvx")
 
 [node name="ProgressDetector" parent="POI" parent_id_path=PackedInt32Array(809409572) index="0" unique_id=1408990158 instance=ExtResource("2_srcvx")]
 progress_name = &"Crazy Moving Platforms"
 
 [node name="CollisionShape2D" parent="POI/ProgressDetector" index="0" unique_id=1008791462]
 position = Vector2(1760, -128)
-shape = SubResource("RectangleShape2D_srcvx")
+shape = SubResource("RectangleShape2D_500ak")
 
 [node name="MovingPlatform1" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="0" unique_id=1898127775 instance=ExtResource("2_k5i0n")]
 curve = SubResource("Curve2D_lqy21")
