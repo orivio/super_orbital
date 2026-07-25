@@ -8,7 +8,18 @@
 [node name="RoomManager" type="Node" unique_id=1236648784]
 script = ExtResource("1_5cnr3")
 initial_door_ta = "WestDoor"
-room_transition_time = 0.1
+room_transition_time = 0.15
+
+[node name="MarsBackground" type="CanvasLayer" parent="." unique_id=1417596529]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="MarsBackground" unique_id=2090034863]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5254902, 0.30980393, 0.1882353, 1)
 
 [node name="Player" parent="." unique_id=1158454686 instance=ExtResource("2_i3p2r")]
 z_index = 1
@@ -20,3 +31,4 @@ random_strength = 10.0
 [node name="RoomContainer" type="Node2D" parent="." unique_id=196354671]
 
 [node name="FadeEffect" parent="." unique_id=1477421051 instance=ExtResource("4_i8s06")]
+layer = 2
