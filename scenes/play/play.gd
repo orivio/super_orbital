@@ -21,7 +21,7 @@ func _ready() -> void:
 	world.init_room()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("pause"):
 		if not pause_menu:
 			if pause_menu_enter_tween:
 				return
