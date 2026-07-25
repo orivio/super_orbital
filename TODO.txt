@@ -9,11 +9,12 @@ Russlan:
 - Assess the progression and difficulty of the levels
 
 Obed:
+- Fix the gravity switch / wrench throw bugs
+- Refine the black hole mechanic
 - Make the ui look better
 - Make a devlog about save files
 - Add more settings to the in game menu
 - Add more settings to the settings page
-- Recode the black hole mechanic
 - Add more levels
 - Let the player go back to old levels
 - Make the banner have more action
