@@ -28,6 +28,7 @@ var rooms: Dictionary[String, String] = {
 	"no_gravity_dash_chain": "uid://dmth7qhi6p4du",
 	"change_direction": "uid://d1gjph7nxyegd",
 	"wrench": "uid://drwajwykhe8mb",
+	"wrench_large": "uid://dftchxtsfo3cy",
 	"black_hole": "uid://b7y15sh84lthd"
 }
 
