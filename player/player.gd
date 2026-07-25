@@ -97,6 +97,23 @@ func _process(delta: float) -> void:
 		get_tree().create_timer(movement_settings.jump_buffer).timeout.connect(on_jump_buffer_timeout)
 	
 	state_machine.process(delta)
+	
+	if state_machine.current_state is StateBlackHole:
+		tooltip.text = "Black Hole"
+	elif state_machine.current_state is StateDash:
+		tooltip.text = "Dash"
+	elif state_machine.current_state is StateFall:
+		tooltip.text = "Fall"
+	elif state_machine.current_state is StateFloat:
+		tooltip.text = "Float"
+	elif state_machine.current_state is StateIdle:
+		tooltip.text = "Idle"
+	elif state_machine.current_state is StateJump:
+		tooltip.text = "Jump"
+	elif state_machine.current_state is StateWalk:
+		tooltip.text = "Walk"
+	elif state_machine.current_state is StateWrench:
+		tooltip.text = "Wrench"
 
 func _physics_process(delta: float) -> void:
 	#print(state_machine.current_state)
@@ -132,11 +149,11 @@ func _physics_process(delta: float) -> void:
 		base_velocity.y = 0
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("dash"):
-		print("From Player: Dash pressed")
-		print(event)
-		print(event.as_text())
-		print()
+	#if event.is_action_pressed("dash"):
+	#	print("From Player: Dash pressed")
+	#	print(event)
+	#	print(event.as_text())
+	#	print()
 	state_machine.input(event)
 
 func load_abilities() -> void:
@@ -198,7 +215,7 @@ func can(ability: String) -> bool:
 		"dash":
 			return can_dash and not input_locked and abilities.unlocked("dash")
 		"gravity_switch":
-			if state_machine.current_state is StateFloat:
+			if state_machine.current_state is StateFloat or state_machine.current_state is StateWrench:
 				return not input_locked and abilities.unlocked("gravity_switch")
 			else:
 				return can_enter_nograv and not input_locked and abilities.unlocked("gravity_switch")

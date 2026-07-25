@@ -27,7 +27,6 @@ func input(event: InputEvent) -> PlayerState:
 		dash_pressed = true
 	elif event.is_action_pressed("gravity_switch"):
 		gravity_switch_pressed = true
-		print("Gravity switch pressed")
 	return null
 
 func process(_delta: float) -> PlayerState:
