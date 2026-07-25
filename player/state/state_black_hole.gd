@@ -2,8 +2,10 @@ class_name StateBlackHole
 extends PlayerState
 
 
-var left_blackhole = false
-var gravity_switch_pressed = false
+var left_blackhole: bool = false
+var gravity_switch_pressed: bool = false
+var distance_to_black_hole: float
+var black_hole_center: Vector2
 
 @onready var fall_state: PlayerState = $"../Fall"
 @onready var jump_state: PlayerState = $"../Jump"
@@ -35,10 +37,11 @@ func physics_process(_delta: float) -> PlayerState:
 		if black_hole.influencing_player:
 			var direction: Vector2 = black_hole.global_position - player.global_position
 			var distance: float = direction.length()
-			var velocity: Vector2 = PhysicsManager.GRAVITY_CONSTANT * (direction.normalized() / distance) * black_hole.mass / player.movement_settings.mass
+			black_hole_center = black_hole.global_position
+			distance_to_black_hole = distance
 			
-			player.base_velocity.x += velocity.x
-			player.base_velocity.y += velocity.y * GameManager.time_scale
+			player.base_velocity = 100000. * Vector2(-direction.y, direction.x).normalized() / distance + direction * Input.get_axis("down", "up")
+			
 	
 	if left_blackhole:
 		left_blackhole = false

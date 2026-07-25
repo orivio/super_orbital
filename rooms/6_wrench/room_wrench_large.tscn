@@ -23,6 +23,10 @@ size = Vector2(64, 64)
 resource_local_to_scene = true
 size = Vector2(100, 95.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2u3kd"]
+resource_local_to_scene = true
+size = Vector2(128, 128)
+
 [node name="RoomTemplate" unique_id=201273727 instance=ExtResource("1_p6cnl")]
 
 [node name="CameraBounds" parent="." index="0" unique_id=711655567]
@@ -69,5 +73,24 @@ position = Vector2(218, 95)
 offset_top = -100.0
 offset_bottom = 0.0
 
+[node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=490566748 instance=ExtResource("2_ot8wq")]
+door_tag = "EastDoor"
+dest_door_tag = "WestDoor"
+dest_room = "black_hole"
+
+[node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
+position = Vector2(1504, -224)
+shape = SubResource("RectangleShape2D_2u3kd")
+
+[node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
+position = Vector2(1312, -160)
+
+[node name="Label" parent="Doors/EastDoor" index="2" unique_id=164300380]
+offset_left = 1400.0
+offset_top = -400.0
+offset_right = 1600.0
+offset_bottom = -300.0
+
 [editable path="Objects/MovingPlatform"]
 [editable path="Doors/WestDoor"]
+[editable path="Doors/EastDoor"]
