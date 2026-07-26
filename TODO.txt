@@ -9,7 +9,6 @@ Russlan:
 - Assess the progression and difficulty of the levels
 
 Obed:
-- Fix the gravity switch / wrench throw bugs
 - Refine the black hole mechanic
 - Make the ui look better
 - Make a devlog about save files
@@ -21,6 +20,7 @@ Obed:
 - Redraw the jump and fall animations (they're good, but could be a lot better)
 - Finish dash, gravity switch, and wrench throw animations
 - Fix bug where upon unlocking the dash or gravity switch ability for the first time, you will dash or gravity switch immediately after unlocking the ability, even if you didn't press any key for it
+- Fix the gravity switch / wrench throw bugs
 - Add variation to tileset
 - Polish impact clouds and dash clouds effects
 - Draw the visible layer to the player's animations
