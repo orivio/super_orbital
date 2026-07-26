@@ -21,6 +21,7 @@ var original_button_size: Vector2
 
 @onready var play_button: Button = $VBoxContainer/VBoxContainer/PlayButton
 @onready var settings_button: Button = $VBoxContainer/VBoxContainer/SettingsButton
+@onready var quit_button: Button = $VBoxContainer/VBoxContainer/QuitButton
 @onready var fade: FadeEffect = $FadeEffect
 
 func _enter_tree() -> void:
@@ -33,6 +34,9 @@ func _ready() -> void:
 	for button: Button in [play_button, settings_button]:
 		button.pivot_offset = button.size / 2.0
 	play_button.grab_focus()
+	
+	if OS.has_feature("web"):
+		quit_button.visible = false
 
 func _on_play_button_pressed() -> void:
 	await fade.fade(play_fade_color, play_fade_duration).finished
@@ -62,3 +66,7 @@ func animate_button(button: Button, scale_target: Vector2, opacity_target: float
 	var _target_size: Vector2 = original_button_size * scale_target
 	tween.tween_property(button, "scale", scale_target, button_scale_duration)
 	tween.tween_property(button, "modulate:a", opacity_target, button_scale_duration)
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit(0)

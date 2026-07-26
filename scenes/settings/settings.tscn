@@ -93,10 +93,9 @@ grow_vertical = 2
 theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 30
 tab_alignment = 1
-current_tab = 2
+current_tab = 0
 
 [node name="Controls" type="Control" parent="TabContainer" unique_id=775405425]
-visible = false
 layout_mode = 2
 theme = ExtResource("6_h6son")
 metadata/_tab_index = 0
@@ -449,6 +448,7 @@ text = "Refresh Audio Device List"
 wait_time = 10.0
 
 [node name="Graphics" type="Control" parent="TabContainer" unique_id=1842829437]
+visible = false
 layout_mode = 2
 script = ExtResource("9_p7ghj")
 metadata/_tab_index = 2

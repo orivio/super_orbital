@@ -110,6 +110,12 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_3lblr")
 text = "Settings"
 
+[node name="QuitButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=343752204]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_3lblr")
+text = "Quit"
+
 [node name="FadeEffect" parent="." unique_id=1477421051 instance=ExtResource("6_g3eks")]
 
 [connection signal="mouse_entered" from="VBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_mouse_entered"]
@@ -118,3 +124,6 @@ text = "Settings"
 [connection signal="mouse_entered" from="VBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_settings_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_settings_button_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
