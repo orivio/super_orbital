@@ -17,7 +17,7 @@ func _ready() -> void:
 	GameManager.camera = self
 	camera_shake.connect(on_camera_shake)
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	
 	var shake_offset: Vector2 = Vector2.ZERO
 	
