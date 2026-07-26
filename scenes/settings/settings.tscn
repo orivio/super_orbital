@@ -8,6 +8,7 @@
 [ext_resource type="Material" uid="uid://dcoubjkoyq0gm" path="res://ui/materials/back_starry_layer.tres" id="5_p7ghj"]
 [ext_resource type="Theme" uid="uid://brsjv0onhn51i" path="res://ui/themes/settings_theme.tres" id="6_h6son"]
 [ext_resource type="Script" uid="uid://b5o2fwcom2tmj" path="res://scenes/settings/settings_audio.gd" id="8_vimye"]
+[ext_resource type="Script" uid="uid://b6276ho5rmjeg" path="res://scenes/settings/settings_graphics.gd" id="9_p7ghj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p57yh"]
 shader = ExtResource("2_vghtj")
@@ -92,7 +93,7 @@ grow_vertical = 2
 theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 30
 tab_alignment = 1
-current_tab = 1
+current_tab = 2
 
 [node name="Controls" type="Control" parent="TabContainer" unique_id=775405425]
 visible = false
@@ -105,7 +106,9 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 50.0
 offset_top = 50.0
+offset_right = -50.0
 offset_bottom = -20.0
 theme = ExtResource("6_h6son")
 
@@ -128,7 +131,7 @@ theme_override_constants/separation = 40
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1492272050]
 layout_mode = 2
 theme = ExtResource("6_h6son")
-theme_override_constants/separation = 100
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Left" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1692991598]
@@ -178,7 +181,7 @@ action_name = &"right"
 [node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=289604815]
 layout_mode = 2
 theme = ExtResource("6_h6son")
-theme_override_constants/separation = 100
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Up" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=44194100]
@@ -228,7 +231,7 @@ action_name = &"down"
 [node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=2099211772]
 layout_mode = 2
 theme = ExtResource("6_h6son")
-theme_override_constants/separation = 100
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Jump" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=1594785236]
@@ -278,7 +281,7 @@ action_name = &"dash"
 [node name="HBoxContainer4" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=2104366179]
 layout_mode = 2
 theme = ExtResource("6_h6son")
-theme_override_constants/separation = 100
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="GravitySwitch" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1325761079]
@@ -375,6 +378,7 @@ popup/item_2/text = "Hollow Knight"
 popup/item_2/id = 1
 
 [node name="Audio" type="Control" parent="TabContainer" unique_id=407370264]
+visible = false
 layout_mode = 2
 script = ExtResource("8_vimye")
 metadata/_tab_index = 1
@@ -384,14 +388,14 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 150.0
+offset_left = 50.0
 offset_top = 50.0
-offset_right = -150.0
+offset_right = -50.0
 offset_bottom = -20.0
 
 [node name="GridContainer" type="GridContainer" parent="TabContainer/Audio/VBoxContainer" unique_id=376393330]
 layout_mode = 2
-theme_override_constants/h_separation = 80
+theme_override_constants/h_separation = 150
 theme_override_constants/v_separation = 30
 columns = 2
 
@@ -445,9 +449,30 @@ text = "Refresh Audio Device List"
 wait_time = 10.0
 
 [node name="Graphics" type="Control" parent="TabContainer" unique_id=1842829437]
-visible = false
 layout_mode = 2
+script = ExtResource("9_p7ghj")
 metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Graphics" unique_id=547640165]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -20.0
+
+[node name="CheckButton" type="CheckButton" parent="TabContainer/Graphics/VBoxContainer" unique_id=170734371]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+button_pressed = true
+text = "V-Sync"
+
+[node name="CheckButton2" type="CheckButton" parent="TabContainer/Graphics/VBoxContainer" unique_id=706852800]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Fullscreen"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="value_changed" from="TabContainer/Audio/VBoxContainer/GridContainer/HSlider" to="TabContainer/Audio" method="_on_master_volume_value_changed"]
@@ -456,3 +481,5 @@ metadata/_tab_index = 2
 [connection signal="item_selected" from="TabContainer/Audio/VBoxContainer/GridContainer/OptionButton" to="TabContainer/Audio" method="_on_audio_device_item_selected"]
 [connection signal="pressed" from="TabContainer/Audio/VBoxContainer/GridContainer/Button" to="TabContainer/Audio" method="_on_refresh_audio_device_list"]
 [connection signal="timeout" from="TabContainer/Audio/Timer" to="TabContainer/Audio" method="_on_refresh_audio_device_list"]
+[connection signal="toggled" from="TabContainer/Graphics/VBoxContainer/CheckButton" to="TabContainer/Graphics" method="_on_vsync_button_toggled"]
+[connection signal="toggled" from="TabContainer/Graphics/VBoxContainer/CheckButton2" to="TabContainer/Graphics" method="_on_windowed_button_toggled"]

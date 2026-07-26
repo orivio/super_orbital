@@ -34,6 +34,7 @@ var rooms: Dictionary[String, String] = {
 
 func _ready() -> void:
 	progress_attained.connect(SaveManager._on_progress_attained)
+	get_window().min_size = Vector2i(900, 500)
 
 func impact():
 	if impact_timer <= 0 and time_scale == 1:
