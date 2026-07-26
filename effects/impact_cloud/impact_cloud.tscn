@@ -37,3 +37,4 @@ script = ExtResource("2_q22bo")
 stream = SubResource("AudioStreamRandomizer_6kcb7")
 volume_db = -6.981
 autoplay = true
+bus = &"Sound Effects"

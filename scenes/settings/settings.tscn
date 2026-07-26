@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://b40lkhs41c5mm" path="res://ui/materials/cloudy_layer.tres" id="4_vimye"]
 [ext_resource type="Material" uid="uid://dcoubjkoyq0gm" path="res://ui/materials/back_starry_layer.tres" id="5_p7ghj"]
 [ext_resource type="Theme" uid="uid://brsjv0onhn51i" path="res://ui/themes/settings_theme.tres" id="6_h6son"]
+[ext_resource type="Script" uid="uid://b5o2fwcom2tmj" path="res://scenes/settings/settings_audio.gd" id="8_vimye"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p57yh"]
 shader = ExtResource("2_vghtj")
@@ -14,6 +15,9 @@ shader_parameter/stars_speed = Vector2(10, 0)
 shader_parameter/stars_density = 0.0170000008075
 shader_parameter/star_size = 1.0
 shader_parameter/seed = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_vimye"]
+font_size = 32
 
 [node name="Settings" type="Control" unique_id=1055661638]
 layout_mode = 3
@@ -88,9 +92,10 @@ grow_vertical = 2
 theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 30
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 
 [node name="Controls" type="Control" parent="TabContainer" unique_id=775405425]
+visible = false
 layout_mode = 2
 theme = ExtResource("6_h6son")
 metadata/_tab_index = 0
@@ -370,9 +375,74 @@ popup/item_2/text = "Hollow Knight"
 popup/item_2/id = 1
 
 [node name="Audio" type="Control" parent="TabContainer" unique_id=407370264]
-visible = false
 layout_mode = 2
+script = ExtResource("8_vimye")
 metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Audio" unique_id=604372189]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 150.0
+offset_top = 50.0
+offset_right = -150.0
+offset_bottom = -20.0
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Audio/VBoxContainer" unique_id=376393330]
+layout_mode = 2
+theme_override_constants/h_separation = 80
+theme_override_constants/v_separation = 30
+columns = 2
+
+[node name="Label" type="Label" parent="TabContainer/Audio/VBoxContainer/GridContainer" unique_id=812640895]
+layout_mode = 2
+text = "Master Volume"
+label_settings = SubResource("LabelSettings_vimye")
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Audio/VBoxContainer/GridContainer" unique_id=1219324006]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+value = 100.0
+
+[node name="Label2" type="Label" parent="TabContainer/Audio/VBoxContainer/GridContainer" unique_id=66700092]
+layout_mode = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_vimye")
+
+[node name="HSlider2" type="HSlider" parent="TabContainer/Audio/VBoxContainer/GridContainer" unique_id=53504866]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+value = 100.0
+
+[node name="Label3" type="Label" parent="TabContainer/Audio/VBoxContainer/GridContainer" unique_id=1174164542]
+layout_mode = 2
+text = "Sound Effects"
+label_settings = SubResource("LabelSettings_vimye")
+
+[node name="HSlider3" type="HSlider" parent="TabContainer/Audio/VBoxContainer/GridContainer" unique_id=1957435469]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+value = 100.0
+
+[node name="Label4" type="Label" parent="TabContainer/Audio/VBoxContainer/GridContainer" unique_id=121382073]
+layout_mode = 2
+text = "Output Audio Device"
+label_settings = SubResource("LabelSettings_vimye")
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/Audio/VBoxContainer/GridContainer" unique_id=637698763]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="TabContainer/Audio/VBoxContainer/GridContainer" unique_id=1845270225]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="TabContainer/Audio/VBoxContainer/GridContainer" unique_id=1925443693]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Refresh Audio Device List"
+
+[node name="Timer" type="Timer" parent="TabContainer/Audio" unique_id=1091189323]
+wait_time = 10.0
 
 [node name="Graphics" type="Control" parent="TabContainer" unique_id=1842829437]
 visible = false
@@ -380,3 +450,9 @@ layout_mode = 2
 metadata/_tab_index = 2
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="value_changed" from="TabContainer/Audio/VBoxContainer/GridContainer/HSlider" to="TabContainer/Audio" method="_on_master_volume_value_changed"]
+[connection signal="value_changed" from="TabContainer/Audio/VBoxContainer/GridContainer/HSlider2" to="TabContainer/Audio" method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="TabContainer/Audio/VBoxContainer/GridContainer/HSlider3" to="TabContainer/Audio" method="_on_sound_effect_volume_slider_value_changed"]
+[connection signal="item_selected" from="TabContainer/Audio/VBoxContainer/GridContainer/OptionButton" to="TabContainer/Audio" method="_on_audio_device_item_selected"]
+[connection signal="pressed" from="TabContainer/Audio/VBoxContainer/GridContainer/Button" to="TabContainer/Audio" method="_on_refresh_audio_device_list"]
+[connection signal="timeout" from="TabContainer/Audio/Timer" to="TabContainer/Audio" method="_on_refresh_audio_device_list"]
