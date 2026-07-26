@@ -135,6 +135,11 @@ pause={
 2d_physics/layer_12="progress_detector"
 2d_physics/layer_32="ui"
 
+[physics]
+
+common/physics_ticks_per_second=120
+common/physics_interpolation=true
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
