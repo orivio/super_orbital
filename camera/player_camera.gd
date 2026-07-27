@@ -5,8 +5,8 @@ signal camera_shake
 @export var shake_fade: float = 9
 @export var random_strength: float = 10
 @export var default_zoom: float = 1
-@export var positional_smoothing: float = 0.8
-@export var velocity_smoothing: float = 0.8
+@export var positional_smoothing: float = 3.5
+@export var velocity_smoothing: float = 1.0
 @export var camera_velocity_influence: float = 50
 
 var target: Vector2

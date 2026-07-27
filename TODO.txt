@@ -13,11 +13,12 @@ Obed:
 - Make the ui look better
 - Make a devlog about save files
 - Add more settings to the in game menu
-- Add more settings to the settings page
+- Add more settings to the settings page (If necessary)
 - Add more levels
 - Let the player go back to old levels
 - Make the banner have more action
-- Redraw the jump and fall animations (they're good, but could be a lot better)
+- Add the final layer to the idle and run animations
+- Animate better jump, fall, and no grav animations.
 - Finish dash, gravity switch, and wrench throw animations
 - Fix bug where upon unlocking the dash or gravity switch ability for the first time, you will dash or gravity switch immediately after unlocking the ability, even if you didn't press any key for it
 - Fix the gravity switch / wrench throw bugs
@@ -28,6 +29,7 @@ Obed:
 Both, or whoever wants to:
 - (IMPORTANT!) make a shaded tileset for background accentuation
 	- What does that mean?
+- Is it okay that the game can now run at fractional pixel scales? This means that the spikes will look a bit weird unless we fix them.
 - Make a better favicon
 - How exactly can SAD Guy create black holes?
 - Design and animate cutscenes
