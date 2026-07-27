@@ -23,10 +23,9 @@ color = Color(0.5254902, 0.30980393, 0.1882353, 1)
 
 [node name="Player" parent="." unique_id=1158454686 instance=ExtResource("2_i3p2r")]
 z_index = 1
+position = Vector2(0, -32)
 
 [node name="PlayerCamera" parent="." unique_id=1414906739 instance=ExtResource("3_i3p2r")]
-shake_fade = 9.0
-random_strength = 10.0
 
 [node name="RoomContainer" type="Node2D" parent="." unique_id=196354671]
 
