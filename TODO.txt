@@ -4,7 +4,6 @@ Russlan:
 - Write some more dialogue
 - Should the dialogue have less humor? It kind of doesn't fit with the music.
 - Make more OST
-- Are we are on Mars or a Mars-like planet?
 - Redesign Brobot
 - Assess the progression and difficulty of the levels
 
