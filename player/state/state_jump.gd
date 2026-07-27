@@ -32,20 +32,18 @@ func input(event: InputEvent) -> PlayerState:
 func process(_delta: float) -> PlayerState:
 	
 	if player.base_velocity.y >= -49 and player.base_velocity.y <= 0:
-		player.sprite.frame = 42
+		player.sprite.frame = 50
 	elif player.base_velocity.y >= 149 and player.base_velocity.y <= -50:
-		player.sprite.frame = 41
+		player.sprite.frame = 49
 	elif player.base_velocity.y >= -249 and player.base_velocity.y <= -150:
-		player.sprite.frame = 40
+		player.sprite.frame = 49
 	elif player.base_velocity.y >= -399 and player.base_velocity.y <= -250:
-		player.sprite.frame = 39
+		player.sprite.frame = 48
 	elif player.base_velocity.y >= -899 and player.base_velocity.y <= -400:
-		player.sprite.frame = 38
+		player.sprite.frame = 48
 	else:
 		pass
 		# print(player.base_velocity.y)
-	
-	player.sprite.frame = 48
 	
 	return null
 
