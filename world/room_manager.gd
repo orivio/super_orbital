@@ -126,6 +126,7 @@ func teleport_player_to_door(room: Room, dest_door_tag: String):
 			
 			player.teleport_to_ground(spawn_location)
 			player.reset()
+			GameManager.camera.snap_camera_to_player()
 			
 			# Reset player momentum
 			

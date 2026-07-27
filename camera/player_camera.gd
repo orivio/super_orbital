@@ -5,11 +5,14 @@ signal camera_shake
 @export var shake_fade: float = 9
 @export var random_strength: float = 10
 @export var default_zoom: float = 1
+@export var positional_smoothing: float = 0.8
+@export var velocity_smoothing: float = 0.8
+@export var camera_velocity_influence: float = 50
 
 var target: Vector2
+var smoothed_velocity: Vector2
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var shake_strength: float = 0.0
-var thing: float = 0
 var directed_offset: Vector2 = Vector2.ZERO
 var director_tween: Tween
 
@@ -17,7 +20,12 @@ func _ready() -> void:
 	GameManager.camera = self
 	camera_shake.connect(on_camera_shake)
 
+func _process(_delta: float) -> void:
+	queue_redraw()
+
 func _physics_process(delta: float) -> void:
+	
+	update_target(delta)
 	
 	var shake_offset: Vector2 = Vector2.ZERO
 	
@@ -25,10 +33,16 @@ func _physics_process(delta: float) -> void:
 		shake_strength = lerpf(shake_strength, 0, shake_fade * delta)
 		shake_offset = random_offset()
 	
-	target = GameManager.player.global_position
-	thing += delta
-	position = target
+	position = target + smoothed_velocity * camera_velocity_influence
 	offset = shake_offset + directed_offset
+
+func snap_camera_to_player() -> void:
+	target = GameManager.player.global_position
+	smoothed_velocity = Vector2.ZERO
+
+func update_target(delta: float) -> void:
+	target = lerp(target, GameManager.player.global_position, positional_smoothing * delta)
+	smoothed_velocity = lerp(smoothed_velocity, GameManager.player.base_velocity * delta, velocity_smoothing * delta)
 
 func set_limits(rect: Rect2) -> void:
 	limit_left = int(rect.position.x - rect.size.x / 2)
@@ -72,3 +86,10 @@ func direct_offset(direction: Vector2, duration: float) -> Tween:
 	director_tween.tween_property(self, "directed_offset", direction, duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	
 	return director_tween
+
+func _draw() -> void:
+	#draw_set_transform_matrix(global_transform.affine_inverse())
+	
+	#draw_circle(target, 10, Color.RED, false, 5)
+	#draw_line(target, target + smoothed_velocity * camera_velocity_influence, Color.RED)
+	pass
