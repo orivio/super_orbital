@@ -39,6 +39,8 @@ func process(_delta: float) -> PlayerState:
 		player.sprite.frame = 47
 	else:
 		pass
+		
+	player.sprite.frame = 49
 	
 	return null
 

@@ -11,20 +11,20 @@ Russlan:
 Obed:
 - Refine the black hole mechanic
 - Make the ui look better
-- Make a devlog about save files
 - Add more settings to the in game menu
 - Add more settings to the settings page (If necessary)
+- Make the camera more responsive
+	- When you are jumping up, shift the camera's focus to be above the player
+	- When you are falling after a jump, shift the camera's focus down
 - Add more levels
 - Let the player go back to old levels
 - Make the banner have more action
-- Add the final layer to the idle and run animations
 - Animate better jump, fall, and no grav animations.
 - Finish dash, gravity switch, and wrench throw animations
 - Fix bug where upon unlocking the dash or gravity switch ability for the first time, you will dash or gravity switch immediately after unlocking the ability, even if you didn't press any key for it
 - Fix the gravity switch / wrench throw bugs
 - Add variation to tileset
 - Polish impact clouds and dash clouds effects
-- Draw the visible layer to the player's animations
 
 Both, or whoever wants to:
 - (IMPORTANT!) make a shaded tileset for background accentuation

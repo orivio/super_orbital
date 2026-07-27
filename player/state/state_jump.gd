@@ -45,6 +45,8 @@ func process(_delta: float) -> PlayerState:
 		pass
 		# print(player.base_velocity.y)
 	
+	player.sprite.frame = 48
+	
 	return null
 
 func physics_process(_delta: float) -> PlayerState:
