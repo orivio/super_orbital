@@ -103,6 +103,7 @@ func physics_process(_delta: float) -> PlayerState:
 				has_bounced_y = false
 			)
 		else:
+			player.base_velocity.y = 0
 			set_to_return_fall_state = true
 	elif not player.is_on_ceiling() and just_collided_top:
 		just_collided_top = false

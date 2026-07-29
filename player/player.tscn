@@ -17,6 +17,18 @@
 
 [sub_resource type="Animation" id="Animation_rkbax"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
 
 [sub_resource type="Animation" id="Animation_kb6p2"]
 resource_name = "dash"
@@ -50,6 +62,21 @@ tracks/0/keys = {
 "values": [58, 59]
 }
 
+[sub_resource type="Animation" id="Animation_g4c7l"]
+resource_name = "dash_nograv"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [60]
+}
+
 [sub_resource type="Animation" id="Animation_s7qer"]
 resource_name = "fall_end"
 tracks/0/type = "value"
@@ -65,6 +92,21 @@ tracks/0/keys = {
 "values": [53]
 }
 
+[sub_resource type="Animation" id="Animation_r7pn3"]
+resource_name = "fall_end_nograv"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [66]
+}
+
 [sub_resource type="Animation" id="Animation_bjvpn"]
 resource_name = "fall_mid"
 tracks/0/type = "value"
@@ -78,6 +120,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [52]
+}
+
+[sub_resource type="Animation" id="Animation_rptt4"]
+resource_name = "fall_mid_nograv"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [65]
 }
 
 [sub_resource type="Animation" id="Animation_x7c3f"]
@@ -158,6 +215,21 @@ tracks/0/keys = {
 "values": [50]
 }
 
+[sub_resource type="Animation" id="Animation_uw77l"]
+resource_name = "jump_end_nograv"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [63]
+}
+
 [sub_resource type="Animation" id="Animation_c35mf"]
 resource_name = "jump_mid"
 tracks/0/type = "value"
@@ -173,6 +245,21 @@ tracks/0/keys = {
 "values": [49]
 }
 
+[sub_resource type="Animation" id="Animation_7pqkx"]
+resource_name = "jump_mid_nograv"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [62]
+}
+
 [sub_resource type="Animation" id="Animation_65viv"]
 resource_name = "jump_start"
 tracks/0/type = "value"
@@ -186,6 +273,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [48]
+}
+
+[sub_resource type="Animation" id="Animation_knn7v"]
+resource_name = "jump_start_nograv"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [61]
 }
 
 [sub_resource type="Animation" id="Animation_yllr7"]
@@ -227,15 +329,21 @@ _data = {
 &"RESET": SubResource("Animation_rkbax"),
 &"dash": SubResource("Animation_kb6p2"),
 &"dash_exit": SubResource("Animation_tqiix"),
+&"dash_nograv": SubResource("Animation_g4c7l"),
 &"fall_end": SubResource("Animation_s7qer"),
+&"fall_end_nograv": SubResource("Animation_r7pn3"),
 &"fall_mid": SubResource("Animation_bjvpn"),
+&"fall_mid_nograv": SubResource("Animation_rptt4"),
 &"fall_start": SubResource("Animation_x7c3f"),
 &"float_down": SubResource("Animation_32hag"),
 &"float_up": SubResource("Animation_wodsf"),
 &"idle": SubResource("Animation_oul6g"),
 &"jump_end": SubResource("Animation_e7oew"),
+&"jump_end_nograv": SubResource("Animation_uw77l"),
 &"jump_mid": SubResource("Animation_c35mf"),
+&"jump_mid_nograv": SubResource("Animation_7pqkx"),
 &"jump_start": SubResource("Animation_65viv"),
+&"jump_start_nograv": SubResource("Animation_knn7v"),
 &"run": SubResource("Animation_yllr7"),
 &"walk": SubResource("Animation_j3ovn")
 }
@@ -246,52 +354,52 @@ animation = &"dash"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s7qer"]
 animation = &"dash_exit"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g4c7l"]
-animation = &"dash"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_knn7v"]
-animation = &"dash"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7pqkx"]
 animation = &"float_up"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uw77l"]
 animation = &"float_down"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_knn7v"]
+animation = &"dash_nograv"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g4c7l"]
+animation = &"dash_nograv"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rptt4"]
-animation = &"jump_start"
+animation = &"fall_end_nograv"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r7pn3"]
-animation = &"fall_end"
+animation = &"jump_end_nograv"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b8hi5"]
-animation = &"jump_end"
+animation = &"jump_start_nograv"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_kb6p2"]
-min_space = Vector2(-900, -1500)
-max_space = Vector2(900, 1500)
+min_space = Vector2(-900, -900)
+max_space = Vector2(900, 900)
 blend_mode = 1
-blend_point_0/node = SubResource("AnimationNodeAnimation_g4c7l")
-blend_point_0/pos = Vector2(900, -10.900001)
-blend_point_0/name = &"dash"
-blend_point_1/node = SubResource("AnimationNodeAnimation_knn7v")
-blend_point_1/pos = Vector2(-900, -5.4)
-blend_point_1/name = &"dash 2"
-blend_point_2/node = SubResource("AnimationNodeAnimation_7pqkx")
-blend_point_2/pos = Vector2(0, -1500)
-blend_point_2/name = &"float_up"
-blend_point_3/node = SubResource("AnimationNodeAnimation_uw77l")
-blend_point_3/pos = Vector2(0, 1500)
-blend_point_3/name = &"float_down"
+blend_point_0/node = SubResource("AnimationNodeAnimation_7pqkx")
+blend_point_0/pos = Vector2(0, -900)
+blend_point_0/name = &"float_up"
+blend_point_1/node = SubResource("AnimationNodeAnimation_uw77l")
+blend_point_1/pos = Vector2(0, 900)
+blend_point_1/name = &"float_down"
+blend_point_2/node = SubResource("AnimationNodeAnimation_knn7v")
+blend_point_2/pos = Vector2(-900.1, 0)
+blend_point_2/name = &"dash_nograv"
+blend_point_3/node = SubResource("AnimationNodeAnimation_g4c7l")
+blend_point_3/pos = Vector2(900, 0)
+blend_point_3/name = &"dash_nograv 2"
 blend_point_4/node = SubResource("AnimationNodeAnimation_rptt4")
-blend_point_4/pos = Vector2(0, -900.2)
-blend_point_4/name = &"jump_start"
+blend_point_4/pos = Vector2(0, 600)
+blend_point_4/name = &"fall_end_nograv"
 blend_point_5/node = SubResource("AnimationNodeAnimation_r7pn3")
-blend_point_5/pos = Vector2(0, 900.2)
-blend_point_5/name = &"fall_end"
+blend_point_5/pos = Vector2(0, 0)
+blend_point_5/name = &"jump_end_nograv"
 blend_point_6/node = SubResource("AnimationNodeAnimation_b8hi5")
-blend_point_6/pos = Vector2(0, 0)
-blend_point_6/name = &"jump_end"
+blend_point_6/pos = Vector2(0, -600)
+blend_point_6/name = &"jump_start_nograv"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kb6p2"]
 animation = &"idle"
@@ -456,7 +564,8 @@ movement_settings = ExtResource("2_qiwj3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=214816936]
 texture = ExtResource("3_kb6p2")
-hframes = 60
+hframes = 67
+frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=921070768]
 libraries/ = SubResource("AnimationLibrary_g1dw6")

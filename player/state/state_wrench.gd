@@ -23,6 +23,7 @@ var has_bounced_y: bool = false
 
 func enter() -> void:
 	#player.update_animation("wrench")
+	player.is_floating = true
 	entry_velocity = player.base_velocity
 	spawn_wrench_projectile(-entry_velocity)
 	#if not player.is_on_floor():
@@ -33,7 +34,7 @@ func enter() -> void:
 	set_to_return_fall_state = false
 
 func exit() -> void:
-	pass
+	player.is_floating = false
 
 func input(event: InputEvent) -> PlayerState:
 	if event.is_action_pressed("gravity_switch"):
