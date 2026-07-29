@@ -31,9 +31,9 @@ func enter() -> void:
 	player.can_dash = false
 	
 	if player.direction < 0:
-		player.sprite.flip_h = true
+		player.facing = -1
 	elif player.direction > 0:
-		player.sprite.flip_h = false
+		player.facing = 1
 
 	dash_timer = 0
 	gravity_switch_pressed = false

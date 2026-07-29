@@ -59,6 +59,11 @@ func physics_process(_delta: float) -> PlayerState:
 		player.has_gravity = false
 		return float_state
 	
+	if player.base_velocity.x > 0:
+		player.facing = 1
+	elif player.base_velocity.x < 0:
+		player.facing = -1
+	
 	return null
 
 func _on_player_left_blackhole() -> void:

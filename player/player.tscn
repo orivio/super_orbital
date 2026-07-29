@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://br1xonlgrqa3d" path="res://player/movement_settings/player_default_movement_settings.tres" id="2_qiwj3"]
 [ext_resource type="Script" uid="uid://c5i0w63pxb5cx" path="res://player/state/player_state_machine.gd" id="3_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://b5cujalnpgfm7" path="res://player/sprites/polished_run.png" id="3_kb6p2"]
+[ext_resource type="Material" uid="uid://b5rku30lrnb0v" path="res://player/sprites/player_material.tres" id="3_wodsf"]
 [ext_resource type="Script" uid="uid://dqmpu2wxpo03a" path="res://player/state/state_idle.gd" id="4_bls4j"]
 [ext_resource type="Script" uid="uid://cobylp8hlybiw" path="res://player/hurt_box.gd" id="4_j3ovn"]
 [ext_resource type="Script" uid="uid://xy0w8wmn470g" path="res://player/state/state_walk.gd" id="5_fkugw"]
@@ -541,7 +542,7 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-15, 37)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kb6p2"]
-radius = 12.5
+radius = 14.0
 height = 62.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1qjk"]
@@ -563,6 +564,7 @@ movement_settings = ExtResource("2_qiwj3")
 [node name="Effects" type="Node2D" parent="." unique_id=1619259076]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=214816936]
+material = ExtResource("3_wodsf")
 texture = ExtResource("3_kb6p2")
 hframes = 67
 frame = 3
@@ -579,10 +581,12 @@ parameters/float/blend_position = Vector2(0, 0)
 parameters/jump/blend_position = -2.6845703
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1986859216]
+visible = false
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_kb6p2")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=251871403]
+visible = false
 collision_layer = 2
 collision_mask = 12
 script = ExtResource("4_j3ovn")

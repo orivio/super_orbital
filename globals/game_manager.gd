@@ -29,6 +29,8 @@ var rooms: Dictionary[String, String] = {
 	"change_direction": "uid://d1gjph7nxyegd",
 	"wrench": "uid://drwajwykhe8mb",
 	"wrench_large": "uid://dftchxtsfo3cy",
+	"cant_stop": "uid://q37ng5uis2j3",
+	"perchrit": "uid://uvtsgsh0y461",
 	"black_hole": "uid://b7y15sh84lthd"
 }
 

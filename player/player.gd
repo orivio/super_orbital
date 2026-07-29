@@ -15,9 +15,9 @@ const DASH_CLOUD = preload("res://effects/dash_cloud/dash_cloud.tscn")
 var direction: float:
 	set(value):
 		direction = value
-		if value != 0:
-			facing = value
-var facing: float
+var facing: float:
+	set(value):
+		facing = value
 var has_gravity: bool
 var in_blackhole: bool
 var base_velocity: Vector2
@@ -120,6 +120,8 @@ func _process(delta: float) -> void:
 		tooltip.text = "Walk"
 	elif state_machine.current_state is StateWrench:
 		tooltip.text = "Wrench"
+	
+	sprite.material.set_shader_parameter("gravity_on", !is_floating)
 
 func _physics_process(delta: float) -> void:
 	#print(state_machine.current_state)

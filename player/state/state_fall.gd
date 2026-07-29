@@ -46,8 +46,10 @@ func physics_process(_delta: float) -> PlayerState:
 	player.base_velocity.x = player.direction * player.movement_settings.move_speed * player.movement_settings.air_speed_multiplier
 	
 	if player.direction < 0:
+		player.facing = -1
 		player.sprite.flip_h = true
 	elif player.direction > 0:
+		player.facing = 1
 		player.sprite.flip_h = false
 	
 	if player.is_on_floor():

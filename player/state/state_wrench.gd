@@ -83,6 +83,7 @@ func physics_process(_delta: float) -> PlayerState:
 	elif not player.is_on_floor() and just_collided_bottom:
 		just_collided_bottom = false
 		
+		
 	
 	if player.is_on_ceiling() and player.base_velocity.y < -0.001 and not just_collided_top:
 		just_collided_top = true
@@ -138,5 +139,12 @@ func physics_process(_delta: float) -> PlayerState:
 			return fall_state
 		else:
 			return jump_state
+	
+	if player.base_velocity.x < 0:
+		player.facing = -1
+		player.sprite.flip_h = true
+	elif player.base_velocity.x > 0:
+		player.facing = 1
+		player.sprite.flip_h = false
 	
 	return null

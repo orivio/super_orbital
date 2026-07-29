@@ -56,8 +56,10 @@ func physics_process(_delta: float) -> PlayerState:
 		player.base_velocity.y = 0
 	
 	if player.direction < 0:
+		player.facing = -1
 		player.sprite.flip_h = true
 	elif player.direction > 0:
+		player.facing = 1
 		player.sprite.flip_h = false
 	
 	if dash_pressed and player.can("dash"):

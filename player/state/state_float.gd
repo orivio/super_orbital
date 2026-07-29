@@ -154,25 +154,21 @@ func physics_process(_delta: float) -> PlayerState:
 		if wrench_direction != Vector2.ZERO:
 			player.base_velocity = -wrench_direction.normalized() * player.base_velocity.length()
 			if player.base_velocity.x > 0:
+				player.facing = 1
 				player.sprite.flip_h = false
 			elif player.base_velocity.x < 0:
+				player.facing = -1
 				player.sprite.flip_h = true
 		return wrench_state
 		#E = mc^2 - Rayyan Khan
 	
 	was_on_wall = on_wall
 	
-	
-	if player.base_velocity.y <= -500:
-		player.sprite.frame = 33
-	elif player.base_velocity.y >= 500:
-		player.sprite.frame = 34
-	
-	if player.base_velocity.x > 500:
-		player.sprite.flip_h = false
-		player.sprite.frame = 32
-	elif player.base_velocity.x < -500:
+	if player.base_velocity.x < 0:
+		player.facing = -1
 		player.sprite.flip_h = true
-		player.sprite.frame = 32
+	elif player.base_velocity.x > 0:
+		player.facing = 1
+		player.sprite.flip_h = false
 		
 	return null
