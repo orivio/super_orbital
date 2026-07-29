@@ -10,7 +10,6 @@ var gravity_switch_pressed: bool
 @onready var float_state: PlayerState = $"../Float"
 
 func enter() -> void:
-	player.stop_animation()
 	player.has_gravity = true
 	dash_pressed = false
 	gravity_switch_pressed = false

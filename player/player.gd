@@ -34,6 +34,9 @@ var tooltips_disabled: bool = false
 var jump_buffer: bool = false
 var gravity_switch_counter: int = 0
 var gravity_switch_timer: float = 0
+var dash_cooldown_timer: float = 0
+var is_dashing_horizontally: bool = false
+var is_floating: bool = false
 
 var effect_nodes: Array[Node2D]
 
@@ -41,6 +44,7 @@ var effect_nodes: Array[Node2D]
 @onready var state_machine: PlayerStateMachine = $StateMachine
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var animation_tree: AnimationTree = $AnimationTree
 @onready var tooltip: Tooltip = $Tooltip
 @onready var collider: CollisionShape2D = $CollisionShape2D
 @onready var floor_caster: ShapeCast2D = $FloorCaster
@@ -55,6 +59,8 @@ func _ready() -> void:
 	#Engine.time_scale = 0.1
 	
 func reset() -> void:
+	is_dashing_horizontally = false
+	is_floating = false
 	has_gravity = true
 	base_velocity = Vector2.ZERO
 	velocity = Vector2.ZERO
@@ -118,8 +124,12 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	#print(state_machine.current_state)
 	if is_on_floor() and not input_locked:
-		can_dash = true
+		if dash_cooldown_timer <= 0:
+			can_dash = true
 		gravity_switch_counter = 0
+	
+	if dash_cooldown_timer > 0:
+		dash_cooldown_timer -= delta
 	
 	if gravity_switch_timer > 0:
 		gravity_switch_timer -= delta
@@ -140,6 +150,8 @@ func _physics_process(delta: float) -> void:
 	velocity.y = base_velocity.y * GameManager.time_scale
 
 	move_and_slide()
+	animation_tree.set("parameters/jump/blend_position", base_velocity.y)
+	animation_tree.set("parameters/float/blend_position", base_velocity)
 	state_machine.physics_process(delta)
 	if not state_machine.current_state is StateFloat and in_blackhole:
 		GameManager.time_scale = 0.5
@@ -161,11 +173,13 @@ func load_abilities() -> void:
 		abilities = SaveManager.get_save_file().player_abilities
 
 func update_animation(animation: String) -> void:
-	if animation_player.current_animation != animation:
-		animation_player.play(animation)
+	#if animation_player.current_animation != animation:
+	#	animation_player.play(animation)
+	pass
 
 func stop_animation() -> void:
-	animation_player.stop()
+	#animation_player.stop()
+	pass
 
 func show_tooltip(message: String) -> void:
 	tooltip.show_tooltip(message)

@@ -9,6 +9,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [node name="DashCloud" type="CPUParticles2D" unique_id=316286998]
+visible = false
 material = SubResource("CanvasItemMaterial_6w2kf")
 emitting = false
 amount = 100

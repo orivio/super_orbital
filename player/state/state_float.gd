@@ -24,6 +24,7 @@ var has_bounced_y: bool = false
 func enter() -> void:
 	player.stop_animation();
 	player.has_gravity = false
+	player.is_floating = true
 	
 	if player.base_velocity.length_squared() < (player.movement_settings.float_min_velocity ** 2):
 		if abs(player.base_velocity.length_squared()) < 0.00001:
@@ -46,7 +47,7 @@ func enter() -> void:
 	set_to_return_fall_state = false
 
 func exit() -> void:
-	pass
+	player.is_floating = false
 
 func input(event: InputEvent) -> PlayerState:
 	if event.is_action_pressed("gravity_switch"):

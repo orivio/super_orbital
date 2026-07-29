@@ -12,6 +12,7 @@ air_speed_multiplier = 0.9
 dash_velocity = 1159.784
 dash_time = 0.145
 dash_distance = 449.619
+dash_cooldown = 0.4
 mass = 100.0
 wrench_throw_velocity = 200.0
 float_bounce_min_velocity = 250.0

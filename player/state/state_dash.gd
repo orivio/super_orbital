@@ -25,6 +25,7 @@ func enter() -> void:
 			player.dash_effect(Vector2.RIGHT)
 		elif player.base_velocity.x < 0:
 			player.dash_effect(Vector2.LEFT)
+		player.is_dashing_horizontally = true
 	
 	player.has_gravity = false
 	player.can_dash = false
@@ -36,9 +37,11 @@ func enter() -> void:
 
 	dash_timer = 0
 	gravity_switch_pressed = false
+	player.dash_cooldown_timer = player.movement_settings.dash_cooldown
 
 func exit() -> void:
-	pass
+	player.is_dashing_horizontally = false
+	player.update_animation("dash_exit")
 
 func input(event: InputEvent) -> PlayerState:
 	if event.is_action_pressed("gravity_switch"):
