@@ -8,9 +8,7 @@ Russlan:
 - Assess the progression and difficulty of the levels
 
 Obed:
-- Make a clearer visual effect for gravity switching
 - Make a separate sprite for when you are inside a black hole
-- Make the SAD indicator glow?
 - Refine the black hole mechanic
 - Make the ui look better
 - Add more settings to the in game menu

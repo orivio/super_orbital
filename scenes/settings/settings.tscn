@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://b40lkhs41c5mm" path="res://ui/materials/cloudy_layer.tres" id="4_vimye"]
 [ext_resource type="Material" uid="uid://dcoubjkoyq0gm" path="res://ui/materials/back_starry_layer.tres" id="5_p7ghj"]
 [ext_resource type="Theme" uid="uid://brsjv0onhn51i" path="res://ui/themes/settings_theme.tres" id="6_h6son"]
+[ext_resource type="Script" uid="uid://ba4hln43let3x" path="res://scenes/settings/settings_controls.gd" id="7_p57yh"]
 [ext_resource type="Script" uid="uid://b5o2fwcom2tmj" path="res://scenes/settings/settings_audio.gd" id="8_vimye"]
 [ext_resource type="Script" uid="uid://b6276ho5rmjeg" path="res://scenes/settings/settings_graphics.gd" id="9_p7ghj"]
 
@@ -93,11 +94,13 @@ grow_vertical = 2
 theme = ExtResource("6_h6son")
 theme_override_font_sizes/font_size = 30
 tab_alignment = 1
-current_tab = 0
+current_tab = 2
 
 [node name="Controls" type="Control" parent="TabContainer" unique_id=775405425]
+visible = false
 layout_mode = 2
 theme = ExtResource("6_h6son")
+script = ExtResource("7_p57yh")
 metadata/_tab_index = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controls" unique_id=1785903451]
@@ -448,7 +451,6 @@ text = "Refresh Audio Device List"
 wait_time = 10.0
 
 [node name="Graphics" type="Control" parent="TabContainer" unique_id=1842829437]
-visible = false
 layout_mode = 2
 script = ExtResource("9_p7ghj")
 metadata/_tab_index = 2
@@ -466,7 +468,6 @@ offset_bottom = -20.0
 [node name="CheckButton" type="CheckButton" parent="TabContainer/Graphics/VBoxContainer" unique_id=170734371]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-button_pressed = true
 text = "V-Sync"
 
 [node name="CheckButton2" type="CheckButton" parent="TabContainer/Graphics/VBoxContainer" unique_id=706852800]

@@ -28,6 +28,17 @@ func write_prefs() -> void:
 	file.set_value("Controls", "throw_wrench", throw_wrench)
 	file.set_value("Controls", "confirm", confirm)
 	
+	var master_volume = AudioServer.get_bus_volume_db(AudioServer.get_bus_index(&"Master"))
+	var music_volume = AudioServer.get_bus_volume_db(AudioServer.get_bus_index(&"Music"))
+	var sfx_volume = AudioServer.get_bus_volume_db(AudioServer.get_bus_index(&"Sound Effects"))
+	
+	file.set_value("Audio", "master_volume", master_volume)
+	file.set_value("Audio", "music_volume", music_volume)
+	file.set_value("Audio", "sfx_volume", sfx_volume)
+	
+	file.set_value("Graphics", "vsync_mode", DisplayServer.window_get_vsync_mode())
+	file.set_value("Graphics", "fullscreen", DisplayServer.window_get_mode())
+	
 	file.save(SAVE_PREFS_PATH)
 
 static func load_prefs() -> PrefsFile:
@@ -42,5 +53,12 @@ static func load_prefs() -> PrefsFile:
 			InputMap.action_erase_events(action_name)
 			var saved_event = file.get_value("Controls", action_name)
 			InputMap.action_add_event(action_name, saved_event)
+	
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(&"Master"), file.get_value("Audio", "master_volume", 0))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(&"Music"), file.get_value("Audio", "music_volume", 0))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(&"Sound Effects"), file.get_value("Audio", "sfx_volume", 0))
+	
+	DisplayServer.window_set_vsync_mode(file.get_value("Graphics", "vsync_mode", DisplayServer.VSYNC_ENABLED))
+	DisplayServer.window_set_mode(file.get_value("Graphics", "fullscreen", Window.Mode.MODE_WINDOWED))
 	
 	return prefs_file
