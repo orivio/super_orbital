@@ -8,6 +8,9 @@ Russlan:
 - Assess the progression and difficulty of the levels
 
 Obed:
+- Make a clearer visual effect for gravity switching
+- Make a separate sprite for when you are inside a black hole
+- Make the SAD indicator glow?
 - Refine the black hole mechanic
 - Make the ui look better
 - Add more settings to the in game menu
@@ -18,8 +21,6 @@ Obed:
 - Add more levels
 - Let the player go back to old levels
 - Make the banner have more action
-- Animate better jump, fall, and no grav animations.
-- Finish dash, gravity switch, and wrench throw animations
 - Fix bug where upon unlocking the dash or gravity switch ability for the first time, you will dash or gravity switch immediately after unlocking the ability, even if you didn't press any key for it
 - Fix the gravity switch / wrench throw bugs
 - Add variation to tileset
