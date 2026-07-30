@@ -1,5 +1,6 @@
 Russlan:
 - Decide if we should aim for presenting our game as a "challenging precision platformer" instead of just a "precision platformer". This means making some levels harder.
+- Review sound effects
 - Assign music to the rooms that you want
 - Write some more dialogue
 - Make more OST
