@@ -9,6 +9,7 @@ var gravity_switch_pressed: bool
 @onready var float_state: PlayerState = $"../Float"
 
 func enter() -> void:
+	player.play_sound_effect(&"dash")
 	player.update_animation("dash")
 	var y_axis = Input.get_axis("up", "down")
 	if y_axis != 0:

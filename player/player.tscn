@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://lr54amgp2jlh" path="res://player/state/state_black_hole.gd" id="13_kb6p2"]
 [ext_resource type="AudioStream" uid="uid://bo68gmydfw3ja" path="res://sounds/gravity_off_2.wav" id="16_tqiix"]
 [ext_resource type="AudioStream" uid="uid://dnjlxy8u2sigx" path="res://sounds/gravity_on_2.wav" id="17_e7oew"]
+[ext_resource type="AudioStream" uid="uid://bp7ux6ojv5g3w" path="res://sounds/dash.wav" id="18_e7oew"]
 
 [sub_resource type="Animation" id="Animation_rkbax"]
 length = 0.001
@@ -654,6 +655,10 @@ bus = &"Sound Effects"
 
 [node name="GravityOn" type="AudioStreamPlayer" parent="Sounds" unique_id=1525211347]
 stream = ExtResource("17_e7oew")
+bus = &"Sound Effects"
+
+[node name="Dash" type="AudioStreamPlayer" parent="Sounds" unique_id=1288697202]
+stream = ExtResource("18_e7oew")
 bus = &"Sound Effects"
 
 [connection signal="area_entered" from="HurtBox" to="HurtBox" method="_on_area_entered"]
