@@ -53,7 +53,7 @@ tile_map_data = PackedByteArray("AAAMAAkAAAADAAQAAAALAAkAAAADAAQAAAAKAAkAAAADAAQ
 [node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("2_kftim")]
 door_tag = "WestDoor"
 dest_door_tag = "EastDoor"
-dest_room = "perchrit"
+dest_room = "cant_stop"
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-720, 16)
