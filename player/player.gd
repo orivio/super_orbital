@@ -50,6 +50,9 @@ var effect_nodes: Array[Node2D]
 @onready var floor_caster: ShapeCast2D = $FloorCaster
 @onready var effects: Node2D = $Effects
 
+@onready var gravity_off_sfx: AudioStreamPlayer = $Sounds/GravityOff
+
+
 func _ready() -> void:
 	GameManager.player = self
 	ability_unlocked.connect(SaveManager._on_ability_unlocked)
@@ -308,3 +311,8 @@ func enable_physics() -> void:
 
 func _on_player_left_blackhole() -> void:
 	GameManager.time_scale = 1
+
+func play_sound_effect(effect_name: StringName) -> void:
+	match effect_name:
+		"gravity_off": gravity_off_sfx.play()
+		_: pass

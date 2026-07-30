@@ -49,7 +49,7 @@ tile_set = ExtResource("3_gq2vv")
 
 [node name="ForegroundParallax" type="Parallax2D" parent="." unique_id=1868079540]
 visible = false
-scroll_scale = Vector2(1.1, 1.1)
+scroll_scale = Vector2(1.05, 1.05)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="ForegroundParallax" unique_id=538232198]
 tile_set = ExtResource("3_gq2vv")

@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://cmj8pah4adp4i" path="res://player/tooltip.gd" id="11_7thud"]
 [ext_resource type="Script" uid="uid://c7bjctdjhlrkc" path="res://player/state/state_wrench.gd" id="11_a1qjk"]
 [ext_resource type="Script" uid="uid://lr54amgp2jlh" path="res://player/state/state_black_hole.gd" id="13_kb6p2"]
+[ext_resource type="AudioStream" uid="uid://b1tuqlecgsayp" path="res://sounds/gravity_off.wav" id="16_32hag"]
 
 [sub_resource type="Animation" id="Animation_rkbax"]
 length = 0.001
@@ -552,6 +553,10 @@ size = Vector2(21, 59)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j3ovn"]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_32hag"]
+streams_count = 1
+stream_0/stream = ExtResource("16_32hag")
+
 [node name="Player" type="CharacterBody2D" unique_id=1158454686 groups=["player"]]
 collision_layer = 2
 collision_mask = 2673
@@ -639,6 +644,12 @@ visible = false
 enabled = false
 shape = SubResource("CircleShape2D_j3ovn")
 target_position = Vector2(0, 300)
+
+[node name="Sounds" type="Node" parent="." unique_id=1124397788]
+
+[node name="GravityOff" type="AudioStreamPlayer" parent="Sounds" unique_id=1769858769]
+stream = SubResource("AudioStreamRandomizer_32hag")
+bus = &"Sound Effects"
 
 [connection signal="area_entered" from="HurtBox" to="HurtBox" method="_on_area_entered"]
 [connection signal="body_entered" from="HurtBox" to="HurtBox" method="_on_body_entered"]

@@ -22,6 +22,7 @@ var has_bounced_y: bool = false
 @onready var wrench_state: PlayerState = $"../Wrench"
 
 func enter() -> void:
+	player.play_sound_effect(&"gravity_off")
 	player.stop_animation();
 	player.has_gravity = false
 	player.is_floating = true
