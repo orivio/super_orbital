@@ -2,13 +2,14 @@ Russlan:
 - Decide if we should aim for presenting our game as a "challenging precision platformer" instead of just a "precision platformer". This means making some levels harder.
 - Assign music to the rooms that you want
 - Write some more dialogue
-- Should the dialogue have less humor? It kind of doesn't fit with the music.
 - Make more OST
 - Redesign Brobot
 - Assess the progression and difficulty of the levels
 
 Obed:
+- Refine the arrow indicators on room_cant_stop
 - Make a separate sprite for when you are inside a black hole
+- Fix minor sprite flipping bug when you enter a black hole's influence
 - Refine the black hole mechanic
 - Make the ui look better
 - Add more settings to the in game menu
@@ -29,6 +30,5 @@ Both, or whoever wants to:
 	- What does that mean?
 - Is it okay that the game can now run at fractional pixel scales? This means that the spikes will look a bit weird unless we fix them.
 - Make a better favicon
-- How exactly can SAD Guy create black holes?
 - Design and animate cutscenes
 - Make sound effects for movement, ui, and dialogue
