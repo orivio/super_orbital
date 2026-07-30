@@ -61,8 +61,10 @@ func physics_process(_delta: float) -> PlayerState:
 	
 	if player.base_velocity.x > 0:
 		player.facing = 1
+		player.sprite.flip_h = false
 	elif player.base_velocity.x < 0:
 		player.facing = -1
+		player.sprite.flip_h = true
 	
 	return null
 
