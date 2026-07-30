@@ -28,6 +28,10 @@ boot_splash/use_filter=false
 boot_splash/image="uid://clblpcs3hnoir"
 config/icon="uid://c1irp1epn8nxl"
 
+[audio]
+
+driver/output_latency=5
+
 [autoload]
 
 GameManager="*uid://clcu7dy3b7klm"

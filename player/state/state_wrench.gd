@@ -113,18 +113,23 @@ func physics_process(_delta: float) -> PlayerState:
 		else:
 			if not has_bounced_y:
 				if player.is_on_floor():
+					player.play_sound_effect(&"gravity_on")
 					return idle_state
 				else:
+					player.play_sound_effect(&"gravity_on")
 					return fall_state
 		just_collided_x = true
 	elif not on_wall and was_on_wall:
 		just_collided_x = false
 	
 	if set_to_return_idle_state:
+		player.play_sound_effect(&"gravity_on")
 		return idle_state
 	if set_to_return_walk_state:
+		player.play_sound_effect(&"gravity_on")
 		return walk_state
 	if set_to_return_fall_state:
+		player.play_sound_effect(&"gravity_on")
 		return fall_state
 	
 	
@@ -136,8 +141,10 @@ func physics_process(_delta: float) -> PlayerState:
 	
 	if player.has_gravity:
 		if player.base_velocity.y > 0:
+			player.play_sound_effect(&"gravity_on")
 			return fall_state
 		else:
+			player.play_sound_effect(&"gravity_on")
 			return jump_state
 	
 	if player.base_velocity.x < 0:

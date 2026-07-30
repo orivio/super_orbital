@@ -51,6 +51,7 @@ var effect_nodes: Array[Node2D]
 @onready var effects: Node2D = $Effects
 
 @onready var gravity_off_sfx: AudioStreamPlayer = $Sounds/GravityOff
+@onready var gravity_on_sfx: AudioStreamPlayer = $Sounds/GravityOn
 
 
 func _ready() -> void:
@@ -315,4 +316,5 @@ func _on_player_left_blackhole() -> void:
 func play_sound_effect(effect_name: StringName) -> void:
 	match effect_name:
 		"gravity_off": gravity_off_sfx.play()
+		"gravity_on": gravity_on_sfx.play()
 		_: pass

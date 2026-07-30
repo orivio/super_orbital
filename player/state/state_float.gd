@@ -130,10 +130,13 @@ func physics_process(_delta: float) -> PlayerState:
 		just_collided_x = false
 	
 	if set_to_return_idle_state:
+		player.play_sound_effect(&"gravity_on")
 		return idle_state
 	if set_to_return_walk_state:
+		player.play_sound_effect(&"gravity_on")
 		return walk_state
 	if set_to_return_fall_state:
+		player.play_sound_effect(&"gravity_on")
 		return fall_state
 	
 	if gravity_switch_pressed and player.can("gravity_switch"):
@@ -142,8 +145,10 @@ func physics_process(_delta: float) -> PlayerState:
 	
 	if player.has_gravity:
 		if player.base_velocity.y > 0:
+			player.play_sound_effect(&"gravity_on")
 			return fall_state
 		else:
+			player.play_sound_effect(&"gravity_on")
 			return jump_state
 	
 	if throw_wrench_pressed and player.can("throw_wrench"):
