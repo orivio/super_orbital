@@ -13,6 +13,7 @@ Obed:
 - Make a separate sprite for when you are inside a black hole
 - Fix minor sprite flipping bug when you enter a black hole's influence
 - Refine the black hole mechanic
+- Add more black hole levels, and maybe one or two wrench levels
 - Make the ui look better
 - Add more settings to the in game menu
 - Add more settings to the settings page (If necessary)
