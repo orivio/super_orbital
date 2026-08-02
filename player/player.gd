@@ -8,9 +8,12 @@ signal ability_locked(name: String)
 const IMPACT_CLOUD = preload("res://effects/impact_cloud/impact_cloud.tscn")
 const DUST_CLOUD = preload("res://effects/dust_cloud/dust_cloud.tscn")
 const DASH_CLOUD = preload("res://effects/dash_cloud/dash_cloud.tscn")
+const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.tscn")
 
 @export var movement_settings: PlayerMovementSettings
 @export var abilities: PlayerAbilities = null
+@export var after_image_rate: float
+@export var after_image_fade: float
 
 var direction: float:
 	set(value):
@@ -172,6 +175,7 @@ func _physics_process(delta: float) -> void:
 	
 	if is_on_floor() and has_gravity and not state_machine.current_state is StateJump and not state_machine.current_state is StateFloat:
 		base_velocity.y = 0
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	#if event.is_action_pressed("dash"):
@@ -332,3 +336,12 @@ func play_sound_effect(effect_name: StringName) -> void:
 			
 			dash_sfx.play()
 		_: pass
+
+func spawn_afterimage(frame_override: int = 0) -> void:
+	var after_image_instance = AFTER_IMAGE.instantiate()
+	if frame_override == 0:
+		after_image_instance.do_thing(sprite.frame, after_image_fade, sprite.flip_h)
+	else:
+		after_image_instance.do_thing(frame_override, after_image_fade, sprite.flip_h)
+	after_image_instance.global_position = global_position
+	GameManager.current_room.add_effect(after_image_instance)

@@ -153,9 +153,6 @@ offset_top = -2900.0
 offset_right = 4900.0
 offset_bottom = -2800.0
 
-[node name="Effects" parent="." index="8" unique_id=885905499]
-position = Vector2(-672, -64)
-
 [editable path="Objects/MovingPlatform"]
 [editable path="Objects/MovingPlatform2"]
 [editable path="Doors/WestDoor"]

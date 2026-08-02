@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bn73t2kxotgw2"]
+
+[ext_resource type="Script" uid="uid://c2wpf3sxhu6l8" path="res://effects/player_afterimage/player_afterimage.gd" id="1_5ghur"]
+[ext_resource type="Texture2D" uid="uid://bx2iv5xarjh7v" path="res://player/sprites/sad_guy_final_sprite.png" id="1_gy6vp"]
+
+[node name="PlayerAfterimage" type="Node2D" unique_id=1485970399]
+script = ExtResource("1_5ghur")
+opacity = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=896674287]
+texture = ExtResource("1_gy6vp")
+hframes = 74
+
+[node name="Timer" type="Timer" parent="." unique_id=166964185]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

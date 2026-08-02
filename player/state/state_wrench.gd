@@ -1,5 +1,6 @@
 class_name StateWrench extends PlayerState
 
+
 var entry_velocity = 0
 var gravity_switch_pressed: bool
 var wrench_projectile: PackedScene = preload("res://objects/wrench_projectile/wrench_projectile.tscn")
@@ -15,11 +16,15 @@ var was_on_wall: bool = false
 
 var has_bounced_y: bool = false
 
+var after_image_timer: float
+
+
 @onready var idle_state: PlayerState = $"../Idle"
 @onready var walk_state: PlayerState = $"../Walk"
 @onready var fall_state: PlayerState = $"../Fall"
 @onready var jump_state: PlayerState = $"../Jump"
 @onready var float_state: PlayerState = $"../Float"
+
 
 func enter() -> void:
 	#player.update_animation("wrench")
@@ -32,6 +37,8 @@ func enter() -> void:
 	set_to_return_idle_state = false
 	set_to_return_walk_state = false
 	set_to_return_fall_state = false
+	
+	after_image_timer = player.after_image_rate
 
 func exit() -> void:
 	player.is_floating = false
@@ -54,7 +61,12 @@ func spawn_wrench_projectile(direction: Vector2):
 	if is_instance_valid(wrench_instance):
 		wrench_instance.queue_free()
 
-func physics_process(_delta: float) -> PlayerState:
+func physics_process(delta: float) -> PlayerState:
+	
+	after_image_timer += delta * GameManager.time_scale
+	if after_image_timer >= player.after_image_rate:
+		player.spawn_afterimage()
+		after_image_timer = 0
 	
 	var on_wall = player.is_on_wall()
 	

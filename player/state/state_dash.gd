@@ -2,6 +2,7 @@ class_name StateDash extends PlayerState
 
 var dash_timer: float
 var gravity_switch_pressed: bool
+var after_image_timer: float
 
 @onready var walk_state: PlayerState = $"../Walk"
 @onready var fall_state: PlayerState = $"../Fall"
@@ -39,6 +40,7 @@ func enter() -> void:
 	dash_timer = 0
 	gravity_switch_pressed = false
 	player.dash_cooldown_timer = player.movement_settings.dash_cooldown
+	after_image_timer = player.after_image_rate
 
 func exit() -> void:
 	player.is_dashing_horizontally = false
@@ -55,6 +57,13 @@ func process(_delta: float) -> PlayerState:
 func physics_process(delta: float) -> PlayerState:
 	
 	dash_timer += delta * GameManager.time_scale
+	after_image_timer += delta * GameManager.time_scale
+	if after_image_timer >= player.after_image_rate:
+		if player.is_dashing_horizontally:
+			player.spawn_afterimage(57)
+		else:
+			player.spawn_afterimage()
+		after_image_timer = 0
 	
 	if gravity_switch_pressed and not player.is_on_floor() and player.can("gravity_switch"):
 		gravity_switch_pressed = false

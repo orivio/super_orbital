@@ -1,4 +1,5 @@
 Russlan:
+- Feedback on the afterimage effect
 - Decide if we should aim for presenting our game as a "challenging precision platformer" instead of just a "precision platformer". This means making some levels harder.
 - Review sound effects
 - Assign music to the rooms that you want
@@ -9,7 +10,6 @@ Russlan:
 - If you throw a wrench and are now in the wrench state, what happens when you enter a black hole's influence? Does it affect you or do you keep moving in the same direction you were before?
 
 Obed:
-- Make an after image effect for the player
 - Make a better banner
 - Fix minor sprite flipping bug when you enter a black hole's influence
 - Refine the black hole mechanic
