@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://q37ng5uis2j3"]
 
 [ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room_template.tscn" id="1_yiy1m"]
+[ext_resource type="Texture2D" uid="uid://b4d0iy2gcl7ai" path="res://objects/arrow/arrow.png" id="2_0hy8y"]
 [ext_resource type="PackedScene" uid="uid://b2ogi0ekm1d7i" path="res://objects/moving_platform/moving_platform.tscn" id="2_5sl8d"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="2_vq8d1"]
 
@@ -41,18 +42,34 @@ size = Vector2(160, 288)
 [node name="RoomCantStop" unique_id=201273727 instance=ExtResource("1_yiy1m")]
 music_for_this_room = "uid://86wyqwb0rs5n"
 
-[node name="CameraBounds" parent="." index="1" unique_id=711655567]
-visible = true
-
-[node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
+[node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
 position = Vector2(1952, -1072)
 shape = SubResource("RectangleShape2D_5sl8d")
 
 [node name="BackgroundParallax" parent="." index="2" unique_id=1350709603]
 visible = true
 
-[node name="TileMapLayer" parent="BackgroundParallax" index="0" unique_id=1102526107]
-tile_map_data = PackedByteArray("AAD8/+H/AAAIAAIAAAD9/+L/AAAIAAIAAAD+/+P/AAAIAAIAAAD9/+T/AAAIAAIAAAD8/+X/AAAIAAIAAAD9/+P/AAAIAAIAAAD8/+P/AAAIAAIAAAD7/+P/AAAIAAIAAAD6/+P/AAAIAAIAAAD5/+P/AAAIAAIAAAD4/+P/AAAIAAIAAAD3/+P/AAAIAAIAAAD2/+P/AAAIAAIAAAD1/+P/AAAIAAIAAAAgANz/AAAIAAIAAAAgAN3/AAAIAAIAAAAgAN7/AAAIAAIAAAAgAN//AAAIAAIAAAAeAN//AAAIAAIAAAAfAOD/AAAIAAIAAAAgAOH/AAAIAAIAAAAgAOD/AAAIAAIAAAAhAOD/AAAIAAIAAAAiAN//AAAIAAIAAAAgANv/AAAIAAIAAAAgANr/AAAIAAIAAAAgANn/AAAIAAIAAAAmAP//AAAIAAIAAAAnAAAAAAAIAAIAAAAoAAEAAAAIAAIAAAApAAIAAAAIAAIAAAAoAAMAAAAIAAIAAAAnAAQAAAAIAAIAAAAmAAUAAAAIAAIAAAAoAAIAAAAIAAIAAAAnAAIAAAAIAAIAAAAmAAIAAAAIAAIAAAAlAAIAAAAIAAIAAAAkAAIAAAAIAAIAAAAjAAIAAAAIAAIAAAAiAAIAAAAIAAIAAAAhAAIAAAAIAAIAAAAgAAIAAAAIAAIAAAAfAAIAAAAIAAIAAAAeAAIAAAAIAAIAAAAdAAIAAAAIAAIAAAAcAAIAAAAIAAIAAABPAP7/AAAIAAIAAABQAP3/AAAIAAIAAABRAPz/AAAIAAIAAABRAP3/AAAIAAIAAABSAP3/AAAIAAIAAABTAP7/AAAIAAIAAABRAP7/AAAIAAIAAABRAP//AAAIAAIAAABRAAAAAAAIAAIAAABRAAEAAAAIAAIAAABRAAIAAAAIAAIAAABRAAMAAAAIAAIAAABRAAQAAAAIAAIAAABRAAUAAAAIAAIAAABRAAYAAAAIAAIAAABRAAcAAAAIAAIAAABRAAgAAAAIAAIAAABRAAkAAAAIAAIAAABNAK//AAAIAAIAAABOAK//AAAIAAIAAABPAK//AAAIAAIAAABQAK//AAAIAAIAAABRAK//AAAIAAIAAABSAK//AAAIAAIAAABTAK//AAAIAAIAAABUAK//AAAIAAIAAABTAK7/AAAIAAIAAABSAK3/AAAIAAIAAABTALD/AAAIAAIAAABSALH/AAAIAAIAAAA=")
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundParallax" index="1" unique_id=1623138745]
+position = Vector2(-54, -946)
+texture = ExtResource("2_0hy8y")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BackgroundParallax" index="2" unique_id=577908975]
+position = Vector2(1082, -833)
+rotation = 1.5707964
+texture = ExtResource("2_0hy8y")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BackgroundParallax" index="3" unique_id=262640152]
+position = Vector2(1089, 161)
+texture = ExtResource("2_0hy8y")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BackgroundParallax" index="4" unique_id=452671076]
+position = Vector2(2379, 116)
+rotation = -1.5707964
+texture = ExtResource("2_0hy8y")
+
+[node name="Sprite2D5" type="Sprite2D" parent="BackgroundParallax" index="5" unique_id=359518735]
+position = Vector2(2374, -2341)
+texture = ExtResource("2_0hy8y")
 
 [node name="MovingPlatform" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="0" unique_id=1898127775 instance=ExtResource("2_5sl8d")]
 curve = SubResource("Curve2D_0hy8y")
