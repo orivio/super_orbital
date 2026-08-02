@@ -11,9 +11,9 @@ Russlan:
 Obed:
 - Make an after image effect for the player
 - Make a better banner
-- Refine the arrow indicators on room_cant_stop
 - Fix minor sprite flipping bug when you enter a black hole's influence
 - Refine the black hole mechanic
+- Mkae black holes look better
 - Add more black hole levels, and maybe one or two more wrench levels
 - Make the ui look better
 - Add more settings to the in game menu
