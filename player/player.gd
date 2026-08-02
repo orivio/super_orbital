@@ -229,7 +229,7 @@ func _on_death_timeout() -> void:
 	reset()
 
 func teleport_to_ground(target: Vector2) -> void:
-	global_position = target
+	global_position = target + Vector2.UP * get_half_height()
 	#print("Teleporting player to: ", global_position)
 	# This is so annoying and I hate this
 

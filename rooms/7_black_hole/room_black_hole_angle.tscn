@@ -44,7 +44,7 @@ position = Vector2(-928, -130)
 shape = SubResource("RectangleShape2D_bsdrt")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
-position = Vector2(-800, 0)
+position = Vector2(-768, 0)
 
 [node name="Label" parent="Doors/WestDoor" index="2" unique_id=164300380]
 offset_left = -1000.0
@@ -61,7 +61,7 @@ position = Vector2(3072, -1632)
 shape = SubResource("RectangleShape2D_5qvtr")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
-position = Vector2(2720, -1472)
+position = Vector2(2848, -1472)
 
 [node name="Label" parent="Doors/EastDoor" index="2" unique_id=164300380]
 offset_left = 3000.0

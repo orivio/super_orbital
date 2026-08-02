@@ -729,6 +729,7 @@ movement_settings = ExtResource("2_qiwj3")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=214816936]
 material = ExtResource("3_wodsf")
 texture = ExtResource("4_e7oew")
+offset = Vector2(0, -1)
 hframes = 74
 frame = 3
 
@@ -745,8 +746,6 @@ parameters/float/blend_position = Vector2(0, 0)
 parameters/jump/blend_position = -2.6845703
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1986859216]
-visible = false
-position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_kb6p2")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=251871403]
