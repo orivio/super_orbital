@@ -57,6 +57,7 @@ var effect_nodes: Array[Node2D]
 @onready var gravity_on_sfx: AudioStreamPlayer = $Sounds/GravityOn
 @onready var dash_sfx: AudioStreamPlayer = $Sounds/Dash
 @onready var throw_wrench_sfx: AudioStreamPlayer = $Sounds/ThrowWrench
+@onready var death_sfx: AudioStreamPlayer = $Sounds/Death
 
 
 func _ready() -> void:
@@ -219,6 +220,7 @@ func die() -> void:
 	GameManager.impact()
 	death_timer = 0.4
 	tooltips_disabled = true
+	play_sound_effect(&"death")
 
 func on_jump_buffer_timeout() -> void:
 	jump_buffer = false
@@ -337,6 +339,12 @@ func play_sound_effect(effect_name: StringName) -> void:
 			dash_sfx.play()
 		"throw_wrench":
 			throw_wrench_sfx.play()
+		"death":
+			dash_sfx.stop()
+			gravity_on_sfx.stop()
+			gravity_off_sfx.stop()
+			throw_wrench_sfx.stop()
+			death_sfx.play()
 		_: pass
 
 func spawn_afterimage(frame_override: int = 0) -> void:

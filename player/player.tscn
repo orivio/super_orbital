@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://dnjlxy8u2sigx" path="res://sounds/gravity_on_2.wav" id="17_e7oew"]
 [ext_resource type="AudioStream" uid="uid://bp7ux6ojv5g3w" path="res://sounds/dash.wav" id="18_e7oew"]
 [ext_resource type="AudioStream" uid="uid://blibcs4nthhm" path="res://sounds/throw_wrench.wav" id="19_c35mf"]
+[ext_resource type="AudioStream" uid="uid://b5elhr52b7s1t" path="res://sounds/die.wav" id="20_65viv"]
 
 [sub_resource type="Animation" id="Animation_rkbax"]
 length = 0.001
@@ -822,6 +823,10 @@ bus = &"Sound Effects"
 
 [node name="ThrowWrench" type="AudioStreamPlayer" parent="Sounds" unique_id=1305315449]
 stream = ExtResource("19_c35mf")
+bus = &"Sound Effects"
+
+[node name="Death" type="AudioStreamPlayer" parent="Sounds" unique_id=473501979]
+stream = ExtResource("20_65viv")
 bus = &"Sound Effects"
 
 [connection signal="area_entered" from="HurtBox" to="HurtBox" method="_on_area_entered"]
