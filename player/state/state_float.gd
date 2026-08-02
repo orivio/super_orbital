@@ -175,6 +175,8 @@ func physics_process(delta: float) -> PlayerState:
 			elif player.base_velocity.x < 0:
 				player.facing = -1
 				player.sprite.flip_h = true
+		
+		player.play_sound_effect(&"throw_wrench")
 		return wrench_state
 		#E = mc^2 - Rayyan Khan
 	

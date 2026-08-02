@@ -56,6 +56,7 @@ var effect_nodes: Array[Node2D]
 @onready var gravity_off_sfx: AudioStreamPlayer = $Sounds/GravityOff
 @onready var gravity_on_sfx: AudioStreamPlayer = $Sounds/GravityOn
 @onready var dash_sfx: AudioStreamPlayer = $Sounds/Dash
+@onready var throw_wrench_sfx: AudioStreamPlayer = $Sounds/ThrowWrench
 
 
 func _ready() -> void:
@@ -333,8 +334,9 @@ func play_sound_effect(effect_name: StringName) -> void:
 			dash_sfx.stop()
 			gravity_on_sfx.play()
 		"dash":
-			
 			dash_sfx.play()
+		"throw_wrench":
+			throw_wrench_sfx.play()
 		_: pass
 
 func spawn_afterimage(frame_override: int = 0) -> void:
