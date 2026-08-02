@@ -11,10 +11,9 @@ Russlan:
 Obed:
 - Make a better banner
 - Refine the arrow indicators on room_cant_stop
-- Make a separate sprite for when you are inside a black hole
 - Fix minor sprite flipping bug when you enter a black hole's influence
 - Refine the black hole mechanic
-- Add more black hole levels, and maybe one or two wrench levels
+- Add more black hole levels, and maybe one or two more wrench levels
 - Make the ui look better
 - Add more settings to the in game menu
 - Add more settings to the settings page (If necessary)
@@ -23,7 +22,6 @@ Obed:
 	- When you are falling after a jump, shift the camera's focus down
 - Add more levels
 - Let the player go back to old levels
-- Make the banner have more action
 - Fix bug where upon unlocking the dash or gravity switch ability for the first time, you will dash or gravity switch immediately after unlocking the ability, even if you didn't press any key for it
 - Fix the gravity switch / wrench throw bugs
 - Add variation to tileset
