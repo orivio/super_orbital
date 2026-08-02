@@ -126,8 +126,6 @@ func _process(delta: float) -> void:
 	elif state_machine.current_state is StateWrench:
 		tooltip.text = "Wrench"
 	
-	sprite.material.set_shader_parameter("gravity_on", !is_floating)
-
 func _physics_process(delta: float) -> void:
 	#print(state_machine.current_state)
 	if is_on_floor() and not input_locked:
@@ -159,6 +157,14 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	animation_tree.set("parameters/jump/blend_position", base_velocity.y)
 	animation_tree.set("parameters/float/blend_position", base_velocity)
+	animation_tree.set("parameters/black_hole/blend_position", base_velocity)
+	if in_blackhole and not is_floating:
+		sprite.material.set_shader_parameter("gravity_state", 0)
+	elif is_floating:
+		sprite.material.set_shader_parameter("gravity_state", 1)
+	else:
+		sprite.material.set_shader_parameter("gravity_state", 2)
+
 	state_machine.physics_process(delta)
 	if not state_machine.current_state is StateFloat and in_blackhole:
 		GameManager.time_scale = 0.5

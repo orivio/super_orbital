@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://bbo5lg346cmyl" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Resource" uid="uid://br1xonlgrqa3d" path="res://player/movement_settings/player_default_movement_settings.tres" id="2_qiwj3"]
 [ext_resource type="Script" uid="uid://c5i0w63pxb5cx" path="res://player/state/player_state_machine.gd" id="3_g1dw6"]
-[ext_resource type="Texture2D" uid="uid://b5cujalnpgfm7" path="res://player/sprites/polished_run.png" id="3_kb6p2"]
 [ext_resource type="Material" uid="uid://b5rku30lrnb0v" path="res://player/sprites/player_material.tres" id="3_wodsf"]
 [ext_resource type="Script" uid="uid://dqmpu2wxpo03a" path="res://player/state/state_idle.gd" id="4_bls4j"]
+[ext_resource type="Texture2D" uid="uid://bx2iv5xarjh7v" path="res://player/sprites/sad_guy_final_sprite.png" id="4_e7oew"]
 [ext_resource type="Script" uid="uid://cobylp8hlybiw" path="res://player/hurt_box.gd" id="4_j3ovn"]
 [ext_resource type="Script" uid="uid://xy0w8wmn470g" path="res://player/state/state_walk.gd" id="5_fkugw"]
 [ext_resource type="Script" uid="uid://bdpeda0c7u7w4" path="res://player/state/state_jump.gd" id="6_8fjmc"]
@@ -48,6 +48,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [57]
+}
+
+[sub_resource type="Animation" id="Animation_b8hi5"]
+resource_name = "dash_blackhole"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [68]
 }
 
 [sub_resource type="Animation" id="Animation_tqiix"]
@@ -96,6 +111,21 @@ tracks/0/keys = {
 "values": [53]
 }
 
+[sub_resource type="Animation" id="Animation_2uvqg"]
+resource_name = "fall_end_blackhole"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [73]
+}
+
 [sub_resource type="Animation" id="Animation_r7pn3"]
 resource_name = "fall_end_nograv"
 tracks/0/type = "value"
@@ -124,6 +154,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [52]
+}
+
+[sub_resource type="Animation" id="Animation_1s1yo"]
+resource_name = "fall_mid_blackhole"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [72]
 }
 
 [sub_resource type="Animation" id="Animation_rptt4"]
@@ -219,6 +264,21 @@ tracks/0/keys = {
 "values": [50]
 }
 
+[sub_resource type="Animation" id="Animation_5ejfk"]
+resource_name = "jump_end_blackhole"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [70]
+}
+
 [sub_resource type="Animation" id="Animation_uw77l"]
 resource_name = "jump_end_nograv"
 tracks/0/type = "value"
@@ -249,6 +309,21 @@ tracks/0/keys = {
 "values": [49]
 }
 
+[sub_resource type="Animation" id="Animation_jd2rm"]
+resource_name = "jump_mid_blackhole"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [69]
+}
+
 [sub_resource type="Animation" id="Animation_7pqkx"]
 resource_name = "jump_mid_nograv"
 tracks/0/type = "value"
@@ -277,6 +352,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [48]
+}
+
+[sub_resource type="Animation" id="Animation_q28gw"]
+resource_name = "jump_start_blackhole"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [68]
 }
 
 [sub_resource type="Animation" id="Animation_knn7v"]
@@ -332,37 +422,71 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_rkbax"),
 &"dash": SubResource("Animation_kb6p2"),
+&"dash_blackhole": SubResource("Animation_b8hi5"),
 &"dash_exit": SubResource("Animation_tqiix"),
 &"dash_nograv": SubResource("Animation_g4c7l"),
 &"fall_end": SubResource("Animation_s7qer"),
+&"fall_end_blackhole": SubResource("Animation_2uvqg"),
 &"fall_end_nograv": SubResource("Animation_r7pn3"),
 &"fall_mid": SubResource("Animation_bjvpn"),
+&"fall_mid_blackhole": SubResource("Animation_1s1yo"),
 &"fall_mid_nograv": SubResource("Animation_rptt4"),
 &"fall_start": SubResource("Animation_x7c3f"),
 &"float_down": SubResource("Animation_32hag"),
 &"float_up": SubResource("Animation_wodsf"),
 &"idle": SubResource("Animation_oul6g"),
 &"jump_end": SubResource("Animation_e7oew"),
+&"jump_end_blackhole": SubResource("Animation_5ejfk"),
 &"jump_end_nograv": SubResource("Animation_uw77l"),
 &"jump_mid": SubResource("Animation_c35mf"),
+&"jump_mid_blackhole": SubResource("Animation_jd2rm"),
 &"jump_mid_nograv": SubResource("Animation_7pqkx"),
 &"jump_start": SubResource("Animation_65viv"),
+&"jump_start_blackhole": SubResource("Animation_q28gw"),
 &"jump_start_nograv": SubResource("Animation_knn7v"),
 &"run": SubResource("Animation_yllr7"),
 &"walk": SubResource("Animation_j3ovn")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7pqkx"]
+animation = &"jump_end_blackhole"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uw77l"]
+animation = &"dash_blackhole"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2uvqg"]
+animation = &"dash_blackhole"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1s1yo"]
+animation = &"fall_end_blackhole"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5ejfk"]
+animation = &"jump_start_blackhole"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_e7oew"]
+min_space = Vector2(-900, -900)
+max_space = Vector2(900, 900)
+blend_point_0/node = SubResource("AnimationNodeAnimation_7pqkx")
+blend_point_0/pos = Vector2(0, 0)
+blend_point_0/name = &"jump_end_blackhole"
+blend_point_1/node = SubResource("AnimationNodeAnimation_uw77l")
+blend_point_1/pos = Vector2(-900, 0)
+blend_point_1/name = &"dash_blackhole"
+blend_point_2/node = SubResource("AnimationNodeAnimation_2uvqg")
+blend_point_2/pos = Vector2(900, 0)
+blend_point_2/name = &"dash_blackhole 2"
+blend_point_3/node = SubResource("AnimationNodeAnimation_1s1yo")
+blend_point_3/pos = Vector2(0, 900)
+blend_point_3/name = &"fall_end_blackhole"
+blend_point_4/node = SubResource("AnimationNodeAnimation_5ejfk")
+blend_point_4/pos = Vector2(0, -900)
+blend_point_4/name = &"jump_start_blackhole"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bjvpn"]
 animation = &"dash"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s7qer"]
 animation = &"dash_exit"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7pqkx"]
-animation = &"float_up"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uw77l"]
-animation = &"float_down"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_knn7v"]
 animation = &"dash_nograv"
@@ -383,27 +507,21 @@ animation = &"jump_start_nograv"
 min_space = Vector2(-900, -900)
 max_space = Vector2(900, 900)
 blend_mode = 1
-blend_point_0/node = SubResource("AnimationNodeAnimation_7pqkx")
-blend_point_0/pos = Vector2(0, -900)
-blend_point_0/name = &"float_up"
-blend_point_1/node = SubResource("AnimationNodeAnimation_uw77l")
-blend_point_1/pos = Vector2(0, 900)
-blend_point_1/name = &"float_down"
-blend_point_2/node = SubResource("AnimationNodeAnimation_knn7v")
-blend_point_2/pos = Vector2(-900.1, 0)
-blend_point_2/name = &"dash_nograv"
-blend_point_3/node = SubResource("AnimationNodeAnimation_g4c7l")
-blend_point_3/pos = Vector2(900, 0)
-blend_point_3/name = &"dash_nograv 2"
-blend_point_4/node = SubResource("AnimationNodeAnimation_rptt4")
-blend_point_4/pos = Vector2(0, 600)
-blend_point_4/name = &"fall_end_nograv"
-blend_point_5/node = SubResource("AnimationNodeAnimation_r7pn3")
-blend_point_5/pos = Vector2(0, 0)
-blend_point_5/name = &"jump_end_nograv"
-blend_point_6/node = SubResource("AnimationNodeAnimation_b8hi5")
-blend_point_6/pos = Vector2(0, -600)
-blend_point_6/name = &"jump_start_nograv"
+blend_point_0/node = SubResource("AnimationNodeAnimation_knn7v")
+blend_point_0/pos = Vector2(-900.1, 0)
+blend_point_0/name = &"dash_nograv"
+blend_point_1/node = SubResource("AnimationNodeAnimation_g4c7l")
+blend_point_1/pos = Vector2(900, 0)
+blend_point_1/name = &"dash_nograv 2"
+blend_point_2/node = SubResource("AnimationNodeAnimation_rptt4")
+blend_point_2/pos = Vector2(0, 900)
+blend_point_2/name = &"fall_end_nograv"
+blend_point_3/node = SubResource("AnimationNodeAnimation_r7pn3")
+blend_point_3/pos = Vector2(0, 0)
+blend_point_3/name = &"jump_end_nograv"
+blend_point_4/node = SubResource("AnimationNodeAnimation_b8hi5")
+blend_point_4/pos = Vector2(0, -900)
+blend_point_4/name = &"jump_start_nograv"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kb6p2"]
 animation = &"idle"
@@ -528,21 +646,59 @@ advance_expression = "not is_floating and is_on_floor() and direction != 0"
 advance_mode = 2
 advance_expression = "not is_floating and is_on_floor() and direction == 0"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1s1yo"]
+advance_mode = 2
+advance_expression = "in_blackhole"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5ejfk"]
+advance_mode = 2
+advance_expression = "in_blackhole"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jd2rm"]
+advance_mode = 2
+advance_expression = "in_blackhole"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q28gw"]
+advance_mode = 2
+advance_expression = "in_blackhole"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ge24q"]
+advance_mode = 2
+advance_expression = "in_blackhole and not is_floating"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pnw6m"]
+advance_mode = 2
+advance_expression = "not in_blackhole and not is_on_ground() and base_velocity.y != 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1so5t"]
+advance_mode = 2
+advance_expression = "not in_blackhole and is_on_ground() and direction == 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_55jnj"]
+advance_mode = 2
+advance_expression = "not in_blackhole and is_on_ground() and direction != 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dx5ib"]
+advance_mode = 2
+advance_expression = "is_floating"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kb6p2"]
+states/black_hole/node = SubResource("AnimationNodeBlendSpace2D_e7oew")
+states/black_hole/position = Vector2(274.40002, 304.2)
 states/dash/node = SubResource("AnimationNodeAnimation_bjvpn")
 states/dash/position = Vector2(655.4, 166.40001)
 states/dash_exit/node = SubResource("AnimationNodeAnimation_s7qer")
-states/dash_exit/position = Vector2(619.39996, 275.2)
+states/dash_exit/position = Vector2(618.6, 249.6)
 states/float/node = SubResource("AnimationNodeBlendSpace2D_kb6p2")
-states/float/position = Vector2(432, 290.80002)
+states/float/position = Vector2(478.4, 316.40002)
 states/idle/node = SubResource("AnimationNodeAnimation_kb6p2")
 states/idle/position = Vector2(312, 99.96)
 states/jump/node = SubResource("AnimationNodeBlendSpace1D_kb6p2")
-states/jump/position = Vector2(261.6, 208.6)
+states/jump/position = Vector2(206.40001, 199)
 states/run/node = SubResource("AnimationNodeAnimation_wodsf")
 states/run/position = Vector2(548, 101.4)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_32hag"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_tqiix"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_e7oew"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_wodsf"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_kb6p2"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_c35mf"), "run", "dash", SubResource("AnimationNodeStateMachineTransition_s7qer"), "dash", "dash_exit", SubResource("AnimationNodeStateMachineTransition_g4c7l"), "dash_exit", "run", SubResource("AnimationNodeStateMachineTransition_65viv"), "dash_exit", "idle", SubResource("AnimationNodeStateMachineTransition_x7c3f"), "dash_exit", "jump", SubResource("AnimationNodeStateMachineTransition_bjvpn"), "jump", "dash", SubResource("AnimationNodeStateMachineTransition_knn7v"), "jump", "float", SubResource("AnimationNodeStateMachineTransition_7pqkx"), "dash_exit", "float", SubResource("AnimationNodeStateMachineTransition_uw77l"), "dash", "float", SubResource("AnimationNodeStateMachineTransition_rptt4"), "float", "jump", SubResource("AnimationNodeStateMachineTransition_r7pn3"), "float", "run", SubResource("AnimationNodeStateMachineTransition_b8hi5"), "float", "idle", SubResource("AnimationNodeStateMachineTransition_2uvqg")]
-graph_offset = Vector2(-15, 37)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_32hag"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_tqiix"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_e7oew"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_wodsf"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_kb6p2"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_c35mf"), "run", "dash", SubResource("AnimationNodeStateMachineTransition_s7qer"), "dash", "dash_exit", SubResource("AnimationNodeStateMachineTransition_g4c7l"), "dash_exit", "run", SubResource("AnimationNodeStateMachineTransition_65viv"), "dash_exit", "idle", SubResource("AnimationNodeStateMachineTransition_x7c3f"), "dash_exit", "jump", SubResource("AnimationNodeStateMachineTransition_bjvpn"), "jump", "dash", SubResource("AnimationNodeStateMachineTransition_knn7v"), "jump", "float", SubResource("AnimationNodeStateMachineTransition_7pqkx"), "dash_exit", "float", SubResource("AnimationNodeStateMachineTransition_uw77l"), "dash", "float", SubResource("AnimationNodeStateMachineTransition_rptt4"), "float", "jump", SubResource("AnimationNodeStateMachineTransition_r7pn3"), "float", "run", SubResource("AnimationNodeStateMachineTransition_b8hi5"), "float", "idle", SubResource("AnimationNodeStateMachineTransition_2uvqg"), "jump", "black_hole", SubResource("AnimationNodeStateMachineTransition_1s1yo"), "run", "black_hole", SubResource("AnimationNodeStateMachineTransition_5ejfk"), "dash_exit", "black_hole", SubResource("AnimationNodeStateMachineTransition_jd2rm"), "dash", "black_hole", SubResource("AnimationNodeStateMachineTransition_q28gw"), "float", "black_hole", SubResource("AnimationNodeStateMachineTransition_ge24q"), "black_hole", "jump", SubResource("AnimationNodeStateMachineTransition_pnw6m"), "black_hole", "idle", SubResource("AnimationNodeStateMachineTransition_1so5t"), "black_hole", "run", SubResource("AnimationNodeStateMachineTransition_55jnj"), "black_hole", "float", SubResource("AnimationNodeStateMachineTransition_dx5ib")]
+graph_offset = Vector2(18, 81)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kb6p2"]
 radius = 14.0
@@ -572,8 +728,8 @@ movement_settings = ExtResource("2_qiwj3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=214816936]
 material = ExtResource("3_wodsf")
-texture = ExtResource("3_kb6p2")
-hframes = 67
+texture = ExtResource("4_e7oew")
+hframes = 74
 frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=921070768]
@@ -584,6 +740,7 @@ autoplay = &"idle"
 tree_root = SubResource("AnimationNodeStateMachine_kb6p2")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
+parameters/black_hole/blend_position = Vector2(0, 0)
 parameters/float/blend_position = Vector2(0, 0)
 parameters/jump/blend_position = -2.6845703
 

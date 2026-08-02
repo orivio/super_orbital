@@ -4,6 +4,7 @@
 
 [resource]
 shader = ExtResource("1_derhf")
-shader_parameter/gravity_on = true
+shader_parameter/gravity_state = 2
 shader_parameter/gravity_color = Color(0.086799994, 0.62, 0.31785336, 1)
 shader_parameter/nogravity_color = Color(0.9137255, 0.21960784, 0.25490198, 1)
+shader_parameter/blackhole_color = Color(0.0627451, 0.03137255, 0.1254902, 1)

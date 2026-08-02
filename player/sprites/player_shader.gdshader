@@ -1,9 +1,10 @@
 shader_type canvas_item;
 render_mode unshaded;
 
-uniform bool gravity_on = true;
+uniform int gravity_state = 2;
 uniform vec4 gravity_color : source_color;
 uniform vec4 nogravity_color : source_color;
+uniform vec4 blackhole_color : source_color;
 
 void vertex() {
 	// Called for every vertex the material is visible on.
@@ -12,11 +13,16 @@ void vertex() {
 void fragment() {
     vec4 base_color = texture(TEXTURE, UV);
 	vec4 outline_color = vec4(0.0, 0.0, 0.0, 0.0);
-	if(gravity_on) {
-		outline_color = gravity_color;
-	}
-	else {
-		outline_color = nogravity_color;
+	switch(gravity_state) {
+		case 0:
+			outline_color = blackhole_color;
+			break;
+		case 1:
+			outline_color = nogravity_color;
+			break;
+		default:
+			outline_color = gravity_color;
+			break;
 	}
 	
 	vec2 size = TEXTURE_PIXEL_SIZE * 2.0;
