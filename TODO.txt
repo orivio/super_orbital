@@ -13,6 +13,7 @@ Obed:
 - Make settings page ui theme
 - Do we really need the "achievements" screen on the save select? If not, what else should we put in its place?
 - Make an image for the title
+- Make better audio sliders for the settings page
 - Maybe a jump sound effect
 - Make a better banner
 - Fix minor sprite flipping bug when you enter a black hole's influence
