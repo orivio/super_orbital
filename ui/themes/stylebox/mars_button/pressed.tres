@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://8kq0rvj5xqb8"]
+
+[ext_resource type="Texture2D" uid="uid://dt80tlga4jbp4" path="res://ui/ui_sheet.png" id="1_qvm4r"]
+
+[resource]
+texture = ExtResource("1_qvm4r")
+texture_margin_left = 12.13842
+texture_margin_top = 16.196844
+texture_margin_right = 12.143411
+texture_margin_bottom = 16.069721
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(64, 0, 64, 64)

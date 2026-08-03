@@ -5,7 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://c1qwvj8oxyj61" path="res://ui/textures/star2.png" id="2_mhnvy"]
 [ext_resource type="Shader" uid="uid://c5kmcvgi0g6h1" path="res://ui/shaders/starry_layer.gdshader" id="4_4ytvr"]
 [ext_resource type="Material" uid="uid://b40lkhs41c5mm" path="res://ui/materials/cloudy_layer.tres" id="4_g3eks"]
+[ext_resource type="StyleBox" uid="uid://1yjnb644ocq7" path="res://ui/themes/stylebox/mars_button/normal.tres" id="6_3y2rt"]
 [ext_resource type="PackedScene" uid="uid://dvjxvisrrqfer" path="res://ui/effects/fade_effect.tscn" id="6_g3eks"]
+[ext_resource type="FontFile" uid="uid://hlg3easaunqa" path="res://ui/fonts/m5x7.ttf" id="6_k48pe"]
+[ext_resource type="StyleBox" uid="uid://8kq0rvj5xqb8" path="res://ui/themes/stylebox/mars_button/pressed.tres" id="7_t0a87"]
+[ext_resource type="StyleBox" uid="uid://cr4rmeuwrqsex" path="res://ui/themes/stylebox/mars_button/hover.tres" id="8_qo0fc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g3eks"]
 shader = ExtResource("4_4ytvr")
@@ -18,9 +22,6 @@ shader_parameter/seed = 5.0
 font_size = 64
 outline_size = 30
 outline_color = Color(0.60268, 0.50020003, 0.61, 0.6117647)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lblr"]
-bg_color = Color(0.38431373, 0.38039216, 0.49019608, 0.47843137)
 
 [node name="Menu" type="Control" unique_id=586724944]
 layout_mode = 3
@@ -98,22 +99,30 @@ layout_mode = 2
 alignment = 1
 
 [node name="PlayButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=236645557]
+texture_filter = 1
 custom_minimum_size = Vector2(466, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxFlat_3lblr")
+theme_override_fonts/font = ExtResource("6_k48pe")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = ExtResource("6_3y2rt")
+theme_override_styles/pressed = ExtResource("7_t0a87")
+theme_override_styles/hover = ExtResource("8_qo0fc")
 text = "Play"
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=291890272]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxFlat_3lblr")
+theme_override_styles/normal = ExtResource("6_3y2rt")
+theme_override_styles/pressed = ExtResource("7_t0a87")
+theme_override_styles/hover = ExtResource("8_qo0fc")
 text = "Settings"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=343752204]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxFlat_3lblr")
+theme_override_styles/normal = ExtResource("6_3y2rt")
+theme_override_styles/pressed = ExtResource("7_t0a87")
+theme_override_styles/hover = ExtResource("8_qo0fc")
 text = "Quit"
 
 [node name="FadeEffect" parent="." unique_id=1477421051 instance=ExtResource("6_g3eks")]

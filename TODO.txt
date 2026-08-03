@@ -10,7 +10,7 @@ Russlan:
 - If you throw a wrench and are now in the wrench state, what happens when you enter a black hole's influence? Does it affect you or do you keep moving in the same direction you were before?
 
 Obed:
-- Make a death sound effect, and maybe a better jump sound effect
+- Maybe a jump sound effect
 - Make a better banner
 - Fix minor sprite flipping bug when you enter a black hole's influence
 - Refine the black hole mechanic
