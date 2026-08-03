@@ -103,26 +103,52 @@ texture_filter = 1
 custom_minimum_size = Vector2(466, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_k48pe")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = ExtResource("6_3y2rt")
+theme_override_styles/normal_mirrored = ExtResource("6_3y2rt")
 theme_override_styles/pressed = ExtResource("7_t0a87")
+theme_override_styles/pressed_mirrored = ExtResource("7_t0a87")
 theme_override_styles/hover = ExtResource("8_qo0fc")
+theme_override_styles/hover_mirrored = ExtResource("8_qo0fc")
+theme_override_styles/hover_pressed = ExtResource("8_qo0fc")
+theme_override_styles/hover_pressed_mirrored = ExtResource("8_qo0fc")
+theme_override_styles/disabled = ExtResource("6_3y2rt")
+theme_override_styles/disabled_mirrored = ExtResource("6_3y2rt")
+theme_override_styles/focus = ExtResource("6_3y2rt")
 text = "Play"
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=291890272]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+theme_override_fonts/font = ExtResource("6_k48pe")
+theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = ExtResource("6_3y2rt")
+theme_override_styles/normal_mirrored = ExtResource("6_3y2rt")
 theme_override_styles/pressed = ExtResource("7_t0a87")
+theme_override_styles/pressed_mirrored = ExtResource("7_t0a87")
 theme_override_styles/hover = ExtResource("8_qo0fc")
+theme_override_styles/hover_mirrored = ExtResource("8_qo0fc")
+theme_override_styles/hover_pressed = ExtResource("8_qo0fc")
+theme_override_styles/hover_pressed_mirrored = ExtResource("8_qo0fc")
+theme_override_styles/disabled = ExtResource("6_3y2rt")
+theme_override_styles/disabled_mirrored = ExtResource("6_3y2rt")
+theme_override_styles/focus = ExtResource("6_3y2rt")
 text = "Settings"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=343752204]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+theme_override_fonts/font = ExtResource("6_k48pe")
+theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = ExtResource("6_3y2rt")
+theme_override_styles/normal_mirrored = ExtResource("6_3y2rt")
 theme_override_styles/pressed = ExtResource("7_t0a87")
+theme_override_styles/pressed_mirrored = ExtResource("7_t0a87")
 theme_override_styles/hover = ExtResource("8_qo0fc")
+theme_override_styles/hover_mirrored = ExtResource("8_qo0fc")
+theme_override_styles/hover_pressed = ExtResource("8_qo0fc")
+theme_override_styles/hover_pressed_mirrored = ExtResource("8_qo0fc")
+theme_override_styles/disabled = ExtResource("6_3y2rt")
+theme_override_styles/disabled_mirrored = ExtResource("6_3y2rt")
+theme_override_styles/focus = ExtResource("6_3y2rt")
 text = "Quit"
 
 [node name="FadeEffect" parent="." unique_id=1477421051 instance=ExtResource("6_g3eks")]

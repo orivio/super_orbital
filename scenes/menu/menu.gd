@@ -33,7 +33,6 @@ func _ready() -> void:
 	original_button_size = play_button.size
 	for button: Button in [play_button, settings_button]:
 		button.pivot_offset = button.size / 2.0
-	play_button.grab_focus()
 	
 	if OS.has_feature("web"):
 		quit_button.visible = false

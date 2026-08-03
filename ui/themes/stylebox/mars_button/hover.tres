@@ -1,13 +1,14 @@
 [gd_resource type="StyleBoxTexture" format=3 uid="uid://cr4rmeuwrqsex"]
 
-[ext_resource type="Texture2D" uid="uid://dt80tlga4jbp4" path="res://ui/ui_sheet.png" id="1_fkc5n"]
+[ext_resource type="Texture2D" uid="uid://dt80tlga4jbp4" path="res://ui/ui_sheet.png" id="1_dluod"]
 
 [resource]
-texture = ExtResource("1_fkc5n")
+content_margin_bottom = 28.0
+texture = ExtResource("1_dluod")
 texture_margin_left = 12.13842
 texture_margin_top = 12.239938
 texture_margin_right = 12.143411
 texture_margin_bottom = 16.069721
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
-region_rect = Rect2(128.08472, 0, 63.827377, 64)
+region_rect = Rect2(128, 0, 64, 64)
