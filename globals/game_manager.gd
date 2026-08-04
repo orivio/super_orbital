@@ -32,7 +32,8 @@ var rooms: Dictionary[String, String] = {
 	"cant_stop": "uid://q37ng5uis2j3",
 	"perchrit": "uid://uvtsgsh0y461",
 	"black_hole": "uid://b7y15sh84lthd",
-	"black_hole_angle": "uid://c8jrl1ckwxdxt"
+	"black_hole_angle": "uid://c8jrl1ckwxdxt",
+	"wait": "uid://bq4avu843532o"
 }
 
 func _ready() -> void:

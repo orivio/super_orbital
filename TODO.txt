@@ -1,5 +1,6 @@
 Russlan:
 - Feedback on the afterimage effect
+- Feedback on the ui or maybe give some ideas
 - Decide if we should aim for presenting our game as a "challenging precision platformer" instead of just a "precision platformer". This means making some levels harder.
 - Review sound effects
 - Assign music to the rooms that you want
@@ -10,6 +11,7 @@ Russlan:
 - If you throw a wrench and are now in the wrench state, what happens when you enter a black hole's influence? Does it affect you or do you keep moving in the same direction you were before?
 
 Obed:
+- Finish room_wait
 - A black hole effect would look better if there's a background to warp and distort. Maybe we should make that.
 - Make settings page ui theme
 - Do we really need the "achievements" screen on the save select? If not, what else should we put in its place?
