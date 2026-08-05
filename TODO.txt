@@ -12,7 +12,8 @@ Russlan:
 - If you throw a wrench and are now in the wrench state, what happens when you enter a black hole's influence? Does it affect you or do you keep moving in the same direction you were before?
 
 Obed:
-- Redo Sad Guy's dialogue portrait
+- Finish Sad Guy dialogue portrait sprites
+- Yo, the shading on Sad Guy is wrong!
 - A black hole effect would look better if there's a background to warp and distort. Maybe we should make that.
 - Do we really need the "achievements" screen on the save select? If not, what else should we put in its place?
 - Make an image for the title
