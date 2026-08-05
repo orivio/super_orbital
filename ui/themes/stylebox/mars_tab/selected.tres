@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://dtgxw6vc7ebtv"]
+
+[ext_resource type="Texture2D" uid="uid://dt80tlga4jbp4" path="res://ui/ui_sheet.png" id="1_hnleq"]
+
+[resource]
+texture = ExtResource("1_hnleq")
+texture_margin_left = 52.0
+texture_margin_top = 12.0
+texture_margin_right = 52.0
+region_rect = Rect2(192, 0, 64, 64)

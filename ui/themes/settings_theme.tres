@@ -1,6 +1,15 @@
 [gd_resource type="Theme" format=3 uid="uid://brsjv0onhn51i"]
 
+[ext_resource type="FontFile" uid="uid://hlg3easaunqa" path="res://ui/fonts/m5x7.ttf" id="1_2xia3"]
+[ext_resource type="StyleBox" uid="uid://1yjnb644ocq7" path="res://ui/themes/stylebox/mars_button/normal.tres" id="1_jvmon"]
 [ext_resource type="StyleBox" uid="uid://cf5kpk684s0lj" path="res://ui/themes/new_style_box_flat.tres" id="1_supqq"]
+[ext_resource type="StyleBox" uid="uid://cr4rmeuwrqsex" path="res://ui/themes/stylebox/mars_button/hover.tres" id="2_2xia3"]
+[ext_resource type="StyleBox" uid="uid://8kq0rvj5xqb8" path="res://ui/themes/stylebox/mars_button/pressed.tres" id="3_idwmr"]
+[ext_resource type="Texture2D" uid="uid://dt80tlga4jbp4" path="res://ui/ui_sheet.png" id="5_idwmr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7lah"]
+atlas = ExtResource("5_idwmr")
+region = Rect2(468, 36, 44, 12)
 
 [sub_resource type="SystemFont" id="SystemFont_pc74o"]
 
@@ -28,6 +37,22 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 
 [resource]
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_2xia3")
+Button/styles/disabled = ExtResource("1_jvmon")
+Button/styles/disabled_mirrored = ExtResource("1_jvmon")
+Button/styles/focus = ExtResource("2_2xia3")
+Button/styles/hover = ExtResource("2_2xia3")
+Button/styles/hover_mirrored = ExtResource("2_2xia3")
+Button/styles/hover_pressed = ExtResource("3_idwmr")
+Button/styles/hover_pressed_mirrored = ExtResource("3_idwmr")
+Button/styles/normal = ExtResource("1_jvmon")
+Button/styles/normal_mirrored = ExtResource("1_jvmon")
+Button/styles/pressed = ExtResource("3_idwmr")
+Button/styles/pressed_mirrored = ExtResource("3_idwmr")
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_2xia3")
+OptionButton/icons/arrow = SubResource("AtlasTexture_w7lah")
 PanelContainer/styles/panel = ExtResource("1_supqq")
 TabContainer/colors/font_hovered_color = Color(0, 0, 0, 1)
 TabContainer/colors/font_selected_color = Color(0, 0, 0, 1)

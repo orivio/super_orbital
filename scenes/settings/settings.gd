@@ -10,7 +10,6 @@ var save_settings_dirty: bool = false
 
 
 func _ready() -> void:
-	back_button.grab_focus()
 	controls.controls_changed.connect(_on_controls_changed)
 	audio.audio_changed.connect(_on_audio_changed)
 	graphics.graphics_changed.connect(_on_graphics_changed)

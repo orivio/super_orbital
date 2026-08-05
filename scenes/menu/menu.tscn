@@ -100,7 +100,6 @@ alignment = 1
 
 [node name="PlayButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=236645557]
 texture_filter = 1
-custom_minimum_size = Vector2(466, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_k48pe")
 theme_override_font_sizes/font_size = 80

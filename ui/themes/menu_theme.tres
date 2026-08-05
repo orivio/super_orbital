@@ -1,6 +1,24 @@
 [gd_resource type="Theme" format=3 uid="uid://b4eh3jgtyfktg"]
 
+[ext_resource type="FontFile" uid="uid://hlg3easaunqa" path="res://ui/fonts/m5x7.ttf" id="1_d04wg"]
+[ext_resource type="StyleBox" uid="uid://1yjnb644ocq7" path="res://ui/themes/stylebox/mars_button/normal.tres" id="1_eegbs"]
+[ext_resource type="StyleBox" uid="uid://cr4rmeuwrqsex" path="res://ui/themes/stylebox/mars_button/hover.tres" id="2_d04wg"]
+[ext_resource type="StyleBox" uid="uid://8kq0rvj5xqb8" path="res://ui/themes/stylebox/mars_button/pressed.tres" id="3_e7cto"]
+
 [sub_resource type="FontVariation" id="FontVariation_m4otl"]
 
 [resource]
 default_font = SubResource("FontVariation_m4otl")
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_d04wg")
+Button/styles/disabled = ExtResource("1_eegbs")
+Button/styles/disabled_mirrored = ExtResource("1_eegbs")
+Button/styles/focus = ExtResource("2_d04wg")
+Button/styles/hover = ExtResource("2_d04wg")
+Button/styles/hover_mirrored = ExtResource("2_d04wg")
+Button/styles/hover_pressed = ExtResource("3_e7cto")
+Button/styles/hover_pressed_mirrored = ExtResource("3_e7cto")
+Button/styles/normal = ExtResource("1_eegbs")
+Button/styles/normal_mirrored = ExtResource("1_eegbs")
+Button/styles/pressed = ExtResource("3_e7cto")
+Button/styles/pressed_mirrored = ExtResource("3_e7cto")
