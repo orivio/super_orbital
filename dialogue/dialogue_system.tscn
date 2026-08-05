@@ -2,8 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cm0dbs37sjq61" path="res://dialogue/dialogue_pedestal.svg" id="1_hrhq7"]
 [ext_resource type="Script" uid="uid://dujdow2cyf8aq" path="res://dialogue/dialogue_system.gd" id="1_mmk8w"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_7ojoo"]
+[ext_resource type="SpriteFrames" uid="uid://bhdojvum1hgvm" path="res://dialogue/speaker/sad_guy/sad_guy_sprite_frames.tres" id="3_mmk8w"]
 
 [sub_resource type="SystemFont" id="SystemFont_7ojoo"]
 
@@ -98,8 +97,10 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer/LeftPortraitContainer/VBoxContainer/Control/Control" unique_id=1907479275]
-sprite_frames = SubResource("SpriteFrames_7ojoo")
-offset = Vector2(64, 64)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("3_mmk8w")
+animation = &"idle"
+offset = Vector2(16, 16)
 
 [node name="Label" type="Label" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer/LeftPortraitContainer/VBoxContainer" unique_id=419238515]
 layout_mode = 2
