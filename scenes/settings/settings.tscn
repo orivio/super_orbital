@@ -121,9 +121,10 @@ theme_override_styles/tab_hovered = ExtResource("11_6k1aa")
 theme_override_styles/tab_selected = ExtResource("13_w7lah")
 theme_override_styles/tab_focus = ExtResource("11_6k1aa")
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 
 [node name="Controls" type="Control" parent="TabContainer" unique_id=775405425]
+visible = false
 layout_mode = 2
 theme = ExtResource("6_h6son")
 script = ExtResource("7_p57yh")
@@ -386,7 +387,6 @@ popup/item_2/text = "Hollow Knight"
 popup/item_2/id = 1
 
 [node name="Audio" type="Control" parent="TabContainer" unique_id=407370264]
-visible = false
 layout_mode = 2
 script = ExtResource("8_vimye")
 metadata/_tab_index = 1

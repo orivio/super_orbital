@@ -5,6 +5,7 @@
 [ext_resource type="StyleBox" uid="uid://cf5kpk684s0lj" path="res://ui/themes/new_style_box_flat.tres" id="1_supqq"]
 [ext_resource type="StyleBox" uid="uid://cr4rmeuwrqsex" path="res://ui/themes/stylebox/mars_button/hover.tres" id="2_2xia3"]
 [ext_resource type="StyleBox" uid="uid://8kq0rvj5xqb8" path="res://ui/themes/stylebox/mars_button/pressed.tres" id="3_idwmr"]
+[ext_resource type="StyleBox" uid="uid://djnvkfqea5yps" path="res://ui/themes/stylebox/mars_slider/slider.tres" id="5_glvc7"]
 [ext_resource type="Texture2D" uid="uid://dt80tlga4jbp4" path="res://ui/ui_sheet.png" id="5_idwmr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w7lah"]
@@ -50,6 +51,9 @@ Button/styles/normal = ExtResource("1_jvmon")
 Button/styles/normal_mirrored = ExtResource("1_jvmon")
 Button/styles/pressed = ExtResource("3_idwmr")
 Button/styles/pressed_mirrored = ExtResource("3_idwmr")
+HSlider/styles/grabber_area = ExtResource("5_glvc7")
+HSlider/styles/grabber_area_highlight = ExtResource("5_glvc7")
+HSlider/styles/slider = ExtResource("5_glvc7")
 Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("1_2xia3")
 OptionButton/icons/arrow = SubResource("AtlasTexture_w7lah")
