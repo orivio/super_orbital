@@ -1,4 +1,5 @@
 Russlan:
+- Finish the banner
 - Feedback on the afterimage effect
 - Feedback on the ui or maybe give some ideas
 - Decide if we should aim for presenting our game as a "challenging precision platformer" instead of just a "precision platformer". This means making some levels harder.
@@ -15,14 +16,11 @@ Obed:
 - Do we really need the "achievements" screen on the save select? If not, what else should we put in its place?
 - Make an image for the title
 - Maybe a jump sound effect
-- Make a better banner
 - Fix minor sprite flipping bug when you enter a black hole's influence
 - Refine the black hole mechanic
 - Mkae black holes look better
 - Add more black hole levels, and maybe one or two more wrench levels
-- Make the ui look better
 - Add more settings to the in game menu
-- Add more settings to the settings page (If necessary)
 - Make the camera more responsive
 	- When you are jumping up, shift the camera's focus to be above the player
 	- When you are falling after a jump, shift the camera's focus down
@@ -36,7 +34,6 @@ Obed:
 Both, or whoever wants to:
 - (IMPORTANT!) make a shaded tileset for background accentuation
 	- What does that mean?
-- Is it okay that the game can now run at fractional pixel scales? This means that the spikes will look a bit weird unless we fix them.
 - Make a better favicon
 - Design and animate cutscenes
 - Make sound effects for movement, ui, and dialogue
