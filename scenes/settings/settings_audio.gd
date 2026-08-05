@@ -28,26 +28,26 @@ func _ready() -> void:
 	
 	refresh_aduio_device_list_timer.start()
 	
-	master_volume.value = remap(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(&"Master")), -60, 0, 0, 100)
-	music_volume.value = remap(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(&"Music")), -60, 0, 0, 100)
-	sound_effects_volume.value = remap(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(&"Sound Effects")), -60, 0, 0, 100)
+	master_volume.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(&"Master")))
+	music_volume.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(&"Music")))
+	sound_effects_volume.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(&"Sound Effects")))
 	
 
 func _on_master_volume_value_changed(value: float) -> void:
 	var master_idx: int = AudioServer.get_bus_index(&"Master")
-	AudioServer.set_bus_volume_db(master_idx, remap(value, 0, 100, -60, 0))
+	AudioServer.set_bus_volume_db(master_idx, linear_to_db(value))
 	audio_changed.emit()
 
 
 func _on_music_volume_value_changed(value: float) -> void:
 	var music_idx: int = AudioServer.get_bus_index(&"Music")
-	AudioServer.set_bus_volume_db(music_idx, remap(value, 0, 100, -60, 0))
+	AudioServer.set_bus_volume_db(music_idx, linear_to_db(value))
 	audio_changed.emit()
 
 
 func _on_sound_effect_volume_slider_value_changed(value: float) -> void:
 	var sfx_idx: int = AudioServer.get_bus_index(&"Sound Effects")
-	AudioServer.set_bus_volume_db(sfx_idx, remap(value, 0, 100, -60, 0))
+	AudioServer.set_bus_volume_db(sfx_idx, linear_to_db(value))
 	audio_changed.emit()
 
 
