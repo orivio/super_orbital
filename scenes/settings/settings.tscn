@@ -16,7 +16,7 @@
 [ext_resource type="Script" uid="uid://b6276ho5rmjeg" path="res://scenes/settings/settings_graphics.gd" id="9_p7ghj"]
 [ext_resource type="StyleBox" uid="uid://dvdtp4igkkyo5" path="res://ui/themes/stylebox/mars_tab/hovered.tres" id="11_6k1aa"]
 [ext_resource type="StyleBox" uid="uid://ct6ahj7qvr3wp" path="res://ui/themes/stylebox/mars_tab/unselected.tres" id="11_gnmy5"]
-[ext_resource type="StyleBox" uid="uid://eyypw7vgmnlx" path="res://ui/themes/stylebox/mars_panel/default.tres" id="11_w7lah"]
+[ext_resource type="StyleBox" uid="uid://ci4ac2re51tgu" path="res://ui/themes/stylebox/metal_panel/default.tres" id="11_w7lah"]
 [ext_resource type="StyleBox" uid="uid://dtgxw6vc7ebtv" path="res://ui/themes/stylebox/mars_tab/selected.tres" id="13_w7lah"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p57yh"]
@@ -107,9 +107,9 @@ anchor_left = 0.05
 anchor_right = 0.95
 anchor_bottom = 1.0
 offset_left = 100.0
-offset_top = 50.0
+offset_top = 95.0
 offset_right = -100.0
-offset_bottom = -80.0
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("6_h6son")
@@ -121,7 +121,7 @@ theme_override_styles/tab_hovered = ExtResource("11_6k1aa")
 theme_override_styles/tab_selected = ExtResource("13_w7lah")
 theme_override_styles/tab_focus = ExtResource("11_6k1aa")
 tab_alignment = 1
-current_tab = 1
+current_tab = 2
 
 [node name="Controls" type="Control" parent="TabContainer" unique_id=775405425]
 visible = false
@@ -387,6 +387,7 @@ popup/item_2/text = "Hollow Knight"
 popup/item_2/id = 1
 
 [node name="Audio" type="Control" parent="TabContainer" unique_id=407370264]
+visible = false
 layout_mode = 2
 script = ExtResource("8_vimye")
 metadata/_tab_index = 1
@@ -457,7 +458,6 @@ text = "Refresh Audio Device List"
 wait_time = 10.0
 
 [node name="Graphics" type="Control" parent="TabContainer" unique_id=1842829437]
-visible = false
 layout_mode = 2
 script = ExtResource("9_p7ghj")
 metadata/_tab_index = 2

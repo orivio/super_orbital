@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://b40lkhs41c5mm" path="res://ui/materials/cloudy_layer.tres" id="3_jwjft"]
 [ext_resource type="Material" uid="uid://dcoubjkoyq0gm" path="res://ui/materials/back_starry_layer.tres" id="4_oq148"]
 [ext_resource type="Theme" uid="uid://brsjv0onhn51i" path="res://ui/themes/settings_theme.tres" id="5_rdqwv"]
+[ext_resource type="Theme" uid="uid://b4eh3jgtyfktg" path="res://ui/themes/menu_theme.tres" id="6_5lyl2"]
 [ext_resource type="Script" uid="uid://bx7hobu8ln1b4" path="res://scenes/save_select/completion_path.gd" id="7_hmfe0"]
 [ext_resource type="PackedScene" uid="uid://dvjxvisrrqfer" path="res://ui/effects/fade_effect.tscn" id="7_oq148"]
 
@@ -84,7 +85,7 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 97.0
 offset_bottom = 70.0
-theme_override_font_sizes/font_size = 30
+theme = ExtResource("6_5lyl2")
 text = "Back"
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=116914337]

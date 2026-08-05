@@ -2,24 +2,36 @@
 
 [ext_resource type="FontFile" uid="uid://hlg3easaunqa" path="res://ui/fonts/m5x7.ttf" id="1_2xia3"]
 [ext_resource type="StyleBox" uid="uid://1yjnb644ocq7" path="res://ui/themes/stylebox/mars_button/normal.tres" id="1_jvmon"]
-[ext_resource type="StyleBox" uid="uid://cf5kpk684s0lj" path="res://ui/themes/new_style_box_flat.tres" id="1_supqq"]
 [ext_resource type="StyleBox" uid="uid://cr4rmeuwrqsex" path="res://ui/themes/stylebox/mars_button/hover.tres" id="2_2xia3"]
+[ext_resource type="StyleBox" uid="uid://d0r85fyxx6vn6" path="res://ui/themes/stylebox/mars_button/disabled.tres" id="2_72p2g"]
 [ext_resource type="StyleBox" uid="uid://8kq0rvj5xqb8" path="res://ui/themes/stylebox/mars_button/pressed.tres" id="3_idwmr"]
 [ext_resource type="StyleBox" uid="uid://djnvkfqea5yps" path="res://ui/themes/stylebox/mars_slider/slider.tres" id="5_glvc7"]
 [ext_resource type="Texture2D" uid="uid://dt80tlga4jbp4" path="res://ui/ui_sheet.png" id="5_idwmr"]
+[ext_resource type="StyleBox" uid="uid://fpn7qeedl61s" path="res://ui/themes/stylebox/mars_slider/grabber_area.tres" id="7_3fv28"]
+[ext_resource type="StyleBox" uid="uid://ci4ac2re51tgu" path="res://ui/themes/stylebox/metal_panel/default.tres" id="8_72p2g"]
+[ext_resource type="StyleBox" uid="uid://cwy22ypnt5oob" path="res://ui/themes/stylebox/mars_slider/grabber_area_highlight.tres" id="8_qff06"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vhs7"]
+atlas = ExtResource("5_idwmr")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcg0w"]
+atlas = ExtResource("5_idwmr")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glvc7"]
+atlas = ExtResource("5_idwmr")
+region = Rect2(84, 84, 24, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wipkd"]
+atlas = ExtResource("5_idwmr")
+region = Rect2(468, 84, 24, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w7lah"]
 atlas = ExtResource("5_idwmr")
 region = Rect2(468, 36, 44, 12)
 
 [sub_resource type="SystemFont" id="SystemFont_pc74o"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pc74o"]
-bg_color = Color(0.3907651, 0.41525683, 0.39779264, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_supqq"]
 
@@ -40,8 +52,8 @@ corner_radius_top_right = 10
 [resource]
 Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("1_2xia3")
-Button/styles/disabled = ExtResource("1_jvmon")
-Button/styles/disabled_mirrored = ExtResource("1_jvmon")
+Button/styles/disabled = ExtResource("2_72p2g")
+Button/styles/disabled_mirrored = ExtResource("2_72p2g")
 Button/styles/focus = ExtResource("2_2xia3")
 Button/styles/hover = ExtResource("2_2xia3")
 Button/styles/hover_mirrored = ExtResource("2_2xia3")
@@ -51,20 +63,35 @@ Button/styles/normal = ExtResource("1_jvmon")
 Button/styles/normal_mirrored = ExtResource("1_jvmon")
 Button/styles/pressed = ExtResource("3_idwmr")
 Button/styles/pressed_mirrored = ExtResource("3_idwmr")
-HSlider/styles/grabber_area = ExtResource("5_glvc7")
-HSlider/styles/grabber_area_highlight = ExtResource("5_glvc7")
+CheckButton/icons/checked = SubResource("AtlasTexture_5vhs7")
+CheckButton/icons/unchecked = SubResource("AtlasTexture_rcg0w")
+HSlider/icons/grabber = SubResource("AtlasTexture_glvc7")
+HSlider/icons/grabber_highlight = SubResource("AtlasTexture_wipkd")
+HSlider/styles/grabber_area = ExtResource("7_3fv28")
+HSlider/styles/grabber_area_highlight = ExtResource("8_qff06")
 HSlider/styles/slider = ExtResource("5_glvc7")
 Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("1_2xia3")
 OptionButton/icons/arrow = SubResource("AtlasTexture_w7lah")
-PanelContainer/styles/panel = ExtResource("1_supqq")
+OptionButton/styles/disabled = ExtResource("2_72p2g")
+OptionButton/styles/disabled_mirrored = ExtResource("2_72p2g")
+OptionButton/styles/focus = ExtResource("2_2xia3")
+OptionButton/styles/hover = ExtResource("2_2xia3")
+OptionButton/styles/hover_mirrored = ExtResource("2_2xia3")
+OptionButton/styles/hover_pressed = ExtResource("3_idwmr")
+OptionButton/styles/hover_pressed_mirrored = ExtResource("3_idwmr")
+OptionButton/styles/normal = ExtResource("1_jvmon")
+OptionButton/styles/normal_mirrored = ExtResource("1_jvmon")
+OptionButton/styles/pressed = ExtResource("3_idwmr")
+OptionButton/styles/pressed_mirrored = ExtResource("3_idwmr")
+PanelContainer/styles/panel = ExtResource("8_72p2g")
 TabContainer/colors/font_hovered_color = Color(0, 0, 0, 1)
 TabContainer/colors/font_selected_color = Color(0, 0, 0, 1)
 TabContainer/colors/font_unselected_color = Color(0, 0, 0, 1)
 TabContainer/constants/outline_size = 0
 TabContainer/constants/tab_separation = 0
 TabContainer/fonts/font = SubResource("SystemFont_pc74o")
-TabContainer/styles/panel = SubResource("StyleBoxFlat_pc74o")
+TabContainer/styles/panel = ExtResource("8_72p2g")
 TabContainer/styles/tab_disabled = SubResource("StyleBoxFlat_supqq")
 TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_3vu25")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_xln1i")

@@ -18,7 +18,7 @@ func _on_button_down() -> void:
 		get_viewport().set_input_as_handled()
 		print("I just got pressed")
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if listening and event.is_pressed():
 		input_mapped.emit(action_name, event)
 		listening = false

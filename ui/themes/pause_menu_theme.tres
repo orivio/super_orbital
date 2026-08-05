@@ -1,0 +1,85 @@
+[gd_resource type="Theme" format=3 uid="uid://bjncuswsl2gwm"]
+
+[ext_resource type="FontFile" uid="uid://hlg3easaunqa" path="res://ui/fonts/m5x7.ttf" id="1_3lji4"]
+[ext_resource type="StyleBox" uid="uid://d0r85fyxx6vn6" path="res://ui/themes/stylebox/mars_button/disabled.tres" id="2_4puwm"]
+[ext_resource type="StyleBox" uid="uid://cr4rmeuwrqsex" path="res://ui/themes/stylebox/mars_button/hover.tres" id="3_cdy0i"]
+[ext_resource type="StyleBox" uid="uid://8kq0rvj5xqb8" path="res://ui/themes/stylebox/mars_button/pressed.tres" id="4_whtvg"]
+[ext_resource type="StyleBox" uid="uid://1yjnb644ocq7" path="res://ui/themes/stylebox/mars_button/normal.tres" id="5_wj2lo"]
+[ext_resource type="Texture2D" uid="uid://dt80tlga4jbp4" path="res://ui/ui_sheet.png" id="6_0fgwd"]
+[ext_resource type="StyleBox" uid="uid://djnvkfqea5yps" path="res://ui/themes/stylebox/mars_slider/slider.tres" id="7_8oijw"]
+[ext_resource type="StyleBox" uid="uid://ci4ac2re51tgu" path="res://ui/themes/stylebox/metal_panel/default.tres" id="8_3lji4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vhs7"]
+atlas = ExtResource("6_0fgwd")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcg0w"]
+atlas = ExtResource("6_0fgwd")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glvc7"]
+atlas = ExtResource("6_0fgwd")
+region = Rect2(84, 84, 24, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7lah"]
+atlas = ExtResource("6_0fgwd")
+region = Rect2(468, 36, 44, 12)
+
+[sub_resource type="SystemFont" id="SystemFont_pc74o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pc74o"]
+bg_color = Color(0.3907651, 0.41525683, 0.39779264, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_supqq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vu25"]
+content_margin_left = 12.0
+content_margin_right = 12.0
+bg_color = Color(0.6125778, 0.6125779, 0.6125777, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xln1i"]
+content_margin_left = 12.0
+content_margin_right = 12.0
+bg_color = Color(0.4661808, 0.46618086, 0.46618068, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[resource]
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_3lji4")
+Button/styles/disabled = ExtResource("2_4puwm")
+Button/styles/disabled_mirrored = ExtResource("2_4puwm")
+Button/styles/focus = ExtResource("3_cdy0i")
+Button/styles/hover = ExtResource("3_cdy0i")
+Button/styles/hover_mirrored = ExtResource("3_cdy0i")
+Button/styles/hover_pressed = ExtResource("4_whtvg")
+Button/styles/hover_pressed_mirrored = ExtResource("4_whtvg")
+Button/styles/normal = ExtResource("5_wj2lo")
+Button/styles/normal_mirrored = ExtResource("5_wj2lo")
+Button/styles/pressed = ExtResource("4_whtvg")
+Button/styles/pressed_mirrored = ExtResource("4_whtvg")
+CheckButton/icons/checked = SubResource("AtlasTexture_5vhs7")
+CheckButton/icons/unchecked = SubResource("AtlasTexture_rcg0w")
+HSlider/icons/grabber = SubResource("AtlasTexture_glvc7")
+HSlider/styles/grabber_area = ExtResource("7_8oijw")
+HSlider/styles/slider = ExtResource("7_8oijw")
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_3lji4")
+OptionButton/icons/arrow = SubResource("AtlasTexture_w7lah")
+PanelContainer/styles/panel = ExtResource("8_3lji4")
+TabContainer/colors/font_hovered_color = Color(0, 0, 0, 1)
+TabContainer/colors/font_selected_color = Color(0, 0, 0, 1)
+TabContainer/colors/font_unselected_color = Color(0, 0, 0, 1)
+TabContainer/constants/outline_size = 0
+TabContainer/constants/tab_separation = 0
+TabContainer/fonts/font = SubResource("SystemFont_pc74o")
+TabContainer/styles/panel = SubResource("StyleBoxFlat_pc74o")
+TabContainer/styles/tab_disabled = SubResource("StyleBoxFlat_supqq")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_3vu25")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_xln1i")

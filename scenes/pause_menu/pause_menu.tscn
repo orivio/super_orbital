@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://tgha13de8ubl"]
 
+[ext_resource type="Theme" uid="uid://bjncuswsl2gwm" path="res://ui/themes/pause_menu_theme.tres" id="1_qcmsd"]
 [ext_resource type="Script" uid="uid://bkt73v02rjd74" path="res://scenes/pause_menu/pause_menu.gd" id="1_y06jj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_po7hu"]
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_qcmsd")
 script = ExtResource("1_y06jj")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=145790439]
