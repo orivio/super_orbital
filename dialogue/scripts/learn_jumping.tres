@@ -41,6 +41,7 @@ script = ExtResource("1_l5n0r")
 speaker = ExtResource("3_r0j7r")
 side = -1
 text = "Don't scare me like that..."
+animation = &"frustrated"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [resource]
