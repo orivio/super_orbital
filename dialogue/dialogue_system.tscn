@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cm0dbs37sjq61" path="res://dialogue/dialogue_pedestal.svg" id="1_hrhq7"]
 [ext_resource type="Script" uid="uid://dujdow2cyf8aq" path="res://dialogue/dialogue_system.gd" id="1_mmk8w"]
 [ext_resource type="SpriteFrames" uid="uid://bhdojvum1hgvm" path="res://dialogue/speaker/sad_guy/sad_guy_sprite_frames.tres" id="3_mmk8w"]
+[ext_resource type="FontFile" uid="uid://hlg3easaunqa" path="res://ui/fonts/m5x7.ttf" id="4_wsdtu"]
 
 [sub_resource type="SystemFont" id="SystemFont_7ojoo"]
 
@@ -117,6 +118,7 @@ theme_override_constants/margin_right = 40
 [node name="DialogueContent" type="RichTextLabel" parent="DialoguePedestal/InteriorMarginContainer/HBoxContainer/MarginContainer" unique_id=2008583893]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("4_wsdtu")
 theme_override_font_sizes/normal_font_size = 32
 autowrap_mode = 2
 visible_characters_behavior = 1

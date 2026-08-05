@@ -36,6 +36,9 @@ func _ready() -> void:
 	
 	if OS.has_feature("web"):
 		quit_button.visible = false
+	
+	if not Engine.is_editor_hint():
+		RenderingServer.set_default_clear_color(Color.BLACK)
 
 func _on_play_button_pressed() -> void:
 	await fade.fade(play_fade_color, play_fade_duration).finished

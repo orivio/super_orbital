@@ -40,6 +40,8 @@ var gravity_switch_timer: float = 0
 var dash_cooldown_timer: float = 0
 var is_dashing_horizontally: bool = false
 var is_floating: bool = false
+var true_velocity: Vector2 = Vector2.ZERO
+var last_pos: Vector2
 
 var effect_nodes: Array[Node2D]
 
@@ -79,6 +81,7 @@ func reset() -> void:
 		if not effect.is_queued_for_deletion():
 			effect.queue_free()
 	in_blackhole = false
+	last_pos = global_position
 
 func _process(delta: float) -> void:
 	if !input_locked:
@@ -178,6 +181,9 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor() and has_gravity and not state_machine.current_state is StateJump and not state_machine.current_state is StateFloat:
 		base_velocity.y = 0
 	
+	true_velocity = (global_position - last_pos) / delta
+	last_pos = global_position
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	#if event.is_action_pressed("dash"):
@@ -237,6 +243,7 @@ func _on_death_timeout() -> void:
 
 func teleport_to_ground(target: Vector2) -> void:
 	global_position = target + Vector2.UP * get_half_height()
+	last_pos = global_position
 	#print("Teleporting player to: ", global_position)
 	# This is so annoying and I hate this
 

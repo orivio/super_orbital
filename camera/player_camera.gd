@@ -9,8 +9,7 @@ signal camera_shake
 @export var velocity_smoothing: float = 1.0
 @export var camera_velocity_influence: float = 50
 
-var target: Vector2
-var smoothed_velocity: Vector2
+var smoothed_target: Vector2
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var shake_strength: float = 0.0
 var directed_offset: Vector2 = Vector2.ZERO
@@ -33,16 +32,15 @@ func _physics_process(delta: float) -> void:
 		shake_strength = lerpf(shake_strength, 0, shake_fade * delta)
 		shake_offset = random_offset()
 	
-	position = target + smoothed_velocity * camera_velocity_influence
+	position = smoothed_target
+	# + smoothed_velocity * camera_velocity_influence
 	offset = shake_offset + directed_offset
 
 func snap_camera_to_player() -> void:
-	target = GameManager.player.global_position
-	smoothed_velocity = Vector2.ZERO
+	smoothed_target = GameManager.player.global_position
 
 func update_target(delta: float) -> void:
-	target = lerp(target, GameManager.player.global_position, positional_smoothing * delta)
-	smoothed_velocity = lerp(smoothed_velocity, GameManager.player.base_velocity * delta, velocity_smoothing * delta)
+	smoothed_target = lerp(smoothed_target, GameManager.player.global_position + GameManager.player.true_velocity * delta * camera_velocity_influence, positional_smoothing * delta)
 
 func set_limits(rect: Rect2) -> void:
 	limit_left = int(rect.position.x - rect.size.x / 2)
@@ -88,8 +86,11 @@ func direct_offset(direction: Vector2, duration: float) -> Tween:
 	return director_tween
 
 func _draw() -> void:
-	#draw_set_transform_matrix(global_transform.affine_inverse())
+	draw_set_transform_matrix(global_transform.affine_inverse())
 	
-	#draw_circle(target, 10, Color.RED, false, 5)
-	#draw_line(target, target + smoothed_velocity * camera_velocity_influence, Color.RED)
+	var player_pos: Vector2 = GameManager.player.global_position
+	var player_vel: Vector2 = GameManager.player.true_velocity
+	
+	#draw_circle(player_pos, 10, Color.RED, false, 5)
+	#draw_line(player_pos, player_pos + player_vel * camera_velocity_influence / 60, Color.RED)
 	pass

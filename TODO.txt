@@ -18,7 +18,6 @@ Obed:
 - Do we really need the "achievements" screen on the save select? If not, what else should we put in its place?
 - Make an image for the title
 - Maybe a jump sound effect
-- Fix minor sprite flipping bug when you enter a black hole's influence
 - Refine the black hole mechanic
 - Mkae black holes look better
 - Add more black hole levels, and maybe one or two more wrench levels

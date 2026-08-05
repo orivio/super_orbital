@@ -24,7 +24,7 @@ size = Vector2(128, 320)
 resource_local_to_scene = true
 size = Vector2(64, 256)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gayl5"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qge7r"]
 resource_local_to_scene = true
 size = Vector2(128, 256)
 
@@ -88,7 +88,7 @@ dest_door_tag = "WestDoor"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(3328, 64)
-shape = SubResource("RectangleShape2D_gayl5")
+shape = SubResource("RectangleShape2D_qge7r")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(3136, 192)
