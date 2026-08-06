@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Conversation" format=3 uid="uid://ddsh31dkinju6"]
+
+[ext_resource type="Script" uid="uid://b2364himxu4dy" path="res://dialogue/conversation/dialogue_line.gd" id="1_i7otu"]
+[ext_resource type="Resource" uid="uid://bwr26hcldkrhu" path="res://dialogue/speaker/narrator/narrator.tres" id="2_64kf0"]
+[ext_resource type="Script" uid="uid://cqhvq0ub0apwo" path="res://dialogue/conversation/conversation.gd" id="2_no1fs"]
+
+[sub_resource type="Resource" id="Resource_64kf0"]
+script = ExtResource("1_i7otu")
+text = "!! INTRUDER DETECTED!!"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_gxan4"]
+script = ExtResource("1_i7otu")
+text = "!! ACTIVATING SECURITY MEASURES !!"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_ose8m"]
+script = ExtResource("1_i7otu")
+text = "SPIKES: LOADED"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_50b2g"]
+script = ExtResource("1_i7otu")
+text = "BLACK HOLES: ACTIVE"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[resource]
+script = ExtResource("2_no1fs")
+lines = Array[ExtResource("1_i7otu")]([SubResource("Resource_64kf0"), SubResource("Resource_gxan4"), SubResource("Resource_ose8m"), SubResource("Resource_50b2g")])
+metadata/_custom_type_script = "uid://cqhvq0ub0apwo"
