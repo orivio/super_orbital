@@ -13,6 +13,7 @@ Russlan:
 - Test the camera
 
 Obed:
+- Potentially redo the moving platforms in room_momentum
 - A black hole effect would look better if there's a background to warp and distort. Maybe we should make that.
 - Make an image for the title
 - Maybe a jump sound effect
