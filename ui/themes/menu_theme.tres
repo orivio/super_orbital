@@ -1,9 +1,9 @@
 [gd_resource type="Theme" format=3 uid="uid://b4eh3jgtyfktg"]
 
 [ext_resource type="FontFile" uid="uid://hlg3easaunqa" path="res://ui/fonts/m5x7.ttf" id="1_d04wg"]
-[ext_resource type="StyleBox" uid="uid://1yjnb644ocq7" path="res://ui/themes/stylebox/mars_button/normal.tres" id="1_eegbs"]
-[ext_resource type="StyleBox" uid="uid://cr4rmeuwrqsex" path="res://ui/themes/stylebox/mars_button/hover.tres" id="2_d04wg"]
-[ext_resource type="StyleBox" uid="uid://8kq0rvj5xqb8" path="res://ui/themes/stylebox/mars_button/pressed.tres" id="3_e7cto"]
+[ext_resource type="StyleBox" uid="uid://1yjnb644ocq7" path="res://ui/themes/stylebox/metal_button/normal.tres" id="1_eegbs"]
+[ext_resource type="StyleBox" uid="uid://cr4rmeuwrqsex" path="res://ui/themes/stylebox/metal_button/hover.tres" id="2_d04wg"]
+[ext_resource type="StyleBox" uid="uid://8kq0rvj5xqb8" path="res://ui/themes/stylebox/metal_button/pressed.tres" id="3_e7cto"]
 
 [sub_resource type="FontVariation" id="FontVariation_m4otl"]
 

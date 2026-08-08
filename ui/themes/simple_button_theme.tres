@@ -1,0 +1,87 @@
+[gd_resource type="Theme" format=3 uid="uid://t4gelel5hk2o"]
+
+[ext_resource type="FontFile" uid="uid://hlg3easaunqa" path="res://ui/fonts/m5x7.ttf" id="1_n6sbn"]
+[ext_resource type="StyleBox" uid="uid://dhxo0niijse17" path="res://ui/themes/stylebox/simple_button/disabled.tres" id="2_b0p65"]
+[ext_resource type="StyleBox" uid="uid://b257gvxue8l2h" path="res://ui/themes/stylebox/simple_button/hover.tres" id="3_c6pll"]
+[ext_resource type="StyleBox" uid="uid://wwhmbr0gufva" path="res://ui/themes/stylebox/simple_button/pressed.tres" id="4_4nyvf"]
+[ext_resource type="StyleBox" uid="uid://bq5obw1gs1fjw" path="res://ui/themes/stylebox/simple_button/normal.tres" id="5_dntjm"]
+[ext_resource type="Texture2D" uid="uid://dt80tlga4jbp4" path="res://ui/ui_sheet.png" id="6_c6pll"]
+[ext_resource type="StyleBox" uid="uid://fpn7qeedl61s" path="res://ui/themes/stylebox/mars_slider/grabber_area.tres" id="7_4nyvf"]
+[ext_resource type="StyleBox" uid="uid://cwy22ypnt5oob" path="res://ui/themes/stylebox/mars_slider/grabber_area_highlight.tres" id="8_dntjm"]
+[ext_resource type="StyleBox" uid="uid://djnvkfqea5yps" path="res://ui/themes/stylebox/mars_slider/slider.tres" id="9_ocemv"]
+[ext_resource type="StyleBox" uid="uid://ci4ac2re51tgu" path="res://ui/themes/stylebox/metal_panel/default.tres" id="10_xwygb"]
+[ext_resource type="StyleBox" uid="uid://bp4bqa0jfguk8" path="res://ui/themes/stylebox/metal_tab/hovered.tres" id="11_ke3dx"]
+[ext_resource type="StyleBox" uid="uid://bu50u0tlysa1d" path="res://ui/themes/stylebox/metal_tab/selected.tres" id="12_llink"]
+[ext_resource type="StyleBox" uid="uid://cmk2h4vbgtv6r" path="res://ui/themes/stylebox/metal_tab/unselected.tres" id="13_864jl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vhs7"]
+atlas = ExtResource("6_c6pll")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcg0w"]
+atlas = ExtResource("6_c6pll")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glvc7"]
+atlas = ExtResource("6_c6pll")
+region = Rect2(84, 84, 24, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wipkd"]
+atlas = ExtResource("6_c6pll")
+region = Rect2(468, 84, 24, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7lah"]
+atlas = ExtResource("6_c6pll")
+region = Rect2(276, 216, 40, 16)
+
+[sub_resource type="SystemFont" id="SystemFont_pc74o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_supqq"]
+
+[resource]
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_n6sbn")
+Button/styles/disabled = ExtResource("2_b0p65")
+Button/styles/disabled_mirrored = ExtResource("2_b0p65")
+Button/styles/focus = ExtResource("3_c6pll")
+Button/styles/hover = ExtResource("3_c6pll")
+Button/styles/hover_mirrored = ExtResource("3_c6pll")
+Button/styles/hover_pressed = ExtResource("4_4nyvf")
+Button/styles/hover_pressed_mirrored = ExtResource("4_4nyvf")
+Button/styles/normal = ExtResource("5_dntjm")
+Button/styles/normal_mirrored = ExtResource("5_dntjm")
+Button/styles/pressed = ExtResource("4_4nyvf")
+Button/styles/pressed_mirrored = ExtResource("4_4nyvf")
+CheckButton/icons/checked = SubResource("AtlasTexture_5vhs7")
+CheckButton/icons/unchecked = SubResource("AtlasTexture_rcg0w")
+HSlider/icons/grabber = SubResource("AtlasTexture_glvc7")
+HSlider/icons/grabber_highlight = SubResource("AtlasTexture_wipkd")
+HSlider/styles/grabber_area = ExtResource("7_4nyvf")
+HSlider/styles/grabber_area_highlight = ExtResource("8_dntjm")
+HSlider/styles/slider = ExtResource("9_ocemv")
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_n6sbn")
+OptionButton/icons/arrow = SubResource("AtlasTexture_w7lah")
+OptionButton/styles/disabled = ExtResource("2_b0p65")
+OptionButton/styles/disabled_mirrored = ExtResource("2_b0p65")
+OptionButton/styles/focus = ExtResource("3_c6pll")
+OptionButton/styles/hover = ExtResource("3_c6pll")
+OptionButton/styles/hover_mirrored = ExtResource("3_c6pll")
+OptionButton/styles/hover_pressed = ExtResource("4_4nyvf")
+OptionButton/styles/hover_pressed_mirrored = ExtResource("4_4nyvf")
+OptionButton/styles/normal = ExtResource("5_dntjm")
+OptionButton/styles/normal_mirrored = ExtResource("5_dntjm")
+OptionButton/styles/pressed = ExtResource("4_4nyvf")
+OptionButton/styles/pressed_mirrored = ExtResource("4_4nyvf")
+PanelContainer/styles/panel = ExtResource("10_xwygb")
+TabContainer/colors/font_hovered_color = Color(0, 0, 0, 1)
+TabContainer/colors/font_selected_color = Color(0, 0, 0, 1)
+TabContainer/colors/font_unselected_color = Color(0, 0, 0, 1)
+TabContainer/constants/outline_size = 0
+TabContainer/constants/tab_separation = 0
+TabContainer/fonts/font = SubResource("SystemFont_pc74o")
+TabContainer/styles/panel = ExtResource("10_xwygb")
+TabContainer/styles/tab_disabled = SubResource("StyleBoxFlat_supqq")
+TabContainer/styles/tab_hovered = ExtResource("11_ke3dx")
+TabContainer/styles/tab_selected = ExtResource("12_llink")
+TabContainer/styles/tab_unselected = ExtResource("13_864jl")

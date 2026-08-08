@@ -8,16 +8,10 @@
 [ext_resource type="Material" uid="uid://dcoubjkoyq0gm" path="res://ui/materials/back_starry_layer.tres" id="5_p7ghj"]
 [ext_resource type="FontFile" uid="uid://hlg3easaunqa" path="res://ui/fonts/m5x7.ttf" id="6_flumg"]
 [ext_resource type="Theme" uid="uid://brsjv0onhn51i" path="res://ui/themes/settings_theme.tres" id="6_h6son"]
-[ext_resource type="StyleBox" uid="uid://1yjnb644ocq7" path="res://ui/themes/stylebox/mars_button/normal.tres" id="7_6k1aa"]
 [ext_resource type="Script" uid="uid://ba4hln43let3x" path="res://scenes/settings/settings_controls.gd" id="7_p57yh"]
-[ext_resource type="StyleBox" uid="uid://8kq0rvj5xqb8" path="res://ui/themes/stylebox/mars_button/pressed.tres" id="8_lahd3"]
 [ext_resource type="Script" uid="uid://b5o2fwcom2tmj" path="res://scenes/settings/settings_audio.gd" id="8_vimye"]
-[ext_resource type="StyleBox" uid="uid://cr4rmeuwrqsex" path="res://ui/themes/stylebox/mars_button/hover.tres" id="9_gnmy5"]
 [ext_resource type="Script" uid="uid://b6276ho5rmjeg" path="res://scenes/settings/settings_graphics.gd" id="9_p7ghj"]
-[ext_resource type="StyleBox" uid="uid://dvdtp4igkkyo5" path="res://ui/themes/stylebox/mars_tab/hovered.tres" id="11_6k1aa"]
-[ext_resource type="StyleBox" uid="uid://ct6ahj7qvr3wp" path="res://ui/themes/stylebox/mars_tab/unselected.tres" id="11_gnmy5"]
-[ext_resource type="StyleBox" uid="uid://ci4ac2re51tgu" path="res://ui/themes/stylebox/metal_panel/default.tres" id="11_w7lah"]
-[ext_resource type="StyleBox" uid="uid://dtgxw6vc7ebtv" path="res://ui/themes/stylebox/mars_tab/selected.tres" id="13_w7lah"]
+[ext_resource type="Theme" uid="uid://t4gelel5hk2o" path="res://ui/themes/simple_button_theme.tres" id="12_6k1aa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p57yh"]
 shader = ExtResource("2_vghtj")
@@ -85,19 +79,9 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 20.0
 offset_bottom = 20.0
+theme = ExtResource("12_6k1aa")
 theme_override_fonts/font = ExtResource("6_flumg")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = ExtResource("7_6k1aa")
-theme_override_styles/normal_mirrored = ExtResource("7_6k1aa")
-theme_override_styles/pressed = ExtResource("8_lahd3")
-theme_override_styles/pressed_mirrored = ExtResource("8_lahd3")
-theme_override_styles/hover = ExtResource("9_gnmy5")
-theme_override_styles/hover_mirrored = ExtResource("9_gnmy5")
-theme_override_styles/hover_pressed = ExtResource("8_lahd3")
-theme_override_styles/hover_pressed_mirrored = ExtResource("8_lahd3")
-theme_override_styles/disabled = ExtResource("7_6k1aa")
-theme_override_styles/disabled_mirrored = ExtResource("7_6k1aa")
-theme_override_styles/focus = ExtResource("9_gnmy5")
 text = "Back"
 
 [node name="TabContainer" type="TabContainer" parent="." unique_id=2049265989]
@@ -115,11 +99,6 @@ grow_vertical = 2
 theme = ExtResource("6_h6son")
 theme_override_fonts/font = ExtResource("6_flumg")
 theme_override_font_sizes/font_size = 48
-theme_override_styles/panel = ExtResource("11_w7lah")
-theme_override_styles/tab_unselected = ExtResource("11_gnmy5")
-theme_override_styles/tab_hovered = ExtResource("11_6k1aa")
-theme_override_styles/tab_selected = ExtResource("13_w7lah")
-theme_override_styles/tab_focus = ExtResource("11_6k1aa")
 tab_alignment = 1
 current_tab = 0
 
@@ -177,7 +156,7 @@ horizontal_alignment = 1
 [node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Left" unique_id=1313624377]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme = ExtResource("6_h6son")
+theme = ExtResource("12_6k1aa")
 text = "Assign"
 script = ExtResource("2_vu5fi")
 action_name = &"left"
@@ -197,7 +176,7 @@ horizontal_alignment = 1
 [node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Right" unique_id=876646135]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme = ExtResource("6_h6son")
+theme = ExtResource("12_6k1aa")
 text = "Assign"
 script = ExtResource("2_vu5fi")
 action_name = &"right"
@@ -223,7 +202,7 @@ horizontal_alignment = 1
 [node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Up" unique_id=1284464446]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme = ExtResource("6_h6son")
+theme = ExtResource("12_6k1aa")
 text = "Assign"
 script = ExtResource("2_vu5fi")
 action_name = &"up"
@@ -243,7 +222,7 @@ horizontal_alignment = 1
 [node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Down" unique_id=1342604462]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme = ExtResource("6_h6son")
+theme = ExtResource("12_6k1aa")
 text = "Assign"
 script = ExtResource("2_vu5fi")
 action_name = &"down"
@@ -269,7 +248,7 @@ horizontal_alignment = 1
 [node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/Jump" unique_id=1776775187]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme = ExtResource("6_h6son")
+theme = ExtResource("12_6k1aa")
 text = "Assign"
 script = ExtResource("2_vu5fi")
 action_name = &"jump"
@@ -289,7 +268,7 @@ horizontal_alignment = 1
 [node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/Dash" unique_id=2146166083]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme = ExtResource("6_h6son")
+theme = ExtResource("12_6k1aa")
 text = "Assign"
 script = ExtResource("2_vu5fi")
 action_name = &"dash"
@@ -315,7 +294,7 @@ horizontal_alignment = 1
 [node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4/GravitySwitch" unique_id=1490170421]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme = ExtResource("6_h6son")
+theme = ExtResource("12_6k1aa")
 text = "Assign"
 script = ExtResource("2_vu5fi")
 action_name = &"gravity_switch"
@@ -335,7 +314,7 @@ horizontal_alignment = 1
 [node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4/ThrowWrench" unique_id=1081368402]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme = ExtResource("6_h6son")
+theme = ExtResource("12_6k1aa")
 text = "Assign"
 script = ExtResource("2_vu5fi")
 action_name = &"throw_wrench"
@@ -355,7 +334,7 @@ horizontal_alignment = 1
 [node name="AssignButton" type="Button" parent="TabContainer/Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Confirm" unique_id=288567921]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme = ExtResource("6_h6son")
+theme = ExtResource("12_6k1aa")
 text = "Assign"
 script = ExtResource("2_vu5fi")
 action_name = &"confirm"
@@ -374,7 +353,7 @@ text = "Movement Preset"
 
 [node name="OptionButton" type="OptionButton" parent="TabContainer/Controls/MarginContainer/VBoxContainer/PresetContainer" unique_id=1168706271]
 layout_mode = 2
-theme = ExtResource("6_h6son")
+theme = ExtResource("12_6k1aa")
 alignment = 1
 selected = 0
 item_count = 3
@@ -450,12 +429,14 @@ label_settings = SubResource("LabelSettings_vimye")
 
 [node name="OptionButton" type="OptionButton" parent="TabContainer/Audio/VBoxContainer/GridContainer" unique_id=637698763]
 layout_mode = 2
+theme = ExtResource("12_6k1aa")
 
 [node name="Control" type="Control" parent="TabContainer/Audio/VBoxContainer/GridContainer" unique_id=1845270225]
 layout_mode = 2
 
 [node name="Button" type="Button" parent="TabContainer/Audio/VBoxContainer/GridContainer" unique_id=1925443693]
 layout_mode = 2
+theme = ExtResource("12_6k1aa")
 theme_override_font_sizes/font_size = 20
 text = "Refresh Audio Device List"
 

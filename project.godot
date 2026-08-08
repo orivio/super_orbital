@@ -23,9 +23,9 @@ config/version="1.0"
 run/main_scene="uid://c0l8r4h3amty4"
 run/enable_alt_space_menu=true
 config/features=PackedStringArray("4.7", "Forward Plus")
-boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/bg_color=Color(0.019607844, 0, 0.019607844, 1)
 boot_splash/use_filter=false
-boot_splash/image="uid://clblpcs3hnoir"
+boot_splash/image="uid://c1irp1epn8nxl"
 config/icon="uid://c1irp1epn8nxl"
 
 [audio]
