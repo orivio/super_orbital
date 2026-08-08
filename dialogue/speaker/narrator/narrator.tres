@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://b0acvxdy71hfc" path="res://dialogue/speaker/speaker.gd" id="1_kvcf7"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_65viv"]
+
 [resource]
 script = ExtResource("1_kvcf7")
 bg_color = Color(0, 0, 0, 0)
+portrait = SubResource("SpriteFrames_65viv")
 metadata/_custom_type_script = "uid://b0acvxdy71hfc"
