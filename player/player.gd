@@ -95,7 +95,6 @@ func _process(delta: float) -> void:
 		elif death_timer <= 0:
 			death_timer = 0
 			is_dying = false
-			input_locked = false
 			can_dash = true
 			can_move = true
 			can_enter_nograv = true
@@ -239,6 +238,7 @@ func get_half_width() -> float:
 
 func _on_death_timeout() -> void:
 	tooltips_disabled = false
+	input_locked = false
 	reset()
 
 func teleport_to_ground(target: Vector2) -> void:
