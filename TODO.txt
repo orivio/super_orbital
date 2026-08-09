@@ -29,6 +29,7 @@ Obed:
 - Fix the gravity switch / wrench throw bugs
 - Add variation to tileset
 - Polish impact clouds and dash clouds effects
+- Make the buttons not look weird when pressing them
 
 Both, or whoever wants to:
 - (IMPORTANT!) make a shaded tileset for background accentuation
