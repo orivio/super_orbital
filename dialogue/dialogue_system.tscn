@@ -119,7 +119,7 @@ theme_override_constants/margin_right = 40
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/normal_font = ExtResource("4_wsdtu")
-theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/normal_font_size = 48
 autowrap_mode = 2
 visible_characters_behavior = 1
 
