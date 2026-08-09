@@ -213,6 +213,8 @@ func hide_tooltip() -> void:
 
 
 func die() -> void:
+	if is_dying:
+		return
 	has_gravity = true
 	is_dying = true
 	can_dash = false
