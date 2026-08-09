@@ -13,6 +13,8 @@ Russlan:
 - Test the camera
 
 Obed:
+- Fix save file import bugs
+	- There is a bug where, if you enter a dialogue conversation, exit in the middle of the conversation, quit to the main menu, 
 - Finish room_climbing
 	- Make tiles that indicate spikes might come out at any moment
 - Potentially redo the moving platforms in room_momentum

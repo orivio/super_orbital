@@ -29,8 +29,8 @@ func _process(_delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player and not visited:
-		DialogueManager.start_dialogue(conversation, tag)
-		visited = true
+		if DialogueManager.start_dialogue(conversation, tag):
+			visited = true
 
 func _on_dialogue_ended(dialogue_tag: StringName) -> void:
 	if dialogue_tag == tag:

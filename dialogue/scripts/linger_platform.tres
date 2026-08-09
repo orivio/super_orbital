@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Conversation" format=3 uid="uid://dfr3s24a6hssm"]
+
+[ext_resource type="Script" uid="uid://b2364himxu4dy" path="res://dialogue/conversation/dialogue_line.gd" id="1_j75f7"]
+[ext_resource type="Script" uid="uid://cqhvq0ub0apwo" path="res://dialogue/conversation/conversation.gd" id="2_h2nqh"]
+[ext_resource type="Resource" uid="uid://brd2h8hldg5ns" path="res://dialogue/speaker/assistant/assistant.tres" id="2_v22q6"]
+[ext_resource type="Resource" uid="uid://cxumxe1t5kb2i" path="res://dialogue/speaker/sad_guy/sad_guy.tres" id="3_v22q6"]
+
+[sub_resource type="Resource" id="Resource_v22q6"]
+script = ExtResource("1_j75f7")
+speaker = ExtResource("2_v22q6")
+text = "Careful, Sad Guy. Don't linger on that surface for too long!"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_bhk1d"]
+script = ExtResource("1_j75f7")
+speaker = ExtResource("2_v22q6")
+text = "Spikes could come out at any moment! You must be light on your feet."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_h2nqh"]
+script = ExtResource("1_j75f7")
+speaker = ExtResource("3_v22q6")
+side = -1
+text = "I'll be careful."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[resource]
+script = ExtResource("2_h2nqh")
+lines = Array[ExtResource("1_j75f7")]([SubResource("Resource_v22q6"), SubResource("Resource_bhk1d"), SubResource("Resource_h2nqh")])
+metadata/_custom_type_script = "uid://cqhvq0ub0apwo"
