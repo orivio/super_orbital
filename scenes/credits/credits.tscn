@@ -1,0 +1,279 @@
+[gd_scene format=3 uid="uid://oe64enfwyro6"]
+
+[ext_resource type="Script" uid="uid://dqb3u0toxbcr3" path="res://scenes/credits/credits.gd" id="1_dr3ri"]
+[ext_resource type="PackedScene" uid="uid://dvjxvisrrqfer" path="res://ui/effects/fade_effect.tscn" id="2_8n0nl"]
+[ext_resource type="Shader" uid="uid://c5kmcvgi0g6h1" path="res://ui/shaders/starry_layer.gdshader" id="2_icb2l"]
+[ext_resource type="Texture2D" uid="uid://c1qwvj8oxyj61" path="res://ui/textures/star2.png" id="3_17l06"]
+[ext_resource type="Shader" uid="uid://c7lpa6u2b7v5q" path="res://ui/shaders/cloudy_layer.gdshader" id="4_huu5m"]
+[ext_resource type="FontFile" uid="uid://hlg3easaunqa" path="res://ui/fonts/m5x7.ttf" id="5_icb2l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mxqwe"]
+shader = ExtResource("2_icb2l")
+shader_parameter/stars_speed = Vector2(0, 10)
+shader_parameter/stars_density = 0.0170000008075
+shader_parameter/star_size = 1.0
+shader_parameter/seed = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_icb2l"]
+shader = ExtResource("4_huu5m")
+shader_parameter/scale = 4.0
+shader_parameter/speed = Vector2(0, 0.07)
+shader_parameter/pixel_size = 8.0000003325
+
+[sub_resource type="Shader" id="Shader_3sa7m"]
+code = "shader_type canvas_item;
+
+uniform vec2 stars_speed = vec2(15.0, 0.0);
+uniform float stars_density: hint_range(0.0, 1.0, 0.001) = 0.01;
+uniform float star_size = 1.0;
+uniform sampler2D star_texture;
+uniform float seed = 0.0;
+
+varying vec2 position;
+uint pcg(uint v) {
+    uint state = v * 747796405u + 2891336453u;
+    uint word = ((state >> ((state >> 28u) + 4u)) ^ state) * 277803737u;
+    return (word >> 22u) ^ word;
+}
+/*float random(vec2 st) {
+	return fract(sin(dot(st, vec2(12.9898, 78.233))) * 43758.5453);
+}*/
+float random(vec2 p) {
+    uint see = uint(p.x) + uint(p.y) * 1973u;
+    return float(pcg(see)) / 4294967295.0;
+}
+
+void vertex() {
+	position = VERTEX;
+}
+
+void fragment() {
+	
+	vec2 pos = position;
+	
+	vec2 uv = (pos + TIME * stars_speed) * TEXTURE_PIXEL_SIZE / star_size;
+	uv = fract(uv) * step(random(floor(uv)), stars_density);
+	COLOR = texture(TEXTURE, uv);
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the material.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_huu5m"]
+shader = SubResource("Shader_3sa7m")
+shader_parameter/stars_speed = Vector2(0, 35)
+shader_parameter/stars_density = 0.0050000002375
+shader_parameter/star_size = 2.0
+shader_parameter/seed = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_huu5m"]
+font_size = 64
+outline_size = 30
+outline_color = Color(0.60268, 0.50020003, 0.61, 0.6117647)
+
+[sub_resource type="LabelSettings" id="LabelSettings_po7hu"]
+font = ExtResource("5_icb2l")
+font_size = 64
+
+[node name="Credits" type="Control" unique_id=1504576992]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dr3ri")
+intro_fade_duration = 1.0
+scroll_speed = 50.0
+
+[node name="Background" type="Control" parent="." unique_id=1120727005]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Background" unique_id=79063486]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BackStarrylayer" type="TextureRect" parent="Background" unique_id=1522116483]
+material = SubResource("ShaderMaterial_mxqwe")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_17l06")
+
+[node name="CloudyLayer" type="TextureRect" parent="Background" unique_id=283532929]
+material = SubResource("ShaderMaterial_icb2l")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_17l06")
+
+[node name="FrontStarryLayer" type="TextureRect" parent="Background" unique_id=1471986463]
+material = SubResource("ShaderMaterial_huu5m")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_17l06")
+
+[node name="Credits" type="VBoxContainer" parent="." unique_id=1077228661]
+layout_mode = 0
+offset_left = 320.0
+offset_right = 960.0
+offset_bottom = 723.7
+size_flags_horizontal = 3
+size_flags_vertical = 3
+offset_transform_enabled = true
+
+[node name="Title" type="Label" parent="Credits" unique_id=804619371]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SUPER ORBITAL"
+label_settings = SubResource("LabelSettings_huu5m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Padding" type="Control" parent="Credits" unique_id=428091038]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="Programming" type="Label" parent="Credits" unique_id=286884908]
+layout_mode = 2
+text = "Programming
+"
+label_settings = SubResource("LabelSettings_po7hu")
+horizontal_alignment = 1
+
+[node name="Obed" type="Label" parent="Credits" unique_id=1527537584]
+layout_mode = 2
+text = "Obe Dot"
+label_settings = SubResource("LabelSettings_po7hu")
+
+[node name="Russlan" type="Label" parent="Credits" unique_id=1972175061]
+layout_mode = 2
+text = "Orivio
+"
+label_settings = SubResource("LabelSettings_po7hu")
+
+[node name="Artwork" type="Label" parent="Credits" unique_id=575546947]
+layout_mode = 2
+text = "Artwork
+"
+label_settings = SubResource("LabelSettings_po7hu")
+horizontal_alignment = 1
+
+[node name="Obed2" type="Label" parent="Credits" unique_id=2011648090]
+layout_mode = 2
+text = "Obe Dot"
+label_settings = SubResource("LabelSettings_po7hu")
+
+[node name="Russlan2" type="Label" parent="Credits" unique_id=358150186]
+layout_mode = 2
+text = "Orivio
+"
+label_settings = SubResource("LabelSettings_po7hu")
+
+[node name="LevelDesign" type="Label" parent="Credits" unique_id=604260818]
+layout_mode = 2
+text = "Level Design
+"
+label_settings = SubResource("LabelSettings_po7hu")
+horizontal_alignment = 1
+
+[node name="Obed3" type="Label" parent="Credits" unique_id=1590949126]
+layout_mode = 2
+text = "Obe Dot"
+label_settings = SubResource("LabelSettings_po7hu")
+
+[node name="Russlan3" type="Label" parent="Credits" unique_id=1701518631]
+layout_mode = 2
+text = "Orivio
+"
+label_settings = SubResource("LabelSettings_po7hu")
+
+[node name="GuestLevelDesign" type="Label" parent="Credits" unique_id=847118920]
+layout_mode = 2
+text = "Guest Level Design
+"
+label_settings = SubResource("LabelSettings_po7hu")
+horizontal_alignment = 1
+
+[node name="Wally" type="Label" parent="Credits" unique_id=1706226383]
+layout_mode = 2
+text = "Perchrit6 (Perchrit)
+"
+label_settings = SubResource("LabelSettings_po7hu")
+
+[node name="Assets" type="Label" parent="Credits" unique_id=1422552285]
+layout_mode = 2
+text = "Assets
+"
+label_settings = SubResource("LabelSettings_po7hu")
+horizontal_alignment = 1
+
+[node name="M5x7" type="Label" parent="Credits" unique_id=265480094]
+layout_mode = 2
+text = "Daniel Lissen (m5x7 font)
+"
+label_settings = SubResource("LabelSettings_po7hu")
+
+[node name="Reaction" type="Label" parent="Credits" unique_id=610663717]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Reacted With a Fire Emoji to one of My Drawings
+"
+label_settings = SubResource("LabelSettings_po7hu")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Coder" type="Label" parent="Credits" unique_id=1333576570]
+layout_mode = 2
+text = "Coder
+"
+label_settings = SubResource("LabelSettings_po7hu")
+
+[node name="Tools" type="Label" parent="Credits" unique_id=2083472700]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Tools Used
+"
+label_settings = SubResource("LabelSettings_po7hu")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Godot" type="Label" parent="Credits" unique_id=691685182]
+layout_mode = 2
+text = "Godot 4.7"
+label_settings = SubResource("LabelSettings_po7hu")
+
+[node name="Aseprite" type="Label" parent="Credits" unique_id=1542388755]
+layout_mode = 2
+text = "Aseprite"
+label_settings = SubResource("LabelSettings_po7hu")
+
+[node name="FL Studio" type="Label" parent="Credits" unique_id=1940875848]
+layout_mode = 2
+text = "FL Studio"
+label_settings = SubResource("LabelSettings_po7hu")
+
+[node name="FadeEffect" parent="." unique_id=1477421051 instance=ExtResource("2_8n0nl")]

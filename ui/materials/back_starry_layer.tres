@@ -1,9 +1,49 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://dcoubjkoyq0gm"]
 
-[ext_resource type="Shader" uid="uid://c5kmcvgi0g6h1" path="res://ui/shaders/starry_layer.gdshader" id="1_f7d03"]
+[sub_resource type="Shader" id="Shader_3sa7m"]
+code = "shader_type canvas_item;
+
+uniform vec2 stars_speed = vec2(15.0, 0.0);
+uniform float stars_density: hint_range(0.0, 1.0, 0.001) = 0.01;
+uniform float star_size = 1.0;
+uniform sampler2D star_texture;
+uniform float seed = 0.0;
+
+varying vec2 position;
+uint pcg(uint v) {
+    uint state = v * 747796405u + 2891336453u;
+    uint word = ((state >> ((state >> 28u) + 4u)) ^ state) * 277803737u;
+    return (word >> 22u) ^ word;
+}
+/*float random(vec2 st) {
+	return fract(sin(dot(st, vec2(12.9898, 78.233))) * 43758.5453);
+}*/
+float random(vec2 p) {
+    uint see = uint(p.x) + uint(p.y) * 1973u;
+    return float(pcg(see)) / 4294967295.0;
+}
+
+void vertex() {
+	position = VERTEX;
+}
+
+void fragment() {
+	
+	vec2 pos = position;
+	
+	vec2 uv = (pos + TIME * stars_speed) * TEXTURE_PIXEL_SIZE / star_size;
+	uv = fract(uv) * step(random(floor(uv)), stars_density);
+	COLOR = texture(TEXTURE, uv);
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the material.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
 
 [resource]
-shader = ExtResource("1_f7d03")
+shader = SubResource("Shader_3sa7m")
 shader_parameter/stars_speed = Vector2(35, 0)
 shader_parameter/stars_density = 0.0050000002375
 shader_parameter/star_size = 2.0
