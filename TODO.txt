@@ -1,13 +1,11 @@
 Russlan:
+- Redesign Brobot
 - Finish the banner
 - Feedback on the afterimage effect
 - Feedback on the ui or maybe give some ideas
-- Decide if we should aim for presenting our game as a "challenging precision platformer" instead of just a "precision platformer". This means making some levels harder.
 - Review sound effects
-- Assign music to the rooms that you want
 - Write some more dialogue
 - Make more OST
-- Redesign Brobot
 - Assess the progression and difficulty of the levels
 - If you throw a wrench and are now in the wrench state, what happens when you enter a black hole's influence? Does it affect you or do you keep moving in the same direction you were before?
 - Test the camera
@@ -21,9 +19,8 @@ Obed:
 - Maybe a jump sound effect
 - Refine the black hole mechanic
 - Mkae black holes look better
-- Add more black hole levels, and maybe one or two more wrench levels
+- Add more black hole levels
 - Add more settings to the in game menu
-- Add more levels
 - Let the player go back to old levels
 - Fix bug where upon unlocking the dash or gravity switch ability for the first time, you will dash or gravity switch immediately after unlocking the ability, even if you didn't press any key for it
 - Fix the gravity switch / wrench throw bugs
