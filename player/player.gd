@@ -196,7 +196,7 @@ func load_abilities() -> void:
 	if not abilities:
 		abilities = SaveManager.get_save_file().player_abilities
 
-func update_animation(animation: String) -> void:
+func update_animation(_animation: String) -> void:
 	#if animation_player.current_animation != animation:
 	#	animation_player.play(animation)
 	pass

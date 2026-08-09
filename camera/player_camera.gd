@@ -88,8 +88,8 @@ func direct_offset(direction: Vector2, duration: float) -> Tween:
 func _draw() -> void:
 	draw_set_transform_matrix(global_transform.affine_inverse())
 	
-	var player_pos: Vector2 = GameManager.player.global_position
-	var player_vel: Vector2 = GameManager.player.true_velocity
+	var _player_pos: Vector2 = GameManager.player.global_position
+	var _player_vel: Vector2 = GameManager.player.true_velocity
 	
 	#draw_circle(player_pos, 10, Color.RED, false, 5)
 	#draw_line(player_pos, player_pos + player_vel * camera_velocity_influence / 60, Color.RED)
