@@ -1,5 +1,6 @@
 Russlan:
 - Redesign Brobot
+- Check out room_no_gravity_dash_chain and room_spike to see if the visual effects are good
 - Finish the banner
 - Feedback on the afterimage effect
 - Feedback on the ui or maybe give some ideas
