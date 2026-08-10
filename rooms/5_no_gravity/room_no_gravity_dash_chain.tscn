@@ -3,17 +3,59 @@
 [ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room_template.tscn" id="1_irvjw"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="2_s6ojb"]
 [ext_resource type="PackedScene" uid="uid://bjec8jk85hnki" path="res://poi/progress_detector/progress_detector.tscn" id="2_stq0s"]
-[ext_resource type="Material" uid="uid://5xfqqcr3g8bc" path="res://rooms/5_no_gravity/snow_background_process_material.tres" id="3_m8x1w"]
-[ext_resource type="Material" uid="uid://cxqyywarelbtc" path="res://rooms/5_no_gravity/snow_foreground_process_material.tres" id="4_u0q7d"]
 [ext_resource type="PackedScene" uid="uid://cjjnb1v42n2lp" path="res://effects/snow/snow.tscn" id="5_u0q7d"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0q7d"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stq0s"]
 resource_local_to_scene = true
 size = Vector2(3424, 1984)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u0q7d"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(1355.9, -851.23, 0)
+emission_shape_scale = Vector3(8000, 1000, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(-1, 1, 0)
+spread = 0.0
+angular_velocity_min = -45.000015
+angular_velocity_max = 44.999985
+gravity = Vector3(-120, 200, 0)
+scale_min = 0.5
+scale_max = 3.0
+turbulence_enabled = true
+turbulence_noise_strength = 3.0
+turbulence_noise_scale = 5.0
+turbulence_noise_speed_random = 1.17
+turbulence_influence_min = 0.068
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8x1w"]
 resource_local_to_scene = true
 size = Vector2(256, 352)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qrbqj"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(1355.9, -851.23, 0)
+emission_shape_scale = Vector3(8000, 1000, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(-1, 1, 0)
+spread = 0.0
+angular_velocity_min = -45.000015
+angular_velocity_max = 44.999985
+gravity = Vector3(-120, 200, 0)
+scale_min = 2.0
+scale_max = 4.0
+turbulence_enabled = true
+turbulence_noise_strength = 3.0
+turbulence_noise_scale = 5.0
+turbulence_noise_speed_random = 1.17
+turbulence_influence_min = 0.068
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y57ct"]
 resource_local_to_scene = true
@@ -31,7 +73,7 @@ visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(1296, -896)
-shape = SubResource("RectangleShape2D_u0q7d")
+shape = SubResource("RectangleShape2D_stq0s")
 
 [node name="BackgroundParallax" parent="." index="2" unique_id=1350709603]
 visible = true
@@ -45,7 +87,7 @@ use_fixed_seed = true
 seed = 3528802146
 visibility_rect = Rect2(-1999.04, -1838.885, 17000, 1900)
 local_coords = true
-process_material = ExtResource("3_m8x1w")
+process_material = SubResource("ParticleProcessMaterial_u0q7d")
 
 [node name="ProgressDetector" parent="POI" parent_id_path=PackedInt32Array(809409572) index="0" unique_id=1408990158 instance=ExtResource("2_stq0s")]
 progress_name = &"Chaining Gravity Switching with Dashing"
@@ -71,7 +113,7 @@ use_fixed_seed = true
 seed = 2884288075
 visibility_rect = Rect2(-1999.04, -1838.885, 17000, 1900)
 local_coords = true
-process_material = ExtResource("4_u0q7d")
+process_material = SubResource("ParticleProcessMaterial_qrbqj")
 
 [node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("2_s6ojb")]
 door_tag = "WestDoor"
