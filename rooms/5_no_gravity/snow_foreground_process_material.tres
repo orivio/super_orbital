@@ -1,0 +1,23 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://cxqyywarelbtc"]
+
+[resource]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(1355.9, -851.23, 0)
+emission_shape_scale = Vector3(8000, 1000, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(-1, 1, 0)
+spread = 0.0
+angular_velocity_min = -45.000015
+angular_velocity_max = 44.999985
+gravity = Vector3(-120, 200, 0)
+scale_min = 2.0
+scale_max = 4.0
+turbulence_enabled = true
+turbulence_noise_strength = 3.0
+turbulence_noise_scale = 5.0
+turbulence_noise_speed_random = 1.17
+turbulence_influence_min = 0.068

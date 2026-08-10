@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cjjnb1v42n2lp"]
+
+[ext_resource type="Texture2D" uid="uid://xqvhysn4rx7j" path="res://effects/snow/snow_sheet.png" id="1_o2fa6"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vkmy6"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o2fa6"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(100, 1, 1)
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(-1, 1, 0)
+spread = 0.0
+angular_velocity_min = -45.000015
+angular_velocity_max = 44.999985
+gravity = Vector3(-120, 200, 0)
+scale_min = 0.5
+scale_max = 2.0
+turbulence_enabled = true
+turbulence_noise_strength = 3.0
+turbulence_noise_scale = 5.0
+turbulence_noise_speed_random = 1.17
+turbulence_influence_min = 0.068
+
+[node name="Snow" type="GPUParticles2D" unique_id=57007336]
+material = SubResource("CanvasItemMaterial_vkmy6")
+amount = 200
+texture = ExtResource("1_o2fa6")
+lifetime = 8.0
+process_material = SubResource("ParticleProcessMaterial_o2fa6")
