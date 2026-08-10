@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cljc3uo2dtevt"]
+
+[ext_resource type="Texture2D" uid="uid://bioes6pdecd11" path="res://effects/dust_wind/dust_wind_pixel.png" id="1_5nomp"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_e85xr"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fffd8"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(132.495, 62.155, 1)
+direction = Vector3(1, 1, 0)
+spread = 103.026
+gravity = Vector3(-300, 500, 0)
+scale_min = 0.5
+scale_max = 3.0
+anim_offset_max = 1.0
+turbulence_enabled = true
+turbulence_influence_min = 0.030000001
+turbulence_influence_max = 0.123
+
+[node name="DustWind" type="GPUParticles2D" unique_id=536320564]
+material = SubResource("CanvasItemMaterial_e85xr")
+amount = 1000
+texture = ExtResource("1_5nomp")
+process_material = SubResource("ParticleProcessMaterial_fffd8")
