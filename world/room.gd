@@ -13,14 +13,17 @@ signal room_door_entered(dest_room: String, dest_door_tag: String)
 
 func _ready() -> void:
 	
-	# Attach signals to all of the doors
-	
-	var doors_in_room = get_tree().get_nodes_in_group("door")
-	for door in doors_in_room:
-		door.door_entered.connect(_on_door_entered)
-	
-	# Add the color rect offset
-	color_rect.material.set_shader_parameter("offset", Vector2(randf_range(-100000., 10000.), randf_range(-100000., 10000.)))
+	if not Engine.is_editor_hint():
+		# Attach signals to all of the doors
+		
+		var doors_in_room = get_tree().get_nodes_in_group("door")
+		for door in doors_in_room:
+			door.door_entered.connect(_on_door_entered)
+		
+		# Add the color rect offset
+		var rng = RandomNumberGenerator.new()
+		rng.seed = hash(scene_file_path)
+		color_rect.material.set_shader_parameter("offset", Vector2(rng.randf_range(-100000., 10000.), rng.randf_range(-100000., 10000.)))
 
 func _on_door_entered(dest_room: String, dest_door_tag: String):
 	room_door_entered.emit.call_deferred(dest_room, dest_door_tag)
@@ -37,7 +40,8 @@ func initialize_room() -> void:
 			node.load_data_from_savefile(SaveManager.get_save_file())
 
 func _process(_delta: float) -> void:
-	color_rect.material.set_shader_parameter("camera_offset", GameManager.camera.global_position)
+	if not Engine.is_editor_hint():
+		color_rect.material.set_shader_parameter("camera_offset", GameManager.camera.global_position)
 
 func get_camera_bounds() -> Rect2:
 	
