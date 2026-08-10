@@ -11,6 +11,7 @@ Russlan:
 - Test the camera
 
 Obed:
+- Make the room background shader offset seedified
 - Finish room_climbing
 	- Especially goodify the parallax
 - Potentially redo the moving platforms in room_momentum
