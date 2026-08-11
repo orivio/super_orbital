@@ -286,16 +286,21 @@ func spawn_impact_cloud(pos: Vector2, rot: float) -> void:
 	
 	cloud_instance.finished.connect(_on_effect_finish.bind(cloud_instance))
 	
-	effects.add_child(cloud_instance)
-	GameManager.current_room.add_effect(dust_instance)
-	
-	cloud_instance.global_position = pos
-	cloud_instance.rotation_degrees = rot
-	cloud_instance.emitting = true
+	dust_instance.emitting = false
 	
 	dust_instance.global_position = pos
+	effects.add_child(cloud_instance)
+	GameManager.current_room.add_effect(dust_instance)
+	cloud_instance.global_position = pos
+	
+	cloud_instance.rotation_degrees = rot
+	
 	dust_instance.rotation_degrees = rot
+	
+	cloud_instance.emitting = true
 	dust_instance.start()
+	
+	
 	
 	effect_nodes.append(cloud_instance)
 
