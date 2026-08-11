@@ -12,8 +12,9 @@ Russlan:
 - Test the camera
 
 Obed:
+- Fix the text shifting on the buttons
 - I might want to make some cool environmental effects, such as frost, dust storms, etc... really just because its fun to make stuff like that
-	- Finish the hoodoos
+	- Finish the hoodoo drawings
 - Finish room_climbing
 	- Especially goodify the parallax
 - Potentially redo the moving platforms in room_momentum
