@@ -17,6 +17,7 @@ resource_local_to_scene = true
 size = Vector2(192, 320)
 
 [node name="RoomBlackHoleAngle" unique_id=201273727 instance=ExtResource("1_w34k8")]
+music_for_this_room = "uid://cv4s6btmi0mj4"
 
 [node name="CameraBounds" parent="." index="1" unique_id=711655567]
 visible = true
