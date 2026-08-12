@@ -1,0 +1,68 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bs1efxnl38kyf"]
+
+[ext_resource type="Texture2D" uid="uid://byl1b2mo0mfm4" path="res://dialogue/speaker/assistant/assistant_new.png" id="1_vyed8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye35s"]
+atlas = ExtResource("1_vyed8")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyed8"]
+atlas = ExtResource("1_vyed8")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrenx"]
+atlas = ExtResource("1_vyed8")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgsm1"]
+atlas = ExtResource("1_vyed8")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pxhq"]
+atlas = ExtResource("1_vyed8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khvmi"]
+atlas = ExtResource("1_vyed8")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ye35s")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vyed8")
+}],
+"loop": 1,
+"name": &"disappointed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrenx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgsm1")
+}],
+"loop": 1,
+"name": &"talk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pxhq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khvmi")
+}],
+"loop": 1,
+"name": &"think",
+"speed": 5.0
+}]
