@@ -12,6 +12,7 @@ Russlan:
 - Test the camera
 
 Obed:
+- Fix potential bug when dialogue starts in room_spike
 - Fix the text shifting on the buttons
 - I might want to make some cool environmental effects, such as frost, dust storms, etc... really just because its fun to make stuff like that
 	- Finish the hoodoo drawings
