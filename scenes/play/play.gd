@@ -21,7 +21,7 @@ func _ready() -> void:
 	world.init_room()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause"):
+	if event.is_action_pressed("pause"): #set timescale to zero when pausing, where do i add this?
 		if not pause_menu:
 			if pause_menu_enter_tween:
 				return
