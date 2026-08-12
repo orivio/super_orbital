@@ -40,8 +40,7 @@ Both, or whoever wants to:
 		- A bright outdoor area with hoodoos
 		- A bright outdoor area with sand dunes
 		- A bright outdoor area with cliffs
-- (IMPORTANT!) make a shaded tileset for background accentuation
-	- What does that mean?
+- Make a separate tileset for background accentuation
 - Make a better favicon
 - Design and animate cutscenes
 - Make sound effects for movement, ui, and dialogue
