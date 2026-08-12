@@ -1,24 +1,18 @@
 Russlan:
-- Redesign Brobot
-- Check out room_no_gravity_dash_chain and room_spike to see if the visual effects are good
 - Finish the banner
-- Feedback on the afterimage effect -> Looking great
-- Feedback on the ui or maybe give some ideas -> Looks good for now, but pause menu should have access to settings button
 - Review sound effects
 - Write some more dialogue
 - Make more OST
 - Assess the progression and difficulty of the levels
-- ANSWERED, CHECK DC: If you throw a wrench and are now in the wrench state, what happens when you enter a black hole's influence? Does it affect you or do you keep moving in the same direction you were before?
 - Test the camera
 
 Obed:
-- Fix potential bug when dialogue starts in room_spike
+- Fix potential bug in the bottom part of the tilemap when dialogue starts in room_spike
 - Fix the text shifting on the buttons
 - I might want to make some cool environmental effects, such as frost, dust storms, etc... really just because its fun to make stuff like that
 	- Finish the hoodoo drawings
-- Finish room_climbing
-	- Especially goodify the parallax
-- Potentially redo the moving platforms in room_momentum
+		- Not right now, wait until we have a plan for the environmental areas of the game
+- Redo the moving platforms in room_momentum
 - Make black holes look better
 	- A black hole effect would look better if there's a background to warp and distort. Maybe we should make that.
 - Make an image for the title
@@ -26,11 +20,14 @@ Obed:
 - Refine the black hole mechanic
 - Add more black hole levels
 - Add more settings to the in game menu
+- Refine room_gilganas (it just kind of feels like a boring level when it has a lot of potential)
 - Let the player go back to old levels
+	- Finish the ui on the level select screen
+	- Let the player select a level marker, and then click play.
+		- Double clicking starts the game immediately, single clicking selects the level, and when you press play, the game starts
+	- Probably redo the whole world system honestly
 - Fix bug where upon unlocking the dash or gravity switch ability for the first time, you will dash or gravity switch immediately after unlocking the ability, even if you didn't press any key for it
-- Fix the gravity switch / wrench throw bugs
 - Add variation to tileset
-- Make the buttons not look weird when pressing them
 
 Both, or whoever wants to:
 - We should map out the different environments in our game so we know where to put which visuals
@@ -41,7 +38,8 @@ Both, or whoever wants to:
 		- A bright outdoor area with hoodoos
 		- A bright outdoor area with sand dunes
 		- A bright outdoor area with cliffs
-- Make a separate tileset for background accentuation
 - Make a better favicon
+	- I think we have something good
 - Design and animate cutscenes
 - Make sound effects for movement, ui, and dialogue
+- Finish room_climbing
