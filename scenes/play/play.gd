@@ -27,6 +27,7 @@ func _input(event: InputEvent) -> void:
 				return
 			if pause_menu_exit_tween:
 				return
+			GameManager.time_scale = 0
 			
 			pause_menu = PAUSE_MENU.instantiate()
 			ui_layer.add_child(pause_menu)
@@ -48,6 +49,7 @@ func _input(event: InputEvent) -> void:
 				return
 			if pause_menu_exit_tween:
 				return
+			GameManager.time_scale = 1
 			
 			pause_menu.disable_input = true
 			
