@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://csc4f72wg0shx"]
+
+[ext_resource type="Texture2D" uid="uid://clwfg4ds2ifqm" path="res://ui/level_marker/level_marker.png" id="1_sl80p"]
+
+[node name="LevelMarker" type="Control" unique_id=780268325]
+custom_minimum_size = Vector2(160, 144)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -80.0
+offset_top = -72.0
+offset_right = 80.0
+offset_bottom = 72.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1574220282]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 144.0
+offset_bottom = 136.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("1_sl80p")
+
+[node name="Label" type="Label" parent="." unique_id=1343735095]
+custom_minimum_size = Vector2(129.637, 49)
+layout_mode = 0
+offset_left = 31.999996
+offset_top = 73.00001
+offset_right = 161.63666
+offset_bottom = 122.00001
+rotation = -0.16406095
+pivot_offset_ratio = Vector2(0.5, 0.5)
+horizontal_alignment = 1
+autowrap_mode = 2

@@ -7,8 +7,9 @@
 [ext_resource type="Material" uid="uid://dcoubjkoyq0gm" path="res://ui/materials/back_starry_layer.tres" id="4_oq148"]
 [ext_resource type="Theme" uid="uid://brsjv0onhn51i" path="res://ui/themes/settings_theme.tres" id="5_rdqwv"]
 [ext_resource type="Theme" uid="uid://t4gelel5hk2o" path="res://ui/themes/simple_button_theme.tres" id="6_5lyl2"]
-[ext_resource type="Script" uid="uid://bx7hobu8ln1b4" path="res://scenes/save_select/completion_path.gd" id="7_hmfe0"]
 [ext_resource type="PackedScene" uid="uid://dvjxvisrrqfer" path="res://ui/effects/fade_effect.tscn" id="7_oq148"]
+[ext_resource type="Script" uid="uid://br0cuwcexf063" path="res://scenes/save_select/level_grid.gd" id="8_5lyl2"]
+[ext_resource type="Texture2D" uid="uid://dt80tlga4jbp4" path="res://ui/ui_sheet.png" id="9_64cmn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hmfe0"]
 shader = ExtResource("1_j77eq")
@@ -20,11 +21,57 @@ shader_parameter/seed = 5.0
 [sub_resource type="LabelSettings" id="LabelSettings_oq148"]
 font_size = 40
 
-[sub_resource type="Curve2D" id="Curve2D_oq148"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 30, 47, 0, 0, 0, 0, 830, 47, 0, 0, 0, 0, 830, 175, 0, 0, 0, 0, 30, 175, 0, 0, 0, 0, 30, 303, 0, 0, 0, 0, 830, 303, 0, 0, 0, 0, 830, 431, 0, 0, 0, 0, 30, 431)
-}
-point_count = 8
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6l7h2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5hydg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5dbf3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ia5uq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_umdbg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jusct"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e0wxi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mw0iq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rrens"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7wcni"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ljf5e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axsxi"]
+atlas = ExtResource("9_64cmn")
+region = Rect2(80, 264, 16, 48)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_64cmn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_axsxi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7yuos"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4tgjn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_psofo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i8gxs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5hh0a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qo3ov"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jn1vg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6bnrx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rbn0c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6l7h2"]
+atlas = ExtResource("9_64cmn")
+region = Rect2(128, 264, 16, 48)
 
 [node name="SaveSelect" type="Control" unique_id=2125277451]
 layout_mode = 3
@@ -110,17 +157,59 @@ label_settings = SubResource("LabelSettings_oq148")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="PanelContainer/VBoxContainer" unique_id=1853270898]
+[node name="LevelGrid" type="Control" parent="PanelContainer/VBoxContainer" unique_id=1853270898]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("8_5lyl2")
 
-[node name="CompletionPath" type="Path2D" parent="PanelContainer/VBoxContainer/Control" unique_id=1117638032]
-curve = SubResource("Curve2D_oq148")
-script = ExtResource("7_hmfe0")
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/LevelGrid" unique_id=195833243]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
 
-[node name="Line2D" type="Line2D" parent="PanelContainer/VBoxContainer/Control/CompletionPath" unique_id=312605840]
-default_color = Color(0.6321235, 0.6321235, 0.6321234, 1)
+[node name="LeftButton" type="Button" parent="PanelContainer/VBoxContainer/LevelGrid/HBoxContainer" unique_id=580472884]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6l7h2")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5hydg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5dbf3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ia5uq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_umdbg")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_jusct")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_e0wxi")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_mw0iq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rrens")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_7wcni")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ljf5e")
+icon = SubResource("AtlasTexture_axsxi")
+icon_alignment = 1
+
+[node name="Grid" type="GridContainer" parent="PanelContainer/VBoxContainer/LevelGrid/HBoxContainer" unique_id=725282366]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 5
+
+[node name="RightButton" type="Button" parent="PanelContainer/VBoxContainer/LevelGrid/HBoxContainer" unique_id=390422278]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_64cmn")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_axsxi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7yuos")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4tgjn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_psofo")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_i8gxs")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5hh0a")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_qo3ov")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jn1vg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_6bnrx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rbn0c")
+icon = SubResource("AtlasTexture_6l7h2")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=816447530]
 layout_mode = 2

@@ -25,7 +25,7 @@ extends Control
 @onready var fade_effect: FadeEffect = $FadeEffect
 
 @onready var completion_path: CompletionPath = $PanelContainer/VBoxContainer/Control/CompletionPath
-
+@onready var level_grid: LevelGrid = $PanelContainer/VBoxContainer/LevelGrid
 
 var save_exists: bool
 
@@ -47,7 +47,8 @@ func _ready() -> void:
 		load_button.disabled = true
 		export_button.disabled = false
 		
-		completion_path.display_completion_path(SaveManager.get_save_file())
+		#completion_path.display_completion_path(SaveManager.get_save_file())
+		level_grid.update_visuals(SaveManager.get_save_file())
 		save_exists = true
 	
 	delete_confirmation.get_cancel_button().pressed.connect(_on_delete_button_confirmation_cancelled)
