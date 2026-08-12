@@ -2,13 +2,13 @@ Russlan:
 - Redesign Brobot
 - Check out room_no_gravity_dash_chain and room_spike to see if the visual effects are good
 - Finish the banner
-- Feedback on the afterimage effect
-- Feedback on the ui or maybe give some ideas
+- Feedback on the afterimage effect -> Looking great
+- Feedback on the ui or maybe give some ideas -> Looks good for now, but pause menu should have access to settings button
 - Review sound effects
 - Write some more dialogue
 - Make more OST
 - Assess the progression and difficulty of the levels
-- If you throw a wrench and are now in the wrench state, what happens when you enter a black hole's influence? Does it affect you or do you keep moving in the same direction you were before?
+- ANSWERED, CHECK DC: If you throw a wrench and are now in the wrench state, what happens when you enter a black hole's influence? Does it affect you or do you keep moving in the same direction you were before?
 - Test the camera
 
 Obed:
