@@ -1,6 +1,5 @@
 Russlan:
 - Finish the banner
-- Review sound effects
 - Write some more dialogue
 - Make more OST
 - Assess the progression and difficulty of the levels

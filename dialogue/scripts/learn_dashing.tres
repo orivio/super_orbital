@@ -9,6 +9,7 @@
 script = ExtResource("1_xelra")
 speaker = ExtResource("2_6lltr")
 text = "[[MEASURING_DISTANCE]]"
+animation = &"think"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_hyfpw"]
@@ -21,6 +22,7 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_xelra")
 speaker = ExtResource("2_6lltr")
 text = "Fret not. Give me a moment."
+animation = &"think"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_qmoas"]
@@ -52,6 +54,7 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_xelra")
 speaker = ExtResource("2_6lltr")
 text = "Please do not call me that."
+animation = &"disappointed"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [resource]

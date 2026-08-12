@@ -16,6 +16,7 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_l5n0r")
 speaker = ExtResource("2_r0j7r")
 text = "It seems that there are spikes blocking your way."
+animation = &"disappointed"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_vl0rm"]
@@ -34,6 +35,7 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_l5n0r")
 speaker = ExtResource("2_r0j7r")
 text = "Could it be that hostile life exists here?"
+animation = &"disappointed"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_nqrcn"]

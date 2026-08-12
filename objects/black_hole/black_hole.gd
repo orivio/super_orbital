@@ -16,7 +16,7 @@ func _on_influence_area_body_entered(body: Node2D) -> void:
 	if body is Player and not body.disabled:
 		influencing_player = true
 		body.in_blackhole = true
-		if not body.state_machine.current_state is StateFloat:
+		if not body.state_machine.current_state is StateFloat or StateWrench:
 			GameManager.time_scale = 0.5
 			body.state_machine.change_state(body.get_node("StateMachine/BlackHole"))
 
