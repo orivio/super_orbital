@@ -50,10 +50,10 @@ size = Vector2(176, 227)
 music_for_this_room = "uid://cv4s6btmi0mj4"
 
 [node name="ColorRect" parent="Background" parent_id_path=PackedInt32Array(862772847) index="0" unique_id=1986130930]
-offset_left = 1221.0
-offset_top = 377.0
-offset_right = 1221.0
-offset_bottom = 377.0
+offset_left = 587.0
+offset_top = 1619.0
+offset_right = 587.0
+offset_bottom = 1619.0
 
 [node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
 position = Vector2(1952, -1072)
