@@ -24,7 +24,6 @@ extends Control
 
 @onready var fade_effect: FadeEffect = $FadeEffect
 
-@onready var completion_path: CompletionPath = $PanelContainer/VBoxContainer/Control/CompletionPath
 @onready var level_grid: LevelGrid = $PanelContainer/VBoxContainer/LevelGrid
 
 var save_exists: bool
@@ -80,7 +79,7 @@ func _on_new_button_pressed() -> void:
 	load_button.disabled = true
 	export_button.disabled = false
 	
-	completion_path.display_completion_path(SaveManager.get_save_file())
+	level_grid.update_visuals(SaveManager.get_save_file())
 	save_exists = true
 	SaveManager.write_save_file()
 
@@ -105,7 +104,7 @@ func _on_delete_button_confirmation_accepted() -> void:
 	load_button.disabled = false
 	export_button.disabled = true
 	
-	completion_path.wipe_completion_path()
+	level_grid.update_visuals(SaveManager.get_save_file())
 	save_exists = false
 
 func _on_load_button_pressed() -> void:
@@ -113,7 +112,7 @@ func _on_load_button_pressed() -> void:
 
 func _on_import_file_selected(file: String) -> void:
 	SaveManager.import_from_file(file)
-	completion_path.display_completion_path(SaveManager.get_save_file())
+	level_grid.update_visuals(SaveManager.get_save_file())
 	save_exists = true
 
 func _on_export_button_pressed() -> void:

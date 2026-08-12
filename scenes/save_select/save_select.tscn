@@ -9,7 +9,15 @@
 [ext_resource type="Theme" uid="uid://t4gelel5hk2o" path="res://ui/themes/simple_button_theme.tres" id="6_5lyl2"]
 [ext_resource type="PackedScene" uid="uid://dvjxvisrrqfer" path="res://ui/effects/fade_effect.tscn" id="7_oq148"]
 [ext_resource type="Script" uid="uid://br0cuwcexf063" path="res://scenes/save_select/level_grid.gd" id="8_5lyl2"]
+[ext_resource type="Theme" uid="uid://bgg5ijatxye6r" path="res://ui/themes/level_buttons.tres" id="8_64cmn"]
 [ext_resource type="Texture2D" uid="uid://dt80tlga4jbp4" path="res://ui/ui_sheet.png" id="9_64cmn"]
+[ext_resource type="Script" uid="uid://0k8svaulvl7c" path="res://scenes/save_select/level_button.gd" id="11_7yuos"]
+[ext_resource type="Texture2D" uid="uid://bjy8neyfr5cl0" path="res://ui/icons/level_buttons/left_disabled.tres" id="12_i8gxs"]
+[ext_resource type="Texture2D" uid="uid://xor45kxxxrjg" path="res://ui/icons/level_buttons/left_normal.tres" id="13_5hh0a"]
+[ext_resource type="Texture2D" uid="uid://calgyr7pajr78" path="res://ui/icons/level_buttons/left_hover.tres" id="14_qo3ov"]
+[ext_resource type="Texture2D" uid="uid://cllnjdrdbh1aj" path="res://ui/icons/level_buttons/right_disabled.tres" id="15_jn1vg"]
+[ext_resource type="Texture2D" uid="uid://bflenb02j5ks3" path="res://ui/icons/level_buttons/right_normal.tres" id="16_6bnrx"]
+[ext_resource type="Texture2D" uid="uid://dn816f25thjpv" path="res://ui/icons/level_buttons/right_hover.tres" id="17_rbn0c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hmfe0"]
 shader = ExtResource("1_j77eq")
@@ -21,57 +29,9 @@ shader_parameter/seed = 5.0
 [sub_resource type="LabelSettings" id="LabelSettings_oq148"]
 font_size = 40
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6l7h2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5hydg"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5dbf3"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ia5uq"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_umdbg"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jusct"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e0wxi"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mw0iq"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rrens"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7wcni"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ljf5e"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_axsxi"]
-atlas = ExtResource("9_64cmn")
-region = Rect2(80, 264, 16, 48)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_64cmn"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_axsxi"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7yuos"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4tgjn"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_psofo"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i8gxs"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5hh0a"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qo3ov"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jn1vg"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6bnrx"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rbn0c"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_6l7h2"]
 atlas = ExtResource("9_64cmn")
-region = Rect2(128, 264, 16, 48)
+region = Rect2(80, 264, 16, 48)
 
 [node name="SaveSelect" type="Control" unique_id=2125277451]
 layout_mode = 3
@@ -168,26 +128,19 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 16.0
 offset_top = 16.0
-offset_right = -16.0
 offset_bottom = -16.0
 
 [node name="LeftButton" type="Button" parent="PanelContainer/VBoxContainer/LevelGrid/HBoxContainer" unique_id=580472884]
+custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_6l7h2")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5hydg")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_5dbf3")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ia5uq")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_umdbg")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_jusct")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_e0wxi")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_mw0iq")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_rrens")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_7wcni")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ljf5e")
-icon = SubResource("AtlasTexture_axsxi")
+theme = ExtResource("8_64cmn")
+icon = ExtResource("13_5hh0a")
 icon_alignment = 1
+script = ExtResource("11_7yuos")
+disabled_icon = ExtResource("12_i8gxs")
+normal_icon = ExtResource("13_5hh0a")
+hover_icon = ExtResource("14_qo3ov")
 
 [node name="Grid" type="GridContainer" parent="PanelContainer/VBoxContainer/LevelGrid/HBoxContainer" unique_id=725282366]
 layout_mode = 2
@@ -197,19 +150,15 @@ theme_override_constants/v_separation = 0
 columns = 5
 
 [node name="RightButton" type="Button" parent="PanelContainer/VBoxContainer/LevelGrid/HBoxContainer" unique_id=390422278]
+custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_64cmn")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_axsxi")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_7yuos")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4tgjn")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_psofo")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_i8gxs")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5hh0a")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_qo3ov")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_jn1vg")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_6bnrx")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rbn0c")
+theme = ExtResource("8_64cmn")
 icon = SubResource("AtlasTexture_6l7h2")
+icon_alignment = 1
+script = ExtResource("11_7yuos")
+disabled_icon = ExtResource("15_jn1vg")
+normal_icon = ExtResource("16_6bnrx")
+hover_icon = ExtResource("17_rbn0c")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=816447530]
 layout_mode = 2
@@ -266,6 +215,8 @@ use_native_dialog = true
 [node name="FadeEffect" parent="." unique_id=1477421051 instance=ExtResource("7_oq148")]
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="button_down" from="PanelContainer/VBoxContainer/LevelGrid/HBoxContainer/LeftButton" to="PanelContainer/VBoxContainer/LevelGrid" method="_on_left_button_button_down"]
+[connection signal="button_down" from="PanelContainer/VBoxContainer/LevelGrid/HBoxContainer/RightButton" to="PanelContainer/VBoxContainer/LevelGrid" method="_on_right_button_button_down"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/NewButton" to="." method="_on_new_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/DeleteButton" to="." method="_on_delete_button_pressed"]

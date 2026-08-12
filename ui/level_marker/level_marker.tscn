@@ -24,10 +24,10 @@ texture = ExtResource("1_sl80p")
 [node name="Label" type="Label" parent="." unique_id=1343735095]
 custom_minimum_size = Vector2(129.637, 49)
 layout_mode = 0
-offset_left = 31.999996
-offset_top = 73.00001
-offset_right = 161.63666
-offset_bottom = 122.00001
+offset_left = 14.999994
+offset_top = 47.000004
+offset_right = 144.637
+offset_bottom = 96.0
 rotation = -0.16406095
 pivot_offset_ratio = Vector2(0.5, 0.5)
 horizontal_alignment = 1
