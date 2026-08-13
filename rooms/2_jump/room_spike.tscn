@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room_template.tscn" id="1_44wm1"]
 [ext_resource type="PackedScene" uid="uid://cv2o8lyusltah" path="res://poi/tooltip_field/tooltip_field.tscn" id="2_m0xtu"]
+[ext_resource type="Resource" uid="uid://t576uwx77pu1" path="res://world/level_metadata/jump.tres" id="2_p4p8s"]
 [ext_resource type="PackedScene" uid="uid://lf2gvhqkoyd6" path="res://poi/dialogue_trigger/dialogue_trigger.tscn" id="3_8nxub"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="3_r86d4"]
 [ext_resource type="Resource" uid="uid://dx2pu48my5iyh" path="res://dialogue/scripts/learn_jumping.tres" id="4_rfa38"]
@@ -9,19 +10,19 @@
 [ext_resource type="Texture2D" uid="uid://dml00xreks60a" path="res://effects/dust_cloud/dust_rock.png" id="6_inx5v"]
 [ext_resource type="Texture2D" uid="uid://dbfrnv3h2e4jy" path="res://objects/thingamabob_sheet.png" id="6_lhsqi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_inx5v"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7vbm"]
 resource_local_to_scene = true
 size = Vector2(1760, 832)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4p8s"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opfqy"]
 resource_local_to_scene = true
 size = Vector2(472, 253)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7vbm"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dctix"]
 resource_local_to_scene = true
 size = Vector2(224, 135)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_opfqy"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57ext"]
 resource_local_to_scene = true
 size = Vector2(128, 224)
 
@@ -58,23 +59,24 @@ region = Rect2(16, 0, 16, 16)
 atlas = ExtResource("6_lhsqi")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dctix"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnm4m"]
 resource_local_to_scene = true
 size = Vector2(96, 96)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_57ext"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_717ng"]
 resource_local_to_scene = true
 size = Vector2(192, 192)
 
 [node name="RoomJump" unique_id=201273727 instance=ExtResource("1_44wm1")]
 music_for_this_room = "uid://86wyqwb0rs5n"
+level_metadata = ExtResource("2_p4p8s")
 
 [node name="CameraBounds" parent="." index="1" unique_id=711655567]
 visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(-112, -256)
-shape = SubResource("RectangleShape2D_inx5v")
+shape = SubResource("RectangleShape2D_e7vbm")
 
 [node name="BackgroundParallax" parent="." index="2" unique_id=1350709603]
 visible = true
@@ -85,7 +87,7 @@ unlocks_ability = "jump"
 
 [node name="CollisionShape2D" parent="POI/JumpTooltip" index="0" unique_id=822976353]
 position = Vector2(-276, -1.5)
-shape = SubResource("RectangleShape2D_p4p8s")
+shape = SubResource("RectangleShape2D_opfqy")
 
 [node name="Label" parent="POI/JumpTooltip" index="1" unique_id=1289689676]
 visible = true
@@ -102,14 +104,14 @@ conversation = ExtResource("4_rfa38")
 
 [node name="CollisionShape2D" parent="POI/DialogueTrigger" index="0" unique_id=354673692]
 position = Vector2(-432, -32.5)
-shape = SubResource("RectangleShape2D_e7vbm")
+shape = SubResource("RectangleShape2D_dctix")
 
 [node name="ProgressDetector" parent="POI" parent_id_path=PackedInt32Array(809409572) index="2" unique_id=1408990158 instance=ExtResource("5_rfa38")]
 progress_name = &"Jumping"
 
 [node name="CollisionShape2D" parent="POI/ProgressDetector" index="0" unique_id=1008791462]
 position = Vector2(704, -80)
-shape = SubResource("RectangleShape2D_opfqy")
+shape = SubResource("RectangleShape2D_57ext")
 
 [node name="DustRain" type="GPUParticles2D" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="0" unique_id=1024171688]
 material = SubResource("CanvasItemMaterial_4w83b")
@@ -186,7 +188,7 @@ dest_room = "move"
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-1104, -16)
-shape = SubResource("RectangleShape2D_dctix")
+shape = SubResource("RectangleShape2D_qnm4m")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-896, 32)
@@ -202,7 +204,7 @@ dest_room = "ladder"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(928, -64)
-shape = SubResource("RectangleShape2D_57ext")
+shape = SubResource("RectangleShape2D_717ng")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(704, 32)

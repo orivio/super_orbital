@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LevelMeta" format=3 uid="uid://cytbdnvicqdqf"]
+
+[ext_resource type="Script" uid="uid://bfbje6mffxe0g" path="res://world/level/level_meta.gd" id="1_x56rx"]
+
+[resource]
+script = ExtResource("1_x56rx")
+level_name = "Long Gap"
+music_for_this_room = "uid://86wyqwb0rs5n"
+scene_path = "res://rooms/4_dash/room_long_gap.tscn"
+metadata/_custom_type_script = "uid://bfbje6mffxe0g"

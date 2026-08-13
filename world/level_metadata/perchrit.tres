@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LevelMeta" format=3 uid="uid://bojqfuhb72enb"]
+
+[ext_resource type="Script" uid="uid://bfbje6mffxe0g" path="res://world/level/level_meta.gd" id="1_ngby5"]
+
+[resource]
+script = ExtResource("1_ngby5")
+level_name = "Perchrit"
+music_for_this_room = "uid://bnhyy2akdat4u"
+scene_path = "res://rooms/6_wrench/room_perchrit.tscn"
+metadata/_custom_type_script = "uid://bfbje6mffxe0g"

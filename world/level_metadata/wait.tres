@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LevelMeta" format=3 uid="uid://c72ac4oqheuwy"]
+
+[ext_resource type="Script" uid="uid://bfbje6mffxe0g" path="res://world/level/level_meta.gd" id="1_etgid"]
+
+[resource]
+script = ExtResource("1_etgid")
+level_name = "Wait"
+music_for_this_room = "uid://86wyqwb0rs5n"
+scene_path = "res://rooms/7_black_hole/room_wait.tscn"
+metadata/_custom_type_script = "uid://bfbje6mffxe0g"

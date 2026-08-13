@@ -2,52 +2,54 @@
 
 [ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room_template.tscn" id="1_yiy1m"]
 [ext_resource type="Texture2D" uid="uid://b4d0iy2gcl7ai" path="res://objects/arrow/arrow.png" id="2_0hy8y"]
+[ext_resource type="Resource" uid="uid://cmqalqte1fck5" path="res://world/level_metadata/cant_stop.tres" id="2_1xu3a"]
 [ext_resource type="PackedScene" uid="uid://b2ogi0ekm1d7i" path="res://objects/moving_platform/moving_platform.tscn" id="2_5sl8d"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="2_vq8d1"]
 [ext_resource type="TileSet" uid="uid://bnrmi5xqiqb0w" path="res://world/tilesets/slightly_better_tileset.tres" id="4_74ynv"]
 [ext_resource type="PackedScene" uid="uid://lf2gvhqkoyd6" path="res://poi/dialogue_trigger/dialogue_trigger.tscn" id="5_x2vsp"]
 [ext_resource type="Resource" uid="uid://ddsh31dkinju6" path="res://dialogue/scripts/intruder_detected.tres" id="6_gold3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_74ynv"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jafm"]
 resource_local_to_scene = true
 size = Vector2(5376, 4064)
 
-[sub_resource type="Curve2D" id="Curve2D_1xu3a"]
+[sub_resource type="Curve2D" id="Curve2D_no70e"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1440, 448, 0, 0, 0, 0, 2144, 448)
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jafm"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gqnt"]
 resource_local_to_scene = true
 size = Vector2(128, 128)
 
-[sub_resource type="Curve2D" id="Curve2D_no70e"]
+[sub_resource type="Curve2D" id="Curve2D_qy0kv"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 2784, -2496, 0, 0, 0, 0, 4000, -2496)
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gqnt"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_df2o4"]
 resource_local_to_scene = true
 size = Vector2(192, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qy0kv"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7g511"]
 resource_local_to_scene = true
 size = Vector2(96, 224)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_df2o4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mrjrx"]
 resource_local_to_scene = true
 size = Vector2(160, 288)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7g511"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojudb"]
 resource_local_to_scene = true
 size = Vector2(176, 227)
 
 [node name="RoomCantStop" unique_id=201273727 instance=ExtResource("1_yiy1m")]
-music_for_this_room = "uid://cv4s6btmi0mj4"
+music_for_this_room = "uid://86wyqwb0rs5n"
+level_metadata = ExtResource("2_1xu3a")
 
 [node name="ColorRect" parent="Background" parent_id_path=PackedInt32Array(862772847) index="0" unique_id=1986130930]
 offset_left = 587.0
@@ -57,7 +59,7 @@ offset_bottom = 1619.0
 
 [node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
 position = Vector2(1952, -1072)
-shape = SubResource("RectangleShape2D_74ynv")
+shape = SubResource("RectangleShape2D_7jafm")
 
 [node name="BackgroundParallax" parent="." index="2" unique_id=1350709603]
 visible = true
@@ -97,7 +99,7 @@ tile_set = ExtResource("4_74ynv")
 collision_enabled = false
 
 [node name="MovingPlatform" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="0" unique_id=1898127775 instance=ExtResource("2_5sl8d")]
-curve = SubResource("Curve2D_1xu3a")
+curve = SubResource("Curve2D_no70e")
 time = 3.0
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform" index="0" unique_id=199652958]
@@ -110,7 +112,7 @@ points = PackedVector2Array(1440, 448, 1442.0195, 448, 1444.4956, 448, 1447.9063
 position = Vector2(1440, 448)
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform/AnimatableBody2D" index="0" unique_id=388684668]
-shape = SubResource("RectangleShape2D_7jafm")
+shape = SubResource("RectangleShape2D_3gqnt")
 
 [node name="NinePatchRect" parent="Objects/MovingPlatform/AnimatableBody2D" index="1" unique_id=1810313545]
 offset_left = -64.0
@@ -119,7 +121,7 @@ offset_right = 64.0
 offset_bottom = 64.0
 
 [node name="MovingPlatform2" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="1" unique_id=1555504884 instance=ExtResource("2_5sl8d")]
-curve = SubResource("Curve2D_no70e")
+curve = SubResource("Curve2D_qy0kv")
 time = 3.0
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform2" index="0" unique_id=199652958]
@@ -133,7 +135,7 @@ position = Vector2(2784, -2496)
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform2/AnimatableBody2D" index="0" unique_id=388684668]
 position = Vector2(32, 0)
-shape = SubResource("RectangleShape2D_3gqnt")
+shape = SubResource("RectangleShape2D_df2o4")
 
 [node name="NinePatchRect" parent="Objects/MovingPlatform2/AnimatableBody2D" index="1" unique_id=1810313545]
 offset_left = -64.0
@@ -163,7 +165,7 @@ dest_room = "wrench_large"
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-848, -112)
-shape = SubResource("RectangleShape2D_qy0kv")
+shape = SubResource("RectangleShape2D_7g511")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-672, 0)
@@ -181,7 +183,7 @@ dest_room = "perchrit"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(4784, -2672)
-shape = SubResource("RectangleShape2D_df2o4")
+shape = SubResource("RectangleShape2D_mrjrx")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(4576, -2528)
@@ -199,7 +201,7 @@ conversation = ExtResource("6_gold3")
 
 [node name="CollisionShape2D" parent="DialogueTrigger" index="0" unique_id=354673692]
 position = Vector2(251, -38.5)
-shape = SubResource("RectangleShape2D_7g511")
+shape = SubResource("RectangleShape2D_ojudb")
 
 [editable path="Objects/MovingPlatform"]
 [editable path="Objects/MovingPlatform2"]

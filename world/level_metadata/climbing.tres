@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LevelMeta" format=3 uid="uid://bpgun14ihlk8t"]
+
+[ext_resource type="Script" uid="uid://bfbje6mffxe0g" path="res://world/level/level_meta.gd" id="1_a437h"]
+
+[resource]
+script = ExtResource("1_a437h")
+level_name = "Climbing"
+music_for_this_room = "uid://86wyqwb0rs5n"
+scene_path = "res://rooms/6_wrench/room_climbing.scn"
+metadata/_custom_type_script = "uid://bfbje6mffxe0g"

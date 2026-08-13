@@ -2,29 +2,31 @@
 
 [ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room_template.tscn" id="1_w34k8"]
 [ext_resource type="PackedScene" uid="uid://bg6j40ftax5ji" path="res://objects/black_hole/black_hole.tscn" id="2_8pjew"]
+[ext_resource type="Resource" uid="uid://cd4lj071ni2uk" path="res://world/level_metadata/black_hole_angle.tres" id="2_bsdrt"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="3_njbt8"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_njbt8"]
-resource_local_to_scene = true
-size = Vector2(3744, 2848)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bsdrt"]
 resource_local_to_scene = true
-size = Vector2(64, 260)
+size = Vector2(3744, 2848)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5qvtr"]
+resource_local_to_scene = true
+size = Vector2(64, 260)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02wbv"]
 resource_local_to_scene = true
 size = Vector2(192, 320)
 
 [node name="RoomBlackHoleAngle" unique_id=201273727 instance=ExtResource("1_w34k8")]
-music_for_this_room = "uid://cv4s6btmi0mj4"
+music_for_this_room = "uid://86wyqwb0rs5n"
+level_metadata = ExtResource("2_bsdrt")
 
 [node name="CameraBounds" parent="." index="1" unique_id=711655567]
 visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(1040, -1200)
-shape = SubResource("RectangleShape2D_njbt8")
+shape = SubResource("RectangleShape2D_bsdrt")
 
 [node name="BlackHole" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="0" unique_id=1656602204 instance=ExtResource("2_8pjew")]
 position = Vector2(224, -192)
@@ -42,7 +44,7 @@ dest_room = "black_hole"
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-928, -130)
-shape = SubResource("RectangleShape2D_bsdrt")
+shape = SubResource("RectangleShape2D_5qvtr")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-768, 0)
@@ -60,7 +62,7 @@ dest_room = "wait"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(3072, -1632)
-shape = SubResource("RectangleShape2D_5qvtr")
+shape = SubResource("RectangleShape2D_02wbv")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(2848, -1472)

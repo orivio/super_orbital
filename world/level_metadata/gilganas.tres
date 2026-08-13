@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LevelMeta" format=3 uid="uid://b0nmkttpgqra7"]
+
+[ext_resource type="Script" uid="uid://bfbje6mffxe0g" path="res://world/level/level_meta.gd" id="1_qq0fn"]
+
+[resource]
+script = ExtResource("1_qq0fn")
+level_name = "Gilganas"
+music_for_this_room = "uid://86wyqwb0rs5n"
+scene_path = "res://rooms/7_black_hole/room_gilganas.tscn"
+metadata/_custom_type_script = "uid://bfbje6mffxe0g"
