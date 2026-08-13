@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="Conversation" format=3 uid="uid://dmo1tc7nogwoa"]
+
+[ext_resource type="Script" uid="uid://b2364himxu4dy" path="res://dialogue/conversation/dialogue_line.gd" id="1_0xj1j"]
+[ext_resource type="Resource" uid="uid://brd2h8hldg5ns" path="res://dialogue/speaker/assistant/assistant.tres" id="2_36mb8"]
+[ext_resource type="Script" uid="uid://cqhvq0ub0apwo" path="res://dialogue/conversation/conversation.gd" id="2_80eyr"]
+[ext_resource type="Resource" uid="uid://cxumxe1t5kb2i" path="res://dialogue/speaker/sad_guy/sad_guy.tres" id="3_36mb8"]
+
+[sub_resource type="Resource" id="Resource_36mb8"]
+script = ExtResource("1_0xj1j")
+speaker = ExtResource("2_36mb8")
+text = "..."
+animation = &"think"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_4jrdv"]
+script = ExtResource("1_0xj1j")
+speaker = ExtResource("2_36mb8")
+text = "This shouldn't be possible..."
+animation = &"disappointed"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_i8xm3"]
+script = ExtResource("1_0xj1j")
+speaker = ExtResource("2_36mb8")
+text = "Whoever made this facility somehow managed to make compact black holes to use as defense measures..."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_qossp"]
+script = ExtResource("1_0xj1j")
+speaker = ExtResource("2_36mb8")
+text = "However... we should be able to use your dash jets to work around this..."
+animation = &"think"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_5s4a7"]
+script = ExtResource("1_0xj1j")
+speaker = ExtResource("2_36mb8")
+text = "When you are in the radius of the black hole, press {jump} to float closer to it, and {down} to move away from it."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_v6n74"]
+script = ExtResource("1_0xj1j")
+speaker = ExtResource("2_36mb8")
+text = "You can use its orbit to your advantage. Propel yourself forward using a slingshot mechanism."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_0g5fu"]
+script = ExtResource("1_0xj1j")
+speaker = ExtResource("3_36mb8")
+side = -1
+text = "Uh... sounds tricky..."
+animation = &"frustrated"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[resource]
+script = ExtResource("2_80eyr")
+lines = Array[ExtResource("1_0xj1j")]([SubResource("Resource_36mb8"), SubResource("Resource_4jrdv"), SubResource("Resource_i8xm3"), SubResource("Resource_qossp"), SubResource("Resource_5s4a7"), SubResource("Resource_v6n74"), SubResource("Resource_0g5fu")])
+metadata/_custom_type_script = "uid://cqhvq0ub0apwo"

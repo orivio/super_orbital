@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Conversation" format=3 uid="uid://dlphu4xd2ftuf"]
+
+[ext_resource type="Script" uid="uid://b2364himxu4dy" path="res://dialogue/conversation/dialogue_line.gd" id="1_dxbqy"]
+[ext_resource type="Script" uid="uid://cqhvq0ub0apwo" path="res://dialogue/conversation/conversation.gd" id="2_6upv3"]
+[ext_resource type="Resource" uid="uid://brd2h8hldg5ns" path="res://dialogue/speaker/assistant/assistant.tres" id="2_omdet"]
+
+[sub_resource type="Resource" id="Resource_omdet"]
+script = ExtResource("1_dxbqy")
+speaker = ExtResource("2_omdet")
+text = "Careful. The area ahead appears to be a sort of high-security facility. Looks like hostile life may actually be a concern after all."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[resource]
+script = ExtResource("2_6upv3")
+lines = Array[ExtResource("1_dxbqy")]([SubResource("Resource_omdet")])
+metadata/_custom_type_script = "uid://cqhvq0ub0apwo"
