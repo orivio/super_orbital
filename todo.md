@@ -7,20 +7,22 @@ Russlan:
 - Make an image for the title
 
 Obed:
-- Fix the text shifting on the buttons
 - I might want to make some cool environmental effects, such as frost, dust storms, etc... really just because its fun to make stuff like that
 	- Finish the hoodoo drawings
 		- Not right now, wait until we have a plan for the environmental areas of the game
+- Add variation to tileset
+- Refine room_gilganas (it just kind of feels like a boring level when it has a lot of potential)
+- Add more black hole levels
+- Refine the black hole mechanic
+- Add more settings to the in game menu
 - Make black holes look better
 	- A black hole effect would look better if there's a background to warp and distort. Maybe we should make that.
-- Maybe a jump sound effect
-- Refine the black hole mechanic
-- Add more black hole levels
-- Add more settings to the in game menu
-- Refine room_gilganas (it just kind of feels like a boring level when it has a lot of potential)
+	- Man, I don't really know how.
 - Make the level select screen start on the page where your last completed level is
+- Fix the text shifting on the buttons
 - Fix bug where upon unlocking the dash or gravity switch ability for the first time, you will dash or gravity switch immediately after unlocking the ability, even if you didn't press any key for it
-- Add variation to tileset
+
+
 
 Both, or whoever wants to:
 - We should map out the different environments in our game so we know where to put which visuals
@@ -33,7 +35,6 @@ Both, or whoever wants to:
 		- A bright outdoor area with cliffs
 - Make a better favicon
 	- I think we have something good
-- Design and animate cutscenes
 - Make sound effects for movement, ui, and dialogue
 - Finish room_climbing
 
@@ -42,3 +43,5 @@ Stuff more later (after stardance):
 - Make room transitions seamless and have the camera quickly shift like in Celeste or Zelda
 - Make the level select screen look cooler by sliding the level marker grid across (actually kind of the same effect as the above point) if you know what I mean
 - Make challenge levels
+- Design and animate cutscenes
+	- I mean, we COULD do it during stardance if we wanted to. But it might feel rushed.
