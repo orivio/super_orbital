@@ -28,6 +28,7 @@ script = ExtResource("1_6r8g4")
 highlighted_texture = SubResource("AtlasTexture_e2udh")
 normal_texture = SubResource("AtlasTexture_ysqwv")
 selected_texture = SubResource("AtlasTexture_7j5yd")
+rotate_speed = 90.0
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1574220282]
 layout_mode = 0

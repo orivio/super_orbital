@@ -21,10 +21,6 @@ Obed:
 - Add more settings to the in game menu
 - Refine room_gilganas (it just kind of feels like a boring level when it has a lot of potential)
 - Make the level select screen start on the page where your last completed level is
-- Let the player go back to old levels
-	- Finish the ui on the level select screen
-	- Let the player select a level marker, and then click play.
-		- Double clicking starts the game immediately, single clicking selects the level, and when you press play, the game starts
 - Fix bug where upon unlocking the dash or gravity switch ability for the first time, you will dash or gravity switch immediately after unlocking the ability, even if you didn't press any key for it
 - Add variation to tileset
 

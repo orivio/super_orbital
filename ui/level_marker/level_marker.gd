@@ -9,6 +9,7 @@ signal level_start(level_name: String)
 @export var highlighted_texture: Texture
 @export var normal_texture: Texture
 @export var selected_texture: Texture
+@export var rotate_speed: float
 
 
 var mouse_in: bool
@@ -22,6 +23,13 @@ var is_selected: bool
 
 func _ready() -> void:
 	texture_rect.texture = normal_texture
+
+func _process(delta: float) -> void:
+	pass
+	# TODO: I think the effect looks good, but in order to really make it work,
+	# I would need to do some more fancy stuff involving Tweens
+	#if is_selected:
+	#	texture_rect.rotation_degrees += delta * rotate_speed
 
 func _on_mouse_entered() -> void:
 	mouse_in = true
