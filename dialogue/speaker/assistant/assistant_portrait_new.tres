@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://bs1efxnl38kyf"]
 
-[ext_resource type="Texture2D" uid="uid://byl1b2mo0mfm4" path="res://dialogue/speaker/assistant/assistant_new.png" id="1_vyed8"]
+[ext_resource type="Texture2D" uid="uid://byl1b2mo0mfm4" path="res://dialogue/speaker/assistant/assisstant.png" id="1_vyed8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ye35s"]
 atlas = ExtResource("1_vyed8")
@@ -9,6 +9,10 @@ region = Rect2(96, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_vyed8"]
 atlas = ExtResource("1_vyed8")
 region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrnsr"]
+atlas = ExtResource("1_vyed8")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jrenx"]
 atlas = ExtResource("1_vyed8")
@@ -42,6 +46,14 @@ animations = [{
 }],
 "loop": 1,
 "name": &"disappointed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrnsr")
+}],
+"loop": 1,
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{

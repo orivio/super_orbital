@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://go521ili7430"
-path="res://.godot/imported/assistant.png-c082cca17094ee22ed8a1aff0416b121.ctex"
+uid="uid://byl1b2mo0mfm4"
+path="res://.godot/imported/assisstant.png-fbce59780ea885a9a8141341ada5720e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dialogue/speaker/assistant/assistant.png"
-dest_files=["res://.godot/imported/assistant.png-c082cca17094ee22ed8a1aff0416b121.ctex"]
+source_file="res://dialogue/speaker/assistant/assisstant.png"
+dest_files=["res://.godot/imported/assisstant.png-fbce59780ea885a9a8141341ada5720e.ctex"]
 
 [params]
 
