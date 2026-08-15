@@ -2,35 +2,33 @@
 
 [ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room_template.tscn" id="1_tsdi7"]
 [ext_resource type="PackedScene" uid="uid://bg6j40ftax5ji" path="res://objects/black_hole/black_hole.tscn" id="2_3h7m8"]
-[ext_resource type="Resource" uid="uid://b0nmkttpgqra7" path="res://world/level_metadata/gilganas.tres" id="2_n0tqj"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="3_8sou3"]
 [ext_resource type="Script" uid="uid://bax8v55qomspc" path="res://rooms/7_black_hole/moving_black_hole.gd" id="3_hxf3s"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_443g2"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxf3s"]
 resource_local_to_scene = true
 size = Vector2(3680, 1568)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_po7hu"]
 radius = 1.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_voi6t"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0tqj"]
 resource_local_to_scene = true
 size = Vector2(64, 224)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0232"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_443g2"]
 resource_local_to_scene = true
 size = Vector2(64, 160)
 
 [node name="RoomGilganas" unique_id=201273727 instance=ExtResource("1_tsdi7")]
-music_for_this_room = "uid://86wyqwb0rs5n"
-level_metadata = ExtResource("2_n0tqj")
+music_for_this_room = "uid://cv4s6btmi0mj4"
 
 [node name="CameraBounds" parent="." index="1" unique_id=711655567]
 visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(752, -176)
-shape = SubResource("RectangleShape2D_443g2")
+shape = SubResource("RectangleShape2D_hxf3s")
 
 [node name="BlackHole" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="0" unique_id=1656602204 instance=ExtResource("2_3h7m8")]
 position = Vector2(-256, 224)
@@ -96,7 +94,7 @@ dest_room = "wait"
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-1184, 240)
-shape = SubResource("RectangleShape2D_voi6t")
+shape = SubResource("RectangleShape2D_n0tqj")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-1024, 352)
@@ -113,7 +111,7 @@ dest_door_tag = "WestDoor"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(2688, 80)
-shape = SubResource("RectangleShape2D_e0232")
+shape = SubResource("RectangleShape2D_443g2")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(2528, 160)

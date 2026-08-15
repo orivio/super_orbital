@@ -1,11 +1,9 @@
 @tool
-class_name Room
-extends Node2D
+class_name Room extends Node2D
 
 signal room_door_entered(dest_room: String, dest_door_tag: String)
 
 @export_file("ogg") var music_for_this_room: String
-@export var level_metadata: LevelMeta
 
 @onready var camera_bounds: CollisionShape2D = $CameraBounds/CollisionShape2D
 @onready var doors: Node2D = $Doors
@@ -26,28 +24,6 @@ func _ready() -> void:
 		var rng = RandomNumberGenerator.new()
 		rng.seed = hash(scene_file_path)
 		color_rect.material.set_shader_parameter("offset", Vector2(rng.randf_range(-100000., 10000.), rng.randf_range(-100000., 10000.)))
-
-func sync_scene_path() -> void:
-	if not Engine.is_editor_hint():
-		push_error("Should not have to sync scene paths at runtime!")
-		return
-	
-	if not level_metadata:
-		push_error("Missing level metadata!")
-		return
-	
-	if not level_metadata.resource_path:
-		push_error("Level metadata has not been saved")
-		return
-	
-	if level_metadata.scene_path != scene_file_path:
-		level_metadata.scene_path = scene_file_path
-		ResourceSaver.save(level_metadata, level_metadata.resource_path)
-
-func _notification(what: int) -> void:
-	match what:
-		NOTIFICATION_EDITOR_PRE_SAVE:
-			sync_scene_path()
 
 func _on_door_entered(dest_room: String, dest_door_tag: String):
 	room_door_entered.emit.call_deferred(dest_room, dest_door_tag)

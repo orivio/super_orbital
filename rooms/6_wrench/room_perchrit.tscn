@@ -2,31 +2,29 @@
 
 [ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room_template.tscn" id="1_3wbge"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="2_5ow3w"]
-[ext_resource type="Resource" uid="uid://bojqfuhb72enb" path="res://world/level_metadata/perchrit.tres" id="2_odi4p"]
 [ext_resource type="TileSet" uid="uid://bnrmi5xqiqb0w" path="res://world/tilesets/slightly_better_tileset.tres" id="2_tc3bi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_odi4p"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tc3bi"]
 resource_local_to_scene = true
 size = Vector2(2976, 2112)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmchb"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odi4p"]
 resource_local_to_scene = true
 size = Vector2(64, 160)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvnhc"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmchb"]
 resource_local_to_scene = true
 size = Vector2(416, 192)
 
 [node name="RoomPerchrit" unique_id=201273727 instance=ExtResource("1_3wbge")]
-music_for_this_room = "uid://bnhyy2akdat4u"
-level_metadata = ExtResource("2_odi4p")
+music_for_this_room = "uid://cv4s6btmi0mj4"
 
 [node name="CameraBounds" parent="." index="1" unique_id=711655567]
 visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(720, -160)
-shape = SubResource("RectangleShape2D_odi4p")
+shape = SubResource("RectangleShape2D_tc3bi")
 
 [node name="BackgroundParallax" parent="." index="2" unique_id=1350709603]
 visible = true
@@ -65,7 +63,7 @@ dest_room = "cant_stop"
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-864, -80)
-shape = SubResource("RectangleShape2D_jmchb")
+shape = SubResource("RectangleShape2D_odi4p")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-704, 0)
@@ -83,7 +81,7 @@ dest_room = "climbing"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(2480, 0)
-shape = SubResource("RectangleShape2D_qvnhc")
+shape = SubResource("RectangleShape2D_jmchb")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(2144, 96)

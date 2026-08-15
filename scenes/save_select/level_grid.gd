@@ -3,7 +3,7 @@ extends Control
 
 
 const LEVEL_MARKER: PackedScene = preload("res://ui/level_marker/level_marker.tscn")
-const LEVEL_DIRECTORY: LevelDirectory = preload("res://world/global_level_directory.tres")
+
 
 var selected_number: int = 0
 var last_save_file: SaveFile
@@ -18,10 +18,10 @@ func update_visuals(save_file: SaveFile) -> void:
 	for node in grid_container.get_children():
 		node.queue_free()
 	
-	for count in range(selected_number * 15, min(selected_number * 15 + 15, LEVEL_DIRECTORY.levels.size())):
+	for count in range(selected_number * 15, min(selected_number * 15 + 15, GameManager.rooms.keys().size())):
 		var level_marker_instance: Control = LEVEL_MARKER.instantiate()
 		grid_container.add_child(level_marker_instance)
-		level_marker_instance.get_node("Label").text = LEVEL_DIRECTORY.levels.get(count).level_name
+		level_marker_instance.get_node("Label").text = GameManager.rooms.keys()[count]
 	
 	last_save_file = save_file
 
@@ -36,7 +36,7 @@ func _on_left_button_button_down() -> void:
 
 func _on_right_button_button_down() -> void:
 	selected_number += 1
-	if selected_number * 15 - 1 > LEVEL_DIRECTORY.levels.size():
+	if selected_number * 15 - 1 > GameManager.rooms.keys().size():
 		selected_number -= 1
 		return
 	

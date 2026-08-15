@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://dteyafc74ycrl"]
 
 [ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room_template.tscn" id="1_vg2pm"]
-[ext_resource type="Resource" uid="uid://ck8fhs2gwf3x" path="res://world/level_metadata/move.tres" id="2_75emx"]
 [ext_resource type="PackedScene" uid="uid://cv2o8lyusltah" path="res://poi/tooltip_field/tooltip_field.tscn" id="2_tnobc"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="3_3v0w7"]
 [ext_resource type="PackedScene" uid="uid://lf2gvhqkoyd6" path="res://poi/dialogue_trigger/dialogue_trigger.tscn" id="3_k6ex2"]
@@ -32,7 +31,6 @@ size = Vector2(64, 96)
 
 [node name="RoomMove" unique_id=201273727 instance=ExtResource("1_vg2pm")]
 music_for_this_room = "uid://86wyqwb0rs5n"
-level_metadata = ExtResource("2_75emx")
 
 [node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
 position = Vector2(560, -304)

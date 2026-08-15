@@ -3,48 +3,46 @@
 [ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room_template.tscn" id="1_h3x7e"]
 [ext_resource type="PackedScene" uid="uid://bg6j40ftax5ji" path="res://objects/black_hole/black_hole.tscn" id="2_5xoju"]
 [ext_resource type="PackedScene" uid="uid://bjec8jk85hnki" path="res://poi/progress_detector/progress_detector.tscn" id="2_fkule"]
-[ext_resource type="Resource" uid="uid://cpmc5ptui36y0" path="res://world/level_metadata/black_hole.tres" id="2_j35qt"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="2_kftim"]
 [ext_resource type="PackedScene" uid="uid://lf2gvhqkoyd6" path="res://poi/dialogue_trigger/dialogue_trigger.tscn" id="5_xdvb1"]
 [ext_resource type="Resource" uid="uid://dmo1tc7nogwoa" path="res://dialogue/scripts/black_hole.tres" id="6_j35qt"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dt5x"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkule"]
 resource_local_to_scene = true
 size = Vector2(3008, 1216)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qin20"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qa4ds"]
 resource_local_to_scene = true
 size = Vector2(128, 320)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3eor"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdvb1"]
 resource_local_to_scene = true
 size = Vector2(192, 96)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x62e0"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j35qt"]
 resource_local_to_scene = true
 size = Vector2(96, 192)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmual"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dt5x"]
 resource_local_to_scene = true
 size = Vector2(163, 123)
 
 [node name="RoomBlackHole" unique_id=201273727 instance=ExtResource("1_h3x7e")]
-music_for_this_room = "uid://86wyqwb0rs5n"
-level_metadata = ExtResource("2_j35qt")
+music_for_this_room = "uid://cv4s6btmi0mj4"
 
 [node name="CameraBounds" parent="." index="1" unique_id=711655567]
 visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(832, -288)
-shape = SubResource("RectangleShape2D_8dt5x")
+shape = SubResource("RectangleShape2D_fkule")
 
 [node name="ProgressDetector" parent="POI" parent_id_path=PackedInt32Array(809409572) index="0" unique_id=1408990158 instance=ExtResource("2_fkule")]
 progress_name = &"Black Hole Navigation"
 
 [node name="CollisionShape2D" parent="POI/ProgressDetector" index="0" unique_id=1008791462]
 position = Vector2(2304, -64)
-shape = SubResource("RectangleShape2D_qin20")
+shape = SubResource("RectangleShape2D_qa4ds")
 
 [node name="BlackHole" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="0" unique_id=67489551 instance=ExtResource("2_5xoju")]
 position = Vector2(96, 0)
@@ -71,7 +69,7 @@ dest_room = "climbing"
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-832, 16)
-shape = SubResource("RectangleShape2D_g3eor")
+shape = SubResource("RectangleShape2D_xdvb1")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-608, 64)
@@ -89,7 +87,7 @@ dest_room = "black_hole_angle"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(2448, -32)
-shape = SubResource("RectangleShape2D_x62e0")
+shape = SubResource("RectangleShape2D_j35qt")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(2272, 64)
@@ -105,7 +103,7 @@ conversation = ExtResource("6_j35qt")
 
 [node name="CollisionShape2D" parent="DialogueTrigger" index="0" unique_id=354673692]
 position = Vector2(-177.5, 6)
-shape = SubResource("RectangleShape2D_dmual")
+shape = SubResource("RectangleShape2D_8dt5x")
 
 [editable path="POI/ProgressDetector"]
 [editable path="Doors/WestDoor"]

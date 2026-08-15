@@ -38,9 +38,6 @@ var rooms: Dictionary[String, String] = {
 	"gilganas": "uid://b3tyqkjoa3prk"
 }
 
-var global_level_directory: LevelDirectory = preload("res://world/global_level_directory.tres")
-var unlocked_room_count: int
-
 func _ready() -> void:
 	progress_attained.connect(SaveManager._on_progress_attained)
 	get_window().min_size = Vector2i(900, 500)
