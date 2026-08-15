@@ -18,9 +18,14 @@ var last_save_file: SaveFile
 @onready var right_button: Button = $HBoxContainer/RightButton
 
 
+func wipe_markers() -> void:
+	for node in grid_container.get_children():
+		node.queue_free()
+
 func update_visuals(save_file: SaveFile) -> void:
 	for node in grid_container.get_children():
 		node.queue_free()
+	
 	
 	var max_level_to_display: int = save_file.room_idx
 	

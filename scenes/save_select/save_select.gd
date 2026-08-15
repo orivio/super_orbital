@@ -104,7 +104,7 @@ func _on_delete_button_confirmation_accepted() -> void:
 	load_button.disabled = false
 	export_button.disabled = true
 	
-	level_grid.update_visuals(SaveManager.get_save_file())
+	level_grid.wipe_markers()
 	save_exists = false
 
 func _on_load_button_pressed() -> void:
