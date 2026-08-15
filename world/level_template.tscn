@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://dxwerplefht6a"]
 
-[ext_resource type="Script" uid="uid://b6ypyl2kdv5a6" path="res://world/room.gd" id="1_kbkjf"]
+[ext_resource type="Script" uid="uid://j48byha4hg4t" path="res://world/level.gd" id="1_1c7og"]
 [ext_resource type="Script" uid="uid://0wf2gyynjq3u" path="res://camera/camera_bounds.gd" id="2_gq2vv"]
 [ext_resource type="Shader" uid="uid://blpkw3ebgpvjk" path="res://world/background_rect.gdshader" id="2_tc1xl"]
 [ext_resource type="TileSet" uid="uid://bnrmi5xqiqb0w" path="res://world/tilesets/slightly_better_tileset.tres" id="3_gq2vv"]
+[ext_resource type="Script" uid="uid://cy04jobacqmk8" path="res://world/level_transition_container.gd" id="5_1c7og"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_inx5v"]
 shader = ExtResource("2_tc1xl")
@@ -19,8 +20,8 @@ shader_parameter/camera_offset = Vector2(0, 0)
 resource_local_to_scene = true
 size = Vector2(900, 500)
 
-[node name="RoomTemplate" type="Node2D" unique_id=201273727]
-script = ExtResource("1_kbkjf")
+[node name="Level" type="Node2D" unique_id=201273727]
+script = ExtResource("1_1c7og")
 
 [node name="Background" type="CanvasLayer" parent="." unique_id=862772847]
 layer = -1
@@ -71,3 +72,6 @@ collision_enabled = false
 [node name="Doors" type="Node2D" parent="." unique_id=1976013304]
 
 [node name="Effects" type="Node2D" parent="." unique_id=885905499]
+
+[node name="LevelTransitions" type="Node2D" parent="." unique_id=620139535]
+script = ExtResource("5_1c7og")

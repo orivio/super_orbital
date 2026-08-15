@@ -1,15 +1,29 @@
 [gd_scene format=3 uid="uid://du1f7wvx7aeqv"]
 
 [ext_resource type="Script" uid="uid://ov7ieco8cf5c" path="res://scenes/play/play.gd" id="1_3t680"]
-[ext_resource type="PackedScene" uid="uid://bue8sl4u53lvm" path="res://world/world.tscn" id="3_bq38n"]
+[ext_resource type="Script" uid="uid://cpkm62rf7pgwm" path="res://scenes/play/world_new.gd" id="2_damvd"]
+[ext_resource type="PackedScene" uid="uid://d0xbwpfoe4xkm" path="res://player/player.tscn" id="2_kpfyx"]
 [ext_resource type="PackedScene" uid="uid://g3yxdhn1vnnn" path="res://dialogue/dialogue_system.tscn" id="3_fxwjs"]
+[ext_resource type="PackedScene" uid="uid://wc0ql66giloh" path="res://camera/player_camera.tscn" id="3_tdyfg"]
+[ext_resource type="PackedScene" uid="uid://dvjxvisrrqfer" path="res://ui/effects/fade_effect.tscn" id="4_1phcp"]
 
-[node name="Play" type="Node2D" unique_id=1914774002]
+[node name="Play" type="Node2D" unique_id=1914774002 node_paths=PackedStringArray("new_world")]
 script = ExtResource("1_3t680")
 pause_menu_enter_duration = 0.5
 pause_menu_exit_duration = 0.5
+new_world = NodePath("World")
 
-[node name="World" parent="." unique_id=1899629397 instance=ExtResource("3_bq38n")]
+[node name="World" type="Node2D" parent="." unique_id=52996002]
+script = ExtResource("2_damvd")
+transition_fade_duration = 0.5
+
+[node name="CurrentLevelContainer" type="Node2D" parent="World" unique_id=662433311]
+
+[node name="Player" parent="World" unique_id=1158454686 instance=ExtResource("2_kpfyx")]
+
+[node name="PlayerCamera" parent="World" unique_id=1414906739 instance=ExtResource("3_tdyfg")]
+
+[node name="FadeEffect" parent="World" unique_id=1477421051 instance=ExtResource("4_1phcp")]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1889452343]
 

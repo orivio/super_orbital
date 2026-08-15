@@ -1,8 +1,9 @@
 [gd_scene format=4 uid="uid://b7mth0jcnis7i"]
 
-[ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room_template.tscn" id="1_gs45e"]
+[ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/level_template.tscn" id="1_gs45e"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="2_8v15h"]
 [ext_resource type="Resource" uid="uid://6wq74178f621" path="res://world/level_metadata/ladder.tres" id="2_16xeo"]
+[ext_resource type="PackedScene" uid="uid://7q0weygp4gex" path="res://world/level_transition/level_transition.tscn" id="4_jsqiu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gopij"]
 resource_local_to_scene = true
@@ -17,7 +18,6 @@ resource_local_to_scene = true
 size = Vector2(128, 96)
 
 [node name="RoomLadder" unique_id=201273727 instance=ExtResource("1_gs45e")]
-music_for_this_room = "uid://86wyqwb0rs5n"
 level_metadata = ExtResource("2_16xeo")
 
 [node name="CameraBounds" parent="." index="1" unique_id=711655567]
@@ -72,6 +72,19 @@ offset_left = 1100.0
 offset_top = -1000.0
 offset_right = 1200.0
 offset_bottom = -900.0
+
+[node name="LevelTransitions" parent="." index="9" unique_id=620139535 node_paths=PackedStringArray("west_transition", "east_transition")]
+west_transition = NodePath("LevelTransition_West")
+east_transition = NodePath("LevelTransition_East")
+
+[node name="LevelTransition_West" parent="LevelTransitions" index="0" unique_id=667450850 instance=ExtResource("4_jsqiu")]
+position = Vector2(-384, 0)
+direction = -1
+height = 6
+
+[node name="LevelTransition_East" parent="LevelTransitions" index="1" unique_id=438523374 instance=ExtResource("4_jsqiu")]
+position = Vector2(1024, -768)
+height = 3
 
 [editable path="Doors/WestDoor"]
 [editable path="Doors/EastDoor"]

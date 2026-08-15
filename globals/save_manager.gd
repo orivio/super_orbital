@@ -36,6 +36,10 @@ func write_save_file() -> void:
 func get_save_file() -> SaveFile:
 	return save_file
 
+func level_changed(new_level_idx: int) -> void:
+	save_file.level_idx = new_level_idx
+	write_save_file()
+
 func _on_room_changed(room: String) -> void:
 	save_file.room = room
 	write_save_file()

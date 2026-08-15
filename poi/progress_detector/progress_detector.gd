@@ -11,5 +11,4 @@ func load_data_from_savefile(save_file: SaveFile) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player and not completed:
-		print("Hello!")
 		GameManager.attain_progress(progress_name)

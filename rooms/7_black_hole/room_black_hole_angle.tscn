@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://c8jrl1ckwxdxt"]
 
-[ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room_template.tscn" id="1_w34k8"]
+[ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/level_template.tscn" id="1_w34k8"]
 [ext_resource type="PackedScene" uid="uid://bg6j40ftax5ji" path="res://objects/black_hole/black_hole.tscn" id="2_8pjew"]
 [ext_resource type="Resource" uid="uid://cd4lj071ni2uk" path="res://world/level_metadata/black_hole_angle.tres" id="2_bsdrt"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="3_njbt8"]

@@ -38,7 +38,7 @@ var rooms: Dictionary[String, String] = {
 	"gilganas": "uid://b3tyqkjoa3prk"
 }
 
-var global_level_directory: LevelDirectory = preload("res://world/global_level_directory.tres")
+var level_dir: LevelDirectory = preload("res://world/global_level_directory.tres")
 var unlocked_room_count: int
 
 func _ready() -> void:
@@ -79,3 +79,9 @@ func room_exists(room: String) -> bool:
 
 func attain_progress(progress_name: StringName) -> void:
 	progress_attained.emit(progress_name)
+
+func get_level_meta(level_idx: int) -> LevelMeta:
+	return level_dir.levels[level_idx]
+
+func get_level_count() -> int:
+	return level_dir.levels.size()

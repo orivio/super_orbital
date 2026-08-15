@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://d1gjph7nxyegd"]
 
-[ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room_template.tscn" id="1_afhgu"]
+[ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/level_template.tscn" id="1_afhgu"]
 [ext_resource type="Resource" uid="uid://83bdivv3pj4i" path="res://world/level_metadata/change_direction.tres" id="2_4wqkw"]
 [ext_resource type="Texture2D" uid="uid://c575jclbyafvj" path="res://objects/backgrounds/sky.png" id="2_6is15"]
 [ext_resource type="PackedScene" uid="uid://b2ogi0ekm1d7i" path="res://objects/moving_platform/moving_platform.tscn" id="2_cghsj"]

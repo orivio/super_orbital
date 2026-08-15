@@ -6,6 +6,7 @@ const PAUSE_MENU: PackedScene = preload("res://scenes/pause_menu/pause_menu.tscn
 
 @export var pause_menu_enter_duration: float
 @export var pause_menu_exit_duration: float
+@export var new_world: World_New
 
 
 var pause_menu: PauseMenu = null
@@ -13,12 +14,13 @@ var pause_menu_enter_tween: Tween
 var pause_menu_exit_tween: Tween
 
 
-@onready var world: World = $World
+#@onready var world: World = $World
 @onready var ui_layer: CanvasLayer = $UI
 
 
 func _ready() -> void:
-	world.init_room()
+	#world.init_room()
+	new_world.initialize(SaveManager.get_save_file())
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"): #set timescale to zero when pausing, where do i add this?

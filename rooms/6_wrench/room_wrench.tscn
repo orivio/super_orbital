@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://drwajwykhe8mb"]
 
-[ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room_template.tscn" id="1_4rm83"]
+[ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/level_template.tscn" id="1_4rm83"]
 [ext_resource type="Resource" uid="uid://d2ehv2as14op" path="res://world/level_metadata/wrench.tres" id="2_m0vqb"]
 [ext_resource type="Texture2D" uid="uid://b45q58rb13vmb" path="res://objects/backgrounds/hoodoo_1.png" id="2_tmw20"]
 [ext_resource type="Texture2D" uid="uid://dhy5v611npmn8" path="res://objects/backgrounds/hoodoo_0.png" id="2_vrken"]

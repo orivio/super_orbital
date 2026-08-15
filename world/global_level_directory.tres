@@ -26,9 +26,8 @@
 [ext_resource type="Resource" uid="uid://cpmc5ptui36y0" path="res://world/level_metadata/black_hole.tres" id="23_7iwrf"]
 [ext_resource type="Resource" uid="uid://cd4lj071ni2uk" path="res://world/level_metadata/black_hole_angle.tres" id="24_ads8b"]
 [ext_resource type="Resource" uid="uid://c72ac4oqheuwy" path="res://world/level_metadata/wait.tres" id="25_23sip"]
-[ext_resource type="Resource" uid="uid://b0nmkttpgqra7" path="res://world/level_metadata/gilganas.tres" id="26_sfri7"]
 
 [resource]
 script = ExtResource("2_cuwvp")
-levels = Array[ExtResource("1_lyrk4")]([ExtResource("2_wyysv"), ExtResource("3_nlgmp"), ExtResource("4_f6fd0"), ExtResource("5_f6fd0"), ExtResource("6_i5nmh"), ExtResource("7_i5nmh"), ExtResource("8_b3olt"), ExtResource("9_ey8kq"), ExtResource("10_ey8kq"), ExtResource("11_5u5mt"), ExtResource("12_oifsm"), ExtResource("13_begu1"), ExtResource("14_qiqwi"), ExtResource("15_7ihy6"), ExtResource("16_fqjia"), ExtResource("17_ytqaa"), ExtResource("18_7ihy6"), ExtResource("19_ytqaa"), ExtResource("20_ioqim"), ExtResource("21_xi6m2"), ExtResource("22_7iwrf"), ExtResource("23_7iwrf"), ExtResource("24_ads8b"), ExtResource("25_23sip"), ExtResource("26_sfri7")])
+levels = Array[ExtResource("1_lyrk4")]([ExtResource("2_wyysv"), ExtResource("3_nlgmp"), ExtResource("4_f6fd0"), ExtResource("5_f6fd0"), ExtResource("6_i5nmh"), ExtResource("7_i5nmh"), ExtResource("8_b3olt"), ExtResource("9_ey8kq"), ExtResource("10_ey8kq"), ExtResource("11_5u5mt"), ExtResource("12_oifsm"), ExtResource("13_begu1"), ExtResource("14_qiqwi"), ExtResource("15_7ihy6"), ExtResource("16_fqjia"), ExtResource("17_ytqaa"), ExtResource("18_7ihy6"), ExtResource("19_ytqaa"), ExtResource("20_ioqim"), ExtResource("21_xi6m2"), ExtResource("22_7iwrf"), ExtResource("23_7iwrf"), ExtResource("24_ads8b"), ExtResource("25_23sip")])
 metadata/_custom_type_script = "uid://b4ojjvhrhj5ll"

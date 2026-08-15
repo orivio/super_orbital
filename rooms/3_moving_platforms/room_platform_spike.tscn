@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dtohxckxanqyl"]
 
-[ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room_template.tscn" id="1_ytpem"]
+[ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/level_template.tscn" id="1_ytpem"]
 [ext_resource type="Resource" uid="uid://c433ukxwmjq3x" path="res://world/level_metadata/platform_spike.tres" id="2_500ak"]
 [ext_resource type="PackedScene" uid="uid://b2ogi0ekm1d7i" path="res://objects/moving_platform/moving_platform.tscn" id="2_k5i0n"]
 [ext_resource type="PackedScene" uid="uid://bjec8jk85hnki" path="res://poi/progress_detector/progress_detector.tscn" id="2_srcvx"]
