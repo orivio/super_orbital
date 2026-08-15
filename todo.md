@@ -4,6 +4,7 @@ Russlan:
 - Make more OST
 - Assess the progression and difficulty of the levels
 - Test the camera
+- Make an image for the title
 
 Obed:
 - Fix potential bug in the bottom part of the tilemap when dialogue starts in room_spike
@@ -14,7 +15,6 @@ Obed:
 - Redo the moving platforms in room_momentum
 - Make black holes look better
 	- A black hole effect would look better if there's a background to warp and distort. Maybe we should make that.
-- Make an image for the title
 - Maybe a jump sound effect
 - Refine the black hole mechanic
 - Add more black hole levels

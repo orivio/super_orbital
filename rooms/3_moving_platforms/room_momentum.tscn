@@ -33,7 +33,7 @@ size = Vector2(128, 64)
 [sub_resource type="Curve2D" id="Curve2D_fxes5"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1311, 256, 0, 0, 0, 0, 1312, -96)
+"points": PackedVector2Array(0, 0, 0, 0, 1311, 256, 0, 0, 0, 0, 1312, -160)
 }
 point_count = 2
 
@@ -44,7 +44,7 @@ size = Vector2(128, 128)
 [sub_resource type="Curve2D" id="Curve2D_2nfr7"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1568, 480, 0, 0, 0, 0, 1568, -96)
+"points": PackedVector2Array(0, 0, 0, 0, 1568, 480, 0, 0, 0, 0, 1568, -32)
 }
 point_count = 2
 
@@ -55,7 +55,7 @@ size = Vector2(128, 128)
 [sub_resource type="Curve2D" id="Curve2D_b3vdr"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1824, 234, 0, 0, 0, 0, 1824, -96)
+"points": PackedVector2Array(0, 0, 0, 0, 1824, 320, 0, 0, 0, 0, 1824, -96)
 }
 point_count = 2
 
@@ -66,7 +66,7 @@ size = Vector2(128, 128)
 [sub_resource type="Curve2D" id="Curve2D_se482"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 2080, 218, 0, 0, 0, 0, 2080, -96)
+"points": PackedVector2Array(0, 0, 0, 0, 2080, 279, 0, 0, 0, 0, 2080, -96)
 }
 point_count = 2
 
@@ -133,7 +133,7 @@ offset_right = 64.0
 
 [node name="MovingPlatform3" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="2" unique_id=19278514 instance=ExtResource("2_8bsj8")]
 curve = SubResource("Curve2D_fxes5")
-time = 3.0
+time = 2.5
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform3" index="0" unique_id=199652958]
 position = Vector2(1311, 256)
@@ -157,7 +157,7 @@ offset_bottom = 64.0
 
 [node name="MovingPlatform4" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="3" unique_id=8111918 instance=ExtResource("2_8bsj8")]
 curve = SubResource("Curve2D_2nfr7")
-time = 3.0
+time = 2.5
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform4" index="0" unique_id=199652958]
 position = Vector2(1568, 128.00003)
@@ -182,7 +182,7 @@ offset_bottom = 64.0
 
 [node name="MovingPlatform5" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="4" unique_id=1153902006 instance=ExtResource("2_8bsj8")]
 curve = SubResource("Curve2D_b3vdr")
-time = 3.0
+time = 2.5
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform5" index="0" unique_id=199652958]
 position = Vector2(1824, -96)
@@ -208,11 +208,11 @@ offset_bottom = 64.0
 [node name="MovingPlatform6" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="5" unique_id=1131805096 instance=ExtResource("2_8bsj8")]
 position = Vector2(0, 137)
 curve = SubResource("Curve2D_se482")
-time = 3.0
+time = 2.5
 forward_direction = -1.0
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform6" index="0" unique_id=199652958]
-position = Vector2(2080, -96)
+position = Vector2(2080, -72.99991)
 rotation = -1.5707964
 progress = 351.99997
 
@@ -220,7 +220,7 @@ progress = 351.99997
 points = PackedVector2Array(2080, 218, 2080, 214.47363, 2080, 210.23816, 2080, 207.55264, 2080, 204.50781, 2080, 201.11801, 2080, 197.39758, 2080, 193.36095, 2080, 189.02246, 2080, 184.3965, 2080, 179.49744, 2080, 176.94998, 2080, 174.33965, 2080, 171.66823, 2080, 168.9375, 2080, 166.14928, 2080, 163.30537, 2080, 160.40756, 2080, 157.45764, 2080, 154.45741, 2080, 151.40868, 2080, 148.31323, 2080, 145.17285, 2080, 141.98935, 2080, 138.76454, 2080, 135.5002, 2080, 132.19812, 2080, 128.8601, 2080, 125.48796, 2080, 122.08348, 2080, 118.64844, 2080, 115.18465, 2080, 111.693924, 2080, 108.17804, 2080, 104.638794, 2080, 101.07799, 2080, 97.49742, 2080, 93.89888, 2080, 90.28418, 2080, 86.655106, 2080, 83.01344, 2080, 79.36101, 2080, 75.699585, 2080, 72.030975, 2080, 68.35698, 2080, 64.6794, 2080, 61, 2080, 57.320602, 2080, 53.64302, 2080, 49.969025, 2080, 46.300415, 2080, 42.638992, 2080, 38.986557, 2080, 35.344894, 2080, 31.71582, 2080, 28.10112, 2080, 24.502579, 2080, 20.922012, 2080, 17.361206, 2080, 13.82196, 2080, 10.306076, 2080, 6.815346, 2080, 3.3515625, 2080, -0.083473206, 2080, -3.4879608, 2080, -6.8601074, 2080, -10.19812, 2080, -13.500198, 2080, -16.764542, 2080, -19.98936, 2080, -23.172852, 2080, -26.313221, 2080, -29.408676, 2080, -32.457417, 2080, -35.45764, 2080, -38.40756, 2080, -41.305374, 2080, -44.14929, 2080, -46.9375, 2080, -49.668217, 2080, -52.339645, 2080, -54.949986, 2080, -57.497437, 2080, -62.3965, 2080, -67.02246, 2080, -71.36095, 2080, -75.39758, 2080, -79.118, 2080, -82.50781, 2080, -85.55266, 2080, -88.23816, 2080, -92.47363, 2080, -96)
 
 [node name="AnimatableBody2D" parent="Objects/MovingPlatform6" index="2" unique_id=886220012]
-position = Vector2(2080, -96)
+position = Vector2(2080, -72.99991)
 rotation = -1.5707964
 scale = Vector2(0.9999999, 0.99999964)
 

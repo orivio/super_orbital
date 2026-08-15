@@ -24,7 +24,7 @@ var is_selected: bool
 func _ready() -> void:
 	texture_rect.texture = normal_texture
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	# TODO: I think the effect looks good, but in order to really make it work,
 	# I would need to do some more fancy stuff involving Tweens
