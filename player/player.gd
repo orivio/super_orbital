@@ -173,7 +173,7 @@ func _physics_process(delta: float) -> void:
 		sprite.material.set_shader_parameter("gravity_state", 2)
 
 	state_machine.physics_process(delta)
-	if not state_machine.current_state is StateFloat and in_blackhole:
+	if not state_machine.current_state is StateFloat and not state_machine.current_state is StateWrench and in_blackhole:
 		GameManager.time_scale = 0.5
 		state_machine.change_state($StateMachine/BlackHole)
 	
