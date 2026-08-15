@@ -12,7 +12,6 @@ Obed:
 - I might want to make some cool environmental effects, such as frost, dust storms, etc... really just because its fun to make stuff like that
 	- Finish the hoodoo drawings
 		- Not right now, wait until we have a plan for the environmental areas of the game
-- Redo the moving platforms in room_momentum
 - Make black holes look better
 	- A black hole effect would look better if there's a background to warp and distort. Maybe we should make that.
 - Maybe a jump sound effect
