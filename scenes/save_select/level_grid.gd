@@ -3,6 +3,7 @@ extends Control
 
 
 signal level_grid_selected(name: String)
+signal play
 
 
 const LEVEL_MARKER: PackedScene = preload("res://ui/level_marker/level_marker.tscn")
@@ -30,6 +31,7 @@ func update_visuals(save_file: SaveFile) -> void:
 		level_marker_instance.get_node("Label").text = level_name
 		level_marker_instance.level_name = level_name
 		level_marker_instance.level_selected.connect(_on_level_selected)
+		level_marker_instance.level_start.connect(_on_level_start)
 		level_grid_selected.connect(level_marker_instance._on_other_level_selected)
 	last_save_file = save_file
 
@@ -53,4 +55,8 @@ func _on_right_button_button_down() -> void:
 func _on_level_selected(level_name: String) -> void:
 	SaveManager.select_level(level_name)
 	level_grid_selected.emit(level_name)
+	
+func _on_level_start(level_name: String) -> void:
+	SaveManager.select_level(level_name)
+	play.emit()
 	

@@ -120,3 +120,8 @@ func _on_export_button_pressed() -> void:
 
 func _on_export_file_selected(file: String) -> void:
 	SaveManager.export_to_file(file)
+
+
+func _on_level_grid_play() -> void:
+	await fade_effect.fade(play_fade_color, play_fade_duration).finished
+	get_tree().change_scene_to_file("res://scenes/play/play.tscn")

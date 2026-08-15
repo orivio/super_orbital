@@ -3,6 +3,7 @@ extends Control
 
 
 signal level_selected(level_name: String)
+signal level_start(level_name: String)
 
 
 @export var highlighted_texture: Texture
@@ -37,7 +38,9 @@ func _input(event: InputEvent) -> void:
 		mouse_down = true
 	if mouse_in and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_released():
 		mouse_down = false
-		if not is_selected:
+		if is_selected:
+			level_start.emit(level_name)
+		else:
 			level_selected.emit(level_name)
 			is_selected = true
 			texture_rect.texture = selected_texture

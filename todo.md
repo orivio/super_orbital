@@ -20,6 +20,7 @@ Obed:
 - Add more black hole levels
 - Add more settings to the in game menu
 - Refine room_gilganas (it just kind of feels like a boring level when it has a lot of potential)
+- Make the level select screen start on the page where your last completed level is
 - Let the player go back to old levels
 	- Finish the ui on the level select screen
 	- Let the player select a level marker, and then click play.

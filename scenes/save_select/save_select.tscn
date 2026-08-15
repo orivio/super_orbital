@@ -215,6 +215,7 @@ use_native_dialog = true
 [node name="FadeEffect" parent="." unique_id=1477421051 instance=ExtResource("7_oq148")]
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="play" from="PanelContainer/VBoxContainer/LevelGrid" to="." method="_on_level_grid_play"]
 [connection signal="button_down" from="PanelContainer/VBoxContainer/LevelGrid/HBoxContainer/LeftButton" to="PanelContainer/VBoxContainer/LevelGrid" method="_on_left_button_button_down"]
 [connection signal="button_down" from="PanelContainer/VBoxContainer/LevelGrid/HBoxContainer/RightButton" to="PanelContainer/VBoxContainer/LevelGrid" method="_on_right_button_button_down"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/NewButton" to="." method="_on_new_button_pressed"]
