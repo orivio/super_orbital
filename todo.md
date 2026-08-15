@@ -41,3 +41,9 @@ Both, or whoever wants to:
 - Design and animate cutscenes
 - Make sound effects for movement, ui, and dialogue
 - Finish room_climbing
+
+
+Stuff more later (after stardance):
+- Make room transitions seamless and have the camera quickly shift like in Celeste or Zelda
+- Make the level select screen look cooler by sliding the level marker grid across (actually kind of the same effect as the above point) if you know what I mean
+- Make challenge levels

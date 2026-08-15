@@ -1,6 +1,19 @@
 [gd_scene format=3 uid="uid://csc4f72wg0shx"]
 
+[ext_resource type="Script" uid="uid://dtnqhdn1ww5ue" path="res://ui/level_marker/level_marker.gd" id="1_6r8g4"]
 [ext_resource type="Texture2D" uid="uid://clwfg4ds2ifqm" path="res://ui/level_marker/level_marker.png" id="1_sl80p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2udh"]
+atlas = ExtResource("1_sl80p")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysqwv"]
+atlas = ExtResource("1_sl80p")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j5yd"]
+atlas = ExtResource("1_sl80p")
+region = Rect2(128, 0, 64, 64)
 
 [node name="LevelMarker" type="Control" unique_id=780268325]
 custom_minimum_size = Vector2(160, 144)
@@ -11,6 +24,10 @@ offset_top = -72.0
 offset_right = 80.0
 offset_bottom = 72.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
+script = ExtResource("1_6r8g4")
+highlighted_texture = SubResource("AtlasTexture_e2udh")
+normal_texture = SubResource("AtlasTexture_ysqwv")
+selected_texture = SubResource("AtlasTexture_7j5yd")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1574220282]
 layout_mode = 0
@@ -32,3 +49,6 @@ rotation = -0.16406095
 pivot_offset_ratio = Vector2(0.5, 0.5)
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[connection signal="mouse_entered" from="TextureRect" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="TextureRect" to="." method="_on_mouse_exited"]

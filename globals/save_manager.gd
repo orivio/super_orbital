@@ -38,7 +38,16 @@ func get_save_file() -> SaveFile:
 
 func _on_room_changed(room: String) -> void:
 	save_file.room = room
+	var index: int = GameManager.rooms.keys().find(room)
+	if index > save_file.room_idx:
+		save_file.room_idx = index
 	write_save_file()
+
+func select_level(room: String) -> void:
+	save_file.room = room
+	var index: int = GameManager.rooms.keys().find(room)
+	if index > save_file.room_idx:
+		save_file.room_idx = index
 
 func _on_ability_unlocked(ability: String) -> void:
 	save_file.player_abilities.unlock(ability)
