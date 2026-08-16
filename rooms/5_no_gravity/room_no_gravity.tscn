@@ -14,7 +14,7 @@ size = Vector2(2720, 1216)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqx1b"]
 resource_local_to_scene = true
-size = Vector2(320, 256)
+size = Vector2(384, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gly6d"]
 resource_local_to_scene = true
@@ -53,15 +53,15 @@ message = "Press X to toggle gravity"
 unlocks_ability = "gravity_switch"
 
 [node name="CollisionShape2D" parent="POI/TooltipField" index="0" unique_id=822976353]
-position = Vector2(-160, -128)
+position = Vector2(-192, -64)
 shape = SubResource("RectangleShape2D_eqx1b")
 
 [node name="Label" parent="POI/TooltipField" index="1" unique_id=1289689676]
 visible = true
-offset_left = -320.0
-offset_top = -356.0
-offset_right = 256.0
-offset_bottom = -256.0
+offset_left = -384.0
+offset_top = -228.0
+offset_right = 192.0
+offset_bottom = -128.0
 text = "Press X to toggle gravity"
 
 [node name="ProgressDetector" parent="POI" parent_id_path=PackedInt32Array(809409572) index="1" unique_id=1408990158 instance=ExtResource("3_isbyw")]
