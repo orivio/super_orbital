@@ -5,6 +5,7 @@ Russlan:
 - Assess the progression and difficulty of the levels
 - Test the camera
 - Make an image for the title
+- Take a look at the new tiles in room_cant_stop
 
 Obed:
 - I might want to make some cool environmental effects, such as frost, dust
