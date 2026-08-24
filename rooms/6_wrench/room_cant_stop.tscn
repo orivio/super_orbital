@@ -12,7 +12,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7jafm"]
 shader = ExtResource("2_1xu3a")
 shader_parameter/scale = 0.3
-shader_parameter/color = Color(0.06798274, 0.06798274, 0.06798273, 1)
+shader_parameter/color = Color(0.18359032, 0.1835905, 0.18359044, 1)
 shader_parameter/variation = 0.01
 shader_parameter/distortion = 0.1
 shader_parameter/distortion_scale = 0.3
