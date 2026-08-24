@@ -29,7 +29,7 @@ is
 - Fix bug where upon unlocking the dash or gravity switch ability for the first
 time, you will dash or gravity switch immediately after unlocking the ability,
 even if you didn't press any key for it
-
+- Fix game pause menu
 
 
 Both, or whoever wants to:
