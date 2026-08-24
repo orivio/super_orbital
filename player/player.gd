@@ -42,6 +42,8 @@ var is_dashing_horizontally: bool = false
 var is_floating: bool = false
 var true_velocity: Vector2 = Vector2.ZERO
 var last_pos: Vector2
+var is_on_floor_buffered: bool
+var is_on_floor_timer: SceneTreeTimer
 
 var effect_nodes: Array[Node2D]
 
@@ -135,10 +137,19 @@ func _process(delta: float) -> void:
 	
 func _physics_process(delta: float) -> void:
 	#print(state_machine.current_state)
-	if is_on_floor() and not input_locked:
-		if dash_cooldown_timer <= 0:
-			can_dash = true
-		gravity_switch_counter = 0
+	if is_on_floor():
+		is_on_floor_buffered = true
+		if not input_locked:
+			if dash_cooldown_timer <= 0:
+				can_dash = true
+			gravity_switch_counter = 0
+	else:
+		if is_on_floor_buffered and not is_on_floor_timer:
+			is_on_floor_timer = get_tree().create_timer(movement_settings.coyote_time)
+			is_on_floor_timer.timeout.connect(func() -> void:
+				is_on_floor_buffered = false
+				is_on_floor_timer = null
+			)
 	
 	if dash_cooldown_timer > 0:
 		dash_cooldown_timer -= delta

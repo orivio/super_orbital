@@ -3,16 +3,19 @@ class_name StateFall extends PlayerState
 # Temporary solution
 var dash_pressed: bool
 var gravity_switch_pressed: bool
+var jump_pressed: bool
 
 @onready var idle_state: PlayerState = $"../Idle"
 @onready var walk_state: PlayerState = $"../Walk"
 @onready var dash_state: PlayerState = $"../Dash"
 @onready var float_state: PlayerState = $"../Float"
+@onready var jump_state: PlayerState = $"../Jump"
 
 func enter() -> void:
 	player.has_gravity = true
 	dash_pressed = false
 	gravity_switch_pressed = false
+	jump_pressed = false
 
 func exit() -> void:
 	pass
@@ -22,6 +25,8 @@ func input(event: InputEvent) -> PlayerState:
 		dash_pressed = true
 	elif event.is_action_pressed("gravity_switch"):
 		gravity_switch_pressed = true
+	elif event.is_action_pressed("jump"):
+		jump_pressed = true
 	return null
 
 func process(_delta: float) -> PlayerState:
@@ -57,6 +62,11 @@ func physics_process(_delta: float) -> PlayerState:
 			return idle_state
 		else:
 			return walk_state
+	
+	if player.is_on_floor_buffered and jump_pressed and player.can("jump"):
+		jump_pressed = false
+		player.base_velocity.y = -player.movement_settings.jump_velocity
+		return jump_state
 	
 	if dash_pressed and player.can("dash"):
 		dash_pressed = false
