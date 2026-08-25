@@ -34,6 +34,7 @@ even if you didn't press any key for it
 metallic ground
 - Fix tile inconsistencies across many levels
 - Potentially add checkpoints
+- Make the button text stand out more
 
 
 Both, or whoever wants to:
