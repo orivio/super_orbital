@@ -5,7 +5,6 @@ Russlan:
 - Assess the progression and difficulty of the levels
 - Test the camera
 - Make an image for the title
-- Take a look at the new tiles in room_cant_stop
 
 Obed:
 - I might want to make some cool environmental effects, such as frost, dust
@@ -13,7 +12,7 @@ storms, etc... really just because its fun to make stuff like that
 	- Finish the hoodoo drawings
 		- Not right now, wait until we have a plan for the environmental areas
 		of the game
-- Add variation to tileset
+- Add variation to tileset...
 - Refine room_gilganas (it just kind of feels like a boring level when it has a
 lot of potential)
 - Add more black hole levels
@@ -38,27 +37,17 @@ metallic ground
 
 
 Both, or whoever wants to:
-- We should map out the different environments in our game so we know where to
-put which visuals
-	- Which fits into the broader goal of mapping out the progression and plot
-	of the game
-	- I'm thinking we should at least have:
-		- A snowy, frosty area with falling snow
-		- An industrial, metallic area with pipes and beams and wires
-		- A bright outdoor area with hoodoos
-		- A bright outdoor area with sand dunes
-		- A bright outdoor area with cliffs
 - Make a better favicon
 	- I think we have something good
 - Make sound effects for movement, ui, and dialogue
-- Finish room_climbing
 
 
 Stuff more later (after stardance):
 - Make room transitions seamless and have the camera quickly shift like in Celeste
 or Zelda
-- Make the level select screen look cooler by sliding the level marker grid across
-(actually kind of the same effect as the above point) if you know what I mean
+- Make the level select screen look cooler by sliding the level marker grid
+across (actually kind of the same effect as the above point) if you know what I
+mean
 - Make challenge levels
 - Design and animate cutscenes
 	- I mean, we COULD do it during Stardance if we wanted to. But it might feel
