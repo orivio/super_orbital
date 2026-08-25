@@ -7,6 +7,7 @@ var gravity_switch_pressed: bool = false
 var change_orbit_pressed: bool = false
 var distance_to_black_hole: float
 var black_hole_center: Vector2
+var direction_modified: bool
 
 @onready var fall_state: PlayerState = $"../Fall"
 @onready var jump_state: PlayerState = $"../Jump"
@@ -20,6 +21,8 @@ func enter() -> void:
 	left_blackhole = false
 	player.has_gravity = false
 	gravity_switch_pressed = false
+	change_orbit_pressed = false
+	direction_modified = false
 
 func exit() -> void:
 	pass
@@ -37,6 +40,10 @@ func process(_delta: float) -> PlayerState:
 
 func physics_process(_delta: float) -> PlayerState:
 	
+	if change_orbit_pressed:
+		direction_modified = not direction_modified
+		change_orbit_pressed = false
+	
 	for black_hole: BlackHole in PhysicsManager.black_holes:
 		if black_hole.influencing_player:
 			var direction: Vector2 = black_hole.global_position - player.global_position
@@ -44,12 +51,11 @@ func physics_process(_delta: float) -> PlayerState:
 			black_hole_center = black_hole.global_position
 			distance_to_black_hole = distance
 			
+			if direction_modified:
+				direction *= -1
+			
 			player.base_velocity = 100000. * Vector2(-direction.y, direction.x).normalized() / distance + direction * Input.get_axis("down", "up")
 			
-			if change_orbit_pressed == true:
-				direction *= -1
-				change_orbit_pressed = false
-				print(direction)
 	
 	if left_blackhole:
 		left_blackhole = false
