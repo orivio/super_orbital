@@ -17,7 +17,7 @@ resource_local_to_scene = true
 size = Vector2(416, 192)
 
 [node name="RoomPerchrit" unique_id=201273727 instance=ExtResource("1_3wbge")]
-music_for_this_room = "uid://cv4s6btmi0mj4"
+music_for_this_room = "uid://4hjpxry83vi8"
 
 [node name="CameraBounds" parent="." index="1" unique_id=711655567]
 visible = true

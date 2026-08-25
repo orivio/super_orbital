@@ -14,6 +14,6 @@ dest_files=["res://.godot/imported/3_security_risk.ogg-1edea0e306fb1a5a00193bedc
 
 loop=true
 loop_offset=0.0
-bpm=0
+bpm=0.0
 beat_count=0
 bar_beats=4
