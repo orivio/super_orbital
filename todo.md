@@ -32,6 +32,8 @@ even if you didn't press any key for it
 - Fix game pause menu
 - Make the impact particles not be dust particles if you're colliding with
 metallic ground
+- Fix tile inconsistencies across many levels
+- Potentially add checkpoints
 
 
 Both, or whoever wants to:
