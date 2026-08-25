@@ -61,3 +61,7 @@ or Zelda
 - Fix the bug where, when starting the dialogue at the end of room_wrench_large,
 you can move out of the dialogue region.
 	- We could also do this during Stardance.
+
+Playtesting questions:
+- Should the caution tiles always be next to the spikes? If so, wouldn't it be
+too much caution tiles?
