@@ -4,6 +4,7 @@ extends PlayerState
 
 var left_blackhole: bool = false
 var gravity_switch_pressed: bool = false
+var change_orbit_pressed: bool = false
 var distance_to_black_hole: float
 var black_hole_center: Vector2
 
@@ -26,6 +27,9 @@ func exit() -> void:
 func input(event: InputEvent) -> PlayerState:
 	if event.is_action_pressed("gravity_switch"):
 		gravity_switch_pressed = true
+	if event.is_action_pressed("change_orbit"):
+		change_orbit_pressed = true
+		print("orbit changed")
 	return null
 
 func process(_delta: float) -> PlayerState:
@@ -42,8 +46,10 @@ func physics_process(_delta: float) -> PlayerState:
 			
 			player.base_velocity = 100000. * Vector2(-direction.y, direction.x).normalized() / distance + direction * Input.get_axis("down", "up")
 			
-			# if event.is_action_pressed("change_orbit"):
-				#to add
+			if change_orbit_pressed == true:
+				direction *= -1
+				change_orbit_pressed = false
+				print(direction)
 	
 	if left_blackhole:
 		left_blackhole = false
