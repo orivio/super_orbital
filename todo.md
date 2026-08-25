@@ -30,6 +30,8 @@ is
 time, you will dash or gravity switch immediately after unlocking the ability,
 even if you didn't press any key for it
 - Fix game pause menu
+- Make the impact particles not be dust particles if you're colliding with
+metallic ground
 
 
 Both, or whoever wants to:
