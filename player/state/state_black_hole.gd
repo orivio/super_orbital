@@ -42,6 +42,8 @@ func physics_process(_delta: float) -> PlayerState:
 			
 			player.base_velocity = 100000. * Vector2(-direction.y, direction.x).normalized() / distance + direction * Input.get_axis("down", "up")
 			
+			# if event.is_action_pressed("change_orbit"):
+				#to add
 	
 	if left_blackhole:
 		left_blackhole = false
