@@ -51,7 +51,7 @@ position = Vector2(1024, 64)
 
 [node name="MovingPlatform" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="1" unique_id=1898127775 instance=ExtResource("3_1h2j1")]
 curve = SubResource("Curve2D_gayl5")
-time = 0.5
+time = 1.5
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform" index="0" unique_id=199652958]
 position = Vector2(1568, -384)
