@@ -1,13 +1,13 @@
 class_name PauseMenu
 extends Control
 
-signal close
+signal close_pressed
 
 var disable_input: bool
 
 func _on_resume_button_pressed() -> void:
 	if not disable_input:
-		close.emit()
+		close_pressed.emit()
 	
 func _on_exit_button_pressed() -> void:
 	if not disable_input:
