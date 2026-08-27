@@ -1,7 +1,8 @@
 @tool
-class_name Room extends Node2D
+class_name Room
+extends Node2D
 
-signal room_door_entered(dest_room: String, dest_door_tag: String)
+signal door_entered(direction: Types.DoorDirection)
 
 @export_file("ogg") var music_for_this_room: String
 
@@ -25,8 +26,8 @@ func _ready() -> void:
 		rng.seed = hash(scene_file_path)
 		color_rect.material.set_shader_parameter("offset", Vector2(rng.randf_range(-100000., 10000.), rng.randf_range(-100000., 10000.)))
 
-func _on_door_entered(dest_room: String, dest_door_tag: String):
-	room_door_entered.emit.call_deferred(dest_room, dest_door_tag)
+func _on_door_entered(direction: Types.DoorDirection):
+	door_entered.emit(direction)
 
 func initialize_room() -> void:
 	var dialogue_trigger_nodes: Array[Node] = get_tree().get_nodes_in_group("dialogue_trigger")

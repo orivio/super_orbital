@@ -36,11 +36,12 @@ func write_save_file() -> void:
 func get_save_file() -> SaveFile:
 	return save_file
 
-func _on_room_changed(room: String) -> void:
+func _on_room_changed(room: String, room_uid: String) -> void:
 	save_file.room = room
 	var index: int = GameManager.rooms.keys().find(room)
 	if index > save_file.room_idx:
 		save_file.room_idx = index
+	save_file.room_uid = room_uid
 	write_save_file()
 
 func select_level(room: String) -> void:

@@ -25,8 +25,8 @@ var current_state: PlayState
 
 func _ready() -> void:
 	current_state = PlayState.UNINITIALIZED
-	world.room_transition.connect(_on_world_room_transition)
-	world.init_room()
+	world.door_entered.connect(_on_door_entered)
+	world.initialize()
 	current_state = PlayState.GAMEPLAY
 
 
@@ -95,23 +95,23 @@ func close_pause_menu() -> void:
 	print("Finished closing pause menu")
 
 
-func do_room_transition(dest_room: String, dest_door_tag: String) -> void:
+func do_room_transition(direction: Types.DoorDirection) -> void:
 	current_state = PlayState.TRANSITIONING_ROOMS
-	await world.do_room_transition(dest_room, dest_door_tag)
+	await world.do_room_transition(direction)
 	current_state = PlayState.GAMEPLAY
 
 
-func _on_world_room_transition(dest_room: String, dest_door_tag: String) -> void:
+func _on_door_entered(direction: Types.DoorDirection) -> void:
 	match current_state:
 		PlayState.UNINITIALIZED: return
 		PlayState.TRANSITIONING_ROOMS: return
 		PlayState.OPENING_PAUSE_MENU: return
 		PlayState.IN_PAUSE_MENU: return
 		PlayState.CLOSING_PAUSE_MENU: return
-		PlayState.GAMEPLAY: do_room_transition(dest_room, dest_door_tag)
+		PlayState.GAMEPLAY: do_room_transition.call_deferred(direction)
 
 
 func _on_pause_menu_exit_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/menu/menu.tscn")
 	DialogueManager.end_dialogue_fast()
-	get_tree().paused = false

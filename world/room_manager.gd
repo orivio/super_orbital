@@ -1,8 +1,8 @@
 class_name RoomManager
 extends Node
 
-signal transition_entered(dest_room: String, dest_door_tag: String, do_save: bool)
-signal room_changed(room: String)
+signal door_entered(direction: Types.DoorDirection)
+signal room_changed(room: String, room_uid: String)
 
 @export var initial_room: String = ""
 @export var initial_door_ta: String
@@ -28,19 +28,16 @@ func _on_player_death() -> void:
 func reload_room() -> void:
 	change_room(current_room_path, last_entered_door_tag, false)
 
-func load_initial_room() -> void:
+func initialize() -> void:
 	if initial_room == "":
-		initial_room = SaveManager.get_save_file().room
+		initial_room = SaveManager.get_save_file().room_uid
 	# print(initial_door_ta)
 	# print(initial_room_path)
 	fade_effect.color_rect.color = Color(0, 0, 0, 1)
 	change_room(initial_room, initial_door_ta, false)
 	player.load_abilities()
 
-func change_room(dest_room: String, dest_door_tag: String, do_save: bool = true) -> void:
-	if not GameManager.room_exists(dest_room):
-		push_error("Room does not exist: ", dest_room)
-		return
+func change_room(room_scene_path: String, dest_door_tag: String, do_save: bool = true) -> void:
 	
 	var previous_music: String = ""
 	if current_room:
@@ -54,9 +51,9 @@ func change_room(dest_room: String, dest_door_tag: String, do_save: bool = true)
 	
 	# First, load the room resource
 	
-	var room_resource = GameManager.get_room(dest_room)
+	var room_resource = load(room_scene_path)
 	if not room_resource:
-		push_error("Failed to load room: ", dest_room)
+		push_error("Failed to load room: ", room_scene_path)
 		return
 	
 	# Now we instantiate it
@@ -76,7 +73,7 @@ func change_room(dest_room: String, dest_door_tag: String, do_save: bool = true)
 	current_room = room_instance
 	current_room.initialize_room()
 	GameManager.current_room = current_room
-	current_room.room_door_entered.connect(_on_room_door_entered)
+	current_room.door_entered.connect(_on_door_entered)
 	
 	
 	if previous_room:
@@ -88,7 +85,7 @@ func change_room(dest_room: String, dest_door_tag: String, do_save: bool = true)
 		last_entered_door_tag = dest_door_tag
 	# print("Teleported player")
 	
-	current_room_path = dest_room
+	current_room_path = room_scene_path
 	
 	update_camera_limits(room_instance)
 	
@@ -97,8 +94,8 @@ func change_room(dest_room: String, dest_door_tag: String, do_save: bool = true)
 	
 	await fade_effect.fade(Color(0, 0, 0, 0), room_transition_time).finished
 	
-	if do_save and GameManager.room_exists(dest_room):
-		room_changed.emit(dest_room)
+	if do_save and GameManager.room_exists(room_scene_path):
+		room_changed.emit(room_scene_path, room_scene_path)
 	
 	GameManager.player_leave_blackhole()
 	if current_room.music_for_this_room != "" and current_room.music_for_this_room != previous_music:
@@ -149,5 +146,15 @@ func update_camera_limits(room: Room) -> void:
 	player_camera.set_limits(camera_bounds)
 
 
-func _on_room_door_entered(dest_room: String, dest_door_tag: String) -> void:
-	transition_entered.emit(dest_room, dest_door_tag)
+func do_room_transition(direction: Types.DoorDirection) -> void:
+	var current_room_idx: int = GameManager.rooms.keys().find(current_room_path)
+	var new_room_idx: int = current_room_idx + direction
+	var new_room_path: String = GameManager.rooms.get(GameManager.rooms.keys()[new_room_idx])
+	match direction:
+		Types.DoorDirection.WEST:
+			await change_room(new_room_path, "WestDoor", true)
+		Types.DoorDirection.EAST:
+			await change_room(new_room_path, "EastDoor", true)
+
+func _on_door_entered(direction: Types.DoorDirection) -> void:
+	door_entered.emit(direction)

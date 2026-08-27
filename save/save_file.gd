@@ -4,6 +4,7 @@ const SAVE_GAME_PATH: String = "user://save_file.json"
 
 var room_idx: int = 0
 var room: String = "move"
+var room_uid: String = "uid://dteyafc74ycrl"
 var player_abilities: PlayerAbilities = preload("res://player/abilities/player_initial_abilities.tres")
 var dialogue_data: Dictionary
 var progress_data: Array[String]
@@ -18,6 +19,7 @@ func write_to_file(file_path: String) -> void:
 	var data: Dictionary = {
 		"room_idx": room_idx,
 		"room": room,
+		"room_uid": room_uid,
 		"player_abilities": player_abilities.get_json(),
 		"dialogue": dialogue_data,
 		"progress": progress_data
@@ -46,6 +48,7 @@ static func load_from_file(file_path: String) -> SaveFile:
 	var save_file: SaveFile = SaveFile.new()
 	save_file.room_idx = data["room_idx"]
 	save_file.room = data["room"]
+	save_file.room_uid = data["room_uid"]
 	save_file.player_abilities = PlayerAbilities.from_json(data["player_abilities"])
 	save_file.dialogue_data = data["dialogue"]
 	save_file.progress_data.append_array(data["progress"])

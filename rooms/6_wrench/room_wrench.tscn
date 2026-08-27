@@ -87,7 +87,7 @@ tile_map_data = PackedByteArray("AAD3/wMAAAACAAMAAAD3/wIAAAAAAAQAAAD3/wEAAAABAAI
 
 [node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("3_tmw20")]
 door_tag = "WestDoor"
-dest_door_tag = "EastDoor"
+dest_door = "EastDoor"
 dest_room = "change_direction"
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
@@ -97,15 +97,9 @@ shape = SubResource("RectangleShape2D_m0vqb")
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-416, 288)
 
-[node name="Label" parent="Doors/WestDoor" index="2" unique_id=164300380]
-offset_left = -500.0
-offset_top = 100.0
-offset_right = -499.0
-offset_bottom = 200.0
-
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=1422961408 instance=ExtResource("3_tmw20")]
 door_tag = "EastDoor"
-dest_door_tag = "WestDoor"
+dest_door = "WestDoor"
 dest_room = "wrench_large"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
@@ -114,12 +108,6 @@ shape = SubResource("RectangleShape2D_hwc2v")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(1120, -224)
-
-[node name="Label" parent="Doors/EastDoor" index="2" unique_id=164300380]
-offset_left = 1200.0
-offset_top = -500.0
-offset_right = 1300.0
-offset_bottom = -400.0
 
 [editable path="POI/TooltipField"]
 [editable path="POI/ProgressDetector"]
