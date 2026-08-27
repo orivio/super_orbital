@@ -1,10 +1,9 @@
+class_name LevelButton
 extends Button
-
 
 @export var disabled_icon: Texture
 @export var normal_icon: Texture
 @export var hover_icon: Texture
-
 
 
 func _ready() -> void:

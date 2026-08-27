@@ -1,15 +1,11 @@
 class_name CompletionPath
 extends Path2D
 
-
 const PROGRESS_NODE: PackedScene = preload("res://ui/progress_node/progress_node.tscn")
-
 
 @export var total_progress_node_count: int = 11
 
-
 @onready var progress_bar: Line2D = $Line2D
-
 
 var displayed: bool = false
 var progress_nodes: Array[ProgressNode]
@@ -17,6 +13,7 @@ var progress_nodes: Array[ProgressNode]
 
 func _ready() -> void:
 	progress_bar.points = curve.get_baked_points()
+
 
 func add_progress_node(completion_percentage: float, text: StringName) -> void:
 	var progress_node_instance: ProgressNode = PROGRESS_NODE.instantiate()
@@ -32,6 +29,7 @@ func display_completion_path(save_file: SaveFile) -> void:
 		add_progress_node((i + 0.0) / total_progress_node_count, progress_name)
 		i += 100
 	displayed = true
+
 
 func wipe_completion_path() -> void:
 	for child in progress_nodes:

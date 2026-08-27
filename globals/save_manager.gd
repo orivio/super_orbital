@@ -42,11 +42,8 @@ func _on_level_changed(level_idx: int) -> void:
 		save_file.max_level_idx = level_idx
 	write_save_file()
 
-func select_level(level: String) -> void:
-	save_file.level = level
-	var index: int = GameManager.levels.keys().find(level)
-	if index > save_file.level_idx:
-		save_file.level_idx = index
+func select_level(level_idx: int) -> void:
+	save_file.level_idx = level_idx
 
 func _on_ability_unlocked(ability: String) -> void:
 	save_file.player_abilities.unlock(ability)

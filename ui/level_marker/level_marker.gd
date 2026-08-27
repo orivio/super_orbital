@@ -2,8 +2,8 @@ class_name LevelMarker
 extends Control
 
 
-signal level_selected(level_name: String)
-signal level_start(level_name: String)
+signal level_selected(level_idx: int)
+signal level_start(level_idx: int)
 
 
 @export var highlighted_texture: Texture
@@ -16,13 +16,16 @@ var mouse_in: bool
 var mouse_down: bool
 var level_name: String
 var is_selected: bool
+var level_idx: int
 
 
 @onready var texture_rect: TextureRect = $TextureRect
+@onready var label: Label = $Label
 
 
 func _ready() -> void:
 	texture_rect.texture = normal_texture
+	label.text = name
 
 func _process(_delta: float) -> void:
 	pass
@@ -47,14 +50,14 @@ func _input(event: InputEvent) -> void:
 	if mouse_in and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_released():
 		mouse_down = false
 		if is_selected:
-			level_start.emit(level_name)
+			level_start.emit(level_idx)
 		else:
-			level_selected.emit(level_name)
+			level_selected.emit(level_idx)
 			is_selected = true
 			texture_rect.texture = selected_texture
 
-func _on_other_level_selected(other_name: String) -> void:
-	if other_name != level_name:
+func _on_other_level_selected(other_idx: int) -> void:
+	if other_idx != level_idx:
 		is_selected = false
 		if mouse_in:
 			texture_rect.texture = highlighted_texture

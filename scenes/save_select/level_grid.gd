@@ -1,17 +1,14 @@
 class_name LevelGrid
 extends Control
 
-
-signal level_grid_selected(name: String)
+signal level_grid_selected(level_idx: int)
 signal play
 
-
 const LEVEL_MARKER: PackedScene = preload("res://ui/level_marker/level_marker.tscn")
-
+const LEVEL_DIR: LevelDirectory = preload("res://world/level_directory.tres")
 
 var selected_number: int = 0
 var last_save_file: SaveFile
-
 
 @onready var grid_container: GridContainer = $HBoxContainer/Grid
 @onready var left_button: Button = $HBoxContainer/LeftButton
@@ -22,17 +19,17 @@ func wipe_markers() -> void:
 	for node in grid_container.get_children():
 		node.queue_free()
 
+
 func update_visuals(save_file: SaveFile) -> void:
-	for node in grid_container.get_children():
-		node.queue_free()
+	wipe_markers()
 	
-	
-	var max_level_to_display: int = save_file.level_idx
+	var max_level_to_display: int = save_file.max_level_idx
 	
 	for count in range(selected_number * 15, min(selected_number * 15 + 15, max_level_to_display)):
 		var level_marker_instance: Control = LEVEL_MARKER.instantiate()
 		grid_container.add_child(level_marker_instance)
-		var level_name: String = GameManager.levels.keys()[count]
+		var level_meta: LevelMeta = LEVEL_DIR.get_level_meta(count)
+		var level_name: String = level_meta.level_name
 		level_marker_instance.get_node("Label").text = level_name
 		level_marker_instance.level_name = level_name
 		level_marker_instance.level_selected.connect(_on_level_selected)
@@ -57,11 +54,11 @@ func _on_right_button_button_down() -> void:
 	
 	update_visuals(last_save_file)
 
-func _on_level_selected(level_name: String) -> void:
-	SaveManager.select_level(level_name)
-	level_grid_selected.emit(level_name)
+
+func _on_level_selected(level_idx: int) -> void:
+	SaveManager.select_level(level_idx)
+	level_grid_selected.emit(level_idx)
 	
-func _on_level_start(level_name: String) -> void:
-	SaveManager.select_level(level_name)
+func _on_level_start(level_idx: int) -> void:
+	SaveManager.select_level(level_idx)
 	play.emit()
-	
