@@ -301,7 +301,7 @@ func spawn_impact_cloud(pos: Vector2, rot: float) -> void:
 	
 	dust_instance.global_position = pos
 	effects.add_child(cloud_instance)
-	GameManager.current_room.add_effect(dust_instance)
+	GameManager.current_level.add_effect(dust_instance)
 	cloud_instance.global_position = pos
 	
 	cloud_instance.rotation_degrees = rot
@@ -379,4 +379,4 @@ func spawn_afterimage(frame_override: int = 0) -> void:
 	else:
 		after_image_instance.do_thing(frame_override, after_image_fade, sprite.flip_h)
 	after_image_instance.global_position = global_position
-	GameManager.current_room.add_effect(after_image_instance)
+	GameManager.current_level.add_effect(after_image_instance)

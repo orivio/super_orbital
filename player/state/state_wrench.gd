@@ -56,7 +56,7 @@ func spawn_wrench_projectile(direction: Vector2):
 	wrench_instance.position = player.position
 	wrench_instance.velocity = direction.normalized() * player.movement_settings.wrench_throw_velocity
 	wrench_instance.rotation_speed = 3
-	GameManager.current_room.add_object(wrench_instance)
+	GameManager.current_level.add_object(wrench_instance)
 	await get_tree().create_timer(100.0).timeout
 	if is_instance_valid(wrench_instance):
 		wrench_instance.queue_free()

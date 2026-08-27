@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dxwerplefht6a"]
 
-[ext_resource type="Script" uid="uid://b6ypyl2kdv5a6" path="res://world/room.gd" id="1_kbkjf"]
+[ext_resource type="Script" uid="uid://b6ypyl2kdv5a6" path="res://world/level.gd" id="1_kbkjf"]
 [ext_resource type="Script" uid="uid://0wf2gyynjq3u" path="res://camera/camera_bounds.gd" id="2_gq2vv"]
 [ext_resource type="Shader" uid="uid://blpkw3ebgpvjk" path="res://world/background_rect.gdshader" id="2_tc1xl"]
 [ext_resource type="TileSet" uid="uid://bnrmi5xqiqb0w" path="res://world/tilesets/slightly_better_tileset.tres" id="3_gq2vv"]

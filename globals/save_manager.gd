@@ -36,19 +36,19 @@ func write_save_file() -> void:
 func get_save_file() -> SaveFile:
 	return save_file
 
-func _on_room_changed(room: String, room_uid: String) -> void:
-	save_file.room = room
-	var index: int = GameManager.rooms.keys().find(room)
-	if index > save_file.room_idx:
-		save_file.room_idx = index
-	save_file.room_uid = room_uid
+func _on_level_changed(level: String, level_uid: String) -> void:
+	save_file.level = level
+	var index: int = GameManager.levels.keys().find(level)
+	if index > save_file.level_idx:
+		save_file.level_idx = index
+	save_file.level_uid = level_uid
 	write_save_file()
 
-func select_level(room: String) -> void:
-	save_file.room = room
-	var index: int = GameManager.rooms.keys().find(room)
-	if index > save_file.room_idx:
-		save_file.room_idx = index
+func select_level(level: String) -> void:
+	save_file.level = level
+	var index: int = GameManager.levels.keys().find(level)
+	if index > save_file.level_idx:
+		save_file.level_idx = index
 
 func _on_ability_unlocked(ability: String) -> void:
 	save_file.player_abilities.unlock(ability)

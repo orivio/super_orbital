@@ -1,10 +1,10 @@
 @tool
-class_name Room
+class_name Level
 extends Node2D
 
 signal door_entered(direction: Types.DoorDirection)
 
-@export_file("ogg") var music_for_this_room: String
+@export_file("ogg") var music_for_this_level: String
 
 @onready var camera_bounds: CollisionShape2D = $CameraBounds/CollisionShape2D
 @onready var doors: Node2D = $Doors
@@ -17,8 +17,8 @@ func _ready() -> void:
 	if not Engine.is_editor_hint():
 		# Attach signals to all of the doors
 		
-		var doors_in_room = get_tree().get_nodes_in_group("door")
-		for door in doors_in_room:
+		var doors_in_level = get_tree().get_nodes_in_group("door")
+		for door in doors_in_level:
 			door.door_entered.connect(_on_door_entered)
 		
 		# Add the color rect offset
@@ -29,7 +29,7 @@ func _ready() -> void:
 func _on_door_entered(direction: Types.DoorDirection):
 	door_entered.emit(direction)
 
-func initialize_room() -> void:
+func initialize_level() -> void:
 	var dialogue_trigger_nodes: Array[Node] = get_tree().get_nodes_in_group("dialogue_trigger")
 	for node in dialogue_trigger_nodes:
 		if node is DialogueTrigger:

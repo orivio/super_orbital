@@ -27,12 +27,12 @@ func update_visuals(save_file: SaveFile) -> void:
 		node.queue_free()
 	
 	
-	var max_level_to_display: int = save_file.room_idx
+	var max_level_to_display: int = save_file.level_idx
 	
 	for count in range(selected_number * 15, min(selected_number * 15 + 15, max_level_to_display)):
 		var level_marker_instance: Control = LEVEL_MARKER.instantiate()
 		grid_container.add_child(level_marker_instance)
-		var level_name: String = GameManager.rooms.keys()[count]
+		var level_name: String = GameManager.levels.keys()[count]
 		level_marker_instance.get_node("Label").text = level_name
 		level_marker_instance.level_name = level_name
 		level_marker_instance.level_selected.connect(_on_level_selected)
@@ -51,7 +51,7 @@ func _on_left_button_button_down() -> void:
 
 func _on_right_button_button_down() -> void:
 	selected_number += 1
-	if selected_number * 15 - 1 > SaveManager.get_save_file().room_idx:
+	if selected_number * 15 - 1 > SaveManager.get_save_file().level_idx:
 		selected_number -= 1
 		return
 	

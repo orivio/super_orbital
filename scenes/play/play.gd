@@ -95,9 +95,9 @@ func close_pause_menu() -> void:
 	print("Finished closing pause menu")
 
 
-func do_room_transition(direction: Types.DoorDirection) -> void:
+func do_level_transition(direction: Types.DoorDirection) -> void:
 	current_state = PlayState.TRANSITIONING_ROOMS
-	await world.do_room_transition(direction)
+	await world.do_level_transition(direction)
 	current_state = PlayState.GAMEPLAY
 
 
@@ -108,7 +108,7 @@ func _on_door_entered(direction: Types.DoorDirection) -> void:
 		PlayState.OPENING_PAUSE_MENU: return
 		PlayState.IN_PAUSE_MENU: return
 		PlayState.CLOSING_PAUSE_MENU: return
-		PlayState.GAMEPLAY: do_room_transition.call_deferred(direction)
+		PlayState.GAMEPLAY: do_level_transition.call_deferred(direction)
 
 
 func _on_pause_menu_exit_pressed() -> void:

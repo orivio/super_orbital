@@ -5,12 +5,12 @@ signal progress_attained(name: StringName)
 
 var player: Player
 var camera: PlayerCamera
-var current_room: Room
+var current_level: Level
 var time_scale: float = 1
 var impacting: bool = false
 var impact_timer: float = 0
 
-var rooms: Dictionary[String, String] = {
+var levels: Dictionary[String, String] = {
 	"move": "uid://dteyafc74ycrl",
 	"spike": "uid://buky8cbnivxtx",
 	"ladder": "uid://b7mth0jcnis7i",
@@ -66,13 +66,13 @@ func unlock_input() -> void:
 func player_leave_blackhole() -> void:
 	player_left_blackhole.emit()
 
-func get_room(room: String) -> PackedScene:
-	if room_exists(room):
-		return load(rooms[room])
+func get_level(level: String) -> PackedScene:
+	if level_exists(level):
+		return load(levels[level])
 	return null
 
-func room_exists(room: String) -> bool:
-	return rooms.has(room)
+func level_exists(level: String) -> bool:
+	return levels.has(level)
 
 func attain_progress(progress_name: StringName) -> void:
 	progress_attained.emit(progress_name)
