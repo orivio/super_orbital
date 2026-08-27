@@ -89,6 +89,7 @@ tile_map_data = PackedByteArray("AAD3/wMAAAACAAMAAAD3/wIAAAAAAAQAAAD3/wEAAAABAAI
 door_tag = "WestDoor"
 dest_door = "EastDoor"
 dest_room = "change_direction"
+direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-528, 240)

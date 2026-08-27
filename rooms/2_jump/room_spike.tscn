@@ -181,8 +181,9 @@ visible = true
 
 [node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("3_r86d4")]
 door_tag = "WestDoor"
-dest_door_tag = "EastDoor"
+dest_door = ""
 dest_room = "move"
+direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-1104, -16)
@@ -191,13 +192,9 @@ shape = SubResource("RectangleShape2D_dctix")
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-896, 32)
 
-[node name="Label" parent="Doors/WestDoor" index="2" unique_id=164300380]
-offset_left = -1200.0
-offset_right = -1100.0
-
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=1792502536 instance=ExtResource("3_r86d4")]
 door_tag = "EastDoor"
-dest_door_tag = "WestDoor"
+dest_door = ""
 dest_room = "ladder"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
@@ -206,12 +203,6 @@ shape = SubResource("RectangleShape2D_57ext")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(704, 32)
-
-[node name="Label" parent="Doors/EastDoor" index="2" unique_id=164300380]
-offset_left = 800.0
-offset_top = -300.0
-offset_right = 1000.0
-offset_bottom = -200.0
 
 [editable path="POI/JumpTooltip"]
 [editable path="POI/DialogueTrigger"]

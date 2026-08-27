@@ -58,8 +58,9 @@ collision_enabled = false
 
 [node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("2_5ow3w")]
 door_tag = "WestDoor"
-dest_door_tag = "EastDoor"
+dest_door = ""
 dest_room = "cant_stop"
+direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-864, -80)
@@ -68,15 +69,9 @@ shape = SubResource("RectangleShape2D_odi4p")
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-704, 0)
 
-[node name="Label" parent="Doors/WestDoor" index="2" unique_id=164300380]
-offset_left = -900.0
-offset_top = -300.0
-offset_right = -800.0
-offset_bottom = -200.0
-
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=517330819 instance=ExtResource("2_5ow3w")]
 door_tag = "EastDoor"
-dest_door_tag = "WestDoor"
+dest_door = ""
 dest_room = "climbing"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
@@ -85,10 +80,6 @@ shape = SubResource("RectangleShape2D_jmchb")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(2144, 96)
-
-[node name="Label" parent="Doors/EastDoor" index="2" unique_id=164300380]
-offset_left = 2300.0
-offset_right = 2700.0
 
 [editable path="Doors/WestDoor"]
 [editable path="Doors/EastDoor"]

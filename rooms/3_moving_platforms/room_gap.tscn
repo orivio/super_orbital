@@ -5,30 +5,30 @@
 [ext_resource type="PackedScene" uid="uid://bjec8jk85hnki" path="res://poi/progress_detector/progress_detector.tscn" id="2_c6uh4"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="4_rv474"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c6uh4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jj8q"]
 resource_local_to_scene = true
 size = Vector2(1728, 672)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tr1sk"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c6uh4"]
 resource_local_to_scene = true
 size = Vector2(192, 192)
 
-[sub_resource type="Curve2D" id="Curve2D_e5vga"]
+[sub_resource type="Curve2D" id="Curve2D_tr1sk"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 288, 32, 0, 0, 0, 0, 768, 32)
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6dkm"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5vga"]
 resource_local_to_scene = true
 size = Vector2(192, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ih63g"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6dkm"]
 resource_local_to_scene = true
 size = Vector2(96, 96)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yroak"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ih63g"]
 resource_local_to_scene = true
 size = Vector2(160, 96)
 
@@ -40,18 +40,18 @@ visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(352, -256)
-shape = SubResource("RectangleShape2D_c6uh4")
+shape = SubResource("RectangleShape2D_2jj8q")
 
 [node name="ProgressDetector" parent="POI" parent_id_path=PackedInt32Array(809409572) index="0" unique_id=1408990158 instance=ExtResource("2_c6uh4")]
 progress_name = &"Moving Platforms"
 
 [node name="CollisionShape2D" parent="POI/ProgressDetector" index="0" unique_id=1008791462]
 position = Vector2(1184, -160)
-shape = SubResource("RectangleShape2D_tr1sk")
+shape = SubResource("RectangleShape2D_c6uh4")
 
 [node name="MovingPlatform" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="0" unique_id=1898127775 instance=ExtResource("2_6ov7k")]
 position = Vector2(0, -96)
-curve = SubResource("Curve2D_e5vga")
+curve = SubResource("Curve2D_tr1sk")
 time = 2.0
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform" index="0" unique_id=199652958]
@@ -66,7 +66,7 @@ position = Vector2(288, 32)
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform/AnimatableBody2D" index="0" unique_id=388684668]
-shape = SubResource("RectangleShape2D_e6dkm")
+shape = SubResource("RectangleShape2D_e5vga")
 
 [node name="NinePatchRect" parent="Objects/MovingPlatform/AnimatableBody2D" index="1" unique_id=1810313545]
 offset_left = -96.0
@@ -83,37 +83,28 @@ tile_map_data = PackedByteArray("AAAZAO//AAAAAAMAAAAaAO//AAABAAMAAAAbAO//AAABAAM
 
 [node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("4_rv474")]
 door_tag = "WestDoor"
-dest_door_tag = "EastDoor"
+dest_door = ""
 dest_room = "bridge"
+direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-624, -48)
-shape = SubResource("RectangleShape2D_ih63g")
+shape = SubResource("RectangleShape2D_e6dkm")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-448, 0)
 
-[node name="Label" parent="Doors/WestDoor" index="2" unique_id=164300380]
-offset_left = -700.0
-offset_right = -600.0
-
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=867625743 instance=ExtResource("4_rv474")]
 door_tag = "EastDoor"
-dest_door_tag = "WestDoor"
+dest_door = ""
 dest_room = "timing"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(1360, -144)
-shape = SubResource("RectangleShape2D_yroak")
+shape = SubResource("RectangleShape2D_ih63g")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(992, -96)
-
-[node name="Label" parent="Doors/EastDoor" index="2" unique_id=164300380]
-offset_left = 1300.0
-offset_top = -300.0
-offset_right = 1400.0
-offset_bottom = -200.0
 
 [editable path="POI/ProgressDetector"]
 [editable path="Objects/MovingPlatform"]

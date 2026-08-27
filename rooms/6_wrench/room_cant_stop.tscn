@@ -178,8 +178,9 @@ tile_map_data = PackedByteArray("AABBAPX/AAAFAAkAAABBAPT/AAAFAAkAAABBAPP/AAAFAAk
 
 [node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("2_vq8d1")]
 door_tag = "WestDoor"
-dest_door_tag = "EastDoor"
+dest_door = ""
 dest_room = "wrench_large"
+direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-848, -112)
@@ -188,15 +189,9 @@ shape = SubResource("RectangleShape2D_df2o4")
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-672, 0)
 
-[node name="Label" parent="Doors/WestDoor" index="2" unique_id=164300380]
-offset_left = -900.0
-offset_top = -300.0
-offset_right = -800.0
-offset_bottom = -200.0
-
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=1971276028 instance=ExtResource("2_vq8d1")]
 door_tag = "EastDoor"
-dest_door_tag = "WestDoor"
+dest_door = ""
 dest_room = "perchrit"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
@@ -205,12 +200,6 @@ shape = SubResource("RectangleShape2D_7g511")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(4576, -2528)
-
-[node name="Label" parent="Doors/EastDoor" index="2" unique_id=164300380]
-offset_left = 4700.0
-offset_top = -2900.0
-offset_right = 4900.0
-offset_bottom = -2800.0
 
 [node name="DialogueTrigger" parent="." index="12" unique_id=12977462 instance=ExtResource("5_x2vsp")]
 position = Vector2(-755, -75)

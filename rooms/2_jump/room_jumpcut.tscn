@@ -49,8 +49,9 @@ tile_map_data = PackedByteArray("AAD7//b/AAAAAAEAAAD7//f/AAAAAAIAAAD7//j/AAAAAAM
 
 [node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("2_5yv5w")]
 door_tag = "WestDoor"
-dest_door_tag = "EastDoor"
+dest_door = ""
 dest_room = "ladder"
+direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-320, 16)
@@ -59,15 +60,9 @@ shape = SubResource("RectangleShape2D_aytfp")
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-160, 64)
 
-[node name="Label" parent="Doors/WestDoor" index="2" unique_id=164300380]
-offset_left = -400.0
-offset_top = -100.0
-offset_right = -300.0
-offset_bottom = 0.0
-
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=1971387664 instance=ExtResource("2_5yv5w")]
 door_tag = "EastDoor"
-dest_door_tag = "WestDoor"
+dest_door = ""
 dest_room = "bridge"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
@@ -76,12 +71,6 @@ shape = SubResource("RectangleShape2D_les4w")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(1376, 64)
-
-[node name="Label" parent="Doors/EastDoor" index="2" unique_id=164300380]
-offset_left = 1500.0
-offset_top = -100.0
-offset_right = 1700.0
-offset_bottom = 0.0
 
 [editable path="POI/ProgressDetector"]
 [editable path="Doors/WestDoor"]

@@ -147,14 +147,14 @@ func update_camera_limits(room: Room) -> void:
 
 
 func do_room_transition(direction: Types.DoorDirection) -> void:
-	var current_room_idx: int = GameManager.rooms.keys().find(current_room_path)
+	var current_room_idx: int = GameManager.rooms.values().find(current_room_path)
 	var new_room_idx: int = current_room_idx + direction
 	var new_room_path: String = GameManager.rooms.get(GameManager.rooms.keys()[new_room_idx])
 	match direction:
 		Types.DoorDirection.WEST:
-			await change_room(new_room_path, "WestDoor", true)
-		Types.DoorDirection.EAST:
 			await change_room(new_room_path, "EastDoor", true)
+		Types.DoorDirection.EAST:
+			await change_room(new_room_path, "WestDoor", true)
 
 func _on_door_entered(direction: Types.DoorDirection) -> void:
 	door_entered.emit(direction)

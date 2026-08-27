@@ -91,8 +91,9 @@ collision_enabled = false
 
 [node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("3_yppf4")]
 door_tag = "WestDoor"
-dest_door_tag = "EastDoor"
+dest_door = ""
 dest_room = "vertical_dash"
+direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-736, -48)
@@ -101,13 +102,9 @@ shape = SubResource("RectangleShape2D_lsopr")
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-576, 0)
 
-[node name="Label" parent="Doors/WestDoor" index="2" unique_id=164300380]
-offset_left = -800.0
-offset_right = -700.0
-
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=695579895 instance=ExtResource("3_yppf4")]
 door_tag = "EastDoor"
-dest_door_tag = "WestDoor"
+dest_door = ""
 dest_room = "no_gravity_dash_chain"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
@@ -116,12 +113,6 @@ shape = SubResource("RectangleShape2D_7ugpx")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(2016, -640)
-
-[node name="Label" parent="Doors/EastDoor" index="2" unique_id=164300380]
-offset_left = 2100.0
-offset_top = -800.0
-offset_right = 2300.0
-offset_bottom = -700.0
 
 [node name="DialogueTrigger" parent="." index="9" unique_id=12977462 instance=ExtResource("5_ux017")]
 position = Vector2(-382, -137)
