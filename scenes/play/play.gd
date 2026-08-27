@@ -56,13 +56,13 @@ func open_pause_menu() -> void:
 	# Change state
 	current_state = PlayState.OPENING_PAUSE_MENU
 	# Freeze the game
-	GameManager.time_scale = 0
+	get_tree().paused = true
 	# Instantiate the pause menu
 	pause_menu = PAUSE_MENU.instantiate()
 	ui_layer.add_child(pause_menu)
-	# Don't accept input just yet
-	pause_menu.disable_input = true
+	# Connect signals
 	pause_menu.close_pressed.connect(_on_pause_menu_close_pressed)
+	pause_menu.exit_pressed.connect(_on_pause_menu_exit_pressed)
 	# Hide the pause menu below the screen
 	pause_menu.position.y = get_viewport_rect().size.y
 	# Animate the pause menu sliding upwards
@@ -72,7 +72,6 @@ func open_pause_menu() -> void:
 	await pause_menu_enter_tween.finished
 	# Clean up everything
 	pause_menu_enter_tween = null
-	pause_menu.disable_input = false
 	current_state = PlayState.IN_PAUSE_MENU
 	print("Finished opening pause menu")
 
@@ -81,15 +80,13 @@ func close_pause_menu() -> void:
 	print("Closing pause menu")
 	# Change state
 	current_state = PlayState.CLOSING_PAUSE_MENU
-	# Don't accept input while the animation is playing
-	pause_menu.disable_input = true
 	# Animate the pause menu sliding downwards
 	pause_menu_exit_tween = create_tween()
 	pause_menu_exit_tween.tween_property(pause_menu, "position:y", get_viewport_rect().size.y, pause_menu_exit_duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	# Wait for the animation to finish
 	await pause_menu_exit_tween.finished
 	# Unfreeze the game
-	GameManager.time_scale = 1
+	get_tree().paused = false
 	# Clean up
 	pause_menu_exit_tween = null
 	pause_menu.queue_free()
@@ -100,7 +97,7 @@ func close_pause_menu() -> void:
 
 func do_room_transition(dest_room: String, dest_door_tag: String) -> void:
 	current_state = PlayState.TRANSITIONING_ROOMS
-	world.do_room_transition(dest_room, dest_door_tag)
+	await world.do_room_transition(dest_room, dest_door_tag)
 	current_state = PlayState.GAMEPLAY
 
 
@@ -112,3 +109,9 @@ func _on_world_room_transition(dest_room: String, dest_door_tag: String) -> void
 		PlayState.IN_PAUSE_MENU: return
 		PlayState.CLOSING_PAUSE_MENU: return
 		PlayState.GAMEPLAY: do_room_transition(dest_room, dest_door_tag)
+
+
+func _on_pause_menu_exit_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/menu/menu.tscn")
+	DialogueManager.end_dialogue_fast()
+	get_tree().paused = false

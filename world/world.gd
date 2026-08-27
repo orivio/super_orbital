@@ -19,7 +19,7 @@ func init_room() -> void:
 
 
 func do_room_transition(dest_room: String, dest_door_tag: String) -> void:
-	room_manager.change_room(dest_room, dest_door_tag, true)
+	await room_manager.change_room(dest_room, dest_door_tag, true)
 
 
 func _on_transition_entered(dest_room: String, dest_door_tag: String) -> void:
