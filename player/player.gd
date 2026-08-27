@@ -85,6 +85,11 @@ func reset() -> void:
 	in_blackhole = false
 	last_pos = global_position
 
+
+func initialize() -> void:
+	load_abilities()
+
+
 func _process(delta: float) -> void:
 	if !input_locked:
 		direction = Input.get_axis("left", "right")

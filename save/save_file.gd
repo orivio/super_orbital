@@ -3,8 +3,7 @@ class_name SaveFile
 const SAVE_GAME_PATH: String = "user://save_file.json"
 
 var level_idx: int = 0
-var level: String = "move"
-var level_uid: String = "uid://dteyafc74ycrl"
+var max_level_idx: int = 0
 var player_abilities: PlayerAbilities = preload("res://player/abilities/player_initial_abilities.tres")
 var dialogue_data: Dictionary
 var progress_data: Array[String]
@@ -18,8 +17,7 @@ func write_to_file(file_path: String) -> void:
 	var file: FileAccess = FileAccess.open(file_path, FileAccess.WRITE)
 	var data: Dictionary = {
 		"level_idx": level_idx,
-		"level": level,
-		"level_uid": level_uid,
+		"max_level_idx": max_level_idx,
 		"player_abilities": player_abilities.get_json(),
 		"dialogue": dialogue_data,
 		"progress": progress_data
@@ -47,8 +45,7 @@ static func load_from_file(file_path: String) -> SaveFile:
 		return null
 	var save_file: SaveFile = SaveFile.new()
 	save_file.level_idx = data["level_idx"]
-	save_file.level = data["level"]
-	save_file.level_uid = data["level_uid"]
+	save_file.max_level_idx = data["max_level_idx"]
 	save_file.player_abilities = PlayerAbilities.from_json(data["player_abilities"])
 	save_file.dialogue_data = data["dialogue"]
 	save_file.progress_data.append_array(data["progress"])

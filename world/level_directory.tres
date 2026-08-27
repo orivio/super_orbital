@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="LevelDirectory" format=3 uid="uid://b2r1d4d04hwnn"]
 
-[ext_resource type="Script" uid="uid://2vv4xhpetduf" path="res://world/level_metadata.gd" id="1_e46c1"]
+[ext_resource type="Script" uid="uid://2vv4xhpetduf" path="res://world/level_meta.gd" id="1_e46c1"]
 [ext_resource type="Script" uid="uid://b4ojjvhrhj5ll" path="res://world/level_directory.gd" id="2_sskww"]
 
 [sub_resource type="Resource" id="Resource_dl6tl"]
@@ -17,6 +17,7 @@ metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_sskww"]
 script = ExtResource("1_e46c1")
+scene_path = "uid://b7mth0jcnis7i"
 level_name = "Ladder"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 

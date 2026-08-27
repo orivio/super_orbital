@@ -1,4 +1,4 @@
-class_name LevelMetadata
+class_name LevelMeta
 extends Resource
 
 @export var song: StringName
