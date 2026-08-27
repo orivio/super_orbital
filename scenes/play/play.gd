@@ -3,6 +3,7 @@ extends Node2D
 enum PlayState {
 	UNINITIALIZED,
 	GAMEPLAY,
+	TRANSITIONING_ROOMS,
 	OPENING_PAUSE_MENU,
 	IN_PAUSE_MENU,
 	CLOSING_PAUSE_MENU,
@@ -24,6 +25,7 @@ var current_state: PlayState
 
 func _ready() -> void:
 	current_state = PlayState.UNINITIALIZED
+	world.room_transition.connect(_on_world_room_transition)
 	world.init_room()
 	current_state = PlayState.GAMEPLAY
 
@@ -36,6 +38,7 @@ func _input(event: InputEvent) -> void:
 			PlayState.OPENING_PAUSE_MENU: return
 			PlayState.CLOSING_PAUSE_MENU: return
 			PlayState.UNINITIALIZED: return
+			PlayState.TRANSITIONING_ROOMS: return
 
 
 func _on_pause_menu_close_pressed() -> void:
@@ -45,6 +48,7 @@ func _on_pause_menu_close_pressed() -> void:
 		PlayState.OPENING_PAUSE_MENU: return
 		PlayState.CLOSING_PAUSE_MENU: return
 		PlayState.UNINITIALIZED: return
+		PlayState.TRANSITIONING_ROOMS: return
 
 
 func open_pause_menu() -> void:
@@ -92,3 +96,19 @@ func close_pause_menu() -> void:
 	pause_menu = null
 	current_state = PlayState.GAMEPLAY
 	print("Finished closing pause menu")
+
+
+func do_room_transition(dest_room: String, dest_door_tag: String) -> void:
+	current_state = PlayState.TRANSITIONING_ROOMS
+	world.do_room_transition(dest_room, dest_door_tag)
+	current_state = PlayState.GAMEPLAY
+
+
+func _on_world_room_transition(dest_room: String, dest_door_tag: String) -> void:
+	match current_state:
+		PlayState.UNINITIALIZED: return
+		PlayState.TRANSITIONING_ROOMS: return
+		PlayState.OPENING_PAUSE_MENU: return
+		PlayState.IN_PAUSE_MENU: return
+		PlayState.CLOSING_PAUSE_MENU: return
+		PlayState.GAMEPLAY: do_room_transition(dest_room, dest_door_tag)

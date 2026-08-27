@@ -1,6 +1,7 @@
 class_name RoomManager
 extends Node
 
+signal transition_entered(dest_room: String, dest_door_tag: String, do_save: bool)
 signal room_changed(room: String)
 
 @export var initial_room: String = ""
@@ -75,7 +76,7 @@ func change_room(dest_room: String, dest_door_tag: String, do_save: bool = true)
 	current_room = room_instance
 	current_room.initialize_room()
 	GameManager.current_room = current_room
-	current_room.room_door_entered.connect(change_room)
+	current_room.room_door_entered.connect(_on_room_door_entered)
 	
 	
 	if previous_room:
@@ -146,3 +147,7 @@ func update_camera_limits(room: Room) -> void:
 	var camera_bounds: Rect2 = room.get_camera_bounds()
 	
 	player_camera.set_limits(camera_bounds)
+
+
+func _on_room_door_entered(dest_room: String, dest_door_tag: String) -> void:
+	transition_entered.emit(dest_room, dest_door_tag)
