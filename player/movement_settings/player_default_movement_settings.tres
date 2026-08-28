@@ -5,8 +5,9 @@
 [resource]
 script = ExtResource("1_y2jkl")
 walk_speed = 300.0
-walk_start_time = 0.5
+walk_start_time = 0.15
 walk_stop_time = 0.1
 minimum_movement_threshold = 10.0
 ground_friction = 3000.0
+ground_acceleration = 2000.0
 metadata/_custom_type_script = "uid://dumitcejfyj50"

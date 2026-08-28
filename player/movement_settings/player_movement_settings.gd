@@ -9,18 +9,29 @@ extends Resource
 		if walk_stop_time != 0:
 			ground_friction = walk_speed / walk_stop_time
 		else:
-			ground_friction = 99999
-@export_range(0, 1) var walk_start_time: float
+			ground_friction = max_ground_acceleration
+		if walk_start_time != 0:
+			walk_start_time = walk_speed / walk_start_time
+		else:
+			walk_start_time = max_ground_acceleration
+@export_range(0, 1) var walk_start_time: float:
+	set(value):
+		walk_start_time = value
+		if walk_start_time != 0:
+			ground_acceleration = walk_speed / walk_start_time
+		else:
+			ground_acceleration = max_ground_acceleration
 @export_range(0, 1) var walk_stop_time: float:
 	set(value):
 		walk_stop_time = value
 		if walk_stop_time != 0:
 			ground_friction = walk_speed / walk_stop_time
 		else:
-			ground_friction = 99999
-
+			ground_friction = max_ground_acceleration
 @export_category("Snapping Settings")
-@export_range(0, 10) var minimum_movement_threshold: float
-
-@export_group("Hidden Settings")
+@export_range(0, 1000) var minimum_movement_threshold: float
+@export_category("Limits")
+@export var max_ground_acceleration: float = 999999
+@export_category("Hidden Settings")
 @export var ground_friction: float
+@export var ground_acceleration: float
