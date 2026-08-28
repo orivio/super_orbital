@@ -21,6 +21,8 @@ const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.t
 @onready var tooltip: Label = $Tooltip
 @onready var input: InputComponent = $InputComponent
 
+var facing_right: bool = true
+
 
 func _ready() -> void:
 	GameManager.player = self
@@ -31,9 +33,17 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	state_machine.process(delta)
+	if facing_right:
+		sprite.flip_h = false
+	else:
+		sprite.flip_h = true
 
 
 func _physics_process(delta: float) -> void:
+	if velocity.x > 0:
+		facing_right = true
+	elif velocity.x < 0:
+		facing_right = false
 	state_machine.physics_process(delta)
 
 
