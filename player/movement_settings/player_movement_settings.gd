@@ -11,9 +11,9 @@ extends Resource
 		else:
 			ground_friction = max_ground_acceleration
 		if walk_start_time != 0:
-			walk_start_time = walk_speed / walk_start_time
+			ground_acceleration = walk_speed / walk_start_time
 		else:
-			walk_start_time = max_ground_acceleration
+			ground_acceleration = max_ground_acceleration
 @export_range(0, 1) var walk_start_time: float:
 	set(value):
 		walk_start_time = value

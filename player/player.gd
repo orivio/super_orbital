@@ -71,7 +71,7 @@ func get_half_width() -> float:
 
 
 func teleport_to_ground(target: Vector2) -> void:
-	global_position = target + Vector2.UP * get_half_height()
+	global_position = target
 
 
 func unlock_ability(ability: String) -> void:
