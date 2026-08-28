@@ -7,15 +7,14 @@ var states: Array[State]
 var prev_state: State
 var current_state: State
 
-
-func _ready() -> void:
-	pass
+@onready var player: Player = $".."
 
 
 func initialize() -> void:
 	states = []
 	for state in get_children():
 		if state is State:
+			state.actor = player
 			states.append(state)
 	change_state(default_state)
 

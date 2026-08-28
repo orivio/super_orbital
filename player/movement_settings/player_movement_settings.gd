@@ -1,24 +1,26 @@
 @tool
+class_name PlayerMovementSettings
+extends Resource
 
-class_name PlayerMovementSettings extends Resource
+@export_category("Walk Settings")
+@export_range(32, 512) var walk_speed: float:
+	set(value):
+		walk_speed = value
+		if walk_stop_time != 0:
+			ground_friction = walk_speed / walk_stop_time
+		else:
+			ground_friction = 99999
+@export_range(0, 1) var walk_start_time: float
+@export_range(0, 1) var walk_stop_time: float:
+	set(value):
+		walk_stop_time = value
+		if walk_stop_time != 0:
+			ground_friction = walk_speed / walk_stop_time
+		else:
+			ground_friction = 99999
 
-@export_range(300, 1000) var move_speed: float
-@export_range(600, 2000) var jump_velocity: float
-@export var gravity: float
-@export_range(1, 3) var downward_gravity_multiplier: float
-@export_range(0.1, 1) var air_speed_multiplier: float
-@export_range(0, 10000) var dash_velocity: float
-@export_range(0, 1) var dash_time: float
-@export_range(100, 1000) var dash_distance: float
-@export var dash_cooldown: float
-@export var mass: float
-@export var wrench_throw_velocity: float
-@export var float_bounce_min_velocity: float
-@export var float_min_velocity: float
-@export_range(0, 1) var float_bounce_decay_factor: float
-@export var gravity_switch_cooldown: float
-@export var max_velocity: float
-@export var coyote_time: float
-# UNUSED
-@export var wrench_velocity: float
-@export_range(0, 1) var jump_buffer: float
+@export_category("Snapping Settings")
+@export_range(0, 10) var minimum_movement_threshold: float
+
+@export_group("Hidden Settings")
+@export var ground_friction: float

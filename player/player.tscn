@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bx2iv5xarjh7v" path="res://player/sprites/sad_guy_spritesheet.png" id="4_e7oew"]
 [ext_resource type="Script" uid="uid://cobylp8hlybiw" path="res://player/hurt_box.gd" id="4_j3ovn"]
 [ext_resource type="Script" uid="uid://clgn5b24q3i2m" path="res://player/state/idle_state.gd" id="7_yllr7"]
+[ext_resource type="Script" uid="uid://dpinbghjqd15c" path="res://player/state/walk_state.gd" id="8_kb6p2"]
 [ext_resource type="Script" uid="uid://cmj8pah4adp4i" path="res://player/tooltip.gd" id="11_7thud"]
+[ext_resource type="Script" uid="uid://dkhfrycy4c8n1" path="res://player/input_component.gd" id="15_wodsf"]
 [ext_resource type="AudioStream" uid="uid://bo68gmydfw3ja" path="res://sounds/sfx/gravity_off_2.wav" id="16_tqiix"]
 [ext_resource type="AudioStream" uid="uid://dnjlxy8u2sigx" path="res://sounds/sfx/gravity_on_2.wav" id="17_e7oew"]
 [ext_resource type="AudioStream" uid="uid://bp7ux6ojv5g3w" path="res://sounds/sfx/dash.wav" id="18_e7oew"]
@@ -756,6 +758,9 @@ default_state = NodePath("Idle")
 [node name="Idle" type="Node" parent="StateMachine" unique_id=448448205]
 script = ExtResource("7_yllr7")
 
+[node name="Walk" type="Node" parent="StateMachine" unique_id=451179005]
+script = ExtResource("8_kb6p2")
+
 [node name="Tooltip" type="Label" parent="." unique_id=1824500785]
 offset_left = -80.0
 offset_top = -93.0
@@ -791,6 +796,9 @@ bus = &"Sound Effects"
 [node name="Death" type="AudioStreamPlayer" parent="Sounds" unique_id=473501979]
 stream = ExtResource("20_65viv")
 bus = &"Sound Effects"
+
+[node name="InputComponent" type="Node" parent="." unique_id=432591357]
+script = ExtResource("15_wodsf")
 
 [connection signal="area_entered" from="HurtBox" to="HurtBox" method="_on_area_entered"]
 [connection signal="body_entered" from="HurtBox" to="HurtBox" method="_on_body_entered"]

@@ -1,6 +1,8 @@
 class_name State
 extends Node
 
+var actor: Player
+
 
 func enter() -> void:
 	pass

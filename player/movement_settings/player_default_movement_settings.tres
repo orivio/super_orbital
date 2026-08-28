@@ -4,23 +4,9 @@
 
 [resource]
 script = ExtResource("1_y2jkl")
-move_speed = 463.791
-jump_velocity = 600.0
-gravity = 1427.7
-downward_gravity_multiplier = 1.2
-air_speed_multiplier = 0.9
-dash_velocity = 1159.784
-dash_time = 0.145
-dash_distance = 449.619
-dash_cooldown = 0.4
-mass = 100.0
-wrench_throw_velocity = 200.0
-float_bounce_min_velocity = 250.0
-float_min_velocity = 100.0
-float_bounce_decay_factor = 0.9
-gravity_switch_cooldown = 1.0
-max_velocity = 900.0
-coyote_time = 0.2
-wrench_velocity = 1000.0
-jump_buffer = 0.1
+walk_speed = 300.0
+walk_start_time = 0.5
+walk_stop_time = 0.1
+minimum_movement_threshold = 10.0
+ground_friction = 3000.0
 metadata/_custom_type_script = "uid://dumitcejfyj50"

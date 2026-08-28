@@ -13,13 +13,13 @@ const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.t
 @export var movement_settings: PlayerMovementSettings
 @export var abilities: PlayerAbilities = null
 
-
 @onready var state_machine: StateMachine = $StateMachine
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var collider: CollisionShape2D = $CollisionShape2D
 @onready var tooltip: Label = $Tooltip
+@onready var input: InputComponent = $InputComponent
 
 
 func _ready() -> void:
