@@ -6,19 +6,13 @@
 [sub_resource type="Resource" id="Resource_dl6tl"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://dteyafc74ycrl"
-level_name = "Move"
+level_name = "Start"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_e46c1"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://buky8cbnivxtx"
-level_name = "Spike"
-metadata/_custom_type_script = "uid://2vv4xhpetduf"
-
-[sub_resource type="Resource" id="Resource_sskww"]
-script = ExtResource("1_e46c1")
-scene_path = "uid://b7mth0jcnis7i"
-level_name = "Ladder"
+level_name = "Spikes"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_2oksg"]
@@ -30,55 +24,55 @@ metadata/_custom_type_script = "uid://2vv4xhpetduf"
 [sub_resource type="Resource" id="Resource_faub0"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://c1sb0h6scncah"
-level_name = "Jumpcut"
+level_name = "Don't Jump Too High"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_g46qg"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://ddxmy7jvftye4"
-level_name = "Bridge"
+level_name = "The Bridge"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_30ymr"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://463vcvm62equ"
-level_name = "Gap"
+level_name = "Moving Platforms"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_qa6ru"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://dtk1cwd2x7bqj"
-level_name = "Timing"
+level_name = "Platform Timing"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_gjcv0"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://dq5o3hg42kqv"
-level_name = "Momentum"
+level_name = "More Platform Timing"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_lu7j5"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://dtohxckxanqyl"
-level_name = "Platform Spike"
+level_name = "Platforms and Spikes"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_x7rgq"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://bf52ikweswlrf"
-level_name = "Long Gap"
+level_name = "Dash"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_tvj3v"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://cjsjgx5ksbvsd"
-level_name = "Spike Gap"
+level_name = "Dash Ladder"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_64nvc"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://xxigq2kqilns"
-level_name = "Dash Platform"
+level_name = "Dashing Between Platforms"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_376m0"]
@@ -96,7 +90,7 @@ metadata/_custom_type_script = "uid://2vv4xhpetduf"
 [sub_resource type="Resource" id="Resource_xmp4x"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://dmth7qhi6p4du"
-level_name = "No Gravity Dash Chain"
+level_name = "No Gravity With Dashes"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_5ro4f"]
@@ -108,19 +102,19 @@ metadata/_custom_type_script = "uid://2vv4xhpetduf"
 [sub_resource type="Resource" id="Resource_n3fr2"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://drwajwykhe8mb"
-level_name = "Wrench"
+level_name = "Throw a Wrench in it"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_4b5ad"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://dftchxtsfo3cy"
-level_name = "Wrench Large"
+level_name = "Facility Entrance"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_ymir8"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://q37ng5uis2j3"
-level_name = "Cant Stop"
+level_name = "Can't Stop Floating"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_nyyy1"]
@@ -133,25 +127,25 @@ metadata/_custom_type_script = "uid://2vv4xhpetduf"
 [sub_resource type="Resource" id="Resource_457sk"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://dm8o4fu2ncd4e"
-level_name = "Climbing"
+level_name = "Climbing Up the Facility"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_w2ies"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://b7y15sh84lthd"
-level_name = "Black Hole"
+level_name = "Black Holes"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_w3btx"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://c8jrl1ckwxdxt"
-level_name = "Black Hole Angle"
+level_name = "Black Holes at an Angle"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_vl48u"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://bq4avu843532o"
-level_name = "Wait"
+level_name = "Wait, Orbit"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_tyvae"]
@@ -162,5 +156,5 @@ metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [resource]
 script = ExtResource("2_sskww")
-levels = Array[ExtResource("1_e46c1")]([SubResource("Resource_dl6tl"), SubResource("Resource_e46c1"), SubResource("Resource_sskww"), SubResource("Resource_2oksg"), SubResource("Resource_faub0"), SubResource("Resource_g46qg"), SubResource("Resource_30ymr"), SubResource("Resource_qa6ru"), SubResource("Resource_gjcv0"), SubResource("Resource_lu7j5"), SubResource("Resource_x7rgq"), SubResource("Resource_tvj3v"), SubResource("Resource_64nvc"), SubResource("Resource_376m0"), SubResource("Resource_lwi6v"), SubResource("Resource_xmp4x"), SubResource("Resource_5ro4f"), SubResource("Resource_n3fr2"), SubResource("Resource_4b5ad"), SubResource("Resource_ymir8"), SubResource("Resource_nyyy1"), SubResource("Resource_457sk"), SubResource("Resource_w2ies"), SubResource("Resource_w3btx"), SubResource("Resource_vl48u"), SubResource("Resource_tyvae")])
+levels = Array[ExtResource("1_e46c1")]([SubResource("Resource_dl6tl"), SubResource("Resource_e46c1"), SubResource("Resource_2oksg"), SubResource("Resource_faub0"), SubResource("Resource_g46qg"), SubResource("Resource_30ymr"), SubResource("Resource_qa6ru"), SubResource("Resource_gjcv0"), SubResource("Resource_lu7j5"), SubResource("Resource_x7rgq"), SubResource("Resource_tvj3v"), SubResource("Resource_64nvc"), SubResource("Resource_376m0"), SubResource("Resource_lwi6v"), SubResource("Resource_xmp4x"), SubResource("Resource_5ro4f"), SubResource("Resource_n3fr2"), SubResource("Resource_4b5ad"), SubResource("Resource_ymir8"), SubResource("Resource_nyyy1"), SubResource("Resource_457sk"), SubResource("Resource_w2ies"), SubResource("Resource_w3btx"), SubResource("Resource_vl48u"), SubResource("Resource_tyvae")])
 metadata/_custom_type_script = "uid://b4ojjvhrhj5ll"

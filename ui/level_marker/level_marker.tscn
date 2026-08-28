@@ -15,6 +15,10 @@ region = Rect2(0, 0, 64, 64)
 atlas = ExtResource("1_sl80p")
 region = Rect2(128, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_e46c1"]
+atlas = ExtResource("1_sl80p")
+region = Rect2(0, 0, 64, 64)
+
 [node name="LevelMarker" type="Control" unique_id=780268325]
 custom_minimum_size = Vector2(160, 144)
 layout_mode = 3
@@ -37,18 +41,20 @@ offset_top = 8.0
 offset_right = 144.0
 offset_bottom = 136.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
-texture = ExtResource("1_sl80p")
+texture = SubResource("AtlasTexture_e46c1")
 
 [node name="Label" type="Label" parent="." unique_id=1343735095]
 custom_minimum_size = Vector2(129.637, 49)
 layout_mode = 0
-offset_left = 14.999994
-offset_top = 47.000004
+offset_left = 14.999993
+offset_top = -31.000004
 offset_right = 144.637
-offset_bottom = 96.0
+offset_bottom = 174.0
 rotation = -0.16406095
 pivot_offset_ratio = Vector2(0.5, 0.5)
+text = "gilganasperchrit dvude very dueadj"
 horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
 [connection signal="mouse_entered" from="TextureRect" to="." method="_on_mouse_entered"]
