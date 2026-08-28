@@ -26,9 +26,9 @@ func physics_process(delta: float) -> State:
 	else:
 		actor.velocity.x = move_toward(actor.velocity.x, 0, delta * actor.movement_settings.ground_friction)
 	
+	actor.move_and_slide()
+	
 	if actor.input.horizontal_input_direction != 0:
 		return walk
-	
-	actor.move_and_slide()
 	
 	return null
