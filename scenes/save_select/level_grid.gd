@@ -59,7 +59,6 @@ func _on_right_button_button_down() -> void:
 
 func _on_level_selected(level_idx: int) -> void:
 	SaveManager.select_level(level_idx)
-	print(level_idx)
 	level_grid_selected.emit(level_idx)
 	
 func _on_level_start(level_idx: int) -> void:

@@ -52,7 +52,6 @@ func _on_pause_menu_close_pressed() -> void:
 
 
 func open_pause_menu() -> void:
-	print("Opening pause menu")
 	# Change state
 	current_state = PlayState.OPENING_PAUSE_MENU
 	# Freeze the game
@@ -73,11 +72,9 @@ func open_pause_menu() -> void:
 	# Clean up everything
 	pause_menu_enter_tween = null
 	current_state = PlayState.IN_PAUSE_MENU
-	print("Finished opening pause menu")
 
 
 func close_pause_menu() -> void:
-	print("Closing pause menu")
 	# Change state
 	current_state = PlayState.CLOSING_PAUSE_MENU
 	# Animate the pause menu sliding downwards
@@ -92,7 +89,6 @@ func close_pause_menu() -> void:
 	pause_menu.queue_free()
 	pause_menu = null
 	current_state = PlayState.GAMEPLAY
-	print("Finished closing pause menu")
 
 
 func do_level_transition(direction: Types.DoorDirection) -> void:
