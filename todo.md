@@ -1,4 +1,6 @@
 Russlan:
+- Review my plan for the opening cutscene
+- Re assign the music to the rooms (I'm sorry)
 - Finish the banner
 - Write some more dialogue
 - Make more OST
@@ -7,6 +9,8 @@ Russlan:
 - Make an image for the title
 
 Obed:
+- Redo player movement
+	- Which will involve redesigning some levels
 - I might want to make some cool environmental effects, such as frost, dust
 storms, etc... really just because its fun to make stuff like that
 	- Finish the hoodoo drawings
@@ -29,6 +33,8 @@ is
 time, you will dash or gravity switch immediately after unlocking the ability,
 even if you didn't press any key for it
 - Fix game pause menu
+- Add support for cutscenes
+- Clean up the dialogue manager code
 - Make the impact particles not be dust particles if you're colliding with
 metallic ground
 - Fix tile inconsistencies across many levels
