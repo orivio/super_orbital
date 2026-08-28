@@ -103,57 +103,44 @@ func change_level(new_level_meta: LevelMeta, dest_door: String) -> void:
 
 
 func teleport_player_to_door(level: Level, dest_door_tag: String):
-	
 	# Find the right door
 	var doors = level.get_doors()
 	for door in doors:
-		if "door_tag" in door and door.door_tag == dest_door_tag:
-			# We can teleport the player to the door's spawn
+		if door is Door and door.door_tag == dest_door_tag:
+			# We can teleport the player to the door's spawn position
+			var spawn_location: Vector2 = door.get_spawn_pos()
 			
-			var spawn_location = door.spawn.global_position
-			
-			# Raycast to make sure player snaps to the ground
-			# WARNING: Potentially buggy
-			
-			player.has_gravity = true
-			
-			#player.global_position = collision.position + player.get_half_height() * Vector2.UP
-			
+			# Teleport the player and reset everything
 			player.teleport_to_ground(spawn_location)
 			player.reset()
 			GameManager.camera.snap_camera_to_player()
-			
-			# Reset player momentum
-			
-			# player.direction = 0
-			# player.velocity = Vector2.ZERO
-			
-			# print("Teleporting to: ", player.global_position)
-			
 			return
 	
 	print("Could not find door ", dest_door_tag, " in level ", level.name)
 
+
 func update_camera_limits(level: Level) -> void:
-	
 	# Adjust camera limits based on what the level says it's limits are
-	
 	var camera_bounds: Rect2 = level.get_camera_bounds()
-	
 	player_camera.set_limits(camera_bounds)
 
 
 func do_level_transition(direction: Types.DoorDirection) -> void:
+	# Find next level to go to
 	var new_level_idx: int = current_level_idx + direction
 	var new_level_meta: LevelMeta = LEVEL_DIR.get_level_meta(new_level_idx)
 	
+	# Change level, and make the player go to the opposite side door
 	match direction:
 		Types.DoorDirection.WEST:
 			await change_level(new_level_meta, "EastDoor")
 		Types.DoorDirection.EAST:
 			await change_level(new_level_meta, "WestDoor")
+	
+	# Finish up
 	current_level_idx = new_level_idx
 	level_changed.emit(new_level_idx)
+
 
 func _on_door_entered(direction: Types.DoorDirection) -> void:
 	door_entered.emit(direction)

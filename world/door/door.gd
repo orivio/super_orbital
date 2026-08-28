@@ -5,8 +5,6 @@ extends Area2D
 signal door_entered(direction: Types.DoorDirection)
 
 @export var door_tag: String
-@export var dest_door: String
-@export var dest_level: String
 @export var direction: Types.DoorDirection = Types.DoorDirection.EAST
 
 @onready var spawn: Marker2D = $Spawn
