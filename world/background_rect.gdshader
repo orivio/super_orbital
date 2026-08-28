@@ -26,6 +26,7 @@ float noise(vec2 n) {
 	return mix(mix(rand(b), rand(b + d.yx), f.x), mix(rand(b + d.xy), rand(b + d.yy), f.x), f.y);
 }
 
+
 void vertex() {
 	// Called for every vertex the material is visible on.
 }
@@ -35,7 +36,7 @@ void fragment() {
 	vec2 uv = UV;
 	uv += offset;
 	uv += camera_offset * SCREEN_PIXEL_SIZE * vec2(0., 0.);
-	uv = uv + vec2(noise(uv * distortion_scale + vec2(1000., 8000.)) * distortion, noise(uv * distortion_scale + vec2(-800., 1000000.)) * distortion);
+	uv = uv + vec2(noise(uv * distortion_scale + vec2(-82.3, 21.5)) * distortion, noise(uv * distortion_scale + vec2(-80., 10.)) * distortion);
 	float brightness = noise(uv * scale) * variation - variation / 2.;
 	base += brightness;
 	COLOR = vec4(base, 1);

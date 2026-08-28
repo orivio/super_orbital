@@ -24,7 +24,7 @@ func _ready() -> void:
 		# Add the color rect offset
 		var rng = RandomNumberGenerator.new()
 		rng.seed = hash(scene_file_path)
-		color_rect.material.set_shader_parameter("offset", Vector2(rng.randf_range(-100000., 10000.), rng.randf_range(-100000., 10000.)))
+		#color_rect.material.set_shader_parameter("offset", Vector2(rng.randf_range(-100000., 10000.), rng.randf_range(-100000., 10000.)))
 
 func _on_door_entered(direction: Types.DoorDirection):
 	door_entered.emit(direction)
@@ -42,7 +42,8 @@ func initialize_level() -> void:
 
 func _process(_delta: float) -> void:
 	if not Engine.is_editor_hint():
-		color_rect.material.set_shader_parameter("camera_offset", GameManager.camera.global_position)
+		#color_rect.material.set_shader_parameter("camera_offset", GameManager.camera.global_position)
+		pass
 
 func get_camera_bounds() -> Rect2:
 	

@@ -2,31 +2,19 @@
 
 [ext_resource type="Script" uid="uid://b6ypyl2kdv5a6" path="res://world/level.gd" id="1_kbkjf"]
 [ext_resource type="Script" uid="uid://0wf2gyynjq3u" path="res://camera/camera_bounds.gd" id="2_gq2vv"]
-[ext_resource type="Shader" uid="uid://blpkw3ebgpvjk" path="res://world/background_rect.gdshader" id="2_tc1xl"]
 [ext_resource type="TileSet" uid="uid://bnrmi5xqiqb0w" path="res://world/tilesets/slightly_better_tileset.tres" id="3_gq2vv"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_inx5v"]
-shader = ExtResource("2_tc1xl")
-shader_parameter/scale = 1.0
-shader_parameter/color = Color(0.5254902, 0.30980393, 0.1882353, 1)
-shader_parameter/variation = 0.06
-shader_parameter/distortion = 0.2
-shader_parameter/distortion_scale = 3.0
-shader_parameter/offset = Vector2(-90761.266, -56845.586)
-shader_parameter/camera_offset = Vector2(0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjgib"]
 resource_local_to_scene = true
 size = Vector2(900, 500)
 
-[node name="RoomTemplate" type="Node2D" unique_id=201273727]
+[node name="Level" type="Node2D" unique_id=201273727]
 script = ExtResource("1_kbkjf")
 
-[node name="Background" type="CanvasLayer" parent="." unique_id=862772847]
+[node name="Background" type="CanvasLayer" parent="." unique_id=2128642405]
 layer = -1
 
-[node name="ColorRect" type="ColorRect" parent="Background" unique_id=1986130930]
-material = SubResource("ShaderMaterial_inx5v")
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=1139011203]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

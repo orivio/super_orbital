@@ -1,27 +1,30 @@
 [gd_scene format=4 uid="uid://ddxmy7jvftye4"]
 
-[ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room_template.tscn" id="1_acu84"]
+[ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/level_base.tscn" id="1_acu84"]
 [ext_resource type="Script" uid="uid://fh26kdyhba2m" path="res://levels/2_jump/bridge_spikes.gd" id="2_3oetn"]
 [ext_resource type="TileSet" uid="uid://bnrmi5xqiqb0w" path="res://world/tilesets/slightly_better_tileset.tres" id="3_3pkh3"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="4_6vats"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lp34"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acu84"]
 resource_local_to_scene = true
 size = Vector2(1632, 1984)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sg6bq"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3oetn"]
 resource_local_to_scene = true
 size = Vector2(64, 96)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3la3t"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pkh3"]
 resource_local_to_scene = true
 size = Vector2(128, 96)
 
 [node name="Level" unique_id=201273727 instance=ExtResource("1_acu84")]
 
+[node name="ColorRect" parent="Background" parent_id_path=PackedInt32Array(2128642405) index="0" unique_id=1139011203]
+color = Color(0.5254902, 0.30980393, 0.1882353, 1)
+
 [node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
 position = Vector2(464, 384)
-shape = SubResource("RectangleShape2D_1lp34")
+shape = SubResource("RectangleShape2D_acu84")
 
 [node name="SpikeManager" type="Node" parent="POI" parent_id_path=PackedInt32Array(809409572) index="0" unique_id=1970371900]
 script = ExtResource("2_3oetn")
@@ -51,7 +54,7 @@ direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-448, -48)
-shape = SubResource("RectangleShape2D_sg6bq")
+shape = SubResource("RectangleShape2D_3oetn")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-288, 0)
@@ -62,7 +65,7 @@ dest_door = ""
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(1408, -336)
-shape = SubResource("RectangleShape2D_3la3t")
+shape = SubResource("RectangleShape2D_3pkh3")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(1216, -288)

@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://q37ng5uis2j3"]
 
-[ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room_template.tscn" id="1_yiy1m"]
+[ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/level_base.tscn" id="1_yiy1m"]
 [ext_resource type="Texture2D" uid="uid://b4d0iy2gcl7ai" path="res://objects/arrow/arrow.png" id="2_0hy8y"]
 [ext_resource type="Shader" uid="uid://blpkw3ebgpvjk" path="res://world/background_rect.gdshader" id="2_1xu3a"]
 [ext_resource type="PackedScene" uid="uid://b2ogi0ekm1d7i" path="res://objects/moving_platform/moving_platform.tscn" id="2_5sl8d"]

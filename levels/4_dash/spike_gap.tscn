@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cjsjgx5ksbvsd"]
 
-[ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/room_template.tscn" id="1_cxha4"]
+[ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/level_base.tscn" id="1_cxha4"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="3_8ortk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hlsi5"]
