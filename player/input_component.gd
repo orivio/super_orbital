@@ -11,7 +11,7 @@ var horizontal_input_direction: float
 var current_state: InputComponentState
 var frame_number: int
 var current_input_sequence: InputSequence
-var sequence_path: String = "user://sequence_2026-08-28T17-28-40.res"
+var sequence_path: String = "user://sequence_2026-08-28T18-07-00.res"
 
 
 func _ready() -> void:
