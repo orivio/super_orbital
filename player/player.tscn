@@ -751,6 +751,9 @@ script = ExtResource("4_j3ovn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=248394177]
 shape = SubResource("RectangleShape2D_a1qjk")
 
+[node name="InputComponent" type="Node" parent="." unique_id=432591357]
+script = ExtResource("15_wodsf")
+
 [node name="StateMachine" type="Node" parent="." unique_id=1422387926 node_paths=PackedStringArray("default_state")]
 script = ExtResource("3_g1dw6")
 default_state = NodePath("Idle")
@@ -796,9 +799,6 @@ bus = &"Sound Effects"
 [node name="Death" type="AudioStreamPlayer" parent="Sounds" unique_id=473501979]
 stream = ExtResource("20_65viv")
 bus = &"Sound Effects"
-
-[node name="InputComponent" type="Node" parent="." unique_id=432591357]
-script = ExtResource("15_wodsf")
 
 [connection signal="area_entered" from="HurtBox" to="HurtBox" method="_on_area_entered"]
 [connection signal="body_entered" from="HurtBox" to="HurtBox" method="_on_body_entered"]

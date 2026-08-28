@@ -5,7 +5,7 @@ extends Area2D
 @export var unlocks_ability: String
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	#if body.is_in_group("player") and "show_tooltip" in body and not body.disabled and not body.tooltips_disabled:
 	#	body.show_tooltip(message)
 	#	body.unlock(unlocks_ability)
@@ -13,7 +13,7 @@ func _on_body_entered(body: Node2D) -> void:
 	pass
 
 
-func _on_body_exited(body: Node2D) -> void:
+func _on_body_exited(_body: Node2D) -> void:
 	#if body.is_in_group("player") and "hide_tooltip" in body and not body.disabled:
 	#	body.hide_tooltip()
 	#	#print("Hiding tooltip: ", message)
