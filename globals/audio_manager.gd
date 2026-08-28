@@ -1,20 +1,20 @@
 extends Node
 
-var music_player: AudioStreamPlayer
+const MUSIC_DIRECTORY: SoundDirectory = preload("res://sounds/music/music_registry.tres")
+
+@onready var music_player: AudioStreamPlayer = $MusicPlayer
+
 
 func _ready():
-	music_player = AudioStreamPlayer.new()
-	music_player.bus = &"Music"
-	add_child(music_player)
-	
-	music_player.autoplay = true
-	music_player.stream = load("res://music/1_lone_traveler.ogg")
-	music_player.play()
+	change_music(&"Lone Traveller")
+
 
 func stop_sound():
 	music_player.stop()
 
-func change_music(path: String):
-	music_player.stop()
-	music_player.stream = load(path)
+
+func change_music(song_name: StringName):
+	if music_player.playing:
+		music_player.stop()
+	music_player.stream = MUSIC_DIRECTORY.get_sound(song_name)
 	music_player.play()

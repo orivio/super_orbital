@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SoundDirectory" format=3 uid="uid://brpvxe0hc7fap"]
+
+[ext_resource type="Script" uid="uid://cxgybjavspd28" path="res://sounds/sound_directory.gd" id="1_nnq83"]
+[ext_resource type="AudioStream" uid="uid://bp7ux6ojv5g3w" path="res://sounds/sfx/dash.wav" id="2_gautb"]
+[ext_resource type="AudioStream" uid="uid://b5elhr52b7s1t" path="res://sounds/sfx/die.wav" id="3_yg4ko"]
+[ext_resource type="AudioStream" uid="uid://b1tuqlecgsayp" path="res://sounds/sfx/gravity_off.wav" id="4_rdu3n"]
+[ext_resource type="AudioStream" uid="uid://bo68gmydfw3ja" path="res://sounds/sfx/gravity_off_2.wav" id="5_14yxp"]
+[ext_resource type="AudioStream" uid="uid://kuuoqe4y573n" path="res://sounds/sfx/gravity_on.wav" id="6_nq4sq"]
+[ext_resource type="AudioStream" uid="uid://dnjlxy8u2sigx" path="res://sounds/sfx/gravity_on_2.wav" id="7_nm563"]
+[ext_resource type="AudioStream" uid="uid://blibcs4nthhm" path="res://sounds/sfx/throw_wrench.wav" id="8_pwyhg"]
+
+[resource]
+script = ExtResource("1_nnq83")
+sounds = Dictionary[StringName, AudioStream]({
+&"Dash": ExtResource("2_gautb"),
+&"Die": ExtResource("3_yg4ko"),
+&"Gravity Off": ExtResource("4_rdu3n"),
+&"Gravity Off 2": ExtResource("5_14yxp"),
+&"Gravity On": ExtResource("6_nq4sq"),
+&"Gravity On 2": ExtResource("7_nm563"),
+&"Throw Wrench": ExtResource("8_pwyhg")
+})
+metadata/_custom_type_script = "uid://cxgybjavspd28"

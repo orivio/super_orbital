@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://fgkjnnl23op1"]
+
+[ext_resource type="Script" uid="uid://cum61majgasey" path="res://globals/audio_manager.gd" id="1_exsf0"]
+
+[node name="AudioManager" type="Node" unique_id=518492439]
+script = ExtResource("1_exsf0")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=791575868]
+process_mode = 3
+bus = &"Music"

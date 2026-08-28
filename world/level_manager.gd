@@ -96,8 +96,8 @@ func change_level(new_level_meta: LevelMeta, dest_door: String) -> void:
 	await fade_effect.fade(Color(0, 0, 0, 0), level_transition_time).finished
 	
 	GameManager.player_leave_blackhole()
-	if current_level_meta.song != &"" and current_level_meta.song != previous_level_meta.song:
-		AudioManager.change_music(current_level.music_for_this_level)
+	if current_level_meta.song != &"" and (not previous_level_meta or current_level_meta.song != previous_level_meta.song):
+		AudioManager.change_music(current_level_meta.song)
 
 func teleport_player_to_door(level: Level, dest_door_tag: String):
 	

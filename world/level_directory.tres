@@ -125,6 +125,7 @@ metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_nyyy1"]
 script = ExtResource("1_e46c1")
+song = &"Spike Doom"
 scene_path = "uid://uvtsgsh0y461"
 level_name = "Perchrit"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"

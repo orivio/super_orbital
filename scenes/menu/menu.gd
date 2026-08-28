@@ -29,6 +29,7 @@ func _enter_tree() -> void:
 	#Engine.time_scale = 0.1
 
 func _ready() -> void:
+	AudioManager.change_music(&"Lone Traveller")
 	SettingsManager.load_prefs_file()
 	original_button_size = play_button.size
 	for button: Button in [play_button, settings_button]:

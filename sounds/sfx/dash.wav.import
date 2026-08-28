@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://kuuoqe4y573n"
-path="res://.godot/imported/gravity_on.wav-ed4c572a4db7380c13c471955f5b4061.sample"
+uid="uid://bp7ux6ojv5g3w"
+path="res://.godot/imported/dash.wav-acc21b44305accb571d4ef073c3e80de.sample"
 
 [deps]
 
-source_file="res://sounds/gravity_on.wav"
-dest_files=["res://.godot/imported/gravity_on.wav-ed4c572a4db7380c13c471955f5b4061.sample"]
+source_file="res://sounds/sfx/dash.wav"
+dest_files=["res://.godot/imported/dash.wav-acc21b44305accb571d4ef073c3e80de.sample"]
 
 [params]
 

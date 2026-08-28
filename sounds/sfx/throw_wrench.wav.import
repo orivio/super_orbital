@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://blibcs4nthhm"
-path="res://.godot/imported/throw_wrench.wav-768adaf28cb6ef8f354decdaad297948.sample"
+path="res://.godot/imported/throw_wrench.wav-5a158c0c2b737d7ae6a450a852084fe0.sample"
 
 [deps]
 
-source_file="res://sounds/throw_wrench.wav"
-dest_files=["res://.godot/imported/throw_wrench.wav-768adaf28cb6ef8f354decdaad297948.sample"]
+source_file="res://sounds/sfx/throw_wrench.wav"
+dest_files=["res://.godot/imported/throw_wrench.wav-5a158c0c2b737d7ae6a450a852084fe0.sample"]
 
 [params]
 

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SoundDirectory" format=3 uid="uid://bfscqinslxtkt"]
+
+[ext_resource type="Script" uid="uid://cxgybjavspd28" path="res://sounds/sound_directory.gd" id="1_o08vv"]
+[ext_resource type="AudioStream" uid="uid://c28isioytqjc6" path="res://sounds/music/1_lone_traveler.ogg" id="2_jxqpg"]
+[ext_resource type="AudioStream" uid="uid://bnhyy2akdat4u" path="res://sounds/music/2.5_spike_doom.ogg" id="3_ipcpd"]
+[ext_resource type="AudioStream" uid="uid://86wyqwb0rs5n" path="res://sounds/music/2_martian_overture.ogg" id="4_demxy"]
+[ext_resource type="AudioStream" uid="uid://4hjpxry83vi8" path="res://sounds/music/3_security_risk.ogg" id="5_ipcpd"]
+
+[resource]
+script = ExtResource("1_o08vv")
+sounds = Dictionary[StringName, AudioStream]({
+&"Lone Traveller": ExtResource("2_jxqpg"),
+&"Martian Overture": ExtResource("4_demxy"),
+&"Security Risk": ExtResource("5_ipcpd"),
+&"Spike Doom": ExtResource("3_ipcpd")
+})
+metadata/_custom_type_script = "uid://cxgybjavspd28"
