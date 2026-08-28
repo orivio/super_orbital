@@ -26,15 +26,17 @@ func update_visuals(save_file: SaveFile) -> void:
 	var max_level_to_display: int = save_file.max_level_idx
 	
 	for count in range(selected_number * 15, min(selected_number * 15 + 15, max_level_to_display)):
-		var level_marker_instance: Control = LEVEL_MARKER.instantiate()
+		var level_marker_instance: LevelMarker = LEVEL_MARKER.instantiate()
 		grid_container.add_child(level_marker_instance)
+		
 		var level_meta: LevelMeta = LEVEL_DIR.get_level_meta(count)
 		var level_name: String = level_meta.level_name
-		level_marker_instance.get_node("Label").text = level_name
-		level_marker_instance.level_name = level_name
+		
 		level_marker_instance.level_selected.connect(_on_level_selected)
 		level_marker_instance.level_start.connect(_on_level_start)
 		level_grid_selected.connect(level_marker_instance._on_other_level_selected)
+		
+		level_marker_instance.initialize(level_name, count)
 	last_save_file = save_file
 
 
@@ -57,6 +59,7 @@ func _on_right_button_button_down() -> void:
 
 func _on_level_selected(level_idx: int) -> void:
 	SaveManager.select_level(level_idx)
+	print(level_idx)
 	level_grid_selected.emit(level_idx)
 	
 func _on_level_start(level_idx: int) -> void:

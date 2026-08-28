@@ -20,6 +20,7 @@ var last_entered_door: String
 @onready var fade_effect: FadeEffect = $FadeEffect
 @onready var level_container: Node2D = $LevelContainer
 
+
 func _ready() -> void:
 	# Connect signals
 	level_changed.connect(SaveManager._on_level_changed)
@@ -27,13 +28,6 @@ func _ready() -> void:
 	# Prepare the fade to black effect
 	fade_effect.color_rect.color = Color(0, 0, 0, 1)
 
-func _on_player_death() -> void:
-	# TODO: Add checkpoints
-	reload_level()
-
-func reload_level() -> void:
-	# Change level to the current level, at the door you last entered
-	change_level(current_level_meta, last_entered_door)
 
 func initialize() -> void:
 	# Get the level number from the save file
@@ -45,6 +39,12 @@ func initialize() -> void:
 	current_level_idx = level_idx
 	# Get the player ready
 	player.initialize()
+
+
+func reload_level() -> void:
+	# Change level to the current level, at the door you last entered
+	change_level(current_level_meta, last_entered_door)
+
 
 func change_level(new_level_meta: LevelMeta, dest_door: String) -> void:
 	# No physics collisions while transitioning levels!
@@ -72,7 +72,7 @@ func change_level(new_level_meta: LevelMeta, dest_door: String) -> void:
 	level_container.add_child(level_instance)
 	current_level = level_instance
 	# Set up level
-	current_level.initialize_level()
+	current_level.initialize()
 	GameManager.current_level = current_level
 	current_level.door_entered.connect(_on_door_entered)
 	
@@ -80,35 +80,34 @@ func change_level(new_level_meta: LevelMeta, dest_door: String) -> void:
 	if previous_level:
 		await previous_level.tree_exited
 	
+	# Teleport the player to the door
 	if dest_door:
 		teleport_player_to_door(current_level, dest_door)
 		last_entered_door = dest_door
-	# print("Teleported player")
 	
+	# Update level metadata
 	previous_level_meta = current_level_meta
 	current_level_meta = new_level_meta
 	
+	# Update camera limits
 	update_camera_limits(level_instance)
-	
-	# print("Enabling player")
+	# Reenable physics
 	player.enable_physics()
-	
+	# Fade out from black
 	await fade_effect.fade(Color(0, 0, 0, 0), level_transition_time).finished
-	
+	# Update physics
 	GameManager.player_leave_blackhole()
+	# Update music
 	if current_level_meta.song != &"" and (not previous_level_meta or current_level_meta.song != previous_level_meta.song):
 		AudioManager.change_music(current_level_meta.song)
 
+
 func teleport_player_to_door(level: Level, dest_door_tag: String):
 	
-	# print("Teleporting player to door: ", dest_door_tag, " in level: ", level)
-	
 	# Find the right door
-	
 	var doors = level.get_doors()
 	for door in doors:
 		if "door_tag" in door and door.door_tag == dest_door_tag:
-			
 			# We can teleport the player to the door's spawn
 			
 			var spawn_location = door.spawn.global_position
@@ -158,3 +157,8 @@ func do_level_transition(direction: Types.DoorDirection) -> void:
 
 func _on_door_entered(direction: Types.DoorDirection) -> void:
 	door_entered.emit(direction)
+
+
+func _on_player_death() -> void:
+	# TODO: Add checkpoints
+	reload_level()
