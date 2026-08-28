@@ -40,7 +40,7 @@ func snap_camera_to_player() -> void:
 	smoothed_target = GameManager.player.global_position
 
 func update_target(delta: float) -> void:
-	smoothed_target = lerp(smoothed_target, GameManager.player.global_position + GameManager.player.true_velocity * delta * camera_velocity_influence, positional_smoothing * delta)
+	smoothed_target = lerp(smoothed_target, GameManager.player.global_position, positional_smoothing * delta)
 
 func set_limits(rect: Rect2) -> void:
 	limit_left = int(rect.position.x - rect.size.x / 2)
@@ -88,8 +88,8 @@ func direct_offset(direction: Vector2, duration: float) -> Tween:
 func _draw() -> void:
 	draw_set_transform_matrix(global_transform.affine_inverse())
 	
-	var _player_pos: Vector2 = GameManager.player.global_position
-	var _player_vel: Vector2 = GameManager.player.true_velocity
+	#var _player_pos: Vector2 = GameManager.player.global_position
+	#var _player_vel: Vector2 = GameManager.player.true_velocity
 	
 	#draw_circle(player_pos, 10, Color.RED, false, 5)
 	#draw_line(player_pos, player_pos + player_vel * camera_velocity_influence / 60, Color.RED)

@@ -48,7 +48,7 @@ func reload_level() -> void:
 
 func change_level(new_level_meta: LevelMeta, dest_door: String) -> void:
 	# No physics collisions while transitioning levels!
-	player.disable_physics()
+	#player.disable_physics()
 	
 	# Do the fade to black
 	await fade_effect.fade(Color(0, 0, 0, 1), level_transition_time).finished
@@ -92,7 +92,7 @@ func change_level(new_level_meta: LevelMeta, dest_door: String) -> void:
 	# Update camera limits
 	update_camera_limits(level_instance)
 	# Reenable physics
-	player.enable_physics()
+	#player.enable_physics()
 	# Fade out from black
 	await fade_effect.fade(Color(0, 0, 0, 0), level_transition_time).finished
 	# Update physics

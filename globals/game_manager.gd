@@ -58,10 +58,12 @@ func _physics_process(delta: float) -> void:
 			impacting = false
 
 func lock_input() -> void:
-	player.input_locked = true
+	#player.input_locked = true
+	pass
 	
 func unlock_input() -> void:
-	player.input_locked = false
+	#player.input_locked = false
+	pass
 
 func player_leave_blackhole() -> void:
 	player_left_blackhole.emit()
