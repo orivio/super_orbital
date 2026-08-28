@@ -71,23 +71,6 @@ func _ready() -> void:
 	state_machine.initialize()
 	GameManager.player_left_blackhole.connect(_on_player_left_blackhole)
 	#Engine.time_scale = 0.1
-	
-func reset() -> void:
-	is_dashing_horizontally = false
-	is_floating = false
-	has_gravity = true
-	base_velocity = Vector2.ZERO
-	velocity = Vector2.ZERO
-	state_machine.reset()
-	for effect in effects.get_children():
-		if not effect.is_queued_for_deletion():
-			effect.queue_free()
-	in_blackhole = false
-	last_pos = global_position
-
-
-func initialize() -> void:
-	load_abilities()
 
 
 func _process(delta: float) -> void:
@@ -139,7 +122,8 @@ func _process(delta: float) -> void:
 		tooltip.text = "Walk"
 	elif state_machine.current_state is StateWrench:
 		tooltip.text = "Wrench"
-	
+
+
 func _physics_process(delta: float) -> void:
 	#print(state_machine.current_state)
 	if is_on_floor():
@@ -198,7 +182,7 @@ func _physics_process(delta: float) -> void:
 	
 	true_velocity = (global_position - last_pos) / delta
 	last_pos = global_position
-	
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	#if event.is_action_pressed("dash"):
@@ -208,21 +192,44 @@ func _unhandled_input(event: InputEvent) -> void:
 	#	print()
 	state_machine.input(event)
 
+
+func initialize() -> void:
+	load_abilities()
+
+
+func reset() -> void:
+	is_dashing_horizontally = false
+	is_floating = false
+	has_gravity = true
+	base_velocity = Vector2.ZERO
+	velocity = Vector2.ZERO
+	state_machine.reset()
+	for effect in effects.get_children():
+		if not effect.is_queued_for_deletion():
+			effect.queue_free()
+	in_blackhole = false
+	last_pos = global_position
+
+
 func load_abilities() -> void:
 	if not abilities:
 		abilities = SaveManager.get_save_file().player_abilities
+
 
 func update_animation(_animation: String) -> void:
 	#if animation_player.current_animation != animation:
 	#	animation_player.play(animation)
 	pass
 
+
 func stop_animation() -> void:
 	#animation_player.stop()
 	pass
 
+
 func show_tooltip(message: String) -> void:
 	tooltip.show_tooltip(message)
+
 
 func hide_tooltip() -> void:
 	tooltip.hide_tooltip()
@@ -245,25 +252,31 @@ func die() -> void:
 	tooltips_disabled = true
 	play_sound_effect(&"death")
 
+
 func on_jump_buffer_timeout() -> void:
 	jump_buffer = false
+
 
 func get_half_height() -> float:
 	return collider.shape.get_rect().size.y / 2
 
+
 func get_half_width() -> float:
 	return collider.shape.get_rect().size.x / 2 + 10
+
 
 func _on_death_timeout() -> void:
 	tooltips_disabled = false
 	input_locked = false
 	reset()
 
+
 func teleport_to_ground(target: Vector2) -> void:
 	global_position = target + Vector2.UP * get_half_height()
 	last_pos = global_position
 	#print("Teleporting player to: ", global_position)
 	# This is so annoying and I hate this
+
 
 func can(ability: String) -> bool:
 	match ability:
@@ -283,15 +296,18 @@ func can(ability: String) -> bool:
 		_:
 			return false
 
+
 func unlock(ability: String) -> void:
 	if not abilities.unlocked(ability):
 		abilities.unlock(ability)
 		ability_unlocked.emit(ability)
 
+
 func lock(ability: String) -> void:
 	if abilities.unlocked(ability):
 		abilities.lock(ability)
 		ability_locked.emit(ability)
+
 
 func spawn_impact_cloud(pos: Vector2, rot: float) -> void:
 	var cloud_instance = IMPACT_CLOUD.instantiate()
@@ -316,9 +332,8 @@ func spawn_impact_cloud(pos: Vector2, rot: float) -> void:
 	cloud_instance.emitting = true
 	dust_instance.start()
 	
-	
-	
 	effect_nodes.append(cloud_instance)
+
 
 func spawn_dash_cloud(pos: Vector2, rot: float) -> void:
 	var cloud_instance = DASH_CLOUD.instantiate()
@@ -330,8 +345,10 @@ func spawn_dash_cloud(pos: Vector2, rot: float) -> void:
 	cloud_instance.emitting = true
 	effect_nodes.append(cloud_instance)
 
+
 func _on_effect_finish(node: Node2D) -> void:
 	effect_nodes.erase(node)
+
 
 func dash_effect(dir: Vector2) -> void:
 	match dir:
@@ -343,10 +360,12 @@ func dash_effect(dir: Vector2) -> void:
 			spawn_dash_cloud(global_position + Vector2.RIGHT * get_half_width(), 90)
 		Vector2.RIGHT:
 			spawn_dash_cloud(global_position + Vector2.LEFT * get_half_width(), -90)
-	
+
+
 func disable_physics() -> void:
 	disabled = true
 	collision_layer = 0
+
 
 func enable_physics() -> void:
 	await get_tree().physics_frame
@@ -354,8 +373,6 @@ func enable_physics() -> void:
 	disabled = false
 	set_deferred("collision_layer", 2)
 
-func _on_player_left_blackhole() -> void:
-	GameManager.time_scale = 1
 
 func play_sound_effect(effect_name: StringName) -> void:
 	match effect_name:
@@ -377,6 +394,7 @@ func play_sound_effect(effect_name: StringName) -> void:
 			death_sfx.play()
 		_: pass
 
+
 func spawn_afterimage(frame_override: int = 0) -> void:
 	var after_image_instance = AFTER_IMAGE.instantiate()
 	if frame_override == 0:
@@ -385,3 +403,7 @@ func spawn_afterimage(frame_override: int = 0) -> void:
 		after_image_instance.do_thing(frame_override, after_image_fade, sprite.flip_h)
 	after_image_instance.global_position = global_position
 	GameManager.current_level.add_effect(after_image_instance)
+
+
+func _on_player_left_blackhole() -> void:
+	GameManager.time_scale = 1
