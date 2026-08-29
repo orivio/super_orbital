@@ -28,6 +28,17 @@ extends Resource
 			ground_friction = walk_speed / walk_stop_time
 		else:
 			ground_friction = max_ground_acceleration
+@export_category("Jump Settings")
+@export_range(0, 1000) var jump_max_height: float:
+	set(value):
+		jump_max_height = value
+		jump_initial_velocity = 2 * jump_max_height / jump_peak_time
+		normal_gravity_acceleration = 2 * jump_max_height / (jump_peak_time * jump_peak_time)
+@export_range(0.1, 9) var jump_peak_time: float:
+	set(value):
+		jump_peak_time = value
+		jump_initial_velocity = 2 * jump_max_height / jump_peak_time
+		normal_gravity_acceleration = 2 * jump_max_height / (jump_peak_time * jump_peak_time)
 @export_category("Juice")
 @export var jump_buffer_time: float
 @export_category("Snapping Settings")
