@@ -700,7 +700,7 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-7, 135)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kb6p2"]
-radius = 14.0
+radius = 11.0
 height = 62.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1qjk"]
@@ -811,6 +811,18 @@ bus = &"Sound Effects"
 [node name="FloorRaycast" type="RayCast2D" parent="." unique_id=1483925293]
 position = Vector2(0, -7)
 target_position = Vector2(0, 11)
+
+[node name="LCeilingRaycast" type="RayCast2D" parent="." unique_id=1907499109]
+position = Vector2(-15, -60)
+target_position = Vector2(0, -15)
+
+[node name="MCeilingRaycast" type="RayCast2D" parent="." unique_id=382484181]
+position = Vector2(0, -60)
+target_position = Vector2(0, -15)
+
+[node name="RCeilingRaycast" type="RayCast2D" parent="." unique_id=967516892]
+position = Vector2(15, -60)
+target_position = Vector2(0, -15)
 
 [node name="JumpBufferTimer" type="Timer" parent="." unique_id=1454741679]
 process_callback = 0

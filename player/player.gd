@@ -21,17 +21,25 @@ const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.t
 @export var abilities: PlayerAbilities = null
 @export var death_time: float
 
+# Components
 @onready var state_machine: StateMachine = $StateMachine
+@onready var input: InputComponent = $InputComponent
+# Child nodes
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var collider: CollisionShape2D = $CollisionShape2D
 @onready var tooltip: Tooltip = $Tooltip
-@onready var input: InputComponent = $InputComponent
-@onready var floor_raycast: RayCast2D = $FloorRaycast
+# Timers
 @onready var jump_buffer_timer: Timer = $JumpBufferTimer
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var death_timer: Timer = $DeathTimer
+# Raycasts
+@onready var floor_raycast: RayCast2D = $FloorRaycast
+@onready var left_ceiling_raycast: RayCast2D = $LCeilingRaycast
+@onready var middle_ceiling_raycast: RayCast2D = $MCeilingRaycast
+@onready var right_ceiling_raycast: RayCast2D = $RCeilingRaycast
+
 
 var facing_right: bool = true
 var was_on_floor_last_frame: bool
