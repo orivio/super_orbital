@@ -35,7 +35,7 @@ const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.t
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var death_timer: Timer = $DeathTimer
 # Raycasts
-@onready var floor_raycast: RayCast2D = $FloorRaycast
+@onready var floorcaster: ShapeCast2D = $Floorcaster
 @onready var left_ceiling_raycast: RayCast2D = $LCeilingRaycast
 @onready var middle_ceiling_raycast: RayCast2D = $MCeilingRaycast
 @onready var right_ceiling_raycast: RayCast2D = $RCeilingRaycast
@@ -97,7 +97,7 @@ func _physics_process(delta: float) -> void:
 				jump_buffer = true
 				jump_buffer_timer.start(movement_settings.jump_buffer_time)
 			
-			if floor_raycast.is_colliding():
+			if floorcaster.is_colliding():
 				was_on_floor_last_frame = true
 				coyote_buffer = true
 			else:

@@ -712,6 +712,9 @@ size = Vector2(20, 56)
 streams_count = 1
 stream_0/stream = ExtResource("16_tqiix")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7wlo"]
+size = Vector2(20, 2.75)
+
 [node name="Player" type="CharacterBody2D" unique_id=1158454686 groups=["player"]]
 collision_layer = 2
 collision_mask = 2673
@@ -808,9 +811,11 @@ bus = &"Sound Effects"
 stream = ExtResource("20_65viv")
 bus = &"Sound Effects"
 
-[node name="FloorRaycast" type="RayCast2D" parent="." unique_id=1483925293]
+[node name="Floorcaster" type="ShapeCast2D" parent="." unique_id=1789477722]
 position = Vector2(0, -7)
-target_position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_e7wlo")
+target_position = Vector2(0, 7)
+max_results = 1
 
 [node name="LCeilingRaycast" type="RayCast2D" parent="." unique_id=1907499109]
 position = Vector2(-15, -60)
