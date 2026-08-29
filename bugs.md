@@ -27,6 +27,7 @@ Replication:
 - Sometimes it can be inconsistent and difficult to replicate for a little 
 while.
 - So far, only happens in the first level.
+- I have not managed to get this bug when the engine scale is on 1/16.
 
 # UI Bugs
 ## Pressing a button during a screen fade
