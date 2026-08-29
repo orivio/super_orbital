@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cobylp8hlybiw" path="res://player/hurt_box.gd" id="4_j3ovn"]
 [ext_resource type="Script" uid="uid://clgn5b24q3i2m" path="res://player/state/idle_state.gd" id="7_yllr7"]
 [ext_resource type="Script" uid="uid://dpinbghjqd15c" path="res://player/state/walk_state.gd" id="8_kb6p2"]
+[ext_resource type="Script" uid="uid://xxllna0gklw" path="res://player/state/jump_state.gd" id="10_32hag"]
 [ext_resource type="Script" uid="uid://cmj8pah4adp4i" path="res://player/tooltip.gd" id="11_7thud"]
 [ext_resource type="Script" uid="uid://dkhfrycy4c8n1" path="res://player/input_component.gd" id="15_wodsf"]
 [ext_resource type="AudioStream" uid="uid://bo68gmydfw3ja" path="res://sounds/sfx/gravity_off_2.wav" id="16_tqiix"]
@@ -764,6 +765,9 @@ script = ExtResource("7_yllr7")
 [node name="Walk" type="Node" parent="StateMachine" unique_id=451179005]
 script = ExtResource("8_kb6p2")
 
+[node name="Jump" type="Node" parent="StateMachine" unique_id=638473742]
+script = ExtResource("10_32hag")
+
 [node name="Tooltip" type="Label" parent="." unique_id=1824500785]
 offset_left = -80.0
 offset_top = -93.0
@@ -799,6 +803,10 @@ bus = &"Sound Effects"
 [node name="Death" type="AudioStreamPlayer" parent="Sounds" unique_id=473501979]
 stream = ExtResource("20_65viv")
 bus = &"Sound Effects"
+
+[node name="FloorRaycast" type="RayCast2D" parent="." unique_id=1483925293]
+position = Vector2(0, -7)
+target_position = Vector2(0, 11)
 
 [connection signal="area_entered" from="HurtBox" to="HurtBox" method="_on_area_entered"]
 [connection signal="body_entered" from="HurtBox" to="HurtBox" method="_on_body_entered"]

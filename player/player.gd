@@ -20,6 +20,7 @@ const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.t
 @onready var collider: CollisionShape2D = $CollisionShape2D
 @onready var tooltip: Label = $Tooltip
 @onready var input: InputComponent = $InputComponent
+@onready var floor_raycast: RayCast2D = $FloorRaycast
 
 var facing_right: bool = true
 
