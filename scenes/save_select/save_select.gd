@@ -3,14 +3,11 @@ extends Control
 @export_group("Play Fade")
 @export var play_fade_color: Color
 @export var play_fade_duration: float
-
 @export_group("Back Fade")
 @export var back_fade_color: Color
 @export var back_fade_duration: float
-
 @export_group("Enter Fade")
 @export var enter_fade_duration: float
-
 
 @onready var new_button: Button = $PanelContainer/VBoxContainer/HBoxContainer/NewButton
 @onready var play_button: Button = $PanelContainer/VBoxContainer/HBoxContainer/PlayButton
@@ -21,14 +18,14 @@ extends Control
 @onready var delete_confirmation: ConfirmationDialog = $PanelContainer/VBoxContainer/HBoxContainer/DeleteButton/ConfirmationDialog
 @onready var export_file_dialog: FileDialog = $PanelContainer/VBoxContainer/HBoxContainer/ExportButton/FileDialog
 @onready var import_file_dialog: FileDialog = $PanelContainer/VBoxContainer/HBoxContainer/LoadButton/FileDialog
-
 @onready var fade_effect: FadeEffect = $FadeEffect
-
 @onready var level_grid: LevelGrid = $PanelContainer/VBoxContainer/LevelGrid
+@onready var left_button: LevelButton = $PanelContainer/VBoxContainer/LevelGrid/HBoxContainer/LeftButton
+@onready var right_button: LevelButton = $PanelContainer/VBoxContainer/LevelGrid/HBoxContainer/RightButton
 
 var save_exists: bool
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	if not SaveManager.does_save_exist():
 		new_button.disabled = false
@@ -46,7 +43,6 @@ func _ready() -> void:
 		load_button.disabled = true
 		export_button.disabled = false
 		
-		#completion_path.display_completion_path(SaveManager.get_save_file())
 		level_grid.update_visuals(SaveManager.get_save_file())
 		save_exists = true
 	
@@ -66,6 +62,15 @@ func _ready() -> void:
 
 
 func _on_back_button_pressed() -> void:
+	new_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	play_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	delete_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	export_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	load_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	back_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	left_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	right_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	level_grid.disable_marker_input()
 	await fade_effect.fade(back_fade_color, back_fade_duration).finished
 	get_tree().change_scene_to_file("res://scenes/menu/menu.tscn")
 

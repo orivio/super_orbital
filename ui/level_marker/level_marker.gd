@@ -33,18 +33,6 @@ func _process(_delta: float) -> void:
 	#	texture_rect.rotation_degrees += delta * rotate_speed
 
 
-func _on_mouse_entered() -> void:
-	mouse_in = true
-	if not is_selected and not is_locked:
-		texture_rect.texture = highlighted_texture
-
-
-func _on_mouse_exited() -> void:
-	mouse_in = false
-	if not is_selected and not is_locked:
-		texture_rect.texture = normal_texture
-
-
 func _input(event: InputEvent) -> void:
 	if mouse_in and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and not is_locked:
 		mouse_down = true
@@ -66,6 +54,23 @@ func initialize(name_of_level: String, idx_of_level: int, locked: bool) -> void:
 		is_locked = locked
 	else:
 		label.text = level_name
+
+
+func disable() -> void:
+	# TODO: Potentially spaghetti code
+	is_locked = true
+
+
+func _on_mouse_exited() -> void:
+	mouse_in = false
+	if not is_selected and not is_locked:
+		texture_rect.texture = normal_texture
+
+
+func _on_mouse_entered() -> void:
+	mouse_in = true
+	if not is_selected and not is_locked:
+		texture_rect.texture = highlighted_texture
 
 
 func _on_other_level_selected(other_idx: int) -> void:

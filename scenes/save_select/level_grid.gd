@@ -43,6 +43,12 @@ func update_visuals(save_file: SaveFile) -> void:
 	last_save_file = save_file
 
 
+func disable_marker_input() -> void:
+	for child in grid_container.get_children():
+		child.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		child.disable()
+
+
 func _on_left_button_button_down() -> void:
 	selected_number -= 1
 	if selected_number < 0:

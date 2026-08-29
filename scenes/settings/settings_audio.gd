@@ -32,6 +32,9 @@ func _ready() -> void:
 	music_volume.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(&"Music")))
 	sound_effects_volume.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(&"Sound Effects")))
 	
+	master_volume.value_changed.connect(_on_master_volume_value_changed)
+	music_volume.value_changed.connect(_on_music_volume_value_changed)
+	sound_effects_volume.value_changed.connect(_on_sound_effects_volume_value_changed)
 
 func _on_master_volume_value_changed(value: float) -> void:
 	var master_idx: int = AudioServer.get_bus_index(&"Master")
@@ -45,7 +48,7 @@ func _on_music_volume_value_changed(value: float) -> void:
 	audio_changed.emit()
 
 
-func _on_sound_effect_volume_slider_value_changed(value: float) -> void:
+func _on_sound_effects_volume_value_changed(value: float) -> void:
 	var sfx_idx: int = AudioServer.get_bus_index(&"Sound Effects")
 	AudioServer.set_bus_volume_db(sfx_idx, linear_to_db(value))
 	audio_changed.emit()

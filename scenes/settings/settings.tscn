@@ -470,11 +470,12 @@ theme_override_font_sizes/font_size = 32
 text = "Fullscreen"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="value_changed" from="TabContainer/Audio/VBoxContainer/GridContainer/HSlider" to="TabContainer/Audio" method="_on_master_volume_value_changed"]
-[connection signal="value_changed" from="TabContainer/Audio/VBoxContainer/GridContainer/HSlider2" to="TabContainer/Audio" method="_on_music_volume_value_changed"]
-[connection signal="value_changed" from="TabContainer/Audio/VBoxContainer/GridContainer/HSlider3" to="TabContainer/Audio" method="_on_sound_effect_volume_slider_value_changed"]
+[connection signal="controls_changed" from="TabContainer/Controls" to="." method="_on_controls_changed"]
+[connection signal="audio_changed" from="TabContainer/Audio" to="." method="_on_audio_changed"]
 [connection signal="item_selected" from="TabContainer/Audio/VBoxContainer/GridContainer/OptionButton" to="TabContainer/Audio" method="_on_audio_device_item_selected"]
 [connection signal="pressed" from="TabContainer/Audio/VBoxContainer/GridContainer/Button" to="TabContainer/Audio" method="_on_refresh_audio_device_list"]
 [connection signal="timeout" from="TabContainer/Audio/Timer" to="TabContainer/Audio" method="_on_refresh_audio_device_list"]
+[connection signal="graphics_changed" from="TabContainer/Graphics" to="." method="_on_graphics_graphics_changed"]
+[connection signal="graphics_changed" from="TabContainer/Graphics" to="." method="_on_graphics_changed"]
 [connection signal="toggled" from="TabContainer/Graphics/VBoxContainer/CheckButton" to="TabContainer/Graphics" method="_on_vsync_button_toggled"]
 [connection signal="toggled" from="TabContainer/Graphics/VBoxContainer/CheckButton2" to="TabContainer/Graphics" method="_on_windowed_button_toggled"]
