@@ -28,6 +28,8 @@ extends Resource
 			ground_friction = walk_speed / walk_stop_time
 		else:
 			ground_friction = max_ground_acceleration
+@export_category("Juice")
+@export var jump_buffer_time: float
 @export_category("Snapping Settings")
 @export_range(0, 1000) var minimum_movement_threshold: float
 @export_category("Limits")
@@ -35,3 +37,5 @@ extends Resource
 @export_category("Hidden Settings")
 @export var ground_friction: float
 @export var ground_acceleration: float
+@export var jump_initial_velocity: float
+@export var normal_gravity_acceleration: float

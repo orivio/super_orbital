@@ -18,7 +18,7 @@ const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.t
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var collider: CollisionShape2D = $CollisionShape2D
-@onready var tooltip: Label = $Tooltip
+@onready var tooltip: Tooltip = $Tooltip
 @onready var input: InputComponent = $InputComponent
 @onready var floor_raycast: RayCast2D = $FloorRaycast
 
@@ -38,6 +38,15 @@ func _process(delta: float) -> void:
 		sprite.flip_h = false
 	else:
 		sprite.flip_h = true
+	
+	if state_machine.current_state is IdleState:
+		tooltip.show_tooltip("Idle")
+	elif state_machine.current_state is WalkState:
+		tooltip.show_tooltip("Walk")
+	elif state_machine.current_state is JumpState:
+		tooltip.show_tooltip("Jump")
+	else:
+		tooltip.hide_tooltip()
 
 
 func _physics_process(delta: float) -> void:
@@ -95,3 +104,11 @@ func lock_ability(ability: String) -> void:
 	if abilities.unlocked(ability):
 		abilities.lock(ability)
 		ability_locked.emit(ability)
+
+
+func can_jump() -> bool:
+	return input.jump_pressed
+
+
+func do_jump() -> void:
+	velocity.y = -movement_settings.jump_initial_velocity

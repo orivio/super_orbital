@@ -10,4 +10,6 @@ walk_stop_time = 0.08
 minimum_movement_threshold = 1.0
 ground_friction = 5000.0
 ground_acceleration = 5066.666666666667
+jump_initial_velocity = 800.0
+normal_gravity_acceleration = 100.0
 metadata/_custom_type_script = "uid://dumitcejfyj50"

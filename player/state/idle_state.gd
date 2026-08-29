@@ -27,10 +27,16 @@ func physics_process(delta: float) -> State:
 	else:
 		actor.velocity.x = move_toward(actor.velocity.x, 0, delta * actor.movement_settings.ground_friction)
 	
-	actor.move_and_slide()
+	actor.velocity.y = 100
+		
+	if actor.can_jump():
+		actor.do_jump()
 	
-	if not actor.floor_raycast.is_colliding():
-		pass
+	actor.move_and_slide()
+	print(actor.is_on_floor())
+	
+	if not actor.is_on_floor() and actor.velocity.y < 0:
+		return jump
 	
 	if actor.input.horizontal_input_direction != 0:
 		return walk

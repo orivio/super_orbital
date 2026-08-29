@@ -56,5 +56,4 @@ func _on_audio_device_item_selected(index: int) -> void:
 	audio_changed.emit()
 
 func _on_refresh_audio_device_list() -> void:
-	print("Refreshing audio device list")
 	refresh_aduio_device_list_timer.start()
