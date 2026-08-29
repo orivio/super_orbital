@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dqcnxl0nl8s7i"]
+
+[ext_resource type="Script" uid="uid://er1b76pfs0ro" path="res://scenes/pause_menu/pause_options.gd" id="1_g0jb6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_po7hu"]
+font_size = 64
+
+[node name="MarginContainer" type="MarginContainer" unique_id=1618337169]
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 0
+script = ExtResource("1_g0jb6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1996988337]
+layout_mode = 2
+theme_override_constants/separation = 48
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1060377008]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Paused"
+label_settings = SubResource("LabelSettings_po7hu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=159342542]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1821266261]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Resume"
+
+[node name="LevelSelectButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=2029285767]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Level Select"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1831316139]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
