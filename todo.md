@@ -65,3 +65,4 @@ you can move out of the dialogue region.
 Playtesting questions:
 - Should the caution tiles always be next to the spikes? If so, wouldn't it be
 too much caution tiles?
+	- Answer: Always for moving spikes, only sometimes (for decoration) for normal spikes
