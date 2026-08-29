@@ -41,6 +41,8 @@ metallic ground
 - Potentially add checkpoints
 - Make the button text stand out more
 - Maybe a player death animation
+- Fix the ability to open the pause menu while the first level is still 
+transitioning in
 
 
 Both, or whoever wants to:
