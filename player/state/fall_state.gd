@@ -3,6 +3,7 @@ extends State
 
 @onready var idle: IdleState = $"../Idle"
 @onready var walk: WalkState = $"../Walk"
+@onready var jump: JumpState = $"../Jump"
 
 
 func enter() -> void:
@@ -44,6 +45,9 @@ func physics_process(delta: float) -> State:
 			return idle
 		else:
 			return walk
+	else:
+		if actor.velocity.y < 0:
+			return jump
 	
 	
 	return null
