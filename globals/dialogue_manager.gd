@@ -11,8 +11,8 @@ var current_convo_tag: StringName
 func start_dialogue(convo: Conversation, convo_tag: StringName) -> bool:
 	if current_convo:
 		return false
-	if GameManager.player.is_dying:
-		return false
+	#if GameManager.player.is_dying:
+	#	return false
 	line_index = 0
 	current_convo = convo
 	current_convo_tag = convo_tag
