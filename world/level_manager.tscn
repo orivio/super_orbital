@@ -11,6 +11,7 @@ level_transition_time = 0.25
 
 [node name="Player" parent="." unique_id=1158454686 instance=ExtResource("2_i3p2r")]
 z_index = 1
+position = Vector2(0, -1)
 
 [node name="PlayerCamera" parent="." unique_id=1414906739 instance=ExtResource("3_i3p2r")]
 

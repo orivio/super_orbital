@@ -46,6 +46,7 @@ collision_enabled = false
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1010939493]
 tile_set = ExtResource("3_gq2vv")
+navigation_enabled = false
 
 [node name="ForegroundParallax" type="Parallax2D" parent="." unique_id=1868079540]
 visible = false

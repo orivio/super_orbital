@@ -12,8 +12,8 @@ var frame_number: int
 var current_input_sequence: InputSequence
 var sequence_path: String = "user://sequence_2026-08-28T18-07-00.res"
 var horizontal_input_direction: float
-var last_jump_pressed_time: float
 var jump_pressed: bool
+var jump_released: bool
 
 
 func _ready() -> void:
@@ -35,15 +35,19 @@ func _physics_process(_delta: float) -> void:
 	
 	if current_state == InputComponentState.PLAYING_BACK:
 		horizontal_input_direction = current_frame.horizontal_input
-		last_jump_pressed_time = current_frame.last_jump_pressed_time
+		jump_pressed = current_frame.jump_pressed
+		jump_released = current_frame.jump_released
 	else:
 		
 		horizontal_input_direction = Input.get_axis("left", "right")
 		jump_pressed = Input.is_action_just_pressed("jump")
+		jump_released = Input.is_action_just_released("jump")
 		
 		
 		if current_state == InputComponentState.RECORDING:
 			current_frame.horizontal_input = horizontal_input_direction
+			current_frame.jump_pressed = jump_pressed
+			current_frame.jump_released = jump_released
 			current_input_sequence.frames.append(current_frame)
 	
 	if current_state == InputComponentState.PLAYING_BACK or current_state == InputComponentState.RECORDING:

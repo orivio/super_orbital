@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://dpinbghjqd15c" path="res://player/state/walk_state.gd" id="8_kb6p2"]
 [ext_resource type="Script" uid="uid://xxllna0gklw" path="res://player/state/jump_state.gd" id="10_32hag"]
 [ext_resource type="Script" uid="uid://cmj8pah4adp4i" path="res://player/tooltip.gd" id="11_7thud"]
+[ext_resource type="Script" uid="uid://cp0ei3fq0r6u2" path="res://player/state/fall_state.gd" id="11_tqiix"]
 [ext_resource type="Script" uid="uid://dkhfrycy4c8n1" path="res://player/input_component.gd" id="15_wodsf"]
 [ext_resource type="AudioStream" uid="uid://bo68gmydfw3ja" path="res://sounds/sfx/gravity_off_2.wav" id="16_tqiix"]
 [ext_resource type="AudioStream" uid="uid://dnjlxy8u2sigx" path="res://sounds/sfx/gravity_on_2.wav" id="17_e7oew"]
@@ -716,7 +717,6 @@ collision_layer = 2
 collision_mask = 2673
 platform_floor_layers = 2130706433
 platform_wall_layers = 1
-safe_margin = 0.04
 script = ExtResource("1_rkbax")
 movement_settings = ExtResource("2_qiwj3")
 
@@ -767,6 +767,9 @@ script = ExtResource("8_kb6p2")
 
 [node name="Jump" type="Node" parent="StateMachine" unique_id=638473742]
 script = ExtResource("10_32hag")
+
+[node name="Fall" type="Node" parent="StateMachine" unique_id=825159202]
+script = ExtResource("11_tqiix")
 
 [node name="Tooltip" type="Label" parent="." unique_id=1824500785]
 offset_left = -80.0

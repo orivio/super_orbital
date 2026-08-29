@@ -1,8 +1,9 @@
 class_name IdleState
 extends State
 
-@onready var walk: State = $"../Walk"
+@onready var walk: WalkState = $"../Walk"
 @onready var jump: JumpState = $"../Jump"
+@onready var fall: FallState = $"../Fall"
 
 
 func enter() -> void:
@@ -27,15 +28,18 @@ func physics_process(delta: float) -> State:
 	else:
 		actor.velocity.x = move_toward(actor.velocity.x, 0, delta * actor.movement_settings.ground_friction)
 	
-	actor.velocity.y = 100
+	actor.velocity.y += actor.movement_settings.normal_gravity_acceleration * delta
 		
 	if actor.can_jump():
 		actor.do_jump()
 	
 	actor.move_and_slide()
 	
-	if not actor.is_on_floor() and actor.velocity.y < 0:
-		return jump
+	if not actor.is_on_floor():
+		if actor.velocity.y < 0:
+			return jump
+		elif actor.velocity.y > 0:
+			return fall
 	
 	if actor.input.horizontal_input_direction != 0:
 		return walk

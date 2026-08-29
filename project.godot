@@ -167,6 +167,7 @@ stop_playback={
 [physics]
 
 common/physics_ticks_per_second=120
+2d/physics_engine="GodotPhysics2D"
 common/physics_interpolation=true
 
 [rendering]

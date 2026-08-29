@@ -48,6 +48,10 @@ extends Resource
 		jump_peak_time = value
 		jump_initial_velocity = 2 * jump_max_height / jump_peak_time
 		normal_gravity_acceleration = 2 * jump_max_height / (jump_peak_time * jump_peak_time)
+@export_range(0.1, 9) var jump_fall_time: float:
+	set(value):
+		jump_fall_time = value
+		fall_gravity_acceleration = 2 * jump_max_height / (jump_fall_time * jump_fall_time)
 @export_category("Air Settings")
 @export var air_walk_start_time: float:
 	set(value):
@@ -76,3 +80,5 @@ extends Resource
 @export var air_acceleration: float
 @export var jump_initial_velocity: float
 @export var normal_gravity_acceleration: float
+@export var peak_gravity_acceleration: float
+@export var fall_gravity_acceleration: float

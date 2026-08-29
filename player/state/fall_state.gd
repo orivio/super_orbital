@@ -1,19 +1,16 @@
-class_name JumpState
+class_name FallState
 extends State
 
 @onready var idle: IdleState = $"../Idle"
 @onready var walk: WalkState = $"../Walk"
-@onready var fall: FallState = $"../Fall"
-
-var still_jumping_up: bool
 
 
 func enter() -> void:
-	still_jumping_up = true
+	pass
 
 
 func exit() -> void:
-	still_jumping_up = true
+	pass
 
 
 func input(_event: InputEvent) -> State:
@@ -26,12 +23,7 @@ func process(_delta: float) -> State:
 
 func physics_process(delta: float) -> State:
 	
-	if still_jumping_up:
-		actor.velocity.y += actor.movement_settings.normal_gravity_acceleration * delta
-		if actor.input.jump_released:
-			still_jumping_up = false
-	else:
-		actor.velocity.y += actor.movement_settings.peak_gravity_acceleration * delta
+	actor.velocity.y += actor.movement_settings.fall_gravity_acceleration * delta
 	
 	if actor.input.horizontal_input_direction == 0:
 		if abs(actor.velocity.x) < actor.movement_settings.minimum_movement_threshold:
@@ -44,8 +36,11 @@ func physics_process(delta: float) -> State:
 	
 	actor.move_and_slide()
 	
-	if actor.velocity.y > 0:
-		return fall
+	if actor.is_on_floor():
+		if abs(actor.velocity.x) < actor.movement_settings.minimum_movement_threshold:
+			return idle
+		else:
+			return walk
 	
 	
 	return null
