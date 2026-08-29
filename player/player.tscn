@@ -814,15 +814,15 @@ target_position = Vector2(0, 11)
 
 [node name="LCeilingRaycast" type="RayCast2D" parent="." unique_id=1907499109]
 position = Vector2(-15, -60)
-target_position = Vector2(0, -15)
+target_position = Vector2(0, -5)
 
 [node name="MCeilingRaycast" type="RayCast2D" parent="." unique_id=382484181]
 position = Vector2(0, -60)
-target_position = Vector2(0, -15)
+target_position = Vector2(0, -5)
 
 [node name="RCeilingRaycast" type="RayCast2D" parent="." unique_id=967516892]
 position = Vector2(15, -60)
-target_position = Vector2(0, -15)
+target_position = Vector2(0, -5)
 
 [node name="JumpBufferTimer" type="Timer" parent="." unique_id=1454741679]
 process_callback = 0

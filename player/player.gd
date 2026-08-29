@@ -182,7 +182,15 @@ func do_jump() -> void:
 	jump_buffer = false
 	coyote_buffer = false
 	velocity.y = -movement_settings.jump_initial_velocity
+	ceiling_clip_nudge()
 
+
+func ceiling_clip_nudge() -> void:
+	#if middle_ceiling_raycast.is_colliding():
+	if left_ceiling_raycast.is_colliding() and not right_ceiling_raycast.is_colliding():
+		global_position.x = right_ceiling_raycast.global_position.x
+	if right_ceiling_raycast.is_colliding() and not left_ceiling_raycast.is_colliding():
+		global_position.x = left_ceiling_raycast.global_position.x
 
 func take_hit() -> void:
 	match current_player_state:

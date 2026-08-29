@@ -44,10 +44,20 @@ func physics_process(delta: float) -> State:
 		var move_speed: float = actor.movement_settings.walk_speed * actor.input.horizontal_input_direction
 		actor.velocity.x = move_toward(actor.velocity.x, move_speed, delta * actor.movement_settings.air_acceleration)
 	
+	if actor.velocity.y < -actor.movement_settings.ceiling_clip_min_velocity:
+		actor.ceiling_clip_nudge()
+	
 	actor.move_and_slide()
 	
-	if actor.velocity.y > 0:
-		return fall
+	
+	if actor.is_on_floor():
+		if abs(actor.velocity.x) < actor.movement_settings.minimum_movement_threshold:
+			return idle
+		else:
+			return walk
+	else:
+		if actor.velocity.y > 0:
+			return fall
 	
 	
 	return null
