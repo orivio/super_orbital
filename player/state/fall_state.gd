@@ -34,6 +34,9 @@ func physics_process(delta: float) -> State:
 		var move_speed: float = actor.movement_settings.walk_speed * actor.input.horizontal_input_direction
 		actor.velocity.x = move_toward(actor.velocity.x, move_speed, delta * actor.movement_settings.air_acceleration)
 	
+	if actor.can_jump():
+		actor.do_jump()
+	
 	actor.move_and_slide()
 	
 	if actor.is_on_floor():

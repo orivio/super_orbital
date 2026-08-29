@@ -28,6 +28,19 @@ Replication:
 while.
 - So far, only happens in the first level.
 - I have not managed to get this bug when the engine scale is on 1/16.
+## Players can double jump when very low to the ground due to coyote time
+Details:
+- If you jump up a very low amount, then, as you are falling down, you can jump 
+again to gain a little bit more height.
+- This might not be a problem, maybe it could be considered movement tech for 
+speedrunners
+- It doesn't feel very weird in game, and it's difficult to pull off 
+intentionally.
+Replication:
+- Moderately easy to replicate.
+- Turn the engine time scale to 1/16, press the jump button and quickly release
+it. Just a little bit above the ground, you can press the jump button again and
+you will do a double jump.
 
 # UI Bugs
 ## Pressing a button during a screen fade
@@ -37,4 +50,4 @@ button
 - Selecting another level after already selecting a level in the level select
 screen
 Replication:
-- You can turn the engine scale to 1/16 to make it easier to replicate
+- You can turn the engine time scale to 1/16 to make it easier to replicate

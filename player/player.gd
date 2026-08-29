@@ -22,9 +22,13 @@ const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.t
 @onready var input: InputComponent = $InputComponent
 @onready var floor_raycast: RayCast2D = $FloorRaycast
 @onready var jump_buffer_timer: Timer = $JumpBufferTimer
+@onready var coyote_timer: Timer = $CoyoteTimer
 
 var facing_right: bool = true
+var was_on_floor_last_frame: bool
 var jump_buffer: bool
+var coyote_buffer: bool
+var frames_passed: int
 
 
 func _ready() -> void:
@@ -51,17 +55,34 @@ func _process(delta: float) -> void:
 		tooltip.show_tooltip("Fall")
 	else:
 		tooltip.hide_tooltip()
+	
+	if false:
+		tooltip.show_tooltip(str(frames_passed))
 
 
 func _physics_process(delta: float) -> void:
+	frames_passed += 1
 	if velocity.x > 0:
 		facing_right = true
 	elif velocity.x < 0:
 		facing_right = false
+	
 	input.physics_process(delta)
+	
 	if input.jump_pressed:
 		jump_buffer = true
 		jump_buffer_timer.start(movement_settings.jump_buffer_time)
+	
+	if floor_raycast.is_colliding():
+		was_on_floor_last_frame = true
+		coyote_buffer = true
+	else:
+		if was_on_floor_last_frame:
+			was_on_floor_last_frame = false
+			print("Left floor, starting coyote buffer")
+			coyote_buffer = true
+			coyote_timer.start(movement_settings.coyote_time)
+	
 	state_machine.physics_process(delta)
 
 
@@ -115,12 +136,20 @@ func lock_ability(ability: String) -> void:
 
 
 func can_jump() -> bool:
-	return jump_buffer and floor_raycast.is_colliding()
+	return jump_buffer and coyote_buffer
 
 
 func do_jump() -> void:
+	jump_buffer = false
+	coyote_buffer = false
+	print("Jumping")
 	velocity.y = -movement_settings.jump_initial_velocity
 
 
 func _on_jump_buffer_timeout() -> void:
 	jump_buffer = false
+
+
+func _on_coyote_timeout() -> void:
+	coyote_buffer = false
+	print("Ending coyote time")
