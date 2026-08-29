@@ -15,6 +15,10 @@ region = Rect2(0, 0, 64, 64)
 atlas = ExtResource("1_sl80p")
 region = Rect2(128, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6r8g4"]
+atlas = ExtResource("1_sl80p")
+region = Rect2(192, 0, 64, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_e46c1"]
 atlas = ExtResource("1_sl80p")
 region = Rect2(0, 0, 64, 64)
@@ -32,6 +36,7 @@ script = ExtResource("1_6r8g4")
 highlighted_texture = SubResource("AtlasTexture_e2udh")
 normal_texture = SubResource("AtlasTexture_ysqwv")
 selected_texture = SubResource("AtlasTexture_7j5yd")
+locked_texture = SubResource("AtlasTexture_6r8g4")
 rotate_speed = 90.0
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1574220282]
