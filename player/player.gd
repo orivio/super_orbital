@@ -5,6 +5,13 @@ signal player_death
 signal ability_unlocked(name: String)
 signal ability_locked(name: String)
 
+enum PlayerState {
+	UNINITIALIZED,
+	GAMEPLAY,
+	DISABLED,
+	DYING,
+}
+
 const IMPACT_CLOUD = preload("res://effects/impact_cloud/impact_cloud.tscn")
 const DUST_CLOUD = preload("res://effects/dust_cloud/dust_cloud.tscn")
 const DASH_CLOUD = preload("res://effects/dash_cloud/dash_cloud.tscn")
@@ -12,6 +19,7 @@ const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.t
 
 @export var movement_settings: PlayerMovementSettings
 @export var abilities: PlayerAbilities = null
+@export var death_time: float
 
 @onready var state_machine: StateMachine = $StateMachine
 @onready var sprite: Sprite2D = $Sprite2D
@@ -23,15 +31,18 @@ const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.t
 @onready var floor_raycast: RayCast2D = $FloorRaycast
 @onready var jump_buffer_timer: Timer = $JumpBufferTimer
 @onready var coyote_timer: Timer = $CoyoteTimer
+@onready var death_timer: Timer = $DeathTimer
 
 var facing_right: bool = true
 var was_on_floor_last_frame: bool
 var jump_buffer: bool
 var coyote_buffer: bool
 var frames_passed: int
+var current_player_state: PlayerState
 
 
 func _ready() -> void:
+	current_player_state = PlayerState.UNINITIALIZED
 	GameManager.player = self
 	ability_unlocked.connect(SaveManager._on_ability_unlocked)
 	ability_locked.connect(SaveManager._on_ability_locked)
@@ -39,7 +50,10 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	state_machine.process(delta)
+	match current_player_state:
+		PlayerState.GAMEPLAY:
+			state_machine.process(delta)
+	
 	if facing_right:
 		sprite.flip_h = false
 	else:
@@ -67,23 +81,25 @@ func _physics_process(delta: float) -> void:
 	elif velocity.x < 0:
 		facing_right = false
 	
-	input.physics_process(delta)
-	
-	if input.jump_pressed:
-		jump_buffer = true
-		jump_buffer_timer.start(movement_settings.jump_buffer_time)
-	
-	if floor_raycast.is_colliding():
-		was_on_floor_last_frame = true
-		coyote_buffer = true
-	else:
-		if was_on_floor_last_frame:
-			was_on_floor_last_frame = false
-			print("Left floor, starting coyote buffer")
-			coyote_buffer = true
-			coyote_timer.start(movement_settings.coyote_time)
-	
-	state_machine.physics_process(delta)
+	match current_player_state:
+		PlayerState.GAMEPLAY:
+			input.physics_process(delta)
+			
+			if input.jump_pressed:
+				jump_buffer = true
+				jump_buffer_timer.start(movement_settings.jump_buffer_time)
+			
+			if floor_raycast.is_colliding():
+				was_on_floor_last_frame = true
+				coyote_buffer = true
+			else:
+				if was_on_floor_last_frame:
+					was_on_floor_last_frame = false
+					print("Left floor, starting coyote buffer")
+					coyote_buffer = true
+					coyote_timer.start(movement_settings.coyote_time)
+			
+			state_machine.physics_process(delta)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -92,16 +108,26 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func initialize() -> void:
 	load_abilities()
+	current_player_state = PlayerState.GAMEPLAY
 
 
 func reset() -> void:
 	velocity = Vector2.ZERO
 	state_machine.reset()
+	current_player_state = PlayerState.GAMEPLAY
 
 
 func load_abilities() -> void:
 	if not abilities:
 		abilities = SaveManager.get_save_file().player_abilities
+
+
+func die() -> void:
+	current_player_state = PlayerState.DYING
+	death_timer.start(death_time)
+	await death_timer.timeout
+	player_death.emit()
+
 
 func show_tooltip(message: String) -> void:
 	tooltip.show_tooltip(message)
@@ -145,6 +171,17 @@ func do_jump() -> void:
 	print("Jumping")
 	velocity.y = -movement_settings.jump_initial_velocity
 
+
+func take_hit() -> void:
+	match current_player_state:
+		PlayerState.GAMEPLAY:
+			die()
+		PlayerState.UNINITIALIZED:
+			return
+		PlayerState.DISABLED:
+			return
+		PlayerState.DYING:
+			return
 
 func _on_jump_buffer_timeout() -> void:
 	jump_buffer = false

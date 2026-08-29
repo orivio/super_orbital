@@ -704,7 +704,7 @@ radius = 14.0
 height = 62.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1qjk"]
-size = Vector2(21, 59)
+size = Vector2(20, 56)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yllr7"]
 
@@ -719,6 +719,7 @@ platform_floor_layers = 2130706433
 platform_wall_layers = 1
 script = ExtResource("1_rkbax")
 movement_settings = ExtResource("2_qiwj3")
+death_time = 0.3
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=214816936]
 material = ExtResource("3_wodsf")
@@ -744,12 +745,12 @@ position = Vector2(0, -31)
 shape = SubResource("CapsuleShape2D_kb6p2")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=251871403]
-visible = false
 collision_layer = 2
 collision_mask = 12
 script = ExtResource("4_j3ovn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=248394177]
+position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_a1qjk")
 
 [node name="InputComponent" type="Node" parent="." unique_id=432591357]
@@ -816,6 +817,10 @@ process_callback = 0
 one_shot = true
 
 [node name="CoyoteTimer" type="Timer" parent="." unique_id=2056407429]
+process_callback = 0
+one_shot = true
+
+[node name="DeathTimer" type="Timer" parent="." unique_id=1560873547]
 process_callback = 0
 one_shot = true
 
