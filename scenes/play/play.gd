@@ -1,3 +1,4 @@
+class_name Play
 extends Node2D
 
 enum PlayState {
@@ -7,6 +8,7 @@ enum PlayState {
 	OPENING_PAUSE_MENU,
 	IN_PAUSE_MENU,
 	CLOSING_PAUSE_MENU,
+	DIALOGUE,
 }
 
 const PAUSE_MENU: PackedScene = preload("res://scenes/pause_menu/pause_menu.tscn")
@@ -24,6 +26,7 @@ var current_state: PlayState
 
 
 func _ready() -> void:
+	GameManager.play = self
 	current_state = PlayState.UNINITIALIZED
 	world.door_entered.connect(_on_door_entered)
 	world.initialize()
@@ -35,20 +38,13 @@ func _input(event: InputEvent) -> void:
 		match current_state:
 			PlayState.GAMEPLAY: open_pause_menu()
 			PlayState.IN_PAUSE_MENU: close_pause_menu()
-			PlayState.OPENING_PAUSE_MENU: return
-			PlayState.CLOSING_PAUSE_MENU: return
-			PlayState.UNINITIALIZED: return
-			PlayState.TRANSITIONING_ROOMS: return
+			_: return
 
 
 func _on_pause_menu_close_pressed() -> void:
 	match current_state:
 		PlayState.IN_PAUSE_MENU: close_pause_menu()
-		PlayState.GAMEPLAY: return
-		PlayState.OPENING_PAUSE_MENU: return
-		PlayState.CLOSING_PAUSE_MENU: return
-		PlayState.UNINITIALIZED: return
-		PlayState.TRANSITIONING_ROOMS: return
+		_: return
 
 
 func open_pause_menu() -> void:
@@ -97,14 +93,24 @@ func do_level_transition(direction: Types.DoorDirection) -> void:
 	current_state = PlayState.GAMEPLAY
 
 
+func start_dialogue() -> bool:
+	match current_state:
+		PlayState.GAMEPLAY:
+			current_state = PlayState.DIALOGUE
+			return true
+		_: return false
+
+
+func end_dialogue() -> void:
+	match current_state:
+		PlayState.DIALOGUE:
+			current_state = PlayState.GAMEPLAY
+
+
 func _on_door_entered(direction: Types.DoorDirection) -> void:
 	match current_state:
-		PlayState.UNINITIALIZED: return
-		PlayState.TRANSITIONING_ROOMS: return
-		PlayState.OPENING_PAUSE_MENU: return
-		PlayState.IN_PAUSE_MENU: return
-		PlayState.CLOSING_PAUSE_MENU: return
 		PlayState.GAMEPLAY: do_level_transition.call_deferred(direction)
+		_: return
 
 
 func _on_pause_menu_exit_pressed() -> void:

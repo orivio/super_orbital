@@ -47,6 +47,7 @@ var jump_buffer: bool
 var coyote_buffer: bool
 var frames_passed: int
 var current_player_state: PlayerState
+var input_locked: bool
 
 
 func _ready() -> void:
@@ -140,6 +141,19 @@ func die() -> void:
 func disable() -> void:
 	current_player_state = PlayerState.DISABLED
 	set_process_mode(Node.PROCESS_MODE_DISABLED)
+
+
+func enable() -> void:
+	current_player_state = PlayerState.GAMEPLAY
+	set_process_mode(Node.PROCESS_MODE_INHERIT)
+
+
+func lock_input() -> void:
+	input_locked = true
+
+
+func unlock_input() -> void:
+	input_locked = false
 
 
 func show_tooltip(message: String) -> void:

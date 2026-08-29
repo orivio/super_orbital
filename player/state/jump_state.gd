@@ -30,12 +30,12 @@ func physics_process(delta: float) -> State:
 	
 	if still_jumping_up:
 		actor.velocity.y += actor.movement_settings.normal_gravity_acceleration * delta
-		if actor.input.jump_released:
+		if actor.input.jump_released or actor.input_locked:
 			still_jumping_up = false
 	else:
 		actor.velocity.y += actor.movement_settings.peak_gravity_acceleration * delta
 	
-	if actor.input.horizontal_input_direction == 0:
+	if actor.input.horizontal_input_direction == 0 or actor.input_locked:
 		if abs(actor.velocity.x) < actor.movement_settings.minimum_movement_threshold:
 			actor.velocity.x = 0
 		else:

@@ -11,12 +11,15 @@ var current_convo_tag: StringName
 func start_dialogue(convo: Conversation, convo_tag: StringName) -> bool:
 	if current_convo:
 		return false
-	#if GameManager.player.is_dying:
-	#	return false
+	
+	if not GameManager.play.start_dialogue():
+		return false
+	
+	GameManager.player.lock_input()
+	
 	line_index = 0
 	current_convo = convo
 	current_convo_tag = convo_tag
-	GameManager.lock_input()
 	dialogue_requested.emit()
 	return true
 
@@ -32,12 +35,13 @@ func advance() -> void:
 
 func end_dialogue() -> void:
 	dialogue_ended.emit(current_convo_tag)
-	GameManager.unlock_input()
+	GameManager.play.end_dialogue()
+	GameManager.player.unlock_input()
 	current_convo = null
 	current_convo_tag = &""
 
 func end_dialogue_fast() -> void:
-	GameManager.unlock_input()
+	GameManager.player.unlock_input()
 	current_convo = null
 	current_convo_tag = &""
 	line_index = 0

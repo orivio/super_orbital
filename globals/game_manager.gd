@@ -9,6 +9,7 @@ var current_level: Level
 var time_scale: float = 1
 var impacting: bool = false
 var impact_timer: float = 0
+var play: Play
 
 var levels: Dictionary[String, String] = {
 	"move": "uid://dteyafc74ycrl",
@@ -56,14 +57,6 @@ func _physics_process(delta: float) -> void:
 			camera.camera_shake.emit()
 			time_scale = 1
 			impacting = false
-
-func lock_input() -> void:
-	#player.input_locked = true
-	pass
-	
-func unlock_input() -> void:
-	#player.input_locked = false
-	pass
 
 func player_leave_blackhole() -> void:
 	player_left_blackhole.emit()
