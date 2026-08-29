@@ -10,6 +10,8 @@ var still_jumping_up: bool
 
 func enter() -> void:
 	still_jumping_up = true
+	if not actor.input.jump_down:
+		still_jumping_up = false
 
 
 func exit() -> void:

@@ -12,6 +12,7 @@ jump_peak_time = 0.38
 jump_fall_time = 0.33999999999999997
 air_walk_start_time = 0.05
 air_walk_stop_time = 0.08
+jump_buffer_time = 0.1
 minimum_movement_threshold = 0.1
 ground_friction = 5000.0
 ground_acceleration = 5066.666666666667

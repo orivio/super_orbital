@@ -21,8 +21,10 @@ const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.t
 @onready var tooltip: Tooltip = $Tooltip
 @onready var input: InputComponent = $InputComponent
 @onready var floor_raycast: RayCast2D = $FloorRaycast
+@onready var jump_buffer_timer: Timer = $JumpBufferTimer
 
 var facing_right: bool = true
+var jump_buffer: bool
 
 
 func _ready() -> void:
@@ -56,6 +58,10 @@ func _physics_process(delta: float) -> void:
 		facing_right = true
 	elif velocity.x < 0:
 		facing_right = false
+	input.physics_process(delta)
+	if input.jump_pressed:
+		jump_buffer = true
+		jump_buffer_timer.start(movement_settings.jump_buffer_time)
 	state_machine.physics_process(delta)
 
 
@@ -109,8 +115,12 @@ func lock_ability(ability: String) -> void:
 
 
 func can_jump() -> bool:
-	return input.jump_pressed
+	return jump_buffer and floor_raycast.is_colliding()
 
 
 func do_jump() -> void:
 	velocity.y = -movement_settings.jump_initial_velocity
+
+
+func _on_jump_buffer_timeout() -> void:
+	jump_buffer = false
