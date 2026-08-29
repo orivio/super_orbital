@@ -95,7 +95,6 @@ func _physics_process(delta: float) -> void:
 			else:
 				if was_on_floor_last_frame:
 					was_on_floor_last_frame = false
-					print("Left floor, starting coyote buffer")
 					coyote_buffer = true
 					coyote_timer.start(movement_settings.coyote_time)
 			
@@ -115,6 +114,7 @@ func reset() -> void:
 	velocity = Vector2.ZERO
 	state_machine.reset()
 	current_player_state = PlayerState.GAMEPLAY
+	set_process_mode(Node.PROCESS_MODE_INHERIT)
 
 
 func load_abilities() -> void:
@@ -127,6 +127,11 @@ func die() -> void:
 	death_timer.start(death_time)
 	await death_timer.timeout
 	player_death.emit()
+
+
+func disable() -> void:
+	current_player_state = PlayerState.DISABLED
+	set_process_mode(Node.PROCESS_MODE_DISABLED)
 
 
 func show_tooltip(message: String) -> void:
@@ -168,7 +173,6 @@ func can_jump() -> bool:
 func do_jump() -> void:
 	jump_buffer = false
 	coyote_buffer = false
-	print("Jumping")
 	velocity.y = -movement_settings.jump_initial_velocity
 
 
@@ -189,4 +193,3 @@ func _on_jump_buffer_timeout() -> void:
 
 func _on_coyote_timeout() -> void:
 	coyote_buffer = false
-	print("Ending coyote time")

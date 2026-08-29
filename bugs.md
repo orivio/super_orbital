@@ -16,18 +16,6 @@ have replayed it.
 	for a long time. During this time, I was pressing the left arrow key and 
 	only the left arrow key, but I wasn't moving.
 	- I can share this file to anyone if they would like
-## Player gets stuck in the floor when starting the game on the first level
-Details:
-- The player sometimes starts off inside the floor, glitching sideways a bit.
-- You can't get out by just pressing keys.
-Replication:
-- Very easy to replicate, happens often.
-- So far, it never happens the first time you open the game.
-	- It only happens when reloading the level
-- Sometimes it can be inconsistent and difficult to replicate for a little 
-while.
-- So far, only happens in the first level.
-- I have not managed to get this bug when the engine scale is on 1/16.
 ## Players can double jump when very low to the ground due to coyote time
 Details:
 - If you jump up a very low amount, then, as you are falling down, you can jump 

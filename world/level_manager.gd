@@ -26,7 +26,7 @@ func _ready() -> void:
 	level_changed.connect(SaveManager._on_level_changed)
 	player.player_death.connect(_on_player_death)
 	# Prepare the fade to black effect
-	#fade_effect.color_rect.color = Color(0, 0, 0, 1)
+	fade_effect.color_rect.color = Color(0, 0, 0, 1)
 
 
 func initialize() -> void:
@@ -48,10 +48,10 @@ func reload_level() -> void:
 
 func change_level(new_level_meta: LevelMeta, dest_door: String) -> void:
 	# No physics collisions while transitioning levels!
-	#player.disable_physics()
+	player.disable()
 	
 	# Do the fade to black
-	#await fade_effect.fade(Color(0, 0, 0, 1), level_transition_time).finished
+	await fade_effect.fade(Color(0, 0, 0, 1), level_transition_time).finished
 	
 	# Load the level scene
 	var level_scene_path: String = new_level_meta.scene_path
@@ -84,6 +84,7 @@ func change_level(new_level_meta: LevelMeta, dest_door: String) -> void:
 	if dest_door:
 		teleport_player_to_door(current_level, dest_door)
 		last_entered_door = dest_door
+	player.reset()
 	
 	# Update level metadata
 	previous_level_meta = current_level_meta
@@ -91,10 +92,8 @@ func change_level(new_level_meta: LevelMeta, dest_door: String) -> void:
 	
 	# Update camera limits
 	update_camera_limits(level_instance)
-	# Reenable physics
-	#player.enable_physics()
 	# Fade out from black
-	#await fade_effect.fade(Color(0, 0, 0, 0), level_transition_time).finished
+	await fade_effect.fade(Color(0, 0, 0, 0), level_transition_time).finished
 	# Update physics
 	GameManager.player_leave_blackhole()
 	# Update music

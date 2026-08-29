@@ -40,6 +40,7 @@ metallic ground
 - Fix tile inconsistencies across many levels
 - Potentially add checkpoints
 - Make the button text stand out more
+- Maybe a player death animation
 
 
 Both, or whoever wants to:
