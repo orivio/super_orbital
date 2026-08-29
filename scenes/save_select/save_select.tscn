@@ -8,16 +8,7 @@
 [ext_resource type="Theme" uid="uid://brsjv0onhn51i" path="res://ui/themes/settings_theme.tres" id="5_rdqwv"]
 [ext_resource type="Theme" uid="uid://t4gelel5hk2o" path="res://ui/themes/simple_button_theme.tres" id="6_5lyl2"]
 [ext_resource type="PackedScene" uid="uid://dvjxvisrrqfer" path="res://ui/effects/fade_effect.tscn" id="7_oq148"]
-[ext_resource type="Script" uid="uid://br0cuwcexf063" path="res://scenes/save_select/level_grid.gd" id="8_5lyl2"]
-[ext_resource type="Theme" uid="uid://bgg5ijatxye6r" path="res://ui/themes/level_buttons.tres" id="8_64cmn"]
-[ext_resource type="Texture2D" uid="uid://dt80tlga4jbp4" path="res://ui/ui_sheet.png" id="9_64cmn"]
-[ext_resource type="Script" uid="uid://0k8svaulvl7c" path="res://scenes/save_select/level_button.gd" id="11_7yuos"]
-[ext_resource type="Texture2D" uid="uid://bjy8neyfr5cl0" path="res://ui/icons/level_buttons/left_disabled.tres" id="12_i8gxs"]
-[ext_resource type="Texture2D" uid="uid://xor45kxxxrjg" path="res://ui/icons/level_buttons/left_normal.tres" id="13_5hh0a"]
-[ext_resource type="Texture2D" uid="uid://calgyr7pajr78" path="res://ui/icons/level_buttons/left_hover.tres" id="14_qo3ov"]
-[ext_resource type="Texture2D" uid="uid://cllnjdrdbh1aj" path="res://ui/icons/level_buttons/right_disabled.tres" id="15_jn1vg"]
-[ext_resource type="Texture2D" uid="uid://bflenb02j5ks3" path="res://ui/icons/level_buttons/right_normal.tres" id="16_6bnrx"]
-[ext_resource type="Texture2D" uid="uid://dn816f25thjpv" path="res://ui/icons/level_buttons/right_hover.tres" id="17_rbn0c"]
+[ext_resource type="PackedScene" uid="uid://bffvtsyaqev2g" path="res://scenes/save_select/level_grid.tscn" id="8_5lyl2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hmfe0"]
 shader = ExtResource("1_j77eq")
@@ -28,10 +19,6 @@ shader_parameter/seed = 5.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_oq148"]
 font_size = 40
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6l7h2"]
-atlas = ExtResource("9_64cmn")
-region = Rect2(80, 264, 16, 48)
 
 [node name="SaveSelect" type="Control" unique_id=2125277451]
 layout_mode = 3
@@ -117,48 +104,8 @@ label_settings = SubResource("LabelSettings_oq148")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LevelGrid" type="Control" parent="PanelContainer/VBoxContainer" unique_id=1853270898]
+[node name="LevelGrid" parent="PanelContainer/VBoxContainer" unique_id=1946749695 instance=ExtResource("8_5lyl2")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource("8_5lyl2")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/LevelGrid" unique_id=195833243]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 16.0
-offset_bottom = -16.0
-
-[node name="LeftButton" type="Button" parent="PanelContainer/VBoxContainer/LevelGrid/HBoxContainer" unique_id=580472884]
-custom_minimum_size = Vector2(64, 0)
-layout_mode = 2
-theme = ExtResource("8_64cmn")
-icon = ExtResource("13_5hh0a")
-icon_alignment = 1
-script = ExtResource("11_7yuos")
-disabled_icon = ExtResource("12_i8gxs")
-normal_icon = ExtResource("13_5hh0a")
-hover_icon = ExtResource("14_qo3ov")
-
-[node name="Grid" type="GridContainer" parent="PanelContainer/VBoxContainer/LevelGrid/HBoxContainer" unique_id=725282366]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = 0
-columns = 5
-
-[node name="RightButton" type="Button" parent="PanelContainer/VBoxContainer/LevelGrid/HBoxContainer" unique_id=390422278]
-custom_minimum_size = Vector2(64, 0)
-layout_mode = 2
-theme = ExtResource("8_64cmn")
-icon = SubResource("AtlasTexture_6l7h2")
-icon_alignment = 1
-script = ExtResource("11_7yuos")
-disabled_icon = ExtResource("15_jn1vg")
-normal_icon = ExtResource("16_6bnrx")
-hover_icon = ExtResource("17_rbn0c")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=816447530]
 layout_mode = 2
@@ -216,8 +163,6 @@ use_native_dialog = true
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="play" from="PanelContainer/VBoxContainer/LevelGrid" to="." method="_on_level_grid_play"]
-[connection signal="button_down" from="PanelContainer/VBoxContainer/LevelGrid/HBoxContainer/LeftButton" to="PanelContainer/VBoxContainer/LevelGrid" method="_on_left_button_button_down"]
-[connection signal="button_down" from="PanelContainer/VBoxContainer/LevelGrid/HBoxContainer/RightButton" to="PanelContainer/VBoxContainer/LevelGrid" method="_on_right_button_button_down"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/NewButton" to="." method="_on_new_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/DeleteButton" to="." method="_on_delete_button_pressed"]
