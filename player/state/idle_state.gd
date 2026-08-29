@@ -33,7 +33,6 @@ func physics_process(delta: float) -> State:
 		actor.do_jump()
 	
 	actor.move_and_slide()
-	print(actor.is_on_floor())
 	
 	if not actor.is_on_floor() and actor.velocity.y < 0:
 		return jump

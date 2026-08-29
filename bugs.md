@@ -16,3 +16,24 @@ have replayed it.
 	for a long time. During this time, I was pressing the left arrow key and 
 	only the left arrow key, but I wasn't moving.
 	- I can share this file to anyone if they would like
+## Player gets stuck in the floor when starting the game on the first level
+Details:
+- The player sometimes starts off inside the floor, glitching sideways a bit.
+- You can't get out by just pressing keys.
+Replication:
+- Very easy to replicate, happens often.
+- So far, it never happens the first time you open the game.
+	- It only happens when reloading the level
+- Sometimes it can be inconsistent and difficult to replicate for a little 
+while.
+- So far, only happens in the first level.
+
+# UI Bugs
+## Pressing a button during a screen fade
+Details:
+- Pressing the quit button on the main menu immediately after pressing the play
+button
+- Selecting another level after already selecting a level in the level select
+screen
+Replication:
+- You can turn the engine scale to 1/16 to make it easier to replicate
