@@ -5,7 +5,7 @@ signal close_pressed
 signal exit_pressed
 
 var pause_options: PauseOptions = null
-var level_grid: LevelGrid = null
+var level_select: Control = null
 
 @onready var panel_container: PanelContainer = $PanelContainer
 
@@ -24,12 +24,12 @@ func spawn_pause_options() -> void:
 
 
 func spawn_level_grid() -> void:
-	var level_grid_scene: PackedScene = load("res://scenes/save_select/level_grid.tscn")
-	level_grid = level_grid_scene.instantiate()
-	panel_container.add_child(level_grid)
-	if not level_grid.is_node_ready():
-		await level_grid.ready
-	level_grid.update_visuals(SaveManager.get_save_file())
+	var level_grid_scene: PackedScene = load("res://scenes/pause_menu/pause_grid.tscn")
+	level_select = level_grid_scene.instantiate()
+	panel_container.add_child(level_select)
+	if not level_select.is_node_ready():
+		await level_select.ready
+	level_select.get_node("LevelGrid").update_visuals(SaveManager.get_save_file())
 	panel_container.queue_sort()
 
 
