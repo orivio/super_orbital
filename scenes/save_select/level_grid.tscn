@@ -16,6 +16,7 @@ atlas = ExtResource("7_2g7fe")
 region = Rect2(80, 264, 16, 48)
 
 [node name="LevelGrid" type="Control" unique_id=1946749695]
+custom_minimum_size = Vector2(928, 467)
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 3
