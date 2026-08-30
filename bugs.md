@@ -39,3 +39,5 @@ button
 screen
 Replication:
 - You can turn the engine time scale to 1/16 to make it easier to replicate
+Progress:
+- Mostly fixed.

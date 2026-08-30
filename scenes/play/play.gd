@@ -29,7 +29,7 @@ func _ready() -> void:
 	GameManager.play = self
 	current_state = PlayState.UNINITIALIZED
 	world.door_entered.connect(_on_door_entered)
-	world.initialize()
+	await world.initialize()
 	current_state = PlayState.GAMEPLAY
 
 

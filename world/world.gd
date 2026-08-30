@@ -15,7 +15,7 @@ func _process(_delta: float) -> void:
 	pass
 
 func initialize() -> void:
-	level_manager.initialize()
+	await level_manager.initialize()
 
 
 func do_level_transition(direction: Types.DoorDirection) -> void:

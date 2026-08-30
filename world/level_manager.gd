@@ -35,7 +35,7 @@ func initialize() -> void:
 	# Get the level metadata from the 
 	var level_meta: LevelMeta = LEVEL_DIR.get_level_meta(level_idx)
 	# Change the level
-	change_level(level_meta, "WestDoor")
+	await change_level(level_meta, "WestDoor")
 	current_level_idx = level_idx
 	# Get the player ready
 	player.initialize()
