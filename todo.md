@@ -29,18 +29,18 @@ lot of potential)
 - Make the level select screen start on the page where your last completed level
 is
 - Fix the text shifting on the buttons
-- Fix bug where upon unlocking the dash or gravity switch ability for the first
-time, you will dash or gravity switch immediately after unlocking the ability,
-even if you didn't press any key for it
-- Fix game pause menu
 - Add support for cutscenes
 - Clean up the dialogue manager code
+	- Not super necessary, it's already decent
 - Make the impact particles not be dust particles if you're colliding with
 metallic ground
 - Fix tile inconsistencies across many levels
 - Potentially add checkpoints
 - Make the button text stand out more
 - Maybe a player death animation
+- Fix bug where upon unlocking the dash or gravity switch ability for the first
+time, you will dash or gravity switch immediately after unlocking the ability,
+even if you didn't press any key for it
 
 
 Both, or whoever wants to:
