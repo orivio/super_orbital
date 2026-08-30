@@ -3,6 +3,7 @@ extends Control
 
 signal close_pressed
 signal exit_pressed
+signal level_selected(level_idx: int)
 
 var pause_options: PauseOptions = null
 var level_select: PauseGrid = null
@@ -27,6 +28,7 @@ func spawn_level_grid() -> void:
 	var level_grid_scene: PackedScene = load("res://scenes/pause_menu/pause_grid.tscn")
 	level_select = level_grid_scene.instantiate()
 	level_select.back_pressed.connect(_on_level_select_back_pressed)
+	level_select.level_selected.connect(_on_level_selected)
 	panel_container.add_child(level_select)
 	if not level_select.is_node_ready():
 		await level_select.ready
@@ -50,3 +52,7 @@ func _on_exit_button_pressed() -> void:
 func _on_level_select_back_pressed() -> void:
 	level_select.queue_free()
 	spawn_pause_options()
+
+
+func _on_level_selected(level_idx: int) -> void:
+	level_selected.emit(level_idx)

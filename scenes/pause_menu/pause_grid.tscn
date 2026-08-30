@@ -41,3 +41,5 @@ vertical_alignment = 1
 layout_mode = 2
 
 [connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="level_grid_selected" from="VBoxContainer/LevelGrid" to="." method="_on_level_grid_level_grid_selected"]
+[connection signal="play" from="VBoxContainer/LevelGrid" to="." method="_on_level_grid_play"]

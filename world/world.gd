@@ -22,5 +22,9 @@ func do_level_transition(direction: Types.DoorDirection) -> void:
 	await level_manager.do_level_transition(direction)
 
 
+func goto_level(level_idx: int) -> void:
+	await level_manager.goto_level(level_idx)
+
+
 func _on_door_entered(direction: Types.DoorDirection) -> void:
 	door_entered.emit(direction)

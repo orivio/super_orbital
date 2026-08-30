@@ -38,13 +38,6 @@ func _input(event: InputEvent) -> void:
 		match current_state:
 			PlayState.GAMEPLAY: open_pause_menu()
 			PlayState.IN_PAUSE_MENU: close_pause_menu()
-			_: return
-
-
-func _on_pause_menu_close_pressed() -> void:
-	match current_state:
-		PlayState.IN_PAUSE_MENU: close_pause_menu()
-		_: return
 
 
 func open_pause_menu() -> void:
@@ -58,6 +51,7 @@ func open_pause_menu() -> void:
 	# Connect signals
 	pause_menu.close_pressed.connect(_on_pause_menu_close_pressed)
 	pause_menu.exit_pressed.connect(_on_pause_menu_exit_pressed)
+	pause_menu.level_selected.connect(_on_pause_menu_level_selected)
 	# Hide the pause menu below the screen
 	pause_menu.position.y = get_viewport_rect().size.y
 	# Animate the pause menu sliding upwards
@@ -110,10 +104,23 @@ func end_dialogue() -> void:
 func _on_door_entered(direction: Types.DoorDirection) -> void:
 	match current_state:
 		PlayState.GAMEPLAY: do_level_transition.call_deferred(direction)
-		_: return
 
 
 func _on_pause_menu_exit_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/menu/menu.tscn")
 	DialogueManager.end_dialogue_fast()
+
+
+func _on_pause_menu_close_pressed() -> void:
+	match current_state:
+		PlayState.IN_PAUSE_MENU: close_pause_menu()
+
+
+func _on_pause_menu_level_selected(level_idx: int) -> void:
+	match current_state:
+		PlayState.IN_PAUSE_MENU:
+			await close_pause_menu()
+			current_state = PlayState.TRANSITIONING_ROOMS
+			await world.goto_level(level_idx)
+			current_state = PlayState.GAMEPLAY

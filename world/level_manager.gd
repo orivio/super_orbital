@@ -141,6 +141,20 @@ func do_level_transition(direction: Types.DoorDirection) -> void:
 	level_changed.emit(new_level_idx)
 
 
+func goto_level(new_level_idx: int) -> void:
+	# Find level to go to
+	var new_level_meta: LevelMeta = LEVEL_DIR.get_level_meta(new_level_idx)
+	
+	# Change level
+	await change_level(new_level_meta, "WestDoor")
+	
+	# Finish up
+	current_level_idx = new_level_idx
+	# Emitting the level_changed signal should not be necessary in most cases,
+	# but I'm doing it anyway for consistency.
+	level_changed.emit(new_level_idx)
+
+
 func _on_door_entered(direction: Types.DoorDirection) -> void:
 	door_entered.emit(direction)
 
