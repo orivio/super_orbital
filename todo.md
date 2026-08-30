@@ -21,7 +21,6 @@ storms, etc... really just because its fun to make stuff like that
 lot of potential)
 - Add more black hole levels
 - Refine the black hole mechanic
-- Add more settings to the in game menu
 - Make black holes look better
 	- A black hole effect would look better if there's a background to warp and
 	distort. Maybe we should make that.
@@ -36,6 +35,7 @@ is
 metallic ground
 - Fix tile inconsistencies across many levels
 - Potentially add checkpoints
+- Fix the sizing of the settings menu in game
 - Make the button text stand out more
 - Maybe a player death animation
 - Fix bug where upon unlocking the dash or gravity switch ability for the first
@@ -59,13 +59,10 @@ or Zelda
 across (actually kind of the same effect as the above point) if you know what I
 mean
 - Make challenge levels
-- Design and animate cutscenes
-	- I mean, we COULD do it during Stardance if we wanted to. But it might feel
-	rushed.
-- Fix the bug where, when starting the dialogue at the end of room_wrench_large,
-you can move out of the dialogue region.
-	- We could also do this during Stardance.
 
 Playtesting questions:
 - Should the caution tiles always be next to the spikes? If so, wouldn't it be
 too much caution tiles?
+- Is the pacing good?
+- Does the UI look bad?
+- Do the difficulty settings properly accomodate all or most types of players?
