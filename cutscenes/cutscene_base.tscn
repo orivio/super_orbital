@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://0xscvimaquhm"]
+
+[ext_resource type="Script" uid="uid://cxwvj2bjamlyx" path="res://cutscenes/cutscene.gd" id="1_grhpx"]
+
+[node name="CutsceneBase" type="Node2D" unique_id=299796874]
+script = ExtResource("1_grhpx")
+
+[node name="CutsceneDirector" type="AnimationPlayer" parent="." unique_id=885114089]
+
+[connection signal="animation_finished" from="CutsceneDirector" to="." method="_on_cutscene_director_animation_finished"]

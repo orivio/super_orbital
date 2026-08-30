@@ -9,6 +9,7 @@ enum PlayState {
 	IN_PAUSE_MENU,
 	CLOSING_PAUSE_MENU,
 	DIALOGUE,
+	CUTSCENE,
 }
 
 const PAUSE_MENU: PackedScene = preload("res://scenes/pause_menu/pause_menu.tscn")
@@ -100,6 +101,14 @@ func end_dialogue() -> void:
 	match current_state:
 		PlayState.DIALOGUE:
 			current_state = PlayState.GAMEPLAY
+
+
+func start_cutscene() -> void:
+	match current_state:
+		PlayState.GAMEPLAY:
+			pass
+		PlayState.DIALOGUE:
+			pass
 
 
 func _on_door_entered(direction: Types.DoorDirection) -> void:
