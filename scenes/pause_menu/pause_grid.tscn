@@ -1,18 +1,43 @@
 [gd_scene format=3 uid="uid://bnjs36ky66lk0"]
 
 [ext_resource type="PackedScene" uid="uid://bffvtsyaqev2g" path="res://scenes/save_select/level_grid.tscn" id="1_62ig7"]
+[ext_resource type="Theme" uid="uid://t4gelel5hk2o" path="res://ui/themes/simple_button_theme.tres" id="1_cihic"]
+[ext_resource type="Script" uid="uid://cq3jecp833btp" path="res://scenes/pause_menu/pause_grid.gd" id="1_j4c0g"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n6sbn"]
 font_size = 70
 
-[node name="VBoxContainer" type="VBoxContainer" unique_id=146222714]
+[node name="PauseGrid" type="HBoxContainer" unique_id=1931704660]
+offset_top = 575.0
+offset_right = 928.0
+offset_bottom = 575.0
+script = ExtResource("1_j4c0g")
 
-[node name="Label" type="Label" parent="." unique_id=66322608]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=953195843]
 layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="BackButton" type="Button" parent="MarginContainer" unique_id=1177050186]
+layout_mode = 2
+theme = ExtResource("1_cihic")
+text = "Back"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=146222714]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=66322608]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "Level Select"
 label_settings = SubResource("LabelSettings_n6sbn")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LevelGrid" parent="." unique_id=1946749695 instance=ExtResource("1_62ig7")]
+[node name="LevelGrid" parent="VBoxContainer" unique_id=1946749695 instance=ExtResource("1_62ig7")]
 layout_mode = 2
+
+[connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
