@@ -41,6 +41,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Level Select"
 
+[node name="SettingsButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1824445516]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+
 [node name="ExitButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1831316139]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -49,4 +55,5 @@ text = "Exit"
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
