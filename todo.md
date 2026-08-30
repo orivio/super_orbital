@@ -1,12 +1,9 @@
 Russlan:
-- Review my plan for the opening cutscene
 - Re assign the music to the rooms (I'm sorry)
 - Finish the banner
-- Write some more dialogue
-- Make more OST
-- Assess the progression and difficulty of the levels
-- Test the camera
+- Feedback on Obed and Wally's song (the intro song)
 - Make an image for the title
+- Dynamic lighting or whatever he was talking about
 
 Obed:
 - Redo player movement
