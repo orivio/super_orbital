@@ -29,6 +29,7 @@ func _ready() -> void:
 	GameManager.play = self
 	current_state = PlayState.UNINITIALIZED
 	world.door_entered.connect(_on_door_entered)
+	world.reload_level_requested.connect(_on_reload_level_requested)
 	await world.initialize()
 	current_state = PlayState.GAMEPLAY
 
@@ -123,4 +124,12 @@ func _on_pause_menu_level_selected(level_idx: int) -> void:
 			await close_pause_menu()
 			current_state = PlayState.TRANSITIONING_ROOMS
 			await world.goto_level(level_idx)
+			current_state = PlayState.GAMEPLAY
+
+
+func _on_reload_level_requested() -> void:
+	match current_state:
+		PlayState.GAMEPLAY:
+			current_state = PlayState.TRANSITIONING_ROOMS
+			await world.reload_level()
 			current_state = PlayState.GAMEPLAY

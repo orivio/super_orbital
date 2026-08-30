@@ -41,6 +41,9 @@ metallic ground
 - Fix bug where upon unlocking the dash or gravity switch ability for the first
 time, you will dash or gravity switch immediately after unlocking the ability,
 even if you didn't press any key for it
+- Clean up the slightly spaghetti code with reloading levels, really, Play 
+should be responsible for deciding to reload the level, and level_manager 
+shouldn't care if the player had just died
 
 
 Both, or whoever wants to:

@@ -2,6 +2,7 @@ class_name LevelManager
 extends Node
 
 signal door_entered(direction: Types.DoorDirection)
+signal reload_level_requested()
 signal level_changed(level_idx: int)
 
 const LEVEL_DIR: LevelDirectory = preload("res://world/level_directory.tres")
@@ -43,7 +44,7 @@ func initialize() -> void:
 
 func reload_level() -> void:
 	# Change level to the current level, at the door you last entered
-	change_level(current_level_meta, last_entered_door)
+	await change_level(current_level_meta, last_entered_door)
 
 
 func change_level(new_level_meta: LevelMeta, dest_door: String) -> void:
@@ -161,4 +162,4 @@ func _on_door_entered(direction: Types.DoorDirection) -> void:
 
 func _on_player_death() -> void:
 	# TODO: Add checkpoints
-	reload_level()
+	reload_level_requested.emit()
