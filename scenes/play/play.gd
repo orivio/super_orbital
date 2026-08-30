@@ -24,6 +24,7 @@ var current_state: PlayState
 
 @onready var world: World = $World
 @onready var ui_layer: CanvasLayer = $UI
+@onready var cutscene_system: CanvasLayer = $CutsceneSystem
 
 
 func _ready() -> void:
@@ -103,12 +104,26 @@ func end_dialogue() -> void:
 			current_state = PlayState.GAMEPLAY
 
 
-func start_cutscene() -> void:
+func start_cutscene(cutscene_path: String) -> void:
 	match current_state:
 		PlayState.GAMEPLAY:
-			pass
-		PlayState.DIALOGUE:
-			pass
+			current_state = PlayState.CUTSCENE
+			get_tree().paused = true
+			var cutscene_resource: PackedScene = load(cutscene_path)
+			var cutscene_instance: Cutscene = cutscene_resource.instantiate()
+			cutscene_system.add_child(cutscene_instance)
+			cutscene_system.process_mode = Node.PROCESS_MODE_ALWAYS
+			if not cutscene_instance.is_node_ready():
+				await cutscene_instance.ready
+			
+			cutscene_instance.start()
+			
+			await cutscene_instance.cutscene_finished
+			cutscene_instance.queue_free()
+			get_tree().paused = false
+			await get_tree().process_frame
+			current_state = PlayState.GAMEPLAY
+			
 
 
 func _on_door_entered(direction: Types.DoorDirection) -> void:

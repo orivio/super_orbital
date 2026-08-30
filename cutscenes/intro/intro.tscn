@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bqm4jrpo0gb7r"]
+
+[ext_resource type="PackedScene" uid="uid://0xscvimaquhm" path="res://cutscenes/cutscene_base.tscn" id="1_1ya2x"]
+[ext_resource type="Texture2D" uid="uid://cm0dbs37sjq61" path="res://dialogue/dialogue_pedestal.svg" id="2_sht7i"]
+
+[sub_resource type="Animation" id="Animation_sht7i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(405, 129)]
+}
+
+[sub_resource type="Animation" id="Animation_o0s81"]
+resource_name = "intro"
+length = 6.9333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 6.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(405, 129), Vector2(623.235, 29)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4yivr"]
+_data = {
+&"RESET": SubResource("Animation_sht7i"),
+&"intro": SubResource("Animation_o0s81")
+}
+
+[node name="CutsceneBase" unique_id=299796874 instance=ExtResource("1_1ya2x")]
+animation_name = &"intro"
+
+[node name="CutsceneDirector" parent="." index="0" unique_id=885114089]
+root_node = NodePath("..")
+libraries/ = SubResource("AnimationLibrary_4yivr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2" unique_id=1424500419]
+position = Vector2(405, 129)
+texture = ExtResource("2_sht7i")

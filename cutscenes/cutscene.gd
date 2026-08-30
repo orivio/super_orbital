@@ -1,5 +1,5 @@
 class_name Cutscene
-extends Node2D
+extends Control
 
 signal cutscene_finished
 
