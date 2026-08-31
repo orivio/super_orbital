@@ -35,13 +35,13 @@ metallic ground
 - Fix the sizing of the settings menu in game
 - Make the button text stand out more
 - Maybe a player death animation
-- Fix bug where upon unlocking the dash or gravity switch ability for the first
-time, you will dash or gravity switch immediately after unlocking the ability,
-even if you didn't press any key for it
 - Clean up the slightly spaghetti code with reloading levels, really, Play 
 should be responsible for deciding to reload the level, and level_manager 
 shouldn't care if the player had just died
 - Add clip nudge correction to the dash
+- Fine tune the dash timing
+- Add a trail effect to the dash
+- Make the second phase of a jump let you have more control
 
 
 Both, or whoever wants to:
