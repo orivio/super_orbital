@@ -11,7 +11,9 @@ var current_state: InputComponentState
 var frame_number: int
 var current_input_sequence: InputSequence
 var sequence_path: String = "user://sequence_2026-08-28T18-07-00.res"
+# 
 var horizontal_input_direction: float
+var input_direction_vector: Vector2
 var jump_pressed: bool
 var jump_released: bool
 var jump_down: bool

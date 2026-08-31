@@ -40,21 +40,28 @@ const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.t
 @onready var middle_ceiling_raycast: RayCast2D = $MCeilingRaycast
 @onready var right_ceiling_raycast: RayCast2D = $RCeilingRaycast
 
-
+# Visual logic
 var facing_right: bool = true
+# Movement logic
 var was_on_floor_last_frame: bool
 var jump_buffer: bool
 var coyote_buffer: bool
+var has_dash: bool
+# State management
 var frames_passed: int
 var current_player_state: PlayerState
 var input_locked: bool
 
 
 func _ready() -> void:
+	# Set up player state
 	current_player_state = PlayerState.UNINITIALIZED
+	# Set up global references
 	GameManager.player = self
+	# Connect signals
 	ability_unlocked.connect(SaveManager._on_ability_unlocked)
 	ability_locked.connect(SaveManager._on_ability_locked)
+	# Ready the state machine
 	state_machine.initialize()
 
 
@@ -63,6 +70,7 @@ func _process(delta: float) -> void:
 		PlayerState.GAMEPLAY:
 			state_machine.process(delta)
 	
+	# Visual logic
 	if facing_right:
 		sprite.flip_h = false
 	else:
@@ -96,6 +104,7 @@ func _physics_process(delta: float) -> void:
 		PlayerState.GAMEPLAY:
 			input.physics_process(delta)
 			
+			# Update movement logic
 			if input.jump_pressed:
 				jump_buffer = true
 				jump_buffer_timer.start(movement_settings.jump_buffer_time)
@@ -103,6 +112,7 @@ func _physics_process(delta: float) -> void:
 			if floorcaster.is_colliding():
 				was_on_floor_last_frame = true
 				coyote_buffer = true
+				has_dash = true
 			else:
 				if was_on_floor_last_frame:
 					was_on_floor_last_frame = false
@@ -201,7 +211,18 @@ func do_jump() -> void:
 	ceiling_clip_nudge()
 
 
+func can_dash() -> bool:
+	# TODO: Dash buffering?
+	return has_dash
+
+
+func do_dash() -> void:
+	has_dash = false
+	var dash_direction: Vector2 = input_component.
+
+
 func ceiling_clip_nudge() -> void:
+	# Not sure if this is the best way to do it, it does feel a little bit buggy
 	#if middle_ceiling_raycast.is_colliding():
 	if left_ceiling_raycast.is_colliding() and not right_ceiling_raycast.is_colliding():
 		global_position.x = right_ceiling_raycast.global_position.x
