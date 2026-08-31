@@ -15,6 +15,7 @@ var horizontal_input_direction: float
 var jump_pressed: bool
 var jump_released: bool
 var jump_down: bool
+var dash_pressed: bool
 
 
 func _ready() -> void:
@@ -39,12 +40,14 @@ func physics_process(delta: float) -> void:
 		jump_pressed = current_frame.jump_pressed
 		jump_released = current_frame.jump_released
 		jump_down = current_frame.jump_down
+		dash_pressed = Input.is_action_just_pressed("dash")
 	else:
 		
 		horizontal_input_direction = Input.get_axis("left", "right")
 		jump_pressed = Input.is_action_just_pressed("jump")
 		jump_released = Input.is_action_just_released("jump")
 		jump_down = Input.is_action_pressed("jump")
+		dash_pressed = Input.is_action_just_pressed("dash")
 		
 		
 		if current_state == InputComponentState.RECORDING:
@@ -52,6 +55,7 @@ func physics_process(delta: float) -> void:
 			current_frame.jump_pressed = jump_pressed
 			current_frame.jump_released = jump_released
 			current_frame.jump_down = jump_down
+			current_frame.dash_pressed = dash_pressed
 			current_input_sequence.frames.append(current_frame)
 	
 	if current_state == InputComponentState.PLAYING_BACK or current_state == InputComponentState.RECORDING:

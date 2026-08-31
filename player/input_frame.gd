@@ -5,3 +5,4 @@ extends Resource
 @export var jump_pressed: bool
 @export var jump_released: bool
 @export var jump_down: bool
+@export var dash_pressed: bool
