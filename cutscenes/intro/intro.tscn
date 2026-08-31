@@ -1,37 +1,37 @@
 [gd_scene format=3 uid="uid://bqm4jrpo0gb7r"]
 
 [ext_resource type="PackedScene" uid="uid://0xscvimaquhm" path="res://cutscenes/cutscene_base.tscn" id="1_1ya2x"]
-[ext_resource type="Texture2D" uid="uid://cm0dbs37sjq61" path="res://dialogue/dialogue_pedestal.svg" id="2_sht7i"]
+[ext_resource type="AudioStream" uid="uid://e8k06omq3gm0" path="res://sounds/music/0_intro_cutscene.ogg" id="2_sht7i"]
 
 [sub_resource type="Animation" id="Animation_sht7i"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("Text_20XX:modulate:a")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(405, 129)]
+"update": 1,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_o0s81"]
 resource_name = "intro"
-length = 6.9333334
+length = 5.0333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("Text_20XX:modulate:a")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.06666667, 6.7),
+"times": PackedFloat32Array(1, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(405, 129), Vector2(623.235, 29)]
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4yivr"]
@@ -47,6 +47,29 @@ animation_name = &"intro"
 root_node = NodePath("..")
 libraries/ = SubResource("AnimationLibrary_4yivr")
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="2" unique_id=1424500419]
-position = Vector2(405, 129)
-texture = ExtResource("2_sht7i")
+[node name="ColorRect" parent="." index="1" unique_id=1592823712]
+color = Color(0, 0, 0, 1)
+
+[node name="Text_20XX" type="RichTextLabel" parent="." index="2" unique_id=443001563]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -434.0
+offset_top = -128.0
+offset_right = 434.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 80
+text = "In 20XX, an anomaly was born."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3" unique_id=786905581]
+stream = ExtResource("2_sht7i")
+autoplay = true
+bus = &"Music"

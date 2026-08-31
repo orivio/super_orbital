@@ -108,7 +108,6 @@ func _physics_process(delta: float) -> void:
 					coyote_timer.start(movement_settings.coyote_time)
 			
 			state_machine.physics_process(delta)
-			print(velocity.y)
 
 
 func _unhandled_input(event: InputEvent) -> void:

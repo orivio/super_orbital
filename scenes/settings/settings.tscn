@@ -81,3 +81,6 @@ text = "Back"
 layout_mode = 1
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="audio_changed" from="TabContainer" to="." method="_on_audio_changed"]
+[connection signal="controls_changed" from="TabContainer" to="." method="_on_controls_changed"]
+[connection signal="graphics_changed" from="TabContainer" to="." method="_on_graphics_changed"]

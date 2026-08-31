@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://brsjv0onhn51i" path="res://ui/themes/settings_theme.tres" id="1_7febn"]
 [ext_resource type="FontFile" uid="uid://hlg3easaunqa" path="res://ui/fonts/m5x7.ttf" id="2_t2fih"]
+[ext_resource type="Script" uid="uid://c8w1ehnw4ps4f" path="res://scenes/settings/settings_container.gd" id="3_t2fih"]
 [ext_resource type="Script" uid="uid://ba4hln43let3x" path="res://scenes/settings/settings_controls.gd" id="3_ttj5g"]
 [ext_resource type="Theme" uid="uid://t4gelel5hk2o" path="res://ui/themes/simple_button_theme.tres" id="4_1qkah"]
 [ext_resource type="Script" uid="uid://cs1vcb7tsfcnh" path="res://scenes/settings/input_map_button.gd" id="5_gh7y2"]
@@ -27,6 +28,7 @@ theme_override_fonts/font = ExtResource("2_t2fih")
 theme_override_font_sizes/font_size = 48
 tab_alignment = 1
 current_tab = 0
+script = ExtResource("3_t2fih")
 
 [node name="Controls" type="Control" parent="." unique_id=1763279689]
 layout_mode = 2
@@ -395,8 +397,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Fullscreen"
 
+[connection signal="controls_changed" from="Controls" to="." method="_on_controls_controls_changed"]
+[connection signal="audio_changed" from="Audio" to="." method="_on_audio_audio_changed"]
 [connection signal="item_selected" from="Audio/VBoxContainer/GridContainer/OptionButton" to="Audio" method="_on_audio_device_item_selected"]
 [connection signal="pressed" from="Audio/VBoxContainer/GridContainer/Button" to="Audio" method="_on_refresh_audio_device_list"]
 [connection signal="timeout" from="Audio/Timer" to="Audio" method="_on_refresh_audio_device_list"]
+[connection signal="graphics_changed" from="Graphics" to="." method="_on_graphics_graphics_changed"]
 [connection signal="toggled" from="Graphics/VBoxContainer/CheckButton" to="Graphics" method="_on_vsync_button_toggled"]
 [connection signal="toggled" from="Graphics/VBoxContainer/CheckButton2" to="Graphics" method="_on_windowed_button_toggled"]
