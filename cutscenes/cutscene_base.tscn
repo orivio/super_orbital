@@ -14,7 +14,15 @@ script = ExtResource("1_grhpx")
 [node name="CutsceneDirector" type="AnimationPlayer" parent="." unique_id=885114089]
 root_node = NodePath("")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1592823712]
+[node name="Background" type="Control" parent="." unique_id=687447503]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=1592823712]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,5 +31,14 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Sprites" type="Node2D" parent="." unique_id=1248337835]
+
+[node name="Text" type="Control" parent="." unique_id=1475089889]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Audio" type="Node" parent="." unique_id=1981785108]
 
 [connection signal="animation_finished" from="CutsceneDirector" to="." method="_on_cutscene_director_animation_finished"]
