@@ -49,7 +49,6 @@ position = Vector2(-144, -144)
 shape = SubResource("RectangleShape2D_y78uc")
 
 [node name="Label" parent="POI/TooltipField" index="1" unique_id=1289689676]
-visible = true
 offset_left = -192.0
 offset_top = -388.0
 offset_right = 172.0
@@ -68,7 +67,6 @@ tile_map_data = PackedByteArray("AAD0/wAAAAABAAEAAAD0/wEAAAABAAIAAAD0/wIAAAABAAI
 
 [node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("3_0n8ow")]
 door_tag = "WestDoor"
-dest_door = ""
 direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
@@ -80,7 +78,6 @@ position = Vector2(-352, 0)
 
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=708133086 instance=ExtResource("3_0n8ow")]
 door_tag = "EastDoor"
-dest_door = ""
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(1456, -112)
