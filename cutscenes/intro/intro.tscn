@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dcnh0log1e8rk" path="res://cutscenes/intro/harfingjingles_back_00.png" id="5_2pjyf"]
 [ext_resource type="Texture2D" uid="uid://b15pgad4yav4f" path="res://cutscenes/intro/harfingjingles_front_00.png" id="7_tmgee"]
 [ext_resource type="Texture2D" uid="uid://ct5c5kvn2xpq0" path="res://cutscenes/intro/hospital_01.png" id="8_k0kmi"]
+[ext_resource type="Texture2D" uid="uid://cxjvtedi2nm38" path="res://cutscenes/intro/lone_kid_baby_sad.png" id="9_3tubk"]
 
 [sub_resource type="Animation" id="Animation_sht7i"]
 length = 0.001
@@ -227,6 +228,53 @@ tracks/17/keys = {
 "update": 1,
 "values": [1.0]
 }
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Sprites/Image_LoneKidBabySad:modulate:a")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Sprites/Image_LoneKidBabySad:frame")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/20/type = "bezier"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Sprites/Image_LoneKidBabySad:position:y")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Text/Text_YearsLater:modulate:a")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_o0s81"]
 resource_name = "intro"
@@ -277,10 +325,10 @@ tracks/3/path = NodePath("Sprites/Image_LoneKidBaby_00:modulate:a")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(4.5, 5.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(4.5, 5.5, 34.366665, 35),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 1.0]
+"values": [0.0, 1.0, 1.0, 0.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -289,7 +337,7 @@ tracks/4/path = NodePath("Sprites/Image_LoneKidBaby_00:position:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(4.5, 43.466667),
+"times": PackedFloat32Array(4.5, 38.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [290.0, 200.0]
@@ -421,7 +469,7 @@ tracks/15/path = NodePath("Text/Text_ToGrantSadGuyTemporaryGravity:modulate:a")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(34.433334, 34.966667, 42.966667, 43.966667),
+"times": PackedFloat32Array(34.433334, 34.966667, 41.466667, 42.033333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0.0, 1.0, 1.0, 0.0]
@@ -433,7 +481,7 @@ tracks/16/path = NodePath("Text/Text_ToGrantSadGuyTemporaryGravity:visible_ratio
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
-"times": PackedFloat32Array(35.033333, 40.2),
+"times": PackedFloat32Array(35.033333, 39.066666),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -445,7 +493,7 @@ tracks/17/path = NodePath("Sprites/Image_Harfingjingles_Front_00:modulate:a")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
-"times": PackedFloat32Array(34.4, 35.033333, 46.833332, 48.333332),
+"times": PackedFloat32Array(34.4, 35.033333, 41.466667, 42.033333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
@@ -457,9 +505,56 @@ tracks/18/path = NodePath("Sprites/Image_Hospital_01:modulate:a")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(34.366665, 35.033333, 49.566666, 51.166668),
+"times": PackedFloat32Array(34.366665, 35.033333, 41.466667, 42.033333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Sprites/Image_LoneKidBabySad:modulate:a")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(34.433334, 35.033333, 41.466667, 42.033333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Sprites/Image_LoneKidBabySad:frame")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(34.333332, 36.6, 36.833332, 37.1, 37.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/21/type = "bezier"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Sprites/Image_LoneKidBabySad:position:y")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(150, -0.25, 0, 0.25, 0, 452.5, -0.12357712, -177, 0, 0),
+"times": PackedFloat32Array(36.6, 37.3)
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Text/Text_YearsLater:modulate:a")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(42.966667, 43.833332, 46.433334, 46.866665),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
 "values": [0.0, 1.0, 1.0, 0.0]
 }
 
@@ -508,6 +603,12 @@ texture = ExtResource("5_2pjyf")
 position = Vector2(255, 359)
 scale = Vector2(8, 8)
 texture = ExtResource("7_tmgee")
+
+[node name="Image_LoneKidBabySad" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="6" unique_id=1191828930]
+position = Vector2(633, 0)
+scale = Vector2(8, 8)
+texture = ExtResource("9_3tubk")
+hframes = 5
 
 [node name="Text_20XX" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="0" unique_id=443001563]
 modulate = Color(1, 1, 1, 0)
@@ -626,6 +727,26 @@ grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 80
 text = "to grant Lone Kid temporary gravity."
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters_behavior = 1
+
+[node name="Text_YearsLater" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="6" unique_id=1954509157]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 130.0
+offset_top = 248.0
+offset_right = 1140.0
+offset_bottom = 527.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 80
+text = "Years later..."
 horizontal_alignment = 1
 vertical_alignment = 1
 visible_characters_behavior = 1
