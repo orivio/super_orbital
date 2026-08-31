@@ -219,6 +219,8 @@ func can_dash() -> bool:
 func do_dash() -> void:
 	has_dash = false
 	var dash_direction: Vector2 = input.cardinal_direction
+	if dash_direction == Vector2.ZERO:
+		dash_direction = Vector2(1 if facing_right else -1, 0)
 	var dash_velocity: Vector2 = dash_direction * movement_settings.dash_velocity
 	velocity = dash_velocity
 

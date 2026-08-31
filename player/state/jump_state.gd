@@ -4,6 +4,7 @@ extends State
 @onready var idle: IdleState = $"../Idle"
 @onready var walk: WalkState = $"../Walk"
 @onready var fall: FallState = $"../Fall"
+@onready var dash: DashState = $"../Dash"
 
 var still_jumping_up: bool
 
@@ -47,7 +48,15 @@ func physics_process(delta: float) -> State:
 	if actor.velocity.y < -actor.movement_settings.ceiling_clip_min_velocity:
 		actor.ceiling_clip_nudge()
 	
+	var did_dash: bool = false
+	if actor.can_dash() and not actor.input_locked:
+		actor.do_dash()
+		did_dash = true
+	
 	actor.move_and_slide()
+	
+	if did_dash:
+		return dash
 	
 	
 	if actor.is_on_floor():

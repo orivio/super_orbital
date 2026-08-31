@@ -4,6 +4,7 @@ extends State
 @onready var idle: IdleState = $"../Idle"
 @onready var walk: WalkState = $"../Walk"
 @onready var jump: JumpState = $"../Jump"
+@onready var dash: DashState = $"../Dash"
 
 
 func enter() -> void:
@@ -35,10 +36,18 @@ func physics_process(delta: float) -> State:
 		var move_speed: float = actor.movement_settings.walk_speed * actor.input.horizontal_direction
 		actor.velocity.x = move_toward(actor.velocity.x, move_speed, delta * actor.movement_settings.air_acceleration)
 	
+	var did_dash: bool = false
 	if actor.can_jump() and not actor.input_locked:
 		actor.do_jump()
+	else:
+		if actor.can_dash() and not actor.input_locked:
+			actor.do_dash()
+			did_dash = true
 	
 	actor.move_and_slide()
+	
+	if did_dash:
+		return dash
 	
 	if actor.is_on_floor():
 		if abs(actor.velocity.x) < actor.movement_settings.minimum_movement_threshold:
