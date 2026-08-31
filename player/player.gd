@@ -76,6 +76,8 @@ func _process(delta: float) -> void:
 		tooltip.show_tooltip("Jump")
 	elif state_machine.current_state is FallState:
 		tooltip.show_tooltip("Fall")
+	elif state_machine.current_state is DashState:
+		tooltip.show_tooltip("Dash")
 	else:
 		tooltip.hide_tooltip()
 	

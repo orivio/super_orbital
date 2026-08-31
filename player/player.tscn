@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://xxllna0gklw" path="res://player/state/jump_state.gd" id="10_32hag"]
 [ext_resource type="Script" uid="uid://cmj8pah4adp4i" path="res://player/tooltip.gd" id="11_7thud"]
 [ext_resource type="Script" uid="uid://cp0ei3fq0r6u2" path="res://player/state/fall_state.gd" id="11_tqiix"]
+[ext_resource type="Script" uid="uid://bb1ne8khitv63" path="res://player/state/dash_state.gd" id="12_e7oew"]
 [ext_resource type="Script" uid="uid://dkhfrycy4c8n1" path="res://player/input_component.gd" id="15_wodsf"]
 [ext_resource type="AudioStream" uid="uid://bo68gmydfw3ja" path="res://sounds/sfx/gravity_off_2.wav" id="16_tqiix"]
 [ext_resource type="AudioStream" uid="uid://dnjlxy8u2sigx" path="res://sounds/sfx/gravity_on_2.wav" id="17_e7oew"]
@@ -775,6 +776,9 @@ script = ExtResource("10_32hag")
 
 [node name="Fall" type="Node" parent="StateMachine" unique_id=825159202]
 script = ExtResource("11_tqiix")
+
+[node name="Dash" type="Node" parent="StateMachine" unique_id=1406797132]
+script = ExtResource("12_e7oew")
 
 [node name="Tooltip" type="Label" parent="." unique_id=1824500785]
 offset_left = -80.0
