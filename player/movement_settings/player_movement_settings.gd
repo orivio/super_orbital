@@ -72,12 +72,12 @@ extends Resource
 	set(value):
 		dash_distance = value
 		if dash_time != 0:
-			dash_speed = dash_distance / dash_time
+			dash_velocity = dash_distance / dash_time
 @export_range(0.3, 2.0) var dash_time: float:
 	set(value):
 		dash_time = value
 		if dash_time != 0:
-			dash_speed = dash_distance / dash_time
+			dash_velocity = dash_distance / dash_time
 @export_category("Juice")
 @export_range(0, 1.0) var jump_buffer_time: float
 @export_range(0, 2.0) var coyote_time: float
@@ -94,4 +94,4 @@ extends Resource
 @export var normal_gravity_acceleration: float
 @export var peak_gravity_acceleration: float
 @export var fall_gravity_acceleration: float
-@export var dash_speed: float
+@export var dash_velocity: float

@@ -41,8 +41,8 @@ func _input(event: InputEvent) -> void:
 		match current_state:
 			PlayState.GAMEPLAY: open_pause_menu()
 			PlayState.IN_PAUSE_MENU: close_pause_menu()
-	if event.is_action_pressed("gravity_switch"):
-		start_cutscene("res://cutscenes/intro/intro.tscn")
+	#if event.is_action_pressed("gravity_switch"):
+	#	start_cutscene("res://cutscenes/intro/intro.tscn")
 
 
 func open_pause_menu() -> void:

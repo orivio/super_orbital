@@ -7,13 +7,14 @@ enum InputComponentState {
 	PLAYING_BACK
 }
 
+# State and playback/record data
 var current_state: InputComponentState
 var frame_number: int
 var current_input_sequence: InputSequence
 var sequence_path: String = "user://sequence_2026-08-28T18-07-00.res"
-# 
-var horizontal_input_direction: float
-var input_direction_vector: Vector2
+# Input data
+var horizontal_direction: float
+var cardinal_direction: Vector2
 var jump_pressed: bool
 var jump_released: bool
 var jump_down: bool
@@ -38,14 +39,25 @@ func physics_process(delta: float) -> void:
 		current_frame = InputFrame.new()
 	
 	if current_state == InputComponentState.PLAYING_BACK:
-		horizontal_input_direction = current_frame.horizontal_input
+		horizontal_direction = current_frame.horizontal_direction
+		cardinal_direction = current_frame.cardinal_direction
 		jump_pressed = current_frame.jump_pressed
 		jump_released = current_frame.jump_released
 		jump_down = current_frame.jump_down
 		dash_pressed = Input.is_action_just_pressed("dash")
 	else:
 		
-		horizontal_input_direction = Input.get_axis("left", "right")
+		horizontal_direction = Input.get_axis("left", "right")
+		var direction_vector: Vector2 = Input.get_vector("left", "right", "up", "down")
+		# Make sure the cardinal direction vector can only be one of the four 
+		# directions at the maximum possible magnitude
+		if direction_vector != Vector2.ZERO:
+			if abs(direction_vector.y) > abs(direction_vector.x):
+				cardinal_direction = Vector2(0, sign(direction_vector.y))
+			else:
+				cardinal_direction = Vector2(sign(direction_vector.x), 0)
+		else:
+			cardinal_direction = Vector2.ZERO
 		jump_pressed = Input.is_action_just_pressed("jump")
 		jump_released = Input.is_action_just_released("jump")
 		jump_down = Input.is_action_pressed("jump")
@@ -53,7 +65,8 @@ func physics_process(delta: float) -> void:
 		
 		
 		if current_state == InputComponentState.RECORDING:
-			current_frame.horizontal_input = horizontal_input_direction
+			current_frame.horizontal_direction = horizontal_direction
+			current_frame.cardinal_direction = cardinal_direction
 			current_frame.jump_pressed = jump_pressed
 			current_frame.jump_released = jump_released
 			current_frame.jump_down = jump_down

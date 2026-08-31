@@ -51,7 +51,7 @@ func physics_process(delta: float) -> State:
 		elif actor.velocity.y > 0:
 			return fall
 	
-	if actor.input.horizontal_input_direction != 0 and not actor.input_locked:
+	if actor.input.horizontal_direction != 0 and not actor.input_locked:
 		return walk
 	
 	return null

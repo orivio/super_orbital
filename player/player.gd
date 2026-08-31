@@ -213,13 +213,14 @@ func do_jump() -> void:
 
 func can_dash() -> bool:
 	# TODO: Dash buffering?
-	return has_dash
+	return has_dash and input.dash_pressed
 
 
 func do_dash() -> void:
 	has_dash = false
-	var dash_direction: Vector2 = input_component.
-
+	var dash_direction: Vector2 = input.cardinal_direction
+	var dash_velocity: Vector2 = dash_direction * movement_settings.dash_velocity
+	velocity = dash_velocity
 
 func ceiling_clip_nudge() -> void:
 	# Not sure if this is the best way to do it, it does feel a little bit buggy
