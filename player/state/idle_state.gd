@@ -4,6 +4,7 @@ extends State
 @onready var walk: WalkState = $"../Walk"
 @onready var jump: JumpState = $"../Jump"
 @onready var fall: FallState = $"../Fall"
+@onready var dash: DashState = $"../Dash"
 
 
 func enter() -> void:
@@ -29,11 +30,20 @@ func physics_process(delta: float) -> State:
 		actor.velocity.x = move_toward(actor.velocity.x, 0, delta * actor.movement_settings.ground_friction)
 	
 	actor.velocity.y += actor.movement_settings.normal_gravity_acceleration * delta
-		
+	
+	var did_dash: bool = false
+	
 	if actor.can_jump() and not actor.input_locked:
 		actor.do_jump()
+	else:
+		if actor.can_dash() and not actor.input_locked:
+			actor.do_dash()
+			did_dash = true
 	
 	actor.move_and_slide()
+	
+	if did_dash:
+		return dash
 	
 	if not actor.is_on_floor():
 		if actor.velocity.y < 0:
