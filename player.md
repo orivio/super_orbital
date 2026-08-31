@@ -14,8 +14,16 @@ air, and go quite a bit higher. You have around 0.1 seconds, or 6 frames, to
 perform this, but if you want to jump absolutely as high as you possibly can,
 it would be frame perfect.
 
-### More precision when landing a jump
+### More precision when landing a jump (Not implemented yet)
 In the first part of you jump, your previous momentum carries over and it's 
 harder to start or stop moving horizontally. Once you start falling, though, 
 there is less air friction, and you can determine where you want to land more 
 precisely.
+
+### Dash cancelling
+A dash has two phases. In the first phase, you have the most speed, and you 
+can't change your trajectory by pressing any inputs. In the second phase, you 
+can slightly change your trajectory using the arrow keys. You can also cancel 
+the dash by pressing the jump button. You won't actually jump, but the dash 
+will stop immediately. Another thing you can do during this time frame is 
+turn off gravity (not implemented yet.)

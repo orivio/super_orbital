@@ -2,6 +2,8 @@ class_name DashState
 extends State
 
 var dash_timer: float
+var dash_2_timer: float
+var in_second_phase: bool
 
 @onready var idle: IdleState = $"../Idle"
 @onready var walk: WalkState = $"../Walk"
@@ -11,6 +13,8 @@ var dash_timer: float
 
 func enter() -> void:
 	dash_timer = 0
+	dash_2_timer = 0
+	in_second_phase = false
 
 
 func exit() -> void:
@@ -26,10 +30,30 @@ func process(_delta: float) -> State:
 
 
 func physics_process(delta: float) -> State:
-	dash_timer += delta
+	# This dash mechanic was inspired by Celeste in that a dash has two phases:
+	# Phase 1:
+	# 	You dash in the direction you intended for a certain amount of time at 
+	#	full speed.
+	# Phase 2:
+	# 	You keep moving in the same direction, but with less speed. During this 
+	# 	phase, you can influence your movement a little bit more, and also exit 
+	# 	the dash using a few different methods.
+	
 	var end_dash: bool = false
 	if dash_timer > actor.movement_settings.dash_time:
-		end_dash = true
+		if dash_2_timer > actor.movement_settings.dash_exit_time:
+			end_dash = true
+		else:
+			dash_2_timer += delta
+			if actor.input.jump_pressed:
+				# Cancel the dash
+				end_dash = true
+				actor.velocity = Vector2.ZERO
+			if not in_second_phase:
+				in_second_phase = true
+				actor.velocity *= actor.movement_settings.dash_exit_diminish
+	else:
+		dash_timer += delta
 	
 	actor.move_and_slide()
 	
