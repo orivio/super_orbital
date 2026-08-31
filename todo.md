@@ -41,6 +41,7 @@ even if you didn't press any key for it
 - Clean up the slightly spaghetti code with reloading levels, really, Play 
 should be responsible for deciding to reload the level, and level_manager 
 shouldn't care if the player had just died
+- Add clip nudge correction to the dash
 
 
 Both, or whoever wants to:
