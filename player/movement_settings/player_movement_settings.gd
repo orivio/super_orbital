@@ -45,6 +45,7 @@ signal debug_visual_changed
 		air_walk_stop_time = value
 		air_friction = walk_speed / air_walk_stop_time
 @export_category("Dash Settings")
+@export var allow_orthognal_dash: bool
 @export_range(10.0, 512) var dash_distance: float:
 	set(value):
 		dash_distance = value
@@ -67,9 +68,13 @@ signal debug_visual_changed
 		var dash_exit_velocity: float = dash_exit_distance / dash_exit_time
 		dash_exit_diminish = dash_exit_velocity / (dash_distance / dash_time)
 		debug_visual_changed.emit()
-@export var upward_dash_scale: float:
+@export_range(0.0, 1.0) var upward_dash_scale: float:
 	set(value):
 		upward_dash_scale = value
+		debug_visual_changed.emit()
+@export_range(0.0, 1.0) var orthogonal_dash_scale: float:
+	set(value):
+		orthogonal_dash_scale = value
 		debug_visual_changed.emit()
 @export_category("Juice")
 @export_range(0, 1.0) var jump_buffer_time: float

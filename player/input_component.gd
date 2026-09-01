@@ -15,6 +15,7 @@ var sequence_path: String = "user://sequence_2026-08-28T18-07-00.res"
 # Input data
 var horizontal_direction: float
 var cardinal_direction: Vector2
+var direction: Vector2
 var jump_pressed: bool
 var jump_released: bool
 var jump_down: bool
@@ -41,6 +42,7 @@ func physics_process(delta: float) -> void:
 	if current_state == InputComponentState.PLAYING_BACK:
 		horizontal_direction = current_frame.horizontal_direction
 		cardinal_direction = current_frame.cardinal_direction
+		direction = current_frame.direction
 		jump_pressed = current_frame.jump_pressed
 		jump_released = current_frame.jump_released
 		jump_down = current_frame.jump_down
@@ -58,6 +60,7 @@ func physics_process(delta: float) -> void:
 				cardinal_direction = Vector2(sign(direction_vector.x), 0)
 		else:
 			cardinal_direction = Vector2.ZERO
+		direction = direction_vector
 		jump_pressed = Input.is_action_just_pressed("jump")
 		jump_released = Input.is_action_just_released("jump")
 		jump_down = Input.is_action_pressed("jump")
@@ -67,6 +70,7 @@ func physics_process(delta: float) -> void:
 		if current_state == InputComponentState.RECORDING:
 			current_frame.horizontal_direction = horizontal_direction
 			current_frame.cardinal_direction = cardinal_direction
+			current_frame.direction = direction
 			current_frame.jump_pressed = jump_pressed
 			current_frame.jump_released = jump_released
 			current_frame.jump_down = jump_down

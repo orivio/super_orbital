@@ -233,12 +233,25 @@ func can_dash() -> bool:
 
 func do_dash() -> void:
 	has_dash = false
-	var dash_direction: Vector2 = input.cardinal_direction
-	if dash_direction == Vector2.ZERO:
-		dash_direction = Vector2(1 if facing_right else -1, 0)
-	var dash_velocity: Vector2 = dash_direction * movement_settings.dash_velocity
-	if dash_direction == Vector2.UP:
-		dash_velocity *= movement_settings.upward_dash_scale
+	var dash_velocity: Vector2
+	if not movement_settings.allow_orthognal_dash:
+		var dash_direction: Vector2 = input.cardinal_direction
+		if dash_direction == Vector2.ZERO:
+			dash_direction = Vector2(1 if facing_right else -1, 0)
+		dash_velocity = dash_direction * movement_settings.dash_velocity
+		if dash_direction == Vector2.UP:
+			dash_velocity *= movement_settings.upward_dash_scale
+	else:
+		var dash_direction: Vector2 = input.direction
+		if dash_direction == Vector2.ZERO:
+			dash_direction = Vector2(1 if facing_right else -1, 0)
+		else:
+			dash_direction.normalized() * 1
+		dash_velocity = dash_direction * movement_settings.dash_velocity
+		if dash_direction == Vector2.UP:
+			dash_velocity *= movement_settings.upward_dash_scale
+		elif abs(dash_direction.x) > movement_settings.minimum_movement_threshold and dash_direction.y < 0:
+			dash_velocity *= movement_settings.orthogonal_dash_scale
 	velocity = dash_velocity
 
 func ceiling_clip_nudge() -> void:
