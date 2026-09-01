@@ -15,10 +15,11 @@ func enter() -> void:
 	dash_timer = 0
 	dash_2_timer = 0
 	in_second_phase = false
+	actor.start_afterimage_effect()
 
 
 func exit() -> void:
-	pass
+	actor.stop_afterimage_effect()
 
 
 func input(_event: InputEvent) -> State:

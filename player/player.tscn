@@ -20,12 +20,15 @@
 [ext_resource type="AudioStream" uid="uid://blibcs4nthhm" path="res://sounds/sfx/throw_wrench.wav" id="19_c35mf"]
 [ext_resource type="AudioStream" uid="uid://b5elhr52b7s1t" path="res://sounds/sfx/die.wav" id="20_65viv"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0jb6"]
+size = Vector2(24, 62)
+
 [sub_resource type="Animation" id="Animation_rkbax"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -41,7 +44,7 @@ step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -56,7 +59,7 @@ resource_name = "dash_blackhole"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -72,7 +75,7 @@ length = 0.06666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -87,7 +90,7 @@ resource_name = "dash_nograv"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -102,7 +105,7 @@ resource_name = "fall_end"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -117,7 +120,7 @@ resource_name = "fall_end_blackhole"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -132,7 +135,7 @@ resource_name = "fall_end_nograv"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -147,7 +150,7 @@ resource_name = "fall_mid"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -162,7 +165,7 @@ resource_name = "fall_mid_blackhole"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -177,7 +180,7 @@ resource_name = "fall_mid_nograv"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -192,7 +195,7 @@ resource_name = "fall_start"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -207,7 +210,7 @@ resource_name = "float_down"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -222,7 +225,7 @@ resource_name = "float_up"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -240,7 +243,7 @@ step = 0.041666668
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -255,7 +258,7 @@ resource_name = "jump_end"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -270,7 +273,7 @@ resource_name = "jump_end_blackhole"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -285,7 +288,7 @@ resource_name = "jump_end_nograv"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -300,7 +303,7 @@ resource_name = "jump_mid"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -315,7 +318,7 @@ resource_name = "jump_mid_blackhole"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -330,7 +333,7 @@ resource_name = "jump_mid_nograv"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -345,7 +348,7 @@ resource_name = "jump_start"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -360,7 +363,7 @@ resource_name = "jump_start_blackhole"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -375,7 +378,7 @@ resource_name = "jump_start_nograv"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -392,7 +395,7 @@ step = 0.041666668
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -409,7 +412,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("VisualComponents/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -701,13 +704,10 @@ states/run/position = Vector2(548, 101.4)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_32hag"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_tqiix"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_e7oew"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_wodsf"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_kb6p2"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_c35mf"), "run", "dash", SubResource("AnimationNodeStateMachineTransition_s7qer"), "dash", "dash_exit", SubResource("AnimationNodeStateMachineTransition_g4c7l"), "dash_exit", "run", SubResource("AnimationNodeStateMachineTransition_65viv"), "dash_exit", "idle", SubResource("AnimationNodeStateMachineTransition_x7c3f"), "dash_exit", "jump", SubResource("AnimationNodeStateMachineTransition_bjvpn"), "jump", "dash", SubResource("AnimationNodeStateMachineTransition_knn7v"), "jump", "float", SubResource("AnimationNodeStateMachineTransition_7pqkx"), "dash_exit", "float", SubResource("AnimationNodeStateMachineTransition_uw77l"), "dash", "float", SubResource("AnimationNodeStateMachineTransition_rptt4"), "float", "jump", SubResource("AnimationNodeStateMachineTransition_r7pn3"), "float", "run", SubResource("AnimationNodeStateMachineTransition_b8hi5"), "float", "idle", SubResource("AnimationNodeStateMachineTransition_2uvqg"), "jump", "black_hole", SubResource("AnimationNodeStateMachineTransition_1s1yo"), "run", "black_hole", SubResource("AnimationNodeStateMachineTransition_5ejfk"), "dash_exit", "black_hole", SubResource("AnimationNodeStateMachineTransition_jd2rm"), "dash", "black_hole", SubResource("AnimationNodeStateMachineTransition_q28gw"), "float", "black_hole", SubResource("AnimationNodeStateMachineTransition_ge24q"), "black_hole", "jump", SubResource("AnimationNodeStateMachineTransition_pnw6m"), "black_hole", "idle", SubResource("AnimationNodeStateMachineTransition_1so5t"), "black_hole", "run", SubResource("AnimationNodeStateMachineTransition_55jnj"), "black_hole", "float", SubResource("AnimationNodeStateMachineTransition_dx5ib")]
 graph_offset = Vector2(-7, 135)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0jb6"]
-size = Vector2(24, 62)
+[sub_resource type="LabelSettings" id="LabelSettings_yllr7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1qjk"]
 size = Vector2(20, 56)
-
-[sub_resource type="LabelSettings" id="LabelSettings_yllr7"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_32hag"]
 streams_count = 1
@@ -727,29 +727,49 @@ movement_settings = ExtResource("2_qiwj3")
 death_time = 0.2
 death_hitstop_time = 0.077
 death_camera_shake_strength = 5.0
+afterimage_period = 0.03
+afterimage_fade_time = 1.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=214816936]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1986859216]
+position = Vector2(0, -31)
+shape = SubResource("RectangleShape2D_g0jb6")
+
+[node name="VisualComponents" type="Node2D" parent="." unique_id=1084732702]
+
+[node name="Sprite2D" type="Sprite2D" parent="VisualComponents" unique_id=214816936]
 material = ExtResource("3_wodsf")
 texture = ExtResource("4_e7oew")
 offset = Vector2(0, -32)
 hframes = 74
 frame = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=921070768]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VisualComponents" unique_id=921070768]
+root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_g1dw6")
 autoplay = &"idle"
 
-[node name="AnimationTree" type="AnimationTree" parent="." unique_id=375248718]
+[node name="AnimationTree" type="AnimationTree" parent="VisualComponents" unique_id=375248718]
+root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeStateMachine_kb6p2")
-advance_expression_base_node = NodePath("..")
+advance_expression_base_node = NodePath("../..")
 anim_player = NodePath("../AnimationPlayer")
 parameters/black_hole/blend_position = Vector2(0, 0)
 parameters/float/blend_position = Vector2(0, 0)
 parameters/jump/blend_position = -2.6845703
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1986859216]
-position = Vector2(0, -31)
-shape = SubResource("RectangleShape2D_g0jb6")
+[node name="Tooltip" type="Label" parent="VisualComponents" unique_id=1824500785]
+offset_left = -80.0
+offset_top = -93.0
+offset_right = 80.0
+offset_bottom = -64.0
+theme_override_font_sizes/font_size = 30
+text = "Example text"
+label_settings = SubResource("LabelSettings_yllr7")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("11_7thud")
+
+[node name="Effects" type="Node2D" parent="VisualComponents" unique_id=1619259076]
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=251871403]
 visible = false
@@ -783,20 +803,6 @@ script = ExtResource("11_tqiix")
 [node name="Dash" type="Node" parent="StateMachine" unique_id=1406797132]
 script = ExtResource("12_e7oew")
 
-[node name="Tooltip" type="Label" parent="." unique_id=1824500785]
-offset_left = -80.0
-offset_top = -93.0
-offset_right = 80.0
-offset_bottom = -64.0
-theme_override_font_sizes/font_size = 30
-text = "Example text"
-label_settings = SubResource("LabelSettings_yllr7")
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("11_7thud")
-
-[node name="Effects" type="Node2D" parent="." unique_id=1619259076]
-
 [node name="Sounds" type="Node" parent="." unique_id=1124397788]
 
 [node name="GravityOff" type="AudioStreamPlayer" parent="Sounds" unique_id=1769858769]
@@ -819,39 +825,46 @@ bus = &"Sound Effects"
 stream = ExtResource("20_65viv")
 bus = &"Sound Effects"
 
-[node name="Floorcaster" type="ShapeCast2D" parent="." unique_id=1789477722]
+[node name="Raycasts" type="Node2D" parent="." unique_id=202460255]
+
+[node name="Floorcaster" type="ShapeCast2D" parent="Raycasts" unique_id=1789477722]
 position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_e7wlo")
 target_position = Vector2(0, 7)
 max_results = 1
 
-[node name="LCeilingRaycast" type="RayCast2D" parent="." unique_id=1907499109]
+[node name="LCeilingRaycast" type="RayCast2D" parent="Raycasts" unique_id=1907499109]
 position = Vector2(-11, -60)
 target_position = Vector2(0, -5)
 
-[node name="MCeilingRaycast" type="RayCast2D" parent="." unique_id=382484181]
+[node name="MCeilingRaycast" type="RayCast2D" parent="Raycasts" unique_id=382484181]
 position = Vector2(0, -60)
 target_position = Vector2(0, -5)
 
-[node name="RCeilingRaycast" type="RayCast2D" parent="." unique_id=967516892]
+[node name="RCeilingRaycast" type="RayCast2D" parent="Raycasts" unique_id=967516892]
 position = Vector2(11, -60)
 target_position = Vector2(0, -5)
 
-[node name="JumpBufferTimer" type="Timer" parent="." unique_id=1454741679]
+[node name="Timers" type="Node" parent="." unique_id=424773958]
+
+[node name="JumpBufferTimer" type="Timer" parent="Timers" unique_id=1454741679]
 process_callback = 0
 one_shot = true
 
-[node name="CoyoteTimer" type="Timer" parent="." unique_id=2056407429]
+[node name="CoyoteTimer" type="Timer" parent="Timers" unique_id=2056407429]
 process_callback = 0
 one_shot = true
 
-[node name="DashCooldownTimer" type="Timer" parent="." unique_id=731823071]
+[node name="DashCooldownTimer" type="Timer" parent="Timers" unique_id=731823071]
 process_callback = 0
 one_shot = true
 
-[node name="DeathTimer" type="Timer" parent="." unique_id=1560873547]
+[node name="DeathTimer" type="Timer" parent="Timers" unique_id=1560873547]
 process_callback = 0
 one_shot = true
+
+[node name="AfterImageTimer" type="Timer" parent="Timers" unique_id=120430868]
+process_callback = 0
 
 [node name="DebugOverlay" type="Node2D" parent="." unique_id=1952632549]
 script = ExtResource("19_65viv")
@@ -861,6 +874,7 @@ dash_breakdown_second_color = Color(0, 0, 1, 1)
 
 [connection signal="area_entered" from="HurtBox" to="HurtBox" method="_on_area_entered"]
 [connection signal="body_entered" from="HurtBox" to="HurtBox" method="_on_body_entered"]
-[connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timeout"]
-[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timeout"]
-[connection signal="timeout" from="DashCooldownTimer" to="." method="_on_dash_cooldown_timeout"]
+[connection signal="timeout" from="Timers/JumpBufferTimer" to="." method="_on_jump_buffer_timeout"]
+[connection signal="timeout" from="Timers/CoyoteTimer" to="." method="_on_coyote_timeout"]
+[connection signal="timeout" from="Timers/DashCooldownTimer" to="." method="_on_dash_cooldown_timeout"]
+[connection signal="timeout" from="Timers/AfterImageTimer" to="." method="_on_after_image_timeout"]

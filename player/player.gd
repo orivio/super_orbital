@@ -18,33 +18,40 @@ const DUST_CLOUD = preload("res://effects/dust_cloud/dust_cloud.tscn")
 const DASH_CLOUD = preload("res://effects/dash_cloud/dash_cloud.tscn")
 const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.tscn")
 
+@export_category("Movement and Abilities")
 @export var movement_settings: PlayerMovementSettings
 @export var abilities: PlayerAbilities = null
-# Death sequence settings
+@export_category("Death Sequence Settings")
 @export_range(0.0, 1.0) var death_time: float
 @export_range(0.0, 0.3) var death_hitstop_time: float
 @export_range(0.0, 15.0) var death_camera_shake_strength: float
+@export_category("Afterimage Settings")
+@export_range(0.0, 1.0) var afterimage_period: float
+@export_range(0.0, 2.0) var afterimage_fade_time: float
 
 # Components
 @onready var state_machine: StateMachine = $StateMachine
 @onready var input: InputComponent = $InputComponent
 @onready var debug_overlay: DebugOverlay = $DebugOverlay
-# Child nodes
-@onready var sprite: Sprite2D = $Sprite2D
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var animation_tree: AnimationTree = $AnimationTree
-@onready var collider: CollisionShape2D = $CollisionShape2D
-@onready var tooltip: Tooltip = $Tooltip
+# Visuals
+@onready var sprite: Sprite2D = $VisualComponents/Sprite2D
+@onready var animation_player: AnimationPlayer = $VisualComponents/AnimationPlayer
+@onready var animation_tree: AnimationTree = $VisualComponents/AnimationTree
+@onready var tooltip: Tooltip = $VisualComponents/Tooltip
+@onready var effects: Node2D = $VisualComponents/Effects
 # Timers
-@onready var jump_buffer_timer: Timer = $JumpBufferTimer
-@onready var coyote_timer: Timer = $CoyoteTimer
-@onready var dash_cooldown_timer: Timer = $DashCooldownTimer
-@onready var death_timer: Timer = $DeathTimer
-# Raycasts
-@onready var floorcaster: ShapeCast2D = $Floorcaster
-@onready var left_ceiling_raycast: RayCast2D = $LCeilingRaycast
-@onready var middle_ceiling_raycast: RayCast2D = $MCeilingRaycast
-@onready var right_ceiling_raycast: RayCast2D = $RCeilingRaycast
+@onready var jump_buffer_timer: Timer = $Timers/JumpBufferTimer
+@onready var coyote_timer: Timer = $Timers/CoyoteTimer
+@onready var dash_cooldown_timer: Timer = $Timers/DashCooldownTimer
+@onready var death_timer: Timer = $Timers/DeathTimer
+@onready var afterimage_timer: Timer = $Timers/AfterImageTimer
+# Physics components
+@onready var floorcaster: ShapeCast2D = $Raycasts/Floorcaster
+@onready var left_ceiling_raycast: RayCast2D = $Raycasts/LCeilingRaycast
+@onready var middle_ceiling_raycast: RayCast2D = $Raycasts/MCeilingRaycast
+@onready var right_ceiling_raycast: RayCast2D = $Raycasts/RCeilingRaycast
+@onready var collider: CollisionShape2D = $CollisionShape2D
+
 
 # Visual logic
 var facing_right: bool = true
@@ -225,6 +232,24 @@ func lock_ability(ability: String) -> void:
 	if abilities.unlocked(ability):
 		abilities.lock(ability)
 		ability_locked.emit(ability)
+
+
+func start_afterimage_effect() -> void:
+	spawn_afterimage()
+	afterimage_timer.start(afterimage_period)
+
+
+func stop_afterimage_effect() -> void:
+	afterimage_timer.stop()
+
+
+func spawn_afterimage() -> void:
+	var afterimage: Node2D = AFTER_IMAGE.instantiate()
+	afterimage.do_thing(sprite.frame, afterimage_fade_time, sprite.flip_h)
+	afterimage.global_position = global_position
+	GameManager.current_level.add_effect(afterimage)
+
+
 #endregion
 
 
@@ -306,6 +331,10 @@ func _on_coyote_timeout() -> void:
 
 func _on_dash_cooldown_timeout() -> void:
 	dash_on_cooldown = false
+
+
+func _on_after_image_timeout() -> void:
+	spawn_afterimage()
 
 
 func _on_debug_visual_changed() -> void:

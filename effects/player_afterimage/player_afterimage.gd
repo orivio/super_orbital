@@ -3,7 +3,6 @@ extends Node2D
 
 @export var opacity: float
 
-
 var fade_tween: Tween
 var frame: int
 var time: float
