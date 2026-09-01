@@ -38,10 +38,11 @@ metallic ground
 - Clean up the slightly spaghetti code with reloading levels, really, Play 
 should be responsible for deciding to reload the level, and level_manager 
 shouldn't care if the player had just died
+- Add player animations
 - Add clip nudge correction to the dash
 - Fine tune the dash timing
 - Add a trail effect to the dash
-- Make the second phase of a jump let you have more control
+- Add a way to add impact frames
 - Add an impact frame, or potentially camera shake, whenever you dash
 - Should the dash cooldown only go into effect once you finish the dash?
 
