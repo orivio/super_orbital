@@ -41,7 +41,7 @@ shouldn't care if the player had just died
 - Add player animations
 - Add clip nudge correction to the dash
 - Fine tune the dash timing
-- Add a trail effect to the dash
+- Make the dash afterimage effect look better
 - Should the dash cooldown only go into effect once you finish the dash?
 
 
