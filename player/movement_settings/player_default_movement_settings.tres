@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dumitcejfyj50" path="res://player/movement_settings/player_movement_settings.gd" id="1_y2jkl"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_y2jkl")
 walk_speed = 400.0
 walk_start_time = 0.07894736842105263
@@ -12,14 +13,15 @@ jump_peak_time = 0.38
 jump_fall_time = 0.33999999999999997
 air_walk_start_time = 0.05
 air_walk_stop_time = 0.08
-dash_distance = 40.0
+dash_distance = 45.38
 dash_time = 0.03
-dash_exit_distance = 60.0
-dash_exit_time = 0.08
+dash_exit_distance = 65.55799999999999
+dash_exit_time = 0.06999999999999999
 jump_buffer_time = 0.1
 coyote_time = 0.1
 minimum_movement_threshold = 0.1
 ceiling_clip_min_velocity = 200.0
+show_dash_breakdown = true
 ground_friction = 5000.0
 ground_acceleration = 5066.666666666667
 air_friction = 5000.0
@@ -28,6 +30,6 @@ jump_initial_velocity = 673.6842105263158
 normal_gravity_acceleration = 1772.8531855955678
 peak_gravity_acceleration = 10000.0
 fall_gravity_acceleration = 2214.532871972319
-dash_velocity = 1333.3333333333335
-dash_exit_diminish = 0.5624999999999999
+dash_velocity = 1512.6666666666667
+dash_exit_diminish = 0.6191336649247623
 metadata/_custom_type_script = "uid://dumitcejfyj50"

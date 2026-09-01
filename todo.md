@@ -42,6 +42,7 @@ shouldn't care if the player had just died
 - Fine tune the dash timing
 - Add a trail effect to the dash
 - Make the second phase of a jump let you have more control
+- Add an impact frame, or potentially camera shake, whenever you dash
 
 
 Both, or whoever wants to:

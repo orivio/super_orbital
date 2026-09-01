@@ -1,3 +1,4 @@
+@tool
 class_name Player
 extends CharacterBody2D
 
@@ -24,6 +25,7 @@ const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.t
 # Components
 @onready var state_machine: StateMachine = $StateMachine
 @onready var input: InputComponent = $InputComponent
+@onready var debug_overlay: DebugOverlay = $DebugOverlay
 # Child nodes
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -54,76 +56,85 @@ var input_locked: bool
 
 
 func _ready() -> void:
-	# Set up player state
-	current_player_state = PlayerState.UNINITIALIZED
-	# Set up global references
-	GameManager.player = self
-	# Connect signals
-	ability_unlocked.connect(SaveManager._on_ability_unlocked)
-	ability_locked.connect(SaveManager._on_ability_locked)
-	# Ready the state machine
-	state_machine.initialize()
+	if not Engine.is_editor_hint():
+		# Set up player state
+		current_player_state = PlayerState.UNINITIALIZED
+		# Set up global references
+		GameManager.player = self
+		# Connect signals
+		ability_unlocked.connect(SaveManager._on_ability_unlocked)
+		ability_locked.connect(SaveManager._on_ability_locked)
+		# Ready the state machine
+		state_machine.initialize()
+	else:
+		movement_settings.debug_visual_changed.connect(_on_debug_visual_changed)
 
 
 func _process(delta: float) -> void:
-	match current_player_state:
-		PlayerState.GAMEPLAY:
-			state_machine.process(delta)
-	
-	# Visual logic
-	if facing_right:
-		sprite.flip_h = false
-	else:
-		sprite.flip_h = true
-	
-	if state_machine.current_state is IdleState:
-		tooltip.show_tooltip("Idle")
-	elif state_machine.current_state is WalkState:
-		tooltip.show_tooltip("Walk")
-	elif state_machine.current_state is JumpState:
-		tooltip.show_tooltip("Jump")
-	elif state_machine.current_state is FallState:
-		tooltip.show_tooltip("Fall")
-	elif state_machine.current_state is DashState:
-		tooltip.show_tooltip("Dash")
-	else:
-		tooltip.hide_tooltip()
-	
-	if false:
-		tooltip.show_tooltip(str(frames_passed))
+	if not Engine.is_editor_hint():
+		match current_player_state:
+			PlayerState.GAMEPLAY:
+				state_machine.process(delta)
+		
+		# Visual logic
+		if facing_right:
+			sprite.flip_h = false
+		else:
+			sprite.flip_h = true
+		
+		if state_machine.current_state is IdleState:
+			tooltip.show_tooltip("Idle")
+		elif state_machine.current_state is WalkState:
+			tooltip.show_tooltip("Walk")
+		elif state_machine.current_state is JumpState:
+			tooltip.show_tooltip("Jump")
+		elif state_machine.current_state is FallState:
+			tooltip.show_tooltip("Fall")
+		elif state_machine.current_state is DashState:
+			tooltip.show_tooltip("Dash")
+		else:
+			tooltip.hide_tooltip()
+		
+		if false:
+			tooltip.show_tooltip(str(frames_passed))
 
 
 func _physics_process(delta: float) -> void:
-	frames_passed += 1
-	if velocity.x > 0:
-		facing_right = true
-	elif velocity.x < 0:
-		facing_right = false
-	
-	match current_player_state:
-		PlayerState.GAMEPLAY:
-			input.physics_process(delta)
-			
-			# Update movement logic
-			if input.jump_pressed:
-				jump_buffer = true
-				jump_buffer_timer.start(movement_settings.jump_buffer_time)
-			
-			if floorcaster.is_colliding():
-				was_on_floor_last_frame = true
-				coyote_buffer = true
-				has_dash = true
-			else:
-				if was_on_floor_last_frame:
-					was_on_floor_last_frame = false
+	if not Engine.is_editor_hint():
+		frames_passed += 1
+		if velocity.x > 0:
+			facing_right = true
+		elif velocity.x < 0:
+			facing_right = false
+		
+		match current_player_state:
+			PlayerState.GAMEPLAY:
+				input.physics_process(delta)
+				
+				# Update movement logic
+				if input.jump_pressed:
+					jump_buffer = true
+					jump_buffer_timer.start(movement_settings.jump_buffer_time)
+				
+				if floorcaster.is_colliding():
+					was_on_floor_last_frame = true
 					coyote_buffer = true
-					coyote_timer.start(movement_settings.coyote_time)
-			
-			state_machine.physics_process(delta)
+					has_dash = true
+				else:
+					if was_on_floor_last_frame:
+						was_on_floor_last_frame = false
+						coyote_buffer = true
+						coyote_timer.start(movement_settings.coyote_time)
+				
+				state_machine.physics_process(delta)
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.input(event)
+
+
+func _draw() -> void:
+	pass
 
 
 func initialize() -> void:
@@ -182,6 +193,10 @@ func get_half_height() -> float:
 
 func get_half_width() -> float:
 	return collider.shape.get_rect().size.x / 2 + 10
+
+
+func get_center_of_mass() -> Vector2:
+	return Vector2(0, -25)
 
 
 func teleport_to_ground(target: Vector2) -> void:
@@ -249,3 +264,7 @@ func _on_jump_buffer_timeout() -> void:
 
 func _on_coyote_timeout() -> void:
 	coyote_buffer = false
+
+
+func _on_debug_visual_changed() -> void:
+	debug_overlay.queue_redraw()

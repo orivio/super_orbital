@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://bo68gmydfw3ja" path="res://sounds/sfx/gravity_off_2.wav" id="16_tqiix"]
 [ext_resource type="AudioStream" uid="uid://dnjlxy8u2sigx" path="res://sounds/sfx/gravity_on_2.wav" id="17_e7oew"]
 [ext_resource type="AudioStream" uid="uid://bp7ux6ojv5g3w" path="res://sounds/sfx/dash.wav" id="18_e7oew"]
+[ext_resource type="Script" uid="uid://cm0a7g2ro4k3j" path="res://player/debug_overlay.gd" id="19_65viv"]
 [ext_resource type="AudioStream" uid="uid://blibcs4nthhm" path="res://sounds/sfx/throw_wrench.wav" id="19_c35mf"]
 [ext_resource type="AudioStream" uid="uid://b5elhr52b7s1t" path="res://sounds/sfx/die.wav" id="20_65viv"]
 
@@ -845,6 +846,12 @@ one_shot = true
 [node name="DeathTimer" type="Timer" parent="." unique_id=1560873547]
 process_callback = 0
 one_shot = true
+
+[node name="DebugOverlay" type="Node2D" parent="." unique_id=1952632549]
+script = ExtResource("19_65viv")
+dash_breakdown_thickness = 2.0
+dash_breakdown_first_color = Color(1, 0, 0, 1)
+dash_breakdown_second_color = Color(0, 0, 1, 1)
 
 [connection signal="area_entered" from="HurtBox" to="HurtBox" method="_on_area_entered"]
 [connection signal="body_entered" from="HurtBox" to="HurtBox" method="_on_body_entered"]

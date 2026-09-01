@@ -2,6 +2,8 @@
 class_name PlayerMovementSettings
 extends Resource
 
+signal debug_visual_changed
+
 @export_category("Walk Settings")
 @export_range(32, 512) var walk_speed: float:
 	set(value):
@@ -47,20 +49,24 @@ extends Resource
 	set(value):
 		dash_distance = value
 		dash_velocity = dash_distance / dash_time
+		debug_visual_changed.emit()
 @export_range(0.01, 1.0) var dash_time: float:
 	set(value):
 		dash_time = value
 		dash_velocity = dash_distance / dash_time
+		debug_visual_changed.emit()
 @export_range(10.0, 512.0) var dash_exit_distance: float:
 	set(value):
 		dash_exit_distance = value
 		var dash_exit_velocity: float = dash_exit_distance / dash_exit_time
 		dash_exit_diminish = dash_exit_velocity / (dash_distance / dash_time)
+		debug_visual_changed.emit()
 @export_range(0.01, 1.0) var dash_exit_time: float:
 	set(value):
 		dash_exit_time = value
 		var dash_exit_velocity: float = dash_exit_distance / dash_exit_time
 		dash_exit_diminish = dash_exit_velocity / (dash_distance / dash_time)
+		debug_visual_changed.emit()
 		
 @export_category("Juice")
 @export_range(0, 1.0) var jump_buffer_time: float
@@ -69,6 +75,11 @@ extends Resource
 @export_range(0, 1000) var minimum_movement_threshold: float
 @export var max_acceleration: float = 999999
 @export_range(32.0, 1200.0) var ceiling_clip_min_velocity: float
+@export_category("Debug Visuals")
+@export var show_dash_breakdown: bool:
+	set(value):
+		if value == true:
+			debug_visual_changed.emit()
 @export_category("Hidden Settings")
 @export var ground_friction: float
 @export var ground_acceleration: float
