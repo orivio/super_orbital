@@ -22,7 +22,7 @@ size = Vector2(128, 64)
 [sub_resource type="Curve2D" id="Curve2D_piq2g"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 448, 32, 0, 0, 0, 0, 713, 32)
+"points": PackedVector2Array(0, 0, 0, 0, 448, 32, 0, 0, 0, 0, 672, 32)
 }
 point_count = 2
 
@@ -114,14 +114,14 @@ offset_right = 64.0
 curve = SubResource("Curve2D_piq2g")
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform2" index="0" unique_id=199652958]
-position = Vector2(713, 32)
+position = Vector2(672, 32)
 progress = 416.0
 
 [node name="FollowVisual" parent="Objects/MovingPlatform2" index="1" unique_id=409824460]
 points = PackedVector2Array(448, 32, 450.97607, 32, 454.5506, 32, 459.38672, 32, 462.24756, 32, 465.3874, 32, 468.7941, 32, 472.45557, 32, 476.35965, 32, 480.4942, 32, 484.84714, 32, 489.40625, 32, 494.15945, 32, 499.09467, 32, 501.6267, 32, 504.19968, 32, 506.8121, 32, 509.4624, 32, 512.1491, 32, 514.87067, 32, 517.6256, 32, 520.4124, 32, 523.22955, 32, 526.07544, 32, 528.94867, 32, 531.84766, 32, 534.77094, 32, 537.7169, 32, 540.68414, 32, 543.6711, 32, 546.6762, 32, 549.69806, 32, 552.73505, 32, 555.78564, 32, 558.8484, 32, 561.9218, 32, 565.0042, 32, 568.0943, 32, 571.1904, 32, 574.2911, 32, 577.3948, 32, 580.5, 32, 583.6052, 32, 586.7089, 32, 589.8096, 32, 592.9057, 32, 595.9958, 32, 599.0782, 32, 602.1516, 32, 605.21436, 32, 608.26495, 32, 611.30194, 32, 614.3237, 32, 617.3289, 32, 620.31586, 32, 623.2831, 32, 626.22906, 32, 629.15234, 32, 632.05133, 32, 634.92456, 32, 637.77045, 32, 640.5876, 32, 643.3744, 32, 646.12933, 32, 648.8509, 32, 651.5376, 32, 654.1879, 32, 656.80035, 32, 659.3733, 32, 661.90533, 32, 666.8405, 32, 671.59375, 32, 676.1529, 32, 680.5058, 32, 684.6403, 32, 688.54443, 32, 692.20593, 32, 695.6126, 32, 698.75244, 32, 701.6133, 32, 706.44934, 32, 710.0239, 32, 713, 32)
 
 [node name="AnimatableBody2D" parent="Objects/MovingPlatform2" index="2" unique_id=886220012]
-position = Vector2(713, 32)
+position = Vector2(672, 32)
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform2/AnimatableBody2D" index="0" unique_id=388684668]
 shape = SubResource("RectangleShape2D_emy88")
@@ -243,7 +243,6 @@ tile_map_data = PackedByteArray("AADy//f/AAAAAAQAAADy//j/AAACAAIAAADy//n/AAACAAM
 
 [node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("2_hasnt")]
 door_tag = "WestDoor"
-dest_door = ""
 direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
@@ -255,7 +254,6 @@ position = Vector2(-352, 0)
 
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=629369874 instance=ExtResource("2_hasnt")]
 door_tag = "EastDoor"
-dest_door = ""
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(2800, 80)
