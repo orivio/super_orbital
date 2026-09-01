@@ -20,6 +20,7 @@ dash_exit_distance = 65.55799999999999
 dash_exit_time = 0.06999999999999999
 upward_dash_scale = 0.5
 orthogonal_dash_scale = 0.575
+dash_cooldown = 0.28
 jump_buffer_time = 0.1
 coyote_time = 0.1
 minimum_movement_threshold = 0.1

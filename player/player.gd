@@ -35,6 +35,7 @@ const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.t
 # Timers
 @onready var jump_buffer_timer: Timer = $JumpBufferTimer
 @onready var coyote_timer: Timer = $CoyoteTimer
+@onready var dash_cooldown_timer: Timer = $DashCooldownTimer
 @onready var death_timer: Timer = $DeathTimer
 # Raycasts
 @onready var floorcaster: ShapeCast2D = $Floorcaster
@@ -49,6 +50,7 @@ var was_on_floor_last_frame: bool
 var jump_buffer: bool
 var coyote_buffer: bool
 var has_dash: bool
+var dash_on_cooldown: bool
 # State management
 var frames_passed: int
 var current_player_state: PlayerState
@@ -140,10 +142,16 @@ func _draw() -> void:
 func initialize() -> void:
 	load_abilities()
 	current_player_state = PlayerState.GAMEPLAY
+	dash_on_cooldown = false
 
 
 func reset() -> void:
 	velocity = Vector2.ZERO
+	was_on_floor_last_frame = false
+	jump_buffer = false
+	coyote_buffer = true
+	has_dash = true
+	dash_on_cooldown = false
 	state_machine.reset()
 	current_player_state = PlayerState.GAMEPLAY
 	set_process_mode(Node.PROCESS_MODE_INHERIT)
@@ -228,11 +236,13 @@ func do_jump() -> void:
 
 func can_dash() -> bool:
 	# TODO: Dash buffering?
-	return has_dash and input.dash_pressed
+	return has_dash and input.dash_pressed and not dash_on_cooldown
 
 
 func do_dash() -> void:
 	has_dash = false
+	dash_on_cooldown = true
+	dash_cooldown_timer.start(movement_settings.dash_cooldown)
 	var dash_velocity: Vector2
 	if not movement_settings.allow_orthognal_dash:
 		var dash_direction: Vector2 = input.cardinal_direction
@@ -279,6 +289,10 @@ func _on_jump_buffer_timeout() -> void:
 
 func _on_coyote_timeout() -> void:
 	coyote_buffer = false
+
+
+func _on_dash_cooldown_timeout() -> void:
+	dash_on_cooldown = false
 
 
 func _on_debug_visual_changed() -> void:

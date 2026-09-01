@@ -43,6 +43,7 @@ shouldn't care if the player had just died
 - Add a trail effect to the dash
 - Make the second phase of a jump let you have more control
 - Add an impact frame, or potentially camera shake, whenever you dash
+- Should the dash cooldown only go into effect once you finish the dash?
 
 
 Both, or whoever wants to:
