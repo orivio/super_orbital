@@ -75,6 +75,7 @@ func _ready() -> void:
 		movement_settings.debug_visual_changed.connect(_on_debug_visual_changed)
 
 
+#region Main Loops
 func _process(delta: float) -> void:
 	if not Engine.is_editor_hint():
 		match current_player_state:
@@ -132,16 +133,14 @@ func _physics_process(delta: float) -> void:
 						coyote_timer.start(movement_settings.coyote_time)
 				
 				state_machine.physics_process(delta)
+#endregion
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.input(event)
 
 
-func _draw() -> void:
-	pass
-
-
+#region Player API
 func initialize() -> void:
 	load_abilities()
 	current_player_state = PlayerState.GAMEPLAY
@@ -226,8 +225,10 @@ func lock_ability(ability: String) -> void:
 	if abilities.unlocked(ability):
 		abilities.lock(ability)
 		ability_locked.emit(ability)
+#endregion
 
 
+#region Physics Logic
 func can_jump() -> bool:
 	return jump_buffer and coyote_buffer
 
@@ -281,6 +282,8 @@ func ceiling_clip_nudge() -> void:
 		global_position.x = right_ceiling_raycast.global_position.x
 	if right_ceiling_raycast.is_colliding() and not left_ceiling_raycast.is_colliding():
 		global_position.x = left_ceiling_raycast.global_position.x
+#endregion
+
 
 func take_hit() -> void:
 	match current_player_state:
