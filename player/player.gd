@@ -240,6 +240,7 @@ func can_dash() -> bool:
 
 
 func do_dash() -> void:
+	GameManager.hitstop(movement_settings.dash_hitstop)
 	has_dash = false
 	dash_on_cooldown = true
 	dash_cooldown_timer.start(movement_settings.dash_cooldown)
@@ -253,10 +254,10 @@ func do_dash() -> void:
 			dash_velocity *= movement_settings.upward_dash_scale
 	else:
 		var dash_direction: Vector2 = input.direction
-		if dash_direction == Vector2.ZERO:
+		if dash_direction.length_squared() < movement_settings.minimum_movement_threshold * movement_settings.minimum_movement_threshold:
 			dash_direction = Vector2(1 if facing_right else -1, 0)
 		else:
-			dash_direction.normalized() * 1
+			dash_direction = dash_direction.normalized() * 1
 		dash_velocity = dash_direction * movement_settings.dash_velocity
 		if dash_direction == Vector2.UP:
 			dash_velocity *= movement_settings.upward_dash_scale

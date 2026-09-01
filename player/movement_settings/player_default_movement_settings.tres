@@ -23,6 +23,7 @@ orthogonal_dash_scale = 0.575
 dash_cooldown = 0.28
 jump_buffer_time = 0.1
 coyote_time = 0.1
+dash_hitstop = 0.025
 minimum_movement_threshold = 0.1
 ceiling_clip_min_velocity = 200.0
 ground_friction = 5000.0

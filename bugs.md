@@ -29,6 +29,18 @@ Replication:
 - Turn the engine time scale to 1/16, press the jump button and quickly release
 it. Just a little bit above the ground, you can press the jump button again and
 you will do a double jump.
+### Dash direction normalization (0, 0)
+Details:
+- This issue might be fixed, but just look out for if you see it.
+- During some situations if you dash, the game will turn completely blank and 
+a bunch of warning messages will spam the debugger, which have to do with 
+trying to normalize the vector (0, 0). This warning is associated with 
+player.gd:243.
+Replication:
+- I replicated the bug twice, but once I made a certain change, I never saw it 
+again, even after I reverted the change.
+- The only times I was able to replicate it happened to be on a moving platform 
+in "More Platform Timing" (```res://levels/3_moving_platforms/momentum.tscn```)
 
 # UI Bugs
 ## Pressing a button during a screen fade
