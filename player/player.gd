@@ -318,6 +318,15 @@ func do_dash() -> void:
 	wall_clip_nudge()
 	velocity = dash_velocity
 
+
+func can_grav_switch() -> bool:
+	return false
+
+
+func do_grav_switch() -> void:
+	pass
+
+
 func ceiling_clip_nudge() -> void:
 	# Not sure if this is the best way to do it, it does feel a little bit buggy
 	#if middle_ceiling_raycast.is_colliding():
