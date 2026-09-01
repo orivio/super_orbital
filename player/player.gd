@@ -114,6 +114,8 @@ func _process(delta: float) -> void:
 			tooltip.show_tooltip("Fall")
 		elif state_machine.current_state is DashState:
 			tooltip.show_tooltip("Dash")
+		elif state_machine.current_state is FloatState:
+			tooltip.show_tooltip("Float")
 		else:
 			tooltip.hide_tooltip()
 		

@@ -9,6 +9,7 @@ var in_second_phase: bool
 @onready var walk: WalkState = $"../Walk"
 @onready var fall: FallState = $"../Fall"
 @onready var jump: JumpState = $"../Jump"
+@onready var float_state: FloatState = $"../Float"
 
 
 func enter() -> void:
@@ -41,15 +42,18 @@ func physics_process(delta: float) -> State:
 	# 	the dash using a few different methods.
 	
 	var end_dash: bool = false
+	var did_grav_switch: bool = false
 	if dash_timer > actor.movement_settings.dash_time:
 		if dash_2_timer > actor.movement_settings.dash_exit_time:
 			end_dash = true
 		else:
 			dash_2_timer += delta
-			if actor.input.jump_pressed:
+			if actor.input.jump_pressed and not actor.input_locked:
 				# Cancel the dash
 				end_dash = true
 				actor.velocity = Vector2.ZERO
+			elif actor.can_grav_switch() and not actor.input_locked:
+				did_grav_switch = true
 			if not in_second_phase:
 				in_second_phase = true
 				actor.velocity *= actor.movement_settings.dash_exit_diminish
@@ -73,5 +77,7 @@ func physics_process(delta: float) -> State:
 			else:
 				jump.coming_from_dash = true
 				return jump
+	elif did_grav_switch:
+		return float_state
 	
 	return null
