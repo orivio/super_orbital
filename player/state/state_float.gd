@@ -50,7 +50,7 @@ func physics_process(delta: float) -> State:
 	if actor.is_on_wall():
 		# Bounce off the wall
 		GameManager.hitstop(actor.movement_settings.float_wall_bounce_hitstop)
-		GameManager.camera_shake(actor.movement_settings.float_wall_bounce_camera_shake_strength)
+		GameManager.camera_shake_directional(Vector2.RIGHT, actor.movement_settings.float_wall_bounce_camera_shake_strength)
 		movement_direction.x *= -1
 		actor.velocity = movement_direction
 	

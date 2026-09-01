@@ -14,6 +14,12 @@ enum PlayerState {
 	DISABLED,
 	DYING,
 }
+# Used for the shader parameter.
+enum GravityState {
+	BLACK_HOLE = 0,
+	FLOAT = 1,
+	NORMAL = 2,
+}
 
 const IMPACT_CLOUD = preload("res://effects/impact_cloud/impact_cloud.tscn")
 const DUST_CLOUD = preload("res://effects/dust_cloud/dust_cloud.tscn")
@@ -108,16 +114,22 @@ func _process(delta: float) -> void:
 		#region Tooltip Update
 		if state_machine.current_state is IdleState:
 			tooltip.show_tooltip("Idle")
+			sprite.material.set_shader_parameter("gravity_state", GravityState.NORMAL)
 		elif state_machine.current_state is WalkState:
 			tooltip.show_tooltip("Walk")
+			sprite.material.set_shader_parameter("gravity_state", GravityState.NORMAL)
 		elif state_machine.current_state is JumpState:
 			tooltip.show_tooltip("Jump")
+			sprite.material.set_shader_parameter("gravity_state", GravityState.NORMAL)
 		elif state_machine.current_state is FallState:
 			tooltip.show_tooltip("Fall")
+			sprite.material.set_shader_parameter("gravity_state", GravityState.NORMAL)
 		elif state_machine.current_state is DashState:
 			tooltip.show_tooltip("Dash")
+			sprite.material.set_shader_parameter("gravity_state", GravityState.NORMAL)
 		elif state_machine.current_state is FloatState:
 			tooltip.show_tooltip("Float")
+			sprite.material.set_shader_parameter("gravity_state", GravityState.FLOAT)
 		else:
 			tooltip.hide_tooltip()
 		

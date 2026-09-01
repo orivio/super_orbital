@@ -42,6 +42,9 @@ again, even after I reverted the change.
 - The only times I was able to replicate it happened to be on a moving platform 
 in "More Platform Timing" (```res://levels/3_moving_platforms/momentum.tscn```)
 
+# World Bugs
+## Level transition bug between the moving platforms level and the bridge level
+
 # UI Bugs
 ## Pressing a button during a screen fade
 Details:
