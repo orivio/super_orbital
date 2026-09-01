@@ -320,7 +320,7 @@ func do_dash() -> void:
 
 
 func can_grav_switch() -> bool:
-	return false
+	return input.grav_switch_pressed
 
 
 func do_grav_switch() -> void:

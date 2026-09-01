@@ -8,3 +8,4 @@ extends Resource
 @export var jump_released: bool
 @export var jump_down: bool
 @export var dash_pressed: bool
+@export var grav_switch_pressed: bool
