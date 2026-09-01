@@ -95,6 +95,7 @@ func _process(delta: float) -> void:
 		else:
 			sprite.flip_h = true
 		
+		#region Tooltip Update
 		if state_machine.current_state is IdleState:
 			tooltip.show_tooltip("Idle")
 		elif state_machine.current_state is WalkState:
@@ -110,6 +111,7 @@ func _process(delta: float) -> void:
 		
 		if false:
 			tooltip.show_tooltip(str(frames_passed))
+		#endregion
 
 
 func _physics_process(delta: float) -> void:
@@ -119,6 +121,8 @@ func _physics_process(delta: float) -> void:
 			facing_right = true
 		elif velocity.x < 0:
 			facing_right = false
+		
+		#region Physics Loop
 		
 		match current_player_state:
 			PlayerState.GAMEPLAY:
@@ -140,6 +144,7 @@ func _physics_process(delta: float) -> void:
 						coyote_timer.start(movement_settings.coyote_time)
 				
 				state_machine.physics_process(delta)
+		#endregion
 #endregion
 
 
@@ -279,6 +284,7 @@ func do_dash() -> void:
 	var dash_velocity: Vector2
 	var dash_direction: Vector2 = input.cardinal_direction
 	
+	#region Resolve the dash direction
 	if not movement_settings.allow_orthognal_dash:
 		dash_direction = input.cardinal_direction
 		if dash_direction == Vector2.ZERO:
@@ -297,6 +303,7 @@ func do_dash() -> void:
 			dash_velocity *= movement_settings.upward_dash_scale
 		elif abs(dash_direction.x) > movement_settings.minimum_movement_threshold and dash_direction.y < 0:
 			dash_velocity *= movement_settings.orthogonal_dash_scale
+	#endregion
 	GameManager.camera_shake_directional(dash_direction, movement_settings.dash_camera_shake_strength)
 	velocity = dash_velocity
 
