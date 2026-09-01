@@ -6,6 +6,8 @@ signal player_death
 signal ability_unlocked(name: String)
 signal ability_locked(name: String)
 
+# Not the same as the Statemachine, which is for physics and movement. This is 
+# for top level state that determines how the Player is updated each frame.
 enum PlayerState {
 	UNINITIALIZED,
 	GAMEPLAY,
@@ -126,6 +128,8 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if not Engine.is_editor_hint():
+		if delta == 0:
+			return
 		frames_passed += 1
 		if velocity.x > 0:
 			facing_right = true
@@ -326,7 +330,13 @@ func can_grav_switch() -> bool:
 
 
 func do_grav_switch() -> void:
-	pass
+	GameManager.hitstop(movement_settings.grav_off_hitstop)
+	GameManager.camera_shake(movement_settings.grav_switch_camera_shake_strength)
+
+
+func turn_on_gravity() -> void:
+	GameManager.hitstop(movement_settings.grav_on_hitstop)
+	GameManager.camera_shake(movement_settings.grav_switch_camera_shake_strength)
 
 
 func ceiling_clip_nudge() -> void:
