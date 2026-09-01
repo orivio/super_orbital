@@ -249,8 +249,10 @@ func stop_afterimage_effect() -> void:
 
 
 func spawn_afterimage() -> void:
-	var afterimage: Node2D = AFTER_IMAGE.instantiate()
-	afterimage.do_thing(sprite.frame, afterimage_fade_time, sprite.flip_h)
+	var afterimage: PlayerAfterimage = AFTER_IMAGE.instantiate()
+	afterimage.frame = sprite.frame
+	afterimage.fade_time = afterimage_fade_time
+	afterimage.sprite_flip_h = sprite.flip_h
 	afterimage.global_position = global_position
 	GameManager.current_level.add_effect(afterimage)
 
