@@ -49,8 +49,8 @@ func physics_process(delta: float) -> State:
 		var move_speed: float = actor.movement_settings.walk_speed * actor.input.horizontal_direction
 		actor.velocity.x = move_toward(actor.velocity.x, move_speed, delta * actor.movement_settings.air_acceleration)
 	
-	if actor.velocity.y < -actor.movement_settings.ceiling_clip_min_velocity:
-		actor.ceiling_clip_nudge()
+	actor.ceiling_clip_nudge()
+	actor.wall_clip_nudge()
 	
 	var did_dash: bool = false
 	if actor.can_dash() and not actor.input_locked:

@@ -845,6 +845,38 @@ target_position = Vector2(0, -5)
 position = Vector2(11, -60)
 target_position = Vector2(0, -5)
 
+[node name="UpperRightWallcaster" type="RayCast2D" parent="Raycasts" unique_id=1295315124]
+position = Vector2(11, -60)
+target_position = Vector2(10, 0)
+
+[node name="UpperMiddleRightWallcaster" type="RayCast2D" parent="Raycasts" unique_id=1858599]
+position = Vector2(12, -54)
+target_position = Vector2(15, 0)
+
+[node name="LowerMiddleRightWallcaster" type="RayCast2D" parent="Raycasts" unique_id=812432773]
+position = Vector2(11, -8)
+target_position = Vector2(15, 0)
+
+[node name="LowerRightWallcaster" type="RayCast2D" parent="Raycasts" unique_id=1967474260]
+position = Vector2(11, -2)
+target_position = Vector2(10, 0)
+
+[node name="UpperLeftWallcaster" type="RayCast2D" parent="Raycasts" unique_id=382263462]
+position = Vector2(-11, -60)
+target_position = Vector2(-10, 0)
+
+[node name="UpperMiddleLeftWallcaster" type="RayCast2D" parent="Raycasts" unique_id=1172346949]
+position = Vector2(-11, -54)
+target_position = Vector2(-15, 0)
+
+[node name="LowerMiddleLeftWallcaster" type="RayCast2D" parent="Raycasts" unique_id=1703990845]
+position = Vector2(-11, -8)
+target_position = Vector2(-15, 0)
+
+[node name="LowerLeftWallcaster" type="RayCast2D" parent="Raycasts" unique_id=603316316]
+position = Vector2(-11, -2)
+target_position = Vector2(-10, 0)
+
 [node name="Timers" type="Node" parent="." unique_id=424773958]
 
 [node name="JumpBufferTimer" type="Timer" parent="Timers" unique_id=1454741679]

@@ -56,6 +56,9 @@ func physics_process(delta: float) -> State:
 	else:
 		dash_timer += delta
 	
+	actor.wall_clip_nudge()
+	actor.ceiling_clip_nudge()
+	
 	actor.move_and_slide()
 	
 	if end_dash:

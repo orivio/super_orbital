@@ -50,6 +50,14 @@ const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.t
 @onready var left_ceiling_raycast: RayCast2D = $Raycasts/LCeilingRaycast
 @onready var middle_ceiling_raycast: RayCast2D = $Raycasts/MCeilingRaycast
 @onready var right_ceiling_raycast: RayCast2D = $Raycasts/RCeilingRaycast
+@onready var upper_right_wallcaster: RayCast2D = $Raycasts/UpperRightWallcaster
+@onready var upper_middle_right_wallcaster: RayCast2D = $Raycasts/UpperMiddleRightWallcaster
+@onready var lower_middle_right_wallcaster: RayCast2D = $Raycasts/LowerMiddleRightWallcaster
+@onready var lower_right_wallcaster: RayCast2D = $Raycasts/LowerRightWallcaster
+@onready var upper_left_wallcaster: RayCast2D = $Raycasts/UpperLeftWallcaster
+@onready var upper_middle_left_wallcaster: RayCast2D = $Raycasts/UpperMiddleLeftWallcaster
+@onready var lower_middle_left_wallcaster: RayCast2D = $Raycasts/LowerMiddleLeftWallcaster
+@onready var lower_left_wallcaster: RayCast2D = $Raycasts/LowerLeftWallcaster
 @onready var collider: CollisionShape2D = $CollisionShape2D
 
 
@@ -307,15 +315,32 @@ func do_dash() -> void:
 			dash_velocity *= movement_settings.orthogonal_dash_scale
 	#endregion
 	GameManager.camera_shake_directional(dash_direction, movement_settings.dash_camera_shake_strength)
+	wall_clip_nudge()
 	velocity = dash_velocity
 
 func ceiling_clip_nudge() -> void:
 	# Not sure if this is the best way to do it, it does feel a little bit buggy
 	#if middle_ceiling_raycast.is_colliding():
-	if left_ceiling_raycast.is_colliding() and not right_ceiling_raycast.is_colliding():
-		global_position.x = right_ceiling_raycast.global_position.x
-	if right_ceiling_raycast.is_colliding() and not left_ceiling_raycast.is_colliding():
-		global_position.x = left_ceiling_raycast.global_position.x
+	if velocity.y < -movement_settings.ceiling_clip_min_velocity:
+		if left_ceiling_raycast.is_colliding() and not right_ceiling_raycast.is_colliding():
+			global_position.x = right_ceiling_raycast.global_position.x
+		if right_ceiling_raycast.is_colliding() and not left_ceiling_raycast.is_colliding():
+			global_position.x = left_ceiling_raycast.global_position.x
+
+
+func wall_clip_nudge() -> void:
+	if abs(velocity.x) > movement_settings.wall_clip_min_velocity:
+		if velocity.x > 0:
+			if upper_right_wallcaster.is_colliding() and not upper_middle_right_wallcaster.is_colliding():
+				position.y += upper_middle_right_wallcaster.position.y - upper_right_wallcaster.position.y
+			if lower_right_wallcaster.is_colliding() and not lower_middle_right_wallcaster.is_colliding():
+				position.y += lower_middle_right_wallcaster.position.y - lower_right_wallcaster.position.y
+		else:
+			if upper_left_wallcaster.is_colliding() and not upper_middle_left_wallcaster.is_colliding():
+				position.y += upper_middle_left_wallcaster.position.y - upper_left_wallcaster.position.y
+			if lower_left_wallcaster.is_colliding() and not lower_middle_left_wallcaster.is_colliding():
+				position.y += lower_middle_left_wallcaster.position.y - lower_left_wallcaster.position.y
+
 #endregion
 
 
