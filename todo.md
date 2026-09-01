@@ -42,8 +42,6 @@ shouldn't care if the player had just died
 - Add clip nudge correction to the dash
 - Fine tune the dash timing
 - Add a trail effect to the dash
-- Add a way to add impact frames
-- Add an impact frame, or potentially camera shake, whenever you dash
 - Should the dash cooldown only go into effect once you finish the dash?
 
 
