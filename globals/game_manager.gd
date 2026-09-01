@@ -25,6 +25,9 @@ func camera_shake_directional(direction: Vector2, strength: float) -> void:
 	camera.shake_in_direction(direction, strength)
 
 
+func camera_shake(strength: float) -> void:
+	camera.camera_shake.emit()
+
 func player_leave_blackhole() -> void:
 	player_left_blackhole.emit()
 

@@ -20,7 +20,10 @@ const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.t
 
 @export var movement_settings: PlayerMovementSettings
 @export var abilities: PlayerAbilities = null
-@export var death_time: float
+# Death sequence settings
+@export_range(0.0, 1.0) var death_time: float
+@export_range(0.0, 0.3) var death_hitstop_time: float
+@export_range(0.0, 15.0) var death_camera_shake_strength: float
 
 # Components
 @onready var state_machine: StateMachine = $StateMachine
@@ -164,6 +167,8 @@ func load_abilities() -> void:
 
 func die() -> void:
 	current_player_state = PlayerState.DYING
+	GameManager.hitstop(death_hitstop_time)
+	GameManager.camera_shake(death_camera_shake_strength)
 	death_timer.start(death_time)
 	await death_timer.timeout
 	player_death.emit()

@@ -724,7 +724,9 @@ platform_floor_layers = 2130706433
 platform_wall_layers = 1
 script = ExtResource("1_rkbax")
 movement_settings = ExtResource("2_qiwj3")
-death_time = 0.3
+death_time = 0.2
+death_hitstop_time = 0.077
+death_camera_shake_strength = 5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=214816936]
 material = ExtResource("3_wodsf")

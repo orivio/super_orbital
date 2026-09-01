@@ -25,17 +25,20 @@ func _process(_delta: float) -> void:
 	queue_redraw()
 
 func _physics_process(delta: float) -> void:
+	if Engine.time_scale == 0.0:
+		return
 	
 	update_target(delta)
 	
 	var shake_offset: Vector2 = Vector2.ZERO
 	
-	if shake_strength > 0:
+	if shake_strength > 0.001:
 		shake_strength = lerpf(shake_strength, 0, shake_fade * delta)
 		shake_offset = random_offset()
 		if directional_shake != Vector2.ZERO:
 			shake_offset = directional_shake * rng.randf_range(-shake_strength, shake_strength)
-	
+	else:
+		directional_shake = Vector2.ZERO
 	position = smoothed_target
 	# + smoothed_velocity * camera_velocity_influence
 	offset = shake_offset + directed_offset
