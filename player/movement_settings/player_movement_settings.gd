@@ -81,6 +81,7 @@ signal debug_visual_changed
 @export_range(0, 1.0) var jump_buffer_time: float
 @export_range(0, 2.0) var coyote_time: float
 @export_range(0.0, 1.0) var dash_hitstop: float
+@export_range(0.0, 10.0) var dash_camera_shake_strength: float
 @export_category("Limits")
 @export_range(0, 1000) var minimum_movement_threshold: float
 @export var max_acceleration: float = 999999

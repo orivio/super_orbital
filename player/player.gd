@@ -244,16 +244,19 @@ func do_dash() -> void:
 	has_dash = false
 	dash_on_cooldown = true
 	dash_cooldown_timer.start(movement_settings.dash_cooldown)
+	
 	var dash_velocity: Vector2
+	var dash_direction: Vector2 = input.cardinal_direction
+	
 	if not movement_settings.allow_orthognal_dash:
-		var dash_direction: Vector2 = input.cardinal_direction
+		dash_direction = input.cardinal_direction
 		if dash_direction == Vector2.ZERO:
 			dash_direction = Vector2(1 if facing_right else -1, 0)
 		dash_velocity = dash_direction * movement_settings.dash_velocity
 		if dash_direction == Vector2.UP:
 			dash_velocity *= movement_settings.upward_dash_scale
 	else:
-		var dash_direction: Vector2 = input.direction
+		dash_direction = input.direction
 		if dash_direction.length_squared() < movement_settings.minimum_movement_threshold * movement_settings.minimum_movement_threshold:
 			dash_direction = Vector2(1 if facing_right else -1, 0)
 		else:
@@ -263,6 +266,7 @@ func do_dash() -> void:
 			dash_velocity *= movement_settings.upward_dash_scale
 		elif abs(dash_direction.x) > movement_settings.minimum_movement_threshold and dash_direction.y < 0:
 			dash_velocity *= movement_settings.orthogonal_dash_scale
+	GameManager.camera_shake_directional(dash_direction, movement_settings.dash_camera_shake_strength)
 	velocity = dash_velocity
 
 func ceiling_clip_nudge() -> void:

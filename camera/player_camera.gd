@@ -12,8 +12,10 @@ signal camera_shake
 var smoothed_target: Vector2
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var shake_strength: float = 0.0
+var directional_shake: Vector2 = Vector2.ZERO
 var directed_offset: Vector2 = Vector2.ZERO
 var director_tween: Tween
+
 
 func _ready() -> void:
 	GameManager.camera = self
@@ -31,6 +33,8 @@ func _physics_process(delta: float) -> void:
 	if shake_strength > 0:
 		shake_strength = lerpf(shake_strength, 0, shake_fade * delta)
 		shake_offset = random_offset()
+		if directional_shake != Vector2.ZERO:
+			shake_offset = directional_shake * rng.randf_range(-shake_strength, shake_strength)
 	
 	position = smoothed_target
 	# + smoothed_velocity * camera_velocity_influence
@@ -38,6 +42,12 @@ func _physics_process(delta: float) -> void:
 
 func snap_camera_to_player() -> void:
 	smoothed_target = GameManager.player.global_position
+
+
+func shake_in_direction(direction: Vector2, strength: float) -> void:
+	directional_shake = direction
+	shake_strength = strength
+
 
 func update_target(delta: float) -> void:
 	smoothed_target = lerp(smoothed_target, GameManager.player.global_position, positional_smoothing * delta)
@@ -48,6 +58,16 @@ func set_limits(rect: Rect2) -> void:
 	limit_bottom = int(rect.position.y + rect.size.y / 2)
 	limit_top = int(rect.position.y - rect.size.y / 2)
 	# print("Setting limits: (left: ", limit_left, ", right: ", limit_right, ", top: ", limit_top, ", bottom: ", limit_bottom, ")")
+
+func _draw() -> void:
+	draw_set_transform_matrix(global_transform.affine_inverse())
+	
+	#var _player_pos: Vector2 = GameManager.player.global_position
+	#var _player_vel: Vector2 = GameManager.player.true_velocity
+	
+	#draw_circle(player_pos, 10, Color.RED, false, 5)
+	#draw_line(player_pos, player_pos + player_vel * camera_velocity_influence / 60, Color.RED)
+	pass
 
 func on_camera_shake() -> void:
 	shake_strength = random_strength
@@ -84,13 +104,3 @@ func direct_offset(direction: Vector2, duration: float) -> Tween:
 	director_tween.tween_property(self, "directed_offset", direction, duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	
 	return director_tween
-
-func _draw() -> void:
-	draw_set_transform_matrix(global_transform.affine_inverse())
-	
-	#var _player_pos: Vector2 = GameManager.player.global_position
-	#var _player_vel: Vector2 = GameManager.player.true_velocity
-	
-	#draw_circle(player_pos, 10, Color.RED, false, 5)
-	#draw_line(player_pos, player_pos + player_vel * camera_velocity_influence / 60, Color.RED)
-	pass

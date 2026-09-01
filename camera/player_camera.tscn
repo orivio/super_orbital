@@ -5,4 +5,5 @@
 [node name="PlayerCamera" type="Camera2D" unique_id=1414906739 groups=["player_camera"]]
 process_callback = 0
 script = ExtResource("1_xvnxv")
+shake_fade = 6.0
 positional_smoothing = 3.0

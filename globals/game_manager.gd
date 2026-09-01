@@ -21,6 +21,10 @@ func hitstop(time: float) -> void:
 	get_tree().create_timer(time, true, true, true).timeout.connect(_on_hitstop_end)
 
 
+func camera_shake_directional(direction: Vector2, strength: float) -> void:
+	camera.shake_in_direction(direction, strength)
+
+
 func player_leave_blackhole() -> void:
 	player_left_blackhole.emit()
 
