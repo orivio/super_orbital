@@ -67,7 +67,10 @@ signal debug_visual_changed
 		var dash_exit_velocity: float = dash_exit_distance / dash_exit_time
 		dash_exit_diminish = dash_exit_velocity / (dash_distance / dash_time)
 		debug_visual_changed.emit()
-		
+@export var upward_dash_scale: float:
+	set(value):
+		upward_dash_scale = value
+		debug_visual_changed.emit()
 @export_category("Juice")
 @export_range(0, 1.0) var jump_buffer_time: float
 @export_range(0, 2.0) var coyote_time: float

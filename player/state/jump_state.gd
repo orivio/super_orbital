@@ -7,16 +7,20 @@ extends State
 @onready var dash: DashState = $"../Dash"
 
 var still_jumping_up: bool
+var coming_from_dash: bool = false
 
 
 func enter() -> void:
 	still_jumping_up = true
 	if not actor.input.jump_down:
 		still_jumping_up = false
+	if coming_from_dash:
+		still_jumping_up = true
 
 
 func exit() -> void:
 	still_jumping_up = true
+	coming_from_dash = false
 
 
 func input(_event: InputEvent) -> State:

@@ -67,6 +67,7 @@ func physics_process(delta: float) -> State:
 			if actor.velocity.y >= 0:
 				return fall
 			else:
+				jump.coming_from_dash = true
 				return jump
 	
 	return null

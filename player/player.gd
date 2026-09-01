@@ -237,6 +237,8 @@ func do_dash() -> void:
 	if dash_direction == Vector2.ZERO:
 		dash_direction = Vector2(1 if facing_right else -1, 0)
 	var dash_velocity: Vector2 = dash_direction * movement_settings.dash_velocity
+	if dash_direction == Vector2.UP:
+		dash_velocity *= movement_settings.upward_dash_scale
 	velocity = dash_velocity
 
 func ceiling_clip_nudge() -> void:
