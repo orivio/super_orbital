@@ -35,6 +35,7 @@ shouldn't care if the player had just died
 - Should the dash cooldown only go into effect once you finish the dash?
 - Add input buffering to dashes
 - Clean up jump_state.gd's coming_from_dash spaghetti code
+- Make the player camera follow the player better
 
 
 Both, or whoever wants to:
