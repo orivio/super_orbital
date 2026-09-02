@@ -8,28 +8,19 @@ Russlan:
 Obed:
 - Redo player movement
 	- Which will involve redesigning some levels
-- I might want to make some cool environmental effects, such as frost, dust
-storms, etc... really just because its fun to make stuff like that
-	- Finish the hoodoo drawings
-		- Not right now, wait until we have a plan for the environmental areas
-		of the game
 - Add variation to tileset...
 - Refine room_gilganas (it just kind of feels like a boring level when it has a
 lot of potential)
 - Add more black hole levels
-- Refine the black hole mechanic
-- Make black holes look better
-	- A black hole effect would look better if there's a background to warp and
-	distort. Maybe we should make that.
-	- Man, I don't really know how.
 - Make the level select screen start on the page where your last completed level
 is
 - Fix the text shifting on the buttons
-- Add support for cutscenes
 - Clean up the dialogue manager code
 	- Not super necessary, it's already decent
 - Make the impact particles not be dust particles if you're colliding with
 metallic ground
+- Add different jump landing sound effects depending on what surface you land 
+on
 - Fix tile inconsistencies across many levels
 - Potentially add checkpoints
 - Fix the sizing of the settings menu in game
