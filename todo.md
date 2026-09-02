@@ -39,10 +39,10 @@ metallic ground
 should be responsible for deciding to reload the level, and level_manager 
 shouldn't care if the player had just died
 - Add player animations
-- Add clip nudge correction to the dash
 - Fine tune the dash timing
 - Make the dash afterimage effect look better
 - Should the dash cooldown only go into effect once you finish the dash?
+- Add input buffering to dashes
 - Clean up jump_state.gd's coming_from_dash spaghetti code
 
 
