@@ -44,6 +44,7 @@ const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.t
 # Visuals
 @onready var sprite: Sprite2D = $VisualComponents/Sprite2D
 @onready var animation_player: AnimationPlayer = $VisualComponents/AnimationPlayer
+@onready var shockwave_controller: AnimationPlayer = $VisualComponents/ShockwaveController
 @onready var animation_tree: AnimationTree = $VisualComponents/AnimationTree
 @onready var tooltip: Tooltip = $VisualComponents/Tooltip
 @onready var effects: Node2D = $VisualComponents/Effects
@@ -243,6 +244,10 @@ func hide_tooltip() -> void:
 	tooltip.hide_tooltip()
 
 
+func do_shockwave() -> void:
+	shockwave_controller.play(&"shockwave")
+
+
 func get_half_height() -> float:
 	return collider.shape.get_rect().size.y / 2
 
@@ -351,6 +356,7 @@ func do_grav_switch() -> void:
 	grav_switch_buffer = false
 	GameManager.hitstop(movement_settings.grav_off_hitstop)
 	GameManager.camera_shake(movement_settings.grav_switch_camera_shake_strength)
+	do_shockwave()
 
 
 func turn_on_gravity() -> void:
