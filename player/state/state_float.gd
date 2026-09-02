@@ -27,7 +27,7 @@ func process(_delta: float) -> State:
 
 func physics_process(delta: float) -> State:
 	var gravity_on: bool = false
-	if actor.input.grav_switch_pressed and not actor.input_locked:
+	if actor.grav_switch_buffer and not actor.input_locked:
 		gravity_on = true
 
 	# I think move_and_collide is the best option here because you can only 

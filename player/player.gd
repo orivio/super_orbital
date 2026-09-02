@@ -50,6 +50,7 @@ const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.t
 # Timers
 @onready var jump_buffer_timer: Timer = $Timers/JumpBufferTimer
 @onready var coyote_timer: Timer = $Timers/CoyoteTimer
+@onready var grav_switch_buffer_timer: Timer = $Timers/GravSwitchBufferTimer
 @onready var dash_cooldown_timer: Timer = $Timers/DashCooldownTimer
 @onready var death_timer: Timer = $Timers/DeathTimer
 @onready var afterimage_timer: Timer = $Timers/AfterImageTimer
@@ -74,6 +75,7 @@ var facing_right: bool = true
 # Movement logic
 var was_on_floor_last_frame: bool
 var jump_buffer: bool
+var grav_switch_buffer: bool
 var coyote_buffer: bool
 var has_dash: bool
 var dash_on_cooldown: bool
@@ -140,13 +142,12 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if not Engine.is_editor_hint():
-		if delta == 0:
-			return
-		frames_passed += 1
-		if velocity.x > 0:
-			facing_right = true
-		elif velocity.x < 0:
-			facing_right = false
+		if delta != 0:
+			frames_passed += 1
+			if velocity.x > 0:
+				facing_right = true
+			elif velocity.x < 0:
+				facing_right = false
 		
 		#region Physics Loop
 		
@@ -159,6 +160,10 @@ func _physics_process(delta: float) -> void:
 					jump_buffer = true
 					jump_buffer_timer.start(movement_settings.jump_buffer_time)
 				
+				if input.grav_switch_pressed:
+					grav_switch_buffer = true
+					grav_switch_buffer_timer.start(movement_settings.grav_switch_buffer_time)
+				
 				if floorcaster.is_colliding():
 					was_on_floor_last_frame = true
 					coyote_buffer = true
@@ -169,7 +174,8 @@ func _physics_process(delta: float) -> void:
 						coyote_buffer = true
 						coyote_timer.start(movement_settings.coyote_time)
 				
-				state_machine.physics_process(delta)
+				if delta != 0:
+					state_machine.physics_process(delta)
 		#endregion
 #endregion
 
@@ -338,15 +344,17 @@ func do_dash() -> void:
 
 
 func can_grav_switch() -> bool:
-	return input.grav_switch_pressed
+	return grav_switch_buffer
 
 
 func do_grav_switch() -> void:
+	grav_switch_buffer = false
 	GameManager.hitstop(movement_settings.grav_off_hitstop)
 	GameManager.camera_shake(movement_settings.grav_switch_camera_shake_strength)
 
 
 func turn_on_gravity() -> void:
+	grav_switch_buffer = false
 	GameManager.hitstop(movement_settings.grav_on_hitstop)
 	GameManager.camera_shake(movement_settings.grav_switch_camera_shake_strength)
 
@@ -390,6 +398,10 @@ func take_hit() -> void:
 
 func _on_jump_buffer_timeout() -> void:
 	jump_buffer = false
+
+
+func _on_grav_switch_buffer_timeout() -> void:
+	grav_switch_buffer = false
 
 
 func _on_coyote_timeout() -> void:

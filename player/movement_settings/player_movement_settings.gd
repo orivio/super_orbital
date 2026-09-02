@@ -79,6 +79,7 @@ signal debug_visual_changed
 @export_range(0.0, 2.0) var dash_cooldown: float
 @export_category("Juice")
 @export_range(0, 1.0) var jump_buffer_time: float
+@export_range(0, 1.0) var grav_switch_buffer_time: float
 @export_range(0, 2.0) var coyote_time: float
 @export_range(0.0, 1.0) var dash_hitstop: float
 @export_range(0.0, 1.0) var grav_on_hitstop: float
