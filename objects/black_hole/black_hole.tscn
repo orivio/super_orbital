@@ -9,7 +9,7 @@ radius = 32.0
 
 [sub_resource type="Curve" id="Curve_km6yh"]
 _limits = [-1.0, 1.0, 0.0, 1.0]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.16498317, 0.71428573), 0.0, 0.0, 0, 0, Vector2(0.25925928, -0.10389602), 0.0, 0.0, 0, 0, Vector2(0.8181818, 0.74025977), -3.1395354, -3.1395354, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.15151516, 0.7195122), 0.0, 0.0, 0, 0, Vector2(0.4915825, -0.36585355), 0.0, 0.0, 0, 0, Vector2(0.7710438, 0.46341467), -3.1395354, -3.1395354, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 5
 
 [sub_resource type="CurveTexture" id="CurveTexture_tlm63"]
@@ -18,9 +18,9 @@ curve = SubResource("Curve_km6yh")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tlm63"]
 shader = ExtResource("2_hq6k4")
-shader_parameter/center_radius = 0.19600000931
-shader_parameter/center_thickness = 0.198000009405
-shader_parameter/displacement_scale = 3.41200016207
+shader_parameter/center_radius = 0.2290000108775
+shader_parameter/center_thickness = 0.190000009025
+shader_parameter/displacement_scale = 3.68800017518
 shader_parameter/displacement_magnitude = 0.338000016055
 shader_parameter/distortion_curve = SubResource("CurveTexture_tlm63")
 
@@ -46,7 +46,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_483u0")
 debug_color = Color(0.85, 0, 0, 0.41960785)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=495156986]
+[node name="BlackHoleVisual" type="Sprite2D" parent="." unique_id=495156986]
 material = SubResource("ShaderMaterial_tlm63")
 scale = Vector2(6, 6)
 texture = ExtResource("4_tlm63")

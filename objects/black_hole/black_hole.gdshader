@@ -13,9 +13,9 @@ void vertex() {
 
 void fragment() {
 	float aspect_ratio = SCREEN_PIXEL_SIZE.y / SCREEN_PIXEL_SIZE.x;
-	vec2 scaled_uv = SCREEN_UV;
+	vec2 scaled_uv = UV;
 	scaled_uv.x -= 0.5;
-	scaled_uv *= vec2(aspect_ratio, 1.0);
+	//scaled_uv *= vec2(aspect_ratio, 1.0);
 	scaled_uv.x += 0.5;
 	
 	vec2 to_center = scaled_uv - vec2(0.5, 0.5);
