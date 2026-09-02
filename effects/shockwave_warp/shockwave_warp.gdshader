@@ -12,10 +12,9 @@ void vertex() {
 
 void fragment() {
 	float aspect_ratio = SCREEN_PIXEL_SIZE.x / SCREEN_PIXEL_SIZE.y;
-	vec2 true_uv = (SCREEN_UV - vec2(0.5, 0.0)) / vec2(aspect_ratio, 1.0) + vec2(0.5, 0.0);
-	float mask = (1. - smoothstep(size, size+thickness, length(true_uv - center))) *
-		smoothstep(size-thickness*2., size-thickness, length(true_uv - center));
-	vec2 disp = normalize(true_uv - center) * force * mask;
+	float mask = (1. - smoothstep(size, size+thickness, length(UV - center))) *
+		smoothstep(size-thickness*2., size-thickness, length(UV - center));
+	vec2 disp = normalize(UV - center) * force * mask;
 	COLOR = texture(screen_texture, SCREEN_UV - disp);
 }
 
