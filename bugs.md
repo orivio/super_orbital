@@ -32,6 +32,35 @@ Replication:
 it. Just a little bit above the ground, you can press the jump button again and
 you will do a double jump.
 
+## Dash move_and_slide normalization bug
+Details:
+- It's back.
+- Sometimes, if you dash into a moving platform in a certain way, a bug can 
+trigger and the console will be flooded with warning messages:
+```
+W 0:01:03:080   dash_state.gd:70 @ physics_process(): Vector2 cannot be normalized, the elements must be finite. Making (0, 0) as a fallback.
+  <C++ Source>  core/math/vector2.cpp:55 @ normalize()
+  <Stack Trace> dash_state.gd:70 @ physics_process()
+                state_machine.gd:33 @ physics_process()
+                player.gd:178 @ _physics_process()
+
+```
+And
+```
+W 0:01:03:082   normalize: Vector2 cannot be normalized, the elements must be finite. Making (0, 0) as a fallback.
+  <C++ Source>  core/math/vector2.cpp:55 @ normalize()
+
+```
+- I caught this behavior on an input sequence recorder, but even still, it's 
+very inconsistent.
+- The player's position becomes (nan, nan), but the velocity seems normal.
+
+Replication:
+- Very inconsistent to replicate.
+- I got a recording of this behavior that sometimes works.
+- Essentially, dash onto a platform, or into the side of a platform, or 
+something like that.
+
 # World Bugs
 ## Level transition bug between the moving platforms level and the bridge level
 

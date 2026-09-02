@@ -11,7 +11,7 @@ enum InputComponentState {
 var current_state: InputComponentState
 var frame_number: int
 var current_input_sequence: InputSequence
-var sequence_path: String = "user://sequence_2026-08-28T18-07-00.res"
+var sequence_path: String = "user://sequence_2026-09-02T08-05-03_NORMAL_WARNING_BUG.res"
 # Input data
 var horizontal_direction: float
 var cardinal_direction: Vector2
@@ -99,6 +99,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func start_recording() -> void:
 	if current_state == InputComponentState.PLAYING_BACK or current_state == InputComponentState.RECORDING:
 		push_warning("Can't start recording in this state!")
+		return
 	frame_number = 0
 	current_input_sequence = InputSequence.new()
 	current_state = InputComponentState.RECORDING
@@ -108,6 +109,7 @@ func start_recording() -> void:
 func start_playback(sequence: InputSequence) -> void:
 	if current_state == InputComponentState.PLAYING_BACK or current_state == InputComponentState.RECORDING:
 		push_warning("Can't start playback in this state!")
+		return
 	frame_number = 0
 	current_input_sequence = sequence
 	current_state = InputComponentState.PLAYING_BACK
@@ -117,6 +119,7 @@ func start_playback(sequence: InputSequence) -> void:
 func stop_playback() -> void:
 	if current_state != InputComponentState.PLAYING_BACK:
 		push_warning("Can't stop playback in this state!")
+		return
 	current_state = InputComponentState.NOT_RECORDING
 	frame_number = -1
 	current_input_sequence = null

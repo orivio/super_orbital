@@ -581,12 +581,12 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tqiix"]
 reset = false
 advance_mode = 2
-advance_expression = "direction != 0"
+advance_expression = "input.horizontal_direction != 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e7oew"]
 reset = false
 advance_mode = 2
-advance_expression = "direction == 0"
+advance_expression = "input.horizontal_direction == 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wodsf"]
 advance_mode = 2
@@ -703,7 +703,7 @@ states/jump/position = Vector2(206.40001, 199)
 states/run/node = SubResource("AnimationNodeAnimation_wodsf")
 states/run/position = Vector2(548, 101.4)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_32hag"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_tqiix"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_e7oew"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_wodsf"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_kb6p2"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_c35mf"), "run", "dash", SubResource("AnimationNodeStateMachineTransition_s7qer"), "dash", "dash_exit", SubResource("AnimationNodeStateMachineTransition_g4c7l"), "dash_exit", "run", SubResource("AnimationNodeStateMachineTransition_65viv"), "dash_exit", "idle", SubResource("AnimationNodeStateMachineTransition_x7c3f"), "dash_exit", "jump", SubResource("AnimationNodeStateMachineTransition_bjvpn"), "jump", "dash", SubResource("AnimationNodeStateMachineTransition_knn7v"), "jump", "float", SubResource("AnimationNodeStateMachineTransition_7pqkx"), "dash_exit", "float", SubResource("AnimationNodeStateMachineTransition_uw77l"), "dash", "float", SubResource("AnimationNodeStateMachineTransition_rptt4"), "float", "jump", SubResource("AnimationNodeStateMachineTransition_r7pn3"), "float", "run", SubResource("AnimationNodeStateMachineTransition_b8hi5"), "float", "idle", SubResource("AnimationNodeStateMachineTransition_2uvqg"), "jump", "black_hole", SubResource("AnimationNodeStateMachineTransition_1s1yo"), "run", "black_hole", SubResource("AnimationNodeStateMachineTransition_5ejfk"), "dash_exit", "black_hole", SubResource("AnimationNodeStateMachineTransition_jd2rm"), "dash", "black_hole", SubResource("AnimationNodeStateMachineTransition_q28gw"), "float", "black_hole", SubResource("AnimationNodeStateMachineTransition_ge24q"), "black_hole", "jump", SubResource("AnimationNodeStateMachineTransition_pnw6m"), "black_hole", "idle", SubResource("AnimationNodeStateMachineTransition_1so5t"), "black_hole", "run", SubResource("AnimationNodeStateMachineTransition_55jnj"), "black_hole", "float", SubResource("AnimationNodeStateMachineTransition_dx5ib")]
-graph_offset = Vector2(-7, 135)
+graph_offset = Vector2(-35, 36)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yllr7"]
 
