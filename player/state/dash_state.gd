@@ -24,6 +24,7 @@ func enter() -> void:
 
 func exit() -> void:
 	actor.stop_afterimage_effect()
+	actor.anim_playback.travel("dash_exit")
 
 
 func input(_event: InputEvent) -> State:
