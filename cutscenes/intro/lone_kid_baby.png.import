@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buf015r3pw2ge"
-path="res://.godot/imported/lone_kid_baby_00.png-657574961d1cd6700cbe6112c800a1b5.ctex"
+uid="uid://dv4cb1hkc8jh7"
+path="res://.godot/imported/lone_kid_baby.png-9ba89fc39ac4c0eaf1db79cbc583f929.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cutscenes/intro/lone_kid_baby_00.png"
-dest_files=["res://.godot/imported/lone_kid_baby_00.png-657574961d1cd6700cbe6112c800a1b5.ctex"]
+source_file="res://cutscenes/intro/lone_kid_baby.png"
+dest_files=["res://.godot/imported/lone_kid_baby.png-9ba89fc39ac4c0eaf1db79cbc583f929.ctex"]
 
 [params]
 

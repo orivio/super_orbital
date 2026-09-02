@@ -3,12 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://0xscvimaquhm" path="res://cutscenes/cutscene_base.tscn" id="1_1ya2x"]
 [ext_resource type="Texture2D" uid="uid://t05p3sumsvve" path="res://cutscenes/intro/hopsital_00.png" id="2_o0s81"]
 [ext_resource type="AudioStream" uid="uid://e8k06omq3gm0" path="res://sounds/music/0_intro_cutscene.ogg" id="2_sht7i"]
-[ext_resource type="Texture2D" uid="uid://buf015r3pw2ge" path="res://cutscenes/intro/lone_kid_baby_00.png" id="3_4yivr"]
 [ext_resource type="Texture2D" uid="uid://cr8m8clkpncmv" path="res://cutscenes/intro/scientists_00.png" id="4_4ogus"]
 [ext_resource type="Texture2D" uid="uid://dcnh0log1e8rk" path="res://cutscenes/intro/harfingjingles_back_00.png" id="5_2pjyf"]
+[ext_resource type="Texture2D" uid="uid://dv4cb1hkc8jh7" path="res://cutscenes/intro/lone_kid_baby.png" id="5_sa1mj"]
 [ext_resource type="Texture2D" uid="uid://b15pgad4yav4f" path="res://cutscenes/intro/harfingjingles_front_00.png" id="7_tmgee"]
 [ext_resource type="Texture2D" uid="uid://ct5c5kvn2xpq0" path="res://cutscenes/intro/hospital_01.png" id="8_k0kmi"]
-[ext_resource type="Texture2D" uid="uid://cxjvtedi2nm38" path="res://cutscenes/intro/lone_kid_baby_sad.png" id="9_3tubk"]
 [ext_resource type="Texture2D" uid="uid://8mfgp0d06esa" path="res://cutscenes/intro/sad_guy_contemplate_00.png" id="10_sa1mj"]
 
 [sub_resource type="Animation" id="Animation_sht7i"]
@@ -40,7 +39,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprites/Image_LoneKidBaby_00:modulate:a")
+tracks/2/path = NodePath("Sprites/Image_LoneKidBaby:modulate:a")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -52,79 +51,79 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprites/Image_LoneKidBaby_00:position:y")
+tracks/3/path = NodePath("Text/Text_LoneKid:modulate:a")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [290.0]
+"values": [0.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Text/Text_LoneKid:modulate:a")
+tracks/4/path = NodePath("Text/Text_TheOnlyHumanWithoutGravity:modulate:a")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0.0]
+"values": [0.58662295]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Text/Text_TheOnlyHumanWithoutGravity:modulate:a")
+tracks/5/path = NodePath("Sprites/Image_Scientists_00:modulate:a")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0.58662295]
+"values": [1.0]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Sprites/Image_Scientists_00:modulate:a")
+tracks/6/path = NodePath("Text/Text_ABrilliantScientist:modulate:a")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1.0]
+"values": [0.0]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Text/Text_ABrilliantScientist:modulate:a")
+tracks/7/path = NodePath("Sprites/Image_Harfingjingles_Back_00:modulate:a")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0.0]
+"values": [1.0]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Sprites/Image_Harfingjingles_Back_00:modulate:a")
+tracks/8/path = NodePath("Text/Text_LoneKid:visible_ratio")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [1.0]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Text/Text_LoneKid:visible_ratio")
+tracks/9/path = NodePath("Text/Text_TheOnlyHumanWithoutGravity:visible_ratio")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -136,7 +135,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Text/Text_TheOnlyHumanWithoutGravity:visible_ratio")
+tracks/10/path = NodePath("Text/Text_ABrilliantScientist:visible_ratio")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -148,67 +147,67 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Text/Text_ABrilliantScientist:visible_ratio")
+tracks/11/path = NodePath("Text/Text_HeDesignedTheSuit:modulate:a")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
+"update": 1,
+"values": [0.0]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Text/Text_HeDesignedTheSuit:modulate:a")
+tracks/12/path = NodePath("Text/Text_HeDesignedTheSuit:visible_ratio")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0.0]
+"update": 0,
+"values": [1.0]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Text/Text_HeDesignedTheSuit:visible_ratio")
+tracks/13/path = NodePath("Text/Text_ToGrantSadGuyTemporaryGravity:modulate:a")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [1.0]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Text/Text_ToGrantSadGuyTemporaryGravity:modulate:a")
+tracks/14/path = NodePath("Text/Text_ToGrantSadGuyTemporaryGravity:visible_ratio")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [1.0]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("Text/Text_ToGrantSadGuyTemporaryGravity:visible_ratio")
+tracks/15/path = NodePath("Sprites/Image_Harfingjingles_Front_00:modulate:a")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [1.0]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("Sprites/Image_Harfingjingles_Front_00:modulate:a")
+tracks/16/path = NodePath("Sprites/Image_Hospital_01:modulate:a")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -220,7 +219,7 @@ tracks/16/keys = {
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("Sprites/Image_Hospital_01:modulate:a")
+tracks/17/path = NodePath("Text/Text_YearsLater:modulate:a")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
@@ -232,7 +231,7 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("Sprites/Image_LoneKidBabySad:modulate:a")
+tracks/18/path = NodePath("Sprites/Image_SadGuy_Contemplate_00:modulate:a")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -244,7 +243,7 @@ tracks/18/keys = {
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("Sprites/Image_LoneKidBabySad:frame")
+tracks/19/path = NodePath("Sprites/Image_LoneKidBaby:frame")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
@@ -256,37 +255,13 @@ tracks/19/keys = {
 tracks/20/type = "bezier"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("Sprites/Image_LoneKidBabySad:position:y")
+tracks/20/path = NodePath("Sprites/Image_LoneKidBaby:position:y")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
-}
-tracks/21/type = "value"
-tracks/21/imported = false
-tracks/21/enabled = true
-tracks/21/path = NodePath("Text/Text_YearsLater:modulate:a")
-tracks/21/interp = 1
-tracks/21/loop_wrap = true
-tracks/21/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1.0]
-}
-tracks/22/type = "value"
-tracks/22/imported = false
-tracks/22/enabled = true
-tracks/22/path = NodePath("Sprites/Image_SadGuy_Contemplate_00:modulate:a")
-tracks/22/interp = 1
-tracks/22/loop_wrap = true
-tracks/22/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_o0s81"]
@@ -334,11 +309,11 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprites/Image_LoneKidBaby_00:modulate:a")
+tracks/3/path = NodePath("Sprites/Image_LoneKidBaby:modulate:a")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(4.5, 5.5, 34.366665, 35),
+"times": PackedFloat32Array(4.5, 5.5, 41.466667, 42.033333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
@@ -346,23 +321,23 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprites/Image_LoneKidBaby_00:position:y")
+tracks/4/path = NodePath("Text/Text_LoneKid:modulate:a")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(4.5, 38.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [290.0, 200.0]
+"times": PackedFloat32Array(6.2, 6.6, 9.133333, 9.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 1.0, 1.0, 0.0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Text/Text_LoneKid:modulate:a")
+tracks/5/path = NodePath("Text/Text_TheOnlyHumanWithoutGravity:modulate:a")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(6.2, 6.6, 9.133333, 9.4),
+"times": PackedFloat32Array(9.433333, 9.866667, 13.8, 14.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0.0, 1.0, 1.0, 0.0]
@@ -370,59 +345,59 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Text/Text_TheOnlyHumanWithoutGravity:modulate:a")
+tracks/6/path = NodePath("Sprites/Image_Scientists_00:modulate:a")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(9.433333, 9.866667, 13.8, 14.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0.0, 1.0, 1.0, 0.0]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Sprites/Image_Scientists_00:modulate:a")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(14.633333, 15.233334, 22.066668, 23.066668),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Text/Text_ABrilliantScientist:modulate:a")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Text/Text_ABrilliantScientist:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(16.166666, 16.5, 24.066668, 24.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0.0, 1.0, 1.0, 0.0]
 }
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Sprites/Image_Harfingjingles_Back_00:modulate:a")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprites/Image_Harfingjingles_Back_00:modulate:a")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
 "times": PackedFloat32Array(24.1, 24.533333, 34.366665, 35),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Text/Text_LoneKid:visible_ratio")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(6.766667, 7.6666665),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Text/Text_LoneKid:visible_ratio")
+tracks/10/path = NodePath("Text/Text_TheOnlyHumanWithoutGravity:visible_ratio")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(6.766667, 7.6666665),
+"times": PackedFloat32Array(9.833333, 12.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -430,11 +405,11 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Text/Text_TheOnlyHumanWithoutGravity:visible_ratio")
+tracks/11/path = NodePath("Text/Text_ABrilliantScientist:visible_ratio")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(9.833333, 12.1),
+"times": PackedFloat32Array(16.6, 21.833334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -442,71 +417,71 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Text/Text_ABrilliantScientist:visible_ratio")
+tracks/12/path = NodePath("Text/Text_HeDesignedTheSuit:modulate:a")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(16.6, 21.833334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Text/Text_HeDesignedTheSuit:modulate:a")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
 "times": PackedFloat32Array(26.966667, 27.9, 34.366665, 34.966667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0.0, 1.0, 1.0, 0.0]
 }
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Text/Text_HeDesignedTheSuit:visible_ratio")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Text/Text_HeDesignedTheSuit:visible_ratio")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
 "times": PackedFloat32Array(28.233334, 32.933334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
 }
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("Text/Text_ToGrantSadGuyTemporaryGravity:modulate:a")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Text/Text_ToGrantSadGuyTemporaryGravity:modulate:a")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
 "times": PackedFloat32Array(34.433334, 34.966667, 41.466667, 42.033333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0.0, 1.0, 1.0, 0.0]
 }
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("Text/Text_ToGrantSadGuyTemporaryGravity:visible_ratio")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Text/Text_ToGrantSadGuyTemporaryGravity:visible_ratio")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
 "times": PackedFloat32Array(35.033333, 39.066666),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
 }
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Sprites/Image_Harfingjingles_Front_00:modulate:a")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(34.4, 35.033333, 41.466667, 42.033333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("Sprites/Image_Harfingjingles_Front_00:modulate:a")
+tracks/17/path = NodePath("Sprites/Image_Hospital_01:modulate:a")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
-"times": PackedFloat32Array(34.4, 35.033333, 41.466667, 42.033333),
+"times": PackedFloat32Array(34.366665, 35.033333, 41.466667, 42.033333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
@@ -514,11 +489,11 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("Sprites/Image_Hospital_01:modulate:a")
+tracks/18/path = NodePath("Text/Text_YearsLater:modulate:a")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(34.366665, 35.033333, 41.466667, 42.033333),
+"times": PackedFloat32Array(42.966667, 43.833332, 46.433334, 46.866665),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
@@ -526,11 +501,11 @@ tracks/18/keys = {
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("Sprites/Image_LoneKidBabySad:modulate:a")
+tracks/19/path = NodePath("Sprites/Image_SadGuy_Contemplate_00:modulate:a")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
-"times": PackedFloat32Array(34.433334, 35.033333, 41.466667, 42.033333),
+"times": PackedFloat32Array(47.433334, 48.533333, 52.933334, 54.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
@@ -538,49 +513,25 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("Sprites/Image_LoneKidBabySad:frame")
+tracks/20/path = NodePath("Sprites/Image_LoneKidBaby:frame")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
-"times": PackedFloat32Array(34.333332, 36.6, 36.833332, 37.1, 37.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(4.5, 31.333334, 35.033333, 39, 39.066666, 39.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4]
+"values": [0, 0, 1, 2, 3, 4]
 }
 tracks/21/type = "bezier"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("Sprites/Image_LoneKidBabySad:position:y")
+tracks/21/path = NodePath("Sprites/Image_LoneKidBaby:position:y")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(150, -0.25, 0, 0.25, 0, 452.5, -0.12357712, -177, 0, 0),
-"times": PackedFloat32Array(36.6, 37.3)
-}
-tracks/22/type = "value"
-tracks/22/imported = false
-tracks/22/enabled = true
-tracks/22/path = NodePath("Text/Text_YearsLater:modulate:a")
-tracks/22/interp = 1
-tracks/22/loop_wrap = true
-tracks/22/keys = {
-"times": PackedFloat32Array(42.966667, 43.833332, 46.433334, 46.866665),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 1.0, 1.0, 0.0]
-}
-tracks/23/type = "value"
-tracks/23/imported = false
-tracks/23/enabled = true
-tracks/23/path = NodePath("Sprites/Image_SadGuy_Contemplate_00:modulate:a")
-tracks/23/interp = 1
-tracks/23/loop_wrap = true
-tracks/23/keys = {
-"times": PackedFloat32Array(47.433334, 48.533333, 52.933334, 54.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 1.0, 1.0, 0.0]
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(350, 0, 0, 5.666667, 33.333336, 200, -5.105556, 22.198069, 0.64444417, -2.8019311, 200, -0.25, 0, 0.25, 0, 455, -0.007816315, -76, 0, 0),
+"times": PackedFloat32Array(4.5, 34.366665, 39, 39.3)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4yivr"]
@@ -609,10 +560,11 @@ position = Vector2(639, 359)
 scale = Vector2(8, 8)
 texture = ExtResource("8_k0kmi")
 
-[node name="Image_LoneKidBaby_00" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="2" unique_id=1020708492]
-position = Vector2(628, 290)
+[node name="Image_LoneKidBaby" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="2" unique_id=1020708492]
+position = Vector2(628, 0)
 scale = Vector2(8, 8)
-texture = ExtResource("3_4yivr")
+texture = ExtResource("5_sa1mj")
+hframes = 5
 
 [node name="Image_Scientists_00" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="3" unique_id=2057119933]
 position = Vector2(640, 360)
@@ -629,13 +581,7 @@ position = Vector2(255, 359)
 scale = Vector2(8, 8)
 texture = ExtResource("7_tmgee")
 
-[node name="Image_LoneKidBabySad" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="6" unique_id=1191828930]
-position = Vector2(633, 0)
-scale = Vector2(8, 8)
-texture = ExtResource("9_3tubk")
-hframes = 5
-
-[node name="Image_SadGuy_Contemplate_00" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="7" unique_id=820748616]
+[node name="Image_SadGuy_Contemplate_00" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="6" unique_id=820748616]
 position = Vector2(640, 360)
 scale = Vector2(8, 8)
 texture = ExtResource("10_sa1mj")
