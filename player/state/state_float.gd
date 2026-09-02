@@ -11,10 +11,11 @@ var movement_direction: Vector2
 
 func enter() -> void:
 	movement_direction = actor.velocity
+	actor.start_afterimage_effect()
 
 
 func exit() -> void:
-	pass
+	actor.stop_afterimage_effect()
 
 
 func input(_event: InputEvent) -> State:
