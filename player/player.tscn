@@ -807,6 +807,7 @@ shape = SubResource("RectangleShape2D_g0jb6")
 [node name="VisualComponents" type="Node2D" parent="." unique_id=1084732702]
 
 [node name="ShockwaveWarp" type="ColorRect" parent="VisualComponents" unique_id=1898913449]
+visible = false
 material = SubResource("ShaderMaterial_65viv")
 offset_left = -250.0
 offset_top = -250.0

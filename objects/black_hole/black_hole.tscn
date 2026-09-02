@@ -18,9 +18,9 @@ curve = SubResource("Curve_km6yh")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tlm63"]
 shader = ExtResource("2_hq6k4")
-shader_parameter/center_radius = 0.4190000199025
-shader_parameter/center_thickness = 0.32800001558
-shader_parameter/displacement_scale = 1.9510000926725
+shader_parameter/center_radius = 0.242000011495
+shader_parameter/center_thickness = 0.1870000088825
+shader_parameter/displacement_scale = 3.41200016207
 shader_parameter/displacement_magnitude = 0.338000016055
 shader_parameter/distortion_curve = SubResource("CurveTexture_tlm63")
 
