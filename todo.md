@@ -13,6 +13,7 @@ Obed:
 	- Maybe, when you press the dash button, the game should save what 
 	direction you were trying to go in, keep it until the dash buffer runs out, 
 	and later use that value when doing the dash.
+- Make a better background
 - Make the player camera follow the player better
 - Implement the black hole mechanic
 - Clean up jump_state.gd's coming_from_dash spaghetti code
