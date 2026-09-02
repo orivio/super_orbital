@@ -17,6 +17,9 @@ func enter() -> void:
 	dash_2_timer = 0
 	in_second_phase = false
 	actor.start_afterimage_effect()
+	if abs(actor.velocity.x) - abs(actor.velocity.y) > 10:
+		actor.anim_playback.travel("dash")
+	
 
 
 func exit() -> void:
