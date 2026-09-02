@@ -7,6 +7,7 @@ can sometimes get stuck where you hold one button down, but you don't move.
 - This is not the same as pressing both buttons at the same time causing you to
 stand still. That's expected behavior. This is a rare occurrence that I'm not 
 completely sure how it is caused.
+
 Replication:
 - Replication is extremely difficult, and can take over 10 minutes.
 - It has been replicated around 4 time so far.
@@ -24,6 +25,7 @@ again to gain a little bit more height.
 speedrunners
 - It doesn't feel very weird in game, and it's difficult to pull off 
 intentionally.
+
 Replication:
 - Moderately easy to replicate.
 - Turn the engine time scale to 1/16, press the jump button and quickly release
