@@ -12,6 +12,7 @@ var movement_direction: Vector2
 func enter() -> void:
 	movement_direction = actor.velocity
 	actor.start_afterimage_effect()
+	actor.anim_playback.start("float")
 
 
 func exit() -> void:
@@ -23,6 +24,7 @@ func input(_event: InputEvent) -> State:
 
 
 func process(_delta: float) -> State:
+	actor.animation_tree.set("parameters/float/blend_position", actor.velocity)
 	return null
 
 
