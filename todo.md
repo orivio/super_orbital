@@ -43,7 +43,6 @@ shouldn't care if the player had just died
 - Fine tune the dash timing
 - Make the dash afterimage effect look better
 - Should the dash cooldown only go into effect once you finish the dash?
-- Should you be able to turn off gravity in the first part of the dash?
 - Clean up jump_state.gd's coming_from_dash spaghetti code
 
 

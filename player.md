@@ -25,5 +25,4 @@ A dash has two phases. In the first phase, you have the most speed, and you
 can't change your trajectory by pressing any inputs. In the second phase, you 
 can slightly change your trajectory using the arrow keys. You can also cancel 
 the dash by pressing the jump button. You won't actually jump, but the dash 
-will stop immediately. Another thing you can do during this time frame is 
-turn off gravity (not implemented yet.)
+will stop immediately.

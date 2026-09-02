@@ -59,6 +59,9 @@ func physics_process(delta: float) -> State:
 				in_second_phase = true
 				actor.velocity *= actor.movement_settings.dash_exit_diminish
 	else:
+		if actor.can_grav_switch() and not actor.input_locked:
+			actor.do_grav_switch()
+			did_grav_switch = true
 		dash_timer += delta
 	
 	actor.wall_clip_nudge()
