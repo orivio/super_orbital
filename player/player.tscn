@@ -650,112 +650,61 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tqiix"]
 reset = false
-advance_mode = 2
-advance_expression = "input.horizontal_direction != 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e7oew"]
 reset = false
-advance_mode = 2
-advance_expression = "input.horizontal_direction == 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wodsf"]
-advance_mode = 2
-advance_expression = "not is_on_floor() and base_velocity.y != 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kb6p2"]
-advance_mode = 2
-advance_expression = "is_on_floor()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c35mf"]
-advance_mode = 2
-advance_expression = "not is_on_floor() and base_velocity.y != 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s7qer"]
-advance_mode = 2
-advance_expression = "is_dashing_horizontally"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g4c7l"]
-advance_mode = 2
-advance_expression = "!is_dashing_horizontally"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_65viv"]
 switch_mode = 2
-advance_mode = 2
-advance_expression = "is_on_floor() and direction != 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x7c3f"]
 switch_mode = 2
-advance_mode = 2
-advance_expression = "is_on_floor() and direction == 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bjvpn"]
 switch_mode = 2
-advance_mode = 2
-advance_expression = "not is_on_floor() and base_velocity.y != 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_knn7v"]
-advance_mode = 2
-advance_expression = "is_dashing_horizontally"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7pqkx"]
-advance_mode = 2
-advance_expression = "is_floating"
+advance_expression = "is_floatin"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uw77l"]
-advance_mode = 2
-advance_expression = "is_floating"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rptt4"]
-advance_mode = 2
-advance_expression = "is_floating"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r7pn3"]
-advance_mode = 2
-advance_expression = "not is_floating and not is_on_floor() and base_velocity.y != 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b8hi5"]
-advance_mode = 2
-advance_expression = "not is_floating and is_on_floor() and direction != 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2uvqg"]
-advance_mode = 2
-advance_expression = "not is_floating and is_on_floor() and direction == 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1s1yo"]
-advance_mode = 2
-advance_expression = "in_blackhole"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5ejfk"]
-advance_mode = 2
-advance_expression = "in_blackhole"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jd2rm"]
-advance_mode = 2
-advance_expression = "in_blackhole"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q28gw"]
-advance_mode = 2
-advance_expression = "in_blackhole"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ge24q"]
-advance_mode = 2
-advance_expression = "in_blackhole and not is_floating"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pnw6m"]
-advance_mode = 2
-advance_expression = "not in_blackhole and not is_on_floor() and base_velocity.y != 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1so5t"]
-advance_mode = 2
-advance_expression = "not in_blackhole and is_on_floor() and direction == 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_55jnj"]
-advance_mode = 2
-advance_expression = "not in_blackhole and is_on_floor() and direction != 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dx5ib"]
-advance_mode = 2
-advance_expression = "is_floating"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kb6p2"]
 states/black_hole/node = SubResource("AnimationNodeBlendSpace2D_e7oew")
@@ -773,7 +722,7 @@ states/jump/position = Vector2(206.40001, 199)
 states/run/node = SubResource("AnimationNodeAnimation_wodsf")
 states/run/position = Vector2(548, 101.4)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_32hag"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_tqiix"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_e7oew"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_wodsf"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_kb6p2"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_c35mf"), "run", "dash", SubResource("AnimationNodeStateMachineTransition_s7qer"), "dash", "dash_exit", SubResource("AnimationNodeStateMachineTransition_g4c7l"), "dash_exit", "run", SubResource("AnimationNodeStateMachineTransition_65viv"), "dash_exit", "idle", SubResource("AnimationNodeStateMachineTransition_x7c3f"), "dash_exit", "jump", SubResource("AnimationNodeStateMachineTransition_bjvpn"), "jump", "dash", SubResource("AnimationNodeStateMachineTransition_knn7v"), "jump", "float", SubResource("AnimationNodeStateMachineTransition_7pqkx"), "dash_exit", "float", SubResource("AnimationNodeStateMachineTransition_uw77l"), "dash", "float", SubResource("AnimationNodeStateMachineTransition_rptt4"), "float", "jump", SubResource("AnimationNodeStateMachineTransition_r7pn3"), "float", "run", SubResource("AnimationNodeStateMachineTransition_b8hi5"), "float", "idle", SubResource("AnimationNodeStateMachineTransition_2uvqg"), "jump", "black_hole", SubResource("AnimationNodeStateMachineTransition_1s1yo"), "run", "black_hole", SubResource("AnimationNodeStateMachineTransition_5ejfk"), "dash_exit", "black_hole", SubResource("AnimationNodeStateMachineTransition_jd2rm"), "dash", "black_hole", SubResource("AnimationNodeStateMachineTransition_q28gw"), "float", "black_hole", SubResource("AnimationNodeStateMachineTransition_ge24q"), "black_hole", "jump", SubResource("AnimationNodeStateMachineTransition_pnw6m"), "black_hole", "idle", SubResource("AnimationNodeStateMachineTransition_1so5t"), "black_hole", "run", SubResource("AnimationNodeStateMachineTransition_55jnj"), "black_hole", "float", SubResource("AnimationNodeStateMachineTransition_dx5ib")]
-graph_offset = Vector2(-35, 36)
+graph_offset = Vector2(20, 58)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yllr7"]
 

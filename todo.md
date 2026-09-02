@@ -6,6 +6,7 @@ Russlan:
 - Dynamic lighting or whatever he was talking about
 
 Obed:
+- Add player animations
 - Redo player movement
 	- Which will involve redesigning some levels
 - Add variation to tileset...
@@ -29,7 +30,6 @@ on
 - Clean up the slightly spaghetti code with reloading levels, really, Play 
 should be responsible for deciding to reload the level, and level_manager 
 shouldn't care if the player had just died
-- Add player animations
 - Fine tune the dash timing
 - Make the dash afterimage effect look better
 - Should the dash cooldown only go into effect once you finish the dash?

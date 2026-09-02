@@ -8,7 +8,7 @@ extends State
 
 
 func enter() -> void:
-	pass
+	actor.anim_playback.travel("idle")
 
 
 func exit() -> void:

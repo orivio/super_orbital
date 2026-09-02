@@ -21,6 +21,7 @@ func input(_event: InputEvent) -> State:
 
 
 func process(_delta: float) -> State:
+	actor.animation_tree.set("parameters/jump/blend_position", actor.velocity.y)
 	return null
 
 

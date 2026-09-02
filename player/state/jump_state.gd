@@ -17,6 +17,7 @@ func enter() -> void:
 		still_jumping_up = false
 	if coming_from_dash:
 		still_jumping_up = true
+	actor.anim_playback.travel("jump")
 
 
 func exit() -> void:
@@ -29,6 +30,7 @@ func input(_event: InputEvent) -> State:
 
 
 func process(_delta: float) -> State:
+	actor.animation_tree.set("parameters/jump/blend_position", actor.velocity.y)
 	return null
 
 

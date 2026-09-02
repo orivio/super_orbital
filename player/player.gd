@@ -73,6 +73,7 @@ const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.t
 
 # Visual logic
 var facing_right: bool = true
+var anim_playback: AnimationNodeStateMachinePlayback
 # Movement logic
 var was_on_floor_last_frame: bool
 var jump_buffer: bool
@@ -90,6 +91,8 @@ func _ready() -> void:
 	if not Engine.is_editor_hint():
 		# Set up player state
 		current_player_state = PlayerState.UNINITIALIZED
+		# Set up the animation tree
+		anim_playback = animation_tree.get("parameters/playback")
 		# Set up global references
 		GameManager.player = self
 		# Connect signals
