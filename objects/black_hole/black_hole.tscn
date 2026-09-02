@@ -28,6 +28,7 @@ shader_parameter/distortion_curve = SubResource("CurveTexture_tlm63")
 radius = 256.0
 
 [node name="BlackHole" type="Node2D" unique_id=1656602204 groups=["black_hole"]]
+z_index = 8
 script = ExtResource("1_7e4s0")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=465922864]

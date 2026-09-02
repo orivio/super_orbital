@@ -29,10 +29,10 @@ size = Vector2(163, 123)
 
 [node name="Level" unique_id=201273727 instance=ExtResource("1_h3x7e")]
 
-[node name="CameraBounds" parent="." index="1" unique_id=711655567]
-visible = true
+[node name="Background" parent="." index="0" unique_id=2128642405]
+visible = false
 
-[node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
+[node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
 position = Vector2(832, -288)
 shape = SubResource("RectangleShape2D_8xhm1")
 
