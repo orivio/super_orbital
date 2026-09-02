@@ -29,9 +29,10 @@ func physics_process(delta: float) -> State:
 	var gravity_on: bool = false
 	if actor.input.grav_switch_pressed and not actor.input_locked:
 		gravity_on = true
-	
-	actor.move_and_slide()
-	
+
+	# I think move_and_collide is the best option here because you can only 
+	# really wall bounce in this state, but I could be wrong.
+	var collision_info: KinematicCollision2D = actor.move_and_collide(actor.velocity * delta)
 	
 	if gravity_on:
 		actor.turn_on_gravity()
@@ -47,11 +48,11 @@ func physics_process(delta: float) -> State:
 				jump.coming_from_dash = true
 				return jump
 	
-	if actor.is_on_wall():
-		# Bounce off the wall
+	if collision_info:
+		# Bounce off the surface
+		actor.velocity = actor.velocity.bounce(collision_info.get_normal())
+		movement_direction = actor.velocity
 		GameManager.hitstop(actor.movement_settings.float_wall_bounce_hitstop)
-		GameManager.camera_shake_directional(Vector2.RIGHT, actor.movement_settings.float_wall_bounce_camera_shake_strength)
-		movement_direction.x *= -1
-		actor.velocity = movement_direction
+		GameManager.camera_shake_directional(collision_info.get_normal(), actor.movement_settings.float_wall_bounce_camera_shake_strength)
 	
 	return null

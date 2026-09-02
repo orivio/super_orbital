@@ -53,6 +53,7 @@ func physics_process(delta: float) -> State:
 				end_dash = true
 				actor.velocity = Vector2.ZERO
 			elif actor.can_grav_switch() and not actor.input_locked:
+				actor.do_grav_switch()
 				did_grav_switch = true
 			if not in_second_phase:
 				in_second_phase = true
