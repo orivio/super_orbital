@@ -7,7 +7,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13h27"]
 resource_local_to_scene = true
-size = Vector2(1728, 672)
+size = Vector2(2064, 672)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ygiwu"]
 resource_local_to_scene = true
@@ -26,7 +26,7 @@ size = Vector2(192, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhy1t"]
 resource_local_to_scene = true
-size = Vector2(96, 96)
+size = Vector2(281, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_unetp"]
 resource_local_to_scene = true
@@ -38,7 +38,7 @@ size = Vector2(160, 96)
 visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
-position = Vector2(352, -256)
+position = Vector2(184, -256)
 shape = SubResource("RectangleShape2D_13h27")
 
 [node name="ProgressDetector" parent="POI" parent_id_path=PackedInt32Array(809409572) index="0" unique_id=1408990158 instance=ExtResource("2_ygiwu")]
@@ -85,7 +85,7 @@ door_tag = "WestDoor"
 direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
-position = Vector2(-624, -48)
+position = Vector2(-716.5, -48)
 shape = SubResource("RectangleShape2D_xhy1t")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]

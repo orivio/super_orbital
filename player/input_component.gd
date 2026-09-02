@@ -11,7 +11,7 @@ enum InputComponentState {
 var current_state: InputComponentState
 var frame_number: int
 var current_input_sequence: InputSequence
-var sequence_path: String = "user://sequence_2026-09-02T08-05-03_NORMAL_WARNING_BUG.res"
+var sequence_path: String = "user://sequence_2026-09-02T08-33-02_LEVEL_TRANSITION_BUG_GAP_BRIDGE.res"
 # Input data
 var horizontal_direction: float
 var cardinal_direction: Vector2

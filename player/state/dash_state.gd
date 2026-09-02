@@ -43,8 +43,8 @@ func physics_process(delta: float) -> State:
 	
 	var end_dash: bool = false
 	var did_grav_switch: bool = false
-	if dash_timer > actor.movement_settings.dash_time:
-		if dash_2_timer > actor.movement_settings.dash_exit_time:
+	if dash_timer >= actor.movement_settings.dash_time:
+		if dash_2_timer >= actor.movement_settings.dash_exit_time:
 			end_dash = true
 		else:
 			dash_2_timer += delta

@@ -60,6 +60,8 @@ Replication:
 - I got a recording of this behavior that sometimes works.
 - Essentially, dash onto a platform, or into the side of a platform, or 
 something like that.
+- The bug can still occur when you remove the wall clip and ceiling clip 
+correction.
 
 # World Bugs
 ## Level transition bug between the moving platforms level and the bridge level
