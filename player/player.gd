@@ -50,8 +50,9 @@ const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.t
 @onready var effects: Node2D = $VisualComponents/Effects
 # Timers
 @onready var jump_buffer_timer: Timer = $Timers/JumpBufferTimer
-@onready var coyote_timer: Timer = $Timers/CoyoteTimer
+@onready var dash_buffer_timer: Timer = $Timers/DashBufferTimer
 @onready var grav_switch_buffer_timer: Timer = $Timers/GravSwitchBufferTimer
+@onready var coyote_timer: Timer = $Timers/CoyoteTimer
 @onready var dash_cooldown_timer: Timer = $Timers/DashCooldownTimer
 @onready var death_timer: Timer = $Timers/DeathTimer
 @onready var afterimage_timer: Timer = $Timers/AfterImageTimer
@@ -77,6 +78,7 @@ var anim_playback: AnimationNodeStateMachinePlayback
 # Movement logic
 var was_on_floor_last_frame: bool
 var jump_buffer: bool
+var dash_buffer: bool
 var grav_switch_buffer: bool
 var coyote_buffer: bool
 var has_dash: bool
@@ -164,6 +166,10 @@ func _physics_process(delta: float) -> void:
 					jump_buffer = true
 					jump_buffer_timer.start(movement_settings.jump_buffer_time)
 				
+				if input.dash_pressed:
+					dash_buffer = true
+					dash_buffer_timer.start(movement_settings.dash_buffer_time)
+				
 				if input.grav_switch_pressed:
 					grav_switch_buffer = true
 					grav_switch_buffer_timer.start(movement_settings.grav_switch_buffer_time)
@@ -199,6 +205,8 @@ func reset() -> void:
 	velocity = Vector2.ZERO
 	was_on_floor_last_frame = false
 	jump_buffer = false
+	dash_buffer = false
+	grav_switch_buffer = false
 	coyote_buffer = true
 	has_dash = true
 	dash_on_cooldown = false
@@ -314,11 +322,12 @@ func do_jump() -> void:
 
 func can_dash() -> bool:
 	# TODO: Dash buffering?
-	return has_dash and input.dash_pressed and not dash_on_cooldown
+	return has_dash and dash_buffer and not dash_on_cooldown
 
 
 func do_dash() -> void:
 	GameManager.hitstop(movement_settings.dash_hitstop)
+	dash_buffer = false
 	has_dash = false
 	dash_on_cooldown = true
 	dash_cooldown_timer.start(movement_settings.dash_cooldown)
@@ -407,6 +416,10 @@ func take_hit() -> void:
 
 func _on_jump_buffer_timeout() -> void:
 	jump_buffer = false
+
+
+func _on_dash_buffer_timeout() -> void:
+	dash_buffer = false
 
 
 func _on_grav_switch_buffer_timeout() -> void:
