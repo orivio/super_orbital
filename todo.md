@@ -6,6 +6,7 @@ Russlan:
 - Dynamic lighting or whatever he was talking about
 
 Obed:
+- Draw the holographic planet lookup scene in the intro cutscene
 - Add input buffering to dashes
 - Make the player camera follow the player better
 - Implement the black hole mechanic
