@@ -6,7 +6,13 @@ Russlan:
 - Dynamic lighting or whatever he was talking about
 
 Obed:
+- Add input buffering to dashes
+- Make the player camera follow the player better
+- Implement the black hole mechanic
+- Clean up jump_state.gd's coming_from_dash spaghetti code
+- Make the dash afterimage effect look better
 - Add player animations
+- Fix level transition bugs and make a stardance devlog out of them
 - Redo player movement
 	- Which will involve redesigning some levels
 - Add variation to tileset...
@@ -16,26 +22,20 @@ lot of potential)
 - Make the level select screen start on the page where your last completed level
 is
 - Fix the text shifting on the buttons
-- Clean up the dialogue manager code
-	- Not super necessary, it's already decent
 - Make the impact particles not be dust particles if you're colliding with
 metallic ground
 - Add different jump landing sound effects depending on what surface you land 
 on
-- Fix tile inconsistencies across many levels
-- Potentially add checkpoints
-- Fix the sizing of the settings menu in game
+- Fine tune the dash timing
 - Make the button text stand out more
 - Maybe a player death animation
 - Clean up the slightly spaghetti code with reloading levels, really, Play 
 should be responsible for deciding to reload the level, and level_manager 
 shouldn't care if the player had just died
-- Fine tune the dash timing
-- Make the dash afterimage effect look better
 - Should the dash cooldown only go into effect once you finish the dash?
-- Add input buffering to dashes
-- Clean up jump_state.gd's coming_from_dash spaghetti code
-- Make the player camera follow the player better
+- Potentially add checkpoints
+- Fix tile inconsistencies across many levels
+- Fix the sizing of the settings menu in game
 
 
 Both, or whoever wants to:
