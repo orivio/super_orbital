@@ -24,6 +24,7 @@ func update_visuals(save_file: SaveFile) -> void:
 	wipe_markers()
 	
 	var max_level_to_display: int = save_file.max_level_idx
+	var current_level: int = save_file.level_idx - 1
 	
 	for count in range(selected_number * 15, min(selected_number * 15 + 15, LEVEL_DIR.levels.size())):
 		var level_marker_instance: LevelMarker = LEVEL_MARKER.instantiate()
@@ -35,6 +36,9 @@ func update_visuals(save_file: SaveFile) -> void:
 		level_marker_instance.level_selected.connect(_on_level_selected)
 		level_marker_instance.level_start.connect(_on_level_start)
 		level_grid_selected.connect(level_marker_instance._on_other_level_selected)
+		
+		if count == current_level:
+			level_marker_instance.select()
 		
 		if count >= max_level_to_display:
 			level_marker_instance.initialize(level_name, count, true)

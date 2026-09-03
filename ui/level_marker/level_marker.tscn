@@ -19,6 +19,10 @@ region = Rect2(128, 0, 64, 64)
 atlas = ExtResource("1_sl80p")
 region = Rect2(192, 0, 64, 64)
 
+[sub_resource type="Curve" id="Curve_6r8g4"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 0, Vector2(1, 0.99999994), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_e46c1"]
 atlas = ExtResource("1_sl80p")
 region = Rect2(0, 0, 64, 64)
@@ -37,7 +41,9 @@ highlighted_texture = SubResource("AtlasTexture_e2udh")
 normal_texture = SubResource("AtlasTexture_ysqwv")
 selected_texture = SubResource("AtlasTexture_7j5yd")
 locked_texture = SubResource("AtlasTexture_6r8g4")
-rotate_speed = 90.0
+rotate_speed = 0.75
+scale_range = 1.2
+ease_out_curve = SubResource("Curve_6r8g4")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1574220282]
 layout_mode = 0
