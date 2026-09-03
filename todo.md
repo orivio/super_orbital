@@ -26,14 +26,12 @@ metallic ground
 - Add different jump landing sound effects depending on what surface you land 
 on
 - Fine tune the dash timing
-- Make the button text stand out more
 - Maybe a player death animation
 - Clean up the slightly spaghetti code with reloading levels, really, Play 
 should be responsible for deciding to reload the level, and level_manager 
 shouldn't care if the player had just died
 - Potentially add checkpoints
 - Fix tile inconsistencies across many levels
-- Fix the sizing of the settings menu in game
 
 
 Both, or whoever wants to:
