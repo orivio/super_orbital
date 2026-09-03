@@ -20,8 +20,10 @@ script = ExtResource("1_j4c0g")
 [node name="BackButton" type="Button" parent="." unique_id=1177050186 node_paths=PackedStringArray("target")]
 custom_minimum_size = Vector2(120, 70)
 layout_mode = 1
-offset_right = 120.0
-offset_bottom = 70.0
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 130.0
+offset_bottom = 79.0
 theme = ExtResource("1_cihic")
 text = "Back"
 script = ExtResource("3_mso60")
