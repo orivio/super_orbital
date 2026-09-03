@@ -12,7 +12,6 @@ var movement_direction: Vector2
 func enter() -> void:
 	movement_direction = actor.velocity
 	actor.start_afterimage_effect()
-	actor.anim_playback.start("float")
 
 
 func exit() -> void:
@@ -41,14 +40,18 @@ func physics_process(delta: float) -> State:
 		actor.turn_on_gravity()
 		if actor.floorcaster.is_colliding():
 			if actor.input.horizontal_direction == 0 or actor.input_locked:
+				actor.anim_playback.travel("idle")
 				return idle
 			else:
+				actor.anim_playback.travel("run")
 				return walk
 		else:
 			if actor.velocity.y >= 0:
+				actor.anim_playback.travel("jump")
 				return fall
 			else:
 				jump.coming_from_dash = true
+				actor.anim_playback.travel("jump")
 				return jump
 	
 	if collision_info:

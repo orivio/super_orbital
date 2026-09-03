@@ -19,12 +19,15 @@ func enter() -> void:
 	actor.start_afterimage_effect()
 	if abs(actor.velocity.x) - abs(actor.velocity.y) > 10:
 		actor.anim_playback.travel("dash")
+		pass
+	else:
+		actor.anim_playback.travel("jump")
+		pass
 	
 
 
 func exit() -> void:
 	actor.stop_afterimage_effect()
-	actor.anim_playback.travel("dash_exit")
 
 
 func input(_event: InputEvent) -> State:
@@ -32,6 +35,7 @@ func input(_event: InputEvent) -> State:
 
 
 func process(_delta: float) -> State:
+	actor.animation_tree.set("parameters/jump/blend_position", actor.velocity.y)
 	return null
 
 
@@ -76,16 +80,21 @@ func physics_process(delta: float) -> State:
 	if end_dash:
 		if actor.floorcaster.is_colliding():
 			if actor.input.horizontal_direction == 0 or actor.input_locked:
+				actor.anim_playback.travel("idle")
 				return idle
 			else:
+				actor.anim_playback.travel("run")
 				return walk
 		else:
 			if actor.velocity.y >= 0:
+				actor.exit_dash_to_fall()
 				return fall
 			else:
+				actor.anim_playback.travel("jump")
 				jump.coming_from_dash = true
 				return jump
 	elif did_grav_switch:
+		actor.anim_playback.travel("float")
 		return float_state
 	
 	return null

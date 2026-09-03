@@ -8,7 +8,7 @@ extends State
 
 
 func enter() -> void:
-	actor.anim_playback.travel("idle")
+	pass
 
 
 func exit() -> void:
@@ -47,11 +47,14 @@ func physics_process(delta: float) -> State:
 	
 	if not actor.is_on_floor():
 		if actor.velocity.y < 0:
+			actor.anim_playback.travel("jump")
 			return jump
 		elif actor.velocity.y > 0:
+			actor.anim_playback.travel("jump")
 			return fall
 	
 	if actor.input.horizontal_direction != 0 and not actor.input_locked:
+		actor.anim_playback.travel("run")
 		return walk
 	
 	return null

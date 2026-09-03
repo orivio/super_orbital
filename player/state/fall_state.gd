@@ -54,15 +54,19 @@ func physics_process(delta: float) -> State:
 	if did_dash:
 		return dash
 	if did_grav_switch:
+		actor.anim_playback.travel("float")
 		return float_state
 	
 	if actor.is_on_floor():
 		if abs(actor.velocity.x) < actor.movement_settings.minimum_movement_threshold:
+			actor.anim_playback.travel("idle")
 			return idle
 		else:
+			actor.anim_playback.travel("run")
 			return walk
 	else:
 		if actor.velocity.y < 0:
+			actor.anim_playback.travel("jump")
 			return jump
 	
 	

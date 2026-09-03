@@ -666,8 +666,6 @@ reset = false
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_65viv"]
 switch_mode = 2
-advance_mode = 2
-advance_expression = "is_on_floor() and input.horizontal_direction != 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x7c3f"]
 switch_mode = 2
@@ -675,8 +673,6 @@ advance_expression = "is_on_floor() and input.horizontal_direction == 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bjvpn"]
 switch_mode = 2
-advance_mode = 2
-advance_expression = "not is_on_floor() and abs(velocity.y) > 0.1"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_knn7v"]
 
@@ -711,6 +707,8 @@ advance_expression = "is_floatin"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dx5ib"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a2xo5"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kb6p2"]
 states/black_hole/node = SubResource("AnimationNodeBlendSpace2D_e7oew")
 states/black_hole/position = Vector2(274.40002, 304.2)
@@ -726,8 +724,8 @@ states/jump/node = SubResource("AnimationNodeBlendSpace1D_kb6p2")
 states/jump/position = Vector2(206.40001, 199)
 states/run/node = SubResource("AnimationNodeAnimation_wodsf")
 states/run/position = Vector2(548, 101.4)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_32hag"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_tqiix"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_e7oew"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_wodsf"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_kb6p2"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_c35mf"), "run", "dash", SubResource("AnimationNodeStateMachineTransition_s7qer"), "dash", "dash_exit", SubResource("AnimationNodeStateMachineTransition_g4c7l"), "dash_exit", "run", SubResource("AnimationNodeStateMachineTransition_65viv"), "dash_exit", "idle", SubResource("AnimationNodeStateMachineTransition_x7c3f"), "dash_exit", "jump", SubResource("AnimationNodeStateMachineTransition_bjvpn"), "jump", "dash", SubResource("AnimationNodeStateMachineTransition_knn7v"), "jump", "float", SubResource("AnimationNodeStateMachineTransition_7pqkx"), "dash_exit", "float", SubResource("AnimationNodeStateMachineTransition_uw77l"), "dash", "float", SubResource("AnimationNodeStateMachineTransition_rptt4"), "float", "jump", SubResource("AnimationNodeStateMachineTransition_r7pn3"), "float", "run", SubResource("AnimationNodeStateMachineTransition_b8hi5"), "float", "idle", SubResource("AnimationNodeStateMachineTransition_2uvqg"), "jump", "black_hole", SubResource("AnimationNodeStateMachineTransition_1s1yo"), "run", "black_hole", SubResource("AnimationNodeStateMachineTransition_5ejfk"), "dash_exit", "black_hole", SubResource("AnimationNodeStateMachineTransition_jd2rm"), "dash", "black_hole", SubResource("AnimationNodeStateMachineTransition_q28gw"), "float", "black_hole", SubResource("AnimationNodeStateMachineTransition_ge24q"), "black_hole", "jump", SubResource("AnimationNodeStateMachineTransition_pnw6m"), "black_hole", "idle", SubResource("AnimationNodeStateMachineTransition_1so5t"), "black_hole", "run", SubResource("AnimationNodeStateMachineTransition_55jnj"), "black_hole", "float", SubResource("AnimationNodeStateMachineTransition_dx5ib")]
-graph_offset = Vector2(-20, 21)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_32hag"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_tqiix"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_e7oew"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_wodsf"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_kb6p2"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_c35mf"), "run", "dash", SubResource("AnimationNodeStateMachineTransition_s7qer"), "dash", "dash_exit", SubResource("AnimationNodeStateMachineTransition_g4c7l"), "dash_exit", "run", SubResource("AnimationNodeStateMachineTransition_65viv"), "dash_exit", "idle", SubResource("AnimationNodeStateMachineTransition_x7c3f"), "dash_exit", "jump", SubResource("AnimationNodeStateMachineTransition_bjvpn"), "jump", "dash", SubResource("AnimationNodeStateMachineTransition_knn7v"), "jump", "float", SubResource("AnimationNodeStateMachineTransition_7pqkx"), "dash_exit", "float", SubResource("AnimationNodeStateMachineTransition_uw77l"), "dash", "float", SubResource("AnimationNodeStateMachineTransition_rptt4"), "float", "jump", SubResource("AnimationNodeStateMachineTransition_r7pn3"), "float", "run", SubResource("AnimationNodeStateMachineTransition_b8hi5"), "float", "idle", SubResource("AnimationNodeStateMachineTransition_2uvqg"), "jump", "black_hole", SubResource("AnimationNodeStateMachineTransition_1s1yo"), "run", "black_hole", SubResource("AnimationNodeStateMachineTransition_5ejfk"), "dash_exit", "black_hole", SubResource("AnimationNodeStateMachineTransition_jd2rm"), "dash", "black_hole", SubResource("AnimationNodeStateMachineTransition_q28gw"), "float", "black_hole", SubResource("AnimationNodeStateMachineTransition_ge24q"), "black_hole", "jump", SubResource("AnimationNodeStateMachineTransition_pnw6m"), "black_hole", "idle", SubResource("AnimationNodeStateMachineTransition_1so5t"), "black_hole", "run", SubResource("AnimationNodeStateMachineTransition_55jnj"), "black_hole", "float", SubResource("AnimationNodeStateMachineTransition_dx5ib"), "dash", "idle", SubResource("AnimationNodeStateMachineTransition_a2xo5")]
+graph_offset = Vector2(-5, 74.049194)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yllr7"]
 
@@ -943,6 +941,10 @@ one_shot = true
 process_callback = 0
 one_shot = true
 
+[node name="DashExitTimer" type="Timer" parent="Timers" unique_id=407369527]
+process_callback = 0
+one_shot = true
+
 [node name="DeathTimer" type="Timer" parent="Timers" unique_id=1560873547]
 process_callback = 0
 one_shot = true
@@ -956,6 +958,7 @@ dash_breakdown_thickness = 2.0
 dash_breakdown_first_color = Color(1, 0, 0, 1)
 dash_breakdown_second_color = Color(0, 0, 1, 1)
 
+[connection signal="animation_player_changed" from="VisualComponents/AnimationTree" to="." method="_on_animation_tree_animation_player_changed"]
 [connection signal="area_entered" from="HurtBox" to="HurtBox" method="_on_area_entered"]
 [connection signal="body_entered" from="HurtBox" to="HurtBox" method="_on_body_entered"]
 [connection signal="timeout" from="Timers/JumpBufferTimer" to="." method="_on_jump_buffer_timeout"]
@@ -963,4 +966,5 @@ dash_breakdown_second_color = Color(0, 0, 1, 1)
 [connection signal="timeout" from="Timers/GravSwitchBufferTimer" to="." method="_on_grav_switch_buffer_timeout"]
 [connection signal="timeout" from="Timers/CoyoteTimer" to="." method="_on_coyote_timeout"]
 [connection signal="timeout" from="Timers/DashCooldownTimer" to="." method="_on_dash_cooldown_timeout"]
+[connection signal="timeout" from="Timers/DashExitTimer" to="." method="_on_dash_exit_timeout"]
 [connection signal="timeout" from="Timers/AfterImageTimer" to="." method="_on_after_image_timeout"]

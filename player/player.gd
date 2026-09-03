@@ -56,6 +56,7 @@ const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.t
 @onready var dash_cooldown_timer: Timer = $Timers/DashCooldownTimer
 @onready var death_timer: Timer = $Timers/DeathTimer
 @onready var afterimage_timer: Timer = $Timers/AfterImageTimer
+@onready var dash_exit_timer: Timer = $Timers/DashExitTimer
 # Physics components
 @onready var floorcaster: ShapeCast2D = $Raycasts/Floorcaster
 @onready var left_ceiling_raycast: RayCast2D = $Raycasts/LCeilingRaycast
@@ -212,6 +213,7 @@ func reset() -> void:
 	dash_on_cooldown = false
 	state_machine.reset()
 	current_player_state = PlayerState.GAMEPLAY
+	anim_playback.travel("idle")
 	set_process_mode(Node.PROCESS_MODE_INHERIT)
 
 
@@ -303,6 +305,11 @@ func spawn_afterimage() -> void:
 	afterimage.sprite_flip_h = sprite.flip_h
 	afterimage.global_position = global_position
 	GameManager.current_level.add_effect(afterimage)
+
+
+func exit_dash_to_fall() -> void:
+	anim_playback.travel("dash_exit")
+	dash_exit_timer.start(0.0667)
 
 
 #endregion
@@ -432,6 +439,10 @@ func _on_coyote_timeout() -> void:
 
 func _on_dash_cooldown_timeout() -> void:
 	dash_on_cooldown = false
+
+
+func _on_dash_exit_timeout() -> void:
+	anim_playback.travel("jump")
 
 
 func _on_after_image_timeout() -> void:
