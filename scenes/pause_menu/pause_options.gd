@@ -1,5 +1,5 @@
 class_name PauseOptions
-extends MarginContainer
+extends Control
 
 signal close_pressed
 signal level_select_pressed

@@ -9,8 +9,6 @@ var pause_options: PauseOptions = null
 var level_select: PauseGrid = null
 var pause_settings: Control = null
 
-@onready var panel_container: PanelContainer = $PanelContainer
-
 
 func _ready() -> void:
 	spawn_pause_options()
@@ -23,8 +21,7 @@ func spawn_pause_options() -> void:
 	pause_options.level_select_pressed.connect(_on_level_select_button_pressed)
 	pause_options.settings_pressed.connect(_on_settings_button_pressed)
 	pause_options.exit_pressed.connect(_on_exit_button_pressed)
-	panel_container.add_child(pause_options)
-	panel_container.queue_sort()
+	add_child(pause_options)
 
 
 func spawn_level_grid() -> void:
@@ -32,18 +29,17 @@ func spawn_level_grid() -> void:
 	level_select = level_grid_scene.instantiate()
 	level_select.back_pressed.connect(_on_level_select_back_pressed)
 	level_select.level_selected.connect(_on_level_selected)
-	panel_container.add_child(level_select)
+	add_child(level_select)
 	if not level_select.is_node_ready():
 		await level_select.ready
 	level_select.level_grid.spawn_level_grid(SaveManager.get_save_file(), level_select.level_grid.current_grid)
-	panel_container.queue_sort()
 
 
 func spawn_pause_settings() -> void:
-	var pause_settings_scene: PackedScene = load("res://scenes/settings/settings_container.tscn")
+	var pause_settings_scene: PackedScene = load("res://scenes/pause_menu/pause_settings.tscn")
 	pause_settings = pause_settings_scene.instantiate()
-	panel_container.add_child(pause_settings)
-	panel_container.queue_sort()
+	pause_settings.back_pressed.connect(_on_settings_button_back_pressed)
+	add_child(pause_settings)
 
 
 func _on_resume_button_pressed() -> void:
@@ -66,6 +62,11 @@ func _on_exit_button_pressed() -> void:
 
 func _on_level_select_back_pressed() -> void:
 	level_select.queue_free()
+	spawn_pause_options()
+
+
+func _on_settings_button_back_pressed() -> void:
+	pause_settings.queue_free()
 	spawn_pause_options()
 
 

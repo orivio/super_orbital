@@ -1,12 +1,12 @@
 class_name PauseGrid
-extends HBoxContainer
+extends Control
 
 signal back_pressed
 signal level_selected(level_idx: int)
 
 var current_selected_level_idx: int = -1
 
-@onready var level_grid: LevelGrid = $VBoxContainer/LevelGrid
+@onready var level_grid: LevelGrid = $PanelContainer/PauseGrid/VBoxContainer/LevelGrid
 
 
 func _on_back_button_pressed() -> void:

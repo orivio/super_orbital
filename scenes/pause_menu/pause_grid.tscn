@@ -8,13 +8,43 @@
 [sub_resource type="LabelSettings" id="LabelSettings_n6sbn"]
 font_size = 70
 
-[node name="PauseGrid" type="HBoxContainer" unique_id=1931704660]
-offset_top = 575.0
-offset_right = 928.0
-offset_bottom = 575.0
+[node name="PauseGrid" type="Control" unique_id=912425666]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_j4c0g")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=953195843]
+[node name="BackButton" type="Button" parent="." unique_id=1177050186 node_paths=PackedStringArray("target")]
+custom_minimum_size = Vector2(120, 70)
+layout_mode = 1
+offset_right = 120.0
+offset_bottom = 70.0
+theme = ExtResource("1_cihic")
+text = "Back"
+script = ExtResource("3_mso60")
+target = NodePath(".")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1667026190]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -283.5
+offset_right = 512.0
+offset_bottom = 283.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseGrid" type="HBoxContainer" parent="PanelContainer" unique_id=1931704660]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/PauseGrid" unique_id=953195843]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/margin_left = 12
@@ -22,17 +52,10 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 8
 
-[node name="BackButton" type="Button" parent="MarginContainer" unique_id=1177050186 node_paths=PackedStringArray("target")]
-layout_mode = 2
-theme = ExtResource("1_cihic")
-text = "Back"
-script = ExtResource("3_mso60")
-target = NodePath(".")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=146222714]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/PauseGrid" unique_id=146222714]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=66322608]
+[node name="Label" type="Label" parent="PanelContainer/PauseGrid/VBoxContainer" unique_id=66322608]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Level Select"
@@ -40,9 +63,9 @@ label_settings = SubResource("LabelSettings_n6sbn")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LevelGrid" parent="VBoxContainer" unique_id=1946749695 instance=ExtResource("1_62ig7")]
+[node name="LevelGrid" parent="PanelContainer/PauseGrid/VBoxContainer" unique_id=1946749695 instance=ExtResource("1_62ig7")]
 layout_mode = 2
 
-[connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="level_grid_selected" from="VBoxContainer/LevelGrid" to="." method="_on_level_grid_level_grid_selected"]
-[connection signal="play" from="VBoxContainer/LevelGrid" to="." method="_on_level_grid_play"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="level_grid_selected" from="PanelContainer/PauseGrid/VBoxContainer/LevelGrid" to="." method="_on_level_grid_level_grid_selected"]
+[connection signal="play" from="PanelContainer/PauseGrid/VBoxContainer/LevelGrid" to="." method="_on_level_grid_play"]
