@@ -4,10 +4,7 @@ signal camera_shake
 
 @export var shake_fade: float = 9
 @export var random_strength: float = 10
-@export var default_zoom: float = 1
-@export var positional_smoothing: float = 3.5
-@export var velocity_smoothing: float = 1.0
-@export var camera_velocity_influence: float = 50
+@export var default_zoom: float = 1.0
 
 var smoothed_target: Vector2
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
@@ -28,7 +25,7 @@ func _physics_process(delta: float) -> void:
 	if Engine.time_scale == 0.0:
 		return
 	
-	update_target(delta)
+	smoothed_target = GameManager.player.global_position
 	
 	var shake_offset: Vector2 = Vector2.ZERO
 	
@@ -51,9 +48,6 @@ func shake_in_direction(direction: Vector2, strength: float) -> void:
 	directional_shake = direction
 	shake_strength = strength
 
-
-func update_target(delta: float) -> void:
-	smoothed_target = lerp(smoothed_target, GameManager.player.global_position, positional_smoothing * delta)
 
 func set_limits(rect: Rect2) -> void:
 	limit_left = int(rect.position.x - rect.size.x / 2)
