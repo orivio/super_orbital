@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://b40lkhs41c5mm" path="res://ui/materials/cloudy_layer.tres" id="4_vimye"]
 [ext_resource type="Material" uid="uid://dcoubjkoyq0gm" path="res://ui/materials/back_starry_layer.tres" id="5_p7ghj"]
 [ext_resource type="FontFile" uid="uid://hlg3easaunqa" path="res://ui/fonts/m5x7.ttf" id="6_flumg"]
+[ext_resource type="Script" uid="uid://bhsq5ppbbt2xw" path="res://ui/effects/button_animation/button_animator.gd" id="8_p7ghj"]
 [ext_resource type="PackedScene" uid="uid://d0kt1bnygj4cn" path="res://scenes/settings/settings_container.tscn" id="8_vimye"]
 [ext_resource type="Theme" uid="uid://t4gelel5hk2o" path="res://ui/themes/simple_button_theme.tres" id="12_6k1aa"]
 
@@ -64,7 +65,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_h6son")
 
-[node name="BackButton" type="Button" parent="." unique_id=1194747982]
+[node name="BackButton" type="Button" parent="." unique_id=1194747982 node_paths=PackedStringArray("target")]
 custom_minimum_size = Vector2(120, 70)
 layout_mode = 1
 anchors_preset = -1
@@ -76,6 +77,8 @@ theme = ExtResource("12_6k1aa")
 theme_override_fonts/font = ExtResource("6_flumg")
 theme_override_font_sizes/font_size = 40
 text = "Back"
+script = ExtResource("8_p7ghj")
+target = NodePath(".")
 
 [node name="TabContainer" parent="." unique_id=1506521978 instance=ExtResource("8_vimye")]
 layout_mode = 1

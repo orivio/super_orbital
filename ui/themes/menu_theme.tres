@@ -9,6 +9,7 @@
 
 [resource]
 default_font = SubResource("FontVariation_m4otl")
+Button/colors/font_color = Color(0.7987912, 0.7987912, 0.79879117, 1)
 Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("1_d04wg")
 Button/styles/disabled = ExtResource("1_eegbs")

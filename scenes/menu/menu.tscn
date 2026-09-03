@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c0l8r4h3amty4"]
 
 [ext_resource type="Script" uid="uid://b757tg2j3kjib" path="res://scenes/menu/menu.gd" id="1_con2f"]
+[ext_resource type="Theme" uid="uid://b4eh3jgtyfktg" path="res://ui/themes/menu_theme.tres" id="1_kaijy"]
 [ext_resource type="Material" uid="uid://dcoubjkoyq0gm" path="res://ui/materials/back_starry_layer.tres" id="2_4ytvr"]
 [ext_resource type="Texture2D" uid="uid://c1qwvj8oxyj61" path="res://ui/textures/star2.png" id="2_mhnvy"]
 [ext_resource type="Shader" uid="uid://c5kmcvgi0g6h1" path="res://ui/shaders/starry_layer.gdshader" id="4_4ytvr"]
@@ -10,7 +11,7 @@
 [ext_resource type="FontFile" uid="uid://hlg3easaunqa" path="res://ui/fonts/m5x7.ttf" id="6_k48pe"]
 [ext_resource type="StyleBox" uid="uid://8kq0rvj5xqb8" path="res://ui/themes/stylebox/metal_button/pressed.tres" id="7_t0a87"]
 [ext_resource type="StyleBox" uid="uid://cr4rmeuwrqsex" path="res://ui/themes/stylebox/metal_button/hover.tres" id="8_qo0fc"]
-[ext_resource type="Script" uid="uid://bhsq5ppbbt2xw" path="res://ui/effects/button_animation/button_animator.gd" id="10_f2fum"]
+[ext_resource type="PackedScene" uid="uid://bjb6m137mh7fl" path="res://ui/effects/button_animation/button_animator.tscn" id="10_f2fum"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g3eks"]
 shader = ExtResource("4_4ytvr")
@@ -31,6 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_kaijy")
 script = ExtResource("1_con2f")
 play_fade_duration = 0.3
 settings_fade_duration = 0.3
@@ -114,11 +116,9 @@ theme_override_styles/disabled = ExtResource("6_3y2rt")
 theme_override_styles/disabled_mirrored = ExtResource("6_3y2rt")
 theme_override_styles/focus = ExtResource("6_3y2rt")
 text = "Play"
-script = ExtResource("10_f2fum")
-ease_type = 2
-trans_type = 7
-anim_duration = 0.21
-scale_amount = 1.1
+
+[node name="ButtonAnimator" parent="VBoxContainer/VBoxContainer/PlayButton" unique_id=1747957950 node_paths=PackedStringArray("target") instance=ExtResource("10_f2fum")]
+target = NodePath("..")
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=291890272]
 layout_mode = 2
@@ -136,11 +136,9 @@ theme_override_styles/disabled = ExtResource("6_3y2rt")
 theme_override_styles/disabled_mirrored = ExtResource("6_3y2rt")
 theme_override_styles/focus = ExtResource("6_3y2rt")
 text = "Settings"
-script = ExtResource("10_f2fum")
-ease_type = 2
-trans_type = 7
-anim_duration = 0.21
-scale_amount = 1.1
+
+[node name="ButtonAnimator" parent="VBoxContainer/VBoxContainer/SettingsButton" unique_id=1118599427 node_paths=PackedStringArray("target") instance=ExtResource("10_f2fum")]
+target = NodePath("..")
 
 [node name="QuitButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=343752204]
 layout_mode = 2
@@ -158,11 +156,9 @@ theme_override_styles/disabled = ExtResource("6_3y2rt")
 theme_override_styles/disabled_mirrored = ExtResource("6_3y2rt")
 theme_override_styles/focus = ExtResource("6_3y2rt")
 text = "Quit"
-script = ExtResource("10_f2fum")
-ease_type = 2
-trans_type = 7
-anim_duration = 0.21
-scale_amount = 1.1
+
+[node name="ButtonAnimator" parent="VBoxContainer/VBoxContainer/QuitButton" unique_id=1000551918 node_paths=PackedStringArray("target") instance=ExtResource("10_f2fum")]
+target = NodePath("..")
 
 [node name="FadeEffect" parent="." unique_id=1477421051 instance=ExtResource("6_g3eks")]
 

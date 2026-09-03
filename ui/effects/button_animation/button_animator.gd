@@ -1,18 +1,19 @@
 class_name ButtonAnimator
-extends Button
+extends Node
 
-@export var ease_type: Tween.EaseType
-@export var trans_type: Tween.TransitionType
-@export var anim_duration: float
-@export var scale_amount: float
+@export var ease_type: Tween.EaseType = Tween.EASE_IN_OUT
+@export var trans_type: Tween.TransitionType = Tween.TransitionType.TRANS_CUBIC
+@export var anim_duration: float = 0.21
+@export var scale_amount: float = 1.1
+@export var target: Button
 
 var tween: Tween
 
 
 func _ready() -> void:
-	offset_transform_enabled = true
-	mouse_entered.connect(_on_mouse_entered)
-	mouse_exited.connect(_on_mouse_exited)
+	target.offset_transform_enabled = true
+	target.mouse_entered.connect(_on_mouse_entered)
+	target.mouse_exited.connect(_on_mouse_exited)
 
 
 func reset_tween() -> void:
@@ -22,10 +23,12 @@ func reset_tween() -> void:
 
 
 func _on_mouse_entered() -> void:
+	if target.disabled:
+		return
 	reset_tween()
-	tween.tween_property(self, "offset_transform_scale", Vector2(scale_amount, scale_amount), anim_duration)
+	tween.tween_property(target, "offset_transform_scale", Vector2(scale_amount, scale_amount), anim_duration)
 
 
 func _on_mouse_exited() -> void:
 	reset_tween()
-	tween.tween_property(self, "offset_transform_scale", Vector2.ONE, anim_duration)
+	tween.tween_property(target, "offset_transform_scale", Vector2.ONE, anim_duration)

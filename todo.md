@@ -25,7 +25,6 @@ is
 metallic ground
 - Add different jump landing sound effects depending on what surface you land 
 on
-- Refine the UI, inspired by this tutorial: https://www.youtube.com/watch?v=cIetsUMtyQc
 - Fine tune the dash timing
 - Make the button text stand out more
 - Maybe a player death animation

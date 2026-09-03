@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://dcoubjkoyq0gm" path="res://ui/materials/back_starry_layer.tres" id="4_oq148"]
 [ext_resource type="Theme" uid="uid://brsjv0onhn51i" path="res://ui/themes/settings_theme.tres" id="5_rdqwv"]
 [ext_resource type="Theme" uid="uid://t4gelel5hk2o" path="res://ui/themes/simple_button_theme.tres" id="6_5lyl2"]
+[ext_resource type="Script" uid="uid://bhsq5ppbbt2xw" path="res://ui/effects/button_animation/button_animator.gd" id="7_64cmn"]
 [ext_resource type="PackedScene" uid="uid://dvjxvisrrqfer" path="res://ui/effects/fade_effect/fade_effect.tscn" id="7_oq148"]
 [ext_resource type="PackedScene" uid="uid://bffvtsyaqev2g" path="res://scenes/save_select/level_grid.tscn" id="8_5lyl2"]
 
@@ -72,15 +73,18 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_rdqwv")
 
-[node name="BackButton" type="Button" parent="." unique_id=862361056]
+[node name="BackButton" type="Button" parent="." unique_id=862361056 node_paths=PackedStringArray("target")]
+custom_minimum_size = Vector2(120, 70)
 layout_mode = 1
 anchors_preset = -1
 offset_left = 20.0
 offset_top = 20.0
-offset_right = 97.0
-offset_bottom = 70.0
+offset_right = 140.0
+offset_bottom = 90.0
 theme = ExtResource("6_5lyl2")
 text = "Back"
+script = ExtResource("7_64cmn")
+target = NodePath(".")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=116914337]
 layout_mode = 1
@@ -111,34 +115,42 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="NewButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=87019804]
+[node name="NewButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=87019804 node_paths=PackedStringArray("target")]
 layout_mode = 2
 theme = ExtResource("6_5lyl2")
 theme_override_font_sizes/font_size = 25
 text = "New Game"
+script = ExtResource("7_64cmn")
+target = NodePath(".")
 
-[node name="PlayButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1348551319]
+[node name="PlayButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1348551319 node_paths=PackedStringArray("target")]
 layout_mode = 2
 theme = ExtResource("6_5lyl2")
 theme_override_font_sizes/font_size = 25
 text = "Play"
+script = ExtResource("7_64cmn")
+target = NodePath(".")
 
-[node name="DeleteButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=446949152]
+[node name="DeleteButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=446949152 node_paths=PackedStringArray("target")]
 layout_mode = 2
 theme = ExtResource("6_5lyl2")
 theme_override_font_sizes/font_size = 25
 text = "Delete Save File"
+script = ExtResource("7_64cmn")
+target = NodePath(".")
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="PanelContainer/VBoxContainer/HBoxContainer/DeleteButton" unique_id=392005752]
 oversampling_override = 1.0
 size = Vector2i(380, 100)
 dialog_text = "Are you sure you want to delete your Save File?"
 
-[node name="LoadButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1699257658]
+[node name="LoadButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1699257658 node_paths=PackedStringArray("target")]
 layout_mode = 2
 theme = ExtResource("6_5lyl2")
 theme_override_font_sizes/font_size = 25
 text = "Import Save File"
+script = ExtResource("7_64cmn")
+target = NodePath(".")
 
 [node name="FileDialog" type="FileDialog" parent="PanelContainer/VBoxContainer/HBoxContainer/LoadButton" unique_id=1869017728]
 title = "Open a File"
@@ -147,11 +159,13 @@ access = 2
 filters = PackedStringArray("json")
 use_native_dialog = true
 
-[node name="ExportButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=839142059]
+[node name="ExportButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=839142059 node_paths=PackedStringArray("target")]
 layout_mode = 2
 theme = ExtResource("6_5lyl2")
 theme_override_font_sizes/font_size = 25
 text = "Export Save File"
+script = ExtResource("7_64cmn")
+target = NodePath(".")
 
 [node name="FileDialog" type="FileDialog" parent="PanelContainer/VBoxContainer/HBoxContainer/ExportButton" unique_id=1691873884]
 display_mode = 1
