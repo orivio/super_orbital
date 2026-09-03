@@ -7,12 +7,6 @@ Russlan:
 
 Obed:
 - Draw the holographic planet lookup scene in the intro cutscene
-- Fix the dash input buffering
-	- When you dash too early, the game will still recognize your dash, but it 
-	may not be in the direction you orignally intended.
-	- Maybe, when you press the dash button, the game should save what 
-	direction you were trying to go in, keep it until the dash buffer runs out, 
-	and later use that value when doing the dash.
 - Make a better background
 - Make the player camera follow the player better
 - Implement the black hole mechanic

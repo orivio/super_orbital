@@ -79,6 +79,7 @@ var anim_playback: AnimationNodeStateMachinePlayback
 # Movement logic
 var was_on_floor_last_frame: bool
 var jump_buffer: bool
+var dash_velocity_buffer: Vector2
 var dash_buffer: bool
 var grav_switch_buffer: bool
 var coyote_buffer: bool
@@ -169,6 +170,7 @@ func _physics_process(delta: float) -> void:
 				
 				if input.dash_pressed:
 					dash_buffer = true
+					dash_velocity_buffer = resolve_dash_velocity()
 					dash_buffer_timer.start(movement_settings.dash_buffer_time)
 				
 				if input.grav_switch_pressed:
@@ -339,32 +341,12 @@ func do_dash() -> void:
 	dash_on_cooldown = true
 	dash_cooldown_timer.start(movement_settings.dash_cooldown)
 	
-	var dash_velocity: Vector2
-	var dash_direction: Vector2 = input.cardinal_direction
+	assert(dash_velocity_buffer != Vector2.ZERO)
 	
-	#region Resolve the dash direction
-	if not movement_settings.allow_orthognal_dash:
-		dash_direction = input.cardinal_direction
-		if dash_direction == Vector2.ZERO:
-			dash_direction = Vector2(1 if facing_right else -1, 0)
-		dash_velocity = dash_direction * movement_settings.dash_velocity
-		if dash_direction == Vector2.UP:
-			dash_velocity *= movement_settings.upward_dash_scale
-	else:
-		dash_direction = input.direction
-		if dash_direction.length_squared() < movement_settings.minimum_movement_threshold * movement_settings.minimum_movement_threshold:
-			dash_direction = Vector2(1 if facing_right else -1, 0)
-		else:
-			dash_direction = dash_direction.normalized() * 1
-		dash_velocity = dash_direction * movement_settings.dash_velocity
-		if dash_direction == Vector2.UP:
-			dash_velocity *= movement_settings.upward_dash_scale
-		elif abs(dash_direction.x) > movement_settings.minimum_movement_threshold and dash_direction.y < 0:
-			dash_velocity *= movement_settings.orthogonal_dash_scale
-	#endregion
-	GameManager.camera_shake_directional(dash_direction, movement_settings.dash_camera_shake_strength)
+	GameManager.camera_shake_directional(dash_velocity_buffer.normalized(), movement_settings.dash_camera_shake_strength)
 	wall_clip_nudge()
-	velocity = dash_velocity
+	velocity = dash_velocity_buffer
+	dash_velocity_buffer = Vector2.ZERO
 
 
 func can_grav_switch() -> bool:
@@ -383,6 +365,29 @@ func turn_on_gravity() -> void:
 	GameManager.hitstop(movement_settings.grav_on_hitstop)
 	GameManager.camera_shake(movement_settings.grav_switch_camera_shake_strength)
 
+
+func resolve_dash_velocity() -> Vector2:
+	var dash_velocity: Vector2
+	var dash_direction: Vector2
+	if not movement_settings.allow_orthognal_dash:
+		dash_direction = input.cardinal_direction
+		if dash_direction == Vector2.ZERO:
+			dash_direction = Vector2(1 if facing_right else -1, 0)
+		dash_velocity = dash_direction * movement_settings.dash_velocity
+		if dash_direction == Vector2.UP:
+			dash_velocity *= movement_settings.upward_dash_scale
+	else:
+		dash_direction = input.direction
+		if dash_direction.length_squared() < movement_settings.minimum_movement_threshold * movement_settings.minimum_movement_threshold:
+			dash_direction = Vector2(1 if facing_right else -1, 0)
+		else:
+			dash_direction = dash_direction.normalized() * 1
+		dash_velocity = dash_direction * movement_settings.dash_velocity
+		if dash_direction == Vector2.UP:
+			dash_velocity *= movement_settings.upward_dash_scale
+		elif abs(dash_direction.x) > movement_settings.minimum_movement_threshold and dash_direction.y < 0:
+			dash_velocity *= movement_settings.orthogonal_dash_scale
+	return dash_velocity
 
 func ceiling_clip_nudge() -> void:
 	# Not sure if this is the best way to do it, it does feel a little bit buggy
