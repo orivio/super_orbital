@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://oe64enfwyro6"]
 
 [ext_resource type="Script" uid="uid://dqb3u0toxbcr3" path="res://scenes/credits/credits.gd" id="1_dr3ri"]
-[ext_resource type="PackedScene" uid="uid://dvjxvisrrqfer" path="res://ui/effects/fade_effect.tscn" id="2_8n0nl"]
+[ext_resource type="PackedScene" uid="uid://dvjxvisrrqfer" path="res://ui/effects/fade_effect/fade_effect.tscn" id="2_8n0nl"]
 [ext_resource type="Shader" uid="uid://c5kmcvgi0g6h1" path="res://ui/shaders/starry_layer.gdshader" id="2_icb2l"]
 [ext_resource type="Texture2D" uid="uid://c1qwvj8oxyj61" path="res://ui/textures/star2.png" id="3_17l06"]
 [ext_resource type="Shader" uid="uid://c7lpa6u2b7v5q" path="res://ui/shaders/cloudy_layer.gdshader" id="4_huu5m"]
@@ -138,9 +138,9 @@ texture = ExtResource("3_17l06")
 
 [node name="Credits" type="VBoxContainer" parent="." unique_id=1077228661]
 layout_mode = 0
-offset_left = 320.0
-offset_right = 960.0
-offset_bottom = 723.7
+offset_left = 181.0
+offset_right = 1090.0
+offset_bottom = 1701.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 offset_transform_enabled = true
@@ -159,10 +159,11 @@ layout_mode = 2
 
 [node name="Programming" type="Label" parent="Credits" unique_id=286884908]
 layout_mode = 2
-text = "Programming
+text = "Programming, Artwork, and Level Design
 "
 label_settings = SubResource("LabelSettings_po7hu")
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Obed" type="Label" parent="Credits" unique_id=1527537584]
 layout_mode = 2
@@ -170,42 +171,6 @@ text = "Obe Dot"
 label_settings = SubResource("LabelSettings_po7hu")
 
 [node name="Russlan" type="Label" parent="Credits" unique_id=1972175061]
-layout_mode = 2
-text = "Orivio
-"
-label_settings = SubResource("LabelSettings_po7hu")
-
-[node name="Artwork" type="Label" parent="Credits" unique_id=575546947]
-layout_mode = 2
-text = "Artwork
-"
-label_settings = SubResource("LabelSettings_po7hu")
-horizontal_alignment = 1
-
-[node name="Obed2" type="Label" parent="Credits" unique_id=2011648090]
-layout_mode = 2
-text = "Obe Dot"
-label_settings = SubResource("LabelSettings_po7hu")
-
-[node name="Russlan2" type="Label" parent="Credits" unique_id=358150186]
-layout_mode = 2
-text = "Orivio
-"
-label_settings = SubResource("LabelSettings_po7hu")
-
-[node name="LevelDesign" type="Label" parent="Credits" unique_id=604260818]
-layout_mode = 2
-text = "Level Design
-"
-label_settings = SubResource("LabelSettings_po7hu")
-horizontal_alignment = 1
-
-[node name="Obed3" type="Label" parent="Credits" unique_id=1590949126]
-layout_mode = 2
-text = "Obe Dot"
-label_settings = SubResource("LabelSettings_po7hu")
-
-[node name="Russlan3" type="Label" parent="Credits" unique_id=1701518631]
 layout_mode = 2
 text = "Orivio
 "
@@ -221,6 +186,19 @@ horizontal_alignment = 1
 [node name="Wally" type="Label" parent="Credits" unique_id=1706226383]
 layout_mode = 2
 text = "Perchrit6 (Perchrit)
+"
+label_settings = SubResource("LabelSettings_po7hu")
+
+[node name="GuestMusician" type="Label" parent="Credits" unique_id=477336416]
+layout_mode = 2
+text = "Guest Musician
+"
+label_settings = SubResource("LabelSettings_po7hu")
+horizontal_alignment = 1
+
+[node name="Wally2" type="Label" parent="Credits" unique_id=100401817]
+layout_mode = 2
+text = "Perchrit6 (Intro Cutscene Song)
 "
 label_settings = SubResource("LabelSettings_po7hu")
 
@@ -240,8 +218,7 @@ label_settings = SubResource("LabelSettings_po7hu")
 [node name="Reaction" type="Label" parent="Credits" unique_id=610663717]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
-text = "Reacted With a Fire Emoji to one of My Drawings
-"
+text = "Movement Playtesting"
 label_settings = SubResource("LabelSettings_po7hu")
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -275,5 +252,36 @@ label_settings = SubResource("LabelSettings_po7hu")
 layout_mode = 2
 text = "FL Studio"
 label_settings = SubResource("LabelSettings_po7hu")
+
+[node name="FamiStudio" type="Label" parent="Credits" unique_id=122508390]
+layout_mode = 2
+text = "FamiStudio"
+label_settings = SubResource("LabelSettings_po7hu")
+
+[node name="Playtesters" type="Label" parent="Credits" unique_id=1599287826]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Playtesters
+
+"
+label_settings = SubResource("LabelSettings_po7hu")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Resources" type="Label" parent="Credits" unique_id=556334990]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Special Thanks
+
+"
+label_settings = SubResource("LabelSettings_po7hu")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Queble" type="Label" parent="Credits" unique_id=1372795080]
+layout_mode = 2
+text = "Quick + Easy way to Polish Buttons in Godot! (Tutorial by [Queble])"
+label_settings = SubResource("LabelSettings_po7hu")
+autowrap_mode = 2
 
 [node name="FadeEffect" parent="." unique_id=1477421051 instance=ExtResource("2_8n0nl")]

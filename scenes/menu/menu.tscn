@@ -6,7 +6,7 @@
 [ext_resource type="Shader" uid="uid://c5kmcvgi0g6h1" path="res://ui/shaders/starry_layer.gdshader" id="4_4ytvr"]
 [ext_resource type="Material" uid="uid://b40lkhs41c5mm" path="res://ui/materials/cloudy_layer.tres" id="4_g3eks"]
 [ext_resource type="StyleBox" uid="uid://1yjnb644ocq7" path="res://ui/themes/stylebox/metal_button/normal.tres" id="6_3y2rt"]
-[ext_resource type="PackedScene" uid="uid://dvjxvisrrqfer" path="res://ui/effects/fade_effect.tscn" id="6_g3eks"]
+[ext_resource type="PackedScene" uid="uid://dvjxvisrrqfer" path="res://ui/effects/fade_effect/fade_effect.tscn" id="6_g3eks"]
 [ext_resource type="FontFile" uid="uid://hlg3easaunqa" path="res://ui/fonts/m5x7.ttf" id="6_k48pe"]
 [ext_resource type="StyleBox" uid="uid://8kq0rvj5xqb8" path="res://ui/themes/stylebox/metal_button/pressed.tres" id="7_t0a87"]
 [ext_resource type="StyleBox" uid="uid://cr4rmeuwrqsex" path="res://ui/themes/stylebox/metal_button/hover.tres" id="8_qo0fc"]
