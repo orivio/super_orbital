@@ -19,9 +19,6 @@ size = Vector2(128, 96)
 
 [node name="Level" unique_id=201273727 instance=ExtResource("1_acu84")]
 
-[node name="Background" parent="." index="0" unique_id=2128642405]
-visible = false
-
 [node name="CameraBounds" parent="." index="1" unique_id=711655567]
 visible = true
 

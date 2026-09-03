@@ -18,6 +18,4 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		# Emit a signal which will bubble up to the play scene to manage level
 		# transition
-		print()
-		print("Player entered door!")
 		door_entered.emit(direction)
