@@ -14,6 +14,7 @@
 font_size = 32
 
 [node name="TabContainer" type="TabContainer" unique_id=1506521978]
+custom_minimum_size = Vector2(952, 595)
 anchors_preset = -1
 anchor_left = 0.05
 anchor_right = 0.95
