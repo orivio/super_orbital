@@ -12,8 +12,6 @@ Obed:
 - Implement the black hole mechanic
 - Clean up jump_state.gd's coming_from_dash spaghetti code
 - Make the dash afterimage effect look better
-- Add player animations
-- Fix level transition bugs and make a stardance devlog out of them
 - Redo player movement
 	- Which will involve redesigning some levels
 - Add variation to tileset...
@@ -34,7 +32,6 @@ on
 - Clean up the slightly spaghetti code with reloading levels, really, Play 
 should be responsible for deciding to reload the level, and level_manager 
 shouldn't care if the player had just died
-- Should the dash cooldown only go into effect once you finish the dash?
 - Potentially add checkpoints
 - Fix tile inconsistencies across many levels
 - Fix the sizing of the settings menu in game
