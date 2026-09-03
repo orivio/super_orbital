@@ -85,7 +85,6 @@ func change_level(new_level_meta: LevelMeta, dest_door: String) -> void:
 	if dest_door:
 		teleport_player_to_door(current_level, dest_door)
 		last_entered_door = dest_door
-	player.reset()
 	
 	# Update level metadata
 	previous_level_meta = current_level_meta
@@ -95,8 +94,8 @@ func change_level(new_level_meta: LevelMeta, dest_door: String) -> void:
 	update_camera_limits(level_instance)
 	# Fade out from black
 	await fade_effect.fade(Color(0, 0, 0, 0), level_transition_time).finished
-	# Update physics
-	GameManager.player_leave_blackhole()
+	player.enable()
+	player.reset()
 	# Update music
 	if current_level_meta.song != &"" and (not previous_level_meta or current_level_meta.song != previous_level_meta.song):
 		AudioManager.change_music(current_level_meta.song)
@@ -112,11 +111,11 @@ func teleport_player_to_door(level: Level, dest_door_tag: String):
 			
 			# Teleport the player and reset everything
 			player.teleport_to_ground(spawn_location)
-			player.reset()
 			GameManager.camera.snap_camera_to_player()
 			return
 	
 	print("Could not find door ", dest_door_tag, " in level ", level.name)
+	player.teleport_to_ground(Vector2.ZERO)
 
 
 func update_camera_limits(level: Level) -> void:

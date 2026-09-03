@@ -63,9 +63,6 @@ something like that.
 - The bug can still occur when you remove the wall clip and ceiling clip 
 correction.
 
-# World Bugs
-## Level transition bug between the moving platforms level and the bridge level
-
 # UI Bugs
 ## Pressing a button during a screen fade
 Details:

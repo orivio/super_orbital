@@ -29,7 +29,7 @@ func _ready() -> void:
 	current_input_sequence = null
 
 
-func physics_process(delta: float) -> void:
+func physics_process(_delta: float) -> void:
 	var current_frame: InputFrame = null
 	
 	if current_state == InputComponentState.PLAYING_BACK:

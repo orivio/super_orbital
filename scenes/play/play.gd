@@ -132,7 +132,11 @@ func start_cutscene(cutscene_path: String) -> void:
 
 func _on_door_entered(direction: Types.DoorDirection) -> void:
 	match current_state:
-		PlayState.GAMEPLAY: do_level_transition.call_deferred(direction)
+		PlayState.GAMEPLAY:
+			print("Doing level transition")
+			do_level_transition.call_deferred(direction)
+		_:
+			push_warning("Invalid state for level transition: ", current_state)
 
 
 func _on_pause_menu_exit_pressed() -> void:
