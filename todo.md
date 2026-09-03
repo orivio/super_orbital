@@ -34,9 +34,6 @@ shouldn't care if the player had just died
 - Potentially add checkpoints
 - Fix tile inconsistencies across many levels
 - Fix the sizing of the settings menu in game
-- Make the level select screen look cooler by sliding the level marker grid
-across (actually kind of the same effect as the above point) if you know what I
-mean
 
 
 Both, or whoever wants to:
@@ -49,6 +46,7 @@ Stuff more later (after stardance):
 - Make room transitions seamless and have the camera quickly shift like in Celeste
 or Zelda
 - Make challenge levels
+- Finish all the acts of the game
 
 Playtesting questions:
 - Should the caution tiles always be next to the spikes? If so, wouldn't it be

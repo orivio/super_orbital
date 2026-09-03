@@ -103,7 +103,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1888068881]
 layout_mode = 2
-text = "Save Select"
+text = "Level Select"
 label_settings = SubResource("LabelSettings_oq148")
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -65,7 +65,6 @@ func disable() -> void:
 	is_locked = true
 	stop_rotation()
 	stop_scaling()
-	print("Am locked!")
 
 
 func start_rotation() -> void:
@@ -146,7 +145,6 @@ func _on_mouse_exited() -> void:
 func _on_mouse_entered() -> void:
 	mouse_in = true
 	if not is_selected and not is_locked:
-		print("Not locked!")
 		texture_rect.texture = highlighted_texture
 		start_rotation()
 

@@ -10,17 +10,17 @@ const LEVEL_DIR: LevelDirectory = preload("res://world/level_directory.tres")
 var selected_number: int = 0
 var last_save_file: SaveFile
 
-@onready var grid_container: GridContainer = $HBoxContainer/Grid
+@onready var current_grid: GridContainer = $HBoxContainer/Grid
 @onready var left_button: Button = $HBoxContainer/LeftButton
 @onready var right_button: Button = $HBoxContainer/RightButton
 
 
 func wipe_markers() -> void:
-	for node in grid_container.get_children():
+	for node in current_grid.get_children():
 		node.queue_free()
 
 
-func update_visuals(save_file: SaveFile) -> void:
+func spawn_level_grid(save_file: SaveFile, grid_container: GridContainer) -> void:
 	wipe_markers()
 	
 	var max_level_to_display: int = save_file.max_level_idx
@@ -48,7 +48,7 @@ func update_visuals(save_file: SaveFile) -> void:
 
 
 func disable_marker_input() -> void:
-	for child in grid_container.get_children():
+	for child in current_grid.get_children():
 		child.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		child.disable()
 
@@ -58,7 +58,7 @@ func _on_left_button_button_down() -> void:
 	if selected_number < 0:
 		selected_number = 0
 		return
-	update_visuals(last_save_file)
+	spawn_level_grid(last_save_file, current_grid)
 
 
 func _on_right_button_button_down() -> void:
@@ -66,8 +66,8 @@ func _on_right_button_button_down() -> void:
 	if selected_number * 15 - 1 > SaveManager.get_save_file().level_idx:
 		selected_number -= 1
 		return
+	spawn_level_grid(SaveManager.get_save_file(), current_grid)
 	
-	update_visuals(last_save_file)
 
 
 func _on_level_selected(level_idx: int) -> void:

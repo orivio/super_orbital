@@ -35,7 +35,7 @@ func spawn_level_grid() -> void:
 	panel_container.add_child(level_select)
 	if not level_select.is_node_ready():
 		await level_select.ready
-	level_select.level_grid.update_visuals(SaveManager.get_save_file())
+	level_select.level_grid.spawn_level_grid(SaveManager.get_save_file(), level_select.level_grid.current_grid)
 	panel_container.queue_sort()
 
 

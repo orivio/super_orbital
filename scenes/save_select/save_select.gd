@@ -43,7 +43,7 @@ func _ready() -> void:
 		load_button.disabled = true
 		export_button.disabled = false
 		
-		level_grid.update_visuals(SaveManager.get_save_file())
+		level_grid.spawn_level_grid(SaveManager.get_save_file(), level_grid.current_grid)
 		save_exists = true
 	
 	delete_confirmation.get_cancel_button().pressed.connect(_on_delete_button_confirmation_cancelled)
@@ -84,7 +84,7 @@ func _on_new_button_pressed() -> void:
 	load_button.disabled = true
 	export_button.disabled = false
 	
-	level_grid.update_visuals(SaveManager.get_save_file())
+	level_grid.spawn_level_grid(SaveManager.get_save_file(), level_grid.current_grid)
 	save_exists = true
 	SaveManager.write_save_file()
 
