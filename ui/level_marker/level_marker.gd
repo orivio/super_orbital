@@ -37,6 +37,7 @@ func _input(event: InputEvent) -> void:
 	if mouse_in and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_released() and not is_locked:
 		mouse_down = false
 		if is_selected:
+			print("Level start: ", level_idx)
 			level_start.emit(level_idx)
 		else:
 			level_selected.emit(level_idx)

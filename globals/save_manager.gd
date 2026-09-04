@@ -45,6 +45,7 @@ func _on_level_changed(level_idx: int) -> void:
 	write_save_file()
 
 func select_level(level_idx: int) -> void:
+	print("SaveManager: Selecting level: ", level_idx)
 	save_file.level_idx = level_idx
 
 func _on_ability_unlocked(ability: String) -> void:
