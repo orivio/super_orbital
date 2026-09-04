@@ -33,6 +33,7 @@ dash_hitstop = 0.04
 grav_on_hitstop = 0.032
 grav_off_hitstop = 0.038
 float_wall_bounce_hitstop = 0.076
+throw_wrench_hitstop = 0.04
 dash_camera_shake_strength = 1.844
 grav_switch_camera_shake_strength = 1.305
 float_wall_bounce_camera_shake_strength = 5.065

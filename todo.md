@@ -6,6 +6,7 @@ Russlan:
 - Dynamic lighting or whatever he was talking about
 
 Obed:
+- Fix level transition bug in room_cant_stop and room_perchrit where a room is skipped
 - Should I add a buffer to the float state such that right after you land from 
 a regular jump, if you press the grav switch button, you will bounce as if you 
 had been floating the entire time? It could improve the game juice, but I don't

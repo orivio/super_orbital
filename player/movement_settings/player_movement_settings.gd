@@ -92,6 +92,7 @@ signal debug_visual_changed
 @export_range(0.0, 1.0) var grav_on_hitstop: float
 @export_range(0.0, 1.0) var grav_off_hitstop: float
 @export_range(0.0, 1.0) var float_wall_bounce_hitstop: float
+@export_range(0.0, 1.0) var throw_wrench_hitstop: float
 @export_range(0.0, 10.0) var dash_camera_shake_strength: float
 @export_range(0.0, 10.0) var grav_switch_camera_shake_strength: float
 @export_range(0.0, 10.0) var float_wall_bounce_camera_shake_strength: float

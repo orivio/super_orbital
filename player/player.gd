@@ -324,6 +324,7 @@ func spawn_wrench_projectile(throw_velocity: Vector2) -> void:
 	wrench_projectile.rotation_speed = 6
 	wrench_projectile.global_position = global_position + get_center_of_mass()
 	GameManager.current_level.add_object(wrench_projectile)
+	GameManager.hitstop(movement_settings.throw_wrench_hitstop)
 
 
 #endregion
