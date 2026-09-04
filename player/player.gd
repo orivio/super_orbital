@@ -145,6 +145,8 @@ func _process(delta: float) -> void:
 		
 		if false:
 			tooltip.show_tooltip(str(frames_passed))
+		if true:
+			tooltip.show_tooltip(str(velocity.y))
 		#endregion
 
 

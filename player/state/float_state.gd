@@ -10,6 +10,15 @@ var movement_direction: Vector2
 
 
 func enter() -> void:
+	# Determine the new velocity
+	if abs(actor.velocity.y) < actor.movement_settings.min_float_speed:
+		if abs(actor.velocity.x) < actor.movement_settings.min_float_speed:
+			actor.velocity.y = sign(actor.velocity.y) * actor.movement_settings.min_float_speed
+			if actor.velocity.y == 0:
+				actor.velocity.y = actor.movement_settings.min_float_speed
+	
+	actor.velocity.y = clamp(actor.velocity.y, -actor.movement_settings.max_float_speed, actor.movement_settings.max_float_speed)
+	actor.velocity.x = clamp(actor.velocity.x, -actor.movement_settings.max_float_speed, actor.movement_settings.max_float_speed)
 	movement_direction = actor.velocity
 	actor.start_afterimage_effect()
 
@@ -37,24 +46,11 @@ func physics_process(delta: float) -> State:
 	var collision_info: KinematicCollision2D = actor.move_and_collide(actor.velocity * delta)
 	
 	if gravity_on:
-		actor.turn_on_gravity()
-		if actor.floorcaster.is_colliding():
-			if actor.input.horizontal_direction == 0 or actor.input_locked:
-				actor.anim_playback.travel("idle")
-				return idle
-			else:
-				actor.anim_playback.travel("run")
-				return walk
-		else:
-			if actor.velocity.y >= 0:
-				actor.anim_playback.travel("jump")
-				return fall
-			else:
-				jump.coming_from_dash = true
-				actor.anim_playback.travel("jump")
-				return jump
+		return exit_to_normal_state()
 	
 	if collision_info:
+		if actor.velocity.length_squared() < actor.movement_settings.float_min_bounce_velocity * actor.movement_settings.float_min_bounce_velocity:
+			return exit_to_normal_state()
 		# Bounce off the surface
 		actor.velocity = actor.velocity.bounce(collision_info.get_normal())
 		movement_direction = actor.velocity
@@ -62,3 +58,22 @@ func physics_process(delta: float) -> State:
 		GameManager.camera_shake_directional(collision_info.get_normal(), actor.movement_settings.float_wall_bounce_camera_shake_strength)
 	
 	return null
+
+
+func exit_to_normal_state() -> State:
+	actor.turn_on_gravity()
+	if actor.floorcaster.is_colliding():
+		if actor.input.horizontal_direction == 0 or actor.input_locked:
+			actor.anim_playback.travel("idle")
+			return idle
+		else:
+			actor.anim_playback.travel("run")
+			return walk
+	else:
+		if actor.velocity.y >= 0:
+			actor.anim_playback.travel("jump")
+			return fall
+		else:
+			jump.coming_from_dash = true
+			actor.anim_playback.travel("jump")
+			return jump

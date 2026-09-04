@@ -77,6 +77,10 @@ signal debug_visual_changed
 		orthogonal_dash_scale = value
 		debug_visual_changed.emit()
 @export_range(0.0, 2.0) var dash_cooldown: float
+@export_category("Float Settings")
+@export_range(0.0, 1000.0) var float_min_bounce_velocity: float
+@export var max_float_speed: float
+@export var min_float_speed: float
 @export_category("Juice")
 @export_range(0, 1.0) var jump_buffer_time: float
 @export_range(0, 1.0) var dash_buffer_time: float
@@ -94,6 +98,7 @@ signal debug_visual_changed
 @export_category("Limits")
 @export_range(0, 1000) var minimum_movement_threshold: float
 @export var max_acceleration: float = 999999
+@export var max_fall_speed: float
 @export_category("Debug Visuals")
 @export var show_dash_breakdown: bool:
 	set(value):

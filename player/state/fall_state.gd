@@ -38,6 +38,8 @@ func physics_process(delta: float) -> State:
 		var move_speed: float = actor.movement_settings.walk_speed * actor.input.horizontal_direction
 		actor.velocity.x = move_toward(actor.velocity.x, move_speed, delta * actor.movement_settings.air_acceleration)
 	
+	actor.velocity.y = clamp(actor.velocity.y, 0, actor.movement_settings.max_fall_speed)
+	
 	var did_dash: bool = false
 	var did_grav_switch: bool = false
 	if actor.can_jump() and not actor.input_locked:

@@ -6,6 +6,10 @@ Russlan:
 - Dynamic lighting or whatever he was talking about
 
 Obed:
+- Should I add a buffer to the float state such that right after you land from 
+a regular jump, if you press the grav switch button, you will bounce as if you 
+had been floating the entire time? It could improve the game juice, but I don't
+know how to implement it
 - Draw the holographic planet lookup scene in the intro cutscene
 - Make a better background
 - Make the player camera follow the player better
