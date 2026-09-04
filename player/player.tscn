@@ -38,7 +38,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ShockwaveWarp:material:shader_parameter/size")
+tracks/0/path = NodePath("BackBufferCopy/ShockwaveWarp:material:shader_parameter/size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -50,7 +50,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ShockwaveWarp:material:shader_parameter/force")
+tracks/1/path = NodePath("BackBufferCopy/ShockwaveWarp:material:shader_parameter/force")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -66,7 +66,7 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ShockwaveWarp:material:shader_parameter/size")
+tracks/0/path = NodePath("BackBufferCopy/ShockwaveWarp:material:shader_parameter/size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -78,7 +78,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ShockwaveWarp:material:shader_parameter/force")
+tracks/1/path = NodePath("BackBufferCopy/ShockwaveWarp:material:shader_parameter/force")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -740,6 +740,7 @@ stream_0/stream = ExtResource("16_tqiix")
 size = Vector2(20, 2.75)
 
 [node name="Player" type="CharacterBody2D" unique_id=1158454686 groups=["player"]]
+z_index = 50
 collision_layer = 2
 collision_mask = 2673
 platform_on_leave = 2
@@ -765,11 +766,20 @@ position = Vector2(0, -42)
 scale = Vector2(3, 3)
 texture = ExtResource("3_bjvpn")
 
-[node name="ShockwaveWarp" type="Sprite2D" parent="VisualComponents" unique_id=254197677]
+[node name="BackBufferCopy" type="BackBufferCopy" parent="VisualComponents" unique_id=1626588565]
+z_index = 999
+copy_mode = 2
+rect = Rect2(-641, -450, 1280, 1100)
+
+[node name="ShockwaveWarp" type="Sprite2D" parent="VisualComponents/BackBufferCopy" unique_id=254197677]
+z_index = 999
 material = SubResource("ShaderMaterial_x7c3f")
-position = Vector2(0, -40)
-scale = Vector2(12, 12)
+scale = Vector2(19.935, 12.415)
 texture = ExtResource("3_bjvpn")
+
+[node name="ShockWaveLayer" type="CanvasLayer" parent="VisualComponents" unique_id=1884683657]
+layer = 999
+follow_viewport_enabled = true
 
 [node name="ShockwaveController" type="AnimationPlayer" parent="VisualComponents" unique_id=1931097592]
 libraries/ = SubResource("AnimationLibrary_1so5t")
