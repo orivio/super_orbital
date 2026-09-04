@@ -750,8 +750,8 @@ movement_settings = ExtResource("2_qiwj3")
 death_time = 0.2
 death_hitstop_time = 0.077
 death_camera_shake_strength = 5.0
-afterimage_period = 0.03
-afterimage_fade_time = 1.0
+afterimage_period = 0.06
+afterimage_fade_time = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1986859216]
 position = Vector2(0, -31)
