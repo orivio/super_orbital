@@ -81,6 +81,8 @@ signal debug_visual_changed
 @export_range(0.0, 1000.0) var float_min_bounce_velocity: float
 @export var max_float_speed: float
 @export var min_float_speed: float
+@export_category("Wrench Throw")
+@export var wrench_throw_velocity_multiplier: float
 @export_category("Juice")
 @export_range(0, 1.0) var jump_buffer_time: float
 @export_range(0, 1.0) var dash_buffer_time: float

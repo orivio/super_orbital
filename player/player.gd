@@ -25,6 +25,8 @@ const IMPACT_CLOUD = preload("res://effects/impact_cloud/impact_cloud.tscn")
 const DUST_CLOUD = preload("res://effects/dust_cloud/dust_cloud.tscn")
 const DASH_CLOUD = preload("res://effects/dash_cloud/dash_cloud.tscn")
 const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.tscn")
+const WRENCH_PROJECTILE = preload("uid://cgbxshe71m18w")
+
 
 @export_category("Movement and Abilities")
 @export var movement_settings: PlayerMovementSettings
@@ -316,6 +318,14 @@ func exit_dash_to_fall() -> void:
 	dash_exit_timer.start(0.0667)
 
 
+func spawn_wrench_projectile(throw_velocity: Vector2) -> void:
+	var wrench_projectile: WrenchProjectile = WRENCH_PROJECTILE.instantiate()
+	wrench_projectile.velocity = -throw_velocity * movement_settings.wrench_throw_velocity_multiplier
+	wrench_projectile.rotation_speed = 6
+	wrench_projectile.global_position = global_position + get_center_of_mass()
+	GameManager.current_level.add_object(wrench_projectile)
+
+
 #endregion
 
 
@@ -366,6 +376,16 @@ func turn_on_gravity() -> void:
 	grav_switch_buffer = false
 	GameManager.hitstop(movement_settings.grav_on_hitstop)
 	GameManager.camera_shake(movement_settings.grav_switch_camera_shake_strength)
+
+
+func can_throw_wrench() -> bool:
+	return input.throw_wrench_pressed and not input.direction == Vector2.ZERO
+
+
+func do_throw_wrench() -> void:
+	var wrench_velocity: Vector2 = -input.direction
+	velocity = wrench_velocity * velocity.length()
+	spawn_wrench_projectile(velocity)
 
 
 func resolve_dash_velocity() -> Vector2:

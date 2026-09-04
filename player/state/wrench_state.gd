@@ -1,4 +1,4 @@
-class_name FloatState
+class_name WrenchState
 extends State
 
 var movement_direction: Vector2
@@ -10,12 +10,6 @@ var movement_direction: Vector2
 
 
 func enter() -> void:
-	# Determine the new velocity
-	if abs(actor.velocity.y) < actor.movement_settings.min_float_speed:
-		if abs(actor.velocity.x) < actor.movement_settings.min_float_speed:
-			actor.velocity.y = sign(actor.velocity.y) * actor.movement_settings.min_float_speed
-			if actor.velocity.y == 0:
-				actor.velocity.y = actor.movement_settings.min_float_speed
 	
 	actor.velocity.y = clamp(actor.velocity.y, -actor.movement_settings.max_float_speed, actor.movement_settings.max_float_speed)
 	actor.velocity.x = clamp(actor.velocity.x, -actor.movement_settings.max_float_speed, actor.movement_settings.max_float_speed)
@@ -43,9 +37,6 @@ func physics_process(delta: float) -> State:
 
 	actor.wall_clip_nudge()
 	actor.ceiling_clip_nudge()
-	
-	if actor.can_throw_wrench() and not actor.input_locked:
-		actor.do_throw_wrench()
 	# I think move_and_collide is the best option here because you can only 
 	# really wall bounce in this state, but I could be wrong.
 	var collision_info: KinematicCollision2D = actor.move_and_collide(actor.velocity * delta)

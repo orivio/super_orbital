@@ -24,6 +24,7 @@ dash_cooldown = 0.28
 float_min_bounce_velocity = 800.0
 max_float_speed = 900.0
 min_float_speed = 100.0
+wrench_throw_velocity_multiplier = 0.7
 jump_buffer_time = 0.1
 dash_buffer_time = 0.1
 grav_switch_buffer_time = 0.2

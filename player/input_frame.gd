@@ -9,3 +9,4 @@ extends Resource
 @export var jump_down: bool
 @export var dash_pressed: bool
 @export var grav_switch_pressed: bool
+@export var throw_wrench_pressed: bool

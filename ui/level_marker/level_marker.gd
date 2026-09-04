@@ -79,7 +79,7 @@ func do_rotation_cycle() -> void:
 		rotate_tween.kill()
 		return
 	rotate_tween = create_tween()
-	rotate_tween.tween_property(texture_rect, "rotation_degrees", 360/2, rotate_speed).as_relative()
+	rotate_tween.tween_property(texture_rect, "rotation_degrees", 180, rotate_speed).as_relative()
 	rotate_tween.finished.connect(do_rotation_cycle)
 
 func stop_rotation() -> void:
