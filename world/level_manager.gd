@@ -99,6 +99,7 @@ func change_level(new_level_meta: LevelMeta, dest_door: String) -> void:
 	# Update music
 	if current_level_meta.song != &"" and (not previous_level_meta or current_level_meta.song != previous_level_meta.song):
 		AudioManager.change_music(current_level_meta.song)
+	current_level.finish_setup()
 
 
 func teleport_player_to_door(level: Level, dest_door_tag: String):

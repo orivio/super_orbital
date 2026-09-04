@@ -9,6 +9,7 @@ signal door_entered(direction: Types.DoorDirection)
 @onready var objects: Node2D = $Objects
 @onready var effects: Node2D = $Effects
 @onready var color_rect: ColorRect = $Background/ColorRect
+@onready var door_setup_timer: Timer = $DoorSetupTimer
 
 
 func _ready() -> void:
@@ -42,6 +43,10 @@ func initialize() -> void:
 			node.load_data_from_savefile(SaveManager.get_save_file())
 
 
+func finish_setup() -> void:
+	door_setup_timer.start(0.01)
+
+
 func get_doors() -> Array[Node]:
 	return doors.get_children()
 
@@ -54,11 +59,6 @@ func add_effect(node: Node2D) -> void:
 	effects.add_child(node)
 
 
-func _on_door_entered(direction: Types.DoorDirection):
-	# Bubble up the door entered signal to the level manager
-	door_entered.emit(direction)
-
-
 func get_camera_bounds() -> Rect2:
 	var shape: Shape2D = camera_bounds.shape
 	if shape is RectangleShape2D:
@@ -68,3 +68,14 @@ func get_camera_bounds() -> Rect2:
 		var h: float = shape.size.y
 		return Rect2(x, y, w, h)
 	return Rect2(0, 0, 0, 0)
+
+
+func _on_door_entered(direction: Types.DoorDirection):
+	# Bubble up the door entered signal to the level manager
+	door_entered.emit(direction)
+
+
+func _on_door_setup_timer_timeout() -> void:
+	for door in get_doors():
+		if door is Door:
+			door.set_deferred("enabled", true)
