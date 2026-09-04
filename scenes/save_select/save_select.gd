@@ -43,6 +43,7 @@ func _ready() -> void:
 		load_button.disabled = true
 		export_button.disabled = false
 		
+		level_grid.initialize(SaveManager.get_save_file())
 		level_grid.spawn_level_grid(SaveManager.get_save_file(), level_grid.current_grid)
 		save_exists = true
 	
@@ -84,6 +85,7 @@ func _on_new_button_pressed() -> void:
 	load_button.disabled = true
 	export_button.disabled = false
 	
+	level_grid.initialize(SaveManager.get_save_file())
 	level_grid.spawn_level_grid(SaveManager.get_save_file(), level_grid.current_grid)
 	save_exists = true
 	SaveManager.write_save_file()

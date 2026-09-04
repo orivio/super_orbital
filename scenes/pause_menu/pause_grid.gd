@@ -9,6 +9,10 @@ var current_selected_level_idx: int = -1
 @onready var level_grid: LevelGrid = $PanelContainer/PauseGrid/VBoxContainer/LevelGrid
 
 
+func _ready() -> void:
+	level_grid.initialize(SaveManager.get_save_file())
+	print(SaveManager.get_save_file().level_idx)
+
 func _on_back_button_pressed() -> void:
 	back_pressed.emit()
 

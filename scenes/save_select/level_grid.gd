@@ -15,6 +15,10 @@ var last_save_file: SaveFile
 @onready var right_button: Button = $HBoxContainer/RightButton
 
 
+func initialize(save_file: SaveFile) -> void:
+	selected_number = floor(save_file.max_level_idx / 15)
+
+
 func wipe_markers() -> void:
 	for node in current_grid.get_children():
 		node.queue_free()
@@ -24,7 +28,7 @@ func spawn_level_grid(save_file: SaveFile, grid_container: GridContainer) -> voi
 	wipe_markers()
 	
 	var max_level_to_display: int = save_file.max_level_idx
-	var current_level: int = save_file.level_idx - 1
+	var current_level: int = save_file.level_idx
 	
 	for count in range(selected_number * 15, min(selected_number * 15 + 15, LEVEL_DIR.levels.size())):
 		var level_marker_instance: LevelMarker = LEVEL_MARKER.instantiate()
@@ -40,7 +44,7 @@ func spawn_level_grid(save_file: SaveFile, grid_container: GridContainer) -> voi
 		if count == current_level:
 			level_marker_instance.select()
 		
-		if count >= max_level_to_display:
+		if count > max_level_to_display:
 			level_marker_instance.initialize(level_name, count, true)
 		else:
 			level_marker_instance.initialize(level_name, count, false)
