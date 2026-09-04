@@ -413,7 +413,6 @@ func wall_clip_nudge() -> void:
 				position.y += upper_middle_left_wallcaster.position.y - upper_left_wallcaster.position.y
 			if lower_left_wallcaster.is_colliding() and not lower_middle_left_wallcaster.is_colliding():
 				position.y += lower_middle_left_wallcaster.position.y - lower_left_wallcaster.position.y
-
 #endregion
 
 

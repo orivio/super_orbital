@@ -41,6 +41,8 @@ func physics_process(delta: float) -> State:
 	if actor.grav_switch_buffer and not actor.input_locked:
 		gravity_on = true
 
+	actor.wall_clip_nudge()
+	actor.ceiling_clip_nudge()
 	# I think move_and_collide is the best option here because you can only 
 	# really wall bounce in this state, but I could be wrong.
 	var collision_info: KinematicCollision2D = actor.move_and_collide(actor.velocity * delta)
