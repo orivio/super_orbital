@@ -79,6 +79,5 @@ func _on_level_selected(level_idx: int) -> void:
 	level_grid_selected.emit(level_idx)
 	
 func _on_level_start(level_idx: int) -> void:
-	print("Levelgrid: Starting: ", level_idx)
 	SaveManager.select_level(level_idx)
 	play.emit()
