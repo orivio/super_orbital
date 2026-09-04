@@ -23,8 +23,6 @@ know how to implement it
 - Refine room_gilganas (it just kind of feels like a boring level when it has a
 lot of potential)
 - Add more black hole levels
-- Make the level select screen start on the page where your last completed level
-is
 - Fix the text shifting on the buttons
 - Make the impact particles not be dust particles if you're colliding with
 metallic ground
