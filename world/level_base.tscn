@@ -62,3 +62,9 @@ collision_enabled = false
 [node name="Doors" type="Node2D" parent="." unique_id=1976013304]
 
 [node name="Effects" type="Node2D" parent="." unique_id=885905499]
+
+[node name="DoorSetupTimer" type="Timer" parent="." unique_id=776398302]
+process_callback = 0
+one_shot = true
+
+[connection signal="timeout" from="DoorSetupTimer" to="." method="_on_door_setup_timer_timeout"]
