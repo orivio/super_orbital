@@ -8,6 +8,7 @@ var line_index: int = 0
 var current_convo: Conversation = null
 var current_convo_tag: StringName
 
+
 func start_dialogue(convo: Conversation, convo_tag: StringName) -> bool:
 	if current_convo:
 		return false
@@ -15,7 +16,10 @@ func start_dialogue(convo: Conversation, convo_tag: StringName) -> bool:
 	if not GameManager.play.start_dialogue():
 		return false
 	
+	# This is absolutely spaghetti code
 	GameManager.player.lock_input()
+	GameManager.player.state_machine.change_state(GameManager.player.get_node("StateMachine/Idle"))
+	GameManager.player.velocity = Vector2.ZERO
 	
 	line_index = 0
 	current_convo = convo

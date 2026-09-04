@@ -1,3 +1,4 @@
+class_name DialogueSystem
 extends Control
 
 @export_group("Speaker Card Animation Settings")
