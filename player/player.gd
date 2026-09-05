@@ -49,7 +49,6 @@ const WRENCH_PROJECTILE = preload("uid://cgbxshe71m18w")
 @onready var shockwave_controller: AnimationPlayer = $VisualComponents/ShockwaveController
 @onready var animation_tree: AnimationTree = $VisualComponents/AnimationTree
 @onready var tooltip: Tooltip = $VisualComponents/Tooltip
-@onready var effects: Node2D = $VisualComponents/Effects
 # Timers
 @onready var jump_buffer_timer: Timer = $Timers/JumpBufferTimer
 @onready var dash_buffer_timer: Timer = $Timers/DashBufferTimer

@@ -151,6 +151,9 @@ stop_playback={
 
 [layer_names]
 
+2d_render/layer_1="Level"
+2d_render/layer_2="Platforms"
+2d_render/layer_3="Player"
 2d_physics/layer_1="level"
 2d_physics/layer_2="player"
 2d_physics/layer_3="spikes"

@@ -94,6 +94,16 @@ _data = {
 &"shockwave": SubResource("Animation_pnw6m")
 }
 
+[sub_resource type="Gradient" id="Gradient_bjvpn"]
+offsets = PackedFloat32Array(0, 0.89136904)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e7wlo"]
+gradient = SubResource("Gradient_bjvpn")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
 [sub_resource type="Animation" id="Animation_rkbax"]
 length = 0.001
 tracks/0/type = "value"
@@ -784,6 +794,15 @@ follow_viewport_enabled = true
 [node name="ShockwaveController" type="AnimationPlayer" parent="VisualComponents" unique_id=1931097592]
 libraries/ = SubResource("AnimationLibrary_1so5t")
 
+[node name="PointLight2D" type="PointLight2D" parent="VisualComponents" unique_id=330566628]
+position = Vector2(0, -28)
+scale = Vector2(8, 8)
+energy = 0.15
+range_layer_min = -100
+range_layer_max = 100
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_e7wlo")
+
 [node name="Sprite2D" type="Sprite2D" parent="VisualComponents" unique_id=214816936]
 material = ExtResource("3_wodsf")
 texture = ExtResource("4_e7oew")
@@ -816,8 +835,6 @@ label_settings = SubResource("LabelSettings_yllr7")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("11_7thud")
-
-[node name="Effects" type="Node2D" parent="VisualComponents" unique_id=1619259076]
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=251871403]
 visible = false
