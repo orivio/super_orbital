@@ -2,27 +2,44 @@
 
 [ext_resource type="Script" uid="uid://bayaqww5qdagw" path="res://objects/black_hole/black_hole.gd" id="1_7e4s0"]
 [ext_resource type="Shader" uid="uid://fsh16vb2yng2" path="res://objects/black_hole/black_hole.gdshader" id="2_hq6k4"]
+[ext_resource type="Texture2D" uid="uid://c1irp1epn8nxl" path="res://icon.png" id="4_tlm63"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_483u0"]
 radius = 32.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_enshl"]
+[sub_resource type="Curve" id="Curve_km6yh"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.15151516, 0.7195122), 0.0, 0.0, 0, 0, Vector2(0.4915825, -0.36585355), 0.0, 0.0, 0, 0, Vector2(0.7710438, 0.46341467), -3.1395354, -3.1395354, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_tlm63"]
+texture_mode = 1
+curve = SubResource("Curve_km6yh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tlm63"]
 shader = ExtResource("2_hq6k4")
-shader_parameter/pixel_size = 576.0
+shader_parameter/center_radius = 0.4170000198075
+shader_parameter/center_thickness = 0.190000009025
+shader_parameter/displacement_scale = 2.2350001061625
+shader_parameter/displacement_magnitude = 0.7850000372875
+shader_parameter/distortion_curve = SubResource("CurveTexture_tlm63")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hq6k4"]
 radius = 256.0
 
 [node name="BlackHole" type="Node2D" unique_id=1656602204 groups=["black_hole"]]
+z_index = 40
 script = ExtResource("1_7e4s0")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=465922864]
+visible = false
 position = Vector2(49.472534, 4.972557)
 color = Color(0.13174233, 0.13174233, 0.13174233, 1)
 polygon = PackedVector2Array(-49.472534, 19.027443, -33.472534, 11.027443, -25.472534, -4.972557, -33.472534, -20.972557, -49.472534, -28.972557, -65.472534, -20.972557, -73.472534, -4.972557, -65.472534, 11.027443)
 uv = PackedVector2Array(-49.379326, -28.776743)
 
 [node name="DeathZoneHitbox" type="Area2D" parent="." unique_id=959253740 groups=["black_hole"]]
+visible = false
 collision_layer = 4
 collision_mask = 2
 
@@ -30,16 +47,19 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_483u0")
 debug_color = Color(0.85, 0, 0, 0.41960785)
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=680394284]
+visible = false
+scale = Vector2(8, 8)
+texture = ExtResource("4_tlm63")
+
+[node name="BlackHoleVisual" type="Sprite2D" parent="." unique_id=495156986]
+material = SubResource("ShaderMaterial_tlm63")
+scale = Vector2(6, 6)
+texture = ExtResource("4_tlm63")
+
 [node name="InfluenceArea" type="Area2D" parent="." unique_id=67489551 groups=["black_hole"]]
 collision_layer = 512
 collision_mask = 2
-
-[node name="ColorRect" type="ColorRect" parent="InfluenceArea" unique_id=855931008]
-material = SubResource("ShaderMaterial_enshl")
-offset_left = -288.0
-offset_top = -288.0
-offset_right = 288.0
-offset_bottom = 288.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InfluenceArea" unique_id=1720048061]
 shape = SubResource("CircleShape2D_hq6k4")

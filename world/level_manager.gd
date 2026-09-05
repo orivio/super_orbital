@@ -2,6 +2,7 @@ class_name LevelManager
 extends Node
 
 signal door_entered(direction: Types.DoorDirection)
+signal reload_level_requested()
 signal level_changed(level_idx: int)
 
 const LEVEL_DIR: LevelDirectory = preload("res://world/level_directory.tres")
@@ -35,7 +36,7 @@ func initialize() -> void:
 	# Get the level metadata from the 
 	var level_meta: LevelMeta = LEVEL_DIR.get_level_meta(level_idx)
 	# Change the level
-	change_level(level_meta, "WestDoor")
+	await change_level(level_meta, "WestDoor")
 	current_level_idx = level_idx
 	# Get the player ready
 	player.initialize()
@@ -43,12 +44,12 @@ func initialize() -> void:
 
 func reload_level() -> void:
 	# Change level to the current level, at the door you last entered
-	change_level(current_level_meta, last_entered_door)
+	await change_level(current_level_meta, last_entered_door)
 
 
 func change_level(new_level_meta: LevelMeta, dest_door: String) -> void:
 	# No physics collisions while transitioning levels!
-	player.disable_physics()
+	player.disable()
 	
 	# Do the fade to black
 	await fade_effect.fade(Color(0, 0, 0, 1), level_transition_time).finished
@@ -91,15 +92,14 @@ func change_level(new_level_meta: LevelMeta, dest_door: String) -> void:
 	
 	# Update camera limits
 	update_camera_limits(level_instance)
-	# Reenable physics
-	player.enable_physics()
 	# Fade out from black
 	await fade_effect.fade(Color(0, 0, 0, 0), level_transition_time).finished
-	# Update physics
-	GameManager.player_leave_blackhole()
+	player.enable()
+	player.reset()
 	# Update music
 	if current_level_meta.song != &"" and (not previous_level_meta or current_level_meta.song != previous_level_meta.song):
 		AudioManager.change_music(current_level_meta.song)
+	current_level.finish_setup()
 
 
 func teleport_player_to_door(level: Level, dest_door_tag: String):
@@ -112,11 +112,11 @@ func teleport_player_to_door(level: Level, dest_door_tag: String):
 			
 			# Teleport the player and reset everything
 			player.teleport_to_ground(spawn_location)
-			player.reset()
 			GameManager.camera.snap_camera_to_player()
 			return
 	
 	print("Could not find door ", dest_door_tag, " in level ", level.name)
+	player.teleport_to_ground(Vector2.ZERO)
 
 
 func update_camera_limits(level: Level) -> void:
@@ -142,10 +142,24 @@ func do_level_transition(direction: Types.DoorDirection) -> void:
 	level_changed.emit(new_level_idx)
 
 
+func goto_level(new_level_idx: int) -> void:
+	# Find level to go to
+	var new_level_meta: LevelMeta = LEVEL_DIR.get_level_meta(new_level_idx)
+	
+	# Change level
+	await change_level(new_level_meta, "WestDoor")
+	
+	# Finish up
+	current_level_idx = new_level_idx
+	# Emitting the level_changed signal should not be necessary in most cases,
+	# but I'm doing it anyway for consistency.
+	level_changed.emit(new_level_idx)
+
+
 func _on_door_entered(direction: Types.DoorDirection) -> void:
 	door_entered.emit(direction)
 
 
 func _on_player_death() -> void:
 	# TODO: Add checkpoints
-	reload_level()
+	reload_level_requested.emit()

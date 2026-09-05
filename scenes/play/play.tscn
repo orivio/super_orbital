@@ -17,3 +17,5 @@ process_mode = 1
 process_mode = 1
 
 [node name="DialogueSystem" parent="UI" unique_id=371403122 instance=ExtResource("3_fxwjs")]
+
+[node name="CutsceneSystem" type="CanvasLayer" parent="." unique_id=425141729]

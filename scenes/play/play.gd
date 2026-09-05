@@ -1,3 +1,4 @@
+class_name Play
 extends Node2D
 
 enum PlayState {
@@ -7,6 +8,8 @@ enum PlayState {
 	OPENING_PAUSE_MENU,
 	IN_PAUSE_MENU,
 	CLOSING_PAUSE_MENU,
+	DIALOGUE,
+	CUTSCENE,
 }
 
 const PAUSE_MENU: PackedScene = preload("res://scenes/pause_menu/pause_menu.tscn")
@@ -21,12 +24,15 @@ var current_state: PlayState
 
 @onready var world: World = $World
 @onready var ui_layer: CanvasLayer = $UI
+@onready var cutscene_system: CanvasLayer = $CutsceneSystem
 
 
 func _ready() -> void:
+	GameManager.play = self
 	current_state = PlayState.UNINITIALIZED
 	world.door_entered.connect(_on_door_entered)
-	world.initialize()
+	world.reload_level_requested.connect(_on_reload_level_requested)
+	await world.initialize()
 	current_state = PlayState.GAMEPLAY
 
 
@@ -35,20 +41,8 @@ func _input(event: InputEvent) -> void:
 		match current_state:
 			PlayState.GAMEPLAY: open_pause_menu()
 			PlayState.IN_PAUSE_MENU: close_pause_menu()
-			PlayState.OPENING_PAUSE_MENU: return
-			PlayState.CLOSING_PAUSE_MENU: return
-			PlayState.UNINITIALIZED: return
-			PlayState.TRANSITIONING_ROOMS: return
-
-
-func _on_pause_menu_close_pressed() -> void:
-	match current_state:
-		PlayState.IN_PAUSE_MENU: close_pause_menu()
-		PlayState.GAMEPLAY: return
-		PlayState.OPENING_PAUSE_MENU: return
-		PlayState.CLOSING_PAUSE_MENU: return
-		PlayState.UNINITIALIZED: return
-		PlayState.TRANSITIONING_ROOMS: return
+	#if event.is_action_pressed("gravity_switch"):
+	#	start_cutscene("res://cutscenes/intro/intro.tscn")
 
 
 func open_pause_menu() -> void:
@@ -62,6 +56,7 @@ func open_pause_menu() -> void:
 	# Connect signals
 	pause_menu.close_pressed.connect(_on_pause_menu_close_pressed)
 	pause_menu.exit_pressed.connect(_on_pause_menu_exit_pressed)
+	pause_menu.level_selected.connect(_on_pause_menu_level_selected)
 	# Hide the pause menu below the screen
 	pause_menu.position.y = get_viewport_rect().size.y
 	# Animate the pause menu sliding upwards
@@ -97,17 +92,75 @@ func do_level_transition(direction: Types.DoorDirection) -> void:
 	current_state = PlayState.GAMEPLAY
 
 
+func start_dialogue() -> bool:
+	match current_state:
+		PlayState.GAMEPLAY:
+			current_state = PlayState.DIALOGUE
+			return true
+		_: return false
+
+
+func end_dialogue() -> void:
+	match current_state:
+		PlayState.DIALOGUE:
+			current_state = PlayState.GAMEPLAY
+
+
+func start_cutscene(cutscene_path: String) -> void:
+	match current_state:
+		PlayState.GAMEPLAY:
+			current_state = PlayState.CUTSCENE
+			AudioManager.pause_sound()
+			get_tree().paused = true
+			var cutscene_resource: PackedScene = load(cutscene_path)
+			var cutscene_instance: Cutscene = cutscene_resource.instantiate()
+			cutscene_system.add_child(cutscene_instance)
+			cutscene_system.process_mode = Node.PROCESS_MODE_ALWAYS
+			if not cutscene_instance.is_node_ready():
+				await cutscene_instance.ready
+			
+			cutscene_instance.start()
+			
+			await cutscene_instance.cutscene_finished
+			cutscene_instance.queue_free()
+			get_tree().paused = false
+			await get_tree().process_frame
+			current_state = PlayState.GAMEPLAY
+			AudioManager.resume_sound()
+			
+
+
 func _on_door_entered(direction: Types.DoorDirection) -> void:
 	match current_state:
-		PlayState.UNINITIALIZED: return
-		PlayState.TRANSITIONING_ROOMS: return
-		PlayState.OPENING_PAUSE_MENU: return
-		PlayState.IN_PAUSE_MENU: return
-		PlayState.CLOSING_PAUSE_MENU: return
-		PlayState.GAMEPLAY: do_level_transition.call_deferred(direction)
+		PlayState.GAMEPLAY:
+			do_level_transition.call_deferred(direction)
+		_:
+			push_warning("Invalid state for level transition: ", current_state)
 
 
 func _on_pause_menu_exit_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/menu/menu.tscn")
 	DialogueManager.end_dialogue_fast()
+
+
+func _on_pause_menu_close_pressed() -> void:
+	match current_state:
+		PlayState.IN_PAUSE_MENU: close_pause_menu()
+
+
+func _on_pause_menu_level_selected(level_idx: int) -> void:
+	match current_state:
+		PlayState.IN_PAUSE_MENU:
+			await close_pause_menu()
+			current_state = PlayState.TRANSITIONING_ROOMS
+			await world.goto_level(level_idx)
+			current_state = PlayState.GAMEPLAY
+
+
+func _on_reload_level_requested() -> void:
+	match current_state:
+		PlayState.GAMEPLAY:
+			current_state = PlayState.TRANSITIONING_ROOMS
+			await world.reload_level()
+			current_state = PlayState.GAMEPLAY

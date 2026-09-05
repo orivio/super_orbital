@@ -5,30 +5,30 @@
 [ext_resource type="PackedScene" uid="uid://b2ogi0ekm1d7i" path="res://objects/moving_platform/moving_platform.tscn" id="3_myysj"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="4_1y6bu"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhy1t"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13h27"]
 resource_local_to_scene = true
-size = Vector2(1728, 672)
+size = Vector2(1728, 688)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_unetp"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygiwu"]
 resource_local_to_scene = true
 size = Vector2(192, 192)
 
-[sub_resource type="Curve2D" id="Curve2D_nho0s"]
+[sub_resource type="Curve2D" id="Curve2D_myysj"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 288, 32, 0, 0, 0, 0, 768, 32)
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u3ein"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1y6bu"]
 resource_local_to_scene = true
 size = Vector2(192, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0tla"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhy1t"]
 resource_local_to_scene = true
 size = Vector2(96, 96)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qbmv"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unetp"]
 resource_local_to_scene = true
 size = Vector2(160, 96)
 
@@ -38,19 +38,19 @@ size = Vector2(160, 96)
 visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
-position = Vector2(352, -256)
-shape = SubResource("RectangleShape2D_xhy1t")
+position = Vector2(352, -248)
+shape = SubResource("RectangleShape2D_13h27")
 
 [node name="ProgressDetector" parent="POI" parent_id_path=PackedInt32Array(809409572) index="0" unique_id=1408990158 instance=ExtResource("2_ygiwu")]
 progress_name = &"Moving Platforms"
 
 [node name="CollisionShape2D" parent="POI/ProgressDetector" index="0" unique_id=1008791462]
 position = Vector2(1184, -160)
-shape = SubResource("RectangleShape2D_unetp")
+shape = SubResource("RectangleShape2D_ygiwu")
 
 [node name="MovingPlatform" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="0" unique_id=1898127775 instance=ExtResource("3_myysj")]
 position = Vector2(0, -96)
-curve = SubResource("Curve2D_nho0s")
+curve = SubResource("Curve2D_myysj")
 time = 2.0
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform" index="0" unique_id=199652958]
@@ -65,7 +65,7 @@ position = Vector2(288, 32)
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform/AnimatableBody2D" index="0" unique_id=388684668]
-shape = SubResource("RectangleShape2D_u3ein")
+shape = SubResource("RectangleShape2D_1y6bu")
 
 [node name="NinePatchRect" parent="Objects/MovingPlatform/AnimatableBody2D" index="1" unique_id=1810313545]
 offset_left = -96.0
@@ -82,23 +82,21 @@ tile_map_data = PackedByteArray("AAAZAO//AAAAAAMAAAAaAO//AAABAAMAAAAbAO//AAABAAM
 
 [node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("4_1y6bu")]
 door_tag = "WestDoor"
-dest_door = ""
 direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-624, -48)
-shape = SubResource("RectangleShape2D_y0tla")
+shape = SubResource("RectangleShape2D_xhy1t")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-448, 0)
 
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=867625743 instance=ExtResource("4_1y6bu")]
 door_tag = "EastDoor"
-dest_door = ""
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(1360, -144)
-shape = SubResource("RectangleShape2D_1qbmv")
+shape = SubResource("RectangleShape2D_unetp")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(992, -96)

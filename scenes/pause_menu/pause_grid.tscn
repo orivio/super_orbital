@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://bnjs36ky66lk0"]
+
+[ext_resource type="PackedScene" uid="uid://bffvtsyaqev2g" path="res://scenes/save_select/level_grid.tscn" id="1_62ig7"]
+[ext_resource type="Theme" uid="uid://t4gelel5hk2o" path="res://ui/themes/simple_button_theme.tres" id="1_cihic"]
+[ext_resource type="Script" uid="uid://cq3jecp833btp" path="res://scenes/pause_menu/pause_grid.gd" id="1_j4c0g"]
+[ext_resource type="Script" uid="uid://bhsq5ppbbt2xw" path="res://ui/effects/button_animation/button_animator.gd" id="3_mso60"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n6sbn"]
+font_size = 70
+
+[node name="PauseGrid" type="Control" unique_id=912425666]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j4c0g")
+
+[node name="BackButton" type="Button" parent="." unique_id=1177050186 node_paths=PackedStringArray("target")]
+custom_minimum_size = Vector2(120, 70)
+layout_mode = 1
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 130.0
+offset_bottom = 79.0
+theme = ExtResource("1_cihic")
+text = "Back"
+script = ExtResource("3_mso60")
+target = NodePath(".")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1667026190]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -283.5
+offset_right = 512.0
+offset_bottom = 283.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseGrid" type="HBoxContainer" parent="PanelContainer" unique_id=1931704660]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/PauseGrid" unique_id=953195843]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/PauseGrid" unique_id=146222714]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/PauseGrid/VBoxContainer" unique_id=66322608]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Level Select"
+label_settings = SubResource("LabelSettings_n6sbn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelGrid" parent="PanelContainer/PauseGrid/VBoxContainer" unique_id=1946749695 instance=ExtResource("1_62ig7")]
+layout_mode = 2
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="level_grid_selected" from="PanelContainer/PauseGrid/VBoxContainer/LevelGrid" to="." method="_on_level_grid_level_grid_selected"]
+[connection signal="play" from="PanelContainer/PauseGrid/VBoxContainer/LevelGrid" to="." method="_on_level_grid_play"]

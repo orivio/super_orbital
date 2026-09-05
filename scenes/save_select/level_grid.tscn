@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://bffvtsyaqev2g"]
+
+[ext_resource type="Script" uid="uid://br0cuwcexf063" path="res://scenes/save_select/level_grid.gd" id="1_5gr8u"]
+[ext_resource type="Theme" uid="uid://bgg5ijatxye6r" path="res://ui/themes/level_buttons.tres" id="2_o5gn6"]
+[ext_resource type="Texture2D" uid="uid://xor45kxxxrjg" path="res://ui/icons/level_buttons/left_normal.tres" id="3_jkwny"]
+[ext_resource type="Script" uid="uid://0k8svaulvl7c" path="res://scenes/save_select/level_button.gd" id="4_bslfe"]
+[ext_resource type="Texture2D" uid="uid://bjy8neyfr5cl0" path="res://ui/icons/level_buttons/left_disabled.tres" id="5_sug73"]
+[ext_resource type="Texture2D" uid="uid://calgyr7pajr78" path="res://ui/icons/level_buttons/left_hover.tres" id="6_6riir"]
+[ext_resource type="Texture2D" uid="uid://dt80tlga4jbp4" path="res://ui/ui_sheet.png" id="7_2g7fe"]
+[ext_resource type="Texture2D" uid="uid://cllnjdrdbh1aj" path="res://ui/icons/level_buttons/right_disabled.tres" id="8_l7u78"]
+[ext_resource type="Texture2D" uid="uid://bflenb02j5ks3" path="res://ui/icons/level_buttons/right_normal.tres" id="9_xdmov"]
+[ext_resource type="Texture2D" uid="uid://dn816f25thjpv" path="res://ui/icons/level_buttons/right_hover.tres" id="10_rfcau"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6l7h2"]
+atlas = ExtResource("7_2g7fe")
+region = Rect2(80, 264, 16, 48)
+
+[node name="LevelGrid" type="Control" unique_id=1946749695]
+custom_minimum_size = Vector2(928, 467)
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_5gr8u")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1723607422]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 16.0
+offset_bottom = -16.0
+
+[node name="LeftButton" type="Button" parent="HBoxContainer" unique_id=1610339790]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme = ExtResource("2_o5gn6")
+icon = ExtResource("3_jkwny")
+icon_alignment = 1
+script = ExtResource("4_bslfe")
+disabled_icon = ExtResource("5_sug73")
+normal_icon = ExtResource("3_jkwny")
+hover_icon = ExtResource("6_6riir")
+
+[node name="Grid" type="GridContainer" parent="HBoxContainer" unique_id=1467816385]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 5
+
+[node name="RightButton" type="Button" parent="HBoxContainer" unique_id=1805945644]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme = ExtResource("2_o5gn6")
+icon = SubResource("AtlasTexture_6l7h2")
+icon_alignment = 1
+script = ExtResource("4_bslfe")
+disabled_icon = ExtResource("8_l7u78")
+normal_icon = ExtResource("9_xdmov")
+hover_icon = ExtResource("10_rfcau")
+
+[connection signal="button_down" from="HBoxContainer/LeftButton" to="." method="_on_left_button_button_down"]
+[connection signal="button_down" from="HBoxContainer/RightButton" to="." method="_on_right_button_button_down"]

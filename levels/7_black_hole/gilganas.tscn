@@ -22,6 +22,9 @@ size = Vector2(64, 160)
 
 [node name="Level" unique_id=201273727 instance=ExtResource("1_tsdi7")]
 
+[node name="ColorRect" parent="Background" parent_id_path=PackedInt32Array(2128642405) index="0" unique_id=1139011203]
+color = Color(0.18431373, 0.18431373, 0.18431373, 1)
+
 [node name="CameraBounds" parent="." index="1" unique_id=711655567]
 visible = true
 
@@ -100,7 +103,6 @@ tile_map_data = PackedByteArray("AAD2//L/AAAAAAsAAAD2//P/AAAAAAwAAAD2//T/AAAAAA0
 
 [node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("3_8sou3")]
 door_tag = "WestDoor"
-dest_door = ""
 direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
@@ -112,7 +114,6 @@ position = Vector2(-1024, 352)
 
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=1403640832 instance=ExtResource("3_8sou3")]
 door_tag = "EastDoor"
-dest_door = ""
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(3040, 80)

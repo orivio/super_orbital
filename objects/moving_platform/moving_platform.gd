@@ -23,6 +23,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not Engine.is_editor_hint():
+		if time == 0:
+			return
 		if rotate_time != 0:
 			collision_shape.rotation += rotate_speed * delta * GameManager.time_scale
 			rect.rotation += rotate_speed * delta * GameManager.time_scale

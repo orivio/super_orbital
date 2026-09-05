@@ -1,3 +1,4 @@
+@tool
 class_name Player
 extends CharacterBody2D
 
@@ -5,210 +6,225 @@ signal player_death
 signal ability_unlocked(name: String)
 signal ability_locked(name: String)
 
+# Not the same as the Statemachine, which is for physics and movement. This is 
+# for top level state that determines how the Player is updated each frame.
+enum PlayerState {
+	UNINITIALIZED,
+	GAMEPLAY,
+	DISABLED,
+	DYING,
+}
+# Used for the shader parameter.
+enum GravityState {
+	BLACK_HOLE = 0,
+	FLOAT = 1,
+	NORMAL = 2,
+}
+
 const IMPACT_CLOUD = preload("res://effects/impact_cloud/impact_cloud.tscn")
 const DUST_CLOUD = preload("res://effects/dust_cloud/dust_cloud.tscn")
 const DASH_CLOUD = preload("res://effects/dash_cloud/dash_cloud.tscn")
 const AFTER_IMAGE = preload("res://effects/player_afterimage/player_afterimage.tscn")
+const WRENCH_PROJECTILE = preload("uid://cgbxshe71m18w")
 
+
+@export_category("Movement and Abilities")
 @export var movement_settings: PlayerMovementSettings
 @export var abilities: PlayerAbilities = null
-@export var after_image_rate: float
-@export var after_image_fade: float
+@export_category("Death Sequence Settings")
+@export_range(0.0, 1.0) var death_time: float
+@export_range(0.0, 0.3) var death_hitstop_time: float
+@export_range(0.0, 15.0) var death_camera_shake_strength: float
+@export_category("Afterimage Settings")
+@export_range(0.0, 1.0) var afterimage_period: float
+@export_range(0.0, 2.0) var afterimage_fade_time: float
 
-var direction: float:
-	set(value):
-		direction = value
-var facing: float:
-	set(value):
-		facing = value
-var has_gravity: bool
-var in_blackhole: bool
-var base_velocity: Vector2
-var is_dying: bool = false
-var can_dash: bool = true
-var can_move: bool = true
-var can_enter_nograv: bool = true
-var can_jump: bool = true
-var can_throw_wrench: bool = true
-var input_locked: bool
-var death_timer: float = 0
-var disabled: bool = false
-var tooltips_disabled: bool = false
-var jump_buffer: bool = false
-var gravity_switch_counter: int = 0
-var gravity_switch_timer: float = 0
-var dash_cooldown_timer: float = 0
-var is_dashing_horizontally: bool = false
-var is_floating: bool = false
-var true_velocity: Vector2 = Vector2.ZERO
-var last_pos: Vector2
-var is_on_floor_buffered: bool
-var is_on_floor_timer: SceneTreeTimer
-
-var effect_nodes: Array[Node2D]
-
-
-@onready var state_machine: PlayerStateMachine = $StateMachine
-@onready var sprite: Sprite2D = $Sprite2D
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var animation_tree: AnimationTree = $AnimationTree
-@onready var tooltip: Tooltip = $Tooltip
+# Components
+@onready var state_machine: StateMachine = $StateMachine
+@onready var input: InputComponent = $InputComponent
+@onready var debug_overlay: DebugOverlay = $DebugOverlay
+# Visuals
+@onready var sprite: Sprite2D = $VisualComponents/Sprite2D
+@onready var animation_player: AnimationPlayer = $VisualComponents/AnimationPlayer
+@onready var shockwave_controller: AnimationPlayer = $VisualComponents/ShockwaveController
+@onready var animation_tree: AnimationTree = $VisualComponents/AnimationTree
+@onready var tooltip: Tooltip = $VisualComponents/Tooltip
+# Timers
+@onready var jump_buffer_timer: Timer = $Timers/JumpBufferTimer
+@onready var dash_buffer_timer: Timer = $Timers/DashBufferTimer
+@onready var grav_switch_buffer_timer: Timer = $Timers/GravSwitchBufferTimer
+@onready var coyote_timer: Timer = $Timers/CoyoteTimer
+@onready var dash_cooldown_timer: Timer = $Timers/DashCooldownTimer
+@onready var death_timer: Timer = $Timers/DeathTimer
+@onready var afterimage_timer: Timer = $Timers/AfterImageTimer
+@onready var dash_exit_timer: Timer = $Timers/DashExitTimer
+# Physics components
+@onready var floorcaster: ShapeCast2D = $Raycasts/Floorcaster
+@onready var left_ceiling_raycast: RayCast2D = $Raycasts/LCeilingRaycast
+@onready var middle_ceiling_raycast: RayCast2D = $Raycasts/MCeilingRaycast
+@onready var right_ceiling_raycast: RayCast2D = $Raycasts/RCeilingRaycast
+@onready var upper_right_wallcaster: RayCast2D = $Raycasts/UpperRightWallcaster
+@onready var upper_middle_right_wallcaster: RayCast2D = $Raycasts/UpperMiddleRightWallcaster
+@onready var lower_middle_right_wallcaster: RayCast2D = $Raycasts/LowerMiddleRightWallcaster
+@onready var lower_right_wallcaster: RayCast2D = $Raycasts/LowerRightWallcaster
+@onready var upper_left_wallcaster: RayCast2D = $Raycasts/UpperLeftWallcaster
+@onready var upper_middle_left_wallcaster: RayCast2D = $Raycasts/UpperMiddleLeftWallcaster
+@onready var lower_middle_left_wallcaster: RayCast2D = $Raycasts/LowerMiddleLeftWallcaster
+@onready var lower_left_wallcaster: RayCast2D = $Raycasts/LowerLeftWallcaster
 @onready var collider: CollisionShape2D = $CollisionShape2D
-@onready var floor_caster: ShapeCast2D = $FloorCaster
-@onready var effects: Node2D = $Effects
 
-@onready var gravity_off_sfx: AudioStreamPlayer = $Sounds/GravityOff
-@onready var gravity_on_sfx: AudioStreamPlayer = $Sounds/GravityOn
-@onready var dash_sfx: AudioStreamPlayer = $Sounds/Dash
-@onready var throw_wrench_sfx: AudioStreamPlayer = $Sounds/ThrowWrench
-@onready var death_sfx: AudioStreamPlayer = $Sounds/Death
+
+# Visual logic
+var facing_right: bool = true
+var anim_playback: AnimationNodeStateMachinePlayback
+# Movement logic
+var was_on_floor_last_frame: bool
+var jump_buffer: bool
+var dash_velocity_buffer: Vector2
+var dash_buffer: bool
+var grav_switch_buffer: bool
+var coyote_buffer: bool
+var has_dash: bool
+var dash_on_cooldown: bool
+var current_blackhole: BlackHole
+# State management
+var frames_passed: int
+var current_player_state: PlayerState
+var input_locked: bool
 
 
 func _ready() -> void:
-	GameManager.player = self
-	ability_unlocked.connect(SaveManager._on_ability_unlocked)
-	ability_locked.connect(SaveManager._on_ability_locked)
-	state_machine.initialize()
-	GameManager.player_left_blackhole.connect(_on_player_left_blackhole)
-	#Engine.time_scale = 0.1
-
-
-func _process(delta: float) -> void:
-	if !input_locked:
-		direction = Input.get_axis("left", "right")
+	if not Engine.is_editor_hint():
+		# Set up player state
+		current_player_state = PlayerState.UNINITIALIZED
+		# Set up the animation tree
+		anim_playback = animation_tree.get("parameters/playback")
+		# Set up global references
+		GameManager.player = self
+		# Connect signals
+		ability_unlocked.connect(SaveManager._on_ability_unlocked)
+		ability_locked.connect(SaveManager._on_ability_locked)
+		# Ready the state machine
+		state_machine.initialize()
 	else:
-		direction = 0
-	
-	if is_dying:
-		if death_timer > 0:
-			death_timer -= delta
-		elif death_timer <= 0:
-			death_timer = 0
-			is_dying = false
-			can_dash = true
-			can_move = true
-			can_enter_nograv = true
-			can_jump = true
-			can_throw_wrench = true
-			player_death.emit()
-			get_tree().create_timer(0.1).timeout.connect(_on_death_timeout)
-	
-	#if tooltips_disabled:
-	#	if tooltips_timer > 0:
-	#		tooltips_timer -= delta
-	#	elif tooltips_timer <= 0:
-	#		tooltips_disabled = false
-	#		tooltips_timer = 0
-	
-	if Input.is_action_just_pressed("jump"):
-		jump_buffer = true
-		get_tree().create_timer(movement_settings.jump_buffer).timeout.connect(on_jump_buffer_timeout)
-	
-	state_machine.process(delta)
-	
-	if state_machine.current_state is StateBlackHole:
-		tooltip.text = "Black Hole"
-	elif state_machine.current_state is StateDash:
-		tooltip.text = "Dash"
-	elif state_machine.current_state is StateFall:
-		tooltip.text = "Fall"
-	elif state_machine.current_state is StateFloat:
-		tooltip.text = "Float"
-	elif state_machine.current_state is StateIdle:
-		tooltip.text = "Idle"
-	elif state_machine.current_state is StateJump:
-		tooltip.text = "Jump"
-	elif state_machine.current_state is StateWalk:
-		tooltip.text = "Walk"
-	elif state_machine.current_state is StateWrench:
-		tooltip.text = "Wrench"
+		movement_settings.debug_visual_changed.connect(_on_debug_visual_changed)
+
+
+#region Main Loops
+func _process(delta: float) -> void:
+	if not Engine.is_editor_hint():
+		match current_player_state:
+			PlayerState.GAMEPLAY:
+				state_machine.process(delta)
+		
+		# Visual logic
+		if facing_right:
+			sprite.flip_h = false
+		else:
+			sprite.flip_h = true
+		
+		#region Tooltip Update
+		if state_machine.current_state is IdleState:
+			tooltip.show_tooltip("Idle")
+			sprite.material.set_shader_parameter("gravity_state", GravityState.NORMAL)
+		elif state_machine.current_state is WalkState:
+			tooltip.show_tooltip("Walk")
+			sprite.material.set_shader_parameter("gravity_state", GravityState.NORMAL)
+		elif state_machine.current_state is JumpState:
+			tooltip.show_tooltip("Jump")
+			sprite.material.set_shader_parameter("gravity_state", GravityState.NORMAL)
+		elif state_machine.current_state is FallState:
+			tooltip.show_tooltip("Fall")
+			sprite.material.set_shader_parameter("gravity_state", GravityState.NORMAL)
+		elif state_machine.current_state is DashState:
+			tooltip.show_tooltip("Dash")
+			sprite.material.set_shader_parameter("gravity_state", GravityState.NORMAL)
+		elif state_machine.current_state is FloatState:
+			tooltip.show_tooltip("Float")
+			sprite.material.set_shader_parameter("gravity_state", GravityState.FLOAT)
+		elif state_machine.current_state is BlackHoleState:
+			tooltip.show_tooltip("BlackHole")
+			sprite.material.set_shader_parameter("gravity_state", GravityState.BLACK_HOLE)
+		
+		if true:
+			tooltip.hide_tooltip()
+		
+		if false:
+			tooltip.show_tooltip(str(frames_passed))
+		if false:
+			tooltip.show_tooltip(str(velocity.y))
+		#endregion
 
 
 func _physics_process(delta: float) -> void:
-	#print(state_machine.current_state)
-	if is_on_floor():
-		is_on_floor_buffered = true
-		if not input_locked:
-			if dash_cooldown_timer <= 0:
-				can_dash = true
-			gravity_switch_counter = 0
-	else:
-		if is_on_floor_buffered and not is_on_floor_timer:
-			is_on_floor_timer = get_tree().create_timer(movement_settings.coyote_time)
-			is_on_floor_timer.timeout.connect(func() -> void:
-				is_on_floor_buffered = false
-				is_on_floor_timer = null
-			)
-	
-	if dash_cooldown_timer > 0:
-		dash_cooldown_timer -= delta
-	
-	if gravity_switch_timer > 0:
-		gravity_switch_timer -= delta
-	elif gravity_switch_counter < 2:
-		can_enter_nograv = true
-	
-	if has_gravity and not is_on_floor():
-		var scaled_delta: float = delta * GameManager.time_scale
+	if not Engine.is_editor_hint():
+		if delta != 0:
+			frames_passed += 1
+			if velocity.x > 0:
+				facing_right = true
+			elif velocity.x < 0:
+				facing_right = false
 		
-		if base_velocity.y < 0:
-			base_velocity.y += movement_settings.gravity * scaled_delta
-		else:
-			base_velocity.y += movement_settings.gravity * movement_settings.downward_gravity_multiplier * scaled_delta
-	
-	velocity.x = base_velocity.x * GameManager.time_scale
-	# base_velocity.y already got time scaled
-	base_velocity.y = clamp(base_velocity.y, -movement_settings.max_velocity, movement_settings.max_velocity)
-	velocity.y = base_velocity.y * GameManager.time_scale
-
-	move_and_slide()
-	animation_tree.set("parameters/jump/blend_position", base_velocity.y)
-	animation_tree.set("parameters/float/blend_position", base_velocity)
-	animation_tree.set("parameters/black_hole/blend_position", base_velocity)
-	if in_blackhole and not is_floating:
-		sprite.material.set_shader_parameter("gravity_state", 0)
-	elif is_floating:
-		sprite.material.set_shader_parameter("gravity_state", 1)
-	else:
-		sprite.material.set_shader_parameter("gravity_state", 2)
-
-	state_machine.physics_process(delta)
-	if not state_machine.current_state is StateFloat and not state_machine.current_state is StateWrench and in_blackhole:
-		GameManager.time_scale = 0.5
-		state_machine.change_state($StateMachine/BlackHole)
-	
-	if is_on_floor() and has_gravity and not state_machine.current_state is StateJump and not state_machine.current_state is StateFloat:
-		base_velocity.y = 0
-	
-	true_velocity = (global_position - last_pos) / delta
-	last_pos = global_position
+		#region Physics Loop
+		
+		match current_player_state:
+			PlayerState.GAMEPLAY:
+				input.physics_process(delta)
+				
+				# Update movement logic
+				if input.jump_pressed:
+					jump_buffer = true
+					jump_buffer_timer.start(movement_settings.jump_buffer_time)
+				
+				if input.dash_pressed:
+					dash_buffer = true
+					dash_velocity_buffer = resolve_dash_velocity()
+					dash_buffer_timer.start(movement_settings.dash_buffer_time)
+				
+				if input.grav_switch_pressed:
+					grav_switch_buffer = true
+					grav_switch_buffer_timer.start(movement_settings.grav_switch_buffer_time)
+				
+				if floorcaster.is_colliding():
+					was_on_floor_last_frame = true
+					coyote_buffer = true
+					has_dash = true
+				else:
+					if was_on_floor_last_frame:
+						was_on_floor_last_frame = false
+						coyote_buffer = true
+						coyote_timer.start(movement_settings.coyote_time)
+				
+				if delta != 0:
+					state_machine.physics_process(delta)
+		#endregion
+#endregion
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	#if event.is_action_pressed("dash"):
-	#	print("From Player: Dash pressed")
-	#	print(event)
-	#	print(event.as_text())
-	#	print()
 	state_machine.input(event)
 
 
+#region Player API
 func initialize() -> void:
 	load_abilities()
+	current_player_state = PlayerState.GAMEPLAY
+	dash_on_cooldown = false
 
 
 func reset() -> void:
-	is_dashing_horizontally = false
-	is_floating = false
-	has_gravity = true
-	base_velocity = Vector2.ZERO
 	velocity = Vector2.ZERO
+	was_on_floor_last_frame = false
+	jump_buffer = false
+	dash_buffer = false
+	grav_switch_buffer = false
+	coyote_buffer = true
+	has_dash = true
+	dash_on_cooldown = false
 	state_machine.reset()
-	for effect in effects.get_children():
-		if not effect.is_queued_for_deletion():
-			effect.queue_free()
-	in_blackhole = false
-	last_pos = global_position
+	current_player_state = PlayerState.GAMEPLAY
+	anim_playback.travel("idle")
+	set_process_mode(Node.PROCESS_MODE_INHERIT)
 
 
 func load_abilities() -> void:
@@ -216,15 +232,31 @@ func load_abilities() -> void:
 		abilities = SaveManager.get_save_file().player_abilities
 
 
-func update_animation(_animation: String) -> void:
-	#if animation_player.current_animation != animation:
-	#	animation_player.play(animation)
-	pass
+func die() -> void:
+	current_player_state = PlayerState.DYING
+	GameManager.hitstop(death_hitstop_time)
+	GameManager.camera_shake(death_camera_shake_strength)
+	death_timer.start(death_time)
+	await death_timer.timeout
+	player_death.emit()
 
 
-func stop_animation() -> void:
-	#animation_player.stop()
-	pass
+func disable() -> void:
+	current_player_state = PlayerState.DISABLED
+	set_process_mode(Node.PROCESS_MODE_DISABLED)
+
+
+func enable() -> void:
+	current_player_state = PlayerState.GAMEPLAY
+	set_process_mode(Node.PROCESS_MODE_INHERIT)
+
+
+func lock_input() -> void:
+	input_locked = true
+
+
+func unlock_input() -> void:
+	input_locked = false
 
 
 func show_tooltip(message: String) -> void:
@@ -235,26 +267,8 @@ func hide_tooltip() -> void:
 	tooltip.hide_tooltip()
 
 
-func die() -> void:
-	if is_dying:
-		return
-	has_gravity = true
-	is_dying = true
-	can_dash = false
-	can_move = false
-	can_jump = false
-	can_throw_wrench = false
-	can_enter_nograv = false
-	input_locked = true
-	#update_animation("hit")
-	GameManager.impact()
-	death_timer = 0.4
-	tooltips_disabled = true
-	play_sound_effect(&"death")
-
-
-func on_jump_buffer_timeout() -> void:
-	jump_buffer = false
+func do_shockwave() -> void:
+	shockwave_controller.play(&"shockwave")
 
 
 func get_half_height() -> float:
@@ -265,145 +279,215 @@ func get_half_width() -> float:
 	return collider.shape.get_rect().size.x / 2 + 10
 
 
-func _on_death_timeout() -> void:
-	tooltips_disabled = false
-	input_locked = false
-	reset()
+func get_center_of_mass() -> Vector2:
+	return Vector2(0, -25)
 
 
 func teleport_to_ground(target: Vector2) -> void:
-	global_position = target + Vector2.UP * get_half_height()
-	last_pos = global_position
-	#print("Teleporting player to: ", global_position)
-	# This is so annoying and I hate this
+	global_position = target
 
 
-func can(ability: String) -> bool:
-	match ability:
-		"move":
-			return can_move and not input_locked and abilities.unlocked("move")
-		"jump":
-			return can_jump and not input_locked and abilities.unlocked("jump")
-		"dash":
-			return can_dash and not input_locked and abilities.unlocked("dash")
-		"gravity_switch":
-			if state_machine.current_state is StateFloat or state_machine.current_state is StateWrench:
-				return not input_locked and abilities.unlocked("gravity_switch")
-			else:
-				return can_enter_nograv and not input_locked and abilities.unlocked("gravity_switch")
-		"throw_wrench":
-			return can_throw_wrench and not input_locked and abilities.unlocked("throw_wrench")
-		_:
-			return false
-
-
-func unlock(ability: String) -> void:
+func unlock_ability(ability: String) -> void:
 	if not abilities.unlocked(ability):
 		abilities.unlock(ability)
 		ability_unlocked.emit(ability)
 
 
-func lock(ability: String) -> void:
+func lock_ability(ability: String) -> void:
 	if abilities.unlocked(ability):
 		abilities.lock(ability)
 		ability_locked.emit(ability)
 
 
-func spawn_impact_cloud(pos: Vector2, rot: float) -> void:
-	var cloud_instance = IMPACT_CLOUD.instantiate()
-	var dust_instance = DUST_CLOUD.instantiate()
+func start_afterimage_effect() -> void:
+	spawn_afterimage()
+	afterimage_timer.start(afterimage_period)
+
+
+func stop_afterimage_effect() -> void:
+	afterimage_timer.stop()
+
+
+func spawn_afterimage() -> void:
+	var afterimage: PlayerAfterimage = AFTER_IMAGE.instantiate()
+	afterimage.frame = sprite.frame
+	afterimage.fade_time = afterimage_fade_time
+	afterimage.sprite_flip_h = sprite.flip_h
+	afterimage.global_position = global_position
+	GameManager.current_level.add_effect(afterimage)
+
+
+func exit_dash_to_fall() -> void:
+	anim_playback.travel("dash_exit")
+	dash_exit_timer.start(0.0667)
+
+
+func spawn_wrench_projectile(throw_velocity: Vector2) -> void:
+	var wrench_projectile: WrenchProjectile = WRENCH_PROJECTILE.instantiate()
+	wrench_projectile.velocity = -throw_velocity * movement_settings.wrench_throw_velocity_multiplier
+	wrench_projectile.rotation_speed = 6
+	wrench_projectile.global_position = global_position + get_center_of_mass()
+	GameManager.current_level.add_object(wrench_projectile)
+	GameManager.hitstop(movement_settings.throw_wrench_hitstop)
+
+
+func enter_blackhole(bh: BlackHole) -> void:
+	current_blackhole = bh
+
+
+func exit_blackhole(bh: BlackHole) -> void:
+	if current_blackhole == bh:
+		current_blackhole = null
+
+
+#endregion
+
+
+#region Physics Logic
+func can_jump() -> bool:
+	return jump_buffer and coyote_buffer
+
+
+func do_jump() -> void:
+	jump_buffer = false
+	coyote_buffer = false
+	velocity.y = -movement_settings.jump_initial_velocity
+	ceiling_clip_nudge()
+
+
+func can_dash() -> bool:
+	# TODO: Dash buffering?
+	return has_dash and dash_buffer and not dash_on_cooldown
+
+
+func do_dash() -> void:
+	GameManager.hitstop(movement_settings.dash_hitstop)
+	dash_buffer = false
+	has_dash = false
+	dash_on_cooldown = true
+	dash_cooldown_timer.start(movement_settings.dash_cooldown)
 	
-	cloud_instance.finished.connect(cloud_instance.queue_free)
-	dust_instance.finished.connect(dust_instance.queue_free)
+	assert(dash_velocity_buffer != Vector2.ZERO)
 	
-	cloud_instance.finished.connect(_on_effect_finish.bind(cloud_instance))
-	
-	dust_instance.emitting = false
-	
-	dust_instance.global_position = pos
-	effects.add_child(cloud_instance)
-	GameManager.current_level.add_effect(dust_instance)
-	cloud_instance.global_position = pos
-	
-	cloud_instance.rotation_degrees = rot
-	
-	dust_instance.rotation_degrees = rot
-	
-	cloud_instance.emitting = true
-	dust_instance.start()
-	
-	effect_nodes.append(cloud_instance)
+	GameManager.camera_shake_directional(dash_velocity_buffer.normalized(), movement_settings.dash_camera_shake_strength)
+	wall_clip_nudge()
+	velocity = dash_velocity_buffer
+	dash_velocity_buffer = Vector2.ZERO
 
 
-func spawn_dash_cloud(pos: Vector2, rot: float) -> void:
-	var cloud_instance = DASH_CLOUD.instantiate()
-	cloud_instance.finished.connect(cloud_instance.queue_free)
-	cloud_instance.finished.connect(_on_effect_finish.bind(cloud_instance))
-	effects.add_child(cloud_instance)
-	cloud_instance.global_position = pos
-	cloud_instance.rotation_degrees = rot
-	cloud_instance.emitting = true
-	effect_nodes.append(cloud_instance)
+func can_grav_switch() -> bool:
+	return grav_switch_buffer
 
 
-func _on_effect_finish(node: Node2D) -> void:
-	effect_nodes.erase(node)
+func do_grav_switch() -> void:
+	grav_switch_buffer = false
+	GameManager.hitstop(movement_settings.grav_off_hitstop)
+	GameManager.camera_shake(movement_settings.grav_switch_camera_shake_strength)
+	do_shockwave()
 
 
-func dash_effect(dir: Vector2) -> void:
-	match dir:
-		Vector2.UP:
-			spawn_dash_cloud(global_position + Vector2.UP * get_half_height(), 0)
-		Vector2.DOWN:
-			spawn_dash_cloud(global_position + Vector2.DOWN * get_half_height(), 180)
-		Vector2.LEFT:
-			spawn_dash_cloud(global_position + Vector2.RIGHT * get_half_width(), 90)
-		Vector2.RIGHT:
-			spawn_dash_cloud(global_position + Vector2.LEFT * get_half_width(), -90)
+func turn_on_gravity() -> void:
+	grav_switch_buffer = false
+	GameManager.hitstop(movement_settings.grav_on_hitstop)
+	GameManager.camera_shake(movement_settings.grav_switch_camera_shake_strength)
 
 
-func disable_physics() -> void:
-	disabled = true
-	collision_layer = 0
+func can_throw_wrench() -> bool:
+	return input.throw_wrench_pressed and not input.direction == Vector2.ZERO
 
 
-func enable_physics() -> void:
-	await get_tree().physics_frame
-	await get_tree().physics_frame
-	disabled = false
-	set_deferred("collision_layer", 2)
+func do_throw_wrench() -> void:
+	var wrench_velocity: Vector2 = -input.direction
+	velocity = wrench_velocity * velocity.length()
+	spawn_wrench_projectile(velocity)
 
 
-func play_sound_effect(effect_name: StringName) -> void:
-	match effect_name:
-		"gravity_off":
-			dash_sfx.stop()
-			gravity_off_sfx.play()
-		"gravity_on":
-			dash_sfx.stop()
-			gravity_on_sfx.play()
-		"dash":
-			dash_sfx.play()
-		"throw_wrench":
-			throw_wrench_sfx.play()
-		"death":
-			dash_sfx.stop()
-			gravity_on_sfx.stop()
-			gravity_off_sfx.stop()
-			throw_wrench_sfx.stop()
-			death_sfx.play()
-		_: pass
-
-
-func spawn_afterimage(frame_override: int = 0) -> void:
-	var after_image_instance = AFTER_IMAGE.instantiate()
-	if frame_override == 0:
-		after_image_instance.do_thing(sprite.frame, after_image_fade, sprite.flip_h)
+func resolve_dash_velocity() -> Vector2:
+	var dash_velocity: Vector2
+	var dash_direction: Vector2
+	if not movement_settings.allow_orthognal_dash:
+		dash_direction = input.cardinal_direction
+		if dash_direction == Vector2.ZERO:
+			dash_direction = Vector2(1 if facing_right else -1, 0)
+		dash_velocity = dash_direction * movement_settings.dash_velocity
+		if dash_direction == Vector2.UP:
+			dash_velocity *= movement_settings.upward_dash_scale
 	else:
-		after_image_instance.do_thing(frame_override, after_image_fade, sprite.flip_h)
-	after_image_instance.global_position = global_position
-	GameManager.current_level.add_effect(after_image_instance)
+		dash_direction = input.direction
+		if dash_direction.length_squared() < movement_settings.minimum_movement_threshold * movement_settings.minimum_movement_threshold:
+			dash_direction = Vector2(1 if facing_right else -1, 0)
+		else:
+			dash_direction = dash_direction.normalized() * 1
+		dash_velocity = dash_direction * movement_settings.dash_velocity
+		if dash_direction == Vector2.UP:
+			dash_velocity *= movement_settings.upward_dash_scale
+		elif abs(dash_direction.x) > movement_settings.minimum_movement_threshold and dash_direction.y < 0:
+			dash_velocity *= movement_settings.orthogonal_dash_scale
+	return dash_velocity
+
+func ceiling_clip_nudge() -> void:
+	# Not sure if this is the best way to do it, it does feel a little bit buggy
+	#if middle_ceiling_raycast.is_colliding():
+	if velocity.y < -movement_settings.ceiling_clip_min_velocity:
+		if left_ceiling_raycast.is_colliding() and not right_ceiling_raycast.is_colliding():
+			global_position.x = right_ceiling_raycast.global_position.x
+		if right_ceiling_raycast.is_colliding() and not left_ceiling_raycast.is_colliding():
+			global_position.x = left_ceiling_raycast.global_position.x
 
 
-func _on_player_left_blackhole() -> void:
-	GameManager.time_scale = 1
+func wall_clip_nudge() -> void:
+	if abs(velocity.x) > movement_settings.wall_clip_min_velocity:
+		if velocity.x > 0:
+			if upper_right_wallcaster.is_colliding() and not upper_middle_right_wallcaster.is_colliding():
+				position.y += upper_middle_right_wallcaster.position.y - upper_right_wallcaster.position.y
+			if lower_right_wallcaster.is_colliding() and not lower_middle_right_wallcaster.is_colliding():
+				position.y += lower_middle_right_wallcaster.position.y - lower_right_wallcaster.position.y
+		else:
+			if upper_left_wallcaster.is_colliding() and not upper_middle_left_wallcaster.is_colliding():
+				position.y += upper_middle_left_wallcaster.position.y - upper_left_wallcaster.position.y
+			if lower_left_wallcaster.is_colliding() and not lower_middle_left_wallcaster.is_colliding():
+				position.y += lower_middle_left_wallcaster.position.y - lower_left_wallcaster.position.y
+#endregion
+
+
+func take_hit() -> void:
+	match current_player_state:
+		PlayerState.GAMEPLAY:
+			die()
+		PlayerState.UNINITIALIZED:
+			return
+		PlayerState.DISABLED:
+			return
+		PlayerState.DYING:
+			return
+
+func _on_jump_buffer_timeout() -> void:
+	jump_buffer = false
+
+
+func _on_dash_buffer_timeout() -> void:
+	dash_buffer = false
+
+
+func _on_grav_switch_buffer_timeout() -> void:
+	grav_switch_buffer = false
+
+
+func _on_coyote_timeout() -> void:
+	coyote_buffer = false
+
+
+func _on_dash_cooldown_timeout() -> void:
+	dash_on_cooldown = false
+
+
+func _on_dash_exit_timeout() -> void:
+	anim_playback.travel("jump")
+
+
+func _on_after_image_timeout() -> void:
+	spawn_afterimage()
+
+
+func _on_debug_visual_changed() -> void:
+	debug_overlay.queue_redraw()

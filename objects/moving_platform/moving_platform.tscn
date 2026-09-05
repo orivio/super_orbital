@@ -25,6 +25,7 @@ update_rotation = false
 update_scale = false
 
 [node name="FollowVisual" type="Line2D" parent="." unique_id=409824460]
+z_index = 20
 default_color = Color(0.58, 0.58, 0.58, 0.49019608)
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=886220012]
@@ -33,6 +34,7 @@ default_color = Color(0.58, 0.58, 0.58, 0.49019608)
 shape = SubResource("RectangleShape2D_gp6jd")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="AnimatableBody2D" unique_id=1810313545]
+z_index = 20
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

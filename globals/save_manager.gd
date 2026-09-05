@@ -37,6 +37,8 @@ func get_save_file() -> SaveFile:
 	return save_file
 
 func _on_level_changed(level_idx: int) -> void:
+	if level_idx == save_file.level_idx:
+		return
 	save_file.level_idx = level_idx
 	if level_idx > save_file.max_level_idx:
 		save_file.max_level_idx = level_idx

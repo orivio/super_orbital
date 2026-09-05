@@ -1,0 +1,454 @@
+[gd_scene format=3 uid="uid://d0kt1bnygj4cn"]
+
+[ext_resource type="Theme" uid="uid://brsjv0onhn51i" path="res://ui/themes/settings_theme.tres" id="1_7febn"]
+[ext_resource type="FontFile" uid="uid://hlg3easaunqa" path="res://ui/fonts/m5x7.ttf" id="2_t2fih"]
+[ext_resource type="Script" uid="uid://c8w1ehnw4ps4f" path="res://scenes/settings/settings_container.gd" id="3_t2fih"]
+[ext_resource type="Script" uid="uid://ba4hln43let3x" path="res://scenes/settings/settings_controls.gd" id="3_ttj5g"]
+[ext_resource type="Theme" uid="uid://t4gelel5hk2o" path="res://ui/themes/simple_button_theme.tres" id="4_1qkah"]
+[ext_resource type="Script" uid="uid://cs1vcb7tsfcnh" path="res://scenes/settings/input_map_button.gd" id="5_gh7y2"]
+[ext_resource type="Script" uid="uid://b5o2fwcom2tmj" path="res://scenes/settings/settings_audio.gd" id="6_53jge"]
+[ext_resource type="Script" uid="uid://b6276ho5rmjeg" path="res://scenes/settings/settings_graphics.gd" id="7_agog6"]
+[ext_resource type="PackedScene" uid="uid://bjb6m137mh7fl" path="res://ui/effects/button_animation/button_animator.tscn" id="7_ttj5g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vimye"]
+font_size = 32
+
+[node name="TabContainer" type="TabContainer" unique_id=1506521978]
+custom_minimum_size = Vector2(952, 595)
+anchors_preset = -1
+anchor_left = 0.05
+anchor_right = 0.95
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 95.0
+offset_right = -100.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7febn")
+theme_override_fonts/font = ExtResource("2_t2fih")
+theme_override_font_sizes/font_size = 48
+tab_alignment = 1
+current_tab = 0
+script = ExtResource("3_t2fih")
+
+[node name="Controls" type="Control" parent="." unique_id=1763279689]
+layout_mode = 2
+theme = ExtResource("1_7febn")
+script = ExtResource("3_ttj5g")
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Controls" unique_id=1372514347]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -20.0
+theme = ExtResource("1_7febn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Controls/MarginContainer" unique_id=764167787]
+layout_mode = 2
+theme = ExtResource("1_7febn")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Controls/MarginContainer/VBoxContainer" unique_id=1520313312]
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_7febn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1192613127]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_7febn")
+theme_override_constants/separation = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=904479813]
+layout_mode = 2
+theme = ExtResource("1_7febn")
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Left" type="HBoxContainer" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=789730833]
+layout_mode = 2
+theme = ExtResource("1_7febn")
+alignment = 1
+
+[node name="ActionName" type="Label" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Left" unique_id=1696377218]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("1_7febn")
+text = "Left"
+horizontal_alignment = 1
+
+[node name="AssignButton" type="Button" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Left" unique_id=1680783830]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+offset_transform_enabled = true
+theme = ExtResource("4_1qkah")
+text = "Assign"
+script = ExtResource("5_gh7y2")
+action_name = &"left"
+
+[node name="ButtonAnimator" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Left/AssignButton" unique_id=1747957950 node_paths=PackedStringArray("target") instance=ExtResource("7_ttj5g")]
+target = NodePath("..")
+
+[node name="Right" type="HBoxContainer" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1770146426]
+layout_mode = 2
+theme = ExtResource("1_7febn")
+alignment = 1
+
+[node name="ActionName" type="Label" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Right" unique_id=1308738948]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("1_7febn")
+text = "Right"
+horizontal_alignment = 1
+
+[node name="AssignButton" type="Button" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Right" unique_id=833430719]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("4_1qkah")
+text = "Assign"
+script = ExtResource("5_gh7y2")
+action_name = &"right"
+
+[node name="ButtonAnimator" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Right/AssignButton" unique_id=1426648137 node_paths=PackedStringArray("target") instance=ExtResource("7_ttj5g")]
+target = NodePath("..")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=231056108]
+layout_mode = 2
+theme = ExtResource("1_7febn")
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Up" type="HBoxContainer" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=299327979]
+layout_mode = 2
+theme = ExtResource("1_7febn")
+alignment = 1
+
+[node name="ActionName" type="Label" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Up" unique_id=1469623958]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("1_7febn")
+text = "Up"
+horizontal_alignment = 1
+
+[node name="AssignButton" type="Button" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Up" unique_id=1016741937]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+offset_transform_enabled = true
+theme = ExtResource("4_1qkah")
+text = "Assign"
+script = ExtResource("5_gh7y2")
+action_name = &"up"
+
+[node name="ButtonAnimator" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Up/AssignButton" unique_id=412887515 node_paths=PackedStringArray("target") instance=ExtResource("7_ttj5g")]
+target = NodePath("..")
+
+[node name="Down" type="HBoxContainer" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1311273906]
+layout_mode = 2
+theme = ExtResource("1_7febn")
+alignment = 1
+
+[node name="ActionName" type="Label" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Down" unique_id=316513281]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("1_7febn")
+text = "Down"
+horizontal_alignment = 1
+
+[node name="AssignButton" type="Button" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Down" unique_id=1633912019]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("4_1qkah")
+text = "Assign"
+script = ExtResource("5_gh7y2")
+action_name = &"down"
+
+[node name="ButtonAnimator" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Down/AssignButton" unique_id=2133411890 node_paths=PackedStringArray("target") instance=ExtResource("7_ttj5g")]
+target = NodePath("..")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=124576266]
+layout_mode = 2
+theme = ExtResource("1_7febn")
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Jump" type="HBoxContainer" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=696637103]
+layout_mode = 2
+theme = ExtResource("1_7febn")
+alignment = 1
+
+[node name="ActionName" type="Label" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/Jump" unique_id=1578512172]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("1_7febn")
+text = "Jump"
+horizontal_alignment = 1
+
+[node name="AssignButton" type="Button" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/Jump" unique_id=1044167587]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("4_1qkah")
+text = "Assign"
+script = ExtResource("5_gh7y2")
+action_name = &"jump"
+
+[node name="ButtonAnimator" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/Jump/AssignButton" unique_id=167121496 node_paths=PackedStringArray("target") instance=ExtResource("7_ttj5g")]
+target = NodePath("..")
+
+[node name="Dash" type="HBoxContainer" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=957589650]
+layout_mode = 2
+theme = ExtResource("1_7febn")
+alignment = 1
+
+[node name="ActionName" type="Label" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/Dash" unique_id=1705416743]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("1_7febn")
+text = "Dash"
+horizontal_alignment = 1
+
+[node name="AssignButton" type="Button" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/Dash" unique_id=63818575]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("4_1qkah")
+text = "Assign"
+script = ExtResource("5_gh7y2")
+action_name = &"dash"
+
+[node name="ButtonAnimator" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/Dash/AssignButton" unique_id=471855607 node_paths=PackedStringArray("target") instance=ExtResource("7_ttj5g")]
+target = NodePath("..")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=405077540]
+layout_mode = 2
+theme = ExtResource("1_7febn")
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="GravitySwitch" type="HBoxContainer" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=479389139]
+layout_mode = 2
+theme = ExtResource("1_7febn")
+alignment = 1
+
+[node name="ActionName" type="Label" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4/GravitySwitch" unique_id=409471514]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("1_7febn")
+text = "Gravity Switch"
+horizontal_alignment = 1
+
+[node name="AssignButton" type="Button" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4/GravitySwitch" unique_id=71785997]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("4_1qkah")
+text = "Assign"
+script = ExtResource("5_gh7y2")
+action_name = &"gravity_switch"
+
+[node name="ButtonAnimator" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4/GravitySwitch/AssignButton" unique_id=685990411 node_paths=PackedStringArray("target") instance=ExtResource("7_ttj5g")]
+target = NodePath("..")
+
+[node name="ThrowWrench" type="HBoxContainer" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1211112295]
+layout_mode = 2
+theme = ExtResource("1_7febn")
+alignment = 1
+
+[node name="ActionName" type="Label" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4/ThrowWrench" unique_id=56552857]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("1_7febn")
+text = "Throw Wrench"
+horizontal_alignment = 1
+
+[node name="AssignButton" type="Button" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4/ThrowWrench" unique_id=708433467]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("4_1qkah")
+text = "Assign"
+script = ExtResource("5_gh7y2")
+action_name = &"throw_wrench"
+
+[node name="ButtonAnimator" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4/ThrowWrench/AssignButton" unique_id=844149157 node_paths=PackedStringArray("target") instance=ExtResource("7_ttj5g")]
+target = NodePath("..")
+
+[node name="Confirm" type="HBoxContainer" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=964150078]
+layout_mode = 2
+theme = ExtResource("1_7febn")
+alignment = 1
+
+[node name="ActionName" type="Label" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Confirm" unique_id=1401986713]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("1_7febn")
+text = "Confirm"
+horizontal_alignment = 1
+
+[node name="AssignButton" type="Button" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Confirm" unique_id=621868530]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("4_1qkah")
+text = "Assign"
+script = ExtResource("5_gh7y2")
+action_name = &"confirm"
+
+[node name="ButtonAnimator" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Confirm/AssignButton" unique_id=2041678067 node_paths=PackedStringArray("target") instance=ExtResource("7_ttj5g")]
+target = NodePath("..")
+
+[node name="PresetContainer" type="HBoxContainer" parent="Controls/MarginContainer/VBoxContainer" unique_id=434958170]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("1_7febn")
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="PresetLabel" type="Label" parent="Controls/MarginContainer/VBoxContainer/PresetContainer" unique_id=477419450]
+layout_mode = 2
+theme = ExtResource("1_7febn")
+text = "Movement Preset"
+
+[node name="OptionButton" type="OptionButton" parent="Controls/MarginContainer/VBoxContainer/PresetContainer" unique_id=264195892]
+layout_mode = 2
+theme = ExtResource("4_1qkah")
+alignment = 1
+selected = 0
+item_count = 3
+popup/item_0/text = "Default"
+popup/item_0/id = 2
+popup/item_1/text = "Celeste"
+popup/item_1/id = 0
+popup/item_2/text = "Hollow Knight"
+popup/item_2/id = 1
+
+[node name="ButtonAnimator" parent="Controls/MarginContainer/VBoxContainer/PresetContainer/OptionButton" unique_id=970591926 node_paths=PackedStringArray("target") instance=ExtResource("7_ttj5g")]
+target = NodePath("..")
+
+[node name="Audio" type="Control" parent="." unique_id=1792583694]
+visible = false
+layout_mode = 2
+script = ExtResource("6_53jge")
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Audio" unique_id=1457536756]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -20.0
+
+[node name="GridContainer" type="GridContainer" parent="Audio/VBoxContainer" unique_id=387598448]
+layout_mode = 2
+theme_override_constants/h_separation = 150
+theme_override_constants/v_separation = 30
+columns = 2
+
+[node name="Label" type="Label" parent="Audio/VBoxContainer/GridContainer" unique_id=2072905969]
+layout_mode = 2
+text = "Master Volume"
+label_settings = SubResource("LabelSettings_vimye")
+
+[node name="HSlider" type="HSlider" parent="Audio/VBoxContainer/GridContainer" unique_id=715060083]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Label2" type="Label" parent="Audio/VBoxContainer/GridContainer" unique_id=841570462]
+layout_mode = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_vimye")
+
+[node name="HSlider2" type="HSlider" parent="Audio/VBoxContainer/GridContainer" unique_id=1289185663]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Label3" type="Label" parent="Audio/VBoxContainer/GridContainer" unique_id=2080375682]
+layout_mode = 2
+text = "Sound Effects"
+label_settings = SubResource("LabelSettings_vimye")
+
+[node name="HSlider3" type="HSlider" parent="Audio/VBoxContainer/GridContainer" unique_id=1443097817]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Label4" type="Label" parent="Audio/VBoxContainer/GridContainer" unique_id=601939122]
+layout_mode = 2
+text = "Output Audio Device"
+label_settings = SubResource("LabelSettings_vimye")
+
+[node name="OptionButton" type="OptionButton" parent="Audio/VBoxContainer/GridContainer" unique_id=1517176178]
+layout_mode = 2
+theme = ExtResource("4_1qkah")
+
+[node name="ButtonAnimator" parent="Audio/VBoxContainer/GridContainer/OptionButton" unique_id=195726987 node_paths=PackedStringArray("target") instance=ExtResource("7_ttj5g")]
+target = NodePath("..")
+
+[node name="Control" type="Control" parent="Audio/VBoxContainer/GridContainer" unique_id=1780952335]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Audio/VBoxContainer/GridContainer" unique_id=1840246854]
+layout_mode = 2
+theme = ExtResource("4_1qkah")
+theme_override_font_sizes/font_size = 20
+text = "Refresh Audio Device List"
+
+[node name="ButtonAnimator" parent="Audio/VBoxContainer/GridContainer/Button" unique_id=988353586 node_paths=PackedStringArray("target") instance=ExtResource("7_ttj5g")]
+target = NodePath("..")
+
+[node name="Timer" type="Timer" parent="Audio" unique_id=1896506217]
+wait_time = 10.0
+
+[node name="Graphics" type="Control" parent="." unique_id=41237042]
+visible = false
+layout_mode = 2
+script = ExtResource("7_agog6")
+metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Graphics" unique_id=773529220]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -20.0
+
+[node name="CheckButton" type="CheckButton" parent="Graphics/VBoxContainer" unique_id=1309041265]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "V-Sync"
+
+[node name="ButtonAnimator" parent="Graphics/VBoxContainer/CheckButton" unique_id=1680499405 node_paths=PackedStringArray("target") instance=ExtResource("7_ttj5g")]
+target = NodePath("..")
+
+[node name="CheckButton2" type="CheckButton" parent="Graphics/VBoxContainer" unique_id=715439454]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Fullscreen"
+
+[node name="ButtonAnimator" parent="Graphics/VBoxContainer/CheckButton2" unique_id=891150427 node_paths=PackedStringArray("target") instance=ExtResource("7_ttj5g")]
+target = NodePath("..")
+
+[connection signal="controls_changed" from="Controls" to="." method="_on_controls_controls_changed"]
+[connection signal="audio_changed" from="Audio" to="." method="_on_audio_audio_changed"]
+[connection signal="item_selected" from="Audio/VBoxContainer/GridContainer/OptionButton" to="Audio" method="_on_audio_device_item_selected"]
+[connection signal="pressed" from="Audio/VBoxContainer/GridContainer/Button" to="Audio" method="_on_refresh_audio_device_list"]
+[connection signal="timeout" from="Audio/Timer" to="Audio" method="_on_refresh_audio_device_list"]
+[connection signal="graphics_changed" from="Graphics" to="." method="_on_graphics_graphics_changed"]
+[connection signal="toggled" from="Graphics/VBoxContainer/CheckButton" to="Graphics" method="_on_vsync_button_toggled"]
+[connection signal="toggled" from="Graphics/VBoxContainer/CheckButton2" to="Graphics" method="_on_windowed_button_toggled"]

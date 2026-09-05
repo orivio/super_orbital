@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://0wf2gyynjq3u" path="res://camera/camera_bounds.gd" id="2_gq2vv"]
 [ext_resource type="TileSet" uid="uid://bnrmi5xqiqb0w" path="res://world/tilesets/slightly_better_tileset.tres" id="3_gq2vv"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bjvpn"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjgib"]
 resource_local_to_scene = true
 size = Vector2(900, 500)
@@ -15,6 +17,7 @@ script = ExtResource("1_kbkjf")
 layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="Background" unique_id=1139011203]
+material = SubResource("CanvasItemMaterial_bjvpn")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -34,6 +37,7 @@ debug_color = Color(1, 0, 0, 0.1254902)
 [node name="BackgroundParallax" type="Parallax2D" parent="." unique_id=1350709603]
 visible = false
 modulate = Color(0.8, 0.8, 0.8, 1)
+z_index = 10
 scroll_scale = Vector2(0.9, 0.9)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="BackgroundParallax" unique_id=1102526107]
@@ -45,11 +49,13 @@ collision_enabled = false
 [node name="Objects" type="Node2D" parent="." unique_id=160790231]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1010939493]
+z_index = 20
 tile_set = ExtResource("3_gq2vv")
+navigation_enabled = false
 
 [node name="ForegroundParallax" type="Parallax2D" parent="." unique_id=1868079540]
 visible = false
-z_index = 2
+z_index = 50
 scroll_scale = Vector2(1.05, 1.05)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="ForegroundParallax" unique_id=538232198]
@@ -59,3 +65,9 @@ collision_enabled = false
 [node name="Doors" type="Node2D" parent="." unique_id=1976013304]
 
 [node name="Effects" type="Node2D" parent="." unique_id=885905499]
+
+[node name="DoorSetupTimer" type="Timer" parent="." unique_id=776398302]
+process_callback = 0
+one_shot = true
+
+[connection signal="timeout" from="DoorSetupTimer" to="." method="_on_door_setup_timer_timeout"]

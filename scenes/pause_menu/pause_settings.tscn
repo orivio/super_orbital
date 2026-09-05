@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://d18lot0av010b"]
+
+[ext_resource type="Script" uid="uid://dtcltsde13gb" path="res://scenes/pause_menu/pause_settings.gd" id="1_fu7xi"]
+[ext_resource type="PackedScene" uid="uid://d0kt1bnygj4cn" path="res://scenes/settings/settings_container.tscn" id="1_rxsic"]
+[ext_resource type="Theme" uid="uid://t4gelel5hk2o" path="res://ui/themes/simple_button_theme.tres" id="2_4wmar"]
+[ext_resource type="FontFile" uid="uid://hlg3easaunqa" path="res://ui/fonts/m5x7.ttf" id="3_tn20q"]
+[ext_resource type="Script" uid="uid://bhsq5ppbbt2xw" path="res://ui/effects/button_animation/button_animator.gd" id="4_tn20q"]
+
+[node name="PauseSettings" type="Control" unique_id=1224831305]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fu7xi")
+
+[node name="BackButton" type="Button" parent="." unique_id=1726344027 node_paths=PackedStringArray("target")]
+custom_minimum_size = Vector2(120, 70)
+layout_mode = 1
+anchors_preset = -1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 140.0
+offset_bottom = 90.0
+theme = ExtResource("2_4wmar")
+theme_override_fonts/font = ExtResource("3_tn20q")
+theme_override_font_sizes/font_size = 40
+text = "Back"
+script = ExtResource("4_tn20q")
+target = NodePath(".")
+
+[node name="TabContainer" parent="." unique_id=1506521978 instance=ExtResource("1_rxsic")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 172.0
+offset_top = 53.0
+offset_right = 1124.0
+offset_bottom = 648.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
