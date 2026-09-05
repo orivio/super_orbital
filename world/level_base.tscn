@@ -10,11 +10,6 @@
 resource_local_to_scene = true
 size = Vector2(900, 500)
 
-[sub_resource type="Environment" id="Environment_fgvuj"]
-resource_local_to_scene = true
-background_color = Color(0.82606, 0.82606006, 0.82606, 1)
-background_energy_multiplier = 16.0
-
 [node name="Level" type="Node2D" unique_id=201273727]
 script = ExtResource("1_kbkjf")
 
@@ -70,9 +65,6 @@ collision_enabled = false
 [node name="Doors" type="Node2D" parent="." unique_id=1976013304]
 
 [node name="Effects" type="Node2D" parent="." unique_id=885905499]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Effects" unique_id=465410758]
-environment = SubResource("Environment_fgvuj")
 
 [node name="DoorSetupTimer" type="Timer" parent="." unique_id=776398302]
 process_callback = 0

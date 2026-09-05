@@ -795,6 +795,7 @@ follow_viewport_enabled = true
 libraries/ = SubResource("AnimationLibrary_1so5t")
 
 [node name="PointLight2D" type="PointLight2D" parent="VisualComponents" unique_id=330566628]
+visible = false
 position = Vector2(0, -28)
 scale = Vector2(8, 8)
 energy = 0.15
