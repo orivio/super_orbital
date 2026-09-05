@@ -10,6 +10,7 @@ var in_second_phase: bool
 @onready var fall: FallState = $"../Fall"
 @onready var jump: JumpState = $"../Jump"
 @onready var float_state: FloatState = $"../Float"
+@onready var black_hole: BlackHoleState = $"../BlackHole"
 
 
 func enter() -> void:
@@ -51,6 +52,7 @@ func physics_process(delta: float) -> State:
 	
 	var end_dash: bool = false
 	var did_grav_switch: bool = false
+	var did_enter_blackhole: bool = false
 	if dash_timer >= actor.movement_settings.dash_time:
 		if dash_2_timer >= actor.movement_settings.dash_exit_time:
 			end_dash = true
@@ -71,11 +73,16 @@ func physics_process(delta: float) -> State:
 			actor.do_grav_switch()
 			did_grav_switch = true
 		dash_timer += delta
+	if actor.current_blackhole:
+		did_enter_blackhole = true
 	
 	actor.wall_clip_nudge()
 	actor.ceiling_clip_nudge()
 	
 	actor.move_and_slide()
+	
+	if did_enter_blackhole:
+		return black_hole
 	
 	if end_dash:
 		if actor.floorcaster.is_colliding():

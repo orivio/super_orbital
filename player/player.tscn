@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://dkhfrycy4c8n1" path="res://player/input_component.gd" id="15_wodsf"]
 [ext_resource type="AudioStream" uid="uid://bo68gmydfw3ja" path="res://sounds/sfx/gravity_off_2.wav" id="16_tqiix"]
 [ext_resource type="AudioStream" uid="uid://dnjlxy8u2sigx" path="res://sounds/sfx/gravity_on_2.wav" id="17_e7oew"]
+[ext_resource type="Script" uid="uid://c47wiuefr16ap" path="res://player/state/blackhole_state.gd" id="17_s7qer"]
 [ext_resource type="AudioStream" uid="uid://bp7ux6ojv5g3w" path="res://sounds/sfx/dash.wav" id="18_e7oew"]
 [ext_resource type="Script" uid="uid://cm0a7g2ro4k3j" path="res://player/debug_overlay.gd" id="19_65viv"]
 [ext_resource type="AudioStream" uid="uid://blibcs4nthhm" path="res://sounds/sfx/throw_wrench.wav" id="19_c35mf"]
@@ -871,6 +872,9 @@ script = ExtResource("12_e7oew")
 
 [node name="Float" type="Node" parent="StateMachine" unique_id=219780392]
 script = ExtResource("14_65viv")
+
+[node name="BlackHole" type="Node" parent="StateMachine" unique_id=1479769635]
+script = ExtResource("17_s7qer")
 
 [node name="Sounds" type="Node" parent="." unique_id=1124397788]
 

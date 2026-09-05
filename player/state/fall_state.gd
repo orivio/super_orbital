@@ -6,6 +6,7 @@ extends State
 @onready var jump: JumpState = $"../Jump"
 @onready var dash: DashState = $"../Dash"
 @onready var float_state: FloatState = $"../Float"
+@onready var black_hole: BlackHoleState = $"../BlackHole"
 
 
 func enter() -> void:
@@ -42,6 +43,7 @@ func physics_process(delta: float) -> State:
 	
 	var did_dash: bool = false
 	var did_grav_switch: bool = false
+	var did_enter_blackhole: bool = false
 	if actor.can_jump() and not actor.input_locked:
 		actor.do_jump()
 	elif actor.can_dash() and not actor.input_locked:
@@ -50,6 +52,8 @@ func physics_process(delta: float) -> State:
 	elif actor.can_grav_switch() and not actor.input_locked:
 		actor.do_grav_switch()
 		did_grav_switch = true
+	elif actor.current_blackhole:
+		did_enter_blackhole = true
 	
 	actor.move_and_slide()
 	
@@ -58,6 +62,9 @@ func physics_process(delta: float) -> State:
 	if did_grav_switch:
 		actor.anim_playback.travel("float")
 		return float_state
+	if did_enter_blackhole:
+		actor.anim_playback.travel("black_hole")
+		return black_hole
 	
 	if actor.is_on_floor():
 		if abs(actor.velocity.x) < actor.movement_settings.minimum_movement_threshold:

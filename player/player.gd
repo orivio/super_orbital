@@ -86,6 +86,7 @@ var grav_switch_buffer: bool
 var coyote_buffer: bool
 var has_dash: bool
 var dash_on_cooldown: bool
+var current_blackhole: BlackHole
 # State management
 var frames_passed: int
 var current_player_state: PlayerState
@@ -141,12 +142,16 @@ func _process(delta: float) -> void:
 		elif state_machine.current_state is FloatState:
 			tooltip.show_tooltip("Float")
 			sprite.material.set_shader_parameter("gravity_state", GravityState.FLOAT)
-		else:
+		elif state_machine.current_state is BlackHoleState:
+			tooltip.show_tooltip("BlackHole")
+			sprite.material.set_shader_parameter("gravity_state", GravityState.BLACK_HOLE)
+		
+		if true:
 			tooltip.hide_tooltip()
 		
 		if false:
 			tooltip.show_tooltip(str(frames_passed))
-		if true:
+		if false:
 			tooltip.show_tooltip(str(velocity.y))
 		#endregion
 
@@ -324,6 +329,15 @@ func spawn_wrench_projectile(throw_velocity: Vector2) -> void:
 	wrench_projectile.global_position = global_position + get_center_of_mass()
 	GameManager.current_level.add_object(wrench_projectile)
 	GameManager.hitstop(movement_settings.throw_wrench_hitstop)
+
+
+func enter_blackhole(bh: BlackHole) -> void:
+	current_blackhole = bh
+
+
+func exit_blackhole(bh: BlackHole) -> void:
+	if current_blackhole == bh:
+		current_blackhole = null
 
 
 #endregion
