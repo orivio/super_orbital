@@ -14,6 +14,7 @@ var current_input_sequence: InputSequence
 var sequence_path: String = "user://sequence_2026-09-02T08-33-02_LEVEL_TRANSITION_BUG_GAP_BRIDGE.res"
 # Input data
 var horizontal_direction: float
+var vertical_direction: float
 var cardinal_direction: Vector2
 var direction: Vector2
 var jump_pressed: bool
@@ -43,6 +44,7 @@ func physics_process(_delta: float) -> void:
 	
 	if current_state == InputComponentState.PLAYING_BACK:
 		horizontal_direction = current_frame.horizontal_direction
+		vertical_direction = current_frame.vertical_direction
 		cardinal_direction = current_frame.cardinal_direction
 		direction = current_frame.direction
 		jump_pressed = current_frame.jump_pressed
@@ -54,6 +56,7 @@ func physics_process(_delta: float) -> void:
 	else:
 		
 		horizontal_direction = Input.get_axis("left", "right")
+		vertical_direction = Input.get_axis("up", "down")
 		var direction_vector: Vector2 = Input.get_vector("left", "right", "up", "down")
 		# Make sure the cardinal direction vector can only be one of the four 
 		# directions at the maximum possible magnitude
@@ -75,6 +78,7 @@ func physics_process(_delta: float) -> void:
 		
 		if current_state == InputComponentState.RECORDING:
 			current_frame.horizontal_direction = horizontal_direction
+			current_frame.vertical_direction = vertical_direction
 			current_frame.cardinal_direction = cardinal_direction
 			current_frame.direction = direction
 			current_frame.jump_pressed = jump_pressed

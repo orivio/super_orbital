@@ -1,6 +1,8 @@
 class_name BlackHoleState
 extends State
 
+var direction_clockwise: bool
+
 @onready var idle: IdleState = $"../Idle"
 @onready var walk: WalkState = $"../Walk"
 @onready var jump: JumpState = $"../Jump"
@@ -8,7 +10,8 @@ extends State
 @onready var float_state: FloatState = $"../Float"
 
 func enter() -> void:
-	pass
+	actor.velocity = Vector2.ZERO
+	direction_clockwise = true
 
 
 func exit() -> void:
@@ -32,6 +35,17 @@ func physics_process(delta: float) -> State:
 	elif actor.can_grav_switch() and not actor.input_locked:
 		actor.do_grav_switch()
 		did_grav_switch = true
+	
+	if not did_leave_blackhole:
+		var to_blackhole: Vector2 = actor.current_blackhole.global_position - actor.global_position
+		var perpendicular_vector: Vector2
+		if direction_clockwise:
+			perpendicular_vector = Vector2(-to_blackhole.y, to_blackhole.x)
+		perpendicular_vector += perpendicular_vector.normalized() * 180
+		
+		actor.velocity = perpendicular_vector
+		
+		actor.velocity += -to_blackhole * actor.input.vertical_direction * 0.7
 	
 	actor.move_and_slide()
 	

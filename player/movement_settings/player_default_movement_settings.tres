@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dumitcejfyj50" path="res://player/movement_settings/player_movement_settings.gd" id="1_y2jkl"]
 
 [resource]
-resource_local_to_scene = true
 script = ExtResource("1_y2jkl")
 walk_speed = 400.0
 walk_start_time = 0.07894736842105263
@@ -21,10 +20,13 @@ dash_exit_time = 0.06999999999999999
 upward_dash_scale = 0.5
 orthogonal_dash_scale = 0.575
 dash_cooldown = 0.28
+test_variable = 800.0
 float_min_bounce_velocity = 800.0
 max_float_speed = 900.0
 min_float_speed = 100.0
 wrench_throw_velocity_multiplier = 0.7
+black_hole_radius_adjust_speed = 30.779
+test_black_hole_radius_adjust_speed = 30.0
 jump_buffer_time = 0.1
 dash_buffer_time = 0.1
 grav_switch_buffer_time = 0.2
