@@ -105,6 +105,7 @@ signal debug_visual_changed
 @export_category("Debug Visuals")
 @export var show_dash_breakdown: bool:
 	set(value):
+		show_dash_breakdown = value
 		if value == true:
 			debug_visual_changed.emit()
 @export_category("Hidden Settings")
