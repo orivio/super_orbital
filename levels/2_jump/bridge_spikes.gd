@@ -29,15 +29,15 @@ func spike_switch() -> void:
 		tilemap.set_cell(Vector2i(25, -4), 0, Vector2i(5, 3))
 		tilemap.set_cell(Vector2i(26, -4), 0, Vector2i(6, 4))
 		
-		tilemap.set_cell(Vector2i(26, -11), 0, Vector2i(1, 0))
-		tilemap.set_cell(Vector2i(27, -11), 0, Vector2i(1, 0))
-		tilemap.set_cell(Vector2i(26, -9), 0, Vector2i(2, 0))
-		tilemap.set_cell(Vector2i(27, -9), 0, Vector2i(2, 0))
-		tilemap.set_cell(Vector2i(25, -10), 0, Vector2i(3, 0))
-		tilemap.set_cell(Vector2i(28, -10), 0, Vector2i(4, 0))
+		tilemap.set_cell(Vector2i(26, -10), 0, Vector2i(1, 0))
+		tilemap.set_cell(Vector2i(27, -10), 0, Vector2i(1, 0))
+		tilemap.set_cell(Vector2i(26, -8), 0, Vector2i(2, 0))
+		tilemap.set_cell(Vector2i(27, -8), 0, Vector2i(2, 0))
+		tilemap.set_cell(Vector2i(25, -9), 0, Vector2i(3, 0))
+		tilemap.set_cell(Vector2i(28, -9), 0, Vector2i(4, 0))
 		
-		tilemap.set_cell(Vector2i(26, -10), 0, Vector2i(5, 3))
-		tilemap.set_cell(Vector2i(27, -10), 0, Vector2i(6, 4))
+		tilemap.set_cell(Vector2i(26, -9), 0, Vector2i(5, 3))
+		tilemap.set_cell(Vector2i(27, -9), 0, Vector2i(6, 4))
 		
 		
 		
@@ -61,15 +61,15 @@ func spike_switch() -> void:
 		tilemap.set_cell(Vector2i(25, -4), 0, Vector2i(3, 2))
 		tilemap.set_cell(Vector2i(26, -4), 0, Vector2i(4, 3))
 		
-		tilemap.set_cell(Vector2i(26, -11), -1)
-		tilemap.set_cell(Vector2i(27, -11), -1)
-		tilemap.set_cell(Vector2i(26, -9), -1)
-		tilemap.set_cell(Vector2i(27, -9), -1)
-		tilemap.set_cell(Vector2i(25, -10), -1)
-		tilemap.set_cell(Vector2i(28, -10), -1)
+		tilemap.set_cell(Vector2i(26, -10), -1)
+		tilemap.set_cell(Vector2i(27, -10), -1)
+		tilemap.set_cell(Vector2i(26, -8), -1)
+		tilemap.set_cell(Vector2i(27, -8), -1)
+		tilemap.set_cell(Vector2i(25, -9), -1)
+		tilemap.set_cell(Vector2i(28, -9), -1)
 		
-		tilemap.set_cell(Vector2i(26, -10), 0, Vector2i(3, 2))
-		tilemap.set_cell(Vector2i(27, -10), 0, Vector2i(4, 3))
+		tilemap.set_cell(Vector2i(26, -9), 0, Vector2i(3, 2))
+		tilemap.set_cell(Vector2i(27, -9), 0, Vector2i(4, 3))
 		
 		
 		
