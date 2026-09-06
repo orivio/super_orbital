@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://blurgcyeotmy0"]
+
+[ext_resource type="Script" uid="uid://ch2xuo4fop32x" path="res://objects/hazard_platform/hazard_platform.gd" id="1_bc60h"]
+[ext_resource type="Texture2D" uid="uid://bsv2ftvigwt5q" path="res://world/tilesets/slightly_better_tileset_2.png" id="2_0jhab"]
+
+[sub_resource type="Curve2D" id="Curve2D_gp6jd"]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gp6jd"]
+resource_local_to_scene = true
+size = Vector2(64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgvuj"]
+atlas = ExtResource("2_0jhab")
+region = Rect2(192, 352, 64, 64)
+
+[node name="HazardPlatform" type="Path2D" unique_id=1898127775]
+curve = SubResource("Curve2D_gp6jd")
+script = ExtResource("1_bc60h")
+rotate_speed = 360.0
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=199652958]
+rotates = false
+cubic_interp = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D" unique_id=817301083]
+remote_path = NodePath("../../AnimatableBody2D")
+update_rotation = false
+update_scale = false
+
+[node name="FollowVisual" type="Line2D" parent="." unique_id=409824460]
+z_index = 10
+width = 18.0
+default_color = Color(0, 0, 0, 0.827451)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=886220012]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=388684668]
+shape = SubResource("RectangleShape2D_gp6jd")
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=712209611]
+z_index = 20
+texture = SubResource("AtlasTexture_fgvuj")
