@@ -5,6 +5,7 @@ Russlan:
 - Make an image for the title
 
 Obed:
+- Make a better system for tooltips that tell you how you can move
 - Should I add a buffer to the float state such that right after you land from 
 a regular jump, if you press the grav switch button, you will bounce as if you 
 had been floating the entire time? It could improve the game juice, but I don't
@@ -15,7 +16,6 @@ know how to implement it
 - Redesign levels for the new player movement
 - Make moving platforms that kill you when you touch them, and use them in the 
 "Facility Entrance" level
-- Add variation to tileset...
 - Refine room_gilganas (it just kind of feels like a boring level when it has a
 lot of potential)
 - Add more black hole levels
@@ -36,6 +36,7 @@ Both, or whoever wants to:
 
 
 Stuff more later (after stardance):
+- Add variation to tileset
 - Make room transitions seamless and have the camera quickly shift like in Celeste
 or Zelda
 - Make challenge levels
