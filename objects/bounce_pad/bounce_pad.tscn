@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bxbltx5funmna"]
+
+[ext_resource type="Script" uid="uid://hsiypuclptic" path="res://objects/bounce_pad/bounce_pad.gd" id="1_os7hj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7wlo"]
+resource_local_to_scene = true
+size = Vector2(32, 64)
+
+[node name="BouncePad" type="Area2D" unique_id=1787356206]
+z_index = 80
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_os7hj")
+velocity = Vector2(2500, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1589619261]
+position = Vector2(-112, -256)
+shape = SubResource("RectangleShape2D_e7wlo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
