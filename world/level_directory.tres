@@ -72,7 +72,7 @@ metadata/_custom_type_script = "uid://2vv4xhpetduf"
 [sub_resource type="Resource" id="Resource_64nvc"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://xxigq2kqilns"
-level_name = "Dashing Between Platforms"
+level_name = "Annoying Elevator"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_376m0"]
