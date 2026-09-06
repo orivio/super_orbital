@@ -5,8 +5,6 @@ Russlan:
 - Make an image for the title
 
 Obed:
-- Limit the number of gravity switches you can do, and how many wrenches you 
-can throw
 - Should I add a buffer to the float state such that right after you land from 
 a regular jump, if you press the grav switch button, you will bounce as if you 
 had been floating the entire time? It could improve the game juice, but I don't
@@ -15,10 +13,6 @@ know how to implement it
 - Make a better background
 - Make the player camera follow the player better
 - Redesign levels for the new player movement
-- Make moving platforms that kill you when you touch them, and use them in the 
-"Facility Entrance" level
-- Refine room_gilganas (it just kind of feels like a boring level when it has a
-lot of potential)
 - Add more black hole levels
 - Fix the text shifting on the buttons
 - Make the impact particles not be dust particles if you're colliding with
