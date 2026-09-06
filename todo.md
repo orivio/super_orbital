@@ -5,6 +5,9 @@ Russlan:
 - Make an image for the title
 
 Obed:
+- Add input buffering to wrench throws
+- Limit the number of gravity switches you can do, and how many wrenches you 
+can throw
 - Make a better system for tooltips that tell you how you can move
 - Should I add a buffer to the float state such that right after you land from 
 a regular jump, if you press the grav switch button, you will bounce as if you 
