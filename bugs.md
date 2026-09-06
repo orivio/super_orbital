@@ -74,3 +74,6 @@ Replication:
 - You can turn the engine time scale to 1/16 to make it easier to replicate
 Progress:
 - Mostly fixed.
+
+# Editor bugs
+## Adding new settings to player movement settings makes it so that that variable's value is ignored at runtime and set to default

@@ -27,6 +27,7 @@ wrench_throw_velocity_multiplier = 0.7
 jump_buffer_time = 0.1
 dash_buffer_time = 0.1
 grav_switch_buffer_time = 0.2
+throw_wrench_buffer_time = 0.1
 coyote_time = 0.1
 dash_hitstop = 0.04
 grav_on_hitstop = 0.032

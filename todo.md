@@ -5,7 +5,6 @@ Russlan:
 - Make an image for the title
 
 Obed:
-- Add input buffering to wrench throws
 - Limit the number of gravity switches you can do, and how many wrenches you 
 can throw
 - Make a better system for tooltips that tell you how you can move
@@ -52,3 +51,5 @@ too much caution tiles?
 - Is the pacing good?
 - Does the UI look bad?
 - Do the difficulty settings properly accomodate all or most types of players?
+- Are the tiles which are supposed to indicate that spikes will come out soon 
+readable?

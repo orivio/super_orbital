@@ -53,6 +53,7 @@ const WRENCH_PROJECTILE = preload("uid://cgbxshe71m18w")
 @onready var jump_buffer_timer: Timer = $Timers/JumpBufferTimer
 @onready var dash_buffer_timer: Timer = $Timers/DashBufferTimer
 @onready var grav_switch_buffer_timer: Timer = $Timers/GravSwitchBufferTimer
+@onready var wrench_throw_buffer_timer: Timer = $Timers/WrenchThrowBufferTimer
 @onready var coyote_timer: Timer = $Timers/CoyoteTimer
 @onready var dash_cooldown_timer: Timer = $Timers/DashCooldownTimer
 @onready var death_timer: Timer = $Timers/DeathTimer
@@ -83,8 +84,11 @@ var jump_buffer: bool
 var dash_velocity_buffer: Vector2
 var dash_buffer: bool
 var grav_switch_buffer: bool
+var wrench_velocity_buffer: Vector2
+var wrench_throw_buffer: bool
 var coyote_buffer: bool
 var has_dash: bool
+var has_wrench: bool
 var dash_on_cooldown: bool
 var current_blackhole: BlackHole
 # State management
@@ -181,6 +185,13 @@ func _physics_process(delta: float) -> void:
 				if input.grav_switch_pressed:
 					grav_switch_buffer = true
 					grav_switch_buffer_timer.start(movement_settings.grav_switch_buffer_time)
+					
+				if input.throw_wrench_pressed:
+					wrench_throw_buffer = true
+					var wrench_velocity: Vector2 = -input.direction
+					print("Started wrench throw buffer")
+					wrench_velocity_buffer = wrench_velocity * velocity.length()
+					wrench_throw_buffer_timer.start(0.1)
 				
 				if floorcaster.is_colliding():
 					was_on_floor_last_frame = true
@@ -360,6 +371,7 @@ func can_dash() -> bool:
 func do_dash() -> void:
 	GameManager.hitstop(movement_settings.dash_hitstop)
 	dash_buffer = false
+	wrench_throw_buffer = false
 	has_dash = false
 	dash_on_cooldown = true
 	dash_cooldown_timer.start(movement_settings.dash_cooldown)
@@ -378,6 +390,7 @@ func can_grav_switch() -> bool:
 
 func do_grav_switch() -> void:
 	grav_switch_buffer = false
+	has_wrench = true
 	GameManager.hitstop(movement_settings.grav_off_hitstop)
 	GameManager.camera_shake(movement_settings.grav_switch_camera_shake_strength)
 	do_shockwave()
@@ -390,12 +403,13 @@ func turn_on_gravity() -> void:
 
 
 func can_throw_wrench() -> bool:
-	return input.throw_wrench_pressed and not input.direction == Vector2.ZERO
+	return has_wrench and wrench_throw_buffer and not wrench_velocity_buffer == Vector2.ZERO
 
 
 func do_throw_wrench() -> void:
-	var wrench_velocity: Vector2 = -input.direction
-	velocity = wrench_velocity * velocity.length()
+	has_wrench = false
+	dash_buffer = false
+	velocity = wrench_velocity_buffer
 	spawn_wrench_projectile(velocity)
 
 
@@ -468,6 +482,11 @@ func _on_dash_buffer_timeout() -> void:
 
 func _on_grav_switch_buffer_timeout() -> void:
 	grav_switch_buffer = false
+
+
+func _on_wrench_throw_buffer_timeout() -> void:
+	wrench_throw_buffer = false
+	print("Ended throw wrench buffer")
 
 
 func _on_coyote_timeout() -> void:
