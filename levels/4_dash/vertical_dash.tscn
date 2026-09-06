@@ -4,22 +4,27 @@
 [ext_resource type="PackedScene" uid="uid://bjec8jk85hnki" path="res://poi/progress_detector/progress_detector.tscn" id="2_4y0yd"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="2_33pwr"]
 [ext_resource type="TileSet" uid="uid://bnrmi5xqiqb0w" path="res://world/tilesets/slightly_better_tileset.tres" id="2_c6nvw"]
-[ext_resource type="PackedScene" uid="uid://cu780yu22a40f" path="res://objects/wait_message/wait_message.tscn" id="4_gyeti"]
+[ext_resource type="PackedScene" uid="uid://lf2gvhqkoyd6" path="res://poi/dialogue_trigger/dialogue_trigger.tscn" id="4_gyeti"]
 [ext_resource type="PackedScene" uid="uid://bxbltx5funmna" path="res://objects/bounce_pad/bounce_pad.tscn" id="4_us026"]
+[ext_resource type="Resource" uid="uid://k61mecnlefem" path="res://dialogue/scripts/learn_diagonal_dash.tres" id="5_wj3f2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyeti"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_us026"]
 resource_local_to_scene = true
 size = Vector2(1792, 992)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wj3f2"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyeti"]
 resource_local_to_scene = true
 size = Vector2(256, 224)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbt0q"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olgjh"]
+resource_local_to_scene = true
+size = Vector2(256, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wj3f2"]
 resource_local_to_scene = true
 size = Vector2(32, 96)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_olgjh"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbt0q"]
 resource_local_to_scene = true
 size = Vector2(128, 160)
 
@@ -30,7 +35,7 @@ visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(384, -48)
-shape = SubResource("RectangleShape2D_gyeti")
+shape = SubResource("RectangleShape2D_us026")
 
 [node name="BackgroundParallax" parent="." index="2" unique_id=1350709603]
 visible = true
@@ -59,11 +64,16 @@ progress_name = &"Vertical Dashing"
 
 [node name="CollisionShape2D" parent="POI/ProgressDetector" index="0" unique_id=1008791462]
 position = Vector2(1376, -80)
-shape = SubResource("RectangleShape2D_wj3f2")
+shape = SubResource("RectangleShape2D_gyeti")
 
-[node name="WaitMessage" parent="POI" parent_id_path=PackedInt32Array(809409572) index="1" unique_id=1622409558 instance=ExtResource("4_gyeti")]
-time = 5.0
-text = "{topright}+{dash}"
+[node name="DialogueTrigger" parent="POI" parent_id_path=PackedInt32Array(809409572) index="1" unique_id=12977462 instance=ExtResource("4_gyeti")]
+tag = &"learn_diagonal_dash"
+conversation = ExtResource("5_wj3f2")
+
+[node name="CollisionShape2D" parent="POI/DialogueTrigger" index="0" unique_id=354673692]
+z_index = 999
+position = Vector2(-224, -16)
+shape = SubResource("RectangleShape2D_olgjh")
 
 [node name="BouncePad" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="0" unique_id=1787356206 instance=ExtResource("4_us026")]
 
@@ -79,7 +89,7 @@ direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-592, -48)
-shape = SubResource("RectangleShape2D_gbt0q")
+shape = SubResource("RectangleShape2D_wj3f2")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-448, 0)
@@ -89,14 +99,12 @@ door_tag = "EastDoor"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(1408, -48)
-shape = SubResource("RectangleShape2D_olgjh")
+shape = SubResource("RectangleShape2D_gbt0q")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(1216, 32)
 
-[connection signal="body_entered" from="POI/WaitMessage" to="." method="_on_wait_message_body_entered"]
-
 [editable path="POI/ProgressDetector"]
-[editable path="POI/WaitMessage"]
+[editable path="POI/DialogueTrigger"]
 [editable path="Doors/WestDoor"]
 [editable path="Doors/EastDoor"]

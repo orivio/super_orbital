@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="Conversation" format=3 uid="uid://k61mecnlefem"]
+
+[ext_resource type="Script" uid="uid://b2364himxu4dy" path="res://dialogue/conversation/dialogue_line.gd" id="1_aksnr"]
+[ext_resource type="Resource" uid="uid://brd2h8hldg5ns" path="res://dialogue/speaker/assistant/assistant.tres" id="2_bgcq6"]
+[ext_resource type="Script" uid="uid://cqhvq0ub0apwo" path="res://dialogue/conversation/conversation.gd" id="2_jr04q"]
+[ext_resource type="Resource" uid="uid://cxumxe1t5kb2i" path="res://dialogue/speaker/sad_guy/sad_guy.tres" id="3_bgcq6"]
+
+[sub_resource type="Resource" id="Resource_bgcq6"]
+script = ExtResource("1_aksnr")
+speaker = ExtResource("2_bgcq6")
+text = "Hey. I just wanted to let you know..."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_y7ydn"]
+script = ExtResource("1_aksnr")
+speaker = ExtResource("2_bgcq6")
+text = "You can dash diagonally too."
+animation = &"think"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_wj3f2"]
+script = ExtResource("1_aksnr")
+speaker = ExtResource("3_bgcq6")
+side = -1
+text = "Yeah. I knew that already."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_vlh2j"]
+script = ExtResource("1_aksnr")
+speaker = ExtResource("2_bgcq6")
+text = "You can hold {topright} and then press {dash} to dash up and right."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_4c045"]
+script = ExtResource("1_aksnr")
+speaker = ExtResource("3_bgcq6")
+side = -1
+text = "Thanks."
+animation = &"frustrated"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[resource]
+script = ExtResource("2_jr04q")
+lines = Array[ExtResource("1_aksnr")]([SubResource("Resource_bgcq6"), SubResource("Resource_y7ydn"), SubResource("Resource_wj3f2"), SubResource("Resource_vlh2j"), SubResource("Resource_4c045")])
+metadata/_custom_type_script = "uid://cqhvq0ub0apwo"

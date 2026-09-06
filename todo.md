@@ -7,7 +7,6 @@ Russlan:
 Obed:
 - Limit the number of gravity switches you can do, and how many wrenches you 
 can throw
-- Make a better system for tooltips that tell you how you can move
 - Should I add a buffer to the float state such that right after you land from 
 a regular jump, if you press the grav switch button, you will bounce as if you 
 had been floating the entire time? It could improve the game juice, but I don't
