@@ -26,7 +26,7 @@ func process(_delta: float) -> State:
 	return null
 
 
-func physics_process(delta: float) -> State:
+func physics_process(_delta: float) -> State:
 	
 	var did_leave_blackhole: bool
 	var did_grav_switch: bool = false
