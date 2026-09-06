@@ -125,29 +125,26 @@ func _process(delta: float) -> void:
 		
 		#region Tooltip Update
 		if state_machine.current_state is IdleState:
-			tooltip.show_tooltip("Idle")
+			#tooltip.show_tooltip("Idle")
 			sprite.material.set_shader_parameter("gravity_state", GravityState.NORMAL)
 		elif state_machine.current_state is WalkState:
-			tooltip.show_tooltip("Walk")
+			#tooltip.show_tooltip("Walk")
 			sprite.material.set_shader_parameter("gravity_state", GravityState.NORMAL)
 		elif state_machine.current_state is JumpState:
-			tooltip.show_tooltip("Jump")
+			#tooltip.show_tooltip("Jump")
 			sprite.material.set_shader_parameter("gravity_state", GravityState.NORMAL)
 		elif state_machine.current_state is FallState:
-			tooltip.show_tooltip("Fall")
+			#tooltip.show_tooltip("Fall")
 			sprite.material.set_shader_parameter("gravity_state", GravityState.NORMAL)
 		elif state_machine.current_state is DashState:
-			tooltip.show_tooltip("Dash")
+			#tooltip.show_tooltip("Dash")
 			sprite.material.set_shader_parameter("gravity_state", GravityState.NORMAL)
 		elif state_machine.current_state is FloatState:
-			tooltip.show_tooltip("Float")
+			#tooltip.show_tooltip("Float")
 			sprite.material.set_shader_parameter("gravity_state", GravityState.FLOAT)
 		elif state_machine.current_state is BlackHoleState:
-			tooltip.show_tooltip("BlackHole")
+			#tooltip.show_tooltip("BlackHole")
 			sprite.material.set_shader_parameter("gravity_state", GravityState.BLACK_HOLE)
-		
-		if true:
-			tooltip.hide_tooltip()
 		
 		if false:
 			tooltip.show_tooltip(str(frames_passed))

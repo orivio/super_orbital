@@ -4,25 +4,22 @@
 [ext_resource type="PackedScene" uid="uid://bjec8jk85hnki" path="res://poi/progress_detector/progress_detector.tscn" id="2_4y0yd"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="2_33pwr"]
 [ext_resource type="TileSet" uid="uid://bnrmi5xqiqb0w" path="res://world/tilesets/slightly_better_tileset.tres" id="2_c6nvw"]
-[ext_resource type="Script" uid="uid://cmo6lck8vxn38" path="res://levels/4_dash/wait_message.gd" id="4_gyeti"]
+[ext_resource type="PackedScene" uid="uid://cu780yu22a40f" path="res://objects/wait_message/wait_message.tscn" id="4_gyeti"]
 [ext_resource type="PackedScene" uid="uid://bxbltx5funmna" path="res://objects/bounce_pad/bounce_pad.tscn" id="4_us026"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_us026"]
-resource_local_to_scene = true
-size = Vector2(1792, 992)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gyeti"]
 resource_local_to_scene = true
-size = Vector2(256, 224)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vx6a2"]
-size = Vector2(224, 170)
+size = Vector2(1792, 992)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wj3f2"]
 resource_local_to_scene = true
-size = Vector2(32, 96)
+size = Vector2(256, 224)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbt0q"]
+resource_local_to_scene = true
+size = Vector2(32, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olgjh"]
 resource_local_to_scene = true
 size = Vector2(128, 160)
 
@@ -33,7 +30,7 @@ visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(384, -48)
-shape = SubResource("RectangleShape2D_us026")
+shape = SubResource("RectangleShape2D_gyeti")
 
 [node name="BackgroundParallax" parent="." index="2" unique_id=1350709603]
 visible = true
@@ -62,22 +59,11 @@ progress_name = &"Vertical Dashing"
 
 [node name="CollisionShape2D" parent="POI/ProgressDetector" index="0" unique_id=1008791462]
 position = Vector2(1376, -80)
-shape = SubResource("RectangleShape2D_gyeti")
+shape = SubResource("RectangleShape2D_wj3f2")
 
-[node name="WaitMessage" type="Area2D" parent="POI" parent_id_path=PackedInt32Array(809409572) index="1" unique_id=568051727]
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("4_gyeti")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="POI/WaitMessage" index="0" unique_id=972502770]
-position = Vector2(-80, -75)
-shape = SubResource("RectangleShape2D_vx6a2")
-
-[node name="WaitTimer" type="Timer" parent="POI/WaitMessage" index="1" unique_id=1614853959]
-
-[node name="Message" type="Label" parent="POI/WaitMessage" index="2" unique_id=1640197739]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="WaitMessage" parent="POI" parent_id_path=PackedInt32Array(809409572) index="1" unique_id=1622409558 instance=ExtResource("4_gyeti")]
+time = 5.0
+text = "{topright}+{dash}"
 
 [node name="BouncePad" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="0" unique_id=1787356206 instance=ExtResource("4_us026")]
 
@@ -93,7 +79,7 @@ direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-592, -48)
-shape = SubResource("RectangleShape2D_wj3f2")
+shape = SubResource("RectangleShape2D_gbt0q")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-448, 0)
@@ -103,11 +89,14 @@ door_tag = "EastDoor"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(1408, -48)
-shape = SubResource("RectangleShape2D_gbt0q")
+shape = SubResource("RectangleShape2D_olgjh")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(1216, 32)
 
+[connection signal="body_entered" from="POI/WaitMessage" to="." method="_on_wait_message_body_entered"]
+
 [editable path="POI/ProgressDetector"]
+[editable path="POI/WaitMessage"]
 [editable path="Doors/WestDoor"]
 [editable path="Doors/EastDoor"]
