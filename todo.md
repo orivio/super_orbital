@@ -28,6 +28,9 @@ over and then continue floating, but it should send you to idle state instead
 - If you spam z and x to skip the dialogues quickly then as soon as it ends you 
 do a dash into antigrav, so we should add a momentary delay after dialogue ends 
 where you can't move
+- Make levels more "interactive" - Wally
+	- He suggested coins (an idea which I dont like, but we could figure out 
+	something similar)
 
 
 Both, or whoever wants to:
