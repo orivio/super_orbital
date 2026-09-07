@@ -153,7 +153,36 @@ func goto_last_checkpoint() -> void:
 	player.disable()
 	# Fade to black
 	await fade_effect.fade(Color(0, 0, 0, 1), checkpoint_transition_time).finished
+	# Load the level scene
+	var level_scene_path: String = current_level_meta.scene_path
+	var level_scene: PackedScene = load(level_scene_path)
+	if not level_scene:
+		push_error("Failed to load level: ", current_level_meta.level_name)
+		return
+	
+	# Now we instantiate it
+	var level_instance: Level = level_scene.instantiate()
+	
+	previous_level = current_level
+	current_level.queue_free()
+	
+	# Add new level
+	level_container.add_child(level_instance)
+	current_level = level_instance
+	# Set up level
+	current_level.initialize()
+	GameManager.current_level = current_level
+	current_level.door_entered.connect(_on_door_entered)
+	
+	# Destroy the old level
+	await previous_level.tree_exited
+	
+	# Teleport the player to the ground
 	player.teleport_to_ground(checkpoint_dest)
+	
+	# Update level metadata
+	previous_level_meta = current_level_meta
+	
 	# Fade from black
 	await fade_effect.fade(Color(0, 0, 0, 0), checkpoint_transition_time).finished
 	# Reenable player
