@@ -12,9 +12,12 @@ var direction_clockwise: bool
 func enter() -> void:
 	actor.velocity = Vector2.ZERO
 	direction_clockwise = true
+	#Engine.time_scale = movement_settings.black_hole_time_scale
+	Engine.time_scale = 0.5
 
 
 func exit() -> void:
+	Engine.time_scale = 1
 	pass
 
 
@@ -35,15 +38,18 @@ func physics_process(_delta: float) -> State:
 	elif actor.can_grav_switch() and not actor.input_locked:
 		actor.do_grav_switch()
 		did_grav_switch = true
+	elif actor.can_change_orbit_direction() and not actor.input_locked:
+		direction_clockwise = not direction_clockwise
 	
 	if not did_leave_blackhole:
 		var to_blackhole: Vector2 = actor.current_blackhole.global_position - actor.global_position
 		var perpendicular_vector: Vector2
-		if direction_clockwise:
-			perpendicular_vector = Vector2(-to_blackhole.y, to_blackhole.x)
+		perpendicular_vector = Vector2(-to_blackhole.y, to_blackhole.x)
+		if not direction_clockwise:
+			perpendicular_vector = -perpendicular_vector
 		perpendicular_vector += perpendicular_vector.normalized() * 180
 		
-		actor.velocity = perpendicular_vector
+		actor.velocity = perpendicular_vector / to_blackhole.length() * 400
 		
 		actor.velocity += -to_blackhole * actor.input.vertical_direction * 0.7
 	

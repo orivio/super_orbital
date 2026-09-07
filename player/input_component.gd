@@ -23,6 +23,7 @@ var jump_down: bool
 var dash_pressed: bool
 var grav_switch_pressed: bool
 var throw_wrench_pressed: bool
+var change_orbit_direction_pressed: bool
 
 
 func _ready() -> void:
@@ -53,6 +54,7 @@ func physics_process(_delta: float) -> void:
 		dash_pressed = current_frame.dash_pressed
 		grav_switch_pressed = current_frame.grav_switch_pressed
 		throw_wrench_pressed = current_frame.throw_wrench_pressed
+		change_orbit_direction_pressed = current_frame.change_orbit_direction_pressed
 	else:
 		
 		horizontal_direction = Input.get_axis("left", "right")
@@ -74,6 +76,7 @@ func physics_process(_delta: float) -> void:
 		dash_pressed = Input.is_action_just_pressed("dash")
 		grav_switch_pressed = Input.is_action_just_pressed("gravity_switch")
 		throw_wrench_pressed = Input.is_action_just_pressed("throw_wrench")
+		change_orbit_direction_pressed = Input.is_action_just_pressed("change_orbit")
 		
 		
 		if current_state == InputComponentState.RECORDING:
@@ -87,6 +90,7 @@ func physics_process(_delta: float) -> void:
 			current_frame.dash_pressed = dash_pressed
 			current_frame.grav_switch_pressed = grav_switch_pressed
 			current_frame.throw_wrench_pressed = throw_wrench_pressed
+			current_frame.change_orbit_direction_pressed = change_orbit_direction_pressed
 			current_input_sequence.frames.append(current_frame)
 	
 	if current_state == InputComponentState.PLAYING_BACK or current_state == InputComponentState.RECORDING:

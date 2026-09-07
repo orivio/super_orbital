@@ -5,24 +5,29 @@ Russlan:
 - Make an image for the title
 
 Obed:
-- Make the facility entrance level easier, make alternate route easier, make different shape for "Don't platform too high while on a jump!"
+- Make alternate route easier, make different shape for "Don't platform too high while on a jump!"
 - Should I add a buffer to the float state such that right after you land from 
 a regular jump, if you press the grav switch button, you will bounce as if you 
 had been floating the entire time? It could improve the game juice, but I don't
 know how to implement it
+- Refine the black hole mechanic as necessary for the levels in which they 
+appear
 - Draw the holographic planet lookup scene in the intro cutscene
 - Make a better background
 - Make the player camera follow the player better
-- Redesign levels for the new player movement
 - Add more black hole levels
 - Fix the text shifting on the buttons
-- Make the impact particles not be dust particles if you're colliding with
-metallic ground
+- Make Gilganas better
 - Add different jump landing sound effects depending on what surface you land 
-on
+on, as well as particle effects
 - Maybe a player death animation
 - Make checkpoints toggleable in the game settings
-- Fix tile inconsistencies across many levels
+- Add more caution tiles to the facility evels
+- If you antigrav into a dialogue then you stay floating until the dialogue is 
+over and then continue floating, but it should send you to idle state instead
+- If you spam z and x to skip the dialogues quickly then as soon as it ends you 
+do a dash into antigrav, so we should add a momentary delay after dialogue ends 
+where you can't move
 
 
 Both, or whoever wants to:

@@ -413,6 +413,10 @@ func do_throw_wrench() -> void:
 	spawn_wrench_projectile(velocity)
 
 
+func can_change_orbit_direction() -> bool:
+	return input.change_orbit_direction_pressed
+
+
 func resolve_dash_velocity() -> Vector2:
 	var dash_velocity: Vector2
 	var dash_direction: Vector2
