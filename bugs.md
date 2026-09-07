@@ -54,14 +54,17 @@ W 0:01:03:082   normalize: Vector2 cannot be normalized, the elements must be fi
 - I caught this behavior on an input sequence recorder, but even still, it's 
 very inconsistent.
 - The player's position becomes (nan, nan), but the velocity seems normal.
+- The bug never occurs during the jump or fall states, but sometimes with the 
+nograv state.
 
 Replication:
 - Very inconsistent to replicate.
+- Actually not too hard to replicate.
 - I got a recording of this behavior that sometimes works.
 - Essentially, dash onto a platform, or into the side of a platform, or 
 something like that.
 - The bug can still occur when you remove the wall clip and ceiling clip 
-correction.
+correction from the dash state.
 
 # UI Bugs
 ## Pressing a button during a screen fade

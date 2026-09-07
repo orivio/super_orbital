@@ -4,23 +4,23 @@
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="3_8f1a8"]
 [ext_resource type="PackedScene" uid="uid://dug5sf5e7qxah" path="res://poi/checkpoint/checkpoint.tscn" id="3_i3mdw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3mdw"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ij5mj"]
 resource_local_to_scene = true
 size = Vector2(1664, 544)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxiu2"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3mdw"]
 resource_local_to_scene = true
 size = Vector2(96, 160)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hd6xl"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8f1a8"]
 resource_local_to_scene = true
 size = Vector2(160, 224)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2k2jv"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxiu2"]
 resource_local_to_scene = true
 size = Vector2(64, 96)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ps6ia"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2k2jv"]
 resource_local_to_scene = true
 size = Vector2(160, 416)
 
@@ -32,13 +32,16 @@ visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(608, -80)
-shape = SubResource("RectangleShape2D_i3mdw")
+shape = SubResource("RectangleShape2D_ij5mj")
+
+[node name="BackgroundParallax" parent="." index="2" unique_id=1350709603]
+visible = true
 
 [node name="Checkpoint" parent="POI" parent_id_path=PackedInt32Array(809409572) index="0" unique_id=626712177 instance=ExtResource("3_i3mdw")]
 
 [node name="CollisionShape2D" parent="POI/Checkpoint" index="0" unique_id=1419034240]
 position = Vector2(368, 80)
-shape = SubResource("RectangleShape2D_sxiu2")
+shape = SubResource("RectangleShape2D_i3mdw")
 
 [node name="Marker2D" parent="POI/Checkpoint" index="1" unique_id=1330501033]
 position = Vector2(320, 160)
@@ -47,7 +50,7 @@ position = Vector2(320, 160)
 
 [node name="CollisionShape2D" parent="POI/Checkpoint2" index="0" unique_id=1419034240]
 position = Vector2(752, -48)
-shape = SubResource("RectangleShape2D_hd6xl")
+shape = SubResource("RectangleShape2D_8f1a8")
 
 [node name="Marker2D" parent="POI/Checkpoint2" index="1" unique_id=1330501033]
 position = Vector2(736, 64)
@@ -68,7 +71,7 @@ direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-320, 16)
-shape = SubResource("RectangleShape2D_2k2jv")
+shape = SubResource("RectangleShape2D_sxiu2")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-160, 64)
@@ -78,7 +81,7 @@ door_tag = "EastDoor"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(1584, -144)
-shape = SubResource("RectangleShape2D_ps6ia")
+shape = SubResource("RectangleShape2D_2k2jv")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(1376, 64)
