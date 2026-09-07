@@ -52,3 +52,6 @@ too much caution tiles?
 - Do the difficulty settings properly accomodate all or most types of players?
 - Are the tiles which are supposed to indicate that spikes will come out soon 
 readable?
+- Is "Facility Entrance" too easy or hard?
+- Do the black holes distort the levels to the point that you can't tell where 
+the spikes are (especially in Gilganas?)
