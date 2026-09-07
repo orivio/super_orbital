@@ -2,6 +2,22 @@
 
 [ext_resource type="Texture2D" uid="uid://c4gw6vsbixl86" path="res://dialogue/speaker/sad_guy/sad_guy.png" id="1_5fpja"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_53pei"]
+atlas = ExtResource("1_5fpja")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doxyl"]
+atlas = ExtResource("1_5fpja")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnekh"]
+atlas = ExtResource("1_5fpja")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpxp1"]
+atlas = ExtResource("1_5fpja")
+region = Rect2(256, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_40bqb"]
 atlas = ExtResource("1_5fpja")
 region = Rect2(96, 0, 32, 32)
@@ -24,6 +40,23 @@ region = Rect2(64, 0, 32, 32)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_53pei")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_doxyl")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_pnekh")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_dpxp1")
+}],
+"loop": 1,
+"name": &"crazy",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_40bqb")
