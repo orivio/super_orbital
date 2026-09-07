@@ -5,6 +5,7 @@ Russlan:
 - Make an image for the title
 
 Obed:
+- Make the facility entrance level easier, make alternate route easier, make different shape for "Don't platform too high while on a jump!"
 - Should I add a buffer to the float state such that right after you land from 
 a regular jump, if you press the grav switch button, you will bounce as if you 
 had been floating the entire time? It could improve the game juice, but I don't

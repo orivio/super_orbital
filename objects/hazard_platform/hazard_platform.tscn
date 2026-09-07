@@ -6,13 +6,12 @@
 [sub_resource type="Curve2D" id="Curve2D_gp6jd"]
 resource_local_to_scene = true
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gp6jd"]
-resource_local_to_scene = true
-size = Vector2(64, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_fgvuj"]
 atlas = ExtResource("2_0jhab")
 region = Rect2(192, 352, 64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6upv3"]
+radius = 24.0
 
 [node name="HazardPlatform" type="Path2D" unique_id=1898127775]
 curve = SubResource("Curve2D_gp6jd")
@@ -38,9 +37,9 @@ default_color = Color(0, 0, 0, 0.827451)
 collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=388684668]
-shape = SubResource("RectangleShape2D_gp6jd")
-
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=712209611]
 z_index = 20
 texture = SubResource("AtlasTexture_fgvuj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=388684668]
+shape = SubResource("CircleShape2D_6upv3")
