@@ -15,8 +15,8 @@ size = Vector2(2496, 1952)
 resource_local_to_scene = true
 size = Vector2(224, 320)
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_j6ukt"]
-points = PackedVector2Array(-272, 192, 144, 192, 144, -64, 496, -64, 496, -352, 144, -352, -272, -352)
+[sub_resource type="ConcavePolygonShape2D" id="ConcavePolygonShape2D_ox5k2"]
+segments = PackedVector2Array(-272, -352, -272, 192, -272, -352, 560, -352, -272, 192, 144, 192, 144, 0, 144, 192, 144, 0, 272, 0, 272, -128, 272, 0, 272, -128, 560, -128, 560, -352, 560, -128)
 
 [sub_resource type="Curve2D" id="Curve2D_6h7xv"]
 resource_local_to_scene = true
@@ -62,7 +62,8 @@ size = Vector2(64, 96)
 resource_local_to_scene = true
 size = Vector2(128, 128)
 
-[node name="Level" unique_id=201273727 instance=ExtResource("1_e5svy")]
+[node name="Level" unique_id=201273727 node_paths=PackedStringArray("checkpoints") instance=ExtResource("1_e5svy")]
+checkpoints = [NodePath("POI/Checkpoint")]
 
 [node name="CameraBounds" parent="." index="1" unique_id=711655567]
 visible = true
@@ -82,7 +83,10 @@ shape = SubResource("RectangleShape2D_uy2bl")
 
 [node name="CollisionShape2D" parent="POI/Checkpoint" index="0" unique_id=1419034240]
 position = Vector2(336, -928)
-shape = SubResource("ConvexPolygonShape2D_j6ukt")
+shape = SubResource("ConcavePolygonShape2D_ox5k2")
+
+[node name="Marker2D" parent="POI/Checkpoint" index="1" unique_id=1330501033]
+position = Vector2(416, -736)
 
 [node name="MovingPlatform" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="0" unique_id=1898127775 instance=ExtResource("3_ox5k2")]
 curve = SubResource("Curve2D_6h7xv")

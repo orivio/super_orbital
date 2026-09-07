@@ -149,6 +149,7 @@ func goto_level(new_level_idx: int) -> void:
 func goto_last_checkpoint() -> void:
 	# Find which position to teleport to
 	var checkpoint_dest: Vector2 = current_level.get_last_checkpoint_pos()
+	var last_checkpoint_idx: int = current_level.last_checkpoint
 	# Disable player collisions
 	player.disable()
 	# Fade to black
@@ -173,6 +174,7 @@ func goto_last_checkpoint() -> void:
 	current_level.initialize()
 	GameManager.current_level = current_level
 	current_level.door_entered.connect(_on_door_entered)
+	current_level.last_checkpoint = last_checkpoint_idx
 	
 	# Destroy the old level
 	await previous_level.tree_exited
@@ -188,6 +190,8 @@ func goto_last_checkpoint() -> void:
 	# Reenable player
 	player.enable()
 	player.reset()
+	# Finish level
+	current_level.finish_setup()
 
 
 func _on_door_entered(direction: Types.DoorDirection) -> void:
