@@ -3,26 +3,20 @@
 [ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/level_base.tscn" id="1_m5ldp"]
 [ext_resource type="PackedScene" uid="uid://b2ogi0ekm1d7i" path="res://objects/moving_platform/moving_platform.tscn" id="2_8bsj8"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="2_hasnt"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nrts"]
-resource_local_to_scene = true
-size = Vector2(3040, 896)
-
-[sub_resource type="Curve2D" id="Curve2D_mw5os"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -64, 32, 0, 0, 0, 0, 320, 32)
-}
-point_count = 2
+[ext_resource type="PackedScene" uid="uid://dug5sf5e7qxah" path="res://poi/checkpoint/checkpoint.tscn" id="2_mw5os"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7sa7h"]
 resource_local_to_scene = true
-size = Vector2(128, 64)
+size = Vector2(3040, 896)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mw5os"]
+resource_local_to_scene = true
+size = Vector2(192, 192)
 
 [sub_resource type="Curve2D" id="Curve2D_piq2g"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 448, 32, 0, 0, 0, 0, 672, 32)
+"points": PackedVector2Array(0, 0, 0, 0, -64, 32, 0, 0, 0, 0, 320, 32)
 }
 point_count = 2
 
@@ -33,18 +27,18 @@ size = Vector2(128, 64)
 [sub_resource type="Curve2D" id="Curve2D_g7ki6"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1312, 224, 0, 0, 0, 0, 1312, -160)
+"points": PackedVector2Array(0, 0, 0, 0, 448, 32, 0, 0, 0, 0, 672, 32)
 }
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_371xd"]
 resource_local_to_scene = true
-size = Vector2(128, 128)
+size = Vector2(128, 64)
 
 [sub_resource type="Curve2D" id="Curve2D_jqryc"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1568, 480, 0, 0, 0, 0, 1568, -32)
+"points": PackedVector2Array(0, 0, 0, 0, 1312, 224, 0, 0, 0, 0, 1312, -160)
 }
 point_count = 2
 
@@ -55,7 +49,7 @@ size = Vector2(128, 128)
 [sub_resource type="Curve2D" id="Curve2D_0kaeh"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1824, 288, 0, 0, 0, 0, 1824, -96)
+"points": PackedVector2Array(0, 0, 0, 0, 1568, 480, 0, 0, 0, 0, 1568, -32)
 }
 point_count = 2
 
@@ -66,7 +60,7 @@ size = Vector2(128, 128)
 [sub_resource type="Curve2D" id="Curve2D_a7b15"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 2080, 279, 0, 0, 0, 0, 2080, -96)
+"points": PackedVector2Array(0, 0, 0, 0, 1824, 288, 0, 0, 0, 0, 1824, -96)
 }
 point_count = 2
 
@@ -74,25 +68,46 @@ point_count = 2
 resource_local_to_scene = true
 size = Vector2(128, 128)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4qkc"]
+[sub_resource type="Curve2D" id="Curve2D_a4qkc"]
 resource_local_to_scene = true
-size = Vector2(64, 96)
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2080, 279, 0, 0, 0, 0, 2080, -96)
+}
+point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5m8bf"]
 resource_local_to_scene = true
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ro3fu"]
+resource_local_to_scene = true
+size = Vector2(64, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0or6"]
+resource_local_to_scene = true
 size = Vector2(160, 96)
 
-[node name="Level" unique_id=201273727 instance=ExtResource("1_m5ldp")]
+[node name="Level" unique_id=201273727 node_paths=PackedStringArray("checkpoints") instance=ExtResource("1_m5ldp")]
+checkpoints = [NodePath("POI/Checkpoint")]
 
 [node name="CameraBounds" parent="." index="1" unique_id=711655567]
 visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(1104, -32)
-shape = SubResource("RectangleShape2D_0nrts")
+shape = SubResource("RectangleShape2D_7sa7h")
+
+[node name="Checkpoint" parent="POI" parent_id_path=PackedInt32Array(809409572) index="0" unique_id=626712177 instance=ExtResource("2_mw5os")]
+
+[node name="CollisionShape2D" parent="POI/Checkpoint" index="0" unique_id=1419034240]
+position = Vector2(1024, 64)
+shape = SubResource("RectangleShape2D_mw5os")
+
+[node name="Marker2D" parent="POI/Checkpoint" index="1" unique_id=1330501033]
+position = Vector2(992, 128)
 
 [node name="MovingPlatform" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="0" unique_id=1898127775 instance=ExtResource("2_8bsj8")]
-curve = SubResource("Curve2D_mw5os")
+curve = SubResource("Curve2D_piq2g")
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform" index="0" unique_id=199652958]
 position = Vector2(-64, 32)
@@ -104,14 +119,14 @@ points = PackedVector2Array(-64, 32, -59.6875, 32, -57.33496, 32, -54.507813, 32
 position = Vector2(-64, 32)
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform/AnimatableBody2D" index="0" unique_id=388684668]
-shape = SubResource("RectangleShape2D_7sa7h")
+shape = SubResource("RectangleShape2D_emy88")
 
 [node name="NinePatchRect" parent="Objects/MovingPlatform/AnimatableBody2D" index="1" unique_id=1810313545]
 offset_left = -64.0
 offset_right = 64.0
 
 [node name="MovingPlatform2" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="1" unique_id=1151420061 instance=ExtResource("2_8bsj8")]
-curve = SubResource("Curve2D_piq2g")
+curve = SubResource("Curve2D_g7ki6")
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform2" index="0" unique_id=199652958]
 position = Vector2(672, 32)
@@ -124,14 +139,14 @@ points = PackedVector2Array(448, 32, 450.51563, 32, 453.5371, 32, 457.625, 32, 4
 position = Vector2(672, 32)
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform2/AnimatableBody2D" index="0" unique_id=388684668]
-shape = SubResource("RectangleShape2D_emy88")
+shape = SubResource("RectangleShape2D_371xd")
 
 [node name="NinePatchRect" parent="Objects/MovingPlatform2/AnimatableBody2D" index="1" unique_id=1810313545]
 offset_left = -64.0
 offset_right = 64.0
 
 [node name="MovingPlatform3" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="2" unique_id=19278514 instance=ExtResource("2_8bsj8")]
-curve = SubResource("Curve2D_g7ki6")
+curve = SubResource("Curve2D_jqryc")
 time = 2.5
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform3" index="0" unique_id=199652958]
@@ -139,14 +154,14 @@ position = Vector2(1312, 224)
 rotation = -1.5707964
 
 [node name="FollowVisual" parent="Objects/MovingPlatform3" index="1" unique_id=409824460]
-points = PackedVector2Array(1311, 256, 1311.0112, 251.32813, 1311.0173, 248.77954, 1311.0248, 245.7168, 1311.0332, 242.15894, 1311.043, 238.125, 1311.0538, 233.63403, 1311.0656, 228.70508, 1311.0719, 226.0823, 1311.0784, 223.35718, 1311.0852, 220.53207, 1311.0923, 217.60938, 1311.0996, 214.59146, 1311.1069, 211.48071, 1311.1146, 208.27951, 1311.1227, 204.99023, 1311.1307, 201.61526, 1311.139, 198.15698, 1311.1475, 194.61777, 1311.1563, 191, 1311.1652, 187.30606, 1311.1742, 183.53833, 1311.1833, 179.69919, 1311.1927, 175.79102, 1311.2024, 171.8162, 1311.212, 167.7771, 1311.2219, 163.67612, 1311.2319, 159.51563, 1311.242, 155.298, 1311.2523, 151.02563, 1311.2627, 146.7009, 1311.2733, 142.32617, 1311.2839, 137.90384, 1311.2946, 133.43628, 1311.3055, 128.92587, 1311.3164, 124.375, 1311.3274, 119.78604, 1311.3385, 115.16138, 1311.3497, 110.50339, 1311.361, 105.81445, 1311.3724, 101.096954, 1311.3837, 96.35327, 1311.3953, 91.585785, 1311.4067, 86.796875, 1311.4182, 81.98892, 1311.4298, 77.16431, 1311.4415, 72.32541, 1311.4532, 67.47461, 1311.4648, 62.61429, 1311.4766, 57.746826, 1311.4884, 52.874603, 1311.5, 48, 1311.5116, 43.125397, 1311.5234, 38.253174, 1311.5352, 33.38571, 1311.5469, 28.52539, 1311.5585, 23.674591, 1311.5702, 18.835693, 1311.5818, 14.011078, 1311.5933, 9.203125, 1311.6047, 4.414215, 1311.6163, -0.35327148, 1311.6277, -5.0969543, 1311.6389, -9.814453, 1311.6501, -14.503387, 1311.6614, -19.161377, 1311.6726, -23.786041, 1311.6836, -28.375, 1311.6945, -32.925873, 1311.7053, -37.43628, 1311.7161, -41.90384, 1311.7268, -46.32617, 1311.7373, -50.700897, 1311.7476, -55.025635, 1311.758, -59.298004, 1311.7681, -63.515625, 1311.7781, -67.67612, 1311.788, -71.7771, 1311.7976, -75.81619, 1311.8071, -79.791016, 1311.8167, -83.69919, 1311.8258, -87.53833, 1311.835, -91.30606, 1311.8438, -95, 1311.8524, -98.61777, 1311.861, -102.15698, 1311.8694, -105.615265, 1311.8774, -108.990234, 1311.8853, -112.27951, 1311.8931, -115.48071, 1311.9005, -118.59146, 1311.9077, -121.609375, 1311.9148, -124.532074, 1311.9215, -127.35718, 1311.9281, -130.0823, 1311.9343, -132.70508, 1311.9463, -137.63403, 1311.957, -142.125, 1311.9668, -146.15894, 1311.9753, -149.7168, 1311.9827, -152.77954, 1311.9888, -155.32813, 1312, -160)
+points = PackedVector2Array(1312, 224, 1312, 219.6875, 1312, 217.33496, 1312, 214.50781, 1312, 211.22363, 1312, 207.5, 1312, 203.35449, 1312, 198.80469, 1312, 193.86816, 1312, 191.26038, 1312, 188.5625, 1312, 185.77673, 1312, 182.90527, 1311.9999, 179.95032, 1312, 176.91406, 1312.0001, 173.7987, 1312, 170.60645, 1312, 167.33948, 1312, 164, 1312, 160.59021, 1312, 157.1123, 1311.9999, 153.56848, 1312, 149.96094, 1312.0001, 146.29187, 1312, 142.56348, 1312, 138.77795, 1312, 134.9375, 1312, 131.04431, 1312, 127.100586, 1311.9999, 123.10852, 1312, 119.07031, 1312, 114.98816, 1312, 110.86426, 1312, 106.700806, 1312, 102.5, 1312, 98.26404, 1312, 93.99512, 1312, 89.695435, 1312, 85.36719, 1312.0001, 81.01257, 1312, 76.63379, 1312, 72.23303, 1312, 67.8125, 1312, 63.37439, 1312, 58.9209, 1311.9999, 54.454224, 1312, 49.976563, 1312, 45.490112, 1312, 40.99707, 1312, 36.499634, 1312, 32, 1312, 27.500366, 1312, 23.00293, 1312, 18.509888, 1312, 14.0234375, 1312.0001, 9.545776, 1312, 5.0791016, 1312, 0.62561035, 1312, -3.8125, 1312, -8.233032, 1312, -12.633789, 1312, -17.012573, 1312, -21.367188, 1312, -25.695435, 1312, -29.995117, 1312, -34.264038, 1312, -38.5, 1312, -42.700806, 1312, -46.864258, 1312, -50.98816, 1312, -55.070313, 1312, -59.10852, 1312, -63.100586, 1312, -67.04431, 1312, -70.9375, 1312, -74.777954, 1312, -78.56348, 1312, -82.29187, 1312, -85.96094, 1312, -89.56848, 1312, -93.112305, 1312, -96.59021, 1312, -100, 1312, -103.33948, 1312, -106.606445, 1312, -109.798706, 1312, -112.91406, 1312, -115.95032, 1312, -118.90527, 1312, -121.77673, 1312, -124.5625, 1312, -127.260376, 1312, -129.86816, 1312, -134.80469, 1312, -139.35449, 1312, -143.5, 1312, -147.22363, 1312, -150.50781, 1312, -153.33496, 1312, -155.6875, 1312, -160)
 
 [node name="AnimatableBody2D" parent="Objects/MovingPlatform3" index="2" unique_id=886220012]
 position = Vector2(1312, 224)
 rotation = -1.5707964
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform3/AnimatableBody2D" index="0" unique_id=388684668]
-shape = SubResource("RectangleShape2D_371xd")
+shape = SubResource("RectangleShape2D_51j8x")
 
 [node name="NinePatchRect" parent="Objects/MovingPlatform3/AnimatableBody2D" index="1" unique_id=1810313545]
 offset_left = -64.0
@@ -155,7 +170,7 @@ offset_right = 64.0
 offset_bottom = 64.0
 
 [node name="MovingPlatform4" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="3" unique_id=8111918 instance=ExtResource("2_8bsj8")]
-curve = SubResource("Curve2D_jqryc")
+curve = SubResource("Curve2D_0kaeh")
 time = 2.5
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform4" index="0" unique_id=199652958]
@@ -171,7 +186,7 @@ position = Vector2(1568, 128.00003)
 rotation = -1.5707964
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform4/AnimatableBody2D" index="0" unique_id=388684668]
-shape = SubResource("RectangleShape2D_51j8x")
+shape = SubResource("RectangleShape2D_hikhu")
 
 [node name="NinePatchRect" parent="Objects/MovingPlatform4/AnimatableBody2D" index="1" unique_id=1810313545]
 offset_left = -64.0
@@ -180,7 +195,7 @@ offset_right = 64.0
 offset_bottom = 64.0
 
 [node name="MovingPlatform5" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="4" unique_id=1153902006 instance=ExtResource("2_8bsj8")]
-curve = SubResource("Curve2D_0kaeh")
+curve = SubResource("Curve2D_a7b15")
 time = 2.5
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform5" index="0" unique_id=199652958]
@@ -189,14 +204,14 @@ rotation = -1.5707964
 progress = 703.99994
 
 [node name="FollowVisual" parent="Objects/MovingPlatform5" index="1" unique_id=409824460]
-points = PackedVector2Array(1824, 320, 1824, 315.32813, 1824, 312.77954, 1824, 309.7168, 1824, 306.15894, 1824, 302.125, 1824, 297.63403, 1824, 292.70508, 1824, 290.08228, 1824, 287.35718, 1824, 284.5321, 1824, 281.60938, 1824, 278.59143, 1824, 275.4807, 1823.9999, 272.27954, 1824, 268.99023, 1824.0001, 265.61523, 1824, 262.15698, 1824, 258.6178, 1824, 255, 1823.9999, 251.30606, 1824, 247.53833, 1824, 243.69919, 1824, 239.79102, 1824, 235.8162, 1824, 231.7771, 1824, 227.67612, 1824, 223.51563, 1824, 219.298, 1824, 215.02563, 1824, 210.7009, 1824, 206.32617, 1824, 201.90384, 1824, 197.43628, 1824.0001, 192.92587, 1824, 188.375, 1823.9999, 183.78604, 1824, 179.16138, 1824, 174.50339, 1824, 169.81445, 1824, 165.09695, 1824, 160.35327, 1824, 155.58578, 1824, 150.79688, 1824, 145.98892, 1824, 141.1643, 1823.9999, 136.32541, 1824, 131.47461, 1824, 126.61429, 1824, 121.746826, 1824, 116.8746, 1824, 112, 1824, 107.1254, 1824, 102.253174, 1824, 97.38571, 1824, 92.52539, 1824, 87.67459, 1824, 82.83569, 1824, 78.01108, 1824, 73.203125, 1824, 68.414215, 1824, 63.64673, 1824, 58.903046, 1824, 54.185547, 1824, 49.496613, 1824, 44.838623, 1823.9999, 40.21396, 1824, 35.625, 1824.0001, 31.074127, 1824, 26.56372, 1824, 22.09616, 1824, 17.673828, 1824, 13.299103, 1824, 8.974365, 1824, 4.701996, 1824, 0.484375, 1824, -3.676117, 1824, -7.7770996, 1824, -11.816193, 1824, -15.791016, 1824, -19.699188, 1824, -23.53833, 1823.9999, -27.30606, 1824, -31, 1824, -34.617767, 1824, -38.156982, 1824, -41.615265, 1824, -44.990234, 1824, -48.27951, 1824, -51.480713, 1824, -54.59146, 1824, -57.609375, 1824, -60.532074, 1824, -63.357178, 1824, -66.082306, 1824, -68.70508, 1824, -73.63403, 1824, -78.125, 1824, -82.158936, 1824, -85.7168, 1824, -88.77954, 1824, -91.328125, 1824, -96)
+points = PackedVector2Array(1824, 288, 1824, 283.6875, 1824, 281.33496, 1824, 278.5078, 1824, 275.22363, 1824, 271.5, 1824, 267.3545, 1824, 262.8047, 1824, 257.86816, 1824, 255.26038, 1824, 252.5625, 1824, 249.77673, 1824, 246.90527, 1823.9999, 243.95032, 1824, 240.91406, 1824.0001, 237.7987, 1824, 234.60645, 1824, 231.33948, 1824, 228, 1823.9999, 224.59021, 1824, 221.1123, 1824, 217.56848, 1824, 213.96094, 1824, 210.29187, 1824, 206.56348, 1824, 202.77795, 1824, 198.9375, 1824, 195.04431, 1824, 191.10059, 1824, 187.10852, 1824, 183.07031, 1824, 178.98816, 1824, 174.86426, 1824.0001, 170.7008, 1824, 166.5, 1823.9999, 162.26404, 1824, 157.99512, 1824, 153.69543, 1824, 149.36719, 1824, 145.01257, 1824, 140.63379, 1824, 136.23303, 1824, 131.8125, 1824, 127.37439, 1824, 122.9209, 1823.9999, 118.45422, 1824, 113.97656, 1824, 109.49011, 1824, 104.99707, 1824, 100.49963, 1824, 96, 1824, 91.50037, 1824, 87.00293, 1824, 82.50989, 1824, 78.02344, 1824, 73.54578, 1824, 69.0791, 1824, 64.62561, 1824, 60.1875, 1824, 55.766968, 1824, 51.36621, 1824, 46.987427, 1824, 42.632813, 1824, 38.304565, 1824, 34.004883, 1823.9999, 29.735962, 1824, 25.5, 1824.0001, 21.299194, 1824, 17.135742, 1824, 13.011841, 1824, 8.9296875, 1824, 4.8914795, 1824, 0.89941406, 1824, -3.0443115, 1824, -6.9375, 1824, -10.777954, 1824, -14.563477, 1824, -18.29187, 1824, -21.960938, 1824, -25.568481, 1824, -29.112305, 1823.9999, -32.59021, 1824, -36, 1824, -39.339478, 1824, -42.606445, 1824, -45.798706, 1824, -48.914063, 1824, -51.950317, 1824, -54.905273, 1824, -57.776733, 1824, -60.5625, 1824, -63.260376, 1824, -65.868164, 1824, -70.80469, 1824, -75.35449, 1824, -79.5, 1824, -83.22363, 1824, -86.50781, 1824, -89.33496, 1824, -91.6875, 1824, -96)
 
 [node name="AnimatableBody2D" parent="Objects/MovingPlatform5" index="2" unique_id=886220012]
 position = Vector2(1824, -96)
 rotation = -1.5707964
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform5/AnimatableBody2D" index="0" unique_id=388684668]
-shape = SubResource("RectangleShape2D_hikhu")
+shape = SubResource("RectangleShape2D_2d367")
 
 [node name="NinePatchRect" parent="Objects/MovingPlatform5/AnimatableBody2D" index="1" unique_id=1810313545]
 offset_left = -64.0
@@ -206,7 +221,7 @@ offset_bottom = 64.0
 
 [node name="MovingPlatform6" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="5" unique_id=1131805096 instance=ExtResource("2_8bsj8")]
 position = Vector2(0, 137)
-curve = SubResource("Curve2D_a7b15")
+curve = SubResource("Curve2D_a4qkc")
 time = 2.5
 forward_direction = -1.0
 
@@ -224,7 +239,7 @@ rotation = -1.5707964
 scale = Vector2(0.9999999, 0.99999964)
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform6/AnimatableBody2D" index="0" unique_id=388684668]
-shape = SubResource("RectangleShape2D_2d367")
+shape = SubResource("RectangleShape2D_5m8bf")
 
 [node name="NinePatchRect" parent="Objects/MovingPlatform6/AnimatableBody2D" index="1" unique_id=1810313545]
 offset_left = -64.0
@@ -247,7 +262,7 @@ direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-512, -48)
-shape = SubResource("RectangleShape2D_a4qkc")
+shape = SubResource("RectangleShape2D_ro3fu")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-352, 0)
@@ -257,11 +272,12 @@ door_tag = "EastDoor"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(2800, 80)
-shape = SubResource("RectangleShape2D_5m8bf")
+shape = SubResource("RectangleShape2D_t0or6")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(2528, 128)
 
+[editable path="POI/Checkpoint"]
 [editable path="Objects/MovingPlatform"]
 [editable path="Objects/MovingPlatform2"]
 [editable path="Objects/MovingPlatform3"]

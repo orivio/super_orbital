@@ -2,29 +2,35 @@
 
 [ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/level_base.tscn" id="1_acu84"]
 [ext_resource type="Script" uid="uid://fh26kdyhba2m" path="res://levels/2_jump/bridge_spikes.gd" id="2_3oetn"]
+[ext_resource type="PackedScene" uid="uid://dug5sf5e7qxah" path="res://poi/checkpoint/checkpoint.tscn" id="3_1lp34"]
 [ext_resource type="Script" uid="uid://coqrruoj0wool" path="res://objects/tilemap_changer/tilemap_changer.gd" id="3_acu84"]
 [ext_resource type="TileMapPattern" uid="uid://bscl6t2w3a17h" path="res://world/tilesets/patterns/spike_block_off.tres" id="4_3pkh3"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="4_6vats"]
 [ext_resource type="Script" uid="uid://xytnvm2gjwdp" path="res://world/tilesets/tilemap_pattern_saver.gd" id="5_3pkh3"]
 [ext_resource type="TileMapPattern" uid="uid://c26myko4ib2i2" path="res://world/tilesets/patterns/spike_block_on.tres" id="5_6vats"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pkh3"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sg6bq"]
 resource_local_to_scene = true
 size = Vector2(1760, 2257)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vats"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lp34"]
+resource_local_to_scene = true
+size = Vector2(192, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3la3t"]
 resource_local_to_scene = true
 size = Vector2(128, 416)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lp34"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_weekt"]
 resource_local_to_scene = true
 size = Vector2(128, 320)
 
-[node name="Level" unique_id=201273727 instance=ExtResource("1_acu84")]
+[node name="Level" unique_id=201273727 node_paths=PackedStringArray("checkpoints") instance=ExtResource("1_acu84")]
+checkpoints = [NodePath("POI/Checkpoint")]
 
 [node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
 position = Vector2(464, 520.5)
-shape = SubResource("RectangleShape2D_3pkh3")
+shape = SubResource("RectangleShape2D_sg6bq")
 
 [node name="BackgroundParallax" parent="." index="2" unique_id=1350709603]
 visible = true
@@ -37,6 +43,15 @@ spike_b_changers = [NodePath("../../Objects/Changer_Spike_Top_Off"), NodePath(".
 
 [node name="SpikeTimer" type="Timer" parent="POI/SpikeManager" index="0" unique_id=1155558235]
 process_callback = 0
+
+[node name="Checkpoint" parent="POI" parent_id_path=PackedInt32Array(809409572) index="1" unique_id=626712177 instance=ExtResource("3_1lp34")]
+
+[node name="CollisionShape2D" parent="POI/Checkpoint" index="0" unique_id=1419034240]
+position = Vector2(704, -80)
+shape = SubResource("RectangleShape2D_1lp34")
+
+[node name="Marker2D" parent="POI/Checkpoint" index="1" unique_id=1330501033]
+position = Vector2(640, -32)
 
 [node name="Changer_Spike_Left_Off" type="Node2D" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="0" unique_id=828276345]
 script = ExtResource("3_acu84")
@@ -84,7 +99,7 @@ direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-544, -272)
-shape = SubResource("RectangleShape2D_6vats")
+shape = SubResource("RectangleShape2D_3la3t")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-352, -64)
@@ -94,12 +109,13 @@ door_tag = "EastDoor"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(1472, -224)
-shape = SubResource("RectangleShape2D_1lp34")
+shape = SubResource("RectangleShape2D_weekt")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(1280, -64)
 
 [connection signal="timeout" from="POI/SpikeManager/SpikeTimer" to="POI/SpikeManager" method="_on_spike_timer_timeout"]
 
+[editable path="POI/Checkpoint"]
 [editable path="Doors/WestDoor"]
 [editable path="Doors/EastDoor"]
