@@ -60,6 +60,7 @@ metadata/_custom_type_script = "uid://dumitcejfyj50"
 [node name="LevelManager" type="Node" unique_id=1236648784]
 script = ExtResource("1_5cnr3")
 level_transition_time = 0.25
+checkpoint_transition_time = 0.25
 
 [node name="Player" parent="." unique_id=1158454686 instance=ExtResource("2_i3p2r")]
 position = Vector2(0, -1)

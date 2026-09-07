@@ -20,7 +20,7 @@ metallic ground
 - Add different jump landing sound effects depending on what surface you land 
 on
 - Maybe a player death animation
-- Potentially add checkpoints
+- Make checkpoints toggleable in the game settings
 - Fix tile inconsistencies across many levels
 
 

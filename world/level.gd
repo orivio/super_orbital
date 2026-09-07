@@ -4,6 +4,10 @@ extends Node2D
 
 signal door_entered(direction: Types.DoorDirection)
 
+@export var checkpoints: Array[Checkpoint]
+
+var last_checkpoint: int = -1
+
 @onready var camera_bounds: CollisionShape2D = $CameraBounds/CollisionShape2D
 @onready var doors: Node2D = $Doors
 @onready var objects: Node2D = $Objects
@@ -41,6 +45,12 @@ func initialize() -> void:
 	for node in progress_detector_nodes:
 		if node is ProgressDetector:
 			node.load_data_from_savefile(SaveManager.get_save_file())
+	
+	for i in range(checkpoints.size()):
+		var node: Node2D = checkpoints[i]
+		if node is Checkpoint:
+			node.initialize(i)
+			node.player_entered.connect(_on_checkpoint_entered)
 
 
 func finish_setup() -> void:
@@ -49,6 +59,21 @@ func finish_setup() -> void:
 
 func get_doors() -> Array[Node]:
 	return doors.get_children()
+
+
+func get_door_spawn_pos(door_tag: String) -> Vector2:
+	var doors: Array[Node] = get_doors()
+	for door in doors:
+		if door is Door and door.door_tag == door_tag:
+			return door.get_spawn_pos()
+	#push_warning("Could not find door: ", door_tag)
+	return Vector2.ZERO
+
+
+func get_last_checkpoint_pos() -> Vector2:
+	if last_checkpoint == -1:
+		return get_door_spawn_pos("WestDoor")
+	return checkpoints[last_checkpoint].get_spawn_pos()
 
 
 func add_object(node: Node2D) -> void:
@@ -70,9 +95,13 @@ func get_camera_bounds() -> Rect2:
 	return Rect2(0, 0, 0, 0)
 
 
-func _on_door_entered(direction: Types.DoorDirection):
+func _on_door_entered(direction: Types.DoorDirection) -> void:
 	# Bubble up the door entered signal to the level manager
 	door_entered.emit(direction)
+
+
+func _on_checkpoint_entered(idx: int) -> void:
+	last_checkpoint = idx
 
 
 func _on_door_setup_timer_timeout() -> void:

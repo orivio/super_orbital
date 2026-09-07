@@ -31,7 +31,7 @@ func _ready() -> void:
 	GameManager.play = self
 	current_state = PlayState.UNINITIALIZED
 	world.door_entered.connect(_on_door_entered)
-	world.reload_level_requested.connect(_on_reload_level_requested)
+	world.player_death.connect(_on_player_death)
 	await world.initialize()
 	current_state = PlayState.GAMEPLAY
 
@@ -158,9 +158,15 @@ func _on_pause_menu_level_selected(level_idx: int) -> void:
 			current_state = PlayState.GAMEPLAY
 
 
-func _on_reload_level_requested() -> void:
+func _on_player_death() -> void:
 	match current_state:
 		PlayState.GAMEPLAY:
-			current_state = PlayState.TRANSITIONING_ROOMS
-			await world.reload_level()
-			current_state = PlayState.GAMEPLAY
+			var use_checkpoints: bool = true
+			if use_checkpoints:
+				current_state = PlayState.TRANSITIONING_ROOMS
+				await world.goto_last_checkpoint()
+				current_state = PlayState.GAMEPLAY
+			else:
+				current_state = PlayState.TRANSITIONING_ROOMS
+				await world.reload_level()
+				current_state = PlayState.GAMEPLAY

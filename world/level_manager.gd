@@ -2,12 +2,13 @@ class_name LevelManager
 extends Node
 
 signal door_entered(direction: Types.DoorDirection)
-signal reload_level_requested()
+signal player_death()
 signal level_changed(level_idx: int)
 
 const LEVEL_DIR: LevelDirectory = preload("res://world/level_directory.tres")
 
 @export var level_transition_time: float
+@export var checkpoint_transition_time: float
 
 var current_level: Node2D = null
 var previous_level: Node2D = null
@@ -103,20 +104,9 @@ func change_level(new_level_meta: LevelMeta, dest_door: String) -> void:
 
 
 func teleport_player_to_door(level: Level, dest_door_tag: String):
-	# Find the right door
-	var doors = level.get_doors()
-	for door in doors:
-		if door is Door and door.door_tag == dest_door_tag:
-			# We can teleport the player to the door's spawn position
-			var spawn_location: Vector2 = door.get_spawn_pos()
-			
-			# Teleport the player and reset everything
-			player.teleport_to_ground(spawn_location)
-			GameManager.camera.snap_camera_to_player()
-			return
 	
-	print("Could not find door ", dest_door_tag, " in level ", level.name)
-	player.teleport_to_ground(Vector2.ZERO)
+	player.teleport_to_ground(level.get_door_spawn_pos(dest_door_tag))
+	GameManager.camera.snap_camera_to_player()
 
 
 func update_camera_limits(level: Level) -> void:
@@ -156,10 +146,24 @@ func goto_level(new_level_idx: int) -> void:
 	level_changed.emit(new_level_idx)
 
 
+func goto_last_checkpoint() -> void:
+	# Find which position to teleport to
+	var checkpoint_dest: Vector2 = current_level.get_last_checkpoint_pos()
+	# Disable player collisions
+	player.disable()
+	# Fade to black
+	await fade_effect.fade(Color(0, 0, 0, 1), checkpoint_transition_time).finished
+	player.teleport_to_ground(checkpoint_dest)
+	# Fade from black
+	await fade_effect.fade(Color(0, 0, 0, 0), checkpoint_transition_time).finished
+	# Reenable player
+	player.enable()
+	player.reset()
+
+
 func _on_door_entered(direction: Types.DoorDirection) -> void:
 	door_entered.emit(direction)
 
 
 func _on_player_death() -> void:
-	# TODO: Add checkpoints
-	reload_level_requested.emit()
+	player_death.emit()
