@@ -5,13 +5,6 @@ Russlan:
 - Make an image for the title
 
 Obed:
-- Should I add a buffer to the float state such that right after you land from 
-a regular jump, if you press the grav switch button, you will bounce as if you 
-had been floating the entire time? It could improve the game juice, but I don't
-know how to implement it
-- Or, after bouncing off a wall in the float state, if you quickly press the 
-grav switch button, it will give you a boost back to simulate as if you had 
-pressed the button before bouncing.
 - Refine the black hole mechanic as necessary for the levels in which they 
 appear
 - Make Gilganas better
@@ -28,6 +21,13 @@ on, as well as particle effects
 - Make levels more "interactive" - Wally
 	- He suggested coins (an idea which I dont like, but we could figure out 
 	something similar)
+- Should I add a buffer to the float state such that right after you land from 
+a regular jump, if you press the grav switch button, you will bounce as if you 
+had been floating the entire time? It could improve the game juice, but I don't
+know how to implement it
+- Or, after bouncing off a wall in the float state, if you quickly press the 
+grav switch button, it will give you a boost back to simulate as if you had 
+pressed the button before bouncing.
 
 
 Both, or whoever wants to:
