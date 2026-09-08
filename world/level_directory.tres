@@ -113,49 +113,43 @@ metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_ymir8"]
 script = ExtResource("1_e46c1")
-song = &"Security Risk"
 scene_path = "uid://q37ng5uis2j3"
 level_name = "Can't Stop Floating"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_nyyy1"]
 script = ExtResource("1_e46c1")
-song = &"Security Risk"
+song = &"Spike Doom"
 scene_path = "uid://uvtsgsh0y461"
 level_name = "Perchrit"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_457sk"]
 script = ExtResource("1_e46c1")
-song = &"Security Risk"
 scene_path = "uid://dm8o4fu2ncd4e"
 level_name = "Climbing Up the Facility"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_w2ies"]
 script = ExtResource("1_e46c1")
-song = &"Security Risk"
 scene_path = "uid://b7y15sh84lthd"
 level_name = "Black Holes"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_w3btx"]
 script = ExtResource("1_e46c1")
-song = &"Security Risk"
 scene_path = "uid://c8jrl1ckwxdxt"
 level_name = "Black Holes at an Angle"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_vl48u"]
 script = ExtResource("1_e46c1")
-song = &"Security Risk"
 scene_path = "uid://bq4avu843532o"
 level_name = "Wait, Orbit"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_tyvae"]
 script = ExtResource("1_e46c1")
-song = &"Security Risk"
 scene_path = "uid://b3tyqkjoa3prk"
 level_name = "Gilganas"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
