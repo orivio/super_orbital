@@ -14,7 +14,6 @@ grav switch button, it will give you a boost back to simulate as if you had
 pressed the button before bouncing.
 - Refine the black hole mechanic as necessary for the levels in which they 
 appear
-- Make checkpoints toggleable in the game settings
 - Make Gilganas better
 - Add different jump landing sound effects depending on what surface you land 
 on, as well as particle effects
@@ -22,7 +21,9 @@ on, as well as particle effects
 - Draw the holographic planet lookup scene in the intro cutscene
 - Make a better background
 - Make the player camera follow the player better
-- Fix the text shifting on the buttons
+- Make the UI look better
+	- Fix the text shifting on the buttons
+	- Make all the checkbuttons look better
 - Maybe a player death animation
 - Make levels more "interactive" - Wally
 	- He suggested coins (an idea which I dont like, but we could figure out 

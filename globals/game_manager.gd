@@ -8,6 +8,7 @@ var camera: PlayerCamera
 var current_level: Level
 var time_scale: float = 1
 var play: Play
+var checkpoints_enabled: bool
 
 func _ready() -> void:
 	progress_attained.connect(SaveManager._on_progress_attained)

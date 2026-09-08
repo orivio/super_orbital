@@ -161,7 +161,7 @@ func _on_pause_menu_level_selected(level_idx: int) -> void:
 func _on_player_death() -> void:
 	match current_state:
 		PlayState.GAMEPLAY:
-			var use_checkpoints: bool = true
+			var use_checkpoints: bool = GameManager.checkpoints_enabled
 			if use_checkpoints:
 				current_state = PlayState.TRANSITIONING_ROOMS
 				await world.goto_last_checkpoint()

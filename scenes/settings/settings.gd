@@ -3,6 +3,7 @@ extends Control
 
 @onready var back_button: Button = $BackButton
 @onready var controls: SettingsControls = $TabContainer/Controls
+@onready var game: SettingsGame = $TabContainer/Game
 @onready var audio: SettingsAudio = $TabContainer/Audio
 @onready var graphics: SettingsGraphics = $TabContainer/Graphics
 @onready var tab_container: TabContainer = $TabContainer
@@ -21,6 +22,11 @@ func _on_back_button_pressed() -> void:
 
 
 func _on_controls_changed() -> void:
+	save_settings_dirty = true
+	back_button.text = "Back (Save Changes)"
+
+
+func _on_game_changed() -> void:
 	save_settings_dirty = true
 	back_button.text = "Back (Save Changes)"
 

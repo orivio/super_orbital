@@ -30,6 +30,8 @@ func write_prefs() -> void:
 	file.set_value("Controls", "confirm", confirm)
 	file.set_value("Controls", "change_orbit", change_orbit)
 	
+	file.set_value("Game", "checkpoints", GameManager.checkpoints_enabled)
+	
 	var master_volume = AudioServer.get_bus_volume_db(AudioServer.get_bus_index(&"Master"))
 	var music_volume = AudioServer.get_bus_volume_db(AudioServer.get_bus_index(&"Music"))
 	var sfx_volume = AudioServer.get_bus_volume_db(AudioServer.get_bus_index(&"Sound Effects"))
@@ -55,6 +57,8 @@ static func load_prefs() -> PrefsFile:
 			InputMap.action_erase_events(action_name)
 			var saved_event = file.get_value("Controls", action_name)
 			InputMap.action_add_event(action_name, saved_event)
+	
+	GameManager.checkpoints_enabled = file.get_value("Game", "checkpoints", false)
 	
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(&"Master"), file.get_value("Audio", "master_volume", 0))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(&"Music"), file.get_value("Audio", "music_volume", 0))
