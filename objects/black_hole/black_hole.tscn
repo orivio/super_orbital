@@ -39,11 +39,11 @@ polygon = PackedVector2Array(-49.472534, 19.027443, -33.472534, 11.027443, -25.4
 uv = PackedVector2Array(-49.379326, -28.776743)
 
 [node name="DeathZoneHitbox" type="Area2D" parent="." unique_id=959253740 groups=["black_hole"]]
-visible = false
 collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZoneHitbox" unique_id=847291049]
+scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_483u0")
 debug_color = Color(0.85, 0, 0, 0.41960785)
 
@@ -65,5 +65,6 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_hq6k4")
 debug_color = Color(1, 1, 1, 0.05882353)
 
+[connection signal="body_entered" from="DeathZoneHitbox" to="." method="_on_death_zone_hitbox_body_entered"]
 [connection signal="body_entered" from="InfluenceArea" to="." method="_on_influence_area_body_entered"]
 [connection signal="body_exited" from="InfluenceArea" to="." method="_on_influence_area_body_exited"]

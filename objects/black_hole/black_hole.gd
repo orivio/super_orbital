@@ -12,3 +12,7 @@ func _on_influence_area_body_entered(body: Node2D) -> void:
 func _on_influence_area_body_exited(body: Node2D) -> void:
 	if body is Player:
 		body.exit_blackhole(self)
+
+func _on_death_zone_hitbox_body_entered(body: Node2D) -> void:
+	if body is Player:
+		body.die()
