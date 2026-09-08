@@ -341,6 +341,7 @@ func spawn_wrench_projectile(throw_velocity: Vector2) -> void:
 
 func enter_blackhole(bh: BlackHole) -> void:
 	current_blackhole = bh
+	has_dash = true
 
 
 func exit_blackhole(bh: BlackHole) -> void:
