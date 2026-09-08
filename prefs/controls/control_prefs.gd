@@ -10,6 +10,7 @@ extends Resource
 @export var gravity_switch_key: InputEvent
 @export var throw_wrench_key: InputEvent
 @export var confirm_key: InputEvent
+@export var change_orbit_key: InputEvent
 
 func get_json() -> Dictionary:
 	return {
@@ -22,6 +23,7 @@ func get_json() -> Dictionary:
 		"gravity_switch": gravity_switch_key,
 		"throw_wrench": throw_wrench_key,
 		"confirm": confirm_key,
+		"change_orbit_key": change_orbit_key
 	}
 
 static func from_json(json: Dictionary) -> ControlPrefs:

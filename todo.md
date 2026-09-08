@@ -9,24 +9,21 @@ Obed:
 a regular jump, if you press the grav switch button, you will bounce as if you 
 had been floating the entire time? It could improve the game juice, but I don't
 know how to implement it
+- Or, after bouncing off a wall in the float state, if you quickly press the 
+grav switch button, it will give you a boost back to simulate as if you had 
+pressed the button before bouncing.
 - Refine the black hole mechanic as necessary for the levels in which they 
 appear
-- Draw the holographic planet lookup scene in the intro cutscene
-- Make a better background
-- Make the player camera follow the player better
-- Add more black hole levels
-- Fix the text shifting on the buttons
+- Make checkpoints toggleable in the game settings
 - Make Gilganas better
 - Add different jump landing sound effects depending on what surface you land 
 on, as well as particle effects
+- Add more black hole levels
+- Draw the holographic planet lookup scene in the intro cutscene
+- Make a better background
+- Make the player camera follow the player better
+- Fix the text shifting on the buttons
 - Maybe a player death animation
-- Make checkpoints toggleable in the game settings
-- Add more caution tiles to the facility evels
-- If you antigrav into a dialogue then you stay floating until the dialogue is 
-over and then continue floating, but it should send you to idle state instead
-- If you spam z and x to skip the dialogues quickly then as soon as it ends you 
-do a dash into antigrav, so we should add a momentary delay after dialogue ends 
-where you can't move
 - Make levels more "interactive" - Wally
 	- He suggested coins (an idea which I dont like, but we could figure out 
 	something similar)

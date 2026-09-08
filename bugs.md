@@ -77,6 +77,17 @@ Replication:
 - You can turn the engine time scale to 1/16 to make it easier to replicate
 Progress:
 - Mostly fixed.
+## Opening the menu is slower when inside a black hole
+Details:
+- Fairly simple fix, just do something with the tweens in play.gd and make it 
+ignore the engine time scale
 
 # Editor bugs
 ## Adding new settings to player movement settings makes it so that that variable's value is ignored at runtime and set to default
+
+# Dialogue bugs
+- If you antigrav into a dialogue then you stay floating until the dialogue is 
+over and then continue floating, but it should send you to idle state instead
+- If you spam z and x to skip the dialogues quickly then as soon as it ends you 
+do a dash into antigrav, so we should add a momentary delay after dialogue ends 
+where you can't move

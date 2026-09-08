@@ -17,6 +17,7 @@ func write_prefs() -> void:
 	var gravity_switch = InputMap.action_get_events("gravity_switch")[0]
 	var throw_wrench = InputMap.action_get_events("throw_wrench")[0]
 	var confirm = InputMap.action_get_events("confirm")[0]
+	var change_orbit = InputMap.action_get_events("change_orbit")[0]
 	
 	file.set_value("Controls", "left", left)
 	file.set_value("Controls", "right", right)
@@ -27,6 +28,7 @@ func write_prefs() -> void:
 	file.set_value("Controls", "gravity_switch", gravity_switch)
 	file.set_value("Controls", "throw_wrench", throw_wrench)
 	file.set_value("Controls", "confirm", confirm)
+	file.set_value("Controls", "change_orbit", change_orbit)
 	
 	var master_volume = AudioServer.get_bus_volume_db(AudioServer.get_bus_index(&"Master"))
 	var music_volume = AudioServer.get_bus_volume_db(AudioServer.get_bus_index(&"Music"))
@@ -47,7 +49,7 @@ static func load_prefs() -> PrefsFile:
 	if file.load(SAVE_PREFS_PATH) != OK:
 		return null
 	
-	var action_names: Array[StringName] = ["left", "right", "up", "down", "jump", "dash", "gravity_switch", "throw_wrench", "confirm"]
+	var action_names: Array[StringName] = ["left", "right", "up", "down", "jump", "dash", "gravity_switch", "throw_wrench", "confirm", "change_orbit"]
 	for action_name in action_names:
 		if file.has_section_key("Controls", action_name):
 			InputMap.action_erase_events(action_name)
