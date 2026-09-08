@@ -82,11 +82,6 @@ Replication:
 - You can turn the engine time scale to 1/16 to make it easier to replicate
 Progress:
 - Mostly fixed.
-## Opening the menu is slower when inside a black hole
-Details:
-- Fairly simple fix, just do something with the tweens in play.gd and make it 
-ignore the engine time scale
-
 # Editor bugs
 ## Adding new settings to player movement settings makes it so that that variable's value is ignored at runtime and set to default
 

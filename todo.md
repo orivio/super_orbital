@@ -1,5 +1,4 @@
 Russlan:
-- Re assign the music to the rooms (I'm sorry)
 - Finish the banner
 - Feedback on Obed and Wally's song (the intro song)
 - Make an image for the title

@@ -61,6 +61,7 @@ func open_pause_menu() -> void:
 	pause_menu.position.y = get_viewport_rect().size.y
 	# Animate the pause menu sliding upwards
 	pause_menu_enter_tween = create_tween()
+	pause_menu_enter_tween.set_ignore_time_scale(true)
 	pause_menu_enter_tween.tween_property(pause_menu, "position:y", 0, pause_menu_enter_duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	# Wait for the animation to complete
 	await pause_menu_enter_tween.finished
@@ -74,6 +75,7 @@ func close_pause_menu() -> void:
 	current_state = PlayState.CLOSING_PAUSE_MENU
 	# Animate the pause menu sliding downwards
 	pause_menu_exit_tween = create_tween()
+	pause_menu_exit_tween.set_ignore_time_scale(true)
 	pause_menu_exit_tween.tween_property(pause_menu, "position:y", get_viewport_rect().size.y, pause_menu_exit_duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	# Wait for the animation to finish
 	await pause_menu_exit_tween.finished
