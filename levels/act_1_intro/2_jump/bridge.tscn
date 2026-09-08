@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://ddxmy7jvftye4"]
 
 [ext_resource type="PackedScene" uid="uid://dxwerplefht6a" path="res://world/level_base.tscn" id="1_acu84"]
-[ext_resource type="Script" uid="uid://fh26kdyhba2m" path="res://levels/2_jump/bridge_spikes.gd" id="2_3oetn"]
+[ext_resource type="Script" uid="uid://fh26kdyhba2m" path="res://levels/act_1_intro/2_jump/bridge_spikes.gd" id="2_3oetn"]
 [ext_resource type="PackedScene" uid="uid://dug5sf5e7qxah" path="res://poi/checkpoint/checkpoint.tscn" id="3_1lp34"]
 [ext_resource type="Script" uid="uid://coqrruoj0wool" path="res://objects/tilemap_changer/tilemap_changer.gd" id="3_acu84"]
 [ext_resource type="TileMapPattern" uid="uid://bscl6t2w3a17h" path="res://world/tilesets/patterns/spike_block_off.tres" id="4_3pkh3"]
