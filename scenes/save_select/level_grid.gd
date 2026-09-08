@@ -16,7 +16,7 @@ var last_save_file: SaveFile
 
 
 func initialize(save_file: SaveFile) -> void:
-	selected_number = floor(save_file.max_level_idx / 15)
+	selected_number = floor(save_file.max_level_idx / 15.)
 
 
 func wipe_markers() -> void:

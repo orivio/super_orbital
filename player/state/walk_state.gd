@@ -5,6 +5,7 @@ extends State
 @onready var jump: JumpState = $"../Jump"
 @onready var fall: FallState = $"../Fall"
 @onready var dash: DashState = $"../Dash"
+@onready var black_hole: BlackHoleState = $"../BlackHole"
 
 
 func enter() -> void:
@@ -31,17 +32,22 @@ func physics_process(delta: float) -> State:
 	actor.velocity.x = move_toward(actor.velocity.x, move_speed, delta * actor.movement_settings.ground_acceleration)
 	
 	var did_dash: bool = false
+	var did_enter_blackhole: bool = false
 	if actor.can_jump() and not actor.input_locked:
 		actor.do_jump()
-	else:
-		if actor.can_dash() and not actor.input_locked:
-			actor.do_dash()
-			did_dash = true
+	elif actor.can_dash() and not actor.input_locked:
+		actor.do_dash()
+		did_dash = true
+	elif actor.current_blackhole:
+		did_enter_blackhole = true
 	
 	actor.move_and_slide()
 	
 	if did_dash:
 		return dash
+	if did_enter_blackhole:
+		actor.anim_playback.travel("black_hole")
+		return black_hole
 	
 	if not actor.is_on_floor():
 		if actor.velocity.y < 0:

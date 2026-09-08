@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cu780yu22a40f"]
+
+[ext_resource type="Script" uid="uid://cmo6lck8vxn38" path="res://objects/wait_message/wait_message.gd" id="1_ql40t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vx6a2"]
+size = Vector2(224, 170)
+
+[node name="WaitMessage" type="Area2D" unique_id=1622409558]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_ql40t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1893877676]
+position = Vector2(-80, -75)
+shape = SubResource("RectangleShape2D_vx6a2")
+
+[node name="WaitTimer" type="Timer" parent="." unique_id=243557237]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]

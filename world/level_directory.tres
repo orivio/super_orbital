@@ -48,13 +48,13 @@ metadata/_custom_type_script = "uid://2vv4xhpetduf"
 [sub_resource type="Resource" id="Resource_gjcv0"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://dq5o3hg42kqv"
-level_name = "More Platform Timing"
+level_name = "Don't Platform Too High While on a Jump"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_lu7j5"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://dtohxckxanqyl"
-level_name = "Platforms and Spikes"
+level_name = "Crazy Platforms"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_x7rgq"]
@@ -72,13 +72,13 @@ metadata/_custom_type_script = "uid://2vv4xhpetduf"
 [sub_resource type="Resource" id="Resource_64nvc"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://xxigq2kqilns"
-level_name = "Dashing Between Platforms"
+level_name = "Annoying Elevator"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_376m0"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://drqwhjbyw0tr"
-level_name = "Vertical Dash"
+level_name = "Dashing Different Ways"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_lwi6v"]

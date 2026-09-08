@@ -73,7 +73,7 @@ func _process(_delta: float) -> void:
 			typewriter_tween.kill()
 		dialogue_box.visible_ratio = 1
 		
-func get_formatted_text(t: String) -> String:
+static func get_formatted_text(t: String) -> String:
 	return t.replace(
 		"{jump}", OS.get_keycode_string(InputMap.action_get_events("jump")[0].physical_keycode),
 		).replace(
@@ -90,6 +90,8 @@ func get_formatted_text(t: String) -> String:
 		"{up}", OS.get_keycode_string(InputMap.action_get_events("up")[0].physical_keycode),
 		).replace(
 		"{down}", OS.get_keycode_string(InputMap.action_get_events("down")[0].physical_keycode),
+		).replace(
+		"{topright}", OS.get_keycode_string(InputMap.action_get_events("up")[0].physical_keycode) + OS.get_keycode_string(InputMap.action_get_events("right")[0].physical_keycode),
 		)
 
 func animate_portrait_up(portrait: Control, tween: Tween):

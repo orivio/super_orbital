@@ -11,3 +11,4 @@ extends Resource
 @export var dash_pressed: bool
 @export var grav_switch_pressed: bool
 @export var throw_wrench_pressed: bool
+@export var change_orbit_direction_pressed: bool

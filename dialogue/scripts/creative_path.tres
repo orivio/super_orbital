@@ -1,0 +1,108 @@
+[gd_resource type="Resource" script_class="Conversation" format=3 uid="uid://31ya6ecq2eyg"]
+
+[ext_resource type="Script" uid="uid://b2364himxu4dy" path="res://dialogue/conversation/dialogue_line.gd" id="1_l66bp"]
+[ext_resource type="Script" uid="uid://cqhvq0ub0apwo" path="res://dialogue/conversation/conversation.gd" id="2_rfxql"]
+[ext_resource type="Resource" uid="uid://brd2h8hldg5ns" path="res://dialogue/speaker/assistant/assistant.tres" id="2_uki5f"]
+[ext_resource type="Resource" uid="uid://cxumxe1t5kb2i" path="res://dialogue/speaker/sad_guy/sad_guy.tres" id="4_wc7nv"]
+
+[sub_resource type="Resource" id="Resource_1ssmm"]
+script = ExtResource("1_l66bp")
+speaker = ExtResource("2_uki5f")
+text = "..."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_rfxql"]
+script = ExtResource("1_l66bp")
+speaker = ExtResource("2_uki5f")
+text = "What?"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_uki5f"]
+script = ExtResource("1_l66bp")
+speaker = ExtResource("2_uki5f")
+text = "Why?"
+animation = &"disappointed"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_wc7nv"]
+script = ExtResource("1_l66bp")
+speaker = ExtResource("2_uki5f")
+text = "Why on earth would you try to go THIS way?"
+animation = &"disappointed"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_yus5e"]
+script = ExtResource("1_l66bp")
+speaker = ExtResource("2_uki5f")
+text = "..."
+animation = &"disappointed"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_oxfl3"]
+script = ExtResource("1_l66bp")
+speaker = ExtResource("4_wc7nv")
+side = -1
+text = "This."
+animation = &"crazy"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_og5fy"]
+script = ExtResource("1_l66bp")
+speaker = ExtResource("4_wc7nv")
+side = -1
+text = "Is."
+animation = &"crazy"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_8cwmj"]
+script = ExtResource("1_l66bp")
+speaker = ExtResource("4_wc7nv")
+side = -1
+text = "How."
+animation = &"crazy"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_5hhjl"]
+script = ExtResource("1_l66bp")
+speaker = ExtResource("4_wc7nv")
+side = -1
+text = "You."
+animation = &"crazy"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_k8enh"]
+script = ExtResource("1_l66bp")
+speaker = ExtResource("4_wc7nv")
+side = -1
+text = "Are."
+animation = &"crazy"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_eeqth"]
+script = ExtResource("1_l66bp")
+speaker = ExtResource("4_wc7nv")
+side = -1
+text = "Supposed to."
+animation = &"crazy"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_iyh36"]
+script = ExtResource("1_l66bp")
+speaker = ExtResource("4_wc7nv")
+side = -1
+text = "Do."
+animation = &"crazy"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_kk17l"]
+script = ExtResource("1_l66bp")
+speaker = ExtResource("4_wc7nv")
+side = -1
+text = "The level."
+animation = &"crazy"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[resource]
+script = ExtResource("2_rfxql")
+lines = Array[ExtResource("1_l66bp")]([SubResource("Resource_1ssmm"), SubResource("Resource_rfxql"), SubResource("Resource_uki5f"), SubResource("Resource_wc7nv"), SubResource("Resource_yus5e"), SubResource("Resource_oxfl3"), SubResource("Resource_og5fy"), SubResource("Resource_8cwmj"), SubResource("Resource_5hhjl"), SubResource("Resource_k8enh"), SubResource("Resource_eeqth"), SubResource("Resource_iyh36"), SubResource("Resource_kk17l")])
+metadata/_custom_type_script = "uid://cqhvq0ub0apwo"

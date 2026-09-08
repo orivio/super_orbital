@@ -2,14 +2,14 @@ class_name World
 extends Node2D
 
 signal door_entered(direction: Types.DoorDirection)
-signal reload_level_requested()
+signal player_death()
 
 @onready var level_manager: LevelManager = $LevelManager
 
 
 func _ready() -> void:
 	level_manager.door_entered.connect(_on_door_entered)
-	level_manager.reload_level_requested.connect(_on_reload_level_requested)
+	level_manager.player_death.connect(_on_player_death)
 
 
 func initialize() -> void:
@@ -28,9 +28,13 @@ func reload_level() -> void:
 	await level_manager.reload_level()
 
 
+func goto_last_checkpoint() -> void:
+	await level_manager.goto_last_checkpoint()
+
+
 func _on_door_entered(direction: Types.DoorDirection) -> void:
 	door_entered.emit(direction)
 
 
-func _on_reload_level_requested() -> void:
-	reload_level_requested.emit()
+func _on_player_death() -> void:
+	player_death.emit()

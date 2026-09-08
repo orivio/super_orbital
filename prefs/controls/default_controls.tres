@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cijylp7oqyk1q" path="res://prefs/controls/control_prefs.gd" id="1_d7ajx"]
 
+[sub_resource type="InputEventKey" id="InputEventKey_nxs0j"]
+device = -1
+keycode = 67
+unicode = 99
+
 [sub_resource type="InputEventKey" id="InputEventKey_d7ajx"]
 device = -1
 keycode = 90
@@ -54,4 +59,5 @@ dash_key = SubResource("InputEventKey_xqqbm")
 gravity_switch_key = SubResource("InputEventKey_ro50f")
 throw_wrench_key = SubResource("InputEventKey_ki7y1")
 confirm_key = SubResource("InputEventKey_d7ajx")
+change_orbit_key = SubResource("InputEventKey_nxs0j")
 metadata/_custom_type_script = "uid://cijylp7oqyk1q"

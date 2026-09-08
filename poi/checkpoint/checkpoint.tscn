@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dug5sf5e7qxah"]
+
+[ext_resource type="Script" uid="uid://dnq4e066ud7d4" path="res://poi/checkpoint/checkpoint.gd" id="1_dikdl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7wlo"]
+resource_local_to_scene = true
+size = Vector2(128, 128)
+
+[node name="Checkpoint" type="Area2D" unique_id=626712177]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_dikdl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1419034240]
+z_index = 999
+shape = SubResource("RectangleShape2D_e7wlo")
+debug_color = Color(0.73333335, 0.58431375, 0, 0.5372549)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1330501033]
+gizmo_extents = 28.7
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

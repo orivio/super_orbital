@@ -965,6 +965,10 @@ process_callback = 0
 one_shot = true
 ignore_time_scale = true
 
+[node name="WrenchThrowBufferTimer" type="Timer" parent="Timers" unique_id=1016510899]
+process_callback = 0
+one_shot = true
+
 [node name="CoyoteTimer" type="Timer" parent="Timers" unique_id=2056407429]
 process_callback = 0
 one_shot = true
@@ -996,6 +1000,7 @@ dash_breakdown_second_color = Color(0, 0, 1, 1)
 [connection signal="timeout" from="Timers/JumpBufferTimer" to="." method="_on_jump_buffer_timeout"]
 [connection signal="timeout" from="Timers/DashBufferTimer" to="." method="_on_dash_buffer_timeout"]
 [connection signal="timeout" from="Timers/GravSwitchBufferTimer" to="." method="_on_grav_switch_buffer_timeout"]
+[connection signal="timeout" from="Timers/WrenchThrowBufferTimer" to="." method="_on_wrench_throw_buffer_timeout"]
 [connection signal="timeout" from="Timers/CoyoteTimer" to="." method="_on_coyote_timeout"]
 [connection signal="timeout" from="Timers/DashCooldownTimer" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="Timers/DashExitTimer" to="." method="_on_dash_exit_timeout"]

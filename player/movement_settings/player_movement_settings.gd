@@ -87,6 +87,7 @@ signal debug_visual_changed
 @export_range(0, 1.0) var jump_buffer_time: float
 @export_range(0, 1.0) var dash_buffer_time: float
 @export_range(0, 1.0) var grav_switch_buffer_time: float
+@export_range(0, 1.0) var throw_wrench_buffer_time: float
 @export_range(0, 2.0) var coyote_time: float
 @export_range(0.0, 1.0) var dash_hitstop: float
 @export_range(0.0, 1.0) var grav_on_hitstop: float
@@ -105,6 +106,7 @@ signal debug_visual_changed
 @export_category("Debug Visuals")
 @export var show_dash_breakdown: bool:
 	set(value):
+		show_dash_breakdown = value
 		if value == true:
 			debug_visual_changed.emit()
 @export_category("Hidden Settings")
