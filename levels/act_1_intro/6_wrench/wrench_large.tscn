@@ -6,107 +6,107 @@
 [ext_resource type="PackedScene" uid="uid://lf2gvhqkoyd6" path="res://poi/dialogue_trigger/dialogue_trigger.tscn" id="4_vh80u"]
 [ext_resource type="Resource" uid="uid://dlphu4xd2ftuf" path="res://dialogue/scripts/high_security_facility.tres" id="5_qjiot"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1jfq"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70fej"]
 resource_local_to_scene = true
 size = Vector2(2459, 1862)
 
-[sub_resource type="Curve2D" id="Curve2D_46xbl"]
+[sub_resource type="Curve2D" id="Curve2D_8xmq6"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -48, -285, 0, 0, 0, 0, -48, 67)
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8eg0n"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ofkd"]
 resource_local_to_scene = true
 size = Vector2(64, 64)
 
-[sub_resource type="Curve2D" id="Curve2D_ar52q"]
+[sub_resource type="Curve2D" id="Curve2D_g27ty"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 80, -285, 0, 0, 0, 0, 80, 35)
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xao1n"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxqkl"]
 resource_local_to_scene = true
 size = Vector2(64, 64)
 
-[sub_resource type="Curve2D" id="Curve2D_2bvo4"]
+[sub_resource type="Curve2D" id="Curve2D_ao7ms"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 336, -253, 0, 0, 0, 0, 336, 3)
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8ir5"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_llj24"]
 resource_local_to_scene = true
 size = Vector2(64, 64)
 
-[sub_resource type="Curve2D" id="Curve2D_uh261"]
+[sub_resource type="Curve2D" id="Curve2D_vltbk"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 208, 35, 0, 0, 0, 0, 208, -253)
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr0e1"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_36mpf"]
 resource_local_to_scene = true
 size = Vector2(64, 64)
 
-[sub_resource type="Curve2D" id="Curve2D_16iof"]
+[sub_resource type="Curve2D" id="Curve2D_76tbi"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 945, -350, 0, 0, 0, 0, 726, -350)
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bx537"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_coa5l"]
 resource_local_to_scene = true
 size = Vector2(64, 64)
 
-[sub_resource type="Curve2D" id="Curve2D_i7qlc"]
+[sub_resource type="Curve2D" id="Curve2D_wla6n"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 720, -592, 0, 0, 0, 0, 896, -592)
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ws2sw"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0egf"]
 resource_local_to_scene = true
 size = Vector2(64, 64)
 
-[sub_resource type="Curve2D" id="Curve2D_xtfdk"]
+[sub_resource type="Curve2D" id="Curve2D_v3aj7"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 913, -760, 0, 0, 0, 0, 721, -760)
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_th2x7"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thwg4"]
 resource_local_to_scene = true
 size = Vector2(64, 64)
 
-[sub_resource type="Curve2D" id="Curve2D_bk7n5"]
+[sub_resource type="Curve2D" id="Curve2D_d6jg0"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -841, -691, 0, 0, 0, 0, -841, -1030)
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7t8k4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8ntm"]
 resource_local_to_scene = true
 size = Vector2(64, 161.99988)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3qng"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0xyy"]
 resource_local_to_scene = true
 size = Vector2(100, 95.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0rps"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gmfq"]
 resource_local_to_scene = true
 size = Vector2(128, 178)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ekcjm"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fuwdj"]
 resource_local_to_scene = true
 size = Vector2(81, 349)
 
@@ -117,7 +117,7 @@ visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(717.5, -707)
-shape = SubResource("RectangleShape2D_e1jfq")
+shape = SubResource("RectangleShape2D_70fej")
 
 [node name="BackgroundParallax" parent="." index="2" unique_id=1350709603]
 visible = true
@@ -127,7 +127,7 @@ tile_map_data = PackedByteArray("AAAcAOX/AAAIAAIAAAAcAOT/AAAIAAIAAAAdAOL/AAAJAAI
 
 [node name="MovingPlatform" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="0" unique_id=1898127775 instance=ExtResource("2_71jku")]
 position = Vector2(912, -99)
-curve = SubResource("Curve2D_46xbl")
+curve = SubResource("Curve2D_8xmq6")
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform" index="0" unique_id=199652958]
 position = Vector2(-48, -285)
@@ -140,11 +140,11 @@ position = Vector2(-48, -285)
 scale = Vector2(0.9999999, 0.9999999)
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform/AnimatableBody2D" index="0" unique_id=388684668]
-shape = SubResource("RectangleShape2D_8eg0n")
+shape = SubResource("RectangleShape2D_7ofkd")
 
 [node name="MovingPlatform2" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="1" unique_id=561215936 instance=ExtResource("2_71jku")]
 position = Vector2(912, -99)
-curve = SubResource("Curve2D_ar52q")
+curve = SubResource("Curve2D_g27ty")
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform2" index="0" unique_id=199652958]
 position = Vector2(80, -285)
@@ -157,11 +157,11 @@ position = Vector2(80, -285)
 scale = Vector2(0.9999999, 0.9999999)
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform2/AnimatableBody2D" index="0" unique_id=388684668]
-shape = SubResource("RectangleShape2D_xao1n")
+shape = SubResource("RectangleShape2D_rxqkl")
 
 [node name="MovingPlatform3" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="2" unique_id=1741082815 instance=ExtResource("2_71jku")]
 position = Vector2(912, -99)
-curve = SubResource("Curve2D_2bvo4")
+curve = SubResource("Curve2D_ao7ms")
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform3" index="0" unique_id=199652958]
 position = Vector2(336, -253)
@@ -174,11 +174,11 @@ position = Vector2(336, -253)
 scale = Vector2(0.9999999, 0.9999999)
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform3/AnimatableBody2D" index="0" unique_id=388684668]
-shape = SubResource("RectangleShape2D_j8ir5")
+shape = SubResource("RectangleShape2D_llj24")
 
 [node name="MovingPlatform4" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="3" unique_id=942051641 instance=ExtResource("2_71jku")]
 position = Vector2(912, -99)
-curve = SubResource("Curve2D_uh261")
+curve = SubResource("Curve2D_vltbk")
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform4" index="0" unique_id=199652958]
 position = Vector2(208, 35)
@@ -191,11 +191,11 @@ position = Vector2(208, 35)
 scale = Vector2(0.9999999, 0.9999999)
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform4/AnimatableBody2D" index="0" unique_id=388684668]
-shape = SubResource("RectangleShape2D_qr0e1")
+shape = SubResource("RectangleShape2D_36mpf")
 
 [node name="MovingPlatform5" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="4" unique_id=1507734970 instance=ExtResource("2_71jku")]
 position = Vector2(912, -99)
-curve = SubResource("Curve2D_16iof")
+curve = SubResource("Curve2D_76tbi")
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform5" index="0" unique_id=199652958]
 position = Vector2(945, -350)
@@ -208,11 +208,11 @@ position = Vector2(945, -350)
 scale = Vector2(0.9999999, 0.9999999)
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform5/AnimatableBody2D" index="0" unique_id=388684668]
-shape = SubResource("RectangleShape2D_bx537")
+shape = SubResource("RectangleShape2D_coa5l")
 
 [node name="MovingPlatform6" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="5" unique_id=130680671 instance=ExtResource("2_71jku")]
 position = Vector2(912, -99)
-curve = SubResource("Curve2D_i7qlc")
+curve = SubResource("Curve2D_wla6n")
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform6" index="0" unique_id=199652958]
 position = Vector2(720, -592)
@@ -225,11 +225,11 @@ position = Vector2(720, -592)
 scale = Vector2(1.0000007, 1.0000007)
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform6/AnimatableBody2D" index="0" unique_id=388684668]
-shape = SubResource("RectangleShape2D_ws2sw")
+shape = SubResource("RectangleShape2D_f0egf")
 
 [node name="MovingPlatform7" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="6" unique_id=1554688118 instance=ExtResource("2_71jku")]
 position = Vector2(912, -99)
-curve = SubResource("Curve2D_xtfdk")
+curve = SubResource("Curve2D_v3aj7")
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform7" index="0" unique_id=199652958]
 position = Vector2(913, -760)
@@ -242,11 +242,11 @@ position = Vector2(913, -760)
 scale = Vector2(1.0000007, 1.0000007)
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform7/AnimatableBody2D" index="0" unique_id=388684668]
-shape = SubResource("RectangleShape2D_th2x7")
+shape = SubResource("RectangleShape2D_thwg4")
 
 [node name="MovingPlatform8" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="7" unique_id=159186255 instance=ExtResource("2_71jku")]
 position = Vector2(912, -99)
-curve = SubResource("Curve2D_bk7n5")
+curve = SubResource("Curve2D_d6jg0")
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform8" index="0" unique_id=199652958]
 position = Vector2(-841, -691)
@@ -260,7 +260,7 @@ scale = Vector2(1.0000007, 1.0000007)
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform8/AnimatableBody2D" index="0" unique_id=388684668]
 position = Vector2(0, -48.99994)
-shape = SubResource("RectangleShape2D_7t8k4")
+shape = SubResource("RectangleShape2D_l8ntm")
 
 [node name="NinePatchRect" parent="Objects/MovingPlatform8/AnimatableBody2D" index="1" unique_id=1810313545]
 offset_top = -129.99988
@@ -271,23 +271,21 @@ tile_map_data = PackedByteArray("AADx/wMAAAABAAEAAAD2/wIAAAAAAAEAAAD/////AAADAAY
 [node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("2_ot8wq")]
 position = Vector2(-698, -31)
 door_tag = "WestDoor"
-dest_door = ""
 direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(80, 78.75)
-shape = SubResource("RectangleShape2D_w3qng")
+shape = SubResource("RectangleShape2D_p0xyy")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(250, 127)
 
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=490566748 instance=ExtResource("2_ot8wq")]
 door_tag = "EastDoor"
-dest_door = ""
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(2087, -1319)
-shape = SubResource("RectangleShape2D_y0rps")
+shape = SubResource("RectangleShape2D_2gmfq")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(1879, -1262)
@@ -299,7 +297,7 @@ conversation = ExtResource("5_qjiot")
 
 [node name="CollisionShape2D" parent="DialogueTrigger" index="0" unique_id=354673692]
 position = Vector2(1018, -82)
-shape = SubResource("RectangleShape2D_ekcjm")
+shape = SubResource("RectangleShape2D_fuwdj")
 
 [editable path="Objects/MovingPlatform"]
 [editable path="Objects/MovingPlatform2"]
