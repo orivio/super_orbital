@@ -66,6 +66,11 @@ something like that.
 - The bug can still occur when you remove the wall clip and ceiling clip 
 correction from the dash state.
 
+## Float bouncing off a platform at the wrong angle
+Details:
+- It can cause you to bounce back and forth a ton, and the hitstop makes the 
+game slowdown to almost stopped
+
 # UI Bugs
 ## Pressing a button during a screen fade
 Details:
@@ -94,3 +99,4 @@ where you can't move
 
 # Other
 ## You die again after touching the center of the black hole in the first black hole level
+## Music does not play in the first level for some reason

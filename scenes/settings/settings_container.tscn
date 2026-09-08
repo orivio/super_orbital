@@ -503,8 +503,6 @@ target = NodePath("..")
 
 [connection signal="controls_changed" from="Controls" to="." method="_on_controls_controls_changed"]
 [connection signal="game_changed" from="Game" to="." method="_on_game_game_changed"]
-[connection signal="pressed" from="Game/VBoxContainer/HBoxContainer/CheckButton" to="Game" method="_on_check_button_pressed"]
-[connection signal="toggled" from="Game/VBoxContainer/HBoxContainer/CheckButton" to="Game" method="_on_check_button_toggled"]
 [connection signal="audio_changed" from="Audio" to="." method="_on_audio_audio_changed"]
 [connection signal="item_selected" from="Audio/VBoxContainer/GridContainer/OptionButton" to="Audio" method="_on_audio_device_item_selected"]
 [connection signal="pressed" from="Audio/VBoxContainer/GridContainer/Button" to="Audio" method="_on_refresh_audio_device_list"]
