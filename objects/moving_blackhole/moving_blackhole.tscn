@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://47keqxot52nm"]
+
+[ext_resource type="Script" uid="uid://cn4hkywihjevp" path="res://objects/moving_blackhole/moving_blackhole.gd" id="1_d0oma"]
+[ext_resource type="PackedScene" uid="uid://bg6j40ftax5ji" path="res://objects/black_hole/black_hole.tscn" id="2_d0oma"]
+
+[sub_resource type="Curve2D" id="Curve2D_gp6jd"]
+resource_local_to_scene = true
+
+[node name="MovingBlackhole" type="Path2D" unique_id=1898127775]
+curve = SubResource("Curve2D_gp6jd")
+script = ExtResource("1_d0oma")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=199652958]
+rotates = false
+cubic_interp = false
+loop = false
+
+[node name="BlackHole" parent="PathFollow2D" unique_id=1656602204 instance=ExtResource("2_d0oma")]
+
+[node name="FollowVisual" type="Line2D" parent="." unique_id=409824460]
+z_index = 20
+default_color = Color(0.58, 0.58, 0.58, 0.49019608)

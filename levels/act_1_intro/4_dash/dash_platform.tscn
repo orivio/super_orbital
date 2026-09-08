@@ -4,61 +4,54 @@
 [ext_resource type="PackedScene" uid="uid://bjec8jk85hnki" path="res://poi/progress_detector/progress_detector.tscn" id="2_52aca"]
 [ext_resource type="PackedScene" uid="uid://dug5sf5e7qxah" path="res://poi/checkpoint/checkpoint.tscn" id="3_nrecj"]
 [ext_resource type="PackedScene" uid="uid://b2ogi0ekm1d7i" path="res://objects/moving_platform/moving_platform.tscn" id="3_ox5k2"]
-[ext_resource type="Script" uid="uid://bww5fpm8suvvu" path="res://objects/moving_platform/lifter.gd" id="4_52aca"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="4_nrecj"]
+[ext_resource type="PackedScene" uid="uid://c4bnj7ln3jdbc" path="res://objects/lifter/lifter.tscn" id="5_j42pa"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mp3h"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j42pa"]
 resource_local_to_scene = true
 size = Vector2(2496, 1952)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uy2bl"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_apwg8"]
 resource_local_to_scene = true
 size = Vector2(224, 320)
 
 [sub_resource type="ConcavePolygonShape2D" id="ConcavePolygonShape2D_ox5k2"]
 segments = PackedVector2Array(-272, -352, -272, 192, -272, -352, 560, -352, -272, 192, 144, 192, 144, 0, 144, 192, 144, 0, 272, 0, 272, -128, 272, 0, 272, -128, 560, -128, 560, -352, 560, -128)
 
-[sub_resource type="Curve2D" id="Curve2D_6h7xv"]
+[sub_resource type="Curve2D" id="Curve2D_0gsh8"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 96, 32, 0, 0, 0, 0, 288, 32)
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q17gg"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nevh"]
 resource_local_to_scene = true
 size = Vector2(128, 64)
 
-[sub_resource type="Curve2D" id="Curve2D_35r0x"]
+[sub_resource type="Curve2D" id="Curve2D_apwg8"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 832, 352, 0, 0, 0, 0, 832, -704)
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7wlo"]
-size = Vector2(32, 31.999939)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ylej"]
-resource_local_to_scene = true
-size = Vector2(128, 64)
-
-[sub_resource type="Curve2D" id="Curve2D_uxfd0"]
+[sub_resource type="Curve2D" id="Curve2D_w6o1d"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 960, -1120, 0, 0, 0, 0, 1536, -1120)
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkamg"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gt7hg"]
 resource_local_to_scene = true
 size = Vector2(128, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_urk3m"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xu2u1"]
 resource_local_to_scene = true
 size = Vector2(64, 96)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffrtj"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo1xd"]
 resource_local_to_scene = true
 size = Vector2(128, 128)
 
@@ -70,14 +63,14 @@ visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(736, -752)
-shape = SubResource("RectangleShape2D_5mp3h")
+shape = SubResource("RectangleShape2D_j42pa")
 
 [node name="ProgressDetector" parent="POI" parent_id_path=PackedInt32Array(809409572) index="0" unique_id=1408990158 instance=ExtResource("2_52aca")]
 progress_name = &"Dashing on Platforms"
 
 [node name="CollisionShape2D" parent="POI/ProgressDetector" index="0" unique_id=1008791462]
 position = Vector2(2064, -1280)
-shape = SubResource("RectangleShape2D_uy2bl")
+shape = SubResource("RectangleShape2D_apwg8")
 
 [node name="Checkpoint" parent="POI" parent_id_path=PackedInt32Array(809409572) index="1" unique_id=626712177 instance=ExtResource("3_nrecj")]
 
@@ -89,7 +82,7 @@ shape = SubResource("ConcavePolygonShape2D_ox5k2")
 position = Vector2(416, -736)
 
 [node name="MovingPlatform" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="0" unique_id=1898127775 instance=ExtResource("3_ox5k2")]
-curve = SubResource("Curve2D_6h7xv")
+curve = SubResource("Curve2D_0gsh8")
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform" index="0" unique_id=199652958]
 position = Vector2(96, 32)
@@ -101,44 +94,17 @@ points = PackedVector2Array(96, 32, 98.15625, 32, 100.74609, 32, 104.25, 32, 108
 position = Vector2(96, 32)
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform/AnimatableBody2D" index="0" unique_id=388684668]
-shape = SubResource("RectangleShape2D_q17gg")
+shape = SubResource("RectangleShape2D_4nevh")
 
 [node name="NinePatchRect" parent="Objects/MovingPlatform/AnimatableBody2D" index="1" unique_id=1810313545]
 offset_left = -64.0
 offset_right = 64.0
 
-[node name="MovingPlatform2" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="1" unique_id=833624022 instance=ExtResource("3_ox5k2")]
-curve = SubResource("Curve2D_35r0x")
-script = ExtResource("4_52aca")
-forward_direction = 0.0
-
-[node name="PathFollow2D" parent="Objects/MovingPlatform2" index="0" unique_id=199652958]
-position = Vector2(832, 32.00006)
-progress = 320.0
-
-[node name="FollowVisual" parent="Objects/MovingPlatform2" index="1" unique_id=409824460]
-points = PackedVector2Array(832, 352, 832, 348.9707, 832, 345.2566, 832, 342.87085, 832, 340.14063, 832, 337.07202, 832, 333.67114, 832, 329.94397, 832, 325.89648, 832, 321.53482, 832, 316.865, 832, 311.89304, 832, 309.29562, 832, 306.625, 832, 303.88187, 832, 301.06693, 832, 298.181, 832, 295.22485, 831.99994, 292.19922, 832, 289.10483, 832.00006, 285.94244, 832, 282.7129, 831.99994, 279.41687, 832, 276.05508, 832, 272.62836, 832, 269.13745, 832, 265.5831, 832, 261.96603, 832, 258.28702, 832, 254.54688, 832, 250.74629, 832, 246.88602, 832, 242.96684, 832, 238.9895, 832, 234.95476, 832, 230.86337, 832.00006, 226.71608, 832, 222.51367, 831.99994, 218.25688, 832, 213.94644, 832, 209.58315, 832, 205.16772, 832, 200.70094, 832, 196.18356, 832.00006, 191.61632, 832, 187, 831.99994, 182.33534, 832, 177.62308, 832, 172.864, 832, 168.05884, 832, 163.20836, 832, 158.31332, 832.00006, 153.37447, 832, 148.39258, 832, 145.88573, 831.99994, 143.3684, 832.00006, 140.84065, 832, 138.30264, 832.00006, 135.75443, 832, 133.19612, 832, 130.6278, 832, 128.04956, 832, 125.46149, 832, 122.86372, 832, 120.25632, 832, 117.63937, 832, 115.012985, 832, 112.37727, 832, 109.73226, 832, 107.078125, 832.00006, 104.414925, 832, 101.74272, 832, 99.06169, 832, 96.37186, 832, 93.67334, 832, 90.96623, 832, 88.25061, 832, 85.52661, 831.99994, 82.79429, 832, 80.05376, 832, 77.30511, 832, 74.54843, 832, 71.78383, 832, 69.01137, 832, 66.231186, 832, 63.44336, 832.00006, 60.647964, 832, 57.845142, 831.99994, 55.0349, 832, 52.217438, 832, 49.3928, 832, 46.561047, 832, 43.722313, 832, 40.87671, 832.00006, 38.024292, 832, 35.16518, 832, 32.29944, 832, 29.427216, 832, 26.548557, 832, 23.663586, 831.99994, 20.772343, 832, 17.875, 832.00006, 14.971615, 832, 12.062244, 832, 9.14706, 832, 6.2261047, 832, 3.2994995, 832, 0.36727524, 831.99994, -2.5703735, 832, -5.5134277, 832.00006, -8.461754, 832, -11.415279, 832, -14.3739395, 832, -17.337555, 832.00006, -20.306095, 832, -23.279484, 831.99994, -26.257542, 832, -29.240234, 832, -32.22746, 832, -35.219112, 831.99994, -38.215145, 832, -41.215424, 831.99994, -44.21984, 831.99994, -47.228336, 832, -50.24076, 832, -53.25708, 832, -56.27716, 832, -59.30093, 832, -62.32831, 832, -65.35916, 832, -68.39343, 832, -71.43097, 832, -74.471756, 832, -77.515625, 832, -80.562515, 832, -83.612366, 832, -86.66499, 832, -89.72043, 832, -92.77847, 832, -95.83908, 831.99994, -98.9021, 832, -101.96753, 832, -105.03521, 832, -108.10504, 831.99994, -111.17698, 832, -114.250885, 832, -117.32669, 832, -120.4043, 832, -123.48358, 832, -126.56445, 832, -129.64685, 832, -132.73065, 832, -135.8158, 832, -138.90219, 832.00006, -141.98969, 832, -145.07825, 832, -148.16772, 832, -151.25806, 832, -154.34915, 832, -157.44089, 831.99994, -160.5332, 832, -163.626, 832, -166.71918, 832, -169.8126, 832, -172.90628, 832, -176, 832, -179.0937, 832, -182.1874, 832, -185.28082, 832, -188.374, 832, -191.4668, 832, -194.55911, 832, -197.65085, 832, -200.74194, 832, -203.83226, 832, -206.92175, 832, -210.01033, 832, -213.09781, 832, -216.1842, 832, -219.26935, 832, -222.35315, 832, -225.43555, 832, -228.51642, 832, -231.5957, 832.00006, -234.67331, 832, -237.74911, 832, -240.82303, 832, -243.89496, 832, -246.96478, 832, -250.03247, 832, -253.0979, 832, -256.16092, 832, -259.22153, 832, -262.27957, 832, -265.335, 832, -268.38763, 832, -271.43747, 832, -274.48438, 832, -277.52826, 832, -280.56903, 832, -283.60657, 832, -286.64084, 832, -289.6717, 832, -292.69907, 832.00006, -295.72284, 832, -298.74292, 832, -301.75925, 832, -304.77167, 832, -307.78015, 832, -310.78458, 832, -313.78485, 832, -316.78088, 832, -319.77252, 832, -322.75977, 832, -325.74246, 831.99994, -328.72052, 832, -331.6939, 832, -334.66245, 832, -337.62604, 832, -340.58472, 832, -343.53827, 832, -346.48657, 832, -349.42963, 832, -352.36728, 832.00006, -355.2995, 832, -358.2261, 832.00006, -361.14706, 831.99994, -364.06226, 832, -366.97162, 832, -369.875, 832, -372.77234, 832.00006, -375.66357, 832, -378.54855, 832, -381.42722, 832, -384.29944, 832, -387.1652, 832, -390.0243, 832, -392.8767, 832, -395.7223, 832, -398.56104, 832, -401.39282, 832, -404.21744, 832, -407.0349, 832.00006, -409.84515, 832, -412.64798, 832, -415.44336, 832, -418.2312, 832, -421.01135, 832, -423.7838, 832, -426.54843, 832, -429.3051, 832, -432.05377, 831.99994, -434.79428, 832, -437.5266, 832, -440.2506, 832, -442.96622, 832, -445.67334, 832, -448.37186, 832, -451.0617, 831.99994, -453.74274, 832, -456.41492, 832, -459.07813, 832, -461.73224, 832.00006, -464.37726, 832, -467.013, 832, -469.63937, 832, -472.25632, 832, -474.86374, 832, -477.4615, 832, -480.04956, 832, -482.6278, 832, -485.1961, 832, -487.75446, 832, -490.30264, 832, -492.84067, 832, -495.3684, 832, -497.88574, 832, -500.39258, 832, -505.37445, 832, -510.31332, 832, -515.2084, 832, -520.05884, 832, -524.864, 832, -529.62305, 831.99994, -534.3353, 832, -539, 832.00006, -543.61633, 832, -548.1836, 832, -552.7009, 832, -557.1677, 832, -561.5831, 832, -565.9464, 832, -570.2569, 832, -574.5137, 832, -578.71606, 832, -582.8634, 832, -586.9548, 832, -590.9895, 832, -594.9668, 832, -598.886, 831.99994, -602.7463, 832, -606.5469, 832.00006, -610.28705, 832, -613.96606, 832, -617.5831, 832, -621.13745, 832, -624.62836, 832, -628.05505, 832, -631.4169, 832, -634.7129, 832, -637.94244, 832, -641.10486, 832, -644.1992, 832, -647.22485, 832, -650.181, 832, -653.0669, 832, -655.88184, 832, -658.625, 832, -661.29565, 832, -663.89307, 832, -668.865, 832, -673.5348, 832, -677.8965, 832, -681.944, 832, -685.67114, 832, -689.072, 832, -692.1406, 832, -694.87085, 832, -697.2566, 832, -700.9707, 832, -704)
-
-[node name="AnimatableBody2D" parent="Objects/MovingPlatform2" index="2" unique_id=886220012]
-position = Vector2(832, 32.00006)
-
-[node name="Area2D" type="Area2D" parent="Objects/MovingPlatform2/AnimatableBody2D" index="0" unique_id=1838389000]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/MovingPlatform2/AnimatableBody2D/Area2D" index="0" unique_id=1282529727]
-position = Vector2(48, -48.00003)
-shape = SubResource("RectangleShape2D_e7wlo")
-
-[node name="CollisionShape2D" parent="Objects/MovingPlatform2/AnimatableBody2D" index="1" unique_id=388684668]
-shape = SubResource("RectangleShape2D_5ylej")
-
-[node name="NinePatchRect" parent="Objects/MovingPlatform2/AnimatableBody2D" index="2" unique_id=1810313545]
-offset_left = -64.0
-offset_right = 64.0
+[node name="Lifter" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="1" unique_id=1144546277 instance=ExtResource("5_j42pa")]
+curve = SubResource("Curve2D_apwg8")
 
 [node name="MovingPlatform4" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="2" unique_id=777707974 instance=ExtResource("3_ox5k2")]
-curve = SubResource("Curve2D_uxfd0")
+curve = SubResource("Curve2D_w6o1d")
 time = 1.5
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform4" index="0" unique_id=199652958]
@@ -152,7 +118,7 @@ points = PackedVector2Array(960, -1120, 961.65234, -1120, 966.46875, -1120, 969.
 position = Vector2(1536, -1120)
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform4/AnimatableBody2D" index="0" unique_id=388684668]
-shape = SubResource("RectangleShape2D_bkamg")
+shape = SubResource("RectangleShape2D_gt7hg")
 
 [node name="NinePatchRect" parent="Objects/MovingPlatform4/AnimatableBody2D" index="1" unique_id=1810313545]
 offset_left = -66.0
@@ -169,7 +135,7 @@ direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-608, -48)
-shape = SubResource("RectangleShape2D_urk3m")
+shape = SubResource("RectangleShape2D_xu2u1")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-416, 0)
@@ -179,18 +145,14 @@ door_tag = "EastDoor"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(2112, -1216)
-shape = SubResource("RectangleShape2D_ffrtj")
+shape = SubResource("RectangleShape2D_bo1xd")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(1888, -1152)
 
-[connection signal="body_entered" from="Objects/MovingPlatform2/AnimatableBody2D/Area2D" to="Objects/MovingPlatform2" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Objects/MovingPlatform2/AnimatableBody2D/Area2D" to="Objects/MovingPlatform2" method="_on_area_2d_body_exited"]
-
 [editable path="POI/ProgressDetector"]
 [editable path="POI/Checkpoint"]
 [editable path="Objects/MovingPlatform"]
-[editable path="Objects/MovingPlatform2"]
 [editable path="Objects/MovingPlatform4"]
 [editable path="Doors/WestDoor"]
 [editable path="Doors/EastDoor"]

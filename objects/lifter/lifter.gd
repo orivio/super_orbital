@@ -13,6 +13,7 @@ var speed: float = 1
 @onready var rect: NinePatchRect = $AnimatableBody2D/NinePatchRect
 @onready var follow_visual: Line2D = $FollowVisual
 @onready var player_detector: Area2D = $AnimatableBody2D/Area2D
+@onready var timer: Timer = $Timer
 
 func _ready() -> void:
 	speed = 1 / time
@@ -40,8 +41,15 @@ func update_follow_visual() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
+		print("Player entered")
 		forward_direction = 1
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body is Player:
+		timer.start()
+
+
+func _on_timer_timeout() -> void:
+	print("Player exited")
 	forward_direction = -1

@@ -189,7 +189,6 @@ func _physics_process(delta: float) -> void:
 				if input.throw_wrench_pressed:
 					wrench_throw_buffer = true
 					var wrench_velocity: Vector2 = -input.direction
-					print("Started wrench throw buffer")
 					wrench_velocity_buffer = wrench_velocity * velocity.length()
 					wrench_throw_buffer_timer.start(0.1)
 				
@@ -491,7 +490,6 @@ func _on_grav_switch_buffer_timeout() -> void:
 
 func _on_wrench_throw_buffer_timeout() -> void:
 	wrench_throw_buffer = false
-	print("Ended throw wrench buffer")
 
 
 func _on_coyote_timeout() -> void:
