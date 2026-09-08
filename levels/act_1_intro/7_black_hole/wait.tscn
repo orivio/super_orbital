@@ -5,26 +5,26 @@
 [ext_resource type="PackedScene" uid="uid://b2ogi0ekm1d7i" path="res://objects/moving_platform/moving_platform.tscn" id="3_1h2j1"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="4_04d24"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnci6"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whf4t"]
 resource_local_to_scene = true
 size = Vector2(4224, 1376)
 
-[sub_resource type="Curve2D" id="Curve2D_lophx"]
+[sub_resource type="Curve2D" id="Curve2D_xkc5q"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1472, -384, 0, 0, 0, 0, 1472, 512)
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6rf0"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uweb"]
 resource_local_to_scene = true
 size = Vector2(128, 320)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqs35"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfgd1"]
 resource_local_to_scene = true
 size = Vector2(64, 256)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_05arb"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ekao"]
 resource_local_to_scene = true
 size = Vector2(128, 256)
 
@@ -38,7 +38,7 @@ visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(1088, -240)
-shape = SubResource("RectangleShape2D_vnci6")
+shape = SubResource("RectangleShape2D_whf4t")
 
 [node name="BackgroundParallax" parent="." index="2" unique_id=1350709603]
 visible = true
@@ -52,7 +52,7 @@ tile_map_data = PackedByteArray("AAArANX/AAAAAAsAAAArANb/AAAAAAwAAAArANf/AAAAAA0
 position = Vector2(1024, 64)
 
 [node name="MovingPlatform" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="1" unique_id=1898127775 instance=ExtResource("3_1h2j1")]
-curve = SubResource("Curve2D_lophx")
+curve = SubResource("Curve2D_xkc5q")
 time = 1.5
 
 [node name="PathFollow2D" parent="Objects/MovingPlatform" index="0" unique_id=199652958]
@@ -65,7 +65,7 @@ points = PackedVector2Array(1472, -384, 1472, -381.4297, 1472, -378.27832, 1472,
 position = Vector2(1472, -384)
 
 [node name="CollisionShape2D" parent="Objects/MovingPlatform/AnimatableBody2D" index="0" unique_id=388684668]
-shape = SubResource("RectangleShape2D_w6rf0")
+shape = SubResource("RectangleShape2D_8uweb")
 
 [node name="NinePatchRect" parent="Objects/MovingPlatform/AnimatableBody2D" index="1" unique_id=1810313545]
 offset_left = -64.0
@@ -88,7 +88,7 @@ direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-1120, -128)
-shape = SubResource("RectangleShape2D_qqs35")
+shape = SubResource("RectangleShape2D_sfgd1")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-960, 0)
@@ -98,7 +98,7 @@ door_tag = "EastDoor"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(3328, 64)
-shape = SubResource("RectangleShape2D_05arb")
+shape = SubResource("RectangleShape2D_1ekao")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(3136, 192)

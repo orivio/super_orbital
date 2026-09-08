@@ -5,27 +5,27 @@
 [ext_resource type="TileSet" uid="uid://bnrmi5xqiqb0w" path="res://world/tilesets/slightly_better_tileset.tres" id="2_tc3bi"]
 [ext_resource type="PackedScene" uid="uid://dug5sf5e7qxah" path="res://poi/checkpoint/checkpoint.tscn" id="3_mtf4y"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtf4y"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j55gh"]
 resource_local_to_scene = true
 size = Vector2(2976, 2112)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhevq"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tqrp"]
 resource_local_to_scene = true
 size = Vector2(384, 192)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_es4qb"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pl065"]
 resource_local_to_scene = true
 size = Vector2(192, 384)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_doalu"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m0l3u"]
 resource_local_to_scene = true
 size = Vector2(32, 160)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nur2"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jmaj"]
 resource_local_to_scene = true
 size = Vector2(64, 160)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxqvk"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3kqw"]
 resource_local_to_scene = true
 size = Vector2(416, 192)
 
@@ -40,7 +40,7 @@ visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(720, -160)
-shape = SubResource("RectangleShape2D_mtf4y")
+shape = SubResource("RectangleShape2D_j55gh")
 
 [node name="BackgroundParallax" parent="." index="2" unique_id=1350709603]
 visible = true
@@ -61,7 +61,7 @@ collision_enabled = false
 
 [node name="CollisionShape2D" parent="POI/Checkpoint" index="0" unique_id=1419034240]
 position = Vector2(-256, -384)
-shape = SubResource("RectangleShape2D_rhevq")
+shape = SubResource("RectangleShape2D_8tqrp")
 
 [node name="Marker2D" parent="POI/Checkpoint" index="1" unique_id=1330501033]
 position = Vector2(-384, -288)
@@ -70,7 +70,7 @@ position = Vector2(-384, -288)
 
 [node name="CollisionShape2D" parent="POI/Checkpoint2" index="0" unique_id=1419034240]
 position = Vector2(480, -128)
-shape = SubResource("RectangleShape2D_es4qb")
+shape = SubResource("RectangleShape2D_pl065")
 
 [node name="Marker2D" parent="POI/Checkpoint2" index="1" unique_id=1330501033]
 position = Vector2(480, 64)
@@ -79,7 +79,7 @@ position = Vector2(480, 64)
 
 [node name="CollisionShape2D" parent="POI/Checkpoint3" index="0" unique_id=1419034240]
 position = Vector2(1776, -752)
-shape = SubResource("RectangleShape2D_doalu")
+shape = SubResource("RectangleShape2D_m0l3u")
 
 [node name="Marker2D" parent="POI/Checkpoint3" index="1" unique_id=1330501033]
 position = Vector2(1760, -672)
@@ -100,7 +100,7 @@ collision_enabled = false
 visible = true
 
 [node name="TileMapLayer" parent="ForegroundParallax" index="0" unique_id=538232198]
-tile_map_data = PackedByteArray("AAAGAPL/AAAOAAQAAAAHAPH/AAALAAYAAAAHAPL/AAANAAEAAAAIAPH/AAAMAAYAAAAIAPL/AAANAAEAAAAJAPH/AAAMAAYAAAAJAPL/AAANAAEAAAAKAPH/AAAMAAYAAAAKAPL/AAANAAEAAAALAPH/AAAMAAYAAAALAPL/AAANAAEAAAAMAPH/AAAMAAYAAAAMAPL/AAANAAEAAAANAPL/AAANAAEAAAAIAPD/AAALAAEAAAAJAPD/AAALAAEAAAAKAPD/AAALAAEAAAALAPD/AAALAAEAAAAMAPD/AAALAAEAAAANAPD/AAALAAEAAAANAPH/AAAMAAYAAAAOAPH/AAANAAYAAAAOAPL/AAANAAEAAAAPAPL/AAANAAQAAAArAPr/AAAMAAMAAAArAPv/AAANAAIAAAArAPz/AAAPAAEAAAArAP3/AAAPAAEAAAArAP7/AAANAAIAAAArAP//AAAPAAEAAAArAAAAAAAPAAEAAAArAAEAAAANAAIAAAArAAIAAAAOAAIAAAArAAMAAAAPAAMAAAArAAQAAAAPAAEAAAArAAUAAAANAAMAAAArAAYAAAAPAAEAAAArAAcAAAAMAAQAAAAsAAIAAAANAAEAAAAsAAMAAAANAAEAAAAtAAIAAAAPAAQAAAAtAAMAAAAOAAEAAAAuAAIAAAAOAAMAAAAuAAMAAAAPAAIAAAA=")
+tile_map_data = PackedByteArray("AAAGAPL/AAAOAAQAAAAHAPH/AAAHAAEAAAAHAPL/AAANAAEAAAAIAPH/AAAIAAEAAAAIAPL/AAANAAEAAAAJAPH/AAAIAAEAAAAJAPL/AAANAAEAAAAKAPH/AAAIAAEAAAAKAPL/AAANAAEAAAALAPH/AAAIAAEAAAALAPL/AAANAAEAAAAMAPH/AAAIAAEAAAAMAPL/AAANAAEAAAANAPL/AAANAAEAAAAIAPD/AAALAAEAAAAJAPD/AAALAAEAAAAKAPD/AAALAAEAAAALAPD/AAALAAEAAAAMAPD/AAALAAEAAAANAPD/AAALAAEAAAANAPH/AAAIAAEAAAAOAPH/AAAJAAEAAAAOAPL/AAANAAEAAAAPAPL/AAANAAQAAAArAPr/AAAMAAMAAAArAPv/AAANAAIAAAArAPz/AAAPAAEAAAArAP3/AAAPAAEAAAArAP7/AAANAAIAAAArAP//AAAPAAEAAAArAAAAAAAPAAEAAAArAAEAAAANAAIAAAArAAIAAAAOAAIAAAArAAMAAAAPAAMAAAArAAQAAAAPAAEAAAArAAUAAAANAAMAAAArAAYAAAAPAAEAAAArAAcAAAAMAAQAAAAsAAIAAAANAAEAAAAsAAMAAAANAAEAAAAtAAIAAAAPAAQAAAAtAAMAAAAOAAEAAAAuAAIAAAAOAAMAAAAuAAMAAAAPAAIAAAA=")
 
 [node name="WestDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="0" unique_id=1930641381 instance=ExtResource("2_5ow3w")]
 door_tag = "WestDoor"
@@ -108,7 +108,7 @@ direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-864, -80)
-shape = SubResource("RectangleShape2D_0nur2")
+shape = SubResource("RectangleShape2D_4jmaj")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-704, 0)
@@ -118,7 +118,7 @@ door_tag = "EastDoor"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(2480, 0)
-shape = SubResource("RectangleShape2D_xxqvk")
+shape = SubResource("RectangleShape2D_r3kqw")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(2144, 96)
