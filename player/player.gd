@@ -353,40 +353,42 @@ func exit_blackhole(bh: BlackHole) -> void:
 		current_blackhole = null
 
 
-func do_floor_land_sound(vel: Vector2, floor: bool, was: bool) -> void:
+func do_floor_land_sound(vel: Vector2, floor: bool, was: bool, tile_off: Vector2) -> void:
 	if floor and not was:
 		if floorcaster.is_colliding():
 			var coll: Object = floorcaster.get_collider(0)
 			if coll is CollisionObject2D and coll.collision_layer == 4096:
-				play_floor_land_sound(vel, &"metal")
+				play_floor_land_sound(vel.length(), &"metal")
 				return
 		var tilemap: TileMapLayer = GameManager.current_level.tile_map
-		var local_pos: Vector2i = tilemap.local_to_map(tilemap.to_local(global_position + Vector2(0, 24)))
+		var local_pos: Vector2i = tilemap.local_to_map(tilemap.to_local(global_position + tile_off))
+		print(local_pos)
 		var tile_data: TileData = tilemap.get_cell_tile_data(local_pos)
 		if tile_data:
 			var sound_type: StringName = tile_data.get_custom_data("type")
-			play_floor_land_sound(vel, sound_type)
+			print(sound_type)
+			play_floor_land_sound(vel.length(), sound_type)
 
 
-func play_floor_land_sound(vel: Vector2, sound_type: StringName) -> void:
+func play_floor_land_sound(vel: float, sound_type: StringName) -> void:
 	if sound_type == &"metal":
-		if vel.y > 0:
-			var multiplier: float = clamp(remap(vel.y, 300, 1000, 0.0, 2), 0.0, 2)
+		if vel > 0:
+			var multiplier: float = clamp(remap(vel, 300, 1000, 0.0, 2), 0.0, 2)
 			metal_land.stop()
 			metal_land.volume_db = linear_to_db(multiplier)
 			metal_land.play()
 	elif sound_type == &"dirt":
-		if vel.y >= 980:
+		if vel >= 980:
 			dirt_land_heavy.stop()
 			dirt_land_heavy.volume_db = linear_to_db(1.0)
 			dirt_land_heavy.play()
-		elif vel.y >= 500:
-			var multiplier: float = clamp(remap(vel.y, 500, 980, 0.5, 0.6), 0.5, 0.6)
+		elif vel >= 500:
+			var multiplier: float = clamp(remap(vel, 500, 980, 0.5, 0.6), 0.5, 0.6)
 			dirt_land_medium.stop()
 			dirt_land_medium.volume_db = linear_to_db(multiplier)
 			dirt_land_medium.play()
-		elif vel.y > 0:
-			var multiplier: float = clamp(remap(vel.y, 0, 500, 0, 0.5), 0, 0.5)
+		elif vel > 0:
+			var multiplier: float = clamp(remap(vel, 0, 500, 0, 0.5), 0, 0.5)
 			dirt_land_light.stop()
 			dirt_land_light.volume_db = linear_to_db(multiplier)
 			dirt_land_light.play()

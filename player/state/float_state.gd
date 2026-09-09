@@ -48,12 +48,22 @@ func physics_process(delta: float) -> State:
 		actor.do_throw_wrench()
 	# I think move_and_collide is the best option here because you can only 
 	# really wall bounce in this state, but I could be wrong.
+	var saved_velocity: Vector2 = actor.velocity
 	var collision_info: KinematicCollision2D = actor.move_and_collide(actor.velocity * delta)
 	
 	if gravity_on:
 		return exit_to_normal_state()
 	
 	if collision_info:
+		if collision_info.get_normal().dot(Vector2.UP) > 0.7:
+			actor.do_floor_land_sound(saved_velocity, true, false, Vector2(0, 24))
+		elif collision_info.get_normal().dot(Vector2.DOWN) > 0.7:
+			actor.do_floor_land_sound(saved_velocity, true, false, Vector2(0, -67))
+		elif collision_info.get_normal().dot(Vector2.RIGHT) > 0.7:
+			actor.do_floor_land_sound(saved_velocity, true, false, Vector2(-18, collision_info.get_position().y - actor.global_position.y))
+		elif collision_info.get_normal().dot(Vector2.LEFT) > 0.7:
+			actor.do_floor_land_sound(saved_velocity, true, false, Vector2(18, collision_info.get_position().y - actor.global_position.y))
+			print("Doing right collision: ", Vector2(-18, collision_info.get_position().y - actor.global_position.y))
 		if actor.velocity.length_squared() < actor.movement_settings.float_min_bounce_velocity * actor.movement_settings.float_min_bounce_velocity:
 			return exit_to_normal_state()
 		# Bounce off the surface

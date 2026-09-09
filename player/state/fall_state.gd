@@ -60,7 +60,7 @@ func physics_process(delta: float) -> State:
 	
 	
 	actor.move_and_slide()
-	actor.do_floor_land_sound(saved_velocity, actor.floorcaster.is_colliding(), floorcaster_was_colliding)
+	actor.do_floor_land_sound(saved_velocity, actor.floorcaster.is_colliding(), floorcaster_was_colliding, Vector2(0, 24))
 	floorcaster_was_colliding = actor.floorcaster.is_colliding()
 	
 	if did_dash:
