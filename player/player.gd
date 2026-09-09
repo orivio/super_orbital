@@ -79,6 +79,7 @@ const WRENCH_PROJECTILE = preload("uid://cgbxshe71m18w")
 @onready var dirt_land_medium: AudioStreamPlayer = $Sounds/DirtLandMedium
 @onready var dirt_land_light: AudioStreamPlayer = $Sounds/DirtLandLight
 @onready var throw_wrench_sound: AudioStreamPlayer = $Sounds/ThrowWrench
+@onready var dash_sound: AudioStreamPlayer = $Sounds/Dash
 
 
 # Visual logic
@@ -416,6 +417,8 @@ func can_dash() -> bool:
 
 
 func do_dash() -> void:
+	dash_sound.stop()
+	dash_sound.play()
 	GameManager.hitstop(movement_settings.dash_hitstop)
 	dash_buffer = false
 	wrench_throw_buffer = false
