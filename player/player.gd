@@ -78,6 +78,7 @@ const WRENCH_PROJECTILE = preload("uid://cgbxshe71m18w")
 @onready var dirt_land_heavy: AudioStreamPlayer = $Sounds/DirtLandHeavy
 @onready var dirt_land_medium: AudioStreamPlayer = $Sounds/DirtLandMedium
 @onready var dirt_land_light: AudioStreamPlayer = $Sounds/DirtLandLight
+@onready var throw_wrench_sound: AudioStreamPlayer = $Sounds/ThrowWrench
 
 
 # Visual logic
@@ -456,6 +457,8 @@ func do_throw_wrench() -> void:
 	has_wrench = false
 	dash_buffer = false
 	velocity = wrench_velocity_buffer
+	throw_wrench_sound.stop()
+	throw_wrench_sound.play()
 	spawn_wrench_projectile(velocity)
 
 
