@@ -75,6 +75,9 @@ const WRENCH_PROJECTILE = preload("uid://cgbxshe71m18w")
 @onready var collider: CollisionShape2D = $CollisionShape2D
 # Sound effects
 @onready var metal_land: AudioStreamPlayer = $Sounds/MetalLand
+@onready var dirt_land_heavy: AudioStreamPlayer = $Sounds/DirtLandHeavy
+@onready var dirt_land_medium: AudioStreamPlayer = $Sounds/DirtLandMedium
+@onready var dirt_land_light: AudioStreamPlayer = $Sounds/DirtLandLight
 
 
 # Visual logic
@@ -351,18 +354,33 @@ func exit_blackhole(bh: BlackHole) -> void:
 
 
 func do_floor_land_sound(vel: Vector2, floor: bool) -> void:
-	if floor and vel.y > 350:
-		var multiplier: float = clamp(remap(vel.y, 350, 1000, 0.0, 2), 0.0, 2)
+	if floor:
 		var tilemap: TileMapLayer = GameManager.current_level.tile_map
 		var local_pos: Vector2i = tilemap.local_to_map(tilemap.to_local(global_position + Vector2(0, 24)))
 		var tile_data: TileData = tilemap.get_cell_tile_data(local_pos)
-		print(local_pos)
 		if tile_data:
 			var sound_type: StringName = tile_data.get_custom_data("type")
-			print(sound_type, ", ", multiplier)
 			if sound_type == &"metal":
-				metal_land.volume_db = linear_to_db(multiplier)
-				metal_land.play()
+				if vel.y > 350:
+					var multiplier: float = clamp(remap(vel.y, 350, 1000, 0.0, 2), 0.0, 2)
+					metal_land.stop()
+					metal_land.volume_db = linear_to_db(multiplier)
+					metal_land.play()
+			elif sound_type == &"dirt":
+				if vel.y >= 980:
+					dirt_land_heavy.stop()
+					dirt_land_heavy.volume_db = linear_to_db(1.0)
+					dirt_land_heavy.play()
+				elif vel.y >= 500:
+					var multiplier: float = clamp(remap(vel.y, 500, 980, 0.5, 0.6), 0.5, 0.6)
+					dirt_land_medium.stop()
+					dirt_land_medium.volume_db = linear_to_db(multiplier)
+					dirt_land_medium.play()
+				elif vel.y > 0:
+					var multiplier: float = clamp(remap(vel.y, 0, 500, 0, 0.5), 0, 0.5)
+					dirt_land_light.stop()
+					dirt_land_light.volume_db = linear_to_db(multiplier)
+					dirt_land_light.play()
 
 
 #endregion

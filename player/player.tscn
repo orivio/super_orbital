@@ -19,6 +19,14 @@
 [ext_resource type="Script" uid="uid://c47wiuefr16ap" path="res://player/state/blackhole_state.gd" id="17_s7qer"]
 [ext_resource type="AudioStream" uid="uid://n2aiur8pd3ww" path="res://sounds/sfx/metal_land.wav" id="18_c35mf"]
 [ext_resource type="Script" uid="uid://cm0a7g2ro4k3j" path="res://player/debug_overlay.gd" id="19_65viv"]
+[ext_resource type="AudioStream" uid="uid://jakvv21h0q7e" path="res://sounds/sfx/dirt_land_heavy_00.wav" id="19_x7c3f"]
+[ext_resource type="AudioStream" uid="uid://2wu61h7kf8c8" path="res://sounds/sfx/dirt_land_heavy_01.wav" id="20_x7c3f"]
+[ext_resource type="AudioStream" uid="uid://brhfittjo8ff0" path="res://sounds/sfx/dirt_land_medium.wav" id="21_bjvpn"]
+[ext_resource type="AudioStream" uid="uid://c62441hxm75xs" path="res://sounds/sfx/dirt_land_light_00.wav" id="22_s7qer"]
+[ext_resource type="AudioStream" uid="uid://ke5bhmkwwvxd" path="res://sounds/sfx/dirt_land_light_01.wav" id="23_uw77l"]
+[ext_resource type="AudioStream" uid="uid://7yw44t3ls3ml" path="res://sounds/sfx/dirt_land_light_02.wav" id="24_rptt4"]
+[ext_resource type="AudioStream" uid="uid://psqkvj652i7o" path="res://sounds/sfx/dirt_land_light_03.wav" id="25_r7pn3"]
+[ext_resource type="AudioStream" uid="uid://03fyrda4piyw" path="res://sounds/sfx/dirt_land_light_04.wav" id="26_b8hi5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0jb6"]
 size = Vector2(24, 62)
@@ -745,6 +753,28 @@ random_volume_offset_db = 0.2
 streams_count = 1
 stream_0/stream = ExtResource("18_c35mf")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_x7c3f"]
+random_pitch = 1.4142135
+random_volume_offset_db = 1.12
+streams_count = 2
+stream_0/stream = ExtResource("19_x7c3f")
+stream_1/stream = ExtResource("20_x7c3f")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bjvpn"]
+random_pitch = 1.3348398
+random_volume_offset_db = 0.5
+streams_count = 1
+stream_0/stream = ExtResource("21_bjvpn")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_s7qer"]
+random_pitch = 1.587401
+streams_count = 5
+stream_0/stream = ExtResource("22_s7qer")
+stream_1/stream = ExtResource("23_uw77l")
+stream_2/stream = ExtResource("24_rptt4")
+stream_3/stream = ExtResource("25_r7pn3")
+stream_4/stream = ExtResource("26_b8hi5")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7wlo"]
 size = Vector2(20, 2.75)
 
@@ -878,6 +908,15 @@ script = ExtResource("17_s7qer")
 
 [node name="MetalLand" type="AudioStreamPlayer" parent="Sounds" unique_id=1672414343]
 stream = SubResource("AudioStreamRandomizer_65viv")
+
+[node name="DirtLandHeavy" type="AudioStreamPlayer" parent="Sounds" unique_id=1972123066]
+stream = SubResource("AudioStreamRandomizer_x7c3f")
+
+[node name="DirtLandMedium" type="AudioStreamPlayer" parent="Sounds" unique_id=664027518]
+stream = SubResource("AudioStreamRandomizer_bjvpn")
+
+[node name="DirtLandLight" type="AudioStreamPlayer" parent="Sounds" unique_id=1838650846]
+stream = SubResource("AudioStreamRandomizer_s7qer")
 
 [node name="Raycasts" type="Node2D" parent="." unique_id=202460255]
 
