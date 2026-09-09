@@ -11,26 +11,18 @@ size = Vector2(2976, 2112)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8tqrp"]
 resource_local_to_scene = true
-size = Vector2(384, 192)
+size = Vector2(192, 384)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pl065"]
 resource_local_to_scene = true
-size = Vector2(192, 384)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m0l3u"]
-resource_local_to_scene = true
-size = Vector2(32, 160)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jmaj"]
-resource_local_to_scene = true
 size = Vector2(64, 160)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3kqw"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m0l3u"]
 resource_local_to_scene = true
 size = Vector2(416, 192)
 
 [node name="Level" unique_id=201273727 node_paths=PackedStringArray("checkpoints") instance=ExtResource("1_3wbge")]
-checkpoints = [NodePath("POI/Checkpoint"), NodePath("POI/Checkpoint2"), NodePath("POI/Checkpoint3")]
+checkpoints = [NodePath(""), NodePath("POI/Checkpoint1"), NodePath("")]
 
 [node name="ColorRect" parent="Background" parent_id_path=PackedInt32Array(2128642405) index="0" unique_id=1139011203]
 color = Color(0.18431373, 0.18431373, 0.18431373, 1)
@@ -57,32 +49,14 @@ tile_map_data = PackedByteArray("AADx//T/AAANAAEAAADy//T/AAANAAEAAADz//T/AAAPAAQ
 tile_set = ExtResource("2_tc3bi")
 collision_enabled = false
 
-[node name="Checkpoint" parent="POI" parent_id_path=PackedInt32Array(809409572) index="0" unique_id=626712177 instance=ExtResource("3_mtf4y")]
+[node name="Checkpoint1" parent="POI" parent_id_path=PackedInt32Array(809409572) index="0" unique_id=1694840676 instance=ExtResource("3_mtf4y")]
 
-[node name="CollisionShape2D" parent="POI/Checkpoint" index="0" unique_id=1419034240]
-position = Vector2(-256, -384)
+[node name="CollisionShape2D" parent="POI/Checkpoint1" index="0" unique_id=1419034240]
+position = Vector2(480, -128)
 shape = SubResource("RectangleShape2D_8tqrp")
 
-[node name="Marker2D" parent="POI/Checkpoint" index="1" unique_id=1330501033]
-position = Vector2(-384, -288)
-
-[node name="Checkpoint2" parent="POI" parent_id_path=PackedInt32Array(809409572) index="1" unique_id=1694840676 instance=ExtResource("3_mtf4y")]
-
-[node name="CollisionShape2D" parent="POI/Checkpoint2" index="0" unique_id=1419034240]
-position = Vector2(480, -128)
-shape = SubResource("RectangleShape2D_pl065")
-
-[node name="Marker2D" parent="POI/Checkpoint2" index="1" unique_id=1330501033]
+[node name="Marker2D" parent="POI/Checkpoint1" index="1" unique_id=1330501033]
 position = Vector2(480, 64)
-
-[node name="Checkpoint3" parent="POI" parent_id_path=PackedInt32Array(809409572) index="2" unique_id=1946235243 instance=ExtResource("3_mtf4y")]
-
-[node name="CollisionShape2D" parent="POI/Checkpoint3" index="0" unique_id=1419034240]
-position = Vector2(1776, -752)
-shape = SubResource("RectangleShape2D_m0l3u")
-
-[node name="Marker2D" parent="POI/Checkpoint3" index="1" unique_id=1330501033]
-position = Vector2(1760, -672)
 
 [node name="TileMapLayer" parent="." index="6" unique_id=1010939493]
 position = Vector2(1, 0)
@@ -108,7 +82,7 @@ direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-864, -80)
-shape = SubResource("RectangleShape2D_4jmaj")
+shape = SubResource("RectangleShape2D_pl065")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-704, 0)
@@ -118,13 +92,11 @@ door_tag = "EastDoor"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(2480, 0)
-shape = SubResource("RectangleShape2D_r3kqw")
+shape = SubResource("RectangleShape2D_m0l3u")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(2144, 96)
 
-[editable path="POI/Checkpoint"]
-[editable path="POI/Checkpoint2"]
-[editable path="POI/Checkpoint3"]
+[editable path="POI/Checkpoint1"]
 [editable path="Doors/WestDoor"]
 [editable path="Doors/EastDoor"]

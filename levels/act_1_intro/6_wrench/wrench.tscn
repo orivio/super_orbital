@@ -9,55 +9,43 @@
 [ext_resource type="Texture2D" uid="uid://b4d0iy2gcl7ai" path="res://objects/arrow/arrow.png" id="6_1ssmm"]
 [ext_resource type="Resource" uid="uid://c867ma7n0muwc" path="res://dialogue/scripts/learn_wrench.tres" id="6_hwc2v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ssmm"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwql7"]
 resource_local_to_scene = true
 size = Vector2(1632, 896)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gav4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2r0lj"]
 resource_local_to_scene = true
 size = Vector2(227.25, 327.75)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4rt2"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ff4ru"]
 resource_local_to_scene = true
 size = Vector2(224, 200.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7sscb"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w1l8m"]
 resource_local_to_scene = true
 size = Vector2(64, 192)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2d4qq"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqolt"]
 resource_local_to_scene = true
 size = Vector2(352, 416)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qmk4"]
-resource_local_to_scene = true
-size = Vector2(256, 256)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4py3"]
-resource_local_to_scene = true
-size = Vector2(64, 256)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tumpm"]
-resource_local_to_scene = true
-size = Vector2(128, 288)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lubil"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t87ja"]
 resource_local_to_scene = true
 size = Vector2(32, 96)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iddgi"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_voecb"]
 resource_local_to_scene = true
 size = Vector2(32, 192)
 
 [node name="Level" unique_id=201273727 node_paths=PackedStringArray("checkpoints") instance=ExtResource("1_4rm83")]
-checkpoints = [NodePath("POI/Checkpoint"), NodePath("POI/Checkpoint2"), NodePath("POI/Checkpoint3"), NodePath("POI/Checkpoint4")]
+checkpoints = [NodePath("POI/Checkpoint"), NodePath(""), NodePath(""), NodePath("")]
 
 [node name="CameraBounds" parent="." index="1" unique_id=711655567]
 visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(368, -96)
-shape = SubResource("RectangleShape2D_1ssmm")
+shape = SubResource("RectangleShape2D_cwql7")
 
 [node name="BackgroundParallax" parent="." index="2" unique_id=1350709603]
 visible = true
@@ -72,7 +60,7 @@ unlocks_ability = "throw_wrench"
 
 [node name="CollisionShape2D" parent="POI/TooltipField" index="0" unique_id=822976353]
 position = Vector2(127.625, -66.125)
-shape = SubResource("RectangleShape2D_1gav4")
+shape = SubResource("RectangleShape2D_2r0lj")
 
 [node name="Label" parent="POI/TooltipField" index="1" unique_id=1289689676]
 visible = true
@@ -88,7 +76,7 @@ conversation = ExtResource("6_hwc2v")
 
 [node name="CollisionShape2D" parent="POI/DialogueTrigger" index="0" unique_id=354673692]
 position = Vector2(111, 8.75)
-shape = SubResource("RectangleShape2D_g4rt2")
+shape = SubResource("RectangleShape2D_ff4ru")
 
 [node name="DialogueTrigger2" parent="POI" parent_id_path=PackedInt32Array(809409572) index="2" unique_id=1107008213 instance=ExtResource("5_m0vqb")]
 tag = &"creative_path"
@@ -96,45 +84,18 @@ conversation = ExtResource("5_mq5qa")
 
 [node name="CollisionShape2D" parent="POI/DialogueTrigger2" index="0" unique_id=354673692]
 position = Vector2(1024, 32)
-shape = SubResource("RectangleShape2D_7sscb")
+shape = SubResource("RectangleShape2D_w1l8m")
 
 [node name="Checkpoint" parent="POI" parent_id_path=PackedInt32Array(809409572) index="3" unique_id=626712177 instance=ExtResource("6_1gav4")]
 
 [node name="CollisionShape2D" parent="POI/Checkpoint" index="0" unique_id=1419034240]
 position = Vector2(208, -304)
-shape = SubResource("RectangleShape2D_2d4qq")
+shape = SubResource("RectangleShape2D_jqolt")
 
 [node name="Marker2D" parent="POI/Checkpoint" index="1" unique_id=1330501033]
 position = Vector2(128, -32)
 
-[node name="Checkpoint2" parent="POI" parent_id_path=PackedInt32Array(809409572) index="4" unique_id=1078505738 instance=ExtResource("6_1gav4")]
-
-[node name="CollisionShape2D" parent="POI/Checkpoint2" index="0" unique_id=1419034240]
-position = Vector2(544, -352)
-shape = SubResource("RectangleShape2D_8qmk4")
-
-[node name="Marker2D" parent="POI/Checkpoint2" index="1" unique_id=1330501033]
-position = Vector2(512, -256)
-
-[node name="Checkpoint3" parent="POI" parent_id_path=PackedInt32Array(809409572) index="5" unique_id=1170392192 instance=ExtResource("6_1gav4")]
-
-[node name="CollisionShape2D" parent="POI/Checkpoint3" index="0" unique_id=1419034240]
-position = Vector2(544, -32)
-shape = SubResource("RectangleShape2D_v4py3")
-
-[node name="Marker2D" parent="POI/Checkpoint3" index="1" unique_id=1330501033]
-position = Vector2(544, 96)
-
-[node name="Checkpoint4" parent="POI" parent_id_path=PackedInt32Array(809409572) index="6" unique_id=334530110 instance=ExtResource("6_1gav4")]
-
-[node name="CollisionShape2D" parent="POI/Checkpoint4" index="0" unique_id=1419034240]
-position = Vector2(992, -16)
-shape = SubResource("RectangleShape2D_tumpm")
-
-[node name="Marker2D" parent="POI/Checkpoint4" index="1" unique_id=1330501033]
-position = Vector2(1024, 128)
-
-[node name="Arrow" type="Sprite2D" parent="POI" parent_id_path=PackedInt32Array(809409572) index="7" unique_id=1729785849]
+[node name="Arrow" type="Sprite2D" parent="POI" parent_id_path=PackedInt32Array(809409572) index="4" unique_id=1729785849]
 position = Vector2(288, 0)
 rotation = -1.5707964
 texture = ExtResource("6_1ssmm")
@@ -148,7 +109,7 @@ direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-528, 240)
-shape = SubResource("RectangleShape2D_lubil")
+shape = SubResource("RectangleShape2D_t87ja")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-416, 288)
@@ -158,7 +119,7 @@ door_tag = "EastDoor"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(1264, -320)
-shape = SubResource("RectangleShape2D_iddgi")
+shape = SubResource("RectangleShape2D_voecb")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(1120, -224)
@@ -167,8 +128,5 @@ position = Vector2(1120, -224)
 [editable path="POI/DialogueTrigger"]
 [editable path="POI/DialogueTrigger2"]
 [editable path="POI/Checkpoint"]
-[editable path="POI/Checkpoint2"]
-[editable path="POI/Checkpoint3"]
-[editable path="POI/Checkpoint4"]
 [editable path="Doors/WestDoor"]
 [editable path="Doors/EastDoor"]
