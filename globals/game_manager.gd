@@ -38,4 +38,7 @@ func attain_progress(progress_name: StringName) -> void:
 
 
 func _on_hitstop_end() -> void:
-	Engine.time_scale = 1.0
+	if not player.current_blackhole or player.state_machine.current_state is FloatState or player.state_machine.current_state is WrenchState or player.current_player_state == Player.PlayerState.DYING:
+		Engine.time_scale = 1.0
+	else:
+		Engine.time_scale = 0.5
