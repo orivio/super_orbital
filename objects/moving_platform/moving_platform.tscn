@@ -29,6 +29,8 @@ z_index = 20
 default_color = Color(0.58, 0.58, 0.58, 0.49019608)
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=886220012]
+collision_layer = 4096
+collision_mask = 4097
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=388684668]
 shape = SubResource("RectangleShape2D_gp6jd")

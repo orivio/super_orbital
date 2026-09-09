@@ -40,6 +40,7 @@ func physics_process(delta: float) -> State:
 		actor.velocity.x = move_toward(actor.velocity.x, move_speed, delta * actor.movement_settings.air_acceleration)
 	
 	actor.velocity.y = clamp(actor.velocity.y, 0, actor.movement_settings.max_fall_speed)
+	var saved_velocity: Vector2 = actor.velocity
 	
 	var did_dash: bool = false
 	var did_grav_switch: bool = false
@@ -55,11 +56,10 @@ func physics_process(delta: float) -> State:
 	elif actor.current_blackhole:
 		did_enter_blackhole = true
 	
-	var saved_velocity: Vector2 = actor.velocity
 	
 	actor.move_and_slide()
 	
-	actor.do_floor_land_sound(saved_velocity, actor.is_on_floor())
+	actor.do_floor_land_sound(saved_velocity, actor.floorcaster.is_colliding())
 	
 	if did_dash:
 		return dash

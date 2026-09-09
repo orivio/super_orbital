@@ -17,10 +17,13 @@
 [ext_resource type="Script" uid="uid://dp6cnrlo1yndi" path="res://player/state/float_state.gd" id="14_65viv"]
 [ext_resource type="Script" uid="uid://dkhfrycy4c8n1" path="res://player/input_component.gd" id="15_wodsf"]
 [ext_resource type="Script" uid="uid://c47wiuefr16ap" path="res://player/state/blackhole_state.gd" id="17_s7qer"]
-[ext_resource type="AudioStream" uid="uid://n2aiur8pd3ww" path="res://sounds/sfx/metal_land.wav" id="18_c35mf"]
+[ext_resource type="AudioStream" uid="uid://bkd024ca7jlly" path="res://sounds/sfx/metal_land_00.wav" id="18_b8hi5"]
+[ext_resource type="AudioStream" uid="uid://p5ul137dyfjr" path="res://sounds/sfx/metal_land_01.wav" id="19_2uvqg"]
 [ext_resource type="Script" uid="uid://cm0a7g2ro4k3j" path="res://player/debug_overlay.gd" id="19_65viv"]
 [ext_resource type="AudioStream" uid="uid://jakvv21h0q7e" path="res://sounds/sfx/dirt_land_heavy_00.wav" id="19_x7c3f"]
+[ext_resource type="AudioStream" uid="uid://dycgngl4lpqom" path="res://sounds/sfx/metal_land_02.wav" id="20_1s1yo"]
 [ext_resource type="AudioStream" uid="uid://2wu61h7kf8c8" path="res://sounds/sfx/dirt_land_heavy_01.wav" id="20_x7c3f"]
+[ext_resource type="AudioStream" uid="uid://bs1mq2sp5au3i" path="res://sounds/sfx/metal_land_03.wav" id="21_5ejfk"]
 [ext_resource type="AudioStream" uid="uid://brhfittjo8ff0" path="res://sounds/sfx/dirt_land_medium.wav" id="21_bjvpn"]
 [ext_resource type="AudioStream" uid="uid://c62441hxm75xs" path="res://sounds/sfx/dirt_land_light_00.wav" id="22_s7qer"]
 [ext_resource type="AudioStream" uid="uid://ke5bhmkwwvxd" path="res://sounds/sfx/dirt_land_light_01.wav" id="23_uw77l"]
@@ -750,8 +753,11 @@ size = Vector2(20, 56)
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_65viv"]
 random_pitch = 1.4983071
 random_volume_offset_db = 0.2
-streams_count = 1
-stream_0/stream = ExtResource("18_c35mf")
+streams_count = 4
+stream_0/stream = ExtResource("18_b8hi5")
+stream_1/stream = ExtResource("19_2uvqg")
+stream_2/stream = ExtResource("20_1s1yo")
+stream_3/stream = ExtResource("21_5ejfk")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_x7c3f"]
 random_pitch = 1.4142135
@@ -763,8 +769,9 @@ stream_1/stream = ExtResource("20_x7c3f")
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bjvpn"]
 random_pitch = 1.3348398
 random_volume_offset_db = 0.5
-streams_count = 1
+streams_count = 2
 stream_0/stream = ExtResource("21_bjvpn")
+stream_1/stream = ExtResource("22_s7qer")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_s7qer"]
 random_pitch = 1.587401
@@ -781,10 +788,10 @@ size = Vector2(20, 2.75)
 [node name="Player" type="CharacterBody2D" unique_id=1158454686 groups=["player"]]
 z_index = 50
 collision_layer = 2
-collision_mask = 2673
+collision_mask = 6769
 platform_on_leave = 2
-platform_floor_layers = 2130706433
-platform_wall_layers = 1
+platform_floor_layers = 2130710529
+platform_wall_layers = 4097
 script = ExtResource("1_rkbax")
 movement_settings = ExtResource("2_qiwj3")
 death_time = 0.2
@@ -924,51 +931,64 @@ stream = SubResource("AudioStreamRandomizer_s7qer")
 position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_e7wlo")
 target_position = Vector2(0, 7)
+margin = 4.0
 max_results = 1
+collision_mask = 4097
 
 [node name="LCeilingRaycast" type="RayCast2D" parent="Raycasts" unique_id=1907499109]
 position = Vector2(-11, -60)
 target_position = Vector2(0, -5)
+collision_mask = 4097
 
 [node name="MCeilingRaycast" type="RayCast2D" parent="Raycasts" unique_id=382484181]
 position = Vector2(0, -60)
 target_position = Vector2(0, -5)
+collision_mask = 4097
 
 [node name="RCeilingRaycast" type="RayCast2D" parent="Raycasts" unique_id=967516892]
 position = Vector2(11, -60)
 target_position = Vector2(0, -5)
+collision_mask = 4097
 
 [node name="UpperRightWallcaster" type="RayCast2D" parent="Raycasts" unique_id=1295315124]
 position = Vector2(11, -62)
 target_position = Vector2(10, 0)
+collision_mask = 4097
 
 [node name="UpperMiddleRightWallcaster" type="RayCast2D" parent="Raycasts" unique_id=1858599]
 position = Vector2(12, -54)
 target_position = Vector2(15, 0)
+collision_mask = 4097
 
 [node name="LowerMiddleRightWallcaster" type="RayCast2D" parent="Raycasts" unique_id=812432773]
 position = Vector2(11, -8)
 target_position = Vector2(15, 0)
+collision_mask = 4097
 
 [node name="LowerRightWallcaster" type="RayCast2D" parent="Raycasts" unique_id=1967474260]
 position = Vector2(11, 0)
 target_position = Vector2(10, 0)
+collision_mask = 4097
 
 [node name="UpperLeftWallcaster" type="RayCast2D" parent="Raycasts" unique_id=382263462]
 position = Vector2(-11, -62)
 target_position = Vector2(-10, 0)
+collision_mask = 4097
 
 [node name="UpperMiddleLeftWallcaster" type="RayCast2D" parent="Raycasts" unique_id=1172346949]
 position = Vector2(-11, -54)
 target_position = Vector2(-15, 0)
+collision_mask = 4097
 
 [node name="LowerMiddleLeftWallcaster" type="RayCast2D" parent="Raycasts" unique_id=1703990845]
 position = Vector2(-11, -8)
 target_position = Vector2(-15, 0)
+collision_mask = 4097
 
 [node name="LowerLeftWallcaster" type="RayCast2D" parent="Raycasts" unique_id=603316316]
 position = Vector2(-11, 0)
 target_position = Vector2(-10, 0)
+collision_mask = 4097
 
 [node name="Timers" type="Node" parent="." unique_id=424773958]
 
