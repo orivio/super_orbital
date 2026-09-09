@@ -1,6 +1,8 @@
 class_name FallState
 extends State
 
+var floorcaster_was_colliding: bool
+
 @onready var idle: IdleState = $"../Idle"
 @onready var walk: WalkState = $"../Walk"
 @onready var jump: JumpState = $"../Jump"
@@ -10,7 +12,7 @@ extends State
 
 
 func enter() -> void:
-	pass
+	floorcaster_was_colliding = false
 
 
 func exit() -> void:
@@ -58,8 +60,8 @@ func physics_process(delta: float) -> State:
 	
 	
 	actor.move_and_slide()
-	
-	actor.do_floor_land_sound(saved_velocity, actor.floorcaster.is_colliding())
+	actor.do_floor_land_sound(saved_velocity, actor.floorcaster.is_colliding(), floorcaster_was_colliding)
+	floorcaster_was_colliding = actor.floorcaster.is_colliding()
 	
 	if did_dash:
 		return dash

@@ -353,9 +353,8 @@ func exit_blackhole(bh: BlackHole) -> void:
 		current_blackhole = null
 
 
-func do_floor_land_sound(vel: Vector2, floor: bool) -> void:
-	if floor:
-		print("Hello!")
+func do_floor_land_sound(vel: Vector2, floor: bool, was: bool) -> void:
+	if floor and not was:
 		if floorcaster.is_colliding():
 			var coll: Object = floorcaster.get_collider(0)
 			if coll is CollisionObject2D and coll.collision_layer == 4096:
@@ -363,7 +362,6 @@ func do_floor_land_sound(vel: Vector2, floor: bool) -> void:
 				return
 		var tilemap: TileMapLayer = GameManager.current_level.tile_map
 		var local_pos: Vector2i = tilemap.local_to_map(tilemap.to_local(global_position + Vector2(0, 24)))
-		print(local_pos)
 		var tile_data: TileData = tilemap.get_cell_tile_data(local_pos)
 		if tile_data:
 			var sound_type: StringName = tile_data.get_custom_data("type")
