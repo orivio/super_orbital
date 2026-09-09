@@ -195,7 +195,7 @@ func _physics_process(delta: float) -> void:
 					wrench_throw_buffer = true
 					var wrench_velocity: Vector2 = -input.direction
 					wrench_velocity_buffer = wrench_velocity * velocity.length()
-					wrench_throw_buffer_timer.start(0.1)
+					wrench_throw_buffer_timer.start(0.02)
 				
 				if floorcaster.is_colliding():
 					was_on_floor_last_frame = true
