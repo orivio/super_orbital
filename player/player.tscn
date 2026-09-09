@@ -16,13 +16,9 @@
 [ext_resource type="Script" uid="uid://bb1ne8khitv63" path="res://player/state/dash_state.gd" id="12_e7oew"]
 [ext_resource type="Script" uid="uid://dp6cnrlo1yndi" path="res://player/state/float_state.gd" id="14_65viv"]
 [ext_resource type="Script" uid="uid://dkhfrycy4c8n1" path="res://player/input_component.gd" id="15_wodsf"]
-[ext_resource type="AudioStream" uid="uid://bo68gmydfw3ja" path="res://sounds/sfx/gravity_off_2.wav" id="16_tqiix"]
-[ext_resource type="AudioStream" uid="uid://dnjlxy8u2sigx" path="res://sounds/sfx/gravity_on_2.wav" id="17_e7oew"]
 [ext_resource type="Script" uid="uid://c47wiuefr16ap" path="res://player/state/blackhole_state.gd" id="17_s7qer"]
-[ext_resource type="AudioStream" uid="uid://bp7ux6ojv5g3w" path="res://sounds/sfx/dash.wav" id="18_e7oew"]
+[ext_resource type="AudioStream" uid="uid://n2aiur8pd3ww" path="res://sounds/sfx/metal_land.wav" id="18_c35mf"]
 [ext_resource type="Script" uid="uid://cm0a7g2ro4k3j" path="res://player/debug_overlay.gd" id="19_65viv"]
-[ext_resource type="AudioStream" uid="uid://blibcs4nthhm" path="res://sounds/sfx/throw_wrench.wav" id="19_c35mf"]
-[ext_resource type="AudioStream" uid="uid://b5elhr52b7s1t" path="res://sounds/sfx/die.wav" id="20_65viv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0jb6"]
 size = Vector2(24, 62)
@@ -743,9 +739,11 @@ graph_offset = Vector2(-3, 99.049194)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1qjk"]
 size = Vector2(20, 56)
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_32hag"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_65viv"]
+random_pitch = 1.4983071
+random_volume_offset_db = 0.2
 streams_count = 1
-stream_0/stream = ExtResource("16_tqiix")
+stream_0/stream = ExtResource("18_c35mf")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7wlo"]
 size = Vector2(20, 2.75)
@@ -878,25 +876,8 @@ script = ExtResource("17_s7qer")
 
 [node name="Sounds" type="Node" parent="." unique_id=1124397788]
 
-[node name="GravityOff" type="AudioStreamPlayer" parent="Sounds" unique_id=1769858769]
-stream = SubResource("AudioStreamRandomizer_32hag")
-bus = &"Sound Effects"
-
-[node name="GravityOn" type="AudioStreamPlayer" parent="Sounds" unique_id=1525211347]
-stream = ExtResource("17_e7oew")
-bus = &"Sound Effects"
-
-[node name="Dash" type="AudioStreamPlayer" parent="Sounds" unique_id=1288697202]
-stream = ExtResource("18_e7oew")
-bus = &"Sound Effects"
-
-[node name="ThrowWrench" type="AudioStreamPlayer" parent="Sounds" unique_id=1305315449]
-stream = ExtResource("19_c35mf")
-bus = &"Sound Effects"
-
-[node name="Death" type="AudioStreamPlayer" parent="Sounds" unique_id=473501979]
-stream = ExtResource("20_65viv")
-bus = &"Sound Effects"
+[node name="MetalLand" type="AudioStreamPlayer" parent="Sounds" unique_id=1672414343]
+stream = SubResource("AudioStreamRandomizer_65viv")
 
 [node name="Raycasts" type="Node2D" parent="." unique_id=202460255]
 

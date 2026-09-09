@@ -55,7 +55,11 @@ func physics_process(delta: float) -> State:
 	elif actor.current_blackhole:
 		did_enter_blackhole = true
 	
+	var saved_velocity: Vector2 = actor.velocity
+	
 	actor.move_and_slide()
+	
+	actor.do_floor_land_sound(saved_velocity, actor.is_on_floor())
 	
 	if did_dash:
 		return dash

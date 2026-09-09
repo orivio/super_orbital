@@ -73,6 +73,8 @@ const WRENCH_PROJECTILE = preload("uid://cgbxshe71m18w")
 @onready var lower_middle_left_wallcaster: RayCast2D = $Raycasts/LowerMiddleLeftWallcaster
 @onready var lower_left_wallcaster: RayCast2D = $Raycasts/LowerLeftWallcaster
 @onready var collider: CollisionShape2D = $CollisionShape2D
+# Sound effects
+@onready var metal_land: AudioStreamPlayer = $Sounds/MetalLand
 
 
 # Visual logic
@@ -152,7 +154,7 @@ func _process(delta: float) -> void:
 		
 		if false:
 			tooltip.show_tooltip(str(frames_passed))
-		if false:
+		if true:
 			tooltip.show_tooltip(str(velocity.y))
 		#endregion
 
@@ -346,6 +348,21 @@ func enter_blackhole(bh: BlackHole) -> void:
 func exit_blackhole(bh: BlackHole) -> void:
 	if current_blackhole == bh:
 		current_blackhole = null
+
+
+func do_floor_land_sound(vel: Vector2, floor: bool) -> void:
+	if floor and vel.y > 350:
+		var multiplier: float = clamp(remap(vel.y, 350, 1000, 0.0, 2), 0.0, 2)
+		var tilemap: TileMapLayer = GameManager.current_level.tile_map
+		var local_pos: Vector2i = tilemap.local_to_map(tilemap.to_local(global_position + Vector2(0, 24)))
+		var tile_data: TileData = tilemap.get_cell_tile_data(local_pos)
+		print(local_pos)
+		if tile_data:
+			var sound_type: StringName = tile_data.get_custom_data("type")
+			print(sound_type, ", ", multiplier)
+			if sound_type == &"metal":
+				metal_land.volume_db = linear_to_db(multiplier)
+				metal_land.play()
 
 
 #endregion

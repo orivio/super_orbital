@@ -14,6 +14,7 @@ var last_checkpoint: int = -1
 @onready var effects: Node2D = $Effects
 @onready var color_rect: ColorRect = $Background/ColorRect
 @onready var door_setup_timer: Timer = $DoorSetupTimer
+@onready var tile_map: TileMapLayer = $TileMapLayer
 
 
 func _ready() -> void:
