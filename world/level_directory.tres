@@ -155,6 +155,7 @@ metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_ln8yr"]
 script = ExtResource("1_e46c1")
+song = &"Security Risk"
 scene_path = "uid://chx1a8m76ghmm"
 level_name = "The Three Body Problem"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
