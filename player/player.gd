@@ -421,7 +421,7 @@ func can_dash() -> bool:
 func do_dash() -> void:
 	dash_sound.stop()
 	dash_sound.play()
-	GameManager.hitstop(movement_settings.dash_hitstop)
+	#GameManager.hitstop(movement_settings.dash_hitstop)
 	dash_buffer = false
 	wrench_throw_buffer = false
 	has_dash = false
