@@ -373,8 +373,8 @@ func do_floor_land_sound(vel: Vector2, floor: bool, was: bool, tile_off: Vector2
 
 
 func play_floor_land_sound(vel: float, sound_type: StringName) -> void:
-	if current_player_state == PlayerState.DYING:
-		pass
+	if current_player_state != PlayerState.GAMEPLAY:
+		return
 	if sound_type == &"metal":
 		if vel > 0:
 			var multiplier: float = clamp(remap(vel, 300, 1000, 0.0, 2), 0.0, 2)

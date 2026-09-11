@@ -38,7 +38,7 @@ resource_local_to_scene = true
 size = Vector2(32, 192)
 
 [node name="Level" unique_id=201273727 node_paths=PackedStringArray("checkpoints") instance=ExtResource("1_4rm83")]
-checkpoints = [NodePath("POI/Checkpoint"), NodePath(""), NodePath(""), NodePath("")]
+checkpoints = [NodePath("POI/Checkpoint"), null, null, null]
 
 [node name="CameraBounds" parent="." index="1" unique_id=711655567]
 visible = true

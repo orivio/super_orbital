@@ -41,6 +41,8 @@ func process(_delta: float) -> State:
 
 
 func physics_process(delta: float) -> State:
+	if delta == 0:
+		return
 	# This dash mechanic was inspired by Celeste in that a dash has two phases:
 	# Phase 1:
 	# 	You dash in the direction you intended for a certain amount of time at 
@@ -68,6 +70,7 @@ func physics_process(delta: float) -> State:
 			if not in_second_phase:
 				in_second_phase = true
 				actor.velocity *= actor.movement_settings.dash_exit_diminish
+		end_dash = true
 	else:
 		if actor.can_grav_switch() and not actor.input_locked:
 			actor.do_grav_switch()
@@ -78,6 +81,8 @@ func physics_process(delta: float) -> State:
 	
 	actor.wall_clip_nudge()
 	actor.ceiling_clip_nudge()
+	
+	actor.velocity.y += actor.movement_settings.normal_gravity_acceleration * delta
 	
 	actor.move_and_slide()
 	

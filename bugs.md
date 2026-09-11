@@ -56,6 +56,8 @@ very inconsistent.
 - The player's position becomes (nan, nan), but the velocity seems normal.
 - The bug never occurs during the jump or fall states, but sometimes with the 
 nograv state.
+- MAJOR BREAKTHROUGH: Disabling freeze frames on the dash makes the bug go away 
+completely.
 
 Replication:
 - Very inconsistent to replicate.
