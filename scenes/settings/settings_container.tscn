@@ -30,11 +30,10 @@ theme = ExtResource("1_7febn")
 theme_override_fonts/font = ExtResource("2_t2fih")
 theme_override_font_sizes/font_size = 48
 tab_alignment = 1
-current_tab = 1
+current_tab = 0
 script = ExtResource("3_t2fih")
 
 [node name="Controls" type="Control" parent="." unique_id=1763279689]
-visible = false
 layout_mode = 2
 theme = ExtResource("1_7febn")
 script = ExtResource("3_ttj5g")
@@ -359,6 +358,7 @@ popup/item_2/id = 1
 target = NodePath("..")
 
 [node name="Game" type="Control" parent="." unique_id=1121090749]
+visible = false
 layout_mode = 2
 script = ExtResource("8_1qkah")
 metadata/_tab_index = 1
