@@ -10,7 +10,7 @@ BEFORE STARDANCE ENDS:
 	
 	OBED:
 		- Refine the black hole mechanic as necessary for the levels in which they appear
-		- Add different jump landing sound effects depending on what surface you land on, as well as particle effects
+		- Add different particle effects when you land on the ground
 		- Draw the holographic planet lookup scene in the intro cutscene
 		- Maybe a player death animation
 
