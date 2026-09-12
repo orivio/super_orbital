@@ -13,6 +13,7 @@ BEFORE STARDANCE ENDS:
 		- Add different particle effects when you land on the ground
 		- Draw the holographic planet lookup scene in the intro cutscene
 		- Maybe a player death animation
+		- Make ability unlocking work properly
 
 AFTER STARDANCE (If time allows, we can implement these, but they're low priority for now):
 
