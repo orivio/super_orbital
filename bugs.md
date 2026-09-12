@@ -73,6 +73,17 @@ Details:
 - It can cause you to bounce back and forth a ton, and the hitstop makes the 
 game slowdown to almost stopped
 
+## Black hole clipping, aka Dash Platform 2.0
+Details:
+- From what I can tell, if you fly into a black hole while in zero gravity and
+while holding down your zero grav keybind (x for me), you can clip out of existence
+- Similar to the dash platform bug, the screen becomes a solid color (but this time
+black, not gray) and the debugger gets thousands of error messages
+
+Replication:
+- So far extremely difficult to replicate
+- There's a chance that what's written above isn't the actual cause, so keep an eye out
+
 # UI Bugs
 ## Pressing a button during a screen fade
 Details:
