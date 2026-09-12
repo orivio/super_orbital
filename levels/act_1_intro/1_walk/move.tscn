@@ -4,28 +4,27 @@
 [ext_resource type="PackedScene" uid="uid://cv2o8lyusltah" path="res://poi/tooltip_field/tooltip_field.tscn" id="2_hllsc"]
 [ext_resource type="PackedScene" uid="uid://lf2gvhqkoyd6" path="res://poi/dialogue_trigger/dialogue_trigger.tscn" id="3_pyh0h"]
 [ext_resource type="Resource" uid="uid://dvnusnmyrnje7" path="res://dialogue/scripts/opening_dialogue.tres" id="4_abbbr"]
-[ext_resource type="PackedScene" uid="uid://f2pjreng8tcf" path="res://poi/music_changer/music_changer.tscn" id="5_hnqut"]
 [ext_resource type="PackedScene" uid="uid://bjec8jk85hnki" path="res://poi/progress_detector/progress_detector.tscn" id="6_kpqxq"]
 [ext_resource type="TileSet" uid="uid://bnrmi5xqiqb0w" path="res://world/tilesets/slightly_better_tileset.tres" id="7_52gc4"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="8_y2jxh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_av3tr"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcp7v"]
 resource_local_to_scene = true
 size = Vector2(2080, 864)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hllsc"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwfdp"]
 resource_local_to_scene = true
 size = Vector2(191, 109)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyh0h"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ss1b"]
 resource_local_to_scene = true
 size = Vector2(192, 128)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_abbbr"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_npq2q"]
 resource_local_to_scene = true
 size = Vector2(224, 256)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnqut"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfqho"]
 resource_local_to_scene = true
 size = Vector2(64, 224)
 
@@ -42,7 +41,7 @@ offset_bottom = -575.0
 
 [node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
 position = Vector2(560, -336)
-shape = SubResource("RectangleShape2D_av3tr")
+shape = SubResource("RectangleShape2D_qcp7v")
 
 [node name="BackgroundParallax" parent="." index="2" unique_id=1350709603]
 visible = true
@@ -59,7 +58,7 @@ unlocks_ability = "move"
 
 [node name="CollisionShape2D" parent="POI/MoveTooltip" index="0" unique_id=822976353]
 position = Vector2(32.5, -22.5)
-shape = SubResource("RectangleShape2D_hllsc")
+shape = SubResource("RectangleShape2D_bwfdp")
 
 [node name="Label" parent="POI/MoveTooltip" index="1" unique_id=1289689676]
 visible = true
@@ -75,21 +74,14 @@ conversation = ExtResource("4_abbbr")
 
 [node name="CollisionShape2D" parent="POI/DialogueTrigger" index="0" unique_id=354673692]
 position = Vector2(32, -32)
-shape = SubResource("RectangleShape2D_pyh0h")
+shape = SubResource("RectangleShape2D_3ss1b")
 
-[node name="MusicChanger" parent="POI" index="2" unique_id=388467543 instance=ExtResource("5_hnqut")]
-position = Vector2(-150, -250)
-music = "uid://86wyqwb0rs5n"
-
-[node name="CollisionShape2D" parent="POI/MusicChanger" index="0" unique_id=811820738]
-position = Vector2(278, 122)
-
-[node name="ProgressDetector" parent="POI" index="3" unique_id=1408990158 instance=ExtResource("6_kpqxq")]
+[node name="ProgressDetector" parent="POI" index="2" unique_id=1408990158 instance=ExtResource("6_kpqxq")]
 progress_name = &"START"
 
 [node name="CollisionShape2D" parent="POI/ProgressDetector" index="0" unique_id=1008791462]
 position = Vector2(1456, -64)
-shape = SubResource("RectangleShape2D_abbbr")
+shape = SubResource("RectangleShape2D_npq2q")
 
 [node name="TileMapLayer" parent="." index="5" unique_id=1010939493]
 modulate = Color(0.8, 0.8, 0.8, 1)
@@ -116,13 +108,12 @@ door_tag = "EastDoor"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(1696, -112)
-shape = SubResource("RectangleShape2D_hnqut")
+shape = SubResource("RectangleShape2D_vfqho")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(1536, 0)
 
 [editable path="POI/MoveTooltip"]
 [editable path="POI/DialogueTrigger"]
-[editable path="POI/MusicChanger"]
 [editable path="POI/ProgressDetector"]
 [editable path="Doors/EastDoor"]
