@@ -73,16 +73,20 @@ Details:
 - It can cause you to bounce back and forth a ton, and the hitstop makes the 
 game slowdown to almost stopped
 
-## Black hole clipping, aka Dash Platform 2.0
+## Wall clipping, aka Dash Platform 2.0
 Details:
 - From what I can tell, if you fly into a black hole while in zero gravity and
 while holding down your zero grav keybind (x for me), you can clip out of existence
+	- Scratch that. It happens in gilganas, when you get to the wide platform near the
+	end. If you go into antigrav and bounce back and forth horizontally between the
+	walls after jumping up from the platform, then eventually you seem to disappear
 - Similar to the dash platform bug, the screen becomes a solid color (but this time
 black, not gray) and the debugger gets thousands of error messages
 
 Replication:
 - So far extremely difficult to replicate
 - There's a chance that what's written above isn't the actual cause, so keep an eye out
+	- Could be black hole, could be wall bouncing
 
 # UI Bugs
 ## Pressing a button during a screen fade
@@ -107,5 +111,6 @@ where you can't move
 
 # Other
 ## You die again after touching the center of the black hole in the first black hole level
+- Happens in other black hole levels too, but for some reason not always
 ## Music does not play in the first level for some reason
 ## Floor landing sound effect is inconsistent at high velocities
