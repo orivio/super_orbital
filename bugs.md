@@ -85,6 +85,19 @@ while holding down your zero grav keybind (x for me), you can clip out of existe
 a wall (I think)
 - Similar to the dash platform bug, the screen becomes a solid color (but this time
 black, not gray) and the debugger gets thousands of error messages
+- Obed: Only can replicate in Gilganas at the final black hole. If you try to 
+turn off gravity near that last black hole, the bug will happen. If you try to 
+turn off gravity while inside the black hole, the bug will happen. If you don't 
+try to turn off gravity at all, the bug will not happen.
+
+## Float bouncing into a downard moving platform
+Details:
+- Similar to the Dash Platform bug.
+- This bug occurs when you dash downward into a moving platform that is moving 
+downward, and then press the gravity switch button.
+- Found in Gilganas
+Replication:
+- Kind of easy to replicate
 
 Replication:
 - So far extremely difficult to replicate
