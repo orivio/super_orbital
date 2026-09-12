@@ -80,11 +80,15 @@ while holding down your zero grav keybind (x for me), you can clip out of existe
 	- Scratch that. It happens in gilganas, when you get to the wide platform near the
 	end. If you go into antigrav and bounce back and forth horizontally between the
 	walls after jumping up from the platform, then eventually you seem to disappear
+	
+- Scratch ALL of that. It happens when you try to escape antigrav while collding with
+a wall (I think)
 - Similar to the dash platform bug, the screen becomes a solid color (but this time
 black, not gray) and the debugger gets thousands of error messages
 
 Replication:
 - So far extremely difficult to replicate
+- Potentially easy to replicate now, see above
 - There's a chance that what's written above isn't the actual cause, so keep an eye out
 	- Could be black hole, could be wall bouncing
 
