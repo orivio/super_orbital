@@ -52,7 +52,6 @@ func end_dialogue_fast() -> void:
 	current_convo_tag = &""
 	line_index = 0
 	
-	await get_tree().create_timer(1).timeout
 	GameManager.player.unlock_input()
 
 func get_next_side_speaker(side: Types.ConvoSide) -> Speaker:
