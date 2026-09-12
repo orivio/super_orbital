@@ -40,15 +40,20 @@ func advance() -> void:
 func end_dialogue() -> void:
 	dialogue_ended.emit(current_convo_tag)
 	GameManager.play.end_dialogue()
-	GameManager.player.unlock_input()
+	
 	current_convo = null
 	current_convo_tag = &""
+	
+	await get_tree().create_timer(1).timeout
+	GameManager.player.unlock_input()
 
 func end_dialogue_fast() -> void:
-	GameManager.player.unlock_input()
 	current_convo = null
 	current_convo_tag = &""
 	line_index = 0
+	
+	await get_tree().create_timer(1).timeout
+	GameManager.player.unlock_input()
 
 func get_next_side_speaker(side: Types.ConvoSide) -> Speaker:
 	if not current_convo:
