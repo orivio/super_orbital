@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dv4cb1hkc8jh7" path="res://cutscenes/intro/lone_kid_baby.png" id="5_sa1mj"]
 [ext_resource type="Texture2D" uid="uid://b15pgad4yav4f" path="res://cutscenes/intro/harfingjingles_front_00.png" id="7_tmgee"]
 [ext_resource type="Texture2D" uid="uid://ct5c5kvn2xpq0" path="res://cutscenes/intro/hospital_01.png" id="8_k0kmi"]
+[ext_resource type="Texture2D" uid="uid://dlkxf8kgyr7ps" path="res://cutscenes/intro/rocket_ship.png" id="10_s7tp3"]
 [ext_resource type="Texture2D" uid="uid://8mfgp0d06esa" path="res://cutscenes/intro/sad_guy_contemplate_00.png" id="10_sa1mj"]
 
 [sub_resource type="Animation" id="Animation_sht7i"]
@@ -262,6 +263,18 @@ tracks/20/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Sprites/Image_RocketShip:modulate:a")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_o0s81"]
@@ -533,6 +546,18 @@ tracks/21/keys = {
 "points": PackedFloat32Array(350, 0, 0, 5.666667, 33.333336, 200, -5.105556, 22.198069, 0.64444417, -2.8019311, 200, -0.25, 0, 0.25, 0, 455, -0.007816315, -76, 0, 0),
 "times": PackedFloat32Array(4.5, 34.366665, 39, 39.3)
 }
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Sprites/Image_RocketShip:modulate:a")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(52.933334, 54.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.0, 1.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4yivr"]
 _data = {
@@ -585,6 +610,11 @@ texture = ExtResource("7_tmgee")
 position = Vector2(640, 360)
 scale = Vector2(8, 8)
 texture = ExtResource("10_sa1mj")
+
+[node name="Image_RocketShip" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="7" unique_id=124971696]
+position = Vector2(640, 352)
+scale = Vector2(8, 8)
+texture = ExtResource("10_s7tp3")
 
 [node name="Text_20XX" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="0" unique_id=443001563]
 modulate = Color(1, 1, 1, 0)
