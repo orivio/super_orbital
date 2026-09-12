@@ -15,14 +15,7 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 [sub_resource type="Resource" id="Resource_lp53h"]
 script = ExtResource("1_l5n0r")
 speaker = ExtResource("2_r0j7r")
-text = "It seems that there are spikes blocking your way."
-animation = &"disappointed"
-metadata/_custom_type_script = "uid://b2364himxu4dy"
-
-[sub_resource type="Resource" id="Resource_vl0rm"]
-script = ExtResource("1_l5n0r")
-speaker = ExtResource("2_r0j7r")
-text = "They are rather simple to avoid as of now. Simply press {jump}."
+text = "It seems that there are spikes blocking your way. You can easily jump over them using {jump}."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_ymm5s"]
@@ -35,7 +28,6 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_l5n0r")
 speaker = ExtResource("2_r0j7r")
 text = "Could it be that hostile life exists here?"
-animation = &"disappointed"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_nqrcn"]
@@ -48,5 +40,5 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [resource]
 script = ExtResource("2_5kqtn")
-lines = Array[ExtResource("1_l5n0r")]([SubResource("Resource_op6qi"), SubResource("Resource_lp53h"), SubResource("Resource_vl0rm"), SubResource("Resource_ymm5s"), SubResource("Resource_om0pd"), SubResource("Resource_nqrcn")])
+lines = Array[ExtResource("1_l5n0r")]([SubResource("Resource_op6qi"), SubResource("Resource_lp53h"), SubResource("Resource_ymm5s"), SubResource("Resource_om0pd"), SubResource("Resource_nqrcn")])
 metadata/_custom_type_script = "uid://cqhvq0ub0apwo"

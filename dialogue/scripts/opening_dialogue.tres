@@ -39,7 +39,6 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
 text = "That is rather unfortunate."
-animation = &"disappointed"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_jbwp8"]
@@ -52,7 +51,6 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
 text = "The air here is dangerous. The perchlorate salts can damage your circuitry."
-animation = &"disappointed"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_fh5dd"]
