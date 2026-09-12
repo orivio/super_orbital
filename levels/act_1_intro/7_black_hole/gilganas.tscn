@@ -16,7 +16,7 @@ size = Vector2(9088, 2080)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xg4p2"]
 resource_local_to_scene = true
-size = Vector2(320, 384)
+size = Vector2(320, 355)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ygf4"]
 resource_local_to_scene = true
@@ -67,7 +67,7 @@ point_count = 2
 [sub_resource type="Curve2D" id="Curve2D_0om0g"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 6624, -320, 0, 0, 0, 0, 6624, 640)
+"points": PackedVector2Array(0, 0, 0, 0, 6624, -320, 0, 0, 0, 0, 6624, 468)
 }
 point_count = 2
 
@@ -91,7 +91,7 @@ resource_local_to_scene = true
 size = Vector2(64, 224)
 
 [node name="Level" unique_id=201273727 node_paths=PackedStringArray("checkpoints") instance=ExtResource("1_tsdi7")]
-checkpoints = [NodePath(""), NodePath("POI/Checkpoint1"), NodePath("POI/Checkpoint2")]
+checkpoints = [null, NodePath("POI/Checkpoint1"), NodePath("POI/Checkpoint2")]
 
 [node name="ColorRect" parent="Background" parent_id_path=PackedInt32Array(2128642405) index="0" unique_id=1139011203]
 color = Color(0.18431373, 0.18431373, 0.18431373, 1)
@@ -112,7 +112,7 @@ tile_map_data = PackedByteArray("AADq/xwAAAAAAAsAAADq/x0AAAAAAAwAAADq/x4AAAAAAA0
 [node name="Checkpoint1" parent="POI" parent_id_path=PackedInt32Array(809409572) index="0" unique_id=1897814221 instance=ExtResource("2_fituk")]
 
 [node name="CollisionShape2D" parent="POI/Checkpoint1" index="0" unique_id=1419034240]
-position = Vector2(2624, 0)
+position = Vector2(2624, -14.5)
 shape = SubResource("RectangleShape2D_xg4p2")
 
 [node name="Marker2D" parent="POI/Checkpoint1" index="1" unique_id=1330501033]
