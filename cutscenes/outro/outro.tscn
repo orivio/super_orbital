@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://mrwrlwimnk88"]
+
+[ext_resource type="PackedScene" uid="uid://0xscvimaquhm" path="res://cutscenes/cutscene_base.tscn" id="1_diork"]
+
+[sub_resource type="Animation" id="Animation_diork"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Text/Text_Test:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_civqy"]
+resource_name = "intro"
+length = 6.733333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Text/Text_Test:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1, 4.9333334, 6.4666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_adx7a"]
+_data = {
+&"RESET": SubResource("Animation_diork"),
+&"intro": SubResource("Animation_civqy")
+}
+
+[node name="CutsceneBase" unique_id=1284433739 instance=ExtResource("1_diork")]
+animation_name = &"intro"
+
+[node name="CutsceneDirector" parent="." index="0" unique_id=885114089]
+root_node = NodePath("..")
+libraries/ = SubResource("AnimationLibrary_adx7a")
+
+[node name="ColorRect" parent="Background" parent_id_path=PackedInt32Array(687447503) index="0" unique_id=1592823712]
+color = Color(0, 0, 0, 1)
+
+[node name="Text_Test" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="0" unique_id=1417904340]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 256.0
+offset_right = 832.0
+offset_bottom = 416.0
+theme_override_font_sizes/normal_font_size = 80
+text = "Hello"
