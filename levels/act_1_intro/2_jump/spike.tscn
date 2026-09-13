@@ -9,19 +9,19 @@
 [ext_resource type="Texture2D" uid="uid://dbfrnv3h2e4jy" path="res://objects/thingamabob_sheet.png" id="7_miy7j"]
 [ext_resource type="PackedScene" uid="uid://daoon624s6mp3" path="res://world/door/door.tscn" id="8_j0gs1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bq24c"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tx5mh"]
 resource_local_to_scene = true
 size = Vector2(1760, 832)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mc7h5"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02nq6"]
 resource_local_to_scene = true
 size = Vector2(472, 253)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mys0u"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxgms"]
 resource_local_to_scene = true
 size = Vector2(224, 135)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1473a"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gdgja"]
 resource_local_to_scene = true
 size = Vector2(128, 224)
 
@@ -58,11 +58,11 @@ region = Rect2(16, 0, 16, 16)
 atlas = ExtResource("7_miy7j")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxmoo"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lewqy"]
 resource_local_to_scene = true
 size = Vector2(96, 96)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qixva"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4roxy"]
 resource_local_to_scene = true
 size = Vector2(192, 192)
 
@@ -73,7 +73,7 @@ visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
 position = Vector2(-112, -256)
-shape = SubResource("RectangleShape2D_bq24c")
+shape = SubResource("RectangleShape2D_tx5mh")
 
 [node name="BackgroundParallax" parent="." index="2" unique_id=1350709603]
 visible = true
@@ -84,10 +84,9 @@ unlocks_ability = "jump"
 
 [node name="CollisionShape2D" parent="POI/JumpTooltip" index="0" unique_id=822976353]
 position = Vector2(-276, -1.5)
-shape = SubResource("RectangleShape2D_mc7h5")
+shape = SubResource("RectangleShape2D_02nq6")
 
 [node name="Label" parent="POI/JumpTooltip" index="1" unique_id=1289689676]
-visible = true
 offset_left = -512.0
 offset_top = -228.0
 offset_right = -40.0
@@ -101,14 +100,14 @@ conversation = ExtResource("4_1473a")
 
 [node name="CollisionShape2D" parent="POI/DialogueTrigger" index="0" unique_id=354673692]
 position = Vector2(-432, -32.5)
-shape = SubResource("RectangleShape2D_mys0u")
+shape = SubResource("RectangleShape2D_pxgms")
 
 [node name="ProgressDetector" parent="POI" parent_id_path=PackedInt32Array(809409572) index="2" unique_id=1408990158 instance=ExtResource("5_sxmoo")]
 progress_name = &"Jumping"
 
 [node name="CollisionShape2D" parent="POI/ProgressDetector" index="0" unique_id=1008791462]
 position = Vector2(704, -80)
-shape = SubResource("RectangleShape2D_1473a")
+shape = SubResource("RectangleShape2D_gdgja")
 
 [node name="DustRain" type="GPUParticles2D" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="0" unique_id=1024171688]
 material = SubResource("CanvasItemMaterial_4w83b")
@@ -190,7 +189,7 @@ direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-1104, -16)
-shape = SubResource("RectangleShape2D_sxmoo")
+shape = SubResource("RectangleShape2D_lewqy")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-896, 32)
@@ -200,7 +199,7 @@ door_tag = "EastDoor"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(928, -64)
-shape = SubResource("RectangleShape2D_qixva")
+shape = SubResource("RectangleShape2D_4roxy")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(704, 32)

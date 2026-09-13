@@ -92,6 +92,8 @@ static func get_formatted_text(t: String) -> String:
 		"{down}", OS.get_keycode_string(InputMap.action_get_events("down")[0].physical_keycode),
 		).replace(
 		"{topright}", OS.get_keycode_string(InputMap.action_get_events("up")[0].physical_keycode) + OS.get_keycode_string(InputMap.action_get_events("right")[0].physical_keycode),
+		).replace(
+		"{change_orbit}", OS.get_keycode_string(InputMap.action_get_events("change_orbit")[0].physical_keycode),
 		)
 
 func animate_portrait_up(portrait: Control, tween: Tween):

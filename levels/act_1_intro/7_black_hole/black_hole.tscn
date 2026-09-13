@@ -7,25 +7,25 @@
 [ext_resource type="PackedScene" uid="uid://lf2gvhqkoyd6" path="res://poi/dialogue_trigger/dialogue_trigger.tscn" id="5_xdvb1"]
 [ext_resource type="Resource" uid="uid://dmo1tc7nogwoa" path="res://dialogue/scripts/black_hole.tres" id="6_j35qt"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xhm1"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3ffu"]
 resource_local_to_scene = true
 size = Vector2(3008, 1216)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ldrsr"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqf6a"]
 resource_local_to_scene = true
 size = Vector2(128, 320)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbg3o"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vf3is"]
+resource_local_to_scene = true
+size = Vector2(163, 123)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ifct"]
 resource_local_to_scene = true
 size = Vector2(192, 96)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2gvt"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1t5js"]
 resource_local_to_scene = true
 size = Vector2(96, 192)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmyie"]
-resource_local_to_scene = true
-size = Vector2(163, 123)
 
 [node name="Level" unique_id=201273727 instance=ExtResource("1_h3x7e")]
 
@@ -34,7 +34,7 @@ color = Color(0.18431373, 0.18431373, 0.18431373, 1)
 
 [node name="CollisionShape2D" parent="CameraBounds" parent_id_path=PackedInt32Array(711655567) index="0" unique_id=1580084517]
 position = Vector2(832, -288)
-shape = SubResource("RectangleShape2D_8xhm1")
+shape = SubResource("RectangleShape2D_g3ffu")
 
 [node name="BackgroundParallax" parent="." index="2" unique_id=1350709603]
 visible = true
@@ -47,7 +47,16 @@ progress_name = &"Black Hole Navigation"
 
 [node name="CollisionShape2D" parent="POI/ProgressDetector" index="0" unique_id=1008791462]
 position = Vector2(2304, -64)
-shape = SubResource("RectangleShape2D_ldrsr")
+shape = SubResource("RectangleShape2D_mqf6a")
+
+[node name="DialogueTrigger" parent="POI" parent_id_path=PackedInt32Array(809409572) index="1" unique_id=12977462 instance=ExtResource("5_xdvb1")]
+position = Vector2(-351, 0)
+tag = &"black_hole"
+conversation = ExtResource("6_j35qt")
+
+[node name="CollisionShape2D" parent="POI/DialogueTrigger" index="0" unique_id=354673692]
+position = Vector2(-177.5, 6)
+shape = SubResource("RectangleShape2D_vf3is")
 
 [node name="BlackHole" parent="Objects" parent_id_path=PackedInt32Array(160790231) index="0" unique_id=67489551 instance=ExtResource("2_5xoju")]
 position = Vector2(96, 0)
@@ -73,7 +82,7 @@ direction = -1
 
 [node name="DoorBounds" parent="Doors/WestDoor" index="0" unique_id=1714002478]
 position = Vector2(-832, 16)
-shape = SubResource("RectangleShape2D_lbg3o")
+shape = SubResource("RectangleShape2D_3ifct")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
 position = Vector2(-608, 64)
@@ -83,21 +92,12 @@ door_tag = "EastDoor"
 
 [node name="DoorBounds" parent="Doors/EastDoor" index="0" unique_id=1714002478]
 position = Vector2(2448, -32)
-shape = SubResource("RectangleShape2D_y2gvt")
+shape = SubResource("RectangleShape2D_1t5js")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
 position = Vector2(2272, 64)
 
-[node name="DialogueTrigger" parent="." index="9" unique_id=12977462 instance=ExtResource("5_xdvb1")]
-position = Vector2(-351, 0)
-tag = &"black_hole"
-conversation = ExtResource("6_j35qt")
-
-[node name="CollisionShape2D" parent="DialogueTrigger" index="0" unique_id=354673692]
-position = Vector2(-177.5, 6)
-shape = SubResource("RectangleShape2D_lmyie")
-
 [editable path="POI/ProgressDetector"]
+[editable path="POI/DialogueTrigger"]
 [editable path="Doors/WestDoor"]
 [editable path="Doors/EastDoor"]
-[editable path="DialogueTrigger"]

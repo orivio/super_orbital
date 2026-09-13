@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Conversation" format=3 uid="uid://1f57776hqps7"]
+
+[ext_resource type="Script" uid="uid://b2364himxu4dy" path="res://dialogue/conversation/dialogue_line.gd" id="1_t3y7r"]
+[ext_resource type="Resource" uid="uid://brd2h8hldg5ns" path="res://dialogue/speaker/assistant/assistant.tres" id="2_1sxqw"]
+[ext_resource type="Script" uid="uid://cqhvq0ub0apwo" path="res://dialogue/conversation/conversation.gd" id="2_yldk2"]
+[ext_resource type="Resource" uid="uid://cxumxe1t5kb2i" path="res://dialogue/speaker/sad_guy/sad_guy.tres" id="3_qd5i5"]
+
+[sub_resource type="Resource" id="Resource_1sxqw"]
+script = ExtResource("1_t3y7r")
+speaker = ExtResource("2_1sxqw")
+text = "One more thing..."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_qd5i5"]
+script = ExtResource("1_t3y7r")
+speaker = ExtResource("3_qd5i5")
+side = -1
+text = "Seriously?"
+animation = &"frustrated"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_ilguk"]
+script = ExtResource("1_t3y7r")
+speaker = ExtResource("2_1sxqw")
+text = "You can change the direction of your orbit by pressing {change_orbit}"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[resource]
+script = ExtResource("2_yldk2")
+lines = Array[ExtResource("1_t3y7r")]([SubResource("Resource_1sxqw"), SubResource("Resource_qd5i5"), SubResource("Resource_ilguk")])
+metadata/_custom_type_script = "uid://cqhvq0ub0apwo"
