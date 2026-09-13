@@ -3,8 +3,10 @@ BEFORE STARDANCE ENDS:
 	EITHER:
 		- Make game trailer
 	RUSSLAN:
-	
+		- Write the final gilganas dialogue
+		- Potentially do the outro cutscene
 	OBED:
+		- Somehow improve Gilganas
 
 AFTER STARDANCE (If time allows, we can implement these, but they're low priority for now):
 
@@ -15,7 +17,6 @@ Obed:
 - Draw the holographic planet lookup scene in the intro cutscene
 - Maybe a player death animation
 - Make ability unlocking work properly
-- Make Gilganas better
 - Add more black hole levels
 - Make a better background
 - Make the player camera follow the player better
