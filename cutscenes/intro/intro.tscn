@@ -35,7 +35,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1.0]
+"values": [0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -47,7 +47,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1.0]
+"values": [0.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -71,7 +71,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0.58662295]
+"values": [0.0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -83,7 +83,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1.0]
+"values": [0.0]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -92,7 +92,7 @@ tracks/6/path = NodePath("Text/Text_ABrilliantScientist:modulate:a")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.033333335),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0.0]
@@ -107,7 +107,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1.0]
+"values": [0.0]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -179,7 +179,7 @@ tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1.0]
+"values": [0.0]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
@@ -203,7 +203,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1.0]
+"values": [0.0]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -215,7 +215,7 @@ tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1.0]
+"values": [0.0]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
@@ -227,7 +227,7 @@ tracks/17/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1.0]
+"values": [0.0]
 }
 tracks/18/type = "value"
 tracks/18/imported = false
@@ -239,7 +239,7 @@ tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1.0]
+"values": [0.0]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
@@ -274,7 +274,7 @@ tracks/21/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1.0]
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_o0s81"]
@@ -555,7 +555,7 @@ tracks/22/loop_wrap = true
 tracks/22/keys = {
 "times": PackedFloat32Array(52.933334, 54.1),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
+"update": 0,
 "values": [0.0, 1.0]
 }
 
@@ -576,42 +576,50 @@ libraries/ = SubResource("AnimationLibrary_4yivr")
 color = Color(0, 0, 0, 1)
 
 [node name="Image_Hopsital_00" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="0" unique_id=58785219]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(640, 360)
 scale = Vector2(8, 8)
 texture = ExtResource("2_o0s81")
 
 [node name="Image_Hospital_01" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="1" unique_id=1093282883]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(639, 359)
 scale = Vector2(8, 8)
 texture = ExtResource("8_k0kmi")
 
 [node name="Image_LoneKidBaby" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="2" unique_id=1020708492]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(628, 0)
 scale = Vector2(8, 8)
 texture = ExtResource("5_sa1mj")
 hframes = 5
 
 [node name="Image_Scientists_00" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="3" unique_id=2057119933]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(640, 360)
 scale = Vector2(8, 8)
 texture = ExtResource("4_4ogus")
 
 [node name="Image_Harfingjingles_Back_00" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="4" unique_id=376938057]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(640, 360)
 scale = Vector2(8, 8)
 texture = ExtResource("5_2pjyf")
 
 [node name="Image_Harfingjingles_Front_00" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="5" unique_id=1669758343]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(255, 359)
 scale = Vector2(8, 8)
 texture = ExtResource("7_tmgee")
 
 [node name="Image_SadGuy_Contemplate_00" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="6" unique_id=820748616]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(640, 360)
 scale = Vector2(8, 8)
 texture = ExtResource("10_sa1mj")
 
 [node name="Image_RocketShip" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="7" unique_id=124971696]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(640, 352)
 scale = Vector2(8, 8)
 texture = ExtResource("10_s7tp3")
@@ -656,7 +664,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Text_TheOnlyHumanWithoutGravity" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="2" unique_id=134278973]
-modulate = Color(1, 1, 1, 0.58662295)
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -718,6 +726,7 @@ vertical_alignment = 1
 visible_characters_behavior = 1
 
 [node name="Text_ToGrantSadGuyTemporaryGravity" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="5" unique_id=1896598823]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -738,6 +747,7 @@ vertical_alignment = 1
 visible_characters_behavior = 1
 
 [node name="Text_YearsLater" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="6" unique_id=1954509157]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

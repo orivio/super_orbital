@@ -2,6 +2,7 @@ class_name SaveFile
 
 const SAVE_GAME_PATH: String = "user://save_file.json"
 
+var finished_intro: bool = false
 var level_idx: int = 0
 var max_level_idx: int = 0
 var player_abilities: PlayerAbilities = preload("res://player/abilities/player_initial_abilities.tres")
@@ -16,6 +17,7 @@ func _init() -> void:
 func write_to_file(file_path: String) -> void:
 	var file: FileAccess = FileAccess.open(file_path, FileAccess.WRITE)
 	var data: Dictionary = {
+		"finished_intro": finished_intro,
 		"level_idx": level_idx,
 		"max_level_idx": max_level_idx,
 		"player_abilities": player_abilities.get_json(),
@@ -44,6 +46,7 @@ static func load_from_file(file_path: String) -> SaveFile:
 		push_error("Failed to read save file!")
 		return null
 	var save_file: SaveFile = SaveFile.new()
+	save_file.finished_intro = data["finished_intro"]
 	save_file.level_idx = data["level_idx"]
 	save_file.max_level_idx = data["max_level_idx"]
 	save_file.player_abilities = PlayerAbilities.from_json(data["player_abilities"])

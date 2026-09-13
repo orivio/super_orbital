@@ -30,6 +30,12 @@ var current_state: PlayState
 func _ready() -> void:
 	GameManager.play = self
 	current_state = PlayState.UNINITIALIZED
+	
+	if not SaveManager.get_save_file().finished_intro:
+		current_state = PlayState.GAMEPLAY
+		await start_cutscene("res://cutscenes/intro/intro.tscn")
+		SaveManager.get_save_file().finished_intro = true
+	
 	world.door_entered.connect(_on_door_entered)
 	world.player_death.connect(_on_player_death)
 	await world.initialize()
