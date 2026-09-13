@@ -100,7 +100,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Sprites/Image_Harfingjingles_Back_00:modulate:a")
+tracks/7/path = NodePath("Sprites/Image_Hearth_Back_00:modulate:a")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -196,7 +196,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("Sprites/Image_Harfingjingles_Front_00:modulate:a")
+tracks/15/path = NodePath("Sprites/Image_Hearth_Front_00:modulate:a")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -288,10 +288,22 @@ tracks/22/keys = {
 "update": 1,
 "values": [0.0]
 }
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Text/WIP Warning:modulate:a")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_o0s81"]
 resource_name = "intro"
-length = 66.566666
+length = 62.433334
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -394,7 +406,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Sprites/Image_Harfingjingles_Back_00:modulate:a")
+tracks/8/path = NodePath("Sprites/Image_Hearth_Back_00:modulate:a")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -490,7 +502,7 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("Sprites/Image_Harfingjingles_Front_00:modulate:a")
+tracks/16/path = NodePath("Sprites/Image_Hearth_Front_00:modulate:a")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -582,6 +594,18 @@ tracks/23/keys = {
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
 }
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Text/WIP Warning:modulate:a")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0, 4.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1.0, 0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4yivr"]
 _data = {
@@ -624,13 +648,13 @@ position = Vector2(640, 360)
 scale = Vector2(8, 8)
 texture = ExtResource("4_4ogus")
 
-[node name="Image_Harfingjingles_Back_00" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="4" unique_id=376938057]
+[node name="Image_Hearth_Back_00" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="4" unique_id=376938057]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(640, 360)
 scale = Vector2(8, 8)
 texture = ExtResource("5_2pjyf")
 
-[node name="Image_Harfingjingles_Front_00" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="5" unique_id=1669758343]
+[node name="Image_Hearth_Front_00" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="5" unique_id=1669758343]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(255, 359)
 scale = Vector2(8, 8)
@@ -734,15 +758,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 113.0
-offset_top = 416.0
-offset_right = 1123.0
-offset_bottom = 695.5
+offset_left = -26.0
+offset_top = -61.0
+offset_right = 1272.0
+offset_bottom = 269.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 80
-text = "A brilliant scientist named Dr. Hearth found a way to change his life."
+text = "But a brilliant scientist named Dr. Hearth changed his life."
 horizontal_alignment = 1
 vertical_alignment = 1
 visible_characters_behavior = 1
@@ -809,6 +833,15 @@ text = "Years later..."
 horizontal_alignment = 1
 vertical_alignment = 1
 visible_characters_behavior = 1
+
+[node name="WIP Warning" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="8" unique_id=5498271]
+layout_mode = 0
+offset_left = 350.025
+offset_top = 21.0
+offset_right = 929.025
+offset_bottom = 76.0
+theme_override_font_sizes/normal_font_size = 32
+text = "WARNING: This cutscene is VERY WIP"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Audio" parent_id_path=PackedInt32Array(1981785108) index="0" unique_id=786905581]
 bus = &"Music"
