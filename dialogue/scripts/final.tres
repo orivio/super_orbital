@@ -1,8 +1,31 @@
 [gd_resource type="Resource" script_class="Conversation" format=3 uid="uid://drric15vm5orn"]
 
 [ext_resource type="Script" uid="uid://b2364himxu4dy" path="res://dialogue/conversation/dialogue_line.gd" id="1_ki3tj"]
+[ext_resource type="Resource" uid="uid://cxumxe1t5kb2i" path="res://dialogue/speaker/sad_guy/sad_guy.tres" id="2_1b16v"]
 [ext_resource type="Script" uid="uid://cqhvq0ub0apwo" path="res://dialogue/conversation/conversation.gd" id="2_bsuuh"]
+[ext_resource type="Resource" uid="uid://brd2h8hldg5ns" path="res://dialogue/speaker/assistant/assistant.tres" id="3_wfnir"]
+
+[sub_resource type="Resource" id="Resource_u6lqu"]
+script = ExtResource("1_ki3tj")
+speaker = ExtResource("2_1b16v")
+side = -1
+text = "...Are you seeing what I'm seeing?"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_keoqo"]
+script = ExtResource("1_ki3tj")
+speaker = ExtResource("3_wfnir")
+text = "Indeed I am. Who is that up ahead?"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
+[sub_resource type="Resource" id="Resource_fdhco"]
+script = ExtResource("1_ki3tj")
+speaker = ExtResource("2_1b16v")
+side = -1
+text = "Only one way to find out."
+metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [resource]
 script = ExtResource("2_bsuuh")
+lines = Array[ExtResource("1_ki3tj")]([SubResource("Resource_u6lqu"), SubResource("Resource_keoqo"), SubResource("Resource_fdhco")])
 metadata/_custom_type_script = "uid://cqhvq0ub0apwo"
