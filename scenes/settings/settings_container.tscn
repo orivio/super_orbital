@@ -485,14 +485,6 @@ offset_top = 50.0
 offset_right = -50.0
 offset_bottom = -20.0
 
-[node name="CheckButton" type="CheckButton" parent="Graphics/VBoxContainer" unique_id=1309041265]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "V-Sync"
-
-[node name="ButtonAnimator" parent="Graphics/VBoxContainer/CheckButton" unique_id=1680499405 node_paths=PackedStringArray("target") instance=ExtResource("7_ttj5g")]
-target = NodePath("..")
-
 [node name="CheckButton2" type="CheckButton" parent="Graphics/VBoxContainer" unique_id=715439454]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
@@ -508,5 +500,4 @@ target = NodePath("..")
 [connection signal="pressed" from="Audio/VBoxContainer/GridContainer/Button" to="Audio" method="_on_refresh_audio_device_list"]
 [connection signal="timeout" from="Audio/Timer" to="Audio" method="_on_refresh_audio_device_list"]
 [connection signal="graphics_changed" from="Graphics" to="." method="_on_graphics_graphics_changed"]
-[connection signal="toggled" from="Graphics/VBoxContainer/CheckButton" to="Graphics" method="_on_vsync_button_toggled"]
 [connection signal="toggled" from="Graphics/VBoxContainer/CheckButton2" to="Graphics" method="_on_windowed_button_toggled"]
