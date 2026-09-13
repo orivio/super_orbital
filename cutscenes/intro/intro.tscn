@@ -276,6 +276,18 @@ tracks/21/keys = {
 "update": 1,
 "values": [0.0]
 }
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Text/Text_Skip:modulate:a")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_o0s81"]
 resource_name = "intro"
@@ -558,6 +570,18 @@ tracks/22/keys = {
 "update": 0,
 "values": [0.0, 1.0]
 }
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Text/Text_Skip:modulate:a")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0, 0.4, 2.9666667, 4.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4yivr"]
 _data = {
@@ -624,7 +648,26 @@ position = Vector2(640, 352)
 scale = Vector2(8, 8)
 texture = ExtResource("10_s7tp3")
 
-[node name="Text_20XX" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="0" unique_id=443001563]
+[node name="Text_Skip" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="0" unique_id=1273984212]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 197.0
+offset_top = 566.0
+offset_right = 1065.0
+offset_bottom = 696.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "(Press X to skip)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text_20XX" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="1" unique_id=443001563]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -643,7 +686,7 @@ text = "In 20XX, an anomaly was born."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Text_LoneKid" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="1" unique_id=1580285957]
+[node name="Text_LoneKid" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="2" unique_id=1580285957]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -663,7 +706,7 @@ text = "Lone Kid."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Text_TheOnlyHumanWithoutGravity" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="2" unique_id=134278973]
+[node name="Text_TheOnlyHumanWithoutGravity" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="3" unique_id=134278973]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -683,7 +726,7 @@ text = "The only human without gravity."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Text_ABrilliantScientist" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="3" unique_id=1164728788]
+[node name="Text_ABrilliantScientist" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="4" unique_id=1164728788]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -704,7 +747,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 visible_characters_behavior = 1
 
-[node name="Text_HeDesignedTheSuit" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="4" unique_id=430072817]
+[node name="Text_HeDesignedTheSuit" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="5" unique_id=430072817]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -725,7 +768,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 visible_characters_behavior = 1
 
-[node name="Text_ToGrantSadGuyTemporaryGravity" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="5" unique_id=1896598823]
+[node name="Text_ToGrantSadGuyTemporaryGravity" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="6" unique_id=1896598823]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -746,7 +789,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 visible_characters_behavior = 1
 
-[node name="Text_YearsLater" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="6" unique_id=1954509157]
+[node name="Text_YearsLater" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="7" unique_id=1954509157]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
