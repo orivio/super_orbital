@@ -19,6 +19,7 @@ func start_dialogue(convo: Conversation, convo_tag: StringName) -> bool:
 	# This is absolutely spaghetti code
 	GameManager.player.lock_input()
 	GameManager.player.state_machine.change_state(GameManager.player.get_node("StateMachine/Idle"))
+	GameManager.player.anim_playback.travel("idle")
 	GameManager.player.velocity = Vector2.ZERO
 	
 	line_index = 0
