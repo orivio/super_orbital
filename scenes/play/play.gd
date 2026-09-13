@@ -135,7 +135,10 @@ func start_cutscene(cutscene_path: String) -> void:
 			await get_tree().process_frame
 			current_state = PlayState.GAMEPLAY
 			AudioManager.resume_sound()
-			
+
+
+func quit() -> void:
+	get_tree().change_scene_to_file("res://scenes/credits/credits.tscn")
 
 
 func _on_door_entered(direction: Types.DoorDirection) -> void:
