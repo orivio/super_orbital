@@ -1,23 +1,20 @@
 BEFORE STARDANCE ENDS:
 	
 	EITHER:
-		- Add "binoculars" or something similar that lets you look outside of the player camera and further into the level (see Terraria item: Binoculars for reference)
-	
+		- Make game trailer
 	RUSSLAN:
-		- Finish banner
-		- Feedback on intro song
-		- Title image (opt.)
 	
 	OBED:
-		- Refine the black hole mechanic as necessary for the levels in which they appear
-		- Add different particle effects when you land on the ground
-		- Draw the holographic planet lookup scene in the intro cutscene
-		- Maybe a player death animation
-		- Make ability unlocking work properly
 
 AFTER STARDANCE (If time allows, we can implement these, but they're low priority for now):
 
 Obed:
+- Add "binoculars" or something similar that lets you look outside of the player camera and further into the level (see Terraria item: Binoculars for reference)
+- Refine the black hole mechanic as necessary for the levels in which they appear
+- Add different particle effects when you land on the ground
+- Draw the holographic planet lookup scene in the intro cutscene
+- Maybe a player death animation
+- Make ability unlocking work properly
 - Make Gilganas better
 - Add more black hole levels
 - Make a better background
