@@ -32,9 +32,9 @@ z_index = 40
 script = ExtResource("1_7e4s0")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=465922864]
-visible = false
+z_index = 1
 position = Vector2(49.472534, 4.972557)
-color = Color(0.13174233, 0.13174233, 0.13174233, 1)
+color = Color(0.59857357, 0, 0.023571458, 1)
 polygon = PackedVector2Array(-49.472534, 19.027443, -33.472534, 11.027443, -25.472534, -4.972557, -33.472534, -20.972557, -49.472534, -28.972557, -65.472534, -20.972557, -73.472534, -4.972557, -65.472534, 11.027443)
 uv = PackedVector2Array(-49.379326, -28.776743)
 
