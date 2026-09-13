@@ -53,6 +53,8 @@ or Zelda
 - Make dynamic lighting
 
 Playtesting questions:
+- Do we need something to indicate that the center of the black hole is 
+dangerous?
 - Should the caution tiles always be next to the spikes? If so, wouldn't it be
 too much caution tiles?
 - Is the pacing good?
