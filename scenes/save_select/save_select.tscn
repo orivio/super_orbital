@@ -156,7 +156,7 @@ target = NodePath(".")
 title = "Open a File"
 file_mode = 0
 access = 2
-filters = PackedStringArray("json")
+filters = PackedStringArray("*.json")
 use_native_dialog = true
 
 [node name="ExportButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=839142059 node_paths=PackedStringArray("target")]

@@ -119,11 +119,21 @@ func _on_load_button_pressed() -> void:
 	import_file_dialog.popup_file_dialog()
 
 func _on_import_file_selected(file: String) -> void:
+	
+	new_button.disabled = true
+	play_button.disabled = false
+	delete_button.disabled = false
+	load_button.disabled = true
+	export_button.disabled = false
+
 	SaveManager.import_from_file(file)
-	level_grid.update_visuals(SaveManager.get_save_file())
+	level_grid.initialize(SaveManager.get_save_file())
+	level_grid.spawn_level_grid(SaveManager.get_save_file(), level_grid.current_grid)
 	save_exists = true
+	SaveManager.write_save_file()
 
 func _on_export_button_pressed() -> void:
+	print("Hello!")
 	export_file_dialog.popup_file_dialog()
 
 func _on_export_file_selected(file: String) -> void:

@@ -159,7 +159,7 @@ func _process(delta: float) -> void:
 		
 		if false:
 			tooltip.show_tooltip(str(frames_passed))
-		if true:
+		if false:
 			tooltip.show_tooltip(str(velocity.y))
 		#endregion
 
@@ -403,7 +403,7 @@ func play_floor_land_sound(vel: float, sound_type: StringName) -> void:
 
 #region Physics Logic
 func can_jump() -> bool:
-	return jump_buffer and coyote_buffer
+	return jump_buffer and coyote_buffer and abilities.unlocked("jump")
 
 
 func do_jump() -> void:
@@ -415,7 +415,7 @@ func do_jump() -> void:
 
 func can_dash() -> bool:
 	# TODO: Dash buffering?
-	return has_dash and dash_buffer and not dash_on_cooldown
+	return has_dash and dash_buffer and not dash_on_cooldown and abilities.unlocked("dash")
 
 
 func do_dash() -> void:
@@ -437,7 +437,7 @@ func do_dash() -> void:
 
 
 func can_grav_switch() -> bool:
-	return grav_switch_buffer
+	return grav_switch_buffer and abilities.unlocked("gravity_switch")
 
 
 func do_grav_switch() -> void:
@@ -455,7 +455,7 @@ func turn_on_gravity() -> void:
 
 
 func can_throw_wrench() -> bool:
-	return has_wrench and wrench_throw_buffer and not wrench_velocity_buffer == Vector2.ZERO
+	return has_wrench and wrench_throw_buffer and not wrench_velocity_buffer == Vector2.ZERO and abilities.unlocked("throw_wrench")
 
 
 func do_throw_wrench() -> void:
