@@ -51,10 +51,15 @@ func physics_process(delta: float) -> State:
 	var saved_velocity: Vector2 = actor.velocity
 	var collision_info: KinematicCollision2D = actor.move_and_collide(actor.velocity * delta)
 	
+	
+	
 	if gravity_on:
 		return exit_to_normal_state()
 	
 	if collision_info:
+		#print(collision_info.get_collider().get_parent())
+		if collision_info.get_collider().get_parent() is MovingPlatform:
+			return fall
 		if collision_info.get_normal().dot(Vector2.UP) > 0.7:
 			actor.do_floor_land_sound(saved_velocity, true, false, Vector2(0, 24))
 		elif collision_info.get_normal().dot(Vector2.DOWN) > 0.7:
