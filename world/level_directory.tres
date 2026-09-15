@@ -27,6 +27,12 @@ scene_path = "uid://c1sb0h6scncah"
 level_name = "Don't Jump Too High"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
+[sub_resource type="Resource" id="Resource_x7rgq"]
+script = ExtResource("1_e46c1")
+scene_path = "uid://bf52ikweswlrf"
+level_name = "Dash"
+metadata/_custom_type_script = "uid://2vv4xhpetduf"
+
 [sub_resource type="Resource" id="Resource_30ymr"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://463vcvm62equ"
@@ -39,10 +45,10 @@ scene_path = "uid://dtk1cwd2x7bqj"
 level_name = "Platform Timing"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
-[sub_resource type="Resource" id="Resource_x7rgq"]
+[sub_resource type="Resource" id="Resource_64nvc"]
 script = ExtResource("1_e46c1")
-scene_path = "uid://bf52ikweswlrf"
-level_name = "Dash"
+scene_path = "uid://xxigq2kqilns"
+level_name = "Annoying Elevator"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_tvj3v"]
@@ -51,22 +57,16 @@ scene_path = "uid://cjsjgx5ksbvsd"
 level_name = "Dash Ladder"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
-[sub_resource type="Resource" id="Resource_64nvc"]
+[sub_resource type="Resource" id="Resource_lwi6v"]
 script = ExtResource("1_e46c1")
-scene_path = "uid://xxigq2kqilns"
-level_name = "Annoying Elevator"
+scene_path = "uid://bgq8pnv2gusy2"
+level_name = "No Gravity"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_376m0"]
 script = ExtResource("1_e46c1")
 scene_path = "uid://drqwhjbyw0tr"
 level_name = "Dashing Different Ways"
-metadata/_custom_type_script = "uid://2vv4xhpetduf"
-
-[sub_resource type="Resource" id="Resource_lwi6v"]
-script = ExtResource("1_e46c1")
-scene_path = "uid://bgq8pnv2gusy2"
-level_name = "No Gravity"
 metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [sub_resource type="Resource" id="Resource_xmp4x"]
@@ -163,5 +163,5 @@ metadata/_custom_type_script = "uid://2vv4xhpetduf"
 
 [resource]
 script = ExtResource("2_sskww")
-levels = Array[ExtResource("1_e46c1")]([SubResource("Resource_dl6tl"), SubResource("Resource_e46c1"), SubResource("Resource_2oksg"), SubResource("Resource_faub0"), SubResource("Resource_30ymr"), SubResource("Resource_qa6ru"), SubResource("Resource_x7rgq"), SubResource("Resource_tvj3v"), SubResource("Resource_64nvc"), SubResource("Resource_376m0"), SubResource("Resource_lwi6v"), SubResource("Resource_xmp4x"), SubResource("Resource_5ro4f"), SubResource("Resource_gjcv0"), SubResource("Resource_n3fr2"), SubResource("Resource_g46qg"), SubResource("Resource_4b5ad"), SubResource("Resource_ymir8"), SubResource("Resource_lu7j5"), SubResource("Resource_nyyy1"), SubResource("Resource_457sk"), SubResource("Resource_w2ies"), SubResource("Resource_w3btx"), SubResource("Resource_vl48u"), SubResource("Resource_tyvae")])
+levels = Array[ExtResource("1_e46c1")]([SubResource("Resource_dl6tl"), SubResource("Resource_e46c1"), SubResource("Resource_2oksg"), SubResource("Resource_faub0"), SubResource("Resource_x7rgq"), SubResource("Resource_30ymr"), SubResource("Resource_qa6ru"), SubResource("Resource_64nvc"), SubResource("Resource_tvj3v"), SubResource("Resource_lwi6v"), SubResource("Resource_376m0"), SubResource("Resource_xmp4x"), SubResource("Resource_5ro4f"), SubResource("Resource_gjcv0"), SubResource("Resource_n3fr2"), SubResource("Resource_g46qg"), SubResource("Resource_4b5ad"), SubResource("Resource_ymir8"), SubResource("Resource_lu7j5"), SubResource("Resource_nyyy1"), SubResource("Resource_457sk"), SubResource("Resource_w2ies"), SubResource("Resource_w3btx"), SubResource("Resource_vl48u"), SubResource("Resource_tyvae")])
 metadata/_custom_type_script = "uid://b4ojjvhrhj5ll"
