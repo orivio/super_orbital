@@ -19,62 +19,42 @@ text = "[[ASSESSING_CONDITIONS]]"
 animation = &"think"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
-[sub_resource type="Resource" id="Resource_oxxdg"]
-script = ExtResource("1_1i0qq")
-speaker = ExtResource("2_kkyj4")
-text = "...Though this is possible without other modifications..."
-metadata/_custom_type_script = "uid://b2364himxu4dy"
-
 [sub_resource type="Resource" id="Resource_gk35a"]
 script = ExtResource("1_1i0qq")
 speaker = ExtResource("2_kkyj4")
-text = "You may find it easier to use your spacesuit's built-in backpack fabricator to redirect yourself while your gravity is disabled."
+text = "Use your spacesuit's built-in fabricator to change directions while your gravity is disabled, if you need to."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_gqfv8"]
 script = ExtResource("1_1i0qq")
 speaker = ExtResource("2_kkyj4")
-text = "Use the fabricator to make a heavy object, and throw it in the opposite direction from where you want to travel towards."
-metadata/_custom_type_script = "uid://b2364himxu4dy"
-
-[sub_resource type="Resource" id="Resource_7igva"]
-script = ExtResource("1_1i0qq")
-speaker = ExtResource("2_kkyj4")
-text = "Press {throw_wrench} while your gravity is disabled to quickly perform this action."
+text = "By pressing {throw_wrench}, you can fabricate a heavy object and throw it in the opposite direction from where you want to go."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_j2dxm"]
 script = ExtResource("1_1i0qq")
 speaker = ExtResource("3_as3gm")
 side = -1
-text = "Wait, I can make and throw anything?"
+text = "I can make and throw anything?"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_yd7rt"]
 script = ExtResource("1_1i0qq")
 speaker = ExtResource("2_kkyj4")
-text = "That would be correct."
+text = "Yup."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_t8ynr"]
 script = ExtResource("1_1i0qq")
 speaker = ExtResource("3_as3gm")
 side = -1
-text = "Sweet! I'll use a wrench, like that one famous saying..."
-metadata/_custom_type_script = "uid://b2364himxu4dy"
-
-[sub_resource type="Resource" id="Resource_3xowk"]
-script = ExtResource("1_1i0qq")
-speaker = ExtResource("3_as3gm")
-side = -1
-text = "Uh... oh yeah! \"Throw a wrench in it!\" You know that one?"
+text = "Then I'll use a wrench, like that one famous saying... Throw a wrench in it!\" You know that one?"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_oyxpy"]
 script = ExtResource("1_1i0qq")
 speaker = ExtResource("2_kkyj4")
 text = "...No."
-animation = &"disappointed"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_f0urn"]
@@ -86,5 +66,5 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [resource]
 script = ExtResource("2_v5ewx")
-lines = Array[ExtResource("1_1i0qq")]([SubResource("Resource_e7ky7"), SubResource("Resource_u10tt"), SubResource("Resource_oxxdg"), SubResource("Resource_gk35a"), SubResource("Resource_gqfv8"), SubResource("Resource_7igva"), SubResource("Resource_j2dxm"), SubResource("Resource_yd7rt"), SubResource("Resource_t8ynr"), SubResource("Resource_3xowk"), SubResource("Resource_oyxpy"), SubResource("Resource_f0urn")])
+lines = Array[ExtResource("1_1i0qq")]([SubResource("Resource_e7ky7"), SubResource("Resource_u10tt"), SubResource("Resource_gk35a"), SubResource("Resource_gqfv8"), SubResource("Resource_j2dxm"), SubResource("Resource_yd7rt"), SubResource("Resource_t8ynr"), SubResource("Resource_oyxpy"), SubResource("Resource_f0urn")])
 metadata/_custom_type_script = "uid://cqhvq0ub0apwo"

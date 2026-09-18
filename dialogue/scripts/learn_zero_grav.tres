@@ -19,17 +19,10 @@ text = "[[MEASURING_DISTANCE]]"
 animation = &"think"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
-[sub_resource type="Resource" id="Resource_7ji0x"]
-script = ExtResource("1_qqa56")
-speaker = ExtResource("2_cc1ud")
-text = "..."
-animation = &"think"
-metadata/_custom_type_script = "uid://b2364himxu4dy"
-
 [sub_resource type="Resource" id="Resource_ifgsw"]
 script = ExtResource("1_qqa56")
 speaker = ExtResource("2_cc1ud")
-text = "It seems your Suit of Artificial Density will come in handy here."
+text = "Your Suit of Artificial Density will come in handy here."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_58ch8"]
@@ -42,16 +35,16 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 [sub_resource type="Resource" id="Resource_u4ohv"]
 script = ExtResource("1_qqa56")
 speaker = ExtResource("2_cc1ud")
-text = "Disabling gravity, of course. If you jump and then disable gravity, you will be launched in the direction you jumped in."
+text = "Because you can disable gravity. If you jump and then disable gravity, you'll be launched in the direction you jumped in."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_navtj"]
 script = ExtResource("1_qqa56")
 speaker = ExtResource("2_cc1ud")
-text = "Simply press {gravity_switch} to disable gravity, and {gravity_switch} to re-enable it after. Remember that you can chain it multiple times before touching the ground again."
+text = "Simply press {gravity_switch} to enable or disable gravity. Remember that you can chain it multiple times before touching the ground again."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [resource]
 script = ExtResource("2_ekxx7")
-lines = Array[ExtResource("1_qqa56")]([SubResource("Resource_i1cga"), SubResource("Resource_s38pr"), SubResource("Resource_7ji0x"), SubResource("Resource_ifgsw"), SubResource("Resource_58ch8"), SubResource("Resource_u4ohv"), SubResource("Resource_navtj")])
+lines = Array[ExtResource("1_qqa56")]([SubResource("Resource_i1cga"), SubResource("Resource_s38pr"), SubResource("Resource_ifgsw"), SubResource("Resource_58ch8"), SubResource("Resource_u4ohv"), SubResource("Resource_navtj")])
 metadata/_custom_type_script = "uid://cqhvq0ub0apwo"

@@ -20,14 +20,6 @@ text = "[[RETURNING_ATMOSPHERE_TESTS]]"
 animation = &"think"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
-[sub_resource type="Resource" id="Resource_6c0cs"]
-script = ExtResource("1_23jh0")
-speaker = ExtResource("2_o5goh")
-text = "..."
-typing_speed = 0.02
-animation = &"think"
-metadata/_custom_type_script = "uid://b2364himxu4dy"
-
 [sub_resource type="Resource" id="Resource_x1v7o"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
@@ -38,26 +30,26 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 [sub_resource type="Resource" id="Resource_5qi8m"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
-text = "That is rather unfortunate."
+text = "Well, that's unfortunate."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_jbwp8"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
-text = "It seems you must keep your helmet and suit on."
+text = "Looks like you're going to have to keep your suit on."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_eq2ru"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
-text = "The air here is dangerous. The perchlorate salts can damage your circuitry."
+text = "The air here isn't safe for humans."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_fh5dd"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("4_ae12w")
 side = -1
-text = "Of all the planets I could have landed on..."
+text = "Of all the planets I could have chosen..."
 animation = &"frustrated"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
@@ -71,16 +63,16 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 [sub_resource type="Resource" id="Resource_r3w2l"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
-text = "We cannot stay long. I shall try to get a sense of this place."
+text = "We can't stay long. I'll try to gather as much info about this place as I can."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_6ihg1"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
-text = "In the meantime, use {left} and {right} to explore the area with caution."
+text = "In the meantime, use {left} and {right} to explore. Be careful."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [resource]
 script = ExtResource("2_uhwe0")
-lines = Array[ExtResource("1_23jh0")]([SubResource("Resource_4x1mj"), SubResource("Resource_bs20n"), SubResource("Resource_6c0cs"), SubResource("Resource_x1v7o"), SubResource("Resource_5qi8m"), SubResource("Resource_jbwp8"), SubResource("Resource_eq2ru"), SubResource("Resource_fh5dd"), SubResource("Resource_ydf2d"), SubResource("Resource_r3w2l"), SubResource("Resource_6ihg1")])
+lines = Array[ExtResource("1_23jh0")]([SubResource("Resource_4x1mj"), SubResource("Resource_bs20n"), SubResource("Resource_x1v7o"), SubResource("Resource_5qi8m"), SubResource("Resource_jbwp8"), SubResource("Resource_eq2ru"), SubResource("Resource_fh5dd"), SubResource("Resource_ydf2d"), SubResource("Resource_r3w2l"), SubResource("Resource_6ihg1")])
 metadata/_custom_type_script = "uid://cqhvq0ub0apwo"

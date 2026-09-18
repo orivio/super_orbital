@@ -15,11 +15,11 @@ size = Vector2(1760, 832)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02nq6"]
 resource_local_to_scene = true
-size = Vector2(472, 253)
+size = Vector2(222, 253)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pxgms"]
 resource_local_to_scene = true
-size = Vector2(224, 135)
+size = Vector2(109, 135)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gdgja"]
 resource_local_to_scene = true
@@ -83,7 +83,7 @@ message = "Press C"
 unlocks_ability = "jump"
 
 [node name="CollisionShape2D" parent="POI/JumpTooltip" index="0" unique_id=822976353]
-position = Vector2(-276, -1.5)
+position = Vector2(-151, -1.5)
 shape = SubResource("RectangleShape2D_02nq6")
 
 [node name="Label" parent="POI/JumpTooltip" index="1" unique_id=1289689676]
@@ -99,7 +99,7 @@ tag = &"learn_jumping"
 conversation = ExtResource("4_1473a")
 
 [node name="CollisionShape2D" parent="POI/DialogueTrigger" index="0" unique_id=354673692]
-position = Vector2(-432, -32.5)
+position = Vector2(-91.5, 6)
 shape = SubResource("RectangleShape2D_pxgms")
 
 [node name="ProgressDetector" parent="POI" parent_id_path=PackedInt32Array(809409572) index="2" unique_id=1408990158 instance=ExtResource("5_sxmoo")]

@@ -8,13 +8,13 @@
 [sub_resource type="Resource" id="Resource_v22q6"]
 script = ExtResource("1_j75f7")
 speaker = ExtResource("2_v22q6")
-text = "Be careful. Don't linger on these surfaces for too long."
+text = "You see those weird looking floors up ahead? Don't stand on them for too long."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_bhk1d"]
 script = ExtResource("1_j75f7")
 speaker = ExtResource("2_v22q6")
-text = "Spikes could come out at any second. You must be light on your feet."
+text = "Spikes might shoot out at any second. You have to be quick."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_h2nqh"]
