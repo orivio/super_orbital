@@ -51,7 +51,12 @@ func physics_process(_delta: float) -> State:
 		
 		actor.velocity = perpendicular_vector / to_blackhole.length() * 400
 		
-		actor.velocity += -to_blackhole * actor.input.vertical_direction * 0.7
+		var inward_direction: float
+		inward_direction = -1
+		if actor.input.vertical_direction == -1:
+			inward_direction = 0.4
+		
+		actor.velocity += -to_blackhole * inward_direction
 	
 	actor.move_and_slide()
 	

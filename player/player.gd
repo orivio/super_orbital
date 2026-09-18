@@ -348,6 +348,9 @@ func spawn_wrench_projectile(throw_velocity: Vector2) -> void:
 func enter_blackhole(bh: BlackHole) -> void:
 	current_blackhole = bh
 	has_dash = true
+	if state_machine.current_state is FloatState:
+		anim_playback.travel("black_hole")
+		state_machine.change_state(get_node("StateMachine/BlackHole"))
 
 
 func exit_blackhole(bh: BlackHole) -> void:

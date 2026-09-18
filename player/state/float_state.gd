@@ -7,6 +7,7 @@ var movement_direction: Vector2
 @onready var walk: WalkState = $"../Walk"
 @onready var jump: JumpState = $"../Jump"
 @onready var fall: FallState = $"../Fall"
+@onready var black_hole: BlackHoleState = $"../BlackHole"
 
 
 func enter() -> void:
@@ -44,17 +45,25 @@ func physics_process(delta: float) -> State:
 	actor.wall_clip_nudge()
 	actor.ceiling_clip_nudge()
 	
+	var did_enter_blackhole: bool = false
 	if actor.can_throw_wrench() and not actor.input_locked:
 		actor.do_throw_wrench()
+	elif actor.current_blackhole:
+		did_enter_blackhole = true
 	# I think move_and_collide is the best option here because you can only 
 	# really wall bounce in this state, but I could be wrong.
 	var saved_velocity: Vector2 = actor.velocity
 	var collision_info: KinematicCollision2D = actor.move_and_collide(actor.velocity * delta)
 	
+	
+	
 	if gravity_on:
 		return exit_to_normal_state()
 	
 	if collision_info:
+		#print(collision_info.get_collider().get_parent())
+		if collision_info.get_collider().get_parent() is MovingPlatform:
+			return fall
 		if collision_info.get_normal().dot(Vector2.UP) > 0.7:
 			actor.do_floor_land_sound(saved_velocity, true, false, Vector2(0, 24))
 		elif collision_info.get_normal().dot(Vector2.DOWN) > 0.7:

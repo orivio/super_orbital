@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cr8m8clkpncmv" path="res://cutscenes/intro/scientists_00.png" id="4_4ogus"]
 [ext_resource type="Texture2D" uid="uid://dcnh0log1e8rk" path="res://cutscenes/intro/harfingjingles_back_00.png" id="5_2pjyf"]
 [ext_resource type="Texture2D" uid="uid://dv4cb1hkc8jh7" path="res://cutscenes/intro/lone_kid_baby.png" id="5_sa1mj"]
-[ext_resource type="Texture2D" uid="uid://b15pgad4yav4f" path="res://cutscenes/intro/harfingjingles_front_00.png" id="7_tmgee"]
 [ext_resource type="Texture2D" uid="uid://ct5c5kvn2xpq0" path="res://cutscenes/intro/hospital_01.png" id="8_k0kmi"]
 [ext_resource type="Texture2D" uid="uid://dlkxf8kgyr7ps" path="res://cutscenes/intro/rocket_ship.png" id="10_s7tp3"]
 [ext_resource type="Texture2D" uid="uid://8mfgp0d06esa" path="res://cutscenes/intro/sad_guy_contemplate_00.png" id="10_sa1mj"]
@@ -196,7 +195,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("Sprites/Image_Hearth_Front_00:modulate:a")
+tracks/15/path = NodePath("Sprites/Image_Hospital_01:modulate:a")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -208,7 +207,7 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("Sprites/Image_Hospital_01:modulate:a")
+tracks/16/path = NodePath("Text/Text_YearsLater:modulate:a")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -220,7 +219,7 @@ tracks/16/keys = {
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("Text/Text_YearsLater:modulate:a")
+tracks/17/path = NodePath("Sprites/Image_SadGuy_Contemplate_00:modulate:a")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
@@ -232,42 +231,42 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("Sprites/Image_SadGuy_Contemplate_00:modulate:a")
+tracks/18/path = NodePath("Sprites/Image_LoneKidBaby:frame")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0.0]
+"values": [0]
 }
-tracks/19/type = "value"
+tracks/19/type = "bezier"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("Sprites/Image_LoneKidBaby:frame")
+tracks/19/path = NodePath("Sprites/Image_LoneKidBaby:position:y")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/20/type = "bezier"
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/path = NodePath("Sprites/Image_LoneKidBaby:position:y")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Sprites/Image_RocketShip:modulate:a")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("Sprites/Image_RocketShip:modulate:a")
+tracks/21/path = NodePath("Text/Text_Skip:modulate:a")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -279,22 +278,10 @@ tracks/21/keys = {
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("Text/Text_Skip:modulate:a")
+tracks/22/path = NodePath("Text/WIP Warning:modulate:a")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0.0]
-}
-tracks/23/type = "value"
-tracks/23/imported = false
-tracks/23/enabled = true
-tracks/23/path = NodePath("Text/WIP Warning:modulate:a")
-tracks/23/interp = 1
-tracks/23/loop_wrap = true
-tracks/23/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -502,11 +489,11 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("Sprites/Image_Hearth_Front_00:modulate:a")
+tracks/16/path = NodePath("Sprites/Image_Hospital_01:modulate:a")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
-"times": PackedFloat32Array(34.4, 35.033333, 41.466667, 42.033333),
+"times": PackedFloat32Array(34.366665, 35.033333, 41.466667, 42.033333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
@@ -514,11 +501,11 @@ tracks/16/keys = {
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("Sprites/Image_Hospital_01:modulate:a")
+tracks/17/path = NodePath("Text/Text_YearsLater:modulate:a")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
-"times": PackedFloat32Array(34.366665, 35.033333, 41.466667, 42.033333),
+"times": PackedFloat32Array(42.966667, 43.833332, 46.433334, 46.866665),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
@@ -526,11 +513,11 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("Text/Text_YearsLater:modulate:a")
+tracks/18/path = NodePath("Sprites/Image_SadGuy_Contemplate_00:modulate:a")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(42.966667, 43.833332, 46.433334, 46.866665),
+"times": PackedFloat32Array(47.433334, 48.533333, 52.933334, 54.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
@@ -538,69 +525,57 @@ tracks/18/keys = {
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("Sprites/Image_SadGuy_Contemplate_00:modulate:a")
+tracks/19/path = NodePath("Sprites/Image_LoneKidBaby:frame")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
-"times": PackedFloat32Array(47.433334, 48.533333, 52.933334, 54.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 1.0, 1.0, 0.0]
-}
-tracks/20/type = "value"
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/path = NodePath("Sprites/Image_LoneKidBaby:frame")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/keys = {
 "times": PackedFloat32Array(4.5, 31.333334, 35.033333, 39, 39.066666, 39.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 0, 1, 2, 3, 4]
 }
-tracks/21/type = "bezier"
+tracks/20/type = "bezier"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Sprites/Image_LoneKidBaby:position:y")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(245.945, 0, 0, 5.666667, 33.333336, 153.91, -5.105556, 22.198069, 0.64444417, -2.8019311, 153.91, -0.25, 0, 0.25, 0, 353.085, -0.007816315, -76, 0, 0),
+"times": PackedFloat32Array(4.5, 34.366665, 39, 39.3)
+}
+tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("Sprites/Image_LoneKidBaby:position:y")
+tracks/21/path = NodePath("Sprites/Image_RocketShip:modulate:a")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(350, 0, 0, 5.666667, 33.333336, 200, -5.105556, 22.198069, 0.64444417, -2.8019311, 200, -0.25, 0, 0.25, 0, 455, -0.007816315, -76, 0, 0),
-"times": PackedFloat32Array(4.5, 34.366665, 39, 39.3)
-}
-tracks/22/type = "value"
-tracks/22/imported = false
-tracks/22/enabled = true
-tracks/22/path = NodePath("Sprites/Image_RocketShip:modulate:a")
-tracks/22/interp = 1
-tracks/22/loop_wrap = true
-tracks/22/keys = {
 "times": PackedFloat32Array(52.933334, 54.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
 }
-tracks/23/type = "value"
-tracks/23/imported = false
-tracks/23/enabled = true
-tracks/23/path = NodePath("Text/Text_Skip:modulate:a")
-tracks/23/interp = 1
-tracks/23/loop_wrap = true
-tracks/23/keys = {
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Text/Text_Skip:modulate:a")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
 "times": PackedFloat32Array(0, 0.4, 2.9666667, 4.266667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0.0, 1.0, 1.0, 0.0]
 }
-tracks/24/type = "value"
-tracks/24/imported = false
-tracks/24/enabled = true
-tracks/24/path = NodePath("Text/WIP Warning:modulate:a")
-tracks/24/interp = 1
-tracks/24/loop_wrap = true
-tracks/24/keys = {
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Text/WIP Warning:modulate:a")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
 "times": PackedFloat32Array(0, 4.266667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -625,51 +600,45 @@ color = Color(0, 0, 0, 1)
 
 [node name="Image_Hopsital_00" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="0" unique_id=58785219]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(640, 360)
-scale = Vector2(8, 8)
+position = Vector2(640, 270)
+scale = Vector2(6, 6)
 texture = ExtResource("2_o0s81")
 
 [node name="Image_Hospital_01" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="1" unique_id=1093282883]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(639, 359)
-scale = Vector2(8, 8)
+position = Vector2(639, 270)
+scale = Vector2(6, 6)
 texture = ExtResource("8_k0kmi")
 
 [node name="Image_LoneKidBaby" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="2" unique_id=1020708492]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(628, 0)
-scale = Vector2(8, 8)
+scale = Vector2(6, 6)
 texture = ExtResource("5_sa1mj")
 hframes = 5
 
 [node name="Image_Scientists_00" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="3" unique_id=2057119933]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(640, 360)
-scale = Vector2(8, 8)
+position = Vector2(640, 270)
+scale = Vector2(6, 6)
 texture = ExtResource("4_4ogus")
 
 [node name="Image_Hearth_Back_00" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="4" unique_id=376938057]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(640, 360)
-scale = Vector2(8, 8)
+position = Vector2(640, 270)
+scale = Vector2(6, 6)
 texture = ExtResource("5_2pjyf")
 
-[node name="Image_Hearth_Front_00" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="5" unique_id=1669758343]
+[node name="Image_SadGuy_Contemplate_00" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="5" unique_id=820748616]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(255, 359)
-scale = Vector2(8, 8)
-texture = ExtResource("7_tmgee")
-
-[node name="Image_SadGuy_Contemplate_00" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="6" unique_id=820748616]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(640, 360)
-scale = Vector2(8, 8)
+position = Vector2(640, 270)
+scale = Vector2(6, 6)
 texture = ExtResource("10_sa1mj")
 
-[node name="Image_RocketShip" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="7" unique_id=124971696]
+[node name="Image_RocketShip" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="6" unique_id=124971696]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(640, 352)
-scale = Vector2(8, 8)
+position = Vector2(640, 270)
+scale = Vector2(6, 6)
 texture = ExtResource("10_s7tp3")
 
 [node name="Text_Skip" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="0" unique_id=1273984212]
@@ -724,7 +693,7 @@ offset_right = 863.0
 offset_bottom = 700.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 80
 text = "Lone Kid."
 horizontal_alignment = 1
@@ -744,7 +713,7 @@ offset_right = 1264.0
 offset_bottom = 698.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 80
 text = "The only human without gravity."
 horizontal_alignment = 1
@@ -758,14 +727,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -26.0
-offset_top = -61.0
-offset_right = 1272.0
-offset_bottom = 269.0
+offset_left = -20.0
+offset_top = 512.0
+offset_right = 1278.0
+offset_bottom = 699.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 80
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 60
 text = "But a brilliant scientist named Dr. Hearth changed his life."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -779,15 +748,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 113.0
-offset_top = 416.0
-offset_right = 1123.0
+offset_left = -15.0
+offset_top = 521.0
+offset_right = 1257.0
 offset_bottom = 695.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 80
-text = "He designed the Suit of Artificial Density,"
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 60
+text = "He designed the Suit of Artificial Density."
 horizontal_alignment = 1
 vertical_alignment = 1
 visible_characters_behavior = 1
@@ -801,13 +770,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 113.0
-offset_top = 416.0
+offset_top = 522.0
 offset_right = 1123.0
 offset_bottom = 695.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 80
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 60
 text = "to grant Lone Kid temporary gravity."
 horizontal_alignment = 1
 vertical_alignment = 1
