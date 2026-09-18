@@ -138,6 +138,8 @@ func start_cutscene(cutscene_path: String) -> void:
 
 
 func quit() -> void:
+	AudioManager.stop_sound()
+	await world.fade_to_black(0.2)
 	get_tree().change_scene_to_file("res://scenes/credits/credits.tscn")
 
 
