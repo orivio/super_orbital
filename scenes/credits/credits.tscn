@@ -172,7 +172,7 @@ label_settings = SubResource("LabelSettings_po7hu")
 
 [node name="Russlan" type="Label" parent="Credits" unique_id=1972175061]
 layout_mode = 2
-text = "Orivio
+text = "orivio
 "
 label_settings = SubResource("LabelSettings_po7hu")
 
@@ -225,7 +225,7 @@ autowrap_mode = 2
 
 [node name="Coder" type="Label" parent="Credits" unique_id=1333576570]
 layout_mode = 2
-text = "Coder
+text = "coderthegreat
 "
 label_settings = SubResource("LabelSettings_po7hu")
 
