@@ -148,7 +148,8 @@ offset_transform_enabled = true
 [node name="Title" type="Label" parent="Credits" unique_id=804619371]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "SUPER ORBITAL"
+text = "SUPER ORBITAL
+ALPHA"
 label_settings = SubResource("LabelSettings_huu5m")
 horizontal_alignment = 1
 vertical_alignment = 1
