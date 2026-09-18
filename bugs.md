@@ -58,6 +58,7 @@ very inconsistent.
 nograv state.
 - MAJOR BREAKTHROUGH: Disabling freeze frames on the dash makes the bug go away 
 completely.
+- I did this temporary solution and it worked, for now...
 
 Replication:
 - Very inconsistent to replicate.
