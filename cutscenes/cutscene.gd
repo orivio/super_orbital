@@ -4,6 +4,7 @@ extends Control
 signal cutscene_finished
 
 @export var animation_name: StringName
+@export var is_end_black: bool = false
 
 @onready var cutscene_director: AnimationPlayer = $CutsceneDirector
 

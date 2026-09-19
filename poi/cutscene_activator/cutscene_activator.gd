@@ -7,4 +7,5 @@ extends Area2D
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		await GameManager.play.start_cutscene(cutscene)
+
 		GameManager.play.quit()
