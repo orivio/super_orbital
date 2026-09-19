@@ -80,6 +80,7 @@ const WRENCH_PROJECTILE = preload("uid://cgbxshe71m18w")
 @onready var dirt_land_light: AudioStreamPlayer = $Sounds/DirtLandLight
 @onready var throw_wrench_sound: AudioStreamPlayer = $Sounds/ThrowWrench
 @onready var dash_sound: AudioStreamPlayer = $Sounds/Dash
+@onready var gravity_off_sound: AudioStreamPlayer = $Sounds/GravityOff
 
 
 # Visual logic
@@ -448,6 +449,7 @@ func do_grav_switch() -> void:
 	has_wrench = true
 	GameManager.hitstop(movement_settings.grav_off_hitstop)
 	GameManager.camera_shake(movement_settings.grav_switch_camera_shake_strength)
+	gravity_off_sound.play()
 	do_shockwave()
 
 

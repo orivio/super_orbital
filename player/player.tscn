@@ -33,6 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://dc8qjr2jf41mk" path="res://sounds/sfx/throw_wrench_00.wav" id="30_2uvqg"]
 [ext_resource type="AudioStream" uid="uid://kpjvmpvx0x5f" path="res://sounds/sfx/throw_wrench_01.wav" id="31_1s1yo"]
 [ext_resource type="AudioStream" uid="uid://bgenacaw227bf" path="res://sounds/sfx/dash_00.wav" id="32_5ejfk"]
+[ext_resource type="AudioStream" uid="uid://1ajnxk2fldel" path="res://sounds/sfx/grav_swap.wav" id="33_jd2rm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0jb6"]
 size = Vector2(24, 62)
@@ -798,6 +799,12 @@ random_volume_offset_db = 9.06
 streams_count = 1
 stream_0/stream = ExtResource("32_5ejfk")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vx6a2"]
+random_pitch = 1.122462
+random_volume_offset_db = 1.0
+streams_count = 1
+stream_0/stream = ExtResource("33_jd2rm")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7wlo"]
 size = Vector2(22.085, 2.75)
 
@@ -946,6 +953,9 @@ stream = SubResource("AudioStreamRandomizer_b8hi5")
 
 [node name="Dash" type="AudioStreamPlayer" parent="Sounds" unique_id=1777527160]
 stream = SubResource("AudioStreamRandomizer_e7wlo")
+
+[node name="GravityOff" type="AudioStreamPlayer" parent="Sounds" unique_id=1893492414]
+stream = SubResource("AudioStreamRandomizer_vx6a2")
 
 [node name="Raycasts" type="Node2D" parent="." unique_id=202460255]
 
