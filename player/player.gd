@@ -81,6 +81,7 @@ const WRENCH_PROJECTILE = preload("uid://cgbxshe71m18w")
 @onready var throw_wrench_sound: AudioStreamPlayer = $Sounds/ThrowWrench
 @onready var dash_sound: AudioStreamPlayer = $Sounds/Dash
 @onready var gravity_off_sound: AudioStreamPlayer = $Sounds/GravityOff
+@onready var gravity_on_sound: AudioStreamPlayer = $Sounds/GravityOn
 
 
 # Visual logic
@@ -454,6 +455,7 @@ func do_grav_switch() -> void:
 
 
 func turn_on_gravity() -> void:
+	gravity_on_sound.play()
 	grav_switch_buffer = false
 	GameManager.hitstop(movement_settings.grav_on_hitstop)
 	GameManager.camera_shake(movement_settings.grav_switch_camera_shake_strength)
