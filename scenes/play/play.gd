@@ -128,8 +128,9 @@ func start_cutscene(cutscene_path: String) -> void:
 				await cutscene_instance.ready
 			
 			cutscene_instance.start()
-			
 			await cutscene_instance.cutscene_finished
+			if cutscene_instance.is_end_black:
+				return
 			cutscene_instance.queue_free()
 			get_tree().paused = false
 			await get_tree().process_frame
@@ -138,6 +139,8 @@ func start_cutscene(cutscene_path: String) -> void:
 
 
 func quit() -> void:
+	Engine.time_scale = 1.0
+	get_tree().paused = false
 	AudioManager.stop_sound()
 	await world.fade_to_black(0.2)
 	get_tree().change_scene_to_file("res://scenes/credits/credits.tscn")

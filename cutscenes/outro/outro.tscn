@@ -137,6 +137,7 @@ _data = {
 
 [node name="CutsceneBase" unique_id=1284433739 instance=ExtResource("1_diork")]
 animation_name = &"intro"
+is_end_black = true
 
 [node name="CutsceneDirector" parent="." index="0" unique_id=885114089]
 root_node = NodePath("..")

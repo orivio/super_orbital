@@ -87,7 +87,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dr3ri")
 intro_fade_duration = 1.0
-scroll_speed = 50.0
+scroll_speed = 75.0
 
 [node name="Background" type="Control" parent="." unique_id=1120727005]
 layout_mode = 1
@@ -136,6 +136,16 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_17l06")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Background" unique_id=471462622]
+layout_mode = 0
+offset_left = 1056.0
+offset_right = 1280.0
+offset_bottom = 64.0
+theme_override_font_sizes/normal_font_size = 24
+text = "Press X to skip"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Credits" type="VBoxContainer" parent="." unique_id=1077228661]
 layout_mode = 0
 offset_left = 181.0
@@ -159,9 +169,9 @@ custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 
 [node name="Programming" type="Label" parent="Credits" unique_id=286884908]
+custom_minimum_size = Vector2(909, 0)
 layout_mode = 2
-text = "Programming, Artwork, and Level Design
-"
+text = "Programming, Artwork, and Level Design"
 label_settings = SubResource("LabelSettings_po7hu")
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -177,42 +187,58 @@ text = "orivio
 "
 label_settings = SubResource("LabelSettings_po7hu")
 
+[node name="SoundDesign" type="Label" parent="Credits" unique_id=2000984244]
+custom_minimum_size = Vector2(909, 0)
+layout_mode = 2
+text = "Sound Design"
+label_settings = SubResource("LabelSettings_po7hu")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Obed2" type="Label" parent="Credits" unique_id=861433004]
+layout_mode = 2
+text = "Obe Dot
+"
+label_settings = SubResource("LabelSettings_po7hu")
+
 [node name="GuestLevelDesign" type="Label" parent="Credits" unique_id=847118920]
 layout_mode = 2
-text = "Guest Level Design
-"
+text = "Guest Level Design"
 label_settings = SubResource("LabelSettings_po7hu")
 horizontal_alignment = 1
 
 [node name="Wally" type="Label" parent="Credits" unique_id=1706226383]
 layout_mode = 2
-text = "Perchrit6 (Perchrit)
+text = "Wallace Otto (Perchrit)
 "
 label_settings = SubResource("LabelSettings_po7hu")
 
 [node name="GuestMusician" type="Label" parent="Credits" unique_id=477336416]
 layout_mode = 2
-text = "Guest Musician
-"
+text = "Guest Musician"
 label_settings = SubResource("LabelSettings_po7hu")
 horizontal_alignment = 1
 
 [node name="Wally2" type="Label" parent="Credits" unique_id=100401817]
 layout_mode = 2
-text = "Perchrit6 (Intro Cutscene Song)
+text = "Wallace Otto (Intro Cutscene Song)
 "
 label_settings = SubResource("LabelSettings_po7hu")
 
 [node name="Assets" type="Label" parent="Credits" unique_id=1422552285]
 layout_mode = 2
-text = "Assets
-"
+text = "Assets"
 label_settings = SubResource("LabelSettings_po7hu")
 horizontal_alignment = 1
 
 [node name="M5x7" type="Label" parent="Credits" unique_id=265480094]
 layout_mode = 2
-text = "Daniel Lissen (m5x7 font)
+text = "Daniel Lissen (m5x7 font)"
+label_settings = SubResource("LabelSettings_po7hu")
+
+[node name="Whoosh" type="Label" parent="Credits" unique_id=1931302974]
+layout_mode = 2
+text = "\"Swoosh 1\" by AleXZavesa via Pixabay
 "
 label_settings = SubResource("LabelSettings_po7hu")
 
@@ -233,8 +259,7 @@ label_settings = SubResource("LabelSettings_po7hu")
 [node name="Tools" type="Label" parent="Credits" unique_id=2083472700]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
-text = "Tools Used
-"
+text = "Tools Used"
 label_settings = SubResource("LabelSettings_po7hu")
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -256,7 +281,8 @@ label_settings = SubResource("LabelSettings_po7hu")
 
 [node name="FamiStudio" type="Label" parent="Credits" unique_id=122508390]
 layout_mode = 2
-text = "FamiStudio"
+text = "FamiStudio
+"
 label_settings = SubResource("LabelSettings_po7hu")
 
 [node name="Playtesters" type="Label" parent="Credits" unique_id=1599287826]
@@ -272,17 +298,25 @@ autowrap_mode = 2
 [node name="Resources" type="Label" parent="Credits" unique_id=556334990]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
-text = "Special Thanks
-
-"
+text = "Special Thanks"
 label_settings = SubResource("LabelSettings_po7hu")
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Queble" type="Label" parent="Credits" unique_id=1372795080]
+custom_minimum_size = Vector2(909, 0)
 layout_mode = 2
 text = "Quick + Easy way to Polish Buttons in Godot! (Tutorial by [Queble])"
 label_settings = SubResource("LabelSettings_po7hu")
 autowrap_mode = 2
+
+[node name="ThanskForPlaying" type="Label" parent="Credits" unique_id=1734293754]
+layout_mode = 2
+text = "
+
+
+Thanks for playing!"
+label_settings = SubResource("LabelSettings_po7hu")
+horizontal_alignment = 1
 
 [node name="FadeEffect" parent="." unique_id=1477421051 instance=ExtResource("2_8n0nl")]
