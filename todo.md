@@ -4,9 +4,6 @@ BEFORE STARDANCE ENDS:
 		- Make game trailer
 	RUSSLAN:
 		- Write the final gilganas dialogue
-		- Potentially do the outro cutscene
-	OBED:
-		- Somehow improve Gilganas
 
 AFTER STARDANCE (If time allows, we can implement these, but they're low priority for now):
 
