@@ -28,7 +28,7 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_aksnr")
 speaker = ExtResource("3_bgcq6")
 side = -1
-text = "Thanks."
+text = "Thanks for the reminder."
 animation = &"frustrated"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 

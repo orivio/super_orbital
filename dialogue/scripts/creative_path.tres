@@ -27,7 +27,7 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 [sub_resource type="Resource" id="Resource_wc7nv"]
 script = ExtResource("1_l66bp")
 speaker = ExtResource("2_uki5f")
-text = "Why on earth would you try to go THIS way?"
+text = "Why on Zeta-C5 would you go THIS way?"
 animation = &"disappointed"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
@@ -66,7 +66,7 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_l66bp")
 speaker = ExtResource("4_wc7nv")
 side = -1
-text = "You."
+text = "The."
 animation = &"crazy"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
@@ -74,7 +74,7 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_l66bp")
 speaker = ExtResource("4_wc7nv")
 side = -1
-text = "Are."
+text = "Level."
 animation = &"crazy"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
@@ -82,7 +82,7 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_l66bp")
 speaker = ExtResource("4_wc7nv")
 side = -1
-text = "Supposed to."
+text = "Is."
 animation = &"crazy"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
@@ -90,19 +90,11 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_l66bp")
 speaker = ExtResource("4_wc7nv")
 side = -1
-text = "Do."
-animation = &"crazy"
-metadata/_custom_type_script = "uid://b2364himxu4dy"
-
-[sub_resource type="Resource" id="Resource_kk17l"]
-script = ExtResource("1_l66bp")
-speaker = ExtResource("4_wc7nv")
-side = -1
-text = "The level."
+text = "Done."
 animation = &"crazy"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [resource]
 script = ExtResource("2_rfxql")
-lines = Array[ExtResource("1_l66bp")]([SubResource("Resource_1ssmm"), SubResource("Resource_rfxql"), SubResource("Resource_uki5f"), SubResource("Resource_wc7nv"), SubResource("Resource_yus5e"), SubResource("Resource_oxfl3"), SubResource("Resource_og5fy"), SubResource("Resource_8cwmj"), SubResource("Resource_5hhjl"), SubResource("Resource_k8enh"), SubResource("Resource_eeqth"), SubResource("Resource_iyh36"), SubResource("Resource_kk17l")])
+lines = Array[ExtResource("1_l66bp")]([SubResource("Resource_1ssmm"), SubResource("Resource_rfxql"), SubResource("Resource_uki5f"), SubResource("Resource_wc7nv"), SubResource("Resource_yus5e"), SubResource("Resource_oxfl3"), SubResource("Resource_og5fy"), SubResource("Resource_8cwmj"), SubResource("Resource_5hhjl"), SubResource("Resource_k8enh"), SubResource("Resource_eeqth"), SubResource("Resource_iyh36")])
 metadata/_custom_type_script = "uid://cqhvq0ub0apwo"

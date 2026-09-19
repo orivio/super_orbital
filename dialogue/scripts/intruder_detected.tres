@@ -6,7 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_64kf0"]
 script = ExtResource("1_i7otu")
-text = "!! INTRUDER DETECTED!!"
+text = "!! INTRUDER DETECTED !!"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_gxan4"]
@@ -24,7 +24,12 @@ script = ExtResource("1_i7otu")
 text = "BLACK HOLES: ACTIVE"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
+[sub_resource type="Resource" id="Resource_hq2x0"]
+script = ExtResource("1_i7otu")
+text = "BUZZSAWS: LOADED"
+metadata/_custom_type_script = "uid://b2364himxu4dy"
+
 [resource]
 script = ExtResource("2_no1fs")
-lines = Array[ExtResource("1_i7otu")]([SubResource("Resource_64kf0"), SubResource("Resource_gxan4"), SubResource("Resource_ose8m"), SubResource("Resource_50b2g")])
+lines = Array[ExtResource("1_i7otu")]([SubResource("Resource_64kf0"), SubResource("Resource_gxan4"), SubResource("Resource_ose8m"), SubResource("Resource_50b2g"), SubResource("Resource_hq2x0")])
 metadata/_custom_type_script = "uid://cqhvq0ub0apwo"
