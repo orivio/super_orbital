@@ -1,4 +1,5 @@
-# Opening Cutscene
+# Rough Script of the Cutscenes
+## Opening Cutscene
 *Starts off black*
 In 20XX, an anomaly was born.
 *Fades in to see lone kid as a kid. He is floating in the air*.
@@ -14,3 +15,9 @@ temporary gravity.
 *He searches through a large (holographic) map of exoplanets and finds Zeta-C5*
 *He closes the door on his spaceship (for one person) and he lifts off*
 *He lands on a mars-like planet and steps out, looking into the distance*
+
+## Outro Cutscene
+*Black background*
+...
+Dr. H..?
+TO BE CONTINUED
