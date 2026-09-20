@@ -43,6 +43,10 @@ The Player script has 7 states that are used in game:
 
 ## Juice Mechanics
 The player's movement has several features which help make the game feel more fun to play.
+- Variable Jump Height
+  - If you hold down the jump button for longer, you will jump higher.
+  - This gives the player more control over their jumps, and lends itself to new level designs.
+  - INSERT GIF
 - Input Buffering
   - If you press a button a little too early, you can still perform the action as soon as you are able.
   - This mechanic is applied to jumping, starting a dash, entering the float state, and throwing a wrench.
