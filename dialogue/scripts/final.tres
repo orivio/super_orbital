@@ -9,13 +9,13 @@
 script = ExtResource("1_ki3tj")
 speaker = ExtResource("2_1b16v")
 side = -1
-text = "...Are you seeing what I'm seeing?"
+text = "...Who's that up there? Why's there someone else here?"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_keoqo"]
 script = ExtResource("1_ki3tj")
 speaker = ExtResource("3_wfnir")
-text = "Indeed I am. Who's that up ahead?"
+text = "I'm not sure..."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_fdhco"]
