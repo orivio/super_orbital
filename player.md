@@ -56,20 +56,17 @@ The player's movement has several features which help make the game feel more fu
 - Fall Multiplier
   - When you start falling down after a jump, your gravity is increased by a multiplier, making you fall faster.
   - This makes your jump feel more controlled and less floaty.
-  - INSERT GIF
 - Shockwave Warp Effect
   - This effect happens when you disable gravity, making the action feel a little more responsive.
-  - INSERT GIF
+  - <img width="788" height="646" alt="ezgif com-speed" src="https://github.com/user-attachments/assets/036e5ba4-438b-444b-8cd5-9c9b1be6a3e6" />
 - Camera Shake
   - The camera shakes a little bit to signify some kind of impact.
   - This effect is toggleable under Settings > Graphics > Camera Shake.
   - This effect is applied to player death, turning off gravity, turning on gravity, bouncing off a wall while in ```FloatState```, or starting a dash.
-  - INSERT GIF
 - Hitstop (aka Freeze Frames)
   - The game freezes for a fraction of a second, also signifying impact.
   - This effect is toggleable under Settings > Graphics > Hitstop.
-  - This effect is applied to player death, throwing a wrench, turning off gravity, turning on graivty, bouncing off a wall while in ```FloatState```, or starting a dash.
-  - INSERT GIF
+  - This effect is applied to player death, throwing a wrench, turning off gravity, turning on gravity, bouncing off a wall while in ```FloatState```, or starting a dash.
 - Clip Nudges
   - If you are jumping or dashing into a ledge and you are just barely about to hit the ledge, the game will nudge you to correct your trajectory and avoid the ledge.
   - This makes gameplay easier and feel more fair.
