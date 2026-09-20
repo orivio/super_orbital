@@ -65,6 +65,6 @@ static func load_prefs() -> PrefsFile:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(&"Sound Effects"), file.get_value("Audio", "sfx_volume", 0))
 	
 	DisplayServer.window_set_vsync_mode(file.get_value("Graphics", "vsync_mode", DisplayServer.VSYNC_ENABLED))
-	DisplayServer.window_set_mode(file.get_value("Graphics", "fullscreen", Window.Mode.MODE_WINDOWED))
+	DisplayServer.window_set_mode(file.get_value("Graphics", "fullscreen", Window.Mode.MODE_EXCLUSIVE_FULLSCREEN))
 	
 	return prefs_file
