@@ -40,3 +40,34 @@ The Player script has 7 states that are used in game:
   - A powerful boost of velocity is applied to the player.
   - The player is not affected by normal gravity, but will transition to a ```BlackHoleState``` if it enters a black hole.
   - As mentioned before, the player can cancel the dash early by pressing Jump.
+
+## Juice Mechanics
+The player's movement has several features which help make the game feel more fun to play.
+- Input Buffering
+  - If you press a button a little too early, you can still perform the action as soon as you are able.
+  - This mechanic is applied to jumping, starting a dash, entering the float state, and throwing a wrench.
+  - INSERT GIF
+- Coyote Time
+  - If you press the jump button a little too late, you can still jump even after you have started falling.
+  - INSERT GIF
+- Fall Multiplier
+  - When you start falling down after a jump, your gravity is increased by a multiplier, making you fall faster.
+  - This makes your jump feel more controlled and less floaty.
+  - INSERT GIF
+- Shockwave Warp Effect
+  - This effect happens when you disable gravity, making the action feel a little more responsive.
+  - INSERT GIF
+- Camera Shake
+  - The camera shakes a little bit to signify some kind of impact.
+  - This effect is toggleable under Settings > Graphics > Camera Shake.
+  - This effect is applied to player death, turning off gravity, turning on gravity, bouncing off a wall while in ```FloatState```, or starting a dash.
+  - INSERT GIF
+- Hitstop (aka Freeze Frames)
+  - The game freezes for a fraction of a second, also signifying impact.
+  - This effect is toggleable under Settings > Graphics > Hitstop.
+  - This effect is applied to player death, throwing a wrench, turning off gravity, turning on graivty, bouncing off a wall while in ```FloatState```, or starting a dash.
+  - INSERT GIF
+- Clip Nudges
+  - If you are jumping or dashing into a ledge and you are just barely about to hit the ledge, the game will nudge you to correct your trajectory and avoid the ledge.
+  - This makes gameplay easier and feel more fair.
+  - INSERT GIF
