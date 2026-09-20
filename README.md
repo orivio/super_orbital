@@ -5,6 +5,13 @@ stars to find his own gravity.
 
 Enjoy challenging levels, a simple storyline, and creative ways of moving through levels.
 
+- [Check out our documentation of the player script](./player.md)
+- [See how we planned the story](./story.md)
+- [See how we planned the cutscenes](./cutscenes.md)
+- [View our plans for after stardance](./todo.md)
+- [Read the bugs list](./bugs.md)
+- [Inspect the License (MIT License)](./LICENSE)
+
 # How to Install and Play the Game
 You can download the game from GitHub Releases or from Itch.io.
 For GitHub, get the latest release by clicking **Releases** in the sidebar and downloading the correct zip file for your platform.
@@ -20,3 +27,7 @@ On some newer Apple devices, the above mentioned method for bypassing Gatekeeper
 - Open **System Preferences**
 - Go to **Security & Privacy**
 - 
+
+# The Making of SuperOrbital
+
+# Credits
