@@ -82,6 +82,8 @@ const WRENCH_PROJECTILE = preload("uid://cgbxshe71m18w")
 @onready var dash_sound: AudioStreamPlayer = $Sounds/Dash
 @onready var gravity_off_sound: AudioStreamPlayer = $Sounds/GravityOff
 @onready var gravity_on_sound: AudioStreamPlayer = $Sounds/GravityOn
+@onready var spike_death_sound: AudioStreamPlayer = $Sounds/SpikeDeath
+@onready var black_hole_death_sound: AudioStreamPlayer = $Sounds/BlackHoleDeath
 
 
 # Visual logic
@@ -254,6 +256,8 @@ func reset() -> void:
 	current_player_state = PlayerState.GAMEPLAY
 	anim_playback.travel("idle")
 	set_process_mode(Node.PROCESS_MODE_INHERIT)
+	spike_death_sound.stop()
+	black_hole_death_sound.stop()
 
 
 func load_abilities() -> void:
@@ -414,6 +418,14 @@ func play_floor_land_sound(vel: float, sound_type: StringName) -> void:
 			dirt_land_light.stop()
 			dirt_land_light.volume_db = linear_to_db(multiplier)
 			dirt_land_light.play()
+
+
+func play_spike_death_sound() -> void:
+	spike_death_sound.play()
+
+
+func play_black_hole_death_sound() -> void:
+	black_hole_death_sound.play()
 
 
 #endregion

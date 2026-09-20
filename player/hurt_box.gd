@@ -5,7 +5,12 @@ extends Area2D
 
 
 func _on_body_entered(body: Node2D) -> void:
-	player.take_hit()
+	if body is TileMapLayer or body is AnimatableBody2D:
+		player.take_hit()
+		player.play_spike_death_sound()
+	elif body.is_in_group("black_hole"):
+		player.take_hit()
+		player.play_black_hole_death_sound()
 
 
 func _on_area_entered(_area: Area2D) -> void:

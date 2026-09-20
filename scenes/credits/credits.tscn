@@ -238,9 +238,16 @@ label_settings = SubResource("LabelSettings_po7hu")
 
 [node name="Whoosh" type="Label" parent="Credits" unique_id=1931302974]
 layout_mode = 2
-text = "\"Swoosh 1\" by AleXZavesa via Pixabay
+text = "\"Swoosh 1\" by AleXZavesa via Pixabay"
+label_settings = SubResource("LabelSettings_po7hu")
+
+[node name="Sword" type="Label" parent="Credits" unique_id=635666733]
+custom_minimum_size = Vector2(909, 0)
+layout_mode = 2
+text = "\"Fantasy Game Sword Cut Sound Effect\" by Cyberwave-Orchestra via Pixabay
 "
 label_settings = SubResource("LabelSettings_po7hu")
+autowrap_mode = 3
 
 [node name="Reaction" type="Label" parent="Credits" unique_id=610663717]
 custom_minimum_size = Vector2(500, 0)
