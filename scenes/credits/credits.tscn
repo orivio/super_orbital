@@ -244,7 +244,21 @@ label_settings = SubResource("LabelSettings_po7hu")
 [node name="Sword" type="Label" parent="Credits" unique_id=635666733]
 custom_minimum_size = Vector2(909, 0)
 layout_mode = 2
-text = "\"Fantasy Game Sword Cut Sound Effect\" by Cyberwave-Orchestra via Pixabay
+text = "\"Fantasy Game Sword Cut Sound Effect\" by Cyberwave-Orchestra via Pixabay"
+label_settings = SubResource("LabelSettings_po7hu")
+autowrap_mode = 3
+
+[node name="Sword2" type="Label" parent="Credits" unique_id=1059894346]
+custom_minimum_size = Vector2(909, 0)
+layout_mode = 2
+text = "\"warp magic (1)\" by Yodguard via Pixabay"
+label_settings = SubResource("LabelSettings_po7hu")
+autowrap_mode = 3
+
+[node name="Sword3" type="Label" parent="Credits" unique_id=573504772]
+custom_minimum_size = Vector2(909, 0)
+layout_mode = 2
+text = "\"warp magic (6)\" by Yodguard via Pixabay
 "
 label_settings = SubResource("LabelSettings_po7hu")
 autowrap_mode = 3
