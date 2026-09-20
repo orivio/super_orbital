@@ -19,15 +19,15 @@ Wallace Otto (Intro Cutscene Song)
 
 ## Assets
 
-"5x7 Font" by Daniel Lissen
+["5x7 Font" by Daniel Lissen](https://managore.itch.io/m5x7)
 
-"Swoosh 1" by AleXZavesa via Pixabay
+["Swoosh 1" by AleXZavesa via Pixabay](https://pixabay.com/sound-effects/swoosh-1-463607/)
 
-"Fantasy Game Sword Cut Sound Effect" by Cyberwave-Orchestra via Pixabay
+["Fantasy Game Sword Cut Sound Effect" by Cyberwave-Orchestra via Pixabay](https://pixabay.com/sound-effects/film-special-effects-fantasy-game-sword-cut-sound-effect-get-more-on-my-patreon-339824/)
 
-"warp magic (1)" by Yodguard via Pixabay
+["Black Hole (impact)" by Chromascension via Pixabay](https://pixabay.com/sound-effects/film-special-effects-black-hole-impact-542402/)
 
-"warp magic (6)" by Yodguard via Pixabay
+["Portal Phase Jump" by Vic5555 (Freesound) via Pixabay](https://pixabay.com/sound-effects/film-special-effects-portal-phase-jump-6355/)
 
 ## Movement Playtesting
 
