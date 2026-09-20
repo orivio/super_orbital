@@ -70,4 +70,5 @@ The player's movement has several features which help make the game feel more fu
 - Clip Nudges
   - If you are jumping or dashing into a ledge and you are just barely about to hit the ledge, the game will nudge you to correct your trajectory and avoid the ledge.
   - This makes gameplay easier and feel more fair.
-  - INSERT GIF
+  - (It's a little hard to see in this gif, and it's hard to pull off intentionally.)
+  - <img width="586" height="292" alt="Player repeatedly dashes into a ledge and gets nudged to avoid clipping" src="https://github.com/user-attachments/assets/baec1544-a8cb-4b57-bebc-94fb2d5b2c75" />
