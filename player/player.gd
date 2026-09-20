@@ -100,6 +100,9 @@ var has_dash: bool
 var has_wrench: bool
 var dash_on_cooldown: bool
 var current_blackhole: BlackHole
+# Physics bug prevention
+var saved_position: Vector2
+var saved_velocity: Vector2
 # State management
 var frames_passed: int
 var current_player_state: PlayerState
@@ -215,6 +218,15 @@ func _physics_process(delta: float) -> void:
 				if delta != 0:
 					state_machine.physics_process(delta)
 		#endregion
+	if not velocity.is_finite():
+		velocity = saved_velocity
+	else:
+		saved_velocity = velocity
+	
+	if not position.is_finite():
+		position = saved_position
+	else:
+		saved_position = position
 #endregion
 
 
@@ -427,7 +439,7 @@ func can_dash() -> bool:
 func do_dash() -> void:
 	dash_sound.stop()
 	dash_sound.play()
-	#GameManager.hitstop(movement_settings.dash_hitstop)
+	GameManager.hitstop(movement_settings.dash_hitstop)
 	dash_buffer = false
 	wrench_throw_buffer = false
 	has_dash = false

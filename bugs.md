@@ -32,64 +32,10 @@ Replication:
 it. Just a little bit above the ground, you can press the jump button again and
 you will do a double jump.
 
-## Dash move_and_slide normalization bug
-Details:
-- It's back.
-- Sometimes, if you dash into a moving platform in a certain way, a bug can 
-trigger and the console will be flooded with warning messages:
-```
-W 0:01:03:080   dash_state.gd:70 @ physics_process(): Vector2 cannot be normalized, the elements must be finite. Making (0, 0) as a fallback.
-  <C++ Source>  core/math/vector2.cpp:55 @ normalize()
-  <Stack Trace> dash_state.gd:70 @ physics_process()
-                state_machine.gd:33 @ physics_process()
-                player.gd:178 @ _physics_process()
-
-```
-And
-```
-W 0:01:03:082   normalize: Vector2 cannot be normalized, the elements must be finite. Making (0, 0) as a fallback.
-  <C++ Source>  core/math/vector2.cpp:55 @ normalize()
-
-```
-- I caught this behavior on an input sequence recorder, but even still, it's 
-very inconsistent.
-- The player's position becomes (nan, nan), but the velocity seems normal.
-- The bug never occurs during the jump or fall states, but sometimes with the 
-nograv state.
-- MAJOR BREAKTHROUGH: Disabling freeze frames on the dash makes the bug go away 
-completely.
-- I did this temporary solution and it worked, for now...
-
-Replication:
-- Very inconsistent to replicate.
-- Actually not too hard to replicate.
-- I got a recording of this behavior that sometimes works.
-- Essentially, dash onto a platform, or into the side of a platform, or 
-something like that.
-- The bug can still occur when you remove the wall clip and ceiling clip 
-correction from the dash state.
-
 ## Float bouncing off a platform at the wrong angle
 Details:
 - It can cause you to bounce back and forth a ton, and the hitstop makes the 
 game slowdown to almost stopped
-
-## Wall clipping, aka Dash Platform 2.0
-Details:
-- From what I can tell, if you fly into a black hole while in zero gravity and
-while holding down your zero grav keybind (x for me), you can clip out of existence
-	- Scratch that. It happens in gilganas, when you get to the wide platform near the
-	end. If you go into antigrav and bounce back and forth horizontally between the
-	walls after jumping up from the platform, then eventually you seem to disappear
-	
-- Scratch ALL of that. It happens when you try to escape antigrav while collding with
-a wall (I think)
-- Similar to the dash platform bug, the screen becomes a solid color (but this time
-black, not gray) and the debugger gets thousands of error messages
-- Obed: Only can replicate in Gilganas at the final black hole. If you try to 
-turn off gravity near that last black hole, the bug will happen. If you try to 
-turn off gravity while inside the black hole, the bug will happen. If you don't 
-try to turn off gravity at all, the bug will not happen.
 
 ## Float bouncing into a downard moving platform
 Details:
