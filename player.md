@@ -46,7 +46,7 @@ The player's movement has several features which help make the game feel more fu
 - Variable Jump Height
   - If you hold down the jump button for longer, you will jump higher.
   - This gives the player more control over their jumps, and lends itself to new level designs.
-  - INSERT GIF
+  - <img width="249" height="253" alt="jump_gif" src="https://github.com/user-attachments/assets/a1a99240-04f2-4c51-b499-10ff1b3c8fc3" />
 - Input Buffering
   - If you press a button a little too early, you can still perform the action as soon as you are able.
   - This mechanic is applied to jumping, starting a dash, entering the float state, and throwing a wrench.
