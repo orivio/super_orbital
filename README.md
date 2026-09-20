@@ -24,9 +24,24 @@ If you run into some other antivirus message, you may need to temporarily disabl
 Once you download **superorbital_mac.zip**, you must unzip the file. Then, right click on **Super Orbital.app**, and press **Open**. DO NOT simply double click the file, as Gatekeeper may block the game.
 ### Troubleshooting
 On some newer Apple devices, the above mentioned method for bypassing Gatekeeper might not work. You can try this method, though:
-- Open **System Preferences**
+- Open **System Settings**
 - Go to **Security & Privacy**
-- 
+- Scroll all the way down to **Security**
+- Look for a message that says something like **"Super Orbital was blocked to protect your Mac."**
+- Click **Open Anyway**.
+- Type in your password in the next popup.
+- Then try again to open the application.
+## Linux
+Once you download **superorbital_linux64.tar.gz**, you must extract the file.
+Using command line tools:
+- Navigate to where you downloaded the file.
+- Extract the file: ```tar -xf superorbital_linux64.tar.gz```
+- Run the game: ```./superorbital_linux64```
+If you use a graphical file manager, the exact process of extracting the file may depend on which file manager you use.
+## Troubleshooting
+If you get a message saying invalid permissions or permission denied, it may be that the file is not marked as executable by default.
+- Give executable permissions to the file: ```chmod +x superorbital_linux64```
+- Try to run again: ```./superorbital_linux64```
 
 # The Making of SuperOrbital
 
