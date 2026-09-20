@@ -233,7 +233,7 @@ horizontal_alignment = 1
 
 [node name="M5x7" type="Label" parent="Credits" unique_id=265480094]
 layout_mode = 2
-text = "Daniel Lissen (m5x7 font)"
+text = "\"m5x7 Font\" by Daniel Lissen"
 label_settings = SubResource("LabelSettings_po7hu")
 
 [node name="Whoosh" type="Label" parent="Credits" unique_id=1931302974]
@@ -248,17 +248,17 @@ text = "\"Fantasy Game Sword Cut Sound Effect\" by Cyberwave-Orchestra via Pixab
 label_settings = SubResource("LabelSettings_po7hu")
 autowrap_mode = 3
 
-[node name="Sword2" type="Label" parent="Credits" unique_id=1059894346]
+[node name="Sword4" type="Label" parent="Credits" unique_id=1619058332]
 custom_minimum_size = Vector2(909, 0)
 layout_mode = 2
-text = "\"warp magic (1)\" by Yodguard via Pixabay"
+text = "\"black hole (impact)\" by Chromascension via Pixabay"
 label_settings = SubResource("LabelSettings_po7hu")
 autowrap_mode = 3
 
 [node name="Sword3" type="Label" parent="Credits" unique_id=573504772]
 custom_minimum_size = Vector2(909, 0)
 layout_mode = 2
-text = "\"warp magic (6)\" by Yodguard via Pixabay
+text = "\"Portal Phase Jump\" by Vic5555 (Freesound) via Pixabay
 "
 label_settings = SubResource("LabelSettings_po7hu")
 autowrap_mode = 3

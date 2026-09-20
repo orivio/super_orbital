@@ -37,8 +37,8 @@
 [ext_resource type="AudioStream" uid="uid://cismamr2jhdi8" path="res://sounds/sfx/grav_swap_on.wav" id="34_q28gw"]
 [ext_resource type="AudioStream" uid="uid://cad22kar07yvq" path="res://sounds/sfx/cyberwave-orchestra-fantasy-game-sword-cut-sound-effect-get-more-on-my-patreon-339824.mp3" id="35_ge24q"]
 [ext_resource type="AudioStream" uid="uid://dpq3vtptw4gtv" path="res://sounds/sfx/black_hole_death.wav" id="36_pnw6m"]
-[ext_resource type="AudioStream" uid="uid://chd4xvptnm7f6" path="res://sounds/sfx/enter_blackhole.wav" id="37_55jnj"]
-[ext_resource type="AudioStream" uid="uid://boxgdnpr0oal3" path="res://sounds/sfx/exit_blackhole.wav" id="38_55jnj"]
+[ext_resource type="AudioStream" uid="uid://b3i77g0ejofvd" path="res://sounds/sfx/black_hole_enter.wav" id="37_55jnj"]
+[ext_resource type="AudioStream" uid="uid://bas0bhnvr8wrt" path="res://sounds/sfx/black_hole_leave.wav" id="38_dx5ib"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0jb6"]
 size = Vector2(24, 62)
@@ -838,7 +838,7 @@ stream_0/stream = ExtResource("37_55jnj")
 random_pitch = 1.122462
 random_volume_offset_db = 2.0
 streams_count = 1
-stream_0/stream = ExtResource("38_55jnj")
+stream_0/stream = ExtResource("38_dx5ib")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7wlo"]
 size = Vector2(22.085, 2.75)
