@@ -16,4 +16,7 @@ If you run into some other antivirus message, you may need to temporarily disabl
 ## MacOS
 Once you download **superorbital_mac.zip**, you must unzip the file. Then, right click on **Super Orbital.app**, and press **Open**. DO NOT simply double click the file, as Gatekeeper may block the game.
 ### Troubleshooting
-On some newer Apple devices, this may not work.
+On some newer Apple devices, the above mentioned method for bypassing Gatekeeper might not work. You can try this method, though:
+- Open **System Preferences**
+- Go to **Security & Privacy**
+- 
