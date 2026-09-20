@@ -46,14 +46,13 @@ The player's movement has several features which help make the game feel more fu
 - Variable Jump Height
   - If you hold down the jump button for longer, you will jump higher.
   - This gives the player more control over their jumps, and lends itself to new level designs.
-  - <img width="249" height="253" alt="jump_gif" src="https://github.com/user-attachments/assets/a1a99240-04f2-4c51-b499-10ff1b3c8fc3" />
+  - <img width="249" height="253" alt="the player can vary their jump height my holding the jump button down longer" src="https://github.com/user-attachments/assets/a1a99240-04f2-4c51-b499-10ff1b3c8fc3" />
 - Input Buffering
   - If you press a button a little too early, you can still perform the action as soon as you are able.
   - This mechanic is applied to jumping, starting a dash, entering the float state, and throwing a wrench.
-  - INSERT GIF
 - Coyote Time
   - If you press the jump button a little too late, you can still jump even after you have started falling.
-  - INSERT GIF
+  - <img width="303" height="267" alt="the player jumps off of a ledge even after they had already started falling off of it" src="https://github.com/user-attachments/assets/da95efaf-d4bc-4941-8075-695a305aad81" />
 - Fall Multiplier
   - When you start falling down after a jump, your gravity is increased by a multiplier, making you fall faster.
   - This makes your jump feel more controlled and less floaty.
