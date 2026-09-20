@@ -9,6 +9,8 @@ var current_level: Level
 var time_scale: float = 1
 var play: Play
 var checkpoints_enabled: bool = true
+var camera_shake_enabled: bool = true
+var hitstop_enabled: bool = true
 
 func _ready() -> void:
 	progress_attained.connect(SaveManager._on_progress_attained)
@@ -16,18 +18,20 @@ func _ready() -> void:
 
 
 func hitstop(time: float) -> void:
-	if Engine.time_scale == 0.0 or time == 0.0:
+	if Engine.time_scale == 0.0 or time == 0.0 or not hitstop_enabled:
 		return
 	Engine.time_scale = 0.0
 	get_tree().create_timer(time, true, true, true).timeout.connect(_on_hitstop_end)
 
 
 func camera_shake_directional(direction: Vector2, strength: float) -> void:
-	camera.shake_in_direction(direction, strength)
+	if camera_shake_enabled:
+		camera.shake_in_direction(direction, strength)
 
 
 func camera_shake(_strength: float) -> void:
-	camera.camera_shake.emit()
+	if camera_shake_enabled:
+		camera.camera_shake.emit()
 
 func player_leave_blackhole() -> void:
 	player_left_blackhole.emit()

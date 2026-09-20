@@ -30,10 +30,11 @@ theme = ExtResource("1_7febn")
 theme_override_fonts/font = ExtResource("2_t2fih")
 theme_override_font_sizes/font_size = 48
 tab_alignment = 1
-current_tab = 0
+current_tab = 3
 script = ExtResource("3_t2fih")
 
 [node name="Controls" type="Control" parent="." unique_id=1763279689]
+visible = false
 layout_mode = 2
 theme = ExtResource("1_7febn")
 script = ExtResource("3_ttj5g")
@@ -442,7 +443,6 @@ target = NodePath("..")
 wait_time = 10.0
 
 [node name="Graphics" type="Control" parent="." unique_id=41237042]
-visible = false
 layout_mode = 2
 script = ExtResource("7_agog6")
 metadata/_tab_index = 3
@@ -463,6 +463,25 @@ theme_override_font_sizes/font_size = 32
 text = "Fullscreen"
 
 [node name="ButtonAnimator" parent="Graphics/VBoxContainer/CheckButton2" unique_id=891150427 node_paths=PackedStringArray("target") instance=ExtResource("7_ttj5g")]
+scale_amount = 1.02
+target = NodePath("..")
+
+[node name="CheckButton3" type="CheckButton" parent="Graphics/VBoxContainer" unique_id=246999861]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Camera Shake"
+
+[node name="ButtonAnimator" parent="Graphics/VBoxContainer/CheckButton3" unique_id=773266678 node_paths=PackedStringArray("target") instance=ExtResource("7_ttj5g")]
+scale_amount = 1.02
+target = NodePath("..")
+
+[node name="CheckButton4" type="CheckButton" parent="Graphics/VBoxContainer" unique_id=866196791]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Histop"
+
+[node name="ButtonAnimator" parent="Graphics/VBoxContainer/CheckButton4" unique_id=763492471 node_paths=PackedStringArray("target") instance=ExtResource("7_ttj5g")]
+scale_amount = 1.02
 target = NodePath("..")
 
 [connection signal="controls_changed" from="Controls" to="." method="_on_controls_controls_changed"]
@@ -472,4 +491,3 @@ target = NodePath("..")
 [connection signal="pressed" from="Audio/VBoxContainer/GridContainer/Button" to="Audio" method="_on_refresh_audio_device_list"]
 [connection signal="timeout" from="Audio/Timer" to="Audio" method="_on_refresh_audio_device_list"]
 [connection signal="graphics_changed" from="Graphics" to="." method="_on_graphics_graphics_changed"]
-[connection signal="toggled" from="Graphics/VBoxContainer/CheckButton2" to="Graphics" method="_on_windowed_button_toggled"]

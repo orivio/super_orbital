@@ -42,6 +42,8 @@ func write_prefs() -> void:
 	
 	file.set_value("Graphics", "vsync_mode", DisplayServer.window_get_vsync_mode())
 	file.set_value("Graphics", "fullscreen", DisplayServer.window_get_mode())
+	file.set_value("Graphics", "camera_shake", GameManager.camera_shake_enabled)
+	file.set_value("Graphics", "histop", GameManager.hitstop_enabled)
 	
 	file.save(SAVE_PREFS_PATH)
 
@@ -66,5 +68,8 @@ static func load_prefs() -> PrefsFile:
 	
 	DisplayServer.window_set_vsync_mode(file.get_value("Graphics", "vsync_mode", DisplayServer.VSYNC_ENABLED))
 	DisplayServer.window_set_mode(file.get_value("Graphics", "fullscreen", Window.Mode.MODE_EXCLUSIVE_FULLSCREEN))
+	
+	GameManager.camera_shake_enabled = file.get_value("Graphics", "camera_shake", true)
+	GameManager.hitstop_enabled = file.get_value("Graphics", "hitstop", false)
 	
 	return prefs_file
