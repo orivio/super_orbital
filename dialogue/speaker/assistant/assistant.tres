@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_qlclb")
-name = "Assistant"
+name = "Grav"
 bg_color = Color(0.31199998, 0.63959986, 0.78, 0.84313726)
 portrait = ExtResource("1_qlt0u")
 metadata/_custom_type_script = "uid://b0acvxdy71hfc"

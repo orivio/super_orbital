@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_w8uvs")
-name = "SAD Guy"
+name = "Vitri"
 bg_color = Color(0.6862745, 0.6862745, 0.6862745, 0.78431374)
 portrait = ExtResource("1_4edig")
 metadata/_custom_type_script = "uid://b0acvxdy71hfc"
