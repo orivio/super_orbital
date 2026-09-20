@@ -5,6 +5,8 @@ uniform float center_radius : hint_range(0.0, 0.5);
 uniform float center_thickness : hint_range(0.0, 0.5);
 uniform float displacement_scale : hint_range(0.0, 5.0);
 uniform float displacement_magnitude : hint_range(0.0, 2.0);
+uniform float danger_radius;
+uniform vec4 center_color : source_color;
 uniform sampler2D distortion_curve;
 
 void vertex() {
@@ -30,6 +32,10 @@ void fragment() {
 	
 	float center_mask = smoothstep(center_radius, center_radius - center_thickness, distance_to_center);
 	COLOR.rgb -= vec3(center_mask);
+	
+	if(distance_to_center < danger_radius) {
+		COLOR = center_color;
+	}
 	
 }
 

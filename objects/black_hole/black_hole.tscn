@@ -22,6 +22,8 @@ shader_parameter/center_radius = 0.4170000198075
 shader_parameter/center_thickness = 0.190000009025
 shader_parameter/displacement_scale = 2.2350001061625
 shader_parameter/displacement_magnitude = 0.7850000372875
+shader_parameter/danger_radius = 0.03
+shader_parameter/center_color = Color(0.6, 0, 0.023529412, 1)
 shader_parameter/distortion_curve = SubResource("CurveTexture_tlm63")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hq6k4"]
@@ -30,13 +32,6 @@ radius = 256.0
 [node name="BlackHole" type="Node2D" unique_id=1656602204 groups=["black_hole"]]
 z_index = 40
 script = ExtResource("1_7e4s0")
-
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=465922864]
-z_index = 1
-position = Vector2(49.472534, 4.972557)
-color = Color(0.59857357, 0, 0.023571458, 1)
-polygon = PackedVector2Array(-49.472534, 19.027443, -33.472534, 11.027443, -25.472534, -4.972557, -33.472534, -20.972557, -49.472534, -28.972557, -65.472534, -20.972557, -73.472534, -4.972557, -65.472534, 11.027443)
-uv = PackedVector2Array(-49.379326, -28.776743)
 
 [node name="DeathZoneHitbox" type="Area2D" parent="." unique_id=959253740 groups=["black_hole"]]
 collision_layer = 4
