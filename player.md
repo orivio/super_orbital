@@ -40,3 +40,35 @@ The Player script has 7 states that are used in game:
   - A powerful boost of velocity is applied to the player.
   - The player is not affected by normal gravity, but will transition to a ```BlackHoleState``` if it enters a black hole.
   - As mentioned before, the player can cancel the dash early by pressing Jump.
+
+## Juice Mechanics
+The player's movement has several features which help make the game feel more fun to play.
+- Variable Jump Height
+  - If you hold down the jump button for longer, you will jump higher.
+  - This gives the player more control over their jumps, and lends itself to new level designs.
+  - <img width="249" height="253" alt="the player can vary their jump height my holding the jump button down longer" src="https://github.com/user-attachments/assets/a1a99240-04f2-4c51-b499-10ff1b3c8fc3" />
+- Input Buffering
+  - If you press a button a little too early, you can still perform the action as soon as you are able.
+  - This mechanic is applied to jumping, starting a dash, entering the float state, and throwing a wrench.
+- Coyote Time
+  - If you press the jump button a little too late, you can still jump even after you have started falling.
+  - <img width="303" height="267" alt="the player jumps off of a ledge even after they had already started falling off of it" src="https://github.com/user-attachments/assets/da95efaf-d4bc-4941-8075-695a305aad81" />
+- Fall Multiplier
+  - When you start falling down after a jump, your gravity is increased by a multiplier, making you fall faster.
+  - This makes your jump feel more controlled and less floaty.
+- Shockwave Warp Effect
+  - This effect happens when you disable gravity, making the action feel a little more responsive.
+  - <img width="788" height="646" alt="ezgif com-speed" src="https://github.com/user-attachments/assets/036e5ba4-438b-444b-8cd5-9c9b1be6a3e6" />
+- Camera Shake
+  - The camera shakes a little bit to signify some kind of impact.
+  - This effect is toggleable under Settings > Graphics > Camera Shake.
+  - This effect is applied to player death, turning off gravity, turning on gravity, bouncing off a wall while in ```FloatState```, or starting a dash.
+- Hitstop (aka Freeze Frames)
+  - The game freezes for a fraction of a second, also signifying impact.
+  - This effect is toggleable under Settings > Graphics > Hitstop.
+  - This effect is applied to player death, throwing a wrench, turning off gravity, turning on gravity, bouncing off a wall while in ```FloatState```, or starting a dash.
+- Clip Nudges
+  - If you are jumping or dashing into a ledge and you are just barely about to hit the ledge, the game will nudge you to correct your trajectory and avoid the ledge.
+  - This makes gameplay easier and feel more fair.
+  - (It's a little hard to see in this gif, and it's hard to pull off intentionally.)
+  - <img width="586" height="292" alt="Player repeatedly dashes into a ledge and gets nudged to avoid clipping" src="https://github.com/user-attachments/assets/baec1544-a8cb-4b57-bebc-94fb2d5b2c75" />
