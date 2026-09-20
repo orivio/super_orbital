@@ -153,7 +153,7 @@ position = Vector2(-608, -48)
 shape = SubResource("RectangleShape2D_bo1xd")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
-position = Vector2(-416, 0)
+position = Vector2(-448, 0)
 
 [node name="EastDoor" parent="Doors" parent_id_path=PackedInt32Array(1976013304) index="1" unique_id=1389046235 instance=ExtResource("4_nrecj")]
 door_tag = "EastDoor"
@@ -163,7 +163,7 @@ position = Vector2(2112, -1216)
 shape = SubResource("RectangleShape2D_onp2u")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
-position = Vector2(1888, -1152)
+position = Vector2(1920, -1152)
 
 [editable path="POI/ProgressDetector"]
 [editable path="POI/Checkpoint"]

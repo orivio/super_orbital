@@ -233,7 +233,7 @@ position = Vector2(1984, -80)
 shape = SubResource("RectangleShape2D_a3yao")
 
 [node name="Spawn" parent="Doors/EastDoor" index="1" unique_id=1059393432]
-position = Vector2(1856, -32)
+position = Vector2(1824, -32)
 
 [editable path="POI/ProgressDetector"]
 [editable path="Objects/MovingPlatform1"]
