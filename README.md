@@ -35,13 +35,22 @@ On some newer Apple devices, the above mentioned method for bypassing Gatekeeper
 Once you download **superorbital_linux64.tar.gz**, you must extract the file.
 Using command line tools:
 - Navigate to where you downloaded the file.
-- Extract the file: ```tar -xf superorbital_linux64.tar.gz```
-- Run the game: ```./superorbital_linux64```
+- Extract the file:
+
+```tar -xf superorbital_linux64.tar.gz```
+- Run the game:
+
+```./superorbital_linux64```
+
 If you use a graphical file manager, the exact process of extracting the file may depend on which file manager you use.
 ## Troubleshooting
 If you get a message saying invalid permissions or permission denied, it may be that the file is not marked as executable by default.
-- Give executable permissions to the file: ```chmod +x superorbital_linux64```
-- Try to run again: ```./superorbital_linux64```
+- Give executable permissions to the file:
+
+```chmod +x superorbital_linux64```
+- Try to run again:
+
+```./superorbital_linux64```
 
 # The Making of SuperOrbital
 
