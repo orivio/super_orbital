@@ -9,6 +9,7 @@ Enjoy challenging levels, a simple storyline, and creative ways of moving throug
 - [See how we planned the story](./story.md)
 - [See how we planned the cutscenes](./cutscenes.md)
 - [View our plans for after stardance](./todo.md)
+- [Read the credits](./CREDITS.md)
 - [Read the bugs list](./bugs.md)
 - [Inspect the License (MIT License)](./LICENSE)
 
@@ -53,5 +54,3 @@ If you get a message saying invalid permissions or permission denied, it may be 
 ```./superorbital_linux64```
 
 # The Making of SuperOrbital
-
-# Credits
