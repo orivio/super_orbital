@@ -84,6 +84,8 @@ const WRENCH_PROJECTILE = preload("uid://cgbxshe71m18w")
 @onready var gravity_on_sound: AudioStreamPlayer = $Sounds/GravityOn
 @onready var spike_death_sound: AudioStreamPlayer = $Sounds/SpikeDeath
 @onready var black_hole_death_sound: AudioStreamPlayer = $Sounds/BlackHoleDeath
+@onready var black_hole_enter_sound: AudioStreamPlayer = $Sounds/BlackHoleEnter
+@onready var black_hole_exit_sound: AudioStreamPlayer = $Sounds/BlackHoleExit
 
 
 # Visual logic
@@ -370,11 +372,13 @@ func enter_blackhole(bh: BlackHole) -> void:
 	if state_machine.current_state is FloatState:
 		anim_playback.travel("black_hole")
 		state_machine.change_state(get_node("StateMachine/BlackHole"))
+	black_hole_enter_sound.play()
 
 
 func exit_blackhole(bh: BlackHole) -> void:
 	if current_blackhole == bh:
 		current_blackhole = null
+		black_hole_exit_sound.play()
 
 
 func do_floor_land_sound(vel: Vector2, floor: bool, was: bool, tile_off: Vector2) -> void:
