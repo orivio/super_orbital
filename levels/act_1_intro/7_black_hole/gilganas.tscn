@@ -13,7 +13,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xg4p2"]
 resource_local_to_scene = true
-size = Vector2(9312, 2080)
+size = Vector2(9376, 2080)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ygf4"]
 resource_local_to_scene = true
@@ -92,7 +92,7 @@ color = Color(0.18431373, 0.18431373, 0.18431373, 1)
 visible = true
 
 [node name="CollisionShape2D" parent="CameraBounds" index="0" unique_id=1580084517]
-position = Vector2(3504, -112)
+position = Vector2(3472, -112)
 shape = SubResource("RectangleShape2D_xg4p2")
 
 [node name="BackgroundParallax" parent="." index="2" unique_id=1350709603]
@@ -219,7 +219,7 @@ position = Vector2(-1328, 240)
 shape = SubResource("RectangleShape2D_6d4wc")
 
 [node name="Spawn" parent="Doors/WestDoor" index="1" unique_id=1059393432]
-position = Vector2(-1216, 352)
+position = Vector2(-1152, 352)
 
 [node name="BlackHole" parent="." index="10" unique_id=172615032 instance=ExtResource("2_3h7m8")]
 position = Vector2(1481, -817)
