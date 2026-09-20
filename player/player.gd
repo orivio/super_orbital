@@ -167,6 +167,7 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	#print(velocity)
 	if not Engine.is_editor_hint():
 		if delta != 0:
 			frames_passed += 1

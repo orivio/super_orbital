@@ -28,7 +28,7 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 [sub_resource type="Resource" id="Resource_gqfv8"]
 script = ExtResource("1_1i0qq")
 speaker = ExtResource("2_kkyj4")
-text = "By pressing {throw_wrench}, you can fabricate a heavy object and throw it in the opposite direction from where you want to go."
+text = "By pressing {throw_wrench}, you can throw a heavy object to give you a boost in the opposite direction."
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_j2dxm"]

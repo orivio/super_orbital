@@ -73,7 +73,10 @@ func physics_process(delta: float) -> State:
 		elif collision_info.get_normal().dot(Vector2.LEFT) > 0.7:
 			actor.do_floor_land_sound(saved_velocity, true, false, Vector2(18, collision_info.get_position().y - actor.global_position.y))
 			print("Doing right collision: ", Vector2(-18, collision_info.get_position().y - actor.global_position.y))
-		if actor.velocity.length_squared() < actor.movement_settings.float_min_bounce_velocity * actor.movement_settings.float_min_bounce_velocity:
+		
+		
+		if actor.velocity.length_squared() < 400 * 400:
+			print("Too shallow!")
 			return exit_to_normal_state()
 		# Bounce off the surface
 		actor.velocity = actor.velocity.bounce(collision_info.get_normal())
