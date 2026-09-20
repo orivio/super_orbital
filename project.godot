@@ -56,6 +56,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 [global_group]
 
 progress_detector=""
+black_hole_death=""
 
 [input]
 

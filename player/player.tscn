@@ -36,6 +36,7 @@
 [ext_resource type="AudioStream" uid="uid://2ys7oio00qd6" path="res://sounds/sfx/grav_swap_off.wav" id="33_jd2rm"]
 [ext_resource type="AudioStream" uid="uid://cismamr2jhdi8" path="res://sounds/sfx/grav_swap_on.wav" id="34_q28gw"]
 [ext_resource type="AudioStream" uid="uid://cad22kar07yvq" path="res://sounds/sfx/cyberwave-orchestra-fantasy-game-sword-cut-sound-effect-get-more-on-my-patreon-339824.mp3" id="35_ge24q"]
+[ext_resource type="AudioStream" uid="uid://dpq3vtptw4gtv" path="res://sounds/sfx/black_hole_death.wav" id="36_pnw6m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0jb6"]
 size = Vector2(24, 62)
@@ -820,6 +821,10 @@ streams_count = 1
 stream_0/stream = ExtResource("35_ge24q")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ge24q"]
+random_pitch = 1.2599211
+random_volume_offset_db = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("36_pnw6m")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7wlo"]
 size = Vector2(22.085, 2.75)
@@ -990,7 +995,7 @@ stream = SubResource("AudioStreamRandomizer_fgvuj")
 
 [node name="BlackHoleDeath" type="AudioStreamPlayer" parent="Sounds" unique_id=1866986719]
 stream = SubResource("AudioStreamRandomizer_ge24q")
-autoplay = true
+bus = &"Sound Effects"
 
 [node name="Raycasts" type="Node2D" parent="." unique_id=202460255]
 

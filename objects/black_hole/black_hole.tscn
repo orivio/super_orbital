@@ -33,7 +33,7 @@ radius = 256.0
 z_index = 40
 script = ExtResource("1_7e4s0")
 
-[node name="DeathZoneHitbox" type="Area2D" parent="." unique_id=959253740 groups=["black_hole"]]
+[node name="DeathZoneHitbox" type="Area2D" parent="." unique_id=959253740 groups=["black_hole", "black_hole_death"]]
 collision_layer = 4
 collision_mask = 2
 
