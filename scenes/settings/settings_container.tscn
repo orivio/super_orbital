@@ -329,34 +329,6 @@ action_name = &"confirm"
 [node name="ButtonAnimator" parent="Controls/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer5/Confirm/AssignButton" unique_id=645209777 node_paths=PackedStringArray("target") instance=ExtResource("7_ttj5g")]
 target = NodePath("..")
 
-[node name="PresetContainer" type="HBoxContainer" parent="Controls/MarginContainer/VBoxContainer" unique_id=434958170]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-theme = ExtResource("1_7febn")
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="PresetLabel" type="Label" parent="Controls/MarginContainer/VBoxContainer/PresetContainer" unique_id=477419450]
-layout_mode = 2
-theme = ExtResource("1_7febn")
-text = "Movement Preset"
-
-[node name="OptionButton" type="OptionButton" parent="Controls/MarginContainer/VBoxContainer/PresetContainer" unique_id=264195892]
-layout_mode = 2
-theme = ExtResource("4_1qkah")
-alignment = 1
-selected = 0
-item_count = 3
-popup/item_0/text = "Default"
-popup/item_0/id = 2
-popup/item_1/text = "Celeste"
-popup/item_1/id = 0
-popup/item_2/text = "Hollow Knight"
-popup/item_2/id = 1
-
-[node name="ButtonAnimator" parent="Controls/MarginContainer/VBoxContainer/PresetContainer/OptionButton" unique_id=970591926 node_paths=PackedStringArray("target") instance=ExtResource("7_ttj5g")]
-target = NodePath("..")
-
 [node name="Game" type="Control" parent="." unique_id=1121090749]
 visible = false
 layout_mode = 2
