@@ -15,6 +15,8 @@ Enjoy challenging levels, a simple storyline, and creative ways of moving throug
 - [Read the bugs list](./bugs.md)
 - [Inspect the License (MIT License)](./LICENSE)
 
+
+
 # How to Install and Play the Game
 
 This game supports Windows, Linux, and MacOS on 64 bit systems.
@@ -52,7 +54,7 @@ Using command line tools:
 ```./superorbital_linux64```
 
 If you use a graphical file manager, the exact process of extracting the file may depend on which file manager you use.
-## Troubleshooting
+### Troubleshooting
 If you get a message saying invalid permissions or permission denied, it may be that the file is not marked as executable by default.
 - Give executable permissions to the file:
 
@@ -60,5 +62,14 @@ If you get a message saying invalid permissions or permission denied, it may be 
 - Try to run again:
 
 ```./superorbital_linux64```
+
+## Controls (remappable)
+- Left and Right arrow keys to walk left and right
+- Z to jump
+- C to dash
+- X to turn gravity on/off
+- Arrow Keys + C to throw a wrench in the opposite direction to where you want to go
+- C to change orbit direction while inside a black hole
+- Up arrow to move away from the center of a black hole
 
 # The Making of SuperOrbital
