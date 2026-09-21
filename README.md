@@ -26,7 +26,7 @@ For GitHub, find the latest release and download the correct file depending on y
 For Itch.io, click the **Download Now** button. You can choose to donate, or press **No thanks, just take me to the downloads**. Then, download one of the files depending on what device you are on.
 
 ## Windows
-Once you download **superorbital_win64.zip**, you must unzip the file. Then, double click on **superorbital.exe** to run the game. Windows Defender may give you a warning that the file is unsafe. You can bypass this by pressing **More Info** and then **Run Anyway**.
+Once you download **superorbital_win.zip**, you must unzip the file. Then, double click on **superorbital.exe** to run the game. Windows Defender may give you a warning that the file is unsafe. You can bypass this by pressing **More Info** and then **Run Anyway**.
 ### Troubleshooting
 Some antiviruses might incorrectly flag this game as suspicious because the executable is not digitally signed. You may have to temporarily allow the game through your antivirus software panel.
 ## macOS
@@ -41,7 +41,7 @@ On some newer Apple devices, the above mentioned method for bypassing Gatekeeper
 - Type in your password in the next popup.
 - Then try again to open the application.
 ## Linux
-Once you download **superorbital_linux64.tar.gz**, you must extract the file.
+Once you download **superorbital_linux.tar.gz**, you must extract the file.
 Using command line tools:
 - Navigate to where you downloaded the file.
 - Extract the file:
@@ -49,17 +49,17 @@ Using command line tools:
 ```tar -xf superorbital_linux64.tar.gz```
 - Run the game:
 
-```./superorbital_linux64```
+```./superorbital_linux64.x86_64```
 
 If you use a graphical file manager, the exact process of extracting the file depends on which file manager you use.
 ### Troubleshooting
 If you get a message saying invalid permissions or permission denied, it may be that the file is not marked as executable by default.
 - Give executable permissions to the file:
 
-```chmod +x superorbital_linux64```
+```chmod +x superorbital_linux64.x86_64```
 - Try to run again:
 
-```./superorbital_linux64```
+```./superorbital_linux64.x86_64```
 # Features
 SuperOrbital features three unique platformer mechanics that are used in creative ways to make fun levels:
 - Gravity Toggling: You can turn off your gravity suit midair. Your momentum will continue until you turn gravity on again.
