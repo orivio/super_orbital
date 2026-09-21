@@ -30,7 +30,7 @@ update_scale = false
 
 [node name="FollowVisual" type="Line2D" parent="." unique_id=409824460]
 z_index = 10
-width = 18.0
+width = 7.0
 default_color = Color(0, 0, 0, 0.827451)
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=886220012]
