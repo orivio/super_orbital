@@ -19,11 +19,9 @@ In this game, you play as Vitri, a gravitational anomaly who sets out to the sta
 
 This game supports Windows, Linux, and macOS on 64 bit systems.
 
-**You can download the game from [GitHub Releases](https://example.com/) or from [Itch.io](https://obedh.itch.io/superorbital).**
+**You can download the game from [GitHub Releases](https://github.com/orivio/super_orbital/releases/tag/v.1.0.0-alpha).**
 
-For GitHub, find the latest release (v.1.0.0-alpha) and expand **Assets** at the bottom. Then, download the correct file depending on your platform.
-
-For Itch.io, click the **Download Now** button. You can choose to donate, or press **No thanks, just take me to the downloads**. Then, download one of the files depending on what device you are on.
+For GitHub, find the latest release (**v.1.0.0-alpha**) and expand **Assets** at the bottom. Then, download the correct file depending on your platform.
 
 ## Windows
 Once you download **superorbital_win.zip**, you must unzip the file. Then, double click on **superorbital.exe** to run the game. Windows Defender may give you a warning that the file is unsafe. You can bypass this by pressing **More Info** and then **Run Anyway**.
@@ -68,7 +66,6 @@ SuperOrbital features these unique platformer mechanics that are used in creativ
 
 
 # Links
-- [Download the game from itch.io](https://obedh.itch.io/superorbital/)
 - [Check out our documentation of the player script](./player.md)
 - [See how we planned the story](./story.md)
 - [See how we planned the cutscenes](./cutscenes.md)
