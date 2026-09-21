@@ -3,11 +3,18 @@
 # Super Orbital
 Super Orbital is a 2D precision platformer where you can toggle gravity midair, throw wrenches to control your momentum, and orbit black holes to slingshot around the level. In this game, you play as Vitri, a gravitational anomaly who sets out to the stars to find his own source of gravity. Vitri wears the Suit of Artifical Density, which lets him control gravity. Enjoy challenging levels, a simple storyline, and creative ways of moving through levels.
 
+# Features
 SuperOrbital features three unique platformer mechanics:
 - Gravity Toggling: You can turn off your gravity suit midair. Your momentum will continue until you turn gravity on again.
 - Wrench Throws: You can throw a wrench while your gravity is disabled, launching you in the opposite direction.
 - Black Holes: If you enter a black hole, you will slowly get pulled into the center while orbiting. You can move away from the center or change your orbit direction.
 
+<img width="480" height="270" alt="Navigate across the martian landscape" src="https://github.com/user-attachments/assets/a2cefc53-82f1-45c2-a3e9-86b311d7932f" />
+<img width="480" height="270" alt="The player navigating through a tricky level using fun gravity mechanics" src="https://github.com/user-attachments/assets/6e8fbeb4-7894-48cc-b35a-bcc9d99b355e" />
+<img width="480" height="270" alt="Loop around black holes" src="https://github.com/user-attachments/assets/4c8016a3-1c4f-4a2d-9770-a3ae944b18a7" />
+<img width="480" height="270" alt="Fly through a Dangerous Facility" src="https://github.com/user-attachments/assets/9e72dd2e-cf51-429c-b812-5427556982c8" />
+
+# Links
 - [Download the game from itch.io](https://obedh.itch.io/superorbital/)
 - [Check out our documentation of the player script](./player.md)
 - [See how we planned the story](./story.md)
@@ -17,16 +24,12 @@ SuperOrbital features three unique platformer mechanics:
 - [Read the bugs list](./bugs.md)
 - [Inspect the License (MIT License)](./LICENSE)
 
-<img width="480" height="270" alt="Navigate across the martian landscape" src="https://github.com/user-attachments/assets/a2cefc53-82f1-45c2-a3e9-86b311d7932f" />
-<img width="480" height="270" alt="The player navigating through a tricky level using fun gravity mechanics" src="https://github.com/user-attachments/assets/6e8fbeb4-7894-48cc-b35a-bcc9d99b355e" />
-<img width="480" height="270" alt="Loop around black holes" src="https://github.com/user-attachments/assets/4c8016a3-1c4f-4a2d-9770-a3ae944b18a7" />
-<img width="480" height="270" alt="Fly through a Dangerous Facility" src="https://github.com/user-attachments/assets/9e72dd2e-cf51-429c-b812-5427556982c8" />
 
 
 
 # How to Install and Play the Game
 
-This game supports Windows, Linux, and MacOS on 64 bit systems.
+This game supports Windows, Linux, and macOS on 64 bit systems.
 
 You can download the game from GitHub Releases or from Itch.io.
 
@@ -37,8 +40,8 @@ For Itch.io, go to [https://obedh.itch.io/superorbital](https://obedh.itch.io/su
 ## Windows
 Once you download **superorbital_win64.zip**, you must unzip the file. Then, double click on **superorbital.exe** to run the game. Windows Defender may give you a warning that the file is unsafe. You can bypass this by pressing **More Info** and then **Run Anyway**.
 ### Troubleshooting
-If you run into some other antivirus message, you may need to temporarily disable your antivirus to run the game.
-## MacOS
+Some antiviruses might incorrectly flag this game as suspicious because the executable is not digitally signed. You may have to temporarily allow the game through your antivirus software panel.
+## macOS
 Once you download **superorbital_mac.zip**, you must unzip the file. Then, right click on **Super Orbital.app**, and press **Open**. DO NOT simply double click the file, as Gatekeeper may block the game.
 ### Troubleshooting
 On some newer Apple devices, the above mentioned method for bypassing Gatekeeper might not work. You can try this method, though:
@@ -60,7 +63,7 @@ Using command line tools:
 
 ```./superorbital_linux64```
 
-If you use a graphical file manager, the exact process of extracting the file may depend on which file manager you use.
+If you use a graphical file manager, the exact process of extracting the file depends on which file manager you use.
 ### Troubleshooting
 If you get a message saying invalid permissions or permission denied, it may be that the file is not marked as executable by default.
 - Give executable permissions to the file:
@@ -71,12 +74,15 @@ If you get a message saying invalid permissions or permission denied, it may be 
 ```./superorbital_linux64```
 
 ## Controls (remappable)
-- Left and Right arrow keys to walk left and right
-- Z to jump
-- C to dash
-- X to turn gravity on/off
-- Arrow Keys + C to throw a wrench in the opposite direction to where you want to go
-- C to change orbit direction while inside a black hole
-- Up arrow to move away from the center of a black hole
+|Key|Action|
+|-|-|
+|Left|Walk left|
+|Right|Walk right|
+|Z|Jump (hold the button longer to jump higher)|
+|C|Dash (use arrow keys to dash in a specific direction)|
+|X|Toggle gravity|
+|Arrow Keys + C|Throw a Wrench (launching you in the opposite direction)|
+|C|Reverse orbit direction inside a black hole|
+|Up|Move away from the center of a black hole|
 
 # The Making of SuperOrbital
