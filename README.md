@@ -61,7 +61,7 @@ If you get a message saying invalid permissions or permission denied, it may be 
 
 ```./superorbital_linux64.x86_64```
 # Features
-SuperOrbital features three unique platformer mechanics that are used in creative ways to make fun levels:
+SuperOrbital features these unique platformer mechanics that are used in creative ways to make fun levels:
 - Gravity Toggling: You can turn off your gravity suit midair. Your momentum will continue until you turn gravity on again.
 - Wrench Throws: You can throw a wrench while your gravity is disabled, launching you in the opposite direction.
 - Black Holes: If you enter a black hole, you will slowly get pulled into the center while orbiting. You can move away from the center or change your orbit direction.
