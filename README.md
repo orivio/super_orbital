@@ -21,7 +21,7 @@ This game supports Windows, Linux, and macOS on 64 bit systems.
 
 **You can download the game from [GitHub Releases](https://example.com/) or from [Itch.io](https://obedh.itch.io/superorbital).**
 
-For GitHub, find the latest release and download the correct file depending on your platform.
+For GitHub, find the latest release (v.1.0.0-alpha) and expand **Assets** at the bottom. Then, download the correct file depending on your platform.
 
 For Itch.io, click the **Download Now** button. You can choose to donate, or press **No thanks, just take me to the downloads**. Then, download one of the files depending on what device you are on.
 
