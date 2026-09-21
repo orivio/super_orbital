@@ -1,12 +1,13 @@
 <head>
-  <link rel="preload" href="https://github.com/user-attachments/assets/d9a68f1d-c8c2-4b5a-84fa-fe8146ffaf7f" as="image" fetchpriority="high" />
+  <link rel="preload" href="https://github.com/user-attachments/assets/a5fa2dc1-a3f6-444f-a01f-000c2b0e576d" as="image" fetchpriority="high" />
   
-  <link rel="preload" href="https://github.com/user-attachments/assets/a2cefc53-82f1-45c2-a3e9-86b311d7932f" as="image" fetchpriority="high" />
-  <link rel="preload" href="https://github.com/user-attachments/assets/6e8fbeb4-7894-48cc-b35a-bcc9d99b355e" as="image" type="image/gif" fetchpriority="high" />
+  <link rel="preload" href="https://github.com/user-attachments/assets/f79c000f-0618-4758-978e-049c770878af" as="image" fetchpriority="high" />
+  <link rel="preload" href="https://github.com/user-attachments/assets/b43efd3f-e266-4f0d-a60a-25d596a8a779" as="image" type="image/webp" fetchpriority="high" />
   <link rel="preload" href="https://github.com/user-attachments/assets/4c8016a3-1c4f-4a2d-9770-a3ae944b18a7" as="image" fetchpriority="high" />
-  <link rel="preload" href="https://github.com/user-attachments/assets/9e72dd2e-cf51-429c-b812-5427556982c8" as="image" type="image/gif" fetchpriority="high" />
+  <link rel="preload" href="https://github.com/user-attachments/assets/071f8cb2-ce4f-474c-b406-9dd580984f77" as="image" type="image/webp" fetchpriority="high" />
 </head>
-<img width="960" height="400" alt="KhjbeU" src="https://github.com/user-attachments/assets/d9a68f1d-c8c2-4b5a-84fa-fe8146ffaf7f" />
+
+<img width="960" height="400" alt="Banner Image" src="https://github.com/user-attachments/assets/a5fa2dc1-a3f6-444f-a01f-000c2b0e576d" />
 
 # Super Orbital
 **Super Orbital is a 2D precision platformer where you can toggle gravity midair, throw wrenches to control your momentum, and orbit black holes to slingshot around the level.**
@@ -15,10 +16,11 @@ In this game, you play as Vitri, a gravitational anomaly who sets out to the sta
 
 *This project was made for [Stardance](http://stardance.hackclub.com/).*
 
-<img width="49%" alt="Navigate across the martian landscape" src="https://github.com/user-attachments/assets/a2cefc53-82f1-45c2-a3e9-86b311d7932f" />
-<img width="49%" alt="The player navigating through a tricky level using fun gravity mechanics" src="https://github.com/user-attachments/assets/6e8fbeb4-7894-48cc-b35a-bcc9d99b355e" />
-<img width="49%" alt="Loop around black holes" src="https://github.com/user-attachments/assets/4c8016a3-1c4f-4a2d-9770-a3ae944b18a7" />
-<img width="49%" alt="Fly through a Dangerous Facility" src="https://github.com/user-attachments/assets/9e72dd2e-cf51-429c-b812-5427556982c8" />
+<img width="49%" alt="Navigate across the martian landscape" src="https://github.com/user-attachments/assets/f79c000f-0618-4758-978e-049c770878af" />
+<img width="49%" alt="The player navigating through a tricky level using fun gravity mechanics" src="https://github.com/user-attachments/assets/b43efd3f-e266-4f0d-a60a-25d596a8a779" />
+<img width="49%" alt="Loop around black holes" src="https://github.com/user-attachments/assets/da68f3f7-f489-4ea0-b842-f8cc30e29da3" />
+<img width="49%" alt="Fly through a Dangerous Facility" src="https://github.com/user-attachments/assets/071f8cb2-ce4f-474c-b406-9dd580984f77" />
+
 
 ## Trailer
 [INSERT TRAILER]
@@ -133,17 +135,17 @@ We chose the names Grav and Vitri as a subtle play on the word Gravity.
 ## Artwork
 The creation of the game’s artwork is an iterative process. I first created a base for the Vitri’s sprite, made of separate, individually colored layers.
 
-<img width="513" height="512" alt="a rough block-out of Vitri's sprite using color coded layers for each limb." src="https://github.com/user-attachments/assets/5dc894ec-6aa2-4574-98ef-1b9f9cbe5c71" />
+<img width="513" height="512" alt="a rough block-out of Vitri's sprite using color coded layers for each limb." src="https://github.com/user-attachments/assets/569b1d9a-0d22-4d03-97fd-db762c086a11" />
 
 I then drew a few rough animations for Vitri moving in different ways. Doing it this way was much easier than animating a fully colored and shaded sprite because I was able to make positional early on. I did end up changing the proportions a bit, and finally, I came up with this:
 
-<img width="410" height="430" alt="the final polished Vitri sprite" src="https://github.com/user-attachments/assets/4323dbb7-819b-4a75-a1a9-5415be8fe76b" />
+<img width="410" height="430" alt="the final polished Vitri sprite" src="https://github.com/user-attachments/assets/aa291f6b-720d-4849-ac73-be9d933bbf47" />
 
 Sadly, I lost access to the original .aseprite file, so all of my previous layers are gone, and I only have the final rendition of the player. This would make it hard to add new animations, but ultimately, it's fine because I finished the sprite anyway.
 
 I used a Godot Shader to give the player an outline to convey what gravity state they are in.
 
-<img width="800" height="450" alt="the player sprite switches between a green, red, and black outline." src="https://github.com/user-attachments/assets/75e8f6d3-8cb7-4d6c-8b4c-bfd3851f7d29" />
+<img width="800" height="450" alt="the player sprite switches between a green, red, and black outline." src="https://github.com/user-attachments/assets/bf1855d1-b942-469a-9174-3b8295d6682f" />
 
 - A green outline means they are being affected by normal gravity.
 - A red outline means gravity is turned off.
@@ -151,11 +153,12 @@ I used a Godot Shader to give the player an outline to convey what gravity state
 
 For the tileset, we decided that it should be Mars themed, with orange and brown dirt and rocks.
 
-<img width="385" height="385" alt="part of the mars tileset" src="https://github.com/user-attachments/assets/3ff09f59-7dd3-4444-b067-b1e4a2aaac2d" />
+<img width="385" height="385" alt="part of the mars tileset" src="https://github.com/user-attachments/assets/5fddaf35-d11f-4304-b40d-ab6f8ba3375d" />
 
 Later, we needed more tiles for the facility section of the game, so I added a bunch more:
 
-<img width="512" height="512" alt="full tileset" src="https://github.com/user-attachments/assets/2254e438-b60b-491f-a240-ed1743a61ad3" />
+<img width="512" height="512" alt="full tileset" src="https://github.com/user-attachments/assets/690b5613-30c4-48ad-8874-0b878f8fe435" />
+
 
 ## Music
 Hey everyone, ori here. I made most of the music in FL Studio. Here are the soundtracks I made:
@@ -172,7 +175,7 @@ Hi, this is Obed. My brother Wally and I made the song "**Origins**". We used Fa
 
 We got our instruments from FamiStudio's **Instruments EPSM** pack, which is a collection of demo instruments from the EPSM expansion pack. These instruments have a retro feel and originate from the NES days, but give us more expression than just the NES's original APU.
 
-<img width="1541" height="622" alt="The FamiStudio project of Origins" src="https://github.com/user-attachments/assets/34f3b2e2-4d8f-4bc9-bf15-7e60a6eda6dc" />
+<img width="1541" height="622" alt="The FamiStudio project of Origins" src="https://github.com/user-attachments/assets/f46091b0-c2a5-4559-8335-7106a4699e8d" />
 
 I myself have little to no music experience, but my brother has a lot, so much thanks to him.
 
@@ -189,9 +192,9 @@ We decided to reorganize all of our levels, and the result turned out much bette
 ### Scrapped Environment Art
 For a brief period of time, I tried making more advanced environment art, detailing snow, hoodoos, and sand dunes.
 
-<img width="49%" alt="A level from the game that shows hoodoos in the background and a sunset." src="https://github.com/user-attachments/assets/39be35a0-f549-4d24-9338-f67e9a3127f1" />
+<img width="49%" alt="A level from the game that shows hoodoos in the background and a sunset." src="https://github.com/user-attachments/assets/f384a01d-d507-4346-b88b-6d46a45b644f" />
+<img width="49%" alt="A level from the game that shows a snowy tileset and particles." src="https://github.com/user-attachments/assets/7e426682-9168-48d6-a508-95291f24f453" />
 
-<img width="49%" alt="A level from the game that shows a snowy tileset and particles." src="https://github.com/user-attachments/assets/6f14adf5-e758-4697-a88e-fb571575a37e" />
 
 Eventually, we decided that it didn't fit the story well enough, because the player is underground, it doesn't make sense to have snow. I would like to bring back this art in the future, though, because I think it looks great.
 
@@ -210,7 +213,8 @@ To be honest, this game's architecture is not the best. There are multiple insta
 ## Player Movement
 We seriously underestimated how complex this would be. A player movement script that feels good to play with no bugs is VERY difficult to build. I ended up rewriting the entire player script from scratch, plus custom debugging tools.
 
-<img width="542" height="747" alt="a small snapshot of the player movement settings" src="https://github.com/user-attachments/assets/4d68c4c2-3325-45d5-83e9-ea71af629dc0" />
+<img width="542" height="747" alt="a small snapshot of the player movement settings" src="https://github.com/user-attachments/assets/9ea2d308-fda3-4ed0-bb87-7848941cdad5" />
+
 
 Here's a small snapshot of the player's movement settings. You can probably tell that there's a lot of them, they don't all fit on the screen!
 
@@ -230,7 +234,8 @@ Instead of trying to address the root of the problem, I could just add a test fo
 After we planned out the story, we [drafted a quick idea of what we wanted the introduction to look like](./cutscenes.md). We then let it sit for a while, because we wanted to focus on the core gameplay first. After our first playtest, many people were confused about the story, so we got to work on animating the intro cutscene.
 
 As it turns out, animating was way harder than I thought. This scene alone took me 5+ hours:
-<img width="985" height="557" alt="A frame from the intro cutscene; Vitri sitting on a bench, looking sad." src="https://github.com/user-attachments/assets/4dbf5c6a-2c54-4fc4-8812-0f9ad15a55ca" />
+<img width="985" height="557" alt="A frame from the intro cutscene; Vitri sitting on a bench, looking sad." src="https://github.com/user-attachments/assets/c299ae2f-16cb-4680-a618-a70d63729ee8" />
+
 
 ... And I'm still not satisfied with it.
 
