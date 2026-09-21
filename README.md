@@ -30,7 +30,7 @@ Once you download **superorbital_win64.zip**, you must unzip the file. Then, dou
 ### Troubleshooting
 Some antiviruses might incorrectly flag this game as suspicious because the executable is not digitally signed. You may have to temporarily allow the game through your antivirus software panel.
 ## macOS
-Once you download **superorbital_mac.zip**, you must unzip the file. Then, right click on **Super Orbital.app**, and press **Open**. DO NOT simply double click the file, as Gatekeeper may block the game.
+Once you download **superorbital_mac.tar.gz**, you must unzip the file. Then, right click on the app **SuperOrbital**, and press **Open**. DO NOT simply double click the file, as Gatekeeper may block the game.
 ### Troubleshooting
 On some newer Apple devices, the above mentioned method for bypassing Gatekeeper might not work. You can try this method, though:
 - Open **System Settings**
