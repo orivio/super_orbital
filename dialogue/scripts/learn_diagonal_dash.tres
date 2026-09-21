@@ -9,6 +9,7 @@
 script = ExtResource("1_aksnr")
 speaker = ExtResource("2_bgcq6")
 text = "Remember that you can dash in any direction, including diagonal."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_wj3f2"]
@@ -16,12 +17,14 @@ script = ExtResource("1_aksnr")
 speaker = ExtResource("3_bgcq6")
 side = -1
 text = "Yeah. I knew that already."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_vlh2j"]
 script = ExtResource("1_aksnr")
 speaker = ExtResource("2_bgcq6")
 text = "You can hold {topright} and then press {dash} to dash up and right."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_4c045"]
@@ -29,6 +32,7 @@ script = ExtResource("1_aksnr")
 speaker = ExtResource("3_bgcq6")
 side = -1
 text = "Thanks for the reminder."
+typing_speed = 0.04
 animation = &"frustrated"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 

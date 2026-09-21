@@ -17,6 +17,7 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
 text = "[[RETURNING_ATMOSPHERE_TESTS]]"
+typing_speed = 0.04
 animation = &"think"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
@@ -24,6 +25,7 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
 text = "[[LOADING_ANALYIS]]"
+typing_speed = 0.04
 animation = &"think"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
@@ -31,18 +33,21 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
 text = "Well, that's unfortunate."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_jbwp8"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
 text = "Looks like you're going to have to keep your suit on."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_eq2ru"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
 text = "The air here isn't safe for humans."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_fh5dd"]
@@ -50,6 +55,7 @@ script = ExtResource("1_23jh0")
 speaker = ExtResource("4_ae12w")
 side = -1
 text = "Of all the planets I could have chosen..."
+typing_speed = 0.04
 animation = &"frustrated"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
@@ -58,18 +64,21 @@ script = ExtResource("1_23jh0")
 speaker = ExtResource("4_ae12w")
 side = -1
 text = "I guess that's just my luck."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_r3w2l"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
 text = "We can't stay long. I'll try to gather as much info about this place as I can."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_6ihg1"]
 script = ExtResource("1_23jh0")
 speaker = ExtResource("2_o5goh")
 text = "In the meantime, use {left} and {right} to explore. Be careful."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [resource]

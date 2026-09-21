@@ -9,6 +9,7 @@
 script = ExtResource("1_0xj1j")
 speaker = ExtResource("2_36mb8")
 text = "..."
+typing_speed = 0.04
 animation = &"think"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
@@ -16,18 +17,21 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_0xj1j")
 speaker = ExtResource("2_36mb8")
 text = "This shouldn't be possible..."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_i8xm3"]
 script = ExtResource("1_0xj1j")
 speaker = ExtResource("2_36mb8")
 text = "Whoever made this place somehow managed to use compact black holes as defensive measures..."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_qossp"]
 script = ExtResource("1_0xj1j")
 speaker = ExtResource("2_36mb8")
 text = "But we should be able to use your dash jets to work around this."
+typing_speed = 0.04
 animation = &"think"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
@@ -35,12 +39,14 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_0xj1j")
 speaker = ExtResource("2_36mb8")
 text = "When you're in the radius of the black hole, press {up} to resist its gravity."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_v6n74"]
 script = ExtResource("1_0xj1j")
 speaker = ExtResource("2_36mb8")
 text = "You can use these to your advantage. Propel yourself forward with a sort of slingshot mechanism."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_0g5fu"]
@@ -48,6 +54,7 @@ script = ExtResource("1_0xj1j")
 speaker = ExtResource("3_36mb8")
 side = -1
 text = "Sounds tricky..."
+typing_speed = 0.04
 animation = &"frustrated"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 

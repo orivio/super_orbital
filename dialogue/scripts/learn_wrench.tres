@@ -9,6 +9,7 @@
 script = ExtResource("1_1i0qq")
 speaker = ExtResource("2_kkyj4")
 text = "..."
+typing_speed = 0.04
 animation = &"think"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
@@ -16,6 +17,7 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_1i0qq")
 speaker = ExtResource("2_kkyj4")
 text = "[[ASSESSING_CONDITIONS]]"
+typing_speed = 0.04
 animation = &"think"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
@@ -23,12 +25,14 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_1i0qq")
 speaker = ExtResource("2_kkyj4")
 text = "Use your spacesuit's built-in fabricator to change directions while your gravity is disabled, if you need to."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_gqfv8"]
 script = ExtResource("1_1i0qq")
 speaker = ExtResource("2_kkyj4")
 text = "By pressing {throw_wrench}, you can throw a heavy object to give you a boost in the opposite direction."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_j2dxm"]
@@ -36,12 +40,14 @@ script = ExtResource("1_1i0qq")
 speaker = ExtResource("3_as3gm")
 side = -1
 text = "I can make and throw anything?"
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_yd7rt"]
 script = ExtResource("1_1i0qq")
 speaker = ExtResource("2_kkyj4")
 text = "Yup."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_t8ynr"]
@@ -49,12 +55,14 @@ script = ExtResource("1_1i0qq")
 speaker = ExtResource("3_as3gm")
 side = -1
 text = "Then I'll use a wrench, like that one famous saying... Throw a wrench in it!\" You know that one?"
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_oyxpy"]
 script = ExtResource("1_1i0qq")
 speaker = ExtResource("2_kkyj4")
 text = "...No."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_f0urn"]
@@ -62,6 +70,7 @@ script = ExtResource("1_1i0qq")
 speaker = ExtResource("3_as3gm")
 side = -1
 text = "Oh... I'll show you what I'm talking about later, I guess..."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [resource]

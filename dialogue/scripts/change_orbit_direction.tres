@@ -9,6 +9,7 @@
 script = ExtResource("1_t3y7r")
 speaker = ExtResource("2_1sxqw")
 text = "One more thing..."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_qd5i5"]
@@ -16,6 +17,7 @@ script = ExtResource("1_t3y7r")
 speaker = ExtResource("3_qd5i5")
 side = -1
 text = "Seriously?"
+typing_speed = 0.04
 animation = &"frustrated"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
@@ -23,6 +25,7 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_t3y7r")
 speaker = ExtResource("2_1sxqw")
 text = "You can change the direction of your orbit by pressing {change_orbit}."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [resource]

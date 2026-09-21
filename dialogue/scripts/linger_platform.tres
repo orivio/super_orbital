@@ -9,12 +9,14 @@
 script = ExtResource("1_j75f7")
 speaker = ExtResource("2_v22q6")
 text = "You see those weird looking floors up ahead? Don't stand on them for too long."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_bhk1d"]
 script = ExtResource("1_j75f7")
 speaker = ExtResource("2_v22q6")
 text = "Spikes might shoot out at any second. You have to be quick."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_h2nqh"]
@@ -22,6 +24,7 @@ script = ExtResource("1_j75f7")
 speaker = ExtResource("3_v22q6")
 side = -1
 text = "Got it."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [resource]

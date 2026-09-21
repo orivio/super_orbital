@@ -8,6 +8,7 @@
 script = ExtResource("1_dxbqy")
 speaker = ExtResource("2_omdet")
 text = "Careful. Looks like we're about to enter a protected facility. Hostile life might actually be a concern after all."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [resource]

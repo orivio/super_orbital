@@ -9,6 +9,7 @@
 script = ExtResource("1_xelra")
 speaker = ExtResource("2_6lltr")
 text = "[[MEASURING_DISTANCE]]"
+typing_speed = 0.04
 animation = &"think"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
@@ -16,6 +17,7 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_xelra")
 speaker = ExtResource("2_6lltr")
 text = "You're going to need more than just a jump to cross that gap. Hold on, give me a moment."
+typing_speed = 0.04
 animation = &"think"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
@@ -23,12 +25,14 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_xelra")
 speaker = ExtResource("2_6lltr")
 text = "...There. I have programmed your suit to redirect toxic gases in the atmosphere to launch you forward. This \"dash,\" as I call it, can be used in any direction."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_y0k3d"]
 script = ExtResource("1_xelra")
 speaker = ExtResource("2_6lltr")
 text = "Simply press {dash} to dash."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_2t3l5"]
@@ -36,12 +40,14 @@ script = ExtResource("1_xelra")
 speaker = ExtResource("3_mmh5p")
 side = -1
 text = "Thanks, brobot!"
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_bfri0"]
 script = ExtResource("1_xelra")
 speaker = ExtResource("2_6lltr")
 text = "Please do not call me that."
+typing_speed = 0.04
 animation = &"disappointed"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 

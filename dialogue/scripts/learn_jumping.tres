@@ -9,6 +9,7 @@
 script = ExtResource("1_l5n0r")
 speaker = ExtResource("2_r0j7r")
 text = "[[ANALYZING_OBSTRUCTION]]"
+typing_speed = 0.04
 animation = &"think"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
@@ -16,18 +17,21 @@ metadata/_custom_type_script = "uid://b2364himxu4dy"
 script = ExtResource("1_l5n0r")
 speaker = ExtResource("2_r0j7r")
 text = "Spikes, huh? Just press {jump} to jump over them."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_ymm5s"]
 script = ExtResource("1_l5n0r")
 speaker = ExtResource("2_r0j7r")
 text = "They're easy to avoid, but their existence implies that there might be something or someone dangerous nearby."
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_om0pd"]
 script = ExtResource("1_l5n0r")
 speaker = ExtResource("2_r0j7r")
 text = "Could it be that hostile life exists here?"
+typing_speed = 0.04
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
 [sub_resource type="Resource" id="Resource_nqrcn"]
@@ -35,6 +39,7 @@ script = ExtResource("1_l5n0r")
 speaker = ExtResource("3_r0j7r")
 side = -1
 text = "Don't scare me like that..."
+typing_speed = 0.04
 animation = &"frustrated"
 metadata/_custom_type_script = "uid://b2364himxu4dy"
 
