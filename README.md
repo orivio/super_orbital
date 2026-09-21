@@ -166,3 +166,17 @@ For a brief period of time, I tried making more advanced environment art, detail
 
 Eventually, we decided that it didn't fit the story well enough, because the player is underground, it doesn't make sense to have snow. I would like to bring back this art in the future, though, because I think it looks great.
 
+## Game Architecture
+In order for the game to do anything at all, we had to program a bunch of systems that all worked together.
+To name a few,
+- The **World** system is responsible for loading and transitioning levels.
+- The **Save** system is responsible for tracking data that persists between gameplay sessions. When you quit the game, your progress should stay.
+- The **Dialogue** system is responsible for storing and displaying lines of dialogue.
+- The **GameManager** system is responsible for orchestrating everything. It is an autoload singleton, meaning it is always loaded in memory and can be accessed from anywhere. It is responsible for performing camera shakes, hitstop, and linking different systems together.
+
+Each one of these took a considerable amount of time to program, and they came with their fair share of bugs. I actually rewrote the world system TWICE because I wasn't satisfied with how levels were stored, how transitions happened, and the readability of the code.
+
+To be honest, this game's architecture is not the best. There are multiple instances of code duplication, multiple sources of truth, and overreliance on global singletons. But hey, the game works just fine!
+
+## Player Movement
+## Cutscenes
