@@ -24,40 +24,61 @@ This game supports Windows, Linux, and macOS on 64 bit systems.
 For GitHub, find the latest release (**v.1.0.0-alpha**) and expand **Assets** at the bottom. Then, download the correct file depending on your platform.
 
 ## Windows
-Once you download **superorbital_win.zip**, you must unzip the file. Then, double click on **superorbital.exe** to run the game. Windows Defender may give you a warning that the file is unsafe. You can bypass this by pressing **More Info** and then **Run Anyway**.
-### Troubleshooting
+1. Download **superorbital_win.zip**.
+2. Unzip the file.
+3. Double click on **superorbital.exe** to run the game.
+
+Windows Defender may give you a warning that the file is unsafe. You can bypass this by pressing **More Info** and then **Run Anyway**.
+<details>
+<summary>
+Troubleshooting
+</summary>
 Some antiviruses might incorrectly flag this game as suspicious because the executable is not digitally signed. You may have to temporarily allow the game through your antivirus software panel.
+</details>
+
 ## macOS
 Once you download **superorbital_mac.tar.gz**, you must unzip the file. Then, right click on the app **SuperOrbital**, and press **Open**. DO NOT simply double click the file, as Gatekeeper may block the game.
-### Troubleshooting
+<details>
+<summary>
+Troubleshooting
+</summary>
+
 On some newer Apple devices, the above mentioned method for bypassing Gatekeeper might not work. You can try this method, though:
-- Open **System Settings**
-- Go to **Security & Privacy**
-- Scroll all the way down to **Security**
-- Look for a message that says something like **"Super Orbital was blocked to protect your Mac."**
-- Click **Open Anyway**.
-- Type in your password in the next popup.
-- Then try again to open the application.
+1. Open **System Settings**
+2. Go to **Security & Privacy**
+3. Scroll all the way down to **Security**
+4. Look for a message that says something like **"Super Orbital was blocked to protect your Mac."**
+5. Click **Open Anyway**.
+6. Type in your password in the next popup.
+7. Then try again to open the application.
+
+</details>
+
 ## Linux
 Once you download **superorbital_linux.tar.gz**, you must extract the file.
 Using command line tools:
-- Navigate to where you downloaded the file.
-- Extract the file:
-
+1. Navigate to where you downloaded the file.
+2. Extract the file:
 ```tar -xf superorbital_linux64.tar.gz```
-- Run the game:
-
+3. Run the game:
 ```./superorbital_linux64.x86_64```
 
 If you use a graphical file manager, the exact process of extracting the file depends on which file manager you use.
-### Troubleshooting
+
+<details>
+<summary>
+Troubleshooting
+</summary>
+
+<p>
 If you get a message saying invalid permissions or permission denied, it may be that the file is not marked as executable by default.
-- Give executable permissions to the file:
+</p>
+<ol>
+<li>Give executable permissions to the file: <code>chmod +x superorbital_linux64.x86_64</code></li>
+<li>Try to run again:<code>./superorbital_linux64.x86_64</code></li>
+</ol>
+</details>
 
-```chmod +x superorbital_linux64.x86_64```
-- Try to run again:
-
-```./superorbital_linux64.x86_64```
 # Features
 SuperOrbital features these unique platformer mechanics that are used in creative ways to make fun levels:
 - Gravity Toggling: You can turn off your gravity suit midair. Your momentum will continue until you turn gravity on again.
@@ -104,17 +125,17 @@ We chose the names Grav and Vitri as a subtle play on the word Gravity.
 ## Artwork
 The creation of the game’s artwork is an iterative process. I first created a base for the Vitri’s sprite, made of separate, individually colored layers.
 
-<img width="513" height="512" alt="qqQ4pO" src="https://github.com/user-attachments/assets/5dc894ec-6aa2-4574-98ef-1b9f9cbe5c71" />
+<img width="513" height="512" alt="a rough block-out of Vitri's sprite using color coded layers for each limb." src="https://github.com/user-attachments/assets/5dc894ec-6aa2-4574-98ef-1b9f9cbe5c71" />
 
 I then drew a few rough animations for Vitri moving in different ways. Doing it this way was much easier than animating a fully colored and shaded sprite because I was able to make positional early on. I did end up changing the proportions a bit, and finally, I came up with this:
 
-<img width="410" height="430" alt="image" src="https://github.com/user-attachments/assets/4323dbb7-819b-4a75-a1a9-5415be8fe76b" />
+<img width="410" height="430" alt="the final polished Vitri sprite" src="https://github.com/user-attachments/assets/4323dbb7-819b-4a75-a1a9-5415be8fe76b" />
 
 Sadly, I lost access to the original .aseprite file, so all of my previous layers are gone, and I only have the final rendition of the player. This would make it hard to add new animations, but ultimately, it's fine because I finished the sprite anyway.
 
 I used a Godot Shader to give the player an outline to convey what gravity state they are in.
 
-<img width="800" height="450" alt="player_outline-ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/75e8f6d3-8cb7-4d6c-8b4c-bfd3851f7d29" />
+<img width="800" height="450" alt="the player sprite switches between a green, red, and black outline." src="https://github.com/user-attachments/assets/75e8f6d3-8cb7-4d6c-8b4c-bfd3851f7d29" />
 
 - A green outline means they are being affected by normal gravity.
 - A red outline means gravity is turned off.
@@ -122,11 +143,11 @@ I used a Godot Shader to give the player an outline to convey what gravity state
 
 For the tileset, we decided that it should be Mars themed, with orange and brown dirt and rocks.
 
-<img width="385" height="385" alt="JOqL3s" src="https://github.com/user-attachments/assets/3ff09f59-7dd3-4444-b067-b1e4a2aaac2d" />
+<img width="385" height="385" alt="part of the mars tileset" src="https://github.com/user-attachments/assets/3ff09f59-7dd3-4444-b067-b1e4a2aaac2d" />
 
 Later, we needed more tiles for the facility section of the game, so I added a bunch more:
 
-<img width="512" height="512" alt="tileset_aseprite" src="https://github.com/user-attachments/assets/2254e438-b60b-491f-a240-ed1743a61ad3" />
+<img width="512" height="512" alt="full tileset" src="https://github.com/user-attachments/assets/2254e438-b60b-491f-a240-ed1743a61ad3" />
 
 ## Music
 Hey everyone, ori here. I made most of the music in FL Studio. Here are the soundtracks I made:
@@ -139,11 +160,11 @@ They’re mostly piano-based with some brass synths to add melody. The goal is t
 
 You can check out the OST on my [YouTube Channel](https://www.youtube.com/watch?v=3Za3iscuWWM&list=PLQn6yFmlK8lc).
 
-Hi, this is Obed. My brother Wally and I made . We used FamiStudio, a retro music software.
+Hi, this is Obed. My brother Wally and I made the song "**Origins**". We used FamiStudio, a retro music software.
 
 We got our instruments from FamiStudio's **Instruments EPSM** pack, which is a collection of demo instruments from the EPSM expansion pack. These instruments have a retro feel and originate from the NES days, but give us more expression than just the NES's original APU.
 
-<img width="1541" height="622" alt="image" src="https://github.com/user-attachments/assets/34f3b2e2-4d8f-4bc9-bf15-7e60a6eda6dc" />
+<img width="1541" height="622" alt="The FamiStudio project of Origins" src="https://github.com/user-attachments/assets/34f3b2e2-4d8f-4bc9-bf15-7e60a6eda6dc" />
 
 I myself have little to no music experience, but my brother has a lot, so much thanks to him.
 
@@ -160,9 +181,9 @@ We decided to reorganize all of our levels, and the result turned out much bette
 ### Scrapped Environment Art
 For a brief period of time, I tried making more advanced environment art, detailing snow, hoodoos, and sand dunes.
 
-<img width="782" height="437" alt="image" src="https://github.com/user-attachments/assets/39be35a0-f549-4d24-9338-f67e9a3127f1" />
+<img width="49%" alt="A level from the game that shows hoodoos in the background and a sunset." src="https://github.com/user-attachments/assets/39be35a0-f549-4d24-9338-f67e9a3127f1" />
 
-<img width="783" height="437" alt="image" src="https://github.com/user-attachments/assets/6f14adf5-e758-4697-a88e-fb571575a37e" />
+<img width="49%" alt="A level from the game that shows a snowy tileset and particles." src="https://github.com/user-attachments/assets/6f14adf5-e758-4697-a88e-fb571575a37e" />
 
 Eventually, we decided that it didn't fit the story well enough, because the player is underground, it doesn't make sense to have snow. I would like to bring back this art in the future, though, because I think it looks great.
 
@@ -179,4 +200,29 @@ Each one of these took a considerable amount of time to program, and they came w
 To be honest, this game's architecture is not the best. There are multiple instances of code duplication, multiple sources of truth, and overreliance on global singletons. But hey, the game works just fine!
 
 ## Player Movement
+We seriously underestimated how complex this would be. A player movement script that feels good to play with no bugs is VERY difficult to build. I ended up rewriting the entire player script from scratch, plus custom debugging tools.
+
+<img width="542" height="747" alt="a small snapshot of the player movement settings" src="https://github.com/user-attachments/assets/4d68c4c2-3325-45d5-83e9-ea71af629dc0" />
+
+Here's a small snapshot of the player's movement settings. You can probably tell that there's a lot of them, they don't all fit on the screen!
+
+You can check out our documentation for the player script [Here](./player.md). We wrote this document to help keep ourselves organized and help others understand our code better.
+
+
+https://github.com/user-attachments/assets/8ddc9a2f-f6f5-43fa-967f-d2d72e76284d
+
+(Sorry for the bad video quality, I took this clip a while ago).
+
+One of our most notorious bugs was what we called the **Dash Platform Bug**. Basically, if the player dashed into a moving platform, there was a TINY chance that their position would clip to infinity, crashing the game. The bug was so inconsistent and hard to replicate that even after rewriting the entire player script from scratch, I still had no clue how to fix the bug. After taking a break on this matter for a few weeks, I figured it out.
+
+Instead of trying to address the root of the problem, I could just add a test for whether the player clipped out of bounds. If they did, they would be teleported back to where they were before. Suddenly, the bug was completely fixed, and the only thing that remained was a tiny hiccup in the player's velocity. From this, I learned that sometimes, it's best to address the symptom rather than the cause ;)
+
 ## Cutscenes
+
+After we planned out the story, we [drafted a quick idea of what we wanted the introduction to look like](./cutscenes.md). We then let it sit for a while, because we wanted to focus on the core gameplay first. After our first playtest, many people were confused about the story, so we got to work on animating the intro cutscene.
+
+As it turns out, animating was way harder than I thought. This scene alone took me 5+ hours:
+<img width="985" height="557" alt="A frame from the intro cutscene; Vitri sitting on a bench, looking sad." src="https://github.com/user-attachments/assets/4dbf5c6a-2c54-4fc4-8812-0f9ad15a55ca" />
+
+... And I'm still not satisfied with it.
+
