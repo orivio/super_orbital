@@ -90,7 +90,7 @@ SuperOrbital features three unique platformer mechanics that are used in creativ
 |C|Dash (use arrow keys to dash in a specific direction)|
 |X|Toggle gravity|
 |Arrow Keys + C|Throw a Wrench (launching you in the opposite direction)|
-|C|Reverse orbit direction inside a black hole|
-|Up|Move away from the center of a black hole|
+|C (inside a black hole)|Reverse orbit direction|
+|Up (inside a black hole)|Move away from the center of the black hole|
 
 # The Making of SuperOrbital
