@@ -1,3 +1,11 @@
+<head>
+  <link rel="preload" href="https://github.com/user-attachments/assets/d9a68f1d-c8c2-4b5a-84fa-fe8146ffaf7f" as="image" fetchpriority="high" />
+  
+  <link rel="preload" href="https://github.com/user-attachments/assets/a2cefc53-82f1-45c2-a3e9-86b311d7932f" as="image" fetchpriority="high" />
+  <link rel="preload" href="https://github.com/user-attachments/assets/6e8fbeb4-7894-48cc-b35a-bcc9d99b355e" as="image" type="image/gif" fetchpriority="high" />
+  <link rel="preload" href="https://github.com/user-attachments/assets/4c8016a3-1c4f-4a2d-9770-a3ae944b18a7" as="image" fetchpriority="high" />
+  <link rel="preload" href="https://github.com/user-attachments/assets/9e72dd2e-cf51-429c-b812-5427556982c8" as="image" type="image/gif" fetchpriority="high" />
+</head>
 <img width="960" height="400" alt="KhjbeU" src="https://github.com/user-attachments/assets/d9a68f1d-c8c2-4b5a-84fa-fe8146ffaf7f" />
 
 # Super Orbital
