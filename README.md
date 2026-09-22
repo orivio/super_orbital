@@ -29,9 +29,9 @@ In this game, you play as Vitri, a gravitational anomaly who sets out to the sta
 
 This game supports Windows, Linux, and macOS on 64 bit systems.
 
-**You can download the game from [GitHub Releases](https://github.com/orivio/super_orbital/releases/tag/v.1.0.0-alpha).**
+**You can download the game from [GitHub Releases](https://github.com/orivio/super_orbital/releases/tag/v1.0.1-alpha).**
 
-For GitHub, find the latest release (**v.1.0.0-alpha**) and expand **Assets** at the bottom. Then, download the correct file depending on your platform.
+For GitHub, find the latest release (**v1.0.1-alpha**) and expand **Assets** at the bottom. Then, download the correct file depending on your platform.
 
 ## Windows
 1. Download **superorbital_win.zip**.
