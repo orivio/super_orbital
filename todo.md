@@ -1,8 +1,3 @@
-BEFORE STARDANCE ENDS:
-	
-	EITHER:
-		- Make game trailer
-
 AFTER STARDANCE ENDS:
 
 Obed:
