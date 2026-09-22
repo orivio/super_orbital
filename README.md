@@ -233,9 +233,11 @@ Instead of trying to address the root of the problem, I could just add a test fo
 
 After we planned out the story, we [drafted a quick idea of what we wanted the introduction to look like](./cutscenes.md). We then let it sit for a while, because we wanted to focus on the core gameplay first. After our first playtest, many people were confused about the story, so we got to work on animating the intro cutscene.
 
+I was going to animate the entire cutscene, frame by frame.
+
 As it turns out, animating was way harder than I thought. This scene alone took me 5+ hours:
 <img width="985" height="557" alt="A frame from the intro cutscene; Vitri sitting on a bench, looking sad." src="https://github.com/user-attachments/assets/c299ae2f-16cb-4680-a618-a70d63729ee8" />
 
-
 ... And I'm still not satisfied with it.
 
+So I decided just to have still frames and move elements around using Godot's AnimationPlayer. I do wish to improve upon the cutscenes in the future, but for now, I think this is fine.
