@@ -32,26 +32,6 @@ Replication:
 it. Just a little bit above the ground, you can press the jump button again and
 you will do a double jump.
 
-## Float bouncing off a platform at the wrong angle
-Details:
-- It can cause you to bounce back and forth a ton, and the hitstop makes the 
-game slowdown to almost stopped
-
-## Float bouncing into a downard moving platform
-Details:
-- Similar to the Dash Platform bug.
-- This bug occurs when you dash downward into a moving platform that is moving 
-downward, and then press the gravity switch button.
-- Found in Gilganas
-Replication:
-- Kind of easy to replicate
-
-Replication:
-- So far extremely difficult to replicate
-- Potentially easy to replicate now, see above
-- There's a chance that what's written above isn't the actual cause, so keep an eye out
-	- Could be black hole, could be wall bouncing
-
 # UI Bugs
 ## Pressing a button during a screen fade
 Details:
