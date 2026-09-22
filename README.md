@@ -24,7 +24,8 @@ In this game, you play as Vitri, a gravitational anomaly who sets out to the sta
 
 
 ## Trailer
-[INSERT TRAILER]
+[Watch the Trailer Here](https://youtu.be/yWeUAdJec54)
+[![Watch the video](https://youtube.com)](https://youtube.com)
 
 # How to Play
 
