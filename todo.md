@@ -2,20 +2,18 @@ BEFORE STARDANCE ENDS:
 	
 	EITHER:
 		- Make game trailer
-	RUSSLAN:
-		- Write the final gilganas dialogue
 
-AFTER STARDANCE (If time allows, we can implement these, but they're low priority for now):
+AFTER STARDANCE ENDS:
 
 Obed:
 - Add "binoculars" or something similar that lets you look outside of the player camera and further into the level (see Terraria item: Binoculars for reference)
 - Refine the black hole mechanic as necessary for the levels in which they appear
 - Add different particle effects when you land on the ground
 - Draw the holographic planet lookup scene in the intro cutscene
-- Maybe a player death animation
-- Make ability unlocking work properly
-- Add more black hole levels
-- Make a better background
+- Make a player death animation
+- Fix the fractional pixel scaling
+- Add more levels
+- Make a better background for each level
 - Make the player camera follow the player better
 - Make the UI look better
 	- Fix the text shifting on the buttons
@@ -36,12 +34,7 @@ pressed the button before bouncing.
 
 
 Both, or whoever wants to:
-- Make a better favicon
-	- I think we have something good
 - Make sound effects for movement, ui, and dialogue
-
-
-Stuff more later (after stardance):
 - Add variation to tileset
 - Make room transitions seamless and have the camera quickly shift like in Celeste
 or Zelda
