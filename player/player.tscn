@@ -859,6 +859,7 @@ afterimage_period = 0.06
 afterimage_fade_time = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1986859216]
+visible = false
 position = Vector2(0, -31)
 shape = SubResource("RectangleShape2D_g0jb6")
 
@@ -871,6 +872,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("3_bjvpn")
 
 [node name="BackBufferCopy" type="BackBufferCopy" parent="VisualComponents" unique_id=1626588565]
+visible = false
 z_index = 999
 copy_mode = 2
 rect = Rect2(-641, -450, 1280, 1100)
@@ -920,6 +922,7 @@ parameters/float/blend_position = Vector2(0, 0)
 parameters/jump/blend_position = -2.6845703
 
 [node name="Tooltip" type="Label" parent="VisualComponents" unique_id=1824500785]
+visible = false
 offset_left = -80.0
 offset_top = -93.0
 offset_right = 80.0
@@ -1020,6 +1023,7 @@ stream = SubResource("AudioStreamRandomizer_pnw6m")
 bus = &"Sound Effects"
 
 [node name="Raycasts" type="Node2D" parent="." unique_id=202460255]
+visible = false
 
 [node name="Floorcaster" type="ShapeCast2D" parent="Raycasts" unique_id=1789477722]
 position = Vector2(0, -7)
@@ -1122,6 +1126,7 @@ one_shot = true
 process_callback = 0
 
 [node name="DebugOverlay" type="Node2D" parent="." unique_id=1952632549]
+visible = false
 script = ExtResource("19_65viv")
 dash_breakdown_thickness = 2.0
 dash_breakdown_first_color = Color(1, 0, 0, 1)

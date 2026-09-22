@@ -266,7 +266,7 @@ autowrap_mode = 3
 [node name="Reaction" type="Label" parent="Credits" unique_id=610663717]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
-text = "Movement Playtesting"
+text = "Reacted With a Fire Emoji to one of My Drawings"
 label_settings = SubResource("LabelSettings_po7hu")
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -309,8 +309,17 @@ label_settings = SubResource("LabelSettings_po7hu")
 [node name="Playtesters" type="Label" parent="Credits" unique_id=1599287826]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
-text = "Playtesters
+text = "Playtesters"
+label_settings = SubResource("LabelSettings_po7hu")
+horizontal_alignment = 1
+autowrap_mode = 2
 
+[node name="Playtesters2" type="Label" parent="Credits" unique_id=948381791]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "SomeEvilClone9
+CoderTheGreat
+GreenBoi
 "
 label_settings = SubResource("LabelSettings_po7hu")
 horizontal_alignment = 1

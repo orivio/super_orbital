@@ -834,6 +834,12 @@ _data = {
 &"intro": SubResource("Animation_o0s81")
 }
 
+[sub_resource type="SystemFont" id="SystemFont_2oksg"]
+font_names = PackedStringArray("Arial")
+
+[sub_resource type="Theme" id="Theme_e46c1"]
+default_font = SubResource("SystemFont_2oksg")
+
 [node name="CutsceneBase" unique_id=299796874 instance=ExtResource("1_1ya2x")]
 animation_name = &"intro"
 
@@ -889,7 +895,7 @@ texture = ExtResource("9_3tubk")
 
 [node name="Image_Stars" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1248337835) index="7" unique_id=1689691305]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(640, 129.28142)
+position = Vector2(640, -100)
 scale = Vector2(6, 6)
 texture = ExtResource("10_s7tp3")
 
@@ -947,7 +953,10 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Text_Skip" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="0" unique_id=1273984212]
+[node name="Text" parent="." index="3" unique_id=1475089889]
+theme = SubResource("Theme_e46c1")
+
+[node name="Text_Skip" type="RichTextLabel" parent="Text" index="0" unique_id=1273984212]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -966,7 +975,7 @@ text = "(Press X to skip)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Text_20XX" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="1" unique_id=443001563]
+[node name="Text_20XX" type="RichTextLabel" parent="Text" index="1" unique_id=443001563]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -985,7 +994,7 @@ text = "In 20XX, an anomaly was born."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Text_LoneKid" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="2" unique_id=1580285957]
+[node name="Text_LoneKid" type="RichTextLabel" parent="Text" index="2" unique_id=1580285957]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -1005,7 +1014,7 @@ text = "Vitri."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Text_TheOnlyHumanWithoutGravity" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="3" unique_id=134278973]
+[node name="Text_TheOnlyHumanWithoutGravity" type="RichTextLabel" parent="Text" index="3" unique_id=134278973]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -1025,7 +1034,7 @@ text = "The only human without gravity."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Text_ABrilliantScientist" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="4" unique_id=1164728788]
+[node name="Text_ABrilliantScientist" type="RichTextLabel" parent="Text" index="4" unique_id=1164728788]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -1046,7 +1055,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 visible_characters_behavior = 1
 
-[node name="Text_HeDesignedTheSuit" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="5" unique_id=430072817]
+[node name="Text_HeDesignedTheSuit" type="RichTextLabel" parent="Text" index="5" unique_id=430072817]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -1067,7 +1076,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 visible_characters_behavior = 1
 
-[node name="Text_ToGrantSadGuyTemporaryGravity" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="6" unique_id=1896598823]
+[node name="Text_ToGrantSadGuyTemporaryGravity" type="RichTextLabel" parent="Text" index="6" unique_id=1896598823]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -1088,7 +1097,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 visible_characters_behavior = 1
 
-[node name="Text_YearsLater" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="7" unique_id=1954509157]
+[node name="Text_YearsLater" type="RichTextLabel" parent="Text" index="7" unique_id=1954509157]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -1109,7 +1118,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 visible_characters_behavior = 1
 
-[node name="WIP Warning" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="8" unique_id=5498271]
+[node name="WIP Warning" type="RichTextLabel" parent="Text" index="8" unique_id=5498271]
 visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0

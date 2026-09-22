@@ -135,6 +135,12 @@ _data = {
 &"intro": SubResource("Animation_civqy")
 }
 
+[sub_resource type="SystemFont" id="SystemFont_17l06"]
+font_names = PackedStringArray("Arial")
+
+[sub_resource type="Theme" id="Theme_icb2l"]
+default_font = SubResource("SystemFont_17l06")
+
 [node name="CutsceneBase" unique_id=1284433739 instance=ExtResource("1_diork")]
 animation_name = &"intro"
 is_end_black = true
@@ -146,7 +152,10 @@ libraries/ = SubResource("AnimationLibrary_adx7a")
 [node name="ColorRect" parent="Background" parent_id_path=PackedInt32Array(687447503) index="0" unique_id=1592823712]
 color = Color(0, 0, 0, 1)
 
-[node name="silence" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="0" unique_id=1417904340]
+[node name="Text" parent="." index="3" unique_id=1475089889]
+theme = SubResource("Theme_icb2l")
+
+[node name="silence" type="RichTextLabel" parent="Text" index="0" unique_id=1417904340]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 1280.0
@@ -160,7 +169,7 @@ vertical_alignment = 1
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="drh" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="1" unique_id=1286703600]
+[node name="drh" type="RichTextLabel" parent="Text" index="1" unique_id=1286703600]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 1280.0
@@ -172,7 +181,7 @@ vertical_alignment = 1
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="tobecont" type="RichTextLabel" parent="Text" parent_id_path=PackedInt32Array(1475089889) index="2" unique_id=989858025]
+[node name="tobecont" type="RichTextLabel" parent="Text" index="2" unique_id=989858025]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 184.0
