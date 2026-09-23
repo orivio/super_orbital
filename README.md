@@ -26,6 +26,8 @@ In this game, you play as Vitri, a gravitational anomaly who sets out to the sta
 ## Trailer
 [Watch the Trailer on YouTube](https://youtu.be/5WPKXYqy1FI )
 
+You can also view a full playthrough video [here](https://www.youtube.com/watch?v=-zq8ps87daI&t=358s), but playing the game is cool too!
+
 # How to Play
 
 [![Try it](https://github.com/user-attachments/assets/4d0fb2fe-a378-4712-a67a-f3f6e1936f11)](http://obedh.itch.io/superorbital)
