@@ -245,3 +245,10 @@ As it turns out, animating was way harder than I thought. This scene alone took 
 ... And I'm still not satisfied with it.
 
 So I decided just to have still frames and move elements around using Godot's AnimationPlayer. I do wish to improve upon the cutscenes in the future, but for now, I think this is fine.
+
+# Final Thoughts
+## orivio
+SUPERORBITAL has been a really fun introduction to Godot! Though challenging at times, designing the levels around our unique mechanics was pretty fun, and I think overall the game turned out pretty great! Obviously it is only an alpha release, so I plan on working together with Obe Dot to polish it a ton, in terms of artwork, music, story, etc. Expect lots more content to come!
+
+## Obe Dot
+Developing this game has been an amazing experience. This is my first big gamedev project, and I've learned so much. I really hope to work more on this project in the future, while also improving my art and programming skills. Much appreciation to Hack Club for creating this event!
