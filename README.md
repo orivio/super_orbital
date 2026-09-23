@@ -28,11 +28,11 @@ In this game, you play as Vitri, a gravitational anomaly who sets out to the sta
 
 # How to Play
 
-[![Try it](https://github.com/user-attachments/assets/a0b73b68-5161-435c-be63-699ca30afc1d)](http://obedh.itch.io/superorbital)
+[![Try it](https://github.com/user-attachments/assets/4d0fb2fe-a378-4712-a67a-f3f6e1936f11)](http://obedh.itch.io/superorbital)
 
 This game supports Windows, Linux, and macOS on 64 bit systems.
 
-**You can download the game from [GitHub Releases](https://github.com/orivio/super_orbital/releases/tag/v1.0.1-alpha).**
+**You can download the game from [GitHub Releases](https://github.com/orivio/super_orbital/releases/tag/v1.0.1-alpha). or from [Itch.io](http://obedh.itch.io/superorbital)**
 
 For GitHub, find the latest release (**v1.0.1-alpha**) and expand **Assets** at the bottom. Then, download the correct file depending on your platform.
 
