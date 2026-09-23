@@ -10,6 +10,7 @@
 <img width="960" height="400" alt="Banner Image" src="https://github.com/user-attachments/assets/a5fa2dc1-a3f6-444f-a01f-000c2b0e576d" />
 
 # Super Orbital
+### By Obe Dot and Orivio
 **Super Orbital is a 2D precision platformer where you can toggle gravity midair, throw wrenches to control your momentum, and orbit black holes to slingshot around the level.**
 
 In this game, you play as Vitri, a gravitational anomaly who sets out to the stars to find his own source of gravity. Vitri wears the Suit of Artifical Density, which lets him control gravity. Enjoy challenging levels, a simple storyline, and creative ways of moving through levels.
@@ -23,15 +24,17 @@ In this game, you play as Vitri, a gravitational anomaly who sets out to the sta
 
 
 ## Trailer
-[INSERT TRAILER]
+[Watch the Trailer on YouTube](https://youtu.be/5WPKXYqy1FI )
 
 # How to Play
 
+[![Try it](https://github.com/user-attachments/assets/a0b73b68-5161-435c-be63-699ca30afc1d)](http://obedh.itch.io/superorbital)
+
 This game supports Windows, Linux, and macOS on 64 bit systems.
 
-**You can download the game from [GitHub Releases](https://github.com/orivio/super_orbital/releases/tag/v.1.0.0-alpha).**
+**You can download the game from [GitHub Releases](https://github.com/orivio/super_orbital/releases/tag/v1.0.1-alpha).**
 
-For GitHub, find the latest release (**v.1.0.0-alpha**) and expand **Assets** at the bottom. Then, download the correct file depending on your platform.
+For GitHub, find the latest release (**v1.0.1-alpha**) and expand **Assets** at the bottom. Then, download the correct file depending on your platform.
 
 ## Windows
 1. Download **superorbital_win.zip**.
@@ -122,8 +125,9 @@ SuperOrbital features these unique platformer mechanics that are used in creativ
 |Up (inside a black hole)|Move away from the center of the black hole|
 
 # The Making of SuperOrbital
+Hey, this is Obed. Here's an overview of the story of how we developed SuperOrbital.
 ## The Concept
-My teammate, @orivioxyz, wanted to make a platformer game. We considered making a platformer where you could build part of the level first, and then play through it, with some restrictions. This idea took some inspiration from games like Ultimate Chicken Horse or Robert Alvarez Games. However, we decided to make a precision platformer with unique gravity mechanics, like switching off gravity midair and continuing your momentum in that direction for a bit. After a bit of boredom during school downtime, our game’s story emerged. The protagonist, who we originally named "Lone Kid", was born an anomaly - the only object ever discovered to be entirely unaffected by natural gravity. As Lone Kid grew up, he came to be known as Sad Guy, due to his constant depression of being left out of normal sports and activities. His great uncle, Dr. Harfingjingles, developed a Suit of Artificial Density (S.A.D., what a pun!) which was carefully tailored to solve Sad Guy’s problems. This suit provided Sad Guy with an effective, though uncomfortable and claustrophobic, solution to his lack of gravity. Armed with this special machinery, including jets, oxygen filters, and a backpack fabricator, Sad Guy would venture out into deep space in his personal spacecraft.
+My teammate, @orivio, wanted to make a platformer game. We considered making a platformer where you could build part of the level first, and then play through it, with some restrictions. This idea took some inspiration from games like Ultimate Chicken Horse or Robert Alvarez Games. However, we decided to make a precision platformer with unique gravity mechanics, like switching off gravity midair and continuing your momentum in that direction for a bit. After a bit of boredom during school downtime, our game’s story emerged. The protagonist, who we originally named "Lone Kid", was born an anomaly - the only object ever discovered to be entirely unaffected by natural gravity. As Lone Kid grew up, he came to be known as Sad Guy, due to his constant depression of being left out of normal sports and activities. His great uncle, Dr. Harfingjingles, developed a Suit of Artificial Density (S.A.D., what a pun!) which was carefully tailored to solve Sad Guy’s problems. This suit provided Sad Guy with an effective, though uncomfortable and claustrophobic, solution to his lack of gravity. Armed with this special machinery, including jets, oxygen filters, and a backpack fabricator, Sad Guy would venture out into deep space in his personal spacecraft.
 
 Eventually, we decided to rename some of the characters.
 - Lone Kid/Sad Guy &rarr; Vitri
@@ -171,7 +175,7 @@ They’re mostly piano-based with some brass synths to add melody. The goal is t
 
 You can check out the OST on my [YouTube Channel](https://www.youtube.com/watch?v=3Za3iscuWWM&list=PLQn6yFmlK8lc).
 
-Hi, this is Obed. My brother Wally and I made the song "**Origins**". We used FamiStudio, a retro music software.
+Here's Obed again. My brother Wally and I made the song "**Origins**". We used FamiStudio, a retro music software.
 
 We got our instruments from FamiStudio's **Instruments EPSM** pack, which is a collection of demo instruments from the EPSM expansion pack. These instruments have a retro feel and originate from the NES days, but give us more expression than just the NES's original APU.
 
@@ -233,9 +237,11 @@ Instead of trying to address the root of the problem, I could just add a test fo
 
 After we planned out the story, we [drafted a quick idea of what we wanted the introduction to look like](./cutscenes.md). We then let it sit for a while, because we wanted to focus on the core gameplay first. After our first playtest, many people were confused about the story, so we got to work on animating the intro cutscene.
 
+I was going to animate the entire cutscene, frame by frame.
+
 As it turns out, animating was way harder than I thought. This scene alone took me 5+ hours:
 <img width="985" height="557" alt="A frame from the intro cutscene; Vitri sitting on a bench, looking sad." src="https://github.com/user-attachments/assets/c299ae2f-16cb-4680-a618-a70d63729ee8" />
 
-
 ... And I'm still not satisfied with it.
 
+So I decided just to have still frames and move elements around using Godot's AnimationPlayer. I do wish to improve upon the cutscenes in the future, but for now, I think this is fine.

@@ -45,9 +45,11 @@ FamiStudio
 
 ## Playtesters
 
-Wallace Otto
+SomeEvilClone9
 
-...
+CoderTheGreat
+
+GreenBoi
 
 ## Special Thanks
 
