@@ -124,6 +124,9 @@ SuperOrbital features these unique platformer mechanics that are used in creativ
 |C (inside a black hole)|Reverse orbit direction|
 |Up (inside a black hole)|Move away from the center of the black hole|
 
+# AI Usage
+AI was not used for generating code or game assets of any kind. Occasionally, we used AI to understand the Godot physics engine.
+
 # The Making of SuperOrbital
 Hey, this is Obed. Here's an overview of the story of how we developed SuperOrbital.
 ## The Concept
