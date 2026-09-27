@@ -142,7 +142,7 @@ Eventually, we decided to rename some of the characters.
 We chose the names Grav and Vitri as a subtle play on the word Gravity.
 
 ## Artwork
-The creation of the game’s artwork is an iterative process. I first created a base for the Vitri’s sprite, made of separate, individually colored layers.
+The creation of the game’s artwork is an iterative process. I first created a base for Vitri’s sprite, made of separate, individually colored layers.
 
 <img width="513" height="512" alt="a rough block-out of Vitri's sprite using color coded layers for each limb." src="https://github.com/user-attachments/assets/569b1d9a-0d22-4d03-97fd-db762c086a11" />
 
