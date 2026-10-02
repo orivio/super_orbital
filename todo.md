@@ -1,6 +1,7 @@
 AFTER STARDANCE ENDS:
 
 Obed:
+- Figure out proportions for the player character
 - Add "binoculars" or something similar that lets you look outside of the player camera and further into the level (see Terraria item: Binoculars for reference)
 - Refine the black hole mechanic as necessary for the levels in which they appear
 - Add different particle effects when you land on the ground
