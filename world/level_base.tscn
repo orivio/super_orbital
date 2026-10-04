@@ -36,6 +36,10 @@ position = Vector2(150, 50)
 shape = SubResource("RectangleShape2D_qjgib")
 debug_color = Color(1, 0, 0, 0.1254902)
 
+[node name="Triggers" type="Node2D" parent="." unique_id=566583247]
+
+[node name="Doors" type="Node2D" parent="Triggers" unique_id=1976013304]
+
 [node name="Background" type="Node2D" parent="." unique_id=852728342]
 
 [node name="BackgroundParallax" type="Parallax2D" parent="Background" unique_id=408991750]
@@ -50,6 +54,8 @@ tile_set = ExtResource("3_5qm3w")
 [node name="GroundTiles" type="TileMapLayer" parent="Midground" unique_id=442660300]
 z_index = 20
 tile_set = ExtResource("3_454b7")
+
+[node name="Objects" type="Node2D" parent="Midground" unique_id=160790231]
 
 [node name="Foreground" type="Node2D" parent="." unique_id=1982597559]
 
@@ -68,8 +74,6 @@ collision_enabled = false
 
 [node name="POI" type="Node2D" parent="." unique_id=809409572]
 
-[node name="Objects" type="Node2D" parent="." unique_id=160790231]
-
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1010939493]
 z_index = 20
 tile_set = ExtResource("3_gq2vv")
@@ -83,8 +87,6 @@ scroll_scale = Vector2(1.05, 1.05)
 [node name="TileMapLayer" type="TileMapLayer" parent="ForegroundParallax" unique_id=538232198]
 tile_set = ExtResource("3_gq2vv")
 collision_enabled = false
-
-[node name="Doors" type="Node2D" parent="." unique_id=1976013304]
 
 [node name="Effects" type="Node2D" parent="." unique_id=885905499]
 
