@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6ypyl2kdv5a6" path="res://world/level.gd" id="1_kbkjf"]
 [ext_resource type="Script" uid="uid://0wf2gyynjq3u" path="res://camera/camera_bounds.gd" id="2_gq2vv"]
+[ext_resource type="TileSet" uid="uid://bclytfg54f6h7" path="res://world/tilesets/ground_tileset.tres" id="3_454b7"]
 [ext_resource type="TileSet" uid="uid://bnrmi5xqiqb0w" path="res://world/tilesets/slightly_better_tileset.tres" id="3_gq2vv"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bjvpn"]
@@ -13,10 +14,10 @@ size = Vector2(900, 500)
 [node name="Level" type="Node2D" unique_id=201273727]
 script = ExtResource("1_kbkjf")
 
-[node name="Background" type="CanvasLayer" parent="." unique_id=2128642405]
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=2128642405]
 layer = -1
 
-[node name="ColorRect" type="ColorRect" parent="Background" unique_id=1139011203]
+[node name="ColorRect" type="ColorRect" parent="BackgroundLayer" unique_id=1139011203]
 material = SubResource("CanvasItemMaterial_bjvpn")
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,6 +34,22 @@ script = ExtResource("2_gq2vv")
 position = Vector2(150, 50)
 shape = SubResource("RectangleShape2D_qjgib")
 debug_color = Color(1, 0, 0, 0.1254902)
+
+[node name="Background" type="Node2D" parent="." unique_id=852728342]
+
+[node name="BackgroundParallax" type="Parallax2D" parent="Background" unique_id=408991750]
+z_index = 10
+
+[node name="Midground" type="Node2D" parent="." unique_id=1873352214]
+
+[node name="GroundTiles" type="TileMapLayer" parent="Midground" unique_id=442660300]
+z_index = 20
+tile_set = ExtResource("3_454b7")
+
+[node name="Foreground" type="Node2D" parent="." unique_id=1982597559]
+
+[node name="ForegroundParallax" type="Parallax2D" parent="Foreground" unique_id=1252997709]
+z_index = 50
 
 [node name="BackgroundParallax" type="Parallax2D" parent="." unique_id=1350709603]
 visible = false
