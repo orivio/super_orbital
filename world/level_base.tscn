@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6ypyl2kdv5a6" path="res://world/level.gd" id="1_kbkjf"]
 [ext_resource type="Script" uid="uid://0wf2gyynjq3u" path="res://camera/camera_bounds.gd" id="2_gq2vv"]
+[ext_resource type="TileSet" uid="uid://c4ejm73yonaol" path="res://world/tilesets/spike_tileset.tres" id="3_5qm3w"]
 [ext_resource type="TileSet" uid="uid://bclytfg54f6h7" path="res://world/tilesets/ground_tileset.tres" id="3_454b7"]
 [ext_resource type="TileSet" uid="uid://bnrmi5xqiqb0w" path="res://world/tilesets/slightly_better_tileset.tres" id="3_gq2vv"]
 
@@ -41,6 +42,10 @@ debug_color = Color(1, 0, 0, 0.1254902)
 z_index = 10
 
 [node name="Midground" type="Node2D" parent="." unique_id=1873352214]
+
+[node name="SpikeTiles" type="TileMapLayer" parent="Midground" unique_id=1981891420]
+z_index = 19
+tile_set = ExtResource("3_5qm3w")
 
 [node name="GroundTiles" type="TileMapLayer" parent="Midground" unique_id=442660300]
 z_index = 20

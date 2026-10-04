@@ -902,6 +902,7 @@ texture = SubResource("GradientTexture2D_e7wlo")
 
 [node name="Sprite2D" type="Sprite2D" parent="VisualComponents" unique_id=214816936]
 material = ExtResource("3_wodsf")
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("4_e7oew")
 offset = Vector2(0, -32)
 hframes = 74
