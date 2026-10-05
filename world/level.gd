@@ -9,12 +9,12 @@ signal door_entered(direction: Types.DoorDirection)
 var last_checkpoint: int = -1
 
 @onready var camera_bounds: CollisionShape2D = $CameraBounds/CollisionShape2D
-@onready var doors: Node2D = $Doors
-@onready var objects: Node2D = $Objects
-@onready var effects: Node2D = $Effects
+@onready var doors: Node2D = $Triggers/Doors
+@onready var objects: Node2D = $Midground/Objects
+@onready var effects: Node2D = $Foreground/Effects
 @onready var color_rect: ColorRect = $Background/ColorRect
 @onready var door_setup_timer: Timer = $DoorSetupTimer
-@onready var tile_map: TileMapLayer = $TileMapLayer
+@onready var ground_tiles: TileMapLayer = $Midground/GroundTiles
 
 
 func _ready() -> void:

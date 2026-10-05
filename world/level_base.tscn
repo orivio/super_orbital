@@ -40,6 +40,8 @@ debug_color = Color(1, 0, 0, 0.1254902)
 
 [node name="Doors" type="Node2D" parent="Triggers" unique_id=1976013304]
 
+[node name="Checkpoints" type="Node2D" parent="Triggers" unique_id=1555817583]
+
 [node name="Background" type="Node2D" parent="." unique_id=852728342]
 
 [node name="BackgroundParallax" type="Parallax2D" parent="Background" unique_id=408991750]
@@ -61,6 +63,8 @@ tile_set = ExtResource("3_454b7")
 
 [node name="ForegroundParallax" type="Parallax2D" parent="Foreground" unique_id=1252997709]
 z_index = 50
+
+[node name="Effects" type="Node2D" parent="Foreground" unique_id=885905499]
 
 [node name="BackgroundParallax" type="Parallax2D" parent="." unique_id=1350709603]
 visible = false
@@ -87,8 +91,6 @@ scroll_scale = Vector2(1.05, 1.05)
 [node name="TileMapLayer" type="TileMapLayer" parent="ForegroundParallax" unique_id=538232198]
 tile_set = ExtResource("3_gq2vv")
 collision_enabled = false
-
-[node name="Effects" type="Node2D" parent="." unique_id=885905499]
 
 [node name="DoorSetupTimer" type="Timer" parent="." unique_id=776398302]
 process_callback = 0
