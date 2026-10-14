@@ -21,8 +21,8 @@ shader_parameter/star_size = 1.0
 shader_parameter/seed = 5.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_4ytvr"]
-font_size = 64
-outline_size = 30
+font_size = 32
+outline_size = 10
 outline_color = Color(0.60268, 0.50020003, 0.61, 0.6117647)
 
 [node name="Menu" type="Control" unique_id=586724944]
@@ -82,8 +82,8 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -233.0
-offset_right = 233.0
+offset_left = -90.5
+offset_right = 90.5
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -103,7 +103,7 @@ alignment = 1
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_k48pe")
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = ExtResource("6_3y2rt")
 theme_override_styles/normal_mirrored = ExtResource("6_3y2rt")
 theme_override_styles/pressed = ExtResource("7_t0a87")
@@ -123,7 +123,7 @@ target = NodePath("..")
 [node name="SettingsButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=291890272]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_k48pe")
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = ExtResource("6_3y2rt")
 theme_override_styles/normal_mirrored = ExtResource("6_3y2rt")
 theme_override_styles/pressed = ExtResource("7_t0a87")
@@ -143,7 +143,7 @@ target = NodePath("..")
 [node name="QuitButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=343752204]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_k48pe")
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = ExtResource("6_3y2rt")
 theme_override_styles/normal_mirrored = ExtResource("6_3y2rt")
 theme_override_styles/pressed = ExtResource("7_t0a87")

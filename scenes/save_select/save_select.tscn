@@ -74,13 +74,12 @@ grow_vertical = 2
 texture = ExtResource("2_rdqwv")
 
 [node name="BackButton" type="Button" parent="." unique_id=862361056 node_paths=PackedStringArray("target")]
-custom_minimum_size = Vector2(120, 70)
 layout_mode = 1
 anchors_preset = -1
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 140.0
-offset_bottom = 90.0
+offset_left = 11.0
+offset_top = 8.0
+offset_right = 68.0
+offset_bottom = 65.0
 theme = ExtResource("6_5lyl2")
 text = "Back"
 script = ExtResource("7_64cmn")
@@ -92,10 +91,6 @@ anchors_preset = -1
 anchor_left = 0.05
 anchor_right = 0.95
 anchor_bottom = 1.0
-offset_left = 100.0
-offset_top = 50.0
-offset_right = -100.0
-offset_bottom = -80.0
 theme = ExtResource("5_rdqwv")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=838911705]
@@ -109,6 +104,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LevelGrid" parent="PanelContainer/VBoxContainer" unique_id=1946749695 instance=ExtResource("8_5lyl2")]
+custom_minimum_size = Vector2(400, 467)
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=816447530]
